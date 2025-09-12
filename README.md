@@ -1,6 +1,6 @@
 # Platform Engineering Playbook
 
-Your comprehensive guide to Platform Engineering, SRE, and DevOps interviews. Visit the live site at [https://your-github-username.github.io/Platform-Engineering-Playbook/](https://your-github-username.github.io/Platform-Engineering-Playbook/)
+Your comprehensive guide to Platform Engineering, SRE, and DevOps interviews. Visit the live site at [https://platformengineeringplaybook.com](https://platformengineeringplaybook.com)
 
 ## About
 
@@ -32,7 +32,7 @@ npm install
 npm start
 ```
 
-This will start a local development server at `http://localhost:3000/Platform-Engineering-Playbook/`
+This will start a local development server at `http://localhost:3000/`
 
 ## Project Structure
 
