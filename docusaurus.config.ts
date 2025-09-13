@@ -22,7 +22,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'your-github-username', // Usually your GitHub org/user name.
+  organizationName: 'vibesre', // Usually your GitHub org/user name.
   projectName: 'Platform-Engineering-Playbook', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -44,7 +44,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           editUrl:
-            'https://github.com/your-github-username/Platform-Engineering-Playbook/tree/main/',
+            'https://github.com/vibesre/Platform-Engineering-Playbook/tree/main/',
         },
         blog: false,
         theme: {
@@ -71,7 +71,7 @@ const config: Config = {
           label: 'Guide',
         },
         {
-          href: 'https://github.com/your-github-username/Platform-Engineering-Playbook',
+          href: 'https://github.com/vibesre/Platform-Engineering-Playbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -119,11 +119,11 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/your-github-username/Platform-Engineering-Playbook',
+              href: 'https://github.com/vibesre/Platform-Engineering-Playbook',
             },
             {
               label: 'Contribute',
-              href: 'https://github.com/your-github-username/Platform-Engineering-Playbook/pulls',
+              href: 'https://github.com/vibesre/Platform-Engineering-Playbook/pulls',
             },
           ],
         },
