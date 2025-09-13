@@ -1,0 +1,8 @@
+{
+  "label": "Algorithms & Data Structures",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Essential algorithms and data structures for platform engineering interviews"
+  }
+}
