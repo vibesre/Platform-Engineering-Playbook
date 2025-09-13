@@ -9,7 +9,7 @@ Understanding your market value and negotiating effectively is crucial for your 
 
 ## Platform Engineering Compensation Overview
 
-### Market Trends (2024)
+### Market Trends (2025)
 
 Platform engineering roles typically command **10-20% premium** over traditional software engineering roles due to:
 - Specialized skills in cloud, Kubernetes, and distributed systems

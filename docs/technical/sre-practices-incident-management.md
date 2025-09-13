@@ -372,7 +372,7 @@ class OnCallToolkit:
 # Incident Post-Mortem: [Incident ID]
 
 ## Incident Summary
-- **Date**: 2024-01-15
+- **Date**: 2025-01-15
 - **Duration**: 2 hours 15 minutes
 - **Severity**: P1
 - **Services Affected**: API Gateway, User Service
@@ -407,10 +407,10 @@ The API Gateway began rejecting requests due to memory exhaustion caused by a me
 ## Action Items
 | Action | Owner | Due Date | Status |
 |--------|-------|----------|--------|
-| Update JWT library to v2.3.1 | @john | 2024-01-20 | In Progress |
-| Add memory trend alerts | @sarah | 2024-01-22 | Planned |
-| Increase memory limits | @mike | 2024-01-16 | Complete |
-| Add memory leak detection to CI | @lisa | 2024-01-25 | Planned |
+| Update JWT library to v2.3.1 | @john | 2025-01-20 | In Progress |
+| Add memory trend alerts | @sarah | 2025-01-22 | Planned |
+| Increase memory limits | @mike | 2025-01-16 | Complete |
+| Add memory leak detection to CI | @lisa | 2025-01-25 | Planned |
 
 ## Lessons Learned
 1. **What went well**

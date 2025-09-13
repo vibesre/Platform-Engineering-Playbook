@@ -64,7 +64,7 @@ Technical Skills:
 ### Structure Each Role
 
 ```
-Senior DevOps Engineer | TechCorp Inc. | San Francisco, CA | Jan 2022 - Present
+Senior DevOps Engineer | TechCorp Inc. | San Francisco, CA | Jan 2023 - Present
 • [Achievement with quantified impact]
 • [Technical implementation with business value]
 • [Process improvement with measurable results]

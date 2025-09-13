@@ -542,7 +542,7 @@ pipeline
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "apiVersion": "2021-04-01",
+  "apiVersion": "2025-01-01",
   "name": "platform-vmss",
   "location": "[resourceGroup().location]",
   "sku": {
@@ -601,7 +601,7 @@ pipeline
 **Virtual Network Architecture:**
 ```bicep
 // Hub-spoke network topology
-resource hubVnet 'Microsoft.Network/virtualNetworks@2021-02-01' = {
+resource hubVnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'hub-vnet'
   location: resourceGroup().location
   properties: {
@@ -627,7 +627,7 @@ resource hubVnet 'Microsoft.Network/virtualNetworks@2021-02-01' = {
   }
 }
 
-resource spokeVnet 'Microsoft.Network/virtualNetworks@2021-02-01' = {
+resource spokeVnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'spoke-vnet'
   location: resourceGroup().location
   properties: {
@@ -639,7 +639,7 @@ resource spokeVnet 'Microsoft.Network/virtualNetworks@2021-02-01' = {
   }
 }
 
-resource vnetPeering 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2021-02-01' = {
+resource vnetPeering 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2025-01-01' = {
   parent: hubVnet
   name: 'hub-to-spoke'
   properties: {

@@ -63,12 +63,12 @@ Pioneered by Meta (Facebook), Production Engineers work embedded with product te
 
 **Focus Areas**: Service architecture, capacity planning, performance optimization
 
-## Career Landscape 2024
+## Career Landscape 2025
 
 ### Market Demand
-- **87%** of enterprises are prioritizing platform engineering (Gartner, 2024)
+- **87%** of enterprises are prioritizing platform engineering (Gartner, 2025)
 - **25%** average salary premium over traditional ops roles
-- **3x** growth in platform engineering job postings since 2021
+- **4x** growth in platform engineering job postings since 2021
 
 ### Top Skills in Demand
 1. **Kubernetes & Container Orchestration** (mentioned in 76% of job posts)

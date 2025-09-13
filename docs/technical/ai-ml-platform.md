@@ -726,8 +726,8 @@ ML platform projects (ongoing)
 
 ### Demand and Compensation
 
-**2024 Market Stats:**
-- **Demand**: 300% growth in ML platform engineering roles since 2022
+**2025 Market Stats:**
+- **Demand**: 400% growth in ML platform engineering roles since 2022
 - **Compensation**: 20-30% premium over traditional platform engineering
 - **Top Companies**: OpenAI, Anthropic, Google DeepMind, Meta AI, Tesla
 
