@@ -7,6 +7,59 @@ sidebar_position: 14
 
 Master serverless platforms and edge computing to build globally distributed, event-driven applications. Learn how to architect systems that scale to zero, run at the edge, and optimize for cost and performance.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books & Guides
+- **[Serverless Architectures on AWS](https://www.manning.com/books/serverless-architectures-on-aws-second-edition)** - Peter Sbarski
+- **[Building Serverless Applications](https://www.oreilly.com/library/view/building-serverless-applications/9781491982389/)** - Sam Kroonenburg
+- **[Learning Serverless](https://www.oreilly.com/library/view/learning-serverless/9781492057000/)** - Jason Katzer
+- **[Edge Computing](https://www.oreilly.com/library/view/edge-computing/9781492088004/)** - O'Reilly report
+- **[Serverless Design Patterns](https://www.packtpub.com/product/serverless-design-patterns-and-best-practices/9781788620642)** - Brian Zambrano
+
+### 🎥 Video Resources
+- **[AWS re:Invent Serverless](https://www.youtube.com/playlist?list=PLJo-rJlep0EAz-b_xD0Wq5amQwqcOI0rl)** - AWS talks
+- **[Serverless Framework](https://www.youtube.com/c/serverlessframework)** - Official channel
+- **[Edge Computing Explained](https://www.youtube.com/watch?v=cEOUeItHDdo)** - IBM Technology
+- **[Cloudflare TV](https://cloudflare.tv/)** - Workers & edge computing
+- **[Vercel YouTube](https://www.youtube.com/c/VercelHQ)** - Edge functions
+
+### 🎓 Courses & Training
+- **[AWS Lambda Deep Dive](https://acloudguru.com/course/aws-lambda-deep-dive)** - A Cloud Guru
+- **[Serverless Stack](https://serverless-stack.com/)** - Full-stack serverless
+- **[Edge Computing Course](https://www.coursera.org/learn/edge-computing-emerging-technologies)** - Coursera
+- **[Cloudflare Workers Training](https://developers.cloudflare.com/workers/learning/)** - Official docs
+- **[Azure Functions University](https://github.com/marcduiker/azure-functions-university)** - Free course
+
+### 📰 Blogs & Articles
+- **[Serverless Blog](https://www.serverless.com/blog)** - Serverless Framework
+- **[AWS Compute Blog](https://aws.amazon.com/blogs/compute/)** - Lambda updates
+- **[Cloudflare Blog](https://blog.cloudflare.com/)** - Edge computing insights
+- **[Vercel Blog](https://vercel.com/blog)** - Edge & Next.js
+- **[Jeremy Daly's Blog](https://www.jeremydaly.com/)** - Serverless expert
+
+### 🔧 Essential Tools & Platforms
+- **[Serverless Framework](https://www.serverless.com/)** - Deployment framework
+- **[AWS SAM](https://aws.amazon.com/serverless/sam/)** - AWS toolkit
+- **[Architect](https://arc.codes/)** - Serverless framework
+- **[SST](https://sst.dev/)** - Full-stack serverless
+- **[Workers CLI (Wrangler)](https://developers.cloudflare.com/workers/cli-wrangler)** - Cloudflare
+
+### 💬 Communities & Forums
+- **[Serverless Stack Discord](https://discord.gg/serverless-stack)** - SST community
+- **[r/serverless](https://reddit.com/r/serverless)** - Reddit community
+- **[ServerlessConf](https://serverlessconf.io/)** - Conference community
+- **[FaaS Community](https://github.com/openfaas/faas)** - OpenFaaS
+- **[Edge Computing Forum](https://www.edgecomputingworld.com/)** - Industry forum
+
+### 🏆 Platform Resources
+- **[AWS Lambda Docs](https://docs.aws.amazon.com/lambda/)** - Official documentation
+- **[Google Cloud Functions](https://cloud.google.com/functions/docs)** - GCP serverless
+- **[Azure Functions Docs](https://docs.microsoft.com/en-us/azure/azure-functions/)** - Azure serverless
+- **[Cloudflare Workers Docs](https://developers.cloudflare.com/workers/)** - Edge computing
+- **[Deno Deploy](https://deno.com/deploy)** - Edge runtime
+
+
+
 ## Serverless Fundamentals
 
 ### Understanding Serverless Architecture

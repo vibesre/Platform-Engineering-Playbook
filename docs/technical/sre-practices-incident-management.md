@@ -7,6 +7,59 @@ sidebar_position: 10
 
 Master the principles and practices of Site Reliability Engineering, from SLOs and error budgets to incident response and post-mortems. Learn how to build and operate systems that are reliable, scalable, and maintainable.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books (Free from Google!)
+- **[Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)** - Google SRE Book
+- **[The Site Reliability Workbook](https://sre.google/workbook/table-of-contents/)** - Practical SRE
+- **[Building Secure & Reliable Systems](https://sre.google/books/building-secure-reliable-systems/)** - Security + SRE
+- **[Seeking SRE](https://www.oreilly.com/library/view/seeking-sre/9781491978856/)** - David Blank-Edelman
+- **[The Phoenix Project](https://itrevolution.com/the-phoenix-project/)** - Gene Kim (DevOps novel)
+
+### 🎥 Video Resources
+- **[SREcon Videos](https://www.usenix.org/conferences/byname/925)** - USENIX SRE conference
+- **[Google SRE Classroom](https://sre.google/classroom/)** - Free training from Google
+- **[Breaking Things on Purpose](https://www.youtube.com/c/Gremlin)** - Gremlin's channel
+- **[Incident Response Training](https://www.youtube.com/watch?v=0bPJKOJIkWQ)** - PagerDuty
+- **[SLIs, SLOs, SLAs Course](https://www.youtube.com/watch?v=tEylFyxbDLE)** - Google Cloud
+
+### 🎓 Courses & Training
+- **[School of SRE](https://linkedin.github.io/school-of-sre/)** - LinkedIn's free curriculum
+- **[Google SRE Training](https://sre.google/training/)** - Official Google training
+- **[Coursera SRE Course](https://www.coursera.org/learn/site-reliability-engineering-slos)** - Google Cloud
+- **[Linux Foundation SRE Path](https://training.linuxfoundation.org/training/site-reliability-engineer-fundamentals/)** - LF training
+- **[Udacity SRE Nanodegree](https://www.udacity.com/course/site-reliability-engineer-nanodegree--nd082)** - Full program
+
+### 📰 Blogs & Articles
+- **[Google Cloud SRE Blog](https://cloud.google.com/blog/products/devops-sre)** - GCP SRE articles
+- **[SRE Weekly](https://sreweekly.com/)** - Curated newsletter
+- **[Honeycomb Blog](https://www.honeycomb.io/blog)** - Observability focus
+- **[Increment Magazine](https://increment.com/)** - Stripe's engineering magazine
+- **[Uber Engineering](https://eng.uber.com/)** - SRE at scale
+
+### 🔧 Essential Tools & Platforms
+- **[Prometheus](https://prometheus.io/)** - Monitoring system
+- **[Grafana](https://grafana.com/)** - Observability platform
+- **[PagerDuty](https://www.pagerduty.com/)** - Incident management
+- **[Blameless](https://www.blameless.com/)** - SRE platform
+- **[Datadog](https://www.datadoghq.com/)** - Monitoring & analytics
+
+### 💬 Communities & Forums
+- **[SRE Reddit](https://reddit.com/r/sre)** - r/sre community
+- **[Google SRE Discussion](https://groups.google.com/g/sre-discuss)** - Google group
+- **[SREcon Community](https://www.usenix.org/srecon)** - Conference community
+- **[DevOps Chat](https://devopschat.co/)** - Slack community
+- **[Monitoring Weekly](https://monitoring.love/)** - Newsletter
+
+### 🏆 Incident Management Resources
+- **[PagerDuty Incident Response](https://response.pagerduty.com/)** - Free docs
+- **[Atlassian Incident Management](https://www.atlassian.com/incident-management)** - Handbook
+- **[Google Incident Management](https://sre.google/workbook/incident-response/)** - Google's approach
+- **[Post-Mortem Templates](https://github.com/dastergon/postmortem-templates)** - Collection
+- **[Wheel of Misfortune](https://github.com/dastergon/wheel-of-misfortune)** - Training game
+
+
+
 ## SRE Fundamentals
 
 ### The SRE Model

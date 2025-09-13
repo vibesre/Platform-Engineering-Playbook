@@ -7,6 +7,59 @@ sidebar_position: 7
 
 A focused guide for preparing for AI/ML platform engineering interviews at top tech companies and AI-first organizations.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books for ML Interviews
+- **[Introduction to ML Interviews](https://huyenchip.com/ml-interviews-book/)** - Chip Huyen (Free)
+- **[Machine Learning System Design Interview](https://www.amazon.com/Machine-Learning-System-Design-Interview/dp/1736049127)** - Alex Xu
+- **[Ace the Data Science Interview](https://www.amazon.com/Ace-Data-Science-Interview-Questions/dp/0578973839)** - Nick Singh & Kevin Huo
+- **[The Machine Learning Interview](https://www.amazon.com/Machine-Learning-Interview-Preparation-Guide/dp/B09BWJS9B5)** - Khang Pham
+- **[Deep Learning Interviews](https://arxiv.org/abs/2201.00650)** - Shlomo Kashani (Free)
+
+### 🎥 Video Resources
+- **[ML System Design Interview Prep](https://www.youtube.com/playlist?list=PLa5pBN-FdaTloXxPZD61bMUhuKnWyKdKV)** - Acing AI
+- **[Mock ML Interviews](https://www.youtube.com/c/DataScienceJay)** - Data Science Jay
+- **[AI/ML Interview Questions](https://www.youtube.com/playlist?list=PLZoTAELRMXVPBaLN3e-uoVD2p83RG0s-X)** - Krish Naik
+- **[System Design for ML](https://www.youtube.com/watch?v=ZqYXVxK8LXw)** - Educative
+- **[Facebook ML Interview](https://www.youtube.com/watch?v=AJcvwqHPy0g)** - Real interview
+
+### 🎓 Courses & Mock Interviews
+- **[ML System Design Course](https://www.educative.io/courses/machine-learning-system-design)** - Educative
+- **[Interview Query](https://www.interviewquery.com/)** - ML interview platform
+- **[Pramp](https://www.pramp.com/)** - Peer mock interviews
+- **[Machine Learning Interviews](https://mlengineer.io/)** - Specialized ML prep
+- **[Interviewing.io](https://interviewing.io/)** - Anonymous mock interviews
+
+### 📰 Interview Guides & Articles
+- **[ML Interview Cheatsheet](https://github.com/khangich/machine-learning-interview)** - Comprehensive guide
+- **[Google's ML Interview Guide](https://developers.google.com/machine-learning/crash-course)** - Crash course
+- **[Facebook ML Interview](https://www.metacareers.com/ml-prep/)** - Meta's guide
+- **[Uber ML Platform](https://eng.uber.com/michelangelo-machine-learning-platform/)** - Case study
+- **[Airbnb ML Infrastructure](https://medium.com/airbnb-engineering/tagged/machine-learning)** - Tech blog
+
+### 🔧 Practice Platforms
+- **[Kaggle Competitions](https://www.kaggle.com/competitions)** - Real ML problems
+- **[DrivenData](https://www.drivendata.org/)** - Social impact ML
+- **[Zindi](https://zindi.africa/)** - African data science
+- **[ML Contests](https://mlcontests.com/)** - Competition aggregator
+- **[Papers with Code](https://paperswithcode.com/)** - Implementation practice
+
+### 💬 Communities & Support
+- **[Blind (TeamBlind)](https://www.teamblind.com/)** - Anonymous tech talk
+- **[r/MLQuestions](https://reddit.com/r/MLQuestions)** - ML Q&A
+- **[ML Twitter](https://twitter.com/i/lists/1455537806177677314)** - ML community list
+- **[Discord ML Communities](https://disboard.org/servers/tag/machine-learning)** - Various servers
+- **[LinkedIn ML Groups](https://www.linkedin.com/groups/961087/)** - Professional network
+
+### 🏆 Company-Specific Resources
+- **[Levels.fyi](https://www.levels.fyi/)** - Compensation data
+- **[Glassdoor](https://www.glassdoor.com/)** - Interview reviews
+- **[LeetCode Discuss](https://leetcode.com/discuss/interview-question?currentPage=1&orderBy=hot&query=machine%20learning)** - ML questions
+- **[Blind Salary Comparison](https://www.teamblind.com/salaryComparison)** - Tech salaries
+- **[AI Paygrades](https://aipaygrad.es/)** - AI/ML compensation
+
+
+
 ## Interview Format Overview
 
 AI platform engineering interviews typically include:

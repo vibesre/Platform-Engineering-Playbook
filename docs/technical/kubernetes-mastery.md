@@ -7,6 +7,63 @@ sidebar_position: 3
 
 An in-depth guide to Kubernetes architecture, operations, and platform engineering on K8s.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books & Guides
+- **[Kubernetes in Action](https://www.manning.com/books/kubernetes-in-action-second-edition)** - Marko Lukša (2nd Edition)
+- **[Production Kubernetes](https://www.oreilly.com/library/view/production-kubernetes/9781492092292/)** - Josh Rosso & Rich Lander
+- **[Kubernetes Patterns](https://www.oreilly.com/library/view/kubernetes-patterns/9781492050278/)** - Bilgin Ibryam & Roland Huß
+- **[Kubernetes Up & Running](https://www.oreilly.com/library/view/kubernetes-up-and/9781491935668/)** - Kelsey Hightower, Brendan Burns, Joe Beda
+- **[The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Nigel-Poulton/dp/1916585000)** - Nigel Poulton
+
+### 🎥 Video Resources
+- **[Kubernetes Course - Full Beginners Tutorial](https://www.youtube.com/watch?v=X48VuDVv0do)** - TechWorld with Nana
+- **[CNCF Kubernetes Course](https://www.youtube.com/playlist?list=PLj6h78yzYM2N8GQ4oelpLZO6lStGO7LCG)** - Complete playlist
+- **[KubeCon Talks](https://www.youtube.com/c/cloudnativefdn/videos)** - Latest K8s innovations
+- **[Kubernetes Deconstructed](https://www.youtube.com/watch?v=90kZRyPcRZw)** - Carson Anderson
+- **[Life of a Packet](https://www.youtube.com/watch?v=0Omvgd7Hg1I)** - Michael Rubin (Google)
+
+### 🎓 Courses & Certifications
+- **[CKA (Certified Kubernetes Administrator)](https://www.cncf.io/certification/cka/)** - CNCF Certification
+- **[CKAD (Certified Kubernetes Application Developer)](https://www.cncf.io/certification/ckad/)** - CNCF Certification
+- **[CKS (Certified Kubernetes Security Specialist)](https://www.cncf.io/certification/cks/)** - CNCF Certification
+- **[Kubernetes the Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)** - Kelsey Hightower
+- **[KodeKloud Kubernetes Courses](https://kodekloud.com/courses/certified-kubernetes-administrator-cka/)** - Hands-on labs
+
+### 📰 Blogs & Articles
+- **[Kubernetes Blog](https://kubernetes.io/blog/)** - Official Kubernetes blog
+- **[Learnk8s Blog](https://learnk8s.io/blog)** - In-depth tutorials
+- **[ITNEXT Kubernetes](https://itnext.io/tagged/kubernetes)** - Community articles
+- **[The New Stack](https://thenewstack.io/category/kubernetes/)** - K8s ecosystem coverage
+- **[Container Journal](https://containerjournal.com/)** - Container & K8s news
+
+### 🔧 Essential Tools & Platforms
+- **[K9s](https://k9scli.io/)** - Terminal UI for Kubernetes
+- **[Lens](https://k8slens.dev/)** - Kubernetes IDE
+- **[kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)** - Official reference
+- **[Kustomize](https://kustomize.io/)** - Kubernetes native configuration
+- **[Helm Hub](https://artifacthub.io/)** - Find and share Helm charts
+
+### 💬 Communities & Forums
+- **[Kubernetes Slack](https://kubernetes.slack.com/)** - Official Slack (get invite at slack.k8s.io)
+- **[r/kubernetes](https://reddit.com/r/kubernetes)** - Reddit community
+- **[Stack Overflow - Kubernetes](https://stackoverflow.com/questions/tagged/kubernetes)** - Q&A
+- **[CNCF Community](https://www.cncf.io/community/)** - Cloud Native community
+- **[Kubernetes Forum](https://discuss.kubernetes.io/)** - Official forum
+
+### 🎮 Interactive Learning
+- **[Killercoda](https://killercoda.com/kubernetes)** - Free K8s scenarios
+- **[Play with Kubernetes](https://labs.play-with-k8s.com/)** - Browser-based K8s
+- **[Katacoda Kubernetes](https://www.katacoda.com/courses/kubernetes)** - Interactive tutorials
+- **[Kubernetes Playground](https://www.katacoda.com/courses/kubernetes/playground)** - Practice environment
+
+### 📖 Documentation & References
+- **[Kubernetes Documentation](https://kubernetes.io/docs/)** - Official docs
+- **[Kubernetes API Reference](https://kubernetes.io/docs/reference/kubernetes-api/)** - API documentation
+- **[kubectl Reference](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)** - Command reference
+- **[Kubernetes Examples](https://github.com/kubernetes/examples)** - Official examples
+- **[Awesome Kubernetes](https://github.com/ramitsurana/awesome-kubernetes)** - Curated resources
+
 ## Kubernetes Architecture Deep Dive
 
 ### Control Plane Components

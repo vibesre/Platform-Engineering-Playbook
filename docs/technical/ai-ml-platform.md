@@ -7,6 +7,86 @@ sidebar_position: 5
 
 The explosion of AI has created a new specialization: Platform Engineers who build and maintain infrastructure for machine learning workloads. This guide covers the unique challenges, tools, and skills needed for AI/ML platform engineering.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books & Papers
+- **[Designing Machine Learning Systems](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/)** - Chip Huyen
+- **[Machine Learning Engineering](https://www.amazon.com/Machine-Learning-Engineering-Andriy-Burkov/dp/1999579577)** - Andriy Burkov
+- **[Scaling Machine Learning with Spark](https://www.oreilly.com/library/view/scaling-machine-learning/9781098106812/)** - Adi Polak
+- **[Hidden Technical Debt in ML Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)** - Google Research
+- **[MLOps: Continuous Delivery for ML](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)** - Google Cloud
+
+### 🎥 Video Resources
+- **[Stanford CS329S: Machine Learning Systems Design](https://stanford-cs329s.github.io/)** - Complete course
+- **[Two Minute Papers](https://www.youtube.com/c/K%C3%A1rolyZsolnai)** - Latest AI research explained
+- **[Yannic Kilcher](https://www.youtube.com/c/YannicKilcher)** - Deep learning paper reviews
+- **[MLOps Community](https://www.youtube.com/c/MLOps)** - Production ML talks
+- **[NVIDIA GTC](https://www.nvidia.com/gtc/)** - GPU computing conferences
+
+### 🎓 Courses & Training
+- **[Fast.ai Practical Deep Learning](https://course.fast.ai/)** - Jeremy Howard's courses
+- **[DeepLearning.AI MLOps Specialization](https://www.deeplearning.ai/courses/machine-learning-engineering-for-production-mlops/)** - Andrew Ng
+- **[Full Stack Deep Learning](https://fullstackdeeplearning.com/)** - Berkeley course
+- **[Made With ML](https://madewithml.com/)** - Applied ML course
+- **[Google Cloud ML Engineer Path](https://cloud.google.com/training/machinelearning-ai)** - GCP certification
+
+### 📰 Blogs & Articles
+- **[Hugging Face Blog](https://huggingface.co/blog)** - Transformers and LLMs
+- **[NVIDIA Developer Blog](https://developer.nvidia.com/blog)** - GPU optimization
+- **[Neptune.ai Blog](https://neptune.ai/blog)** - MLOps best practices
+- **[Weights & Biases Blog](https://wandb.ai/site/articles)** - ML experiment tracking
+- **[Chip Huyen's Blog](https://huyenchip.com/)** - ML systems design
+
+### 🔧 Essential Tools & Platforms
+
+#### Training Platforms
+- **[Kubeflow](https://www.kubeflow.org/)** - ML workflows on Kubernetes
+- **[MLflow](https://mlflow.org/)** - ML lifecycle management
+- **[Ray](https://www.ray.io/)** - Distributed AI computing
+- **[Horovod](https://horovod.ai/)** - Distributed deep learning
+- **[Apache Airflow](https://airflow.apache.org/)** - Workflow orchestration
+
+#### Model Serving
+- **[TorchServe](https://pytorch.org/serve/)** - PyTorch model serving
+- **[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)** - TF model serving
+- **[Triton Inference Server](https://developer.nvidia.com/nvidia-triton-inference-server)** - NVIDIA's server
+- **[Seldon Core](https://www.seldon.io/)** - ML deployment platform
+- **[BentoML](https://www.bentoml.com/)** - ML model serving
+
+#### Experiment Tracking
+- **[Weights & Biases](https://wandb.ai/)** - Experiment tracking
+- **[Neptune.ai](https://neptune.ai/)** - ML metadata store
+- **[MLflow Tracking](https://mlflow.org/docs/latest/tracking.html)** - Open source tracking
+- **[TensorBoard](https://www.tensorflow.org/tensorboard)** - Visualization toolkit
+- **[Sacred](https://github.com/IDSIA/sacred)** - Experiment configuration
+
+### 💬 Communities & Forums
+- **[r/MachineLearning](https://reddit.com/r/MachineLearning)** - ML research community
+- **[MLOps Community](https://mlops.community/)** - Slack & events
+- **[Papers with Code](https://paperswithcode.com/)** - ML papers & implementations
+- **[Hugging Face Forums](https://discuss.huggingface.co/)** - NLP/transformer community
+- **[NVIDIA Developer Forums](https://forums.developer.nvidia.com/)** - GPU computing
+
+### 🏆 Industry Resources
+- **[Google AI](https://ai.google/)** - Google's AI research
+- **[OpenAI](https://openai.com/)** - GPT and DALL-E creators
+- **[DeepMind](https://www.deepmind.com/)** - AlphaGo & AlphaFold
+- **[Facebook AI Research](https://ai.facebook.com/)** - Meta AI
+- **[Microsoft Research AI](https://www.microsoft.com/en-us/research/lab/microsoft-research-ai/)** - Azure AI
+
+### 📊 Benchmarks & Datasets
+- **[MLPerf](https://mlcommons.org/en/)** - ML performance benchmarks
+- **[Kaggle](https://www.kaggle.com/)** - Competitions and datasets
+- **[UCI ML Repository](https://archive.ics.uci.edu/ml/)** - Classic ML datasets
+- **[TensorFlow Datasets](https://www.tensorflow.org/datasets)** - Ready-to-use datasets
+- **[Hugging Face Datasets](https://huggingface.co/datasets)** - NLP datasets
+
+### 🎯 Interview Preparation
+- **[ML System Design Interview](https://www.educative.io/courses/machine-learning-system-design)** - Educative course
+- **[Introduction to ML Interviews Book](https://huyenchip.com/ml-interviews-book/)** - Chip Huyen
+- **[ML Interview Questions](https://github.com/khangich/machine-learning-interview)** - GitHub collection
+- **[System Design for ML](https://github.com/chiphuyen/machine-learning-systems-design)** - Design patterns
+
 ## Why AI Platform Engineering is Different
 
 ### Unique Challenges

@@ -7,6 +7,59 @@ sidebar_position: 13
 
 Master the specialized databases powering AI applications, from semantic search to recommendation systems. Learn how to build, scale, and optimize vector databases for production AI workloads.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Papers & Articles
+- **[Faiss: A Library for Efficient Similarity Search](https://arxiv.org/abs/1702.08734)** - Facebook Research
+- **[Billion-scale similarity search with GPUs](https://arxiv.org/abs/1702.08734)** - Johnson et al.
+- **[HNSW: Hierarchical Navigable Small World](https://arxiv.org/abs/1603.09320)** - Malkov & Yashunin
+- **[Product Quantization](https://hal.inria.fr/inria-00514462v2/document)** - Jegou et al.
+- **[Vector Database Benchmarks](https://github.com/erikbern/ann-benchmarks)** - ANN comparison
+
+### 🎥 Video Resources
+- **[Vector Databases Explained](https://www.youtube.com/watch?v=klTvEwg3oJ4)** - Fireship
+- **[Building RAG Applications](https://www.youtube.com/watch?v=sVcwVQRHIc8)** - DeepLearning.AI
+- **[Pinecone Vector Database Course](https://www.youtube.com/playlist?list=PLRLVhGQeJDTLiw-ZJpgUtZW-bseS2gq9-)** - James Briggs
+- **[Embeddings Workshop](https://www.youtube.com/watch?v=ySus5ZS0b94)** - Hugging Face
+- **[Vector Search at Scale](https://www.youtube.com/watch?v=t5mQmKjXLKo)** - Weaviate
+
+### 🎓 Courses & Training
+- **[Vector Databases & Embeddings](https://www.deeplearning.ai/short-courses/vector-databases-embeddings-applications/)** - DeepLearning.AI
+- **[LangChain for LLM Apps](https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/)** - Harrison Chase
+- **[Building AI Applications](https://www.coursera.org/learn/building-ai-powered-applications)** - Coursera
+- **[Semantic Search Course](https://www.pinecone.io/learn/)** - Pinecone Learning Center
+- **[Vector Database Fundamentals](https://learn.milvus.io/)** - Milvus tutorials
+
+### 📰 Blogs & Articles
+- **[Pinecone Blog](https://www.pinecone.io/blog/)** - Vector DB insights
+- **[Weaviate Blog](https://weaviate.io/blog)** - Vector search articles
+- **[Qdrant Blog](https://qdrant.tech/blog/)** - Technical deep dives
+- **[Milvus Blog](https://milvus.io/blog)** - Scalability focus
+- **[Chroma Blog](https://www.trychroma.com/blog)** - Embedding database
+
+### 🔧 Essential Tools & Platforms
+- **[Pinecone](https://www.pinecone.io/)** - Managed vector database
+- **[Weaviate](https://weaviate.io/)** - Open source vector DB
+- **[Qdrant](https://qdrant.tech/)** - High-performance vector search
+- **[Milvus](https://milvus.io/)** - Scalable vector database
+- **[Chroma](https://www.trychroma.com/)** - Embedding database
+
+### 💬 Communities & Forums
+- **[Vector Database Community](https://discord.gg/vectordb)** - Discord
+- **[r/VectorDatabases](https://reddit.com/r/VectorDatabases)** - Reddit
+- **[Pinecone Community](https://community.pinecone.io/)** - Forum
+- **[Weaviate Slack](https://weaviate.io/slack)** - Slack community
+- **[AI Stack Exchange](https://ai.stackexchange.com/)** - Q&A
+
+### 🏆 RAG & LLM Resources
+- **[LangChain Docs](https://python.langchain.com/)** - LLM framework
+- **[LlamaIndex Guide](https://gpt-index.readthedocs.io/)** - Data framework
+- **[OpenAI Embeddings](https://platform.openai.com/docs/guides/embeddings)** - API guide
+- **[Semantic Kernel](https://github.com/microsoft/semantic-kernel)** - Microsoft's SDK
+- **[Haystack](https://haystack.deepset.ai/)** - NLP framework
+
+
+
 ## Understanding Vector Databases
 
 ### Why Vector Databases Matter

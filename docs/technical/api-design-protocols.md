@@ -7,6 +7,59 @@ sidebar_position: 11
 
 Master the art of designing scalable, secure, and developer-friendly APIs. From REST to GraphQL to gRPC, learn the protocols and patterns that power modern distributed systems.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books & Guides
+- **[RESTful Web APIs](https://www.oreilly.com/library/view/restful-web-apis/9781449359713/)** - Leonard Richardson & Mike Amundsen
+- **[API Design Patterns](https://www.manning.com/books/api-design-patterns)** - JJ Geewax
+- **[Designing Web APIs](https://www.oreilly.com/library/view/designing-web-apis/9781492026914/)** - Brenda Jin et al.
+- **[Web API Design Handbook](https://www.amazon.com/Web-API-Design-Handbook-Paperback/dp/B08CKPYML9)** - Best practices
+- **[gRPC: Up and Running](https://www.oreilly.com/library/view/grpc-up-and/9781492058328/)** - Kasun Indrasiri & Danesh Kuruppu
+
+### 🎥 Video Resources
+- **[REST API Design Course](https://www.youtube.com/watch?v=sMKsmZbpyjE)** - FreeCodeCamp
+- **[GraphQL Documentary](https://www.youtube.com/watch?v=783ccP__No8)** - Honeypot
+- **[API Design First](https://www.youtube.com/watch?v=Zw0xZs-WB5U)** - Nordic APIs
+- **[gRPC Crash Course](https://www.youtube.com/watch?v=Yw4rkaTc0f8)** - Traversy Media
+- **[WebSocket Tutorial](https://www.youtube.com/watch?v=8ARodQ4Wlf4)** - Tech With Tim
+
+### 🎓 Courses & Training
+- **[API Design and Fundamentals](https://www.udemy.com/course/api-design-fundamentals/)** - Google Cloud on Coursera
+- **[GraphQL with React](https://www.udemy.com/course/graphql-with-react-course/)** - Stephen Grider
+- **[Building RESTful APIs](https://www.pluralsight.com/courses/building-restful-apis-nodejs)** - Node.js focus
+- **[gRPC Masterclass](https://www.udemy.com/course/grpc-golang/)** - Golang & gRPC
+- **[API Security](https://www.apisec.ai/api-security-fundamentals)** - Security best practices
+
+### 📰 Blogs & Articles
+- **[REST API Tutorial](https://restfulapi.net/)** - Comprehensive REST guide
+- **[GraphQL.org Blog](https://graphql.org/blog/)** - Official GraphQL updates
+- **[Nordic APIs](https://nordicapis.com/blog/)** - API industry insights
+- **[API Evangelist](https://apievangelist.com/)** - Kin Lane's API blog
+- **[Postman Blog](https://blog.postman.com/)** - API development articles
+
+### 🔧 Essential Tools & Platforms
+- **[OpenAPI/Swagger](https://swagger.io/)** - API specification
+- **[Postman](https://www.postman.com/)** - API development platform
+- **[Insomnia](https://insomnia.rest/)** - API client
+- **[GraphQL Playground](https://github.com/graphql/graphql-playground)** - GraphQL IDE
+- **[gRPCurl](https://github.com/fullstorydev/grpcurl)** - gRPC testing
+
+### 💬 Communities & Forums
+- **[API Craft](https://groups.google.com/g/api-craft)** - Google group
+- **[r/webdev](https://reddit.com/r/webdev)** - Web development community
+- **[GraphQL Community](https://graphql.org/community/)** - Official resources
+- **[REST API Community](https://www.linkedin.com/groups/3744047/)** - LinkedIn group
+- **[AsyncAPI Community](https://www.asyncapi.com/community)** - Event-driven APIs
+
+### 🏆 Standards & Specifications
+- **[OpenAPI Specification](https://spec.openapis.org/oas/latest.html)** - REST API spec
+- **[JSON:API](https://jsonapi.org/)** - JSON API specification
+- **[GraphQL Specification](https://spec.graphql.org/)** - GraphQL spec
+- **[gRPC Documentation](https://grpc.io/docs/)** - Official gRPC docs
+- **[JSON Schema](https://json-schema.org/)** - JSON validation
+
+
+
 ## API Design Fundamentals
 
 ### REST API Design Principles

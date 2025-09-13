@@ -7,6 +7,59 @@ sidebar_position: 8
 
 Master the design and operation of message-driven systems, from basic queues to complex event streaming platforms essential for modern distributed architectures.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books & Papers
+- **[Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/)** - Gregor Hohpe & Bobby Woolf
+- **[Designing Data-Intensive Applications](https://dataintensive.net/)** - Martin Kleppmann (Chapter 11)
+- **[Kafka: The Definitive Guide](https://www.confluent.io/resources/kafka-the-definitive-guide/)** - Neha Narkhede et al.
+- **[Building Event-Driven Microservices](https://www.oreilly.com/library/view/building-event-driven-microservices/9781492057888/)** - Adam Bellemare
+- **[Streaming Systems](https://www.oreilly.com/library/view/streaming-systems/9781491983867/)** - Tyler Akidau et al.
+
+### 🎥 Video Resources
+- **[Apache Kafka Fundamentals](https://www.youtube.com/playlist?list=PLa7VYi0yPIH2PelhRHoFR5iQgflg-y6JA)** - Confluent
+- **[Building Event-Driven Applications](https://www.youtube.com/watch?v=fU9hR3kiOK0)** - Martin Fowler
+- **[Kafka Summit Videos](https://www.confluent.io/resources/kafka-summit-recordings/)** - Conference talks
+- **[RabbitMQ Tutorials](https://www.youtube.com/playlist?list=PLhgq6sa1G4zvFI9qK9WmOoR-RdgJYsC5z)** - CloudAMQP
+- **[Event Sourcing and CQRS](https://www.youtube.com/watch?v=JHGkaShoyNs)** - Greg Young
+
+### 🎓 Courses & Training
+- **[Apache Kafka Series](https://www.udemy.com/course/apache-kafka/)** - Stephane Maarek on Udemy
+- **[Event-Driven Architecture](https://www.udemy.com/course/event-driven-architecture/)** - Complete course
+- **[Confluent Developer Training](https://www.confluent.io/training/)** - Official Kafka training
+- **[RabbitMQ Training](https://training.rabbitmq.com/)** - Official RabbitMQ courses
+- **[NATS Academy](https://natsbyexample.com/)** - NATS messaging patterns
+
+### 📰 Blogs & Articles
+- **[Confluent Blog](https://www.confluent.io/blog/)** - Kafka best practices
+- **[RabbitMQ Blog](https://blog.rabbitmq.com/)** - RabbitMQ updates
+- **[High Scalability](http://highscalability.com/)** - Architecture case studies
+- **[Apache Pulsar Blog](https://pulsar.apache.org/blog/)** - Pulsar ecosystem
+- **[AWS Messaging Blog](https://aws.amazon.com/blogs/messaging-and-targeting/)** - SQS/SNS/Kinesis
+
+### 🔧 Essential Tools & Platforms
+- **[Apache Kafka](https://kafka.apache.org/)** - Distributed event streaming
+- **[RabbitMQ](https://www.rabbitmq.com/)** - Message broker
+- **[Apache Pulsar](https://pulsar.apache.org/)** - Multi-tenant messaging
+- **[NATS](https://nats.io/)** - High-performance messaging
+- **[Redis Streams](https://redis.io/topics/streams-intro)** - Redis-based streaming
+
+### 💬 Communities & Forums
+- **[Confluent Community](https://www.confluent.io/community/)** - Kafka community
+- **[RabbitMQ Users](https://groups.google.com/g/rabbitmq-users)** - Google group
+- **[r/apachekafka](https://reddit.com/r/apachekafka)** - Reddit community
+- **[CNCF Slack](https://slack.cncf.io/)** - Cloud native messaging
+- **[Apache Pulsar Slack](https://apache-pulsar.slack.com/)** - Pulsar community
+
+### 🏆 Architecture Resources
+- **[Microservices.io](https://microservices.io/patterns/data/event-sourcing.html)** - Event patterns
+- **[Event Store](https://www.eventstore.com/event-sourcing)** - Event sourcing guide
+- **[AsyncAPI](https://www.asyncapi.com/)** - Event-driven API spec
+- **[CloudEvents](https://cloudevents.io/)** - Event data specification
+- **[Eventual Consistency](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)** - Werner Vogels
+
+
+
 ## Message Queue Fundamentals
 
 ### Core Concepts

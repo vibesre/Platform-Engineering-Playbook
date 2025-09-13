@@ -7,6 +7,86 @@ sidebar_position: 6
 
 The rise of ChatGPT, Claude, and other LLMs has created unique infrastructure challenges. This guide covers the specialized knowledge needed to build and operate LLM platforms at scale.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Papers & Articles
+- **[Attention Is All You Need](https://arxiv.org/abs/1706.03762)** - Original Transformer paper
+- **[GPT-3 Paper](https://arxiv.org/abs/2005.14165)** - Language Models are Few-Shot Learners
+- **[Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361)** - OpenAI scaling laws
+- **[LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971)** - Meta's LLaMA
+- **[FlashAttention](https://arxiv.org/abs/2205.14135)** - Memory-efficient attention
+
+### 🎥 Video Resources
+- **[Andrej Karpathy's Neural Networks: Zero to Hero](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)** - Build GPT from scratch
+- **[State of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A)** - Andrej Karpathy at Microsoft Build
+- **[LLM Bootcamp](https://fullstackdeeplearning.com/llm-bootcamp/)** - Full Stack Deep Learning
+- **[Transformers United](https://www.youtube.com/watch?v=iDulhoQ2pro)** - Stanford CS25
+- **[How ChatGPT Works Technically](https://www.youtube.com/watch?v=iajgGgCLzYA)** - Detailed explanation
+
+### 🎓 Courses & Training
+- **[Hugging Face NLP Course](https://huggingface.co/learn/nlp-course)** - Comprehensive NLP with transformers
+- **[DeepLearning.AI ChatGPT Prompt Engineering](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/)** - OpenAI & DeepLearning.AI
+- **[LangChain & Vector Databases](https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/)** - Building LLM apps
+- **[Cohere LLM University](https://llm.university/)** - Free LLM education
+- **[Stanford CS324: Large Language Models](https://stanford-cs324.github.io/winter2022/)** - Academic course
+
+### 📰 Blogs & Industry Updates
+- **[OpenAI Blog](https://openai.com/blog)** - GPT updates and research
+- **[Anthropic Research](https://www.anthropic.com/research)** - Claude and AI safety
+- **[Google AI Blog](https://ai.googleblog.com/)** - PaLM, Bard, and more
+- **[The Gradient](https://thegradient.pub/)** - AI research magazine
+- **[Lil'Log](https://lilianweng.github.io/)** - Lilian Weng's ML blog
+
+### 🔧 Essential Tools & Frameworks
+
+#### Serving Frameworks
+- **[vLLM](https://github.com/vllm-project/vllm)** - High-throughput LLM serving
+- **[Text Generation Inference](https://github.com/huggingface/text-generation-inference)** - Hugging Face's server
+- **[TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)** - NVIDIA's optimized serving
+- **[Triton Inference Server](https://developer.nvidia.com/nvidia-triton-inference-server)** - Multi-framework serving
+- **[LiteLLM](https://github.com/BerriAI/litellm)** - Unified LLM API
+
+#### Training & Fine-tuning
+- **[DeepSpeed](https://www.deepspeed.ai/)** - Microsoft's distributed training
+- **[FairScale](https://github.com/facebookresearch/fairscale)** - PyTorch distributed training
+- **[Accelerate](https://huggingface.co/docs/accelerate)** - Hugging Face training library
+- **[PEFT](https://github.com/huggingface/peft)** - Parameter-efficient fine-tuning
+- **[Axolotl](https://github.com/OpenAccess-AI-Collective/axolotl)** - Fine-tuning tool
+
+#### Optimization Tools
+- **[bitsandbytes](https://github.com/TimDettmers/bitsandbytes)** - 8-bit quantization
+- **[GPTQ](https://github.com/IST-DASLab/gptq)** - Post-training quantization
+- **[llama.cpp](https://github.com/ggerganov/llama.cpp)** - CPU/Metal inference
+- **[ExLlama](https://github.com/turboderp/exllama)** - Memory-efficient inference
+
+### 💬 Communities & Forums
+- **[r/LocalLLaMA](https://reddit.com/r/LocalLLaMA)** - Self-hosted LLMs
+- **[Hugging Face Discord](https://discord.gg/hugging-face)** - NLP community
+- **[EleutherAI Discord](https://discord.gg/eleutherai)** - Open source LLM research
+- **[LAION Discord](https://discord.gg/xBPBXfcFHd)** - Large-scale AI datasets
+- **[Together.ai Community](https://discord.gg/together)** - Decentralized AI
+
+### 🏆 Model Hubs & Resources
+- **[Hugging Face Hub](https://huggingface.co/models)** - Largest model repository
+- **[Ollama](https://ollama.ai/)** - Run LLMs locally
+- **[LM Studio](https://lmstudio.ai/)** - Desktop LLM app
+- **[Replicate](https://replicate.com/)** - Run models in the cloud
+- **[Together.ai](https://together.ai/)** - Decentralized GPU cloud
+
+### 📊 Benchmarks & Evaluation
+- **[Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)** - Model comparison
+- **[MMLU Benchmark](https://github.com/hendrycks/test)** - Multitask language understanding
+- **[HellaSwag](https://rowanzellers.com/hellaswag/)** - Commonsense reasoning
+- **[BigBench](https://github.com/google/BIG-bench)** - Beyond the Imitation Game
+- **[GLUE Benchmark](https://gluebenchmark.com/)** - General language understanding
+
+### 🎯 Production & Deployment
+- **[LangChain](https://langchain.com/)** - LLM application framework
+- **[LlamaIndex](https://www.llamaindex.ai/)** - Data framework for LLMs
+- **[Guardrails AI](https://guardrailsai.com/)** - LLM validation framework
+- **[Langfuse](https://langfuse.com/)** - LLM observability
+- **[Helicone](https://www.helicone.ai/)** - LLM analytics platform
+
 ## LLM Infrastructure Fundamentals
 
 ### Understanding LLM Requirements

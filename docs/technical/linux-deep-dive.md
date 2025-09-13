@@ -7,6 +7,56 @@ sidebar_position: 2
 
 A comprehensive guide to Linux internals and system programming essential for platform engineering roles.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books
+- **[The Linux Programming Interface](https://man7.org/tlpi/)** - Michael Kerrisk (The definitive guide)
+- **[Linux Kernel Development](https://www.amazon.com/Linux-Kernel-Development-Robert-Love/dp/0672329468)** - Robert Love
+- **[Understanding the Linux Kernel](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)** - Bovet & Cesati
+- **[Systems Performance](https://www.brendangregg.com/systems-performance-2nd-edition-book.html)** - Brendan Gregg
+- **[Linux Device Drivers](https://lwn.net/Kernel/LDD3/)** - Free online book
+
+### 🎥 Video Resources
+- **[MIT 6.828: Operating System Engineering](https://www.youtube.com/playlist?list=PLfciLKR3SgqNJKKIKUliWoNBBH1VHL3AP)** - Complete OS course
+- **[Linux System Programming](https://www.youtube.com/playlist?list=PLvv0ScY6vfd8qupx8UhlPcNvFjKGfELRe)** - Comprehensive playlist
+- **[Brendan Gregg's Performance Analysis](https://www.youtube.com/user/brendangregg/videos)** - Performance deep dives
+- **[The mind behind Linux | Linus Torvalds](https://www.youtube.com/watch?v=o8NPllzkFhE)** - TED Talk
+- **[How Linux Works](https://www.youtube.com/watch?v=l5XdnYyclxY)** - Visual introduction
+
+### 🎓 Courses & Training
+- **[Linux Foundation Training](https://training.linuxfoundation.org/)** - Official Linux Foundation courses
+- **[LPIC Certifications](https://www.lpi.org/)** - Linux Professional Institute
+- **[Red Hat Training](https://www.redhat.com/en/services/training)** - RHCSA/RHCE paths
+- **[Linux Journey](https://linuxjourney.com/)** - Free interactive learning
+- **[Katacoda Linux Scenarios](https://www.katacoda.com/courses/linux)** - Hands-on practice
+
+### 📰 Blogs & Articles
+- **[Brendan Gregg's Blog](https://www.brendangregg.com/)** - Performance analysis expert
+- **[LWN.net](https://lwn.net/)** - Linux Weekly News (kernel development)
+- **[Julia Evans' Blog](https://jvns.ca/)** - Illustrated Linux concepts
+- **[Linux Kernel Newbies](https://kernelnewbies.org/)** - Kernel development resources
+- **[Phoronix](https://www.phoronix.com/)** - Linux hardware and performance
+
+### 🔧 Essential Tools & References
+- **[explainshell.com](https://explainshell.com/)** - Decode any shell command
+- **[man7.org](https://man7.org/)** - Online man pages
+- **[Linux Syscall Reference](https://syscalls.kernelgrok.com/)** - System call documentation
+- **[kernel.org Documentation](https://www.kernel.org/doc/html/latest/)** - Official kernel docs
+- **[DistroWatch](https://distrowatch.com/)** - Linux distribution information
+
+### 💬 Communities & Forums
+- **[r/linux](https://reddit.com/r/linux)** - General Linux discussion
+- **[r/linuxquestions](https://reddit.com/r/linuxquestions)** - Q&A community
+- **[Linux Kernel Mailing List](https://lkml.org/)** - Kernel development
+- **[Stack Exchange - Unix & Linux](https://unix.stackexchange.com/)** - Technical Q&A
+- **[Linux Foundation Forums](https://forum.linuxfoundation.org/)** - Official forums
+
+### 🎯 Interview Preparation
+- **[Linux Interview Questions](https://github.com/chassing/linux-interview-questions)** - Comprehensive collection
+- **[SRE Interview Prep](https://github.com/mxssl/sre-interview-prep-guide)** - Linux section
+- **[Linux Commands Cheat Sheet](https://www.linuxtrainingacademy.com/linux-commands-cheat-sheet/)** - Quick reference
+- **[TLCL: The Linux Command Line](https://linuxcommand.org/tlcl.php)** - Free book
+
 ## Process Management
 
 ### Process Lifecycle

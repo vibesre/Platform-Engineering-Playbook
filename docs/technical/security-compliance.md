@@ -7,6 +7,59 @@ sidebar_position: 12
 
 Master the security practices and compliance requirements essential for building and operating secure platforms. From zero-trust architecture to regulatory compliance, learn how to protect infrastructure at scale.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books & Guides
+- **[Container Security](https://www.oreilly.com/library/view/container-security/9781492056690/)** - Liz Rice
+- **[Kubernetes Security](https://info.aquasec.com/kubernetes-security)** - Liz Rice & Michael Hausenblas
+- **[Zero Trust Networks](https://www.oreilly.com/library/view/zero-trust-networks/9781491962183/)** - Evan Gilman & Doug Barth
+- **[Cloud Native Security](https://www.oreilly.com/library/view/cloud-native-security/9781492086901/)** - Chris Binnie
+- **[NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)** - Official framework
+
+### 🎥 Video Resources
+- **[SANS Cyber Defense](https://www.youtube.com/c/SANSCyberDefense)** - Security training
+- **[Black Hat Conference](https://www.youtube.com/c/BlackHatOfficialYT)** - Security research
+- **[DEF CON](https://www.youtube.com/user/DEFCONConference)** - Hacking conference
+- **[Container Security Summit](https://www.youtube.com/playlist?list=PLj6h78yzYM2MqmAQS8OYOr2QUlU4OBFT_)** - CNCF talks
+- **[AWS re:Inforce](https://www.youtube.com/playlist?list=PLhr1KZpdzukfh3WRLzPGMFm_tFMo2mBL7)** - Cloud security
+
+### 🎓 Courses & Certifications
+- **[CKS (Certified Kubernetes Security Specialist)](https://www.cncf.io/certification/cks/)** - CNCF cert
+- **[AWS Security Specialty](https://aws.amazon.com/certification/certified-security-specialty/)** - AWS cert
+- **[Google Cloud Security Engineer](https://cloud.google.com/certification/cloud-security-engineer)** - GCP cert
+- **[SANS Security Training](https://www.sans.org/)** - Industry leader
+- **[Linux Security Course](https://www.pluralsight.com/courses/linux-security)** - Pluralsight
+
+### 📰 Blogs & Articles
+- **[Krebs on Security](https://krebsonsecurity.com/)** - Brian Krebs
+- **[Schneier on Security](https://www.schneier.com/)** - Bruce Schneier
+- **[OWASP Blog](https://owasp.org/blog/)** - Application security
+- **[HashiCorp Security Blog](https://www.hashicorp.com/blog/products/security)** - Vault & security
+- **[Aqua Security Blog](https://blog.aquasec.com/)** - Cloud native security
+
+### 🔧 Essential Tools & Platforms
+- **[HashiCorp Vault](https://www.vaultproject.io/)** - Secrets management
+- **[Falco](https://falco.org/)** - Runtime security
+- **[OPA (Open Policy Agent)](https://www.openpolicyagent.org/)** - Policy engine
+- **[Trivy](https://github.com/aquasecurity/trivy)** - Vulnerability scanner
+- **[OWASP ZAP](https://www.zaproxy.org/)** - Security testing
+
+### 💬 Communities & Forums
+- **[r/netsec](https://reddit.com/r/netsec)** - Network security
+- **[r/AskNetsec](https://reddit.com/r/AskNetsec)** - Security Q&A
+- **[OWASP Community](https://owasp.org/www-community/)** - App security
+- **[Cloud Security Alliance](https://cloudsecurityalliance.org/)** - Cloud focus
+- **[ISACA](https://www.isaca.org/)** - Governance & risk
+
+### 🏆 Compliance Resources
+- **[GDPR Official](https://gdpr.eu/)** - GDPR documentation
+- **[HIPAA Guide](https://www.hhs.gov/hipaa/index.html)** - Healthcare compliance
+- **[PCI DSS](https://www.pcisecuritystandards.org/)** - Payment card security
+- **[SOC 2 Guide](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/sorhome)** - AICPA
+- **[ISO 27001](https://www.iso.org/isoiec-27001-information-security.html)** - InfoSec standard
+
+
+
 ## Zero Trust Architecture
 
 ### Principles and Implementation

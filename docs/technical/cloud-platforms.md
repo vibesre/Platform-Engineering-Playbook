@@ -7,6 +7,84 @@ sidebar_position: 4
 
 A comprehensive guide to AWS, GCP, and Azure from a platform engineering perspective, focusing on infrastructure automation, reliability, and scale.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books & Guides
+- **[AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)** - AWS best practices
+- **[Google Cloud Architecture Framework](https://cloud.google.com/architecture/framework)** - GCP best practices
+- **[Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)** - Azure patterns & practices
+- **[Cloud Native Infrastructure](https://www.oreilly.com/library/view/cloud-native-infrastructure/9781491984291/)** - Justin Garrison & Kris Nova
+- **[Architecting the Cloud](https://www.wiley.com/en-us/Architecting+the+Cloud%3A+Design+Decisions+for+Cloud+Computing+Service+Models-p-9781118617618)** - Michael Kavis
+
+### 🎥 Video Resources
+- **[AWS re:Invent Videos](https://www.youtube.com/user/AmazonWebServices/videos)** - Latest AWS innovations
+- **[Google Cloud Next](https://www.youtube.com/googlecloudtech)** - GCP conference talks
+- **[Microsoft Build](https://www.youtube.com/channel/UC0m-80FnNY2Qb7obvTL_2fA)** - Azure updates
+- **[A Cloud Guru YouTube](https://www.youtube.com/c/AcloudGuru/videos)** - Multi-cloud tutorials
+- **[freeCodeCamp Cloud Computing](https://www.youtube.com/watch?v=M988_fsOSWo)** - Full course
+
+### 🎓 Courses & Certifications
+
+#### AWS Certifications
+- **[AWS Solutions Architect](https://aws.amazon.com/certification/certified-solutions-architect-associate/)** - Associate & Professional
+- **[AWS DevOps Engineer](https://aws.amazon.com/certification/certified-devops-engineer-professional/)** - Professional
+- **[AWS Advanced Networking](https://aws.amazon.com/certification/certified-advanced-networking-specialty/)** - Specialty
+- **[AWS Security](https://aws.amazon.com/certification/certified-security-specialty/)** - Specialty
+
+#### GCP Certifications
+- **[Google Cloud Architect](https://cloud.google.com/certification/cloud-architect)** - Professional
+- **[Google Cloud DevOps Engineer](https://cloud.google.com/certification/cloud-devops-engineer)** - Professional
+- **[Google Cloud Network Engineer](https://cloud.google.com/certification/cloud-network-engineer)** - Professional
+- **[Google Cloud Security Engineer](https://cloud.google.com/certification/cloud-security-engineer)** - Professional
+
+#### Azure Certifications
+- **[Azure Solutions Architect](https://docs.microsoft.com/en-us/learn/certifications/azure-solutions-architect/)** - Expert
+- **[Azure DevOps Engineer](https://docs.microsoft.com/en-us/learn/certifications/devops-engineer/)** - Expert
+- **[Azure Security Engineer](https://docs.microsoft.com/en-us/learn/certifications/azure-security-engineer/)** - Associate
+- **[Azure Network Engineer](https://docs.microsoft.com/en-us/learn/certifications/azure-network-engineer-associate/)** - Associate
+
+### 📰 Blogs & Articles
+- **[AWS News Blog](https://aws.amazon.com/blogs/aws/)** - Official AWS updates
+- **[Google Cloud Blog](https://cloud.google.com/blog/)** - GCP announcements
+- **[Azure Updates](https://azure.microsoft.com/en-us/updates/)** - Azure service updates
+- **[High Scalability](http://highscalability.com/)** - Architecture case studies
+- **[The Morning Paper](https://blog.acolyer.org/)** - CS papers explained
+
+### 🔧 Essential Tools & Platforms
+- **[Terraform](https://www.terraform.io/)** - Multi-cloud IaC
+- **[Pulumi](https://www.pulumi.com/)** - Modern infrastructure as code
+- **[CloudFormation](https://aws.amazon.com/cloudformation/)** - AWS native IaC
+- **[Cloud Deployment Manager](https://cloud.google.com/deployment-manager)** - GCP IaC
+- **[Azure Resource Manager](https://azure.microsoft.com/en-us/features/resource-manager/)** - Azure IaC
+
+### 💬 Communities & Forums
+- **[r/aws](https://reddit.com/r/aws)** - AWS community
+- **[r/googlecloud](https://reddit.com/r/googlecloud)** - GCP community
+- **[r/azure](https://reddit.com/r/azure)** - Azure community
+- **[Cloud Native Computing Foundation](https://www.cncf.io/)** - Multi-cloud community
+- **[AWS Developer Forums](https://forums.aws.amazon.com/)** - Official AWS forums
+
+### 🎮 Interactive Learning
+- **[AWS Free Tier](https://aws.amazon.com/free/)** - Hands-on AWS practice
+- **[Google Cloud Free Tier](https://cloud.google.com/free)** - GCP free resources
+- **[Azure Free Account](https://azure.microsoft.com/en-us/free/)** - Azure free tier
+- **[A Cloud Guru Playground](https://acloudguru.com/platform/cloud-sandbox-playgrounds)** - Multi-cloud sandboxes
+- **[Qwiklabs](https://www.qwiklabs.com/)** - Hands-on cloud labs
+
+### 📖 Documentation & References
+- **[AWS Documentation](https://docs.aws.amazon.com/)** - Comprehensive AWS docs
+- **[Google Cloud Docs](https://cloud.google.com/docs)** - GCP documentation
+- **[Azure Documentation](https://docs.microsoft.com/en-us/azure/)** - Azure docs
+- **[Cloud Service Comparison](https://clouddecision.io/)** - Compare services across clouds
+- **[Cloud Pricing Comparison](https://www.cloudorado.com/)** - Cost calculator
+
+### 🏆 Architecture Resources
+- **[AWS Architecture Center](https://aws.amazon.com/architecture/)** - Reference architectures
+- **[Google Cloud Solutions](https://cloud.google.com/solutions)** - GCP architectures
+- **[Azure Architecture Diagrams](https://docs.microsoft.com/en-us/azure/architecture/browse/)** - Azure patterns
+- **[This is My Architecture](https://aws.amazon.com/this-is-my-architecture/)** - Real-world architectures
+- **[Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)** - Common patterns
+
 ## Cloud Platform Comparison
 
 ### Key Services Mapping

@@ -7,6 +7,59 @@ sidebar_position: 9
 
 Master caching strategies and data store selection for building high-performance, scalable systems. From in-memory caches to distributed data stores, learn how to optimize data access patterns.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books & Papers
+- **[Redis in Action](https://www.manning.com/books/redis-in-action)** - Josiah Carlson
+- **[High Performance Browser Networking](https://hpbn.co/)** - Ilya Grigorik (CDN & caching)
+- **[Designing Data-Intensive Applications](https://dataintensive.net/)** - Martin Kleppmann (Chapter 5)
+- **[Database Internals](https://www.databass.dev/)** - Alex Petrov
+- **[Seven Databases in Seven Weeks](https://pragprog.com/titles/pwrdata/seven-databases-in-seven-weeks-second-edition/)** - Pragmatic guide
+
+### 🎥 Video Resources
+- **[Redis University](https://university.redis.com/)** - Official Redis courses
+- **[Redis Conf Videos](https://redis.com/redisconf/)** - Conference talks
+- **[Scaling Memcached at Facebook](https://www.youtube.com/watch?v=6phA3IAcEJ8)** - Tech talk
+- **[Database Caching Strategies](https://www.youtube.com/watch?v=U3RkDLtS7uY)** - AWS re:Invent
+- **[Redis Crash Course](https://www.youtube.com/watch?v=Hbt56gFj998)** - Traversy Media
+
+### 🎓 Courses & Training
+- **[Redis Certified Developer](https://university.redis.com/certification/)** - Official certification
+- **[Caching Strategies](https://www.educative.io/courses/caching-system-design-interview)** - System design
+- **[NoSQL Databases](https://www.coursera.org/learn/nosql-databases)** - Coursera course
+- **[Redis for Developers](https://university.redis.com/courses/ru102js/)** - JavaScript focus
+- **[Data Store Selection](https://www.pluralsight.com/courses/selecting-data-store-application)** - Decision guide
+
+### 📰 Blogs & Articles
+- **[Redis Labs Blog](https://redis.com/blog/)** - Redis best practices
+- **[High Scalability](http://highscalability.com/)** - Caching case studies
+- **[Instagram Engineering](https://instagram-engineering.com/)** - Redis at scale
+- **[DZone Caching](https://dzone.com/caching)** - Caching articles
+- **[Netflix Tech Blog](https://netflixtechblog.com/)** - EVCache and caching
+
+### 🔧 Essential Tools & Platforms
+- **[Redis](https://redis.io/)** - In-memory data structure store
+- **[Memcached](https://memcached.org/)** - High-performance caching
+- **[Hazelcast](https://hazelcast.com/)** - In-memory computing platform
+- **[Apache Ignite](https://ignite.apache.org/)** - Distributed database
+- **[KeyDB](https://keydb.dev/)** - Multithreaded Redis fork
+
+### 💬 Communities & Forums
+- **[Redis Discord](https://discord.gg/redis)** - Official Discord
+- **[r/redis](https://reddit.com/r/redis)** - Reddit community
+- **[Database subreddit](https://reddit.com/r/Database)** - General DB discussions
+- **[Stack Overflow - Redis](https://stackoverflow.com/questions/tagged/redis)** - Q&A
+- **[Redis Google Group](https://groups.google.com/g/redis-db)** - Mailing list
+
+### 🏆 Performance Resources
+- **[Redis Optimization](https://redis.io/docs/manual/optimization/)** - Official guide
+- **[Cache-Aside Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/cache-aside)** - Azure docs
+- **[Caching Best Practices](https://aws.amazon.com/caching/best-practices/)** - AWS guide
+- **[Redis Patterns](https://redislabs.com/redis-best-practices/introduction/)** - Common patterns
+- **[Memcached Wiki](https://github.com/memcached/memcached/wiki)** - Documentation
+
+
+
 ## Caching Fundamentals
 
 ### Cache Hierarchy

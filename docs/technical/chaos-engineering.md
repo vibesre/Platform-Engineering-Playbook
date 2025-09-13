@@ -7,6 +7,59 @@ sidebar_position: 15
 
 Master the discipline of chaos engineering to build confidence in your system's capability to withstand turbulent conditions. Learn how to design, implement, and run chaos experiments in production safely.
 
+## 📚 Essential Resources
+
+### 📖 Must-Read Books & Papers
+- **[Chaos Engineering](https://www.oreilly.com/library/view/chaos-engineering/9781491988459/)** - Casey Rosenthal & Nora Jones
+- **[Learning Chaos Engineering](https://www.oreilly.com/library/view/learning-chaos-engineering/9781492050995/)** - Russ Miles
+- **[Release It!](https://pragprog.com/titles/mnee2/release-it-second-edition/)** - Michael Nygard
+- **[Principles of Chaos Engineering](https://principlesofchaos.org/)** - Manifesto
+- **[Chaos Engineering: System Resiliency in Practice](https://www.manning.com/books/chaos-engineering)** - Mikolaj Pawlikowski
+
+### 🎥 Video Resources
+- **[Chaos Engineering at Netflix](https://www.youtube.com/watch?v=9R710ry-Cbo)** - Pioneers of chaos
+- **[ChaosConf Videos](https://www.youtube.com/c/Gremlin)** - Gremlin conference
+- **[Breaking Things on Purpose](https://www.youtube.com/playlist?list=PLLIx5ktghjqKtZdfDDzr0hLOqgHhVnJOk)** - Gremlin series
+- **[Principles of Chaos Engineering](https://www.youtube.com/watch?v=HmBH83EuYXA)** - Casey Rosenthal
+- **[GameDays at Amazon](https://www.youtube.com/watch?v=zoz0ZjfrQ9s)** - Jesse Robbins
+
+### 🎓 Courses & Training
+- **[Chaos Engineering Fundamentals](https://www.gremlin.com/certification/)** - Gremlin certification
+- **[Resilience Engineering](https://www.coursera.org/learn/resilience-engineering)** - Coursera
+- **[Litmus Chaos Training](https://litmusc.gitbook.io/litmus/)** - CNCF project
+- **[AWS Fault Injection](https://www.aws.training/Details/eLearning?id=77917)** - AWS training
+- **[Chaos Toolkit Tutorial](https://chaostoolkit.org/reference/tutorial/)** - Open source
+
+### 📰 Blogs & Articles
+- **[Netflix Tech Blog](https://netflixtechblog.com/)** - Chaos Monkey origins
+- **[Gremlin Blog](https://www.gremlin.com/blog/)** - Chaos engineering insights
+- **[Verica Blog](https://www.verica.io/blog/)** - Resilience engineering
+- **[AWS Architecture Blog](https://aws.amazon.com/blogs/architecture/)** - Resilience patterns
+- **[Uber Engineering](https://eng.uber.com/)** - Chaos at scale
+
+### 🔧 Essential Tools & Platforms
+- **[Chaos Monkey](https://netflix.github.io/chaosmonkey/)** - Netflix's tool
+- **[Litmus](https://litmuschaos.io/)** - CNCF chaos engineering
+- **[Gremlin](https://www.gremlin.com/)** - Enterprise platform
+- **[Chaos Toolkit](https://chaostoolkit.org/)** - Open source framework
+- **[AWS FIS](https://aws.amazon.com/fis/)** - Fault Injection Simulator
+
+### 💬 Communities & Forums
+- **[Chaos Engineering Slack](https://join.slack.com/t/chaosengineering/shared_invite/)** - Community
+- **[r/chaosengineering](https://reddit.com/r/chaosengineering)** - Reddit
+- **[Chaos Community Day](https://chaoscommunity.io/)** - Events
+- **[CNCF Chaos Engineering](https://www.cncf.io/projects/)** - CNCF SIG
+- **[LinkedIn Group](https://www.linkedin.com/groups/7060102/)** - Professionals
+
+### 🏆 Practice Resources
+- **[Chaos Engineering Experiments](https://github.com/dastergon/awesome-chaos-engineering)** - Awesome list
+- **[GameDay Runbooks](https://wa.aws.amazon.com/wat.concept.gameday.en.html)** - AWS guide
+- **[Failure Fridays](https://medium.com/the-cloud-architect/failure-fridays-e072c45195f7)** - Practice guide
+- **[Chaos Scenarios](https://www.gremlin.com/community/tutorials/)** - Gremlin tutorials
+- **[Kubernetes Chaos](https://github.com/asobti/kube-monkey)** - K8s chaos tools
+
+
+
 ## Chaos Engineering Fundamentals
 
 ### Principles of Chaos
