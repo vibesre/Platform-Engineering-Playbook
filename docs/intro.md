@@ -10,6 +10,12 @@ Your comprehensive guide to mastering Platform Engineering, Site Reliability Eng
 
 ## 🎯 Quick Navigation
 
+### 🤖 AI/ML Platform Engineering (Hot!)
+- 🧠 [AI/ML Platform Engineering](/technical/ai-ml-platform) - Build ML infrastructure
+- 🚀 [LLM Infrastructure](/technical/llm-infrastructure) - ChatGPT-scale systems
+- 🎯 [AI Platform Interview Prep](/technical/ai-interview-prep) - Ace AI platform interviews
+- 🗺️ [AI Platform Roadmap](/career/ai-platform-roadmap) - Your learning path
+
 ### Core Preparation
 - 📚 [Technical Skills & Preparation](/technical) - Master the fundamentals
 - 🧮 [Algorithms & Data Structures](/algorithms) - Platform-specific coding challenges

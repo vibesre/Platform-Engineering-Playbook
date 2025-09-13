@@ -7,7 +7,23 @@ sidebar_position: 1
 
 This section covers the core technical topics you need to master for Platform Engineering, SRE, and DevOps interviews.
 
+## 🚀 Featured: AI/ML Platform Engineering
+
+The intersection of AI and infrastructure is creating unprecedented opportunities. Master these specialized skills:
+
+### AI/ML Infrastructure
+- 🧠 **[AI/ML Platform Engineering](./ai-ml-platform)** - Build and scale ML infrastructure
+- 🚀 **[LLM Infrastructure & Operations](./llm-infrastructure)** - Deploy ChatGPT-scale systems
+- 🎯 **[AI Platform Interview Prep](./ai-interview-prep)** - Ace AI platform interviews
+
+**Why it matters:** AI platform engineers command 20-30% salary premiums and work on cutting-edge infrastructure powering the AI revolution.
+
 ## Core Topics Overview
+
+### Deep Dive Guides
+- 🐧 **[Linux Deep Dive](./linux-deep-dive)** - Master Linux internals and system programming
+- ☸️ **[Kubernetes Mastery](./kubernetes-mastery)** - Production-grade K8s expertise
+- ☁️ **[Cloud Platforms Deep Dive](./cloud-platforms)** - AWS, GCP, and Azure at scale
 
 ### 1. Linux & System Programming
 Essential for understanding how applications interact with the operating system.
