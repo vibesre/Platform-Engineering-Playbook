@@ -1,8 +1,7 @@
 {
-  "label": "Additional Resources",
-  "position": 7,
-  "link": {
-    "type": "doc",
-    "id": "resources/index"
-  }
+  "label": "📖 Resources",
+  "position": 5,
+  "collapsible": true,
+  "collapsed": false,
+  "description": "Books, tools, communities, and quick references"
 }

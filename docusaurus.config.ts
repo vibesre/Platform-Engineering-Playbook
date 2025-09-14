@@ -61,7 +61,7 @@ const config: Config = {
       title: 'Platform Engineering Playbook',
       logo: {
         alt: 'Platform Engineering Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo_square.svg',
       },
       items: [
         {

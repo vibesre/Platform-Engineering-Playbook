@@ -8,33 +8,89 @@ slug: /
 
 Your comprehensive guide to mastering Platform Engineering, Site Reliability Engineering (SRE), DevOps, and Production Engineering interviews and career development.
 
-## 🎯 Quick Navigation
+## 🎯 Start Your Journey
 
-### 🤖 AI/ML Platform Engineering (Hot!)
-- 🧠 [AI/ML Platform Engineering](/technical/ai-ml-platform) - Build ML infrastructure
-- 🚀 [LLM Infrastructure](/technical/llm-infrastructure) - ChatGPT-scale systems
-- 🎯 [AI Platform Interview Prep](/technical/ai-interview-prep) - Ace AI platform interviews
-- 🗺️ [AI Platform Roadmap](/career/ai-platform-roadmap) - Your learning path
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginTop: '2rem'}}>
 
-### Core Preparation
-- 📚 [Technical Skills & Preparation](/technical) - Master the fundamentals
-- 🧮 [Algorithms & Data Structures](/algorithms) - Platform-specific coding challenges
-- 🏗️ [System Design](/system-design) - Architecture and scalability
-- 💻 [Coding Challenges](/coding-challenges) - Real-world problems
+<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
 
-### Interview Process
-- 📋 [Interview Process Guide](/interview-process) - What to expect
-- 📄 [Resume Preparation](/resume) - Stand out from the crowd
-- 🗣️ [Behavioral Interviews](/behavioral) - Tell your story effectively
-- 🏢 [Company-Specific Prep](/company-specific) - FAANG and beyond
+### 📚 [Learn](/learn)
+**Master the fundamentals**
+- Start from basics
+- Progress to advanced topics
+- Integrated interview prep
+- Hands-on exercises
 
-### Career Development
-- 📈 [Career Progression](/career) - Growth pathways
-- 💰 [Compensation & Negotiation](/compensation) - Know your worth
-- 🔧 [Troubleshooting Guide](/troubleshooting) - Production excellence
-- 📖 [Additional Resources](/resources) - Curated learning materials
+</div>
 
-## Introduction
+<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
+
+### 💪 [Practice](/practice)
+**Apply your knowledge**
+- Hands-on labs
+- Mock interviews
+- Real scenarios
+- Build portfolio
+
+</div>
+
+<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
+
+### 🚀 [Get Hired](/get-hired)
+**Land your dream role**
+- Resume optimization
+- Company research
+- Interview strategies
+- Salary negotiation
+
+</div>
+
+<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
+
+### 📖 [Resources](/resources)
+**Extra materials**
+- Books & courses
+- Communities
+- Quick references
+- External links
+
+</div>
+
+</div>
+
+## 🗺️ Choose Your Path
+
+### 🆕 Complete Beginner
+Start with **[Getting Started](/learn/beginner/getting-started)** and follow the structured learning path through beginner, intermediate, and advanced topics.
+
+### 🔄 Transitioning from Development
+Skim the basics, then jump to **[Cloud & Infrastructure](/learn/intermediate/cloud-infrastructure)** and **[Containers & Kubernetes](/learn/intermediate/containers-kubernetes)**.
+
+### ⏱️ Interview in 2 Weeks
+Focus on **[Practice & Prepare](/practice)** section, especially mock interviews and common scenarios. Review relevant technical topics as needed.
+
+### 📈 Leveling Up Your Career
+Explore **[Advanced Topics](/learn/advanced)** and focus on **[Get Hired](/get-hired)** for negotiation strategies and career growth.
+
+## 🌟 What Makes This Guide Special
+
+### Integrated Learning
+Each technical topic includes:
+- Core concepts and theory
+- Hands-on exercises
+- Common interview questions
+- Real-world applications
+
+### Progressive Structure
+- **🟢 Beginner**: No prerequisites
+- **🟡 Intermediate**: 1+ years or basics complete
+- **🔴 Advanced**: Strong foundation required
+
+### Practical Focus
+- Real interview questions from FAANG+
+- Actual scenarios you'll face
+- Projects for your portfolio
+- Industry best practices
 
 ## What is Platform Engineering?
 
@@ -96,16 +152,16 @@ Distinguished Engineer / Engineering Manager
 ### 🚀 For Interview Preparation
 
 **4-8 Week Plan:**
-1. **Week 1-2**: Master [Technical Fundamentals](/technical) and review [Algorithms](/algorithms)
-2. **Week 3-4**: Practice [System Design](/system-design) and [Coding Challenges](/coding-challenges)
-3. **Week 5-6**: Polish [Resume](/resume) and prepare [Behavioral Stories](/behavioral)
-4. **Week 7-8**: Study [Company-Specific](/company-specific) materials and practice [Troubleshooting](/troubleshooting)
+1. **Week 1-2**: Complete [Beginner Topics](/learn/beginner) if needed, review fundamentals
+2. **Week 3-4**: Work through [Intermediate Topics](/learn/intermediate) relevant to target role
+3. **Week 5-6**: Heavy focus on [Practice & Prepare](/practice) - mock interviews and scenarios
+4. **Week 7-8**: Study company-specific information and practice with [Mock Scenarios](/practice/mock-scenarios)
 
 ### 📈 For Career Development
 
-- **Current Platform Engineers**: Focus on [System Design](/system-design), [Troubleshooting](/troubleshooting), and [Career Progression](/career)
-- **Transitioning from SWE**: Start with [Technical Skills](/technical) and [Platform-Specific Concepts](/algorithms)
-- **From Ops/Sysadmin**: Emphasize [Coding Challenges](/coding-challenges) and [System Design](/system-design)
+- **New to Platform Engineering**: Start with [Learn](/learn) section, progressing from beginner to advanced
+- **Transitioning from SWE**: Jump to [Intermediate Topics](/learn/intermediate), focus on infrastructure and operations
+- **Current Platform Engineers**: Explore [Advanced Topics](/learn/advanced) and [Get Hired](/get-hired) for career growth
 
 ## 🌟 Top Resources by Category
 
