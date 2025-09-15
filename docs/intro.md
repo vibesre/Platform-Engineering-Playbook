@@ -171,7 +171,7 @@ Distinguished Engineer / Engineering Manager
 - 🗺️ [Platform Engineering Roadmap](https://github.com/platformengineering/roadmap) - Community-driven guide
 
 ### Must-Read Books
-1. 📚 **[Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)** - Google's SRE bible (Free)
+1. 📚 **[Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)** - Google's comprehensive SRE guide (Free)
 2. 📚 **[The Site Reliability Workbook](https://sre.google/workbook/table-of-contents/)** - Practical SRE (Free)
 3. 📚 **[Designing Data-Intensive Applications](https://dataintensive.net/)** - Martin Kleppmann
 4. 📚 **[The Linux Programming Interface](https://man7.org/tlpi/)** - Michael Kerrisk

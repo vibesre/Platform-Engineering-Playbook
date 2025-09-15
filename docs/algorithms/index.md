@@ -283,7 +283,7 @@ def retry_with_backoff(func, max_retries=5, base_delay=1):
 - 🎥 [Go for Cloud Native Apps](https://www.youtube.com/watch?v=5qI5Uzw5X7I)
 
 ### Bash/Shell
-- 📚 [Linux Command Line and Shell Scripting Bible](https://www.wiley.com/en-us/Linux+Command+Line+and+Shell+Scripting+Bible%2C+4th+Edition-p-9781119700913)
+- 📚 [Linux Command Line and Shell Scripting Guide](https://www.wiley.com/en-us/Linux+Command+Line+and+Shell+Scripting+Bible%2C+4th+Edition-p-9781119700913)
 - 📖 [Advanced Bash Scripting Guide](https://tldp.org/LDP/abs/html/)
 - 🎥 [Shell Scripting Tutorial](https://www.youtube.com/watch?v=v-F3YLd6oMw)
 

@@ -1,10 +1,10 @@
 ---
-title: Platform Engineering Interview Bible
+title: Platform Engineering Playbook
 sidebar_position: 1
 slug: /
 ---
 
-# Platform Engineering Interview Bible
+# Platform Engineering Playbook
 
 Your focused guide to acing platform engineering, SRE, and DevOps interviews.
 
