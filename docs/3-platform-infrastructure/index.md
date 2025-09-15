@@ -12,11 +12,6 @@ Build and scale the platforms that power modern applications.
 This section covers modern platform infrastructure patterns:
 
 1. **[Distributed Systems](./distributed-systems)** - Consistency, availability, partition tolerance
-2. **[Data Storage](./data-storage)** - Databases, caching, object storage
-3. **[Message Queues](./message-queues)** - Async communication, event streaming
-4. **[Service Mesh](./service-mesh)** - Traffic management, observability, security
-5. **[API Gateways](./api-gateways)** - Rate limiting, authentication, routing
-6. **[CI/CD Platforms](./cicd-platforms)** - Pipeline design, GitOps, deployment strategies
 
 ## 🎯 Interview Focus Areas
 
@@ -183,9 +178,9 @@ Before interviews, you should be able to:
 ## 🎓 Next Steps
 
 1. Start with [Distributed Systems](./distributed-systems) for fundamentals
-2. Move to [Data Storage](./data-storage) for database patterns
-3. Explore [Message Queues](./message-queues) for async patterns
-4. Study [Service Mesh](./service-mesh) for modern architectures
+2. Review the technology landscape section above for database patterns
+3. Study the communication patterns section for async architectures
+4. Explore service mesh and API gateway concepts in the technology section
 
 ---
 

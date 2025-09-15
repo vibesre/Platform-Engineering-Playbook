@@ -14,9 +14,6 @@ This section covers the essential technical foundation:
 1. **[Linux Systems](./linux-systems)** - Command line, processes, filesystems, and system internals
 2. **[Networking](./networking)** - TCP/IP, DNS, load balancing, and troubleshooting
 3. **[Cloud Platforms](./cloud-platforms)** - AWS, GCP, and Azure core services
-4. **[Containers & Kubernetes](./containers-kubernetes)** - Docker, Kubernetes, and orchestration
-5. **[Infrastructure as Code](./infrastructure-as-code)** - Terraform, Ansible, and GitOps
-6. **[Security Fundamentals](./security-fundamentals)** - Authentication, encryption, and best practices
 
 ## 🎯 Interview Focus Areas
 
@@ -106,8 +103,8 @@ Focus your study on areas rated 3 or below.
 ## 🚀 Next Steps
 
 1. Start with [Linux Systems](./linux-systems) if you need fundamentals
-2. Jump to [Containers & Kubernetes](./containers-kubernetes) if you know Linux well
-3. Review [Cloud Platforms](./cloud-platforms) for your target company's cloud
+2. Review [Networking](./networking) to understand system communication
+3. Study [Cloud Platforms](./cloud-platforms) for your target company's cloud
 
 ---
 
