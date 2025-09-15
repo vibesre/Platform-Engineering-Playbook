@@ -65,10 +65,34 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'mainSidebar',
+          type: 'docSidebar', 
+          sidebarId: 'gettingStarted',
           position: 'left',
-          label: 'Guide',
+          label: 'Getting Started',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'technicalSkills',
+          position: 'left',
+          label: 'Technical Skills',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'interviewPrep',
+          position: 'left',
+          label: 'Interview Prep',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'careerGuide',
+          position: 'left',
+          label: 'Career Guide',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'practiceResources',
+          position: 'left',
+          label: 'Practice & Resources',
         },
         {
           href: 'https://github.com/vibesre/Platform-Engineering-Playbook',
@@ -81,41 +105,37 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Quick Links',
+          title: 'Learn',
           items: [
             {
+              label: 'Getting Started',
+              to: '/getting-started',
+            },
+            {
               label: 'Technical Skills',
-              to: '/technical',
-            },
-            {
-              label: 'Interview Process',
-              to: '/interview-process',
-            },
-            {
-              label: 'Resume Guide',
-              to: '/resume',
+              to: '/technical-skills',
             },
           ],
         },
         {
-          title: 'Resources',
+          title: 'Prepare',
           items: [
             {
-              label: 'GitHub Repos',
-              to: '/resources',
+              label: 'Interview Prep',
+              to: '/interview-prep',
             },
             {
               label: 'Career Guide',
-              to: '/career',
+              to: '/career-guide',
             },
             {
-              label: 'Behavioral Interview',
-              to: '/behavioral',
+              label: 'Practice Labs',
+              to: '/practice-resources',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Community',
           items: [
             {
               label: 'GitHub',
@@ -124,6 +144,10 @@ const config: Config = {
             {
               label: 'Contribute',
               href: 'https://github.com/vibesre/Platform-Engineering-Playbook/pulls',
+            },
+            {
+              label: 'Report Issues',
+              href: 'https://github.com/vibesre/Platform-Engineering-Playbook/issues',
             },
           ],
         },

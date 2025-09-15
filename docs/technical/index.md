@@ -1,29 +1,31 @@
 ---
-title: Overview
-sidebar_position: 1
+id: index
+title: Technical Skills
+sidebar_label: Overview
+slug: /technical-skills
 ---
 
-# Technical Skills & Preparation
+# Technical Skills for Platform Engineers
 
-This section covers the core technical topics you need to master for Platform Engineering, SRE, and DevOps interviews.
+Master all the technical knowledge you need for platform engineering excellence. This comprehensive section covers everything from fundamental skills to advanced platform engineering topics.
 
 ## 🚀 Featured: AI/ML Platform Engineering
 
 The intersection of AI and infrastructure is creating unprecedented opportunities. Master these specialized skills:
 
 ### AI/ML Infrastructure
-- 🧠 **[AI/ML Platform Engineering](./ai-ml-platform)** - Build and scale ML infrastructure
-- 🚀 **[LLM Infrastructure & Operations](./llm-infrastructure)** - Deploy ChatGPT-scale systems
-- 🎯 **[AI Platform Interview Prep](./ai-interview-prep)** - Ace AI platform interviews
+- 🧠 **[AI/ML Platform Engineering](/technical/ai-ml-platform)** - Build and scale ML infrastructure
+- 🚀 **[LLM Infrastructure & Operations](/technical/llm-infrastructure)** - Deploy ChatGPT-scale systems
+- 🎯 **[AI Platform Interview Prep](/technical/ai-interview-prep)** - Ace AI platform interviews
 
 **Why it matters:** AI platform engineers command 20-30% salary premiums and work on cutting-edge infrastructure powering the AI revolution.
 
 ## Core Topics Overview
 
 ### Deep Dive Guides
-- 🐧 **[Linux Deep Dive](./linux-deep-dive)** - Master Linux internals and system programming
-- ☸️ **[Kubernetes Mastery](./kubernetes-mastery)** - Production-grade K8s expertise
-- ☁️ **[Cloud Platforms Deep Dive](./cloud-platforms)** - AWS, GCP, and Azure at scale
+- 🐧 **[Linux Deep Dive](/technical/linux-deep-dive)** - Master Linux internals and system programming
+- ☸️ **[Kubernetes Mastery](/technical/kubernetes-mastery)** - Production-grade K8s expertise
+- ☁️ **[Cloud Platforms Deep Dive](/technical/cloud-platforms)** - AWS, GCP, and Azure at scale
 
 ### 1. Linux & System Programming
 Essential for understanding how applications interact with the operating system.

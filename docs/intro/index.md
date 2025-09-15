@@ -20,7 +20,7 @@ This guide is laser-focused on helping you succeed in platform engineering inter
 
 ## 📚 Guide Structure
 
-### 1. **[Core Technical Skills](/2-core-technical)**
+### 1. **[Core Technical Skills](/core-technical)**
 Master the fundamentals every platform engineer needs:
 - Linux systems and internals
 - Networking essentials
@@ -29,7 +29,7 @@ Master the fundamentals every platform engineer needs:
 - Infrastructure as Code
 - Security fundamentals
 
-### 2. **[Platform Infrastructure](/3-platform-infrastructure)**
+### 2. **[Platform Infrastructure](/platform-infrastructure)**
 Build and scale the platforms that power modern applications:
 - Distributed systems principles
 - Data storage and databases
@@ -38,7 +38,7 @@ Build and scale the platforms that power modern applications:
 - API gateways and management
 - CI/CD platforms
 
-### 3. **[Reliability & Operations](/4-reliability-operations)**
+### 3. **[Reliability & Operations](/reliability-operations)**
 Keep systems running at scale:
 - Monitoring and observability
 - SRE practices and SLOs
@@ -46,27 +46,27 @@ Keep systems running at scale:
 - Chaos engineering
 - Performance and scaling
 
-### 4. **[System Design](/5-system-design)**
+### 4. **[System Design](/system-design)**
 Design large-scale infrastructure systems:
 - Design principles and patterns
 - Common interview problems
 - Practice scenarios with solutions
 
-### 5. **[Programming Skills](/6-programming)**
+### 5. **[Programming Skills](/programming)**
 Code like a platform engineer:
 - Python for automation
 - Go for infrastructure tools
 - Bash scripting mastery
 - Platform-specific coding challenges
 
-### 6. **[Interview Skills](/7-interview-skills)**
+### 6. **[Interview Skills](/interview-prep)**
 Ace the non-technical aspects:
 - Behavioral question strategies
 - Technical communication
 - Interview process navigation
 - Resume optimization
 
-### 7. **[Hands-On Labs](/8-hands-on-labs)**
+### 7. **[Hands-On Labs](/hands-on-labs)**
 Build real projects:
 - CI/CD pipeline from scratch
 - Kubernetes cluster deployment
@@ -95,8 +95,8 @@ Build real projects:
 - Do mock interviews
 
 ### Quick Prep (1-2 weeks)
-- Jump to [System Design](/5-system-design) for architecture questions
-- Review [Interview Skills](/7-interview-skills) for behavioral prep
+- Jump to [System Design](/system-design) for architecture questions
+- Review [Interview Skills](/interview-prep) for behavioral prep
 - Focus on your weakest technical area
 
 ## 🎓 What is Platform Engineering?
@@ -150,7 +150,7 @@ Before your interviews, ensure you can:
 
 ## 🚦 Ready to Start?
 
-Begin with [Core Technical Skills →](/2-core-technical)
+Begin with [Core Technical Skills →](/core-technical)
 
 ---
 

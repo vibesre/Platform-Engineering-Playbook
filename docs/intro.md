@@ -14,7 +14,7 @@ Your comprehensive guide to mastering Platform Engineering, Site Reliability Eng
 
 <div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
 
-### 📚 [Technical Skills](/technical)
+### 📚 [Technical Skills](/technical-skills)
 **Master the fundamentals**
 - Core platform concepts
 - Infrastructure & cloud
@@ -25,7 +25,7 @@ Your comprehensive guide to mastering Platform Engineering, Site Reliability Eng
 
 <div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
 
-### 💪 [Practice](/practice)
+### 💪 [Practice](/practice-resources)
 **Apply your knowledge**
 - Hands-on labs
 - Mock interviews
@@ -36,7 +36,7 @@ Your comprehensive guide to mastering Platform Engineering, Site Reliability Eng
 
 <div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
 
-### 🚀 [Get Hired](/get-hired)
+### 🚀 [Career Guide](/career-guide)
 **Land your dream role**
 - Resume optimization
 - Company research
@@ -47,7 +47,7 @@ Your comprehensive guide to mastering Platform Engineering, Site Reliability Eng
 
 <div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
 
-### 📖 [Resources](/resources)
+### 📖 [Resources](/practice-resources)
 **Extra materials**
 - Books & courses
 - Communities
@@ -61,16 +61,16 @@ Your comprehensive guide to mastering Platform Engineering, Site Reliability Eng
 ## 🗺️ Choose Your Path
 
 ### 🆕 Complete Beginner
-Explore the **[Technical Skills](/technical)** section to build and strengthen your platform engineering knowledge.
+Explore the **[Technical Skills](/technical-skills)** section to build and strengthen your platform engineering knowledge.
 
 ### 🔄 Transitioning from Development
 Focus on **[Cloud Platforms](/technical/cloud-platforms)** and **[Kubernetes Mastery](/technical/kubernetes-mastery)** to build essential skills.
 
 ### ⏱️ Interview in 2 Weeks
-Focus on **[Practice & Prepare](/practice)** section, especially mock interviews and common scenarios. Review relevant technical topics as needed.
+Focus on **[Practice & Resources](/practice-resources)** section, especially mock interviews and common scenarios. Review relevant technical topics as needed.
 
 ### 📈 Leveling Up Your Career
-Dive into advanced **[Technical Topics](/technical)** and focus on **[Get Hired](/get-hired)** for negotiation strategies and career growth.
+Dive into advanced **[Technical Topics](/technical-skills)** and focus on **[Career Guide](/career-guide)** for negotiation strategies and career growth.
 
 ## 🌟 What Makes This Guide Special
 
@@ -152,16 +152,16 @@ Distinguished Engineer / Engineering Manager
 ### 🚀 For Interview Preparation
 
 **4-8 Week Plan:**
-1. **Week 1-2**: Review [Technical Skills](/technical) fundamentals relevant to the role
+1. **Week 1-2**: Review [Technical Skills](/technical-skills) fundamentals relevant to the role
 2. **Week 3-4**: Deep dive into specific technical areas required for your target position
-3. **Week 5-6**: Heavy focus on [Practice & Prepare](/practice) - mock interviews and scenarios
+3. **Week 5-6**: Heavy focus on [Practice & Resources](/practice-resources) - mock interviews and scenarios
 4. **Week 7-8**: Study company-specific information and practice with [Mock Scenarios](/practice/mock-scenarios)
 
 ### 📈 For Career Development
 
-- **New to Platform Engineering**: Start with [Technical Skills](/technical) section, building foundational knowledge
-- **Transitioning from SWE**: Focus on [Technical Skills](/technical) related to infrastructure and operations
-- **Current Platform Engineers**: Explore advanced [Technical Topics](/technical) and [Get Hired](/get-hired) for career growth
+- **New to Platform Engineering**: Start with [Technical Skills](/technical-skills) section, building foundational knowledge
+- **Transitioning from SWE**: Focus on [Technical Skills](/technical-skills) related to infrastructure and operations
+- **Current Platform Engineers**: Explore advanced [Technical Topics](/technical-skills) and [Career Guide](/career-guide) for career growth
 
 ## 🌟 Top Resources by Category
 
