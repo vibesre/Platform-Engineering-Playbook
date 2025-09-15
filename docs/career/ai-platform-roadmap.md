@@ -19,7 +19,7 @@ AI Platform Engineering sits at the intersection of:
 graph TD
     A[Start] --> B{Background?}
     B -->|Platform Eng| C[Learn ML Fundamentals]
-    B -->|ML Engineer| D[Learn Platform Engineering]
+    B -->|ML Engineer| D[Study Platform Engineering]
     B -->|New Grad| E[Learn Both Paths]
     
     C --> F[ML Tools & Frameworks]

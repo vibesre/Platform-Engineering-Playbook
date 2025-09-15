@@ -14,12 +14,12 @@ Your comprehensive guide to mastering Platform Engineering, Site Reliability Eng
 
 <div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
 
-### 📚 [Learn](/learn)
+### 📚 [Technical Skills](/technical)
 **Master the fundamentals**
-- Start from basics
-- Progress to advanced topics
-- Integrated interview prep
-- Hands-on exercises
+- Core platform concepts
+- Infrastructure & cloud
+- Kubernetes & containers
+- Advanced architectures
 
 </div>
 
@@ -61,16 +61,16 @@ Your comprehensive guide to mastering Platform Engineering, Site Reliability Eng
 ## 🗺️ Choose Your Path
 
 ### 🆕 Complete Beginner
-Start with **[Getting Started](/learn/beginner/getting-started)** and follow the structured learning path through beginner, intermediate, and advanced topics.
+Explore the **[Technical Skills](/technical)** section to build and strengthen your platform engineering knowledge.
 
 ### 🔄 Transitioning from Development
-Skim the basics, then jump to **[Cloud & Infrastructure](/learn/intermediate/cloud-infrastructure)** and **[Containers & Kubernetes](/learn/intermediate/containers-kubernetes)**.
+Focus on **[Cloud Platforms](/technical/cloud-platforms)** and **[Kubernetes Mastery](/technical/kubernetes-mastery)** to build essential skills.
 
 ### ⏱️ Interview in 2 Weeks
 Focus on **[Practice & Prepare](/practice)** section, especially mock interviews and common scenarios. Review relevant technical topics as needed.
 
 ### 📈 Leveling Up Your Career
-Explore **[Advanced Topics](/learn/advanced)** and focus on **[Get Hired](/get-hired)** for negotiation strategies and career growth.
+Dive into advanced **[Technical Topics](/technical)** and focus on **[Get Hired](/get-hired)** for negotiation strategies and career growth.
 
 ## 🌟 What Makes This Guide Special
 
@@ -152,16 +152,16 @@ Distinguished Engineer / Engineering Manager
 ### 🚀 For Interview Preparation
 
 **4-8 Week Plan:**
-1. **Week 1-2**: Complete [Beginner Topics](/learn/beginner) if needed, review fundamentals
-2. **Week 3-4**: Work through [Intermediate Topics](/learn/intermediate) relevant to target role
+1. **Week 1-2**: Review [Technical Skills](/technical) fundamentals relevant to the role
+2. **Week 3-4**: Deep dive into specific technical areas required for your target position
 3. **Week 5-6**: Heavy focus on [Practice & Prepare](/practice) - mock interviews and scenarios
 4. **Week 7-8**: Study company-specific information and practice with [Mock Scenarios](/practice/mock-scenarios)
 
 ### 📈 For Career Development
 
-- **New to Platform Engineering**: Start with [Learn](/learn) section, progressing from beginner to advanced
-- **Transitioning from SWE**: Jump to [Intermediate Topics](/learn/intermediate), focus on infrastructure and operations
-- **Current Platform Engineers**: Explore [Advanced Topics](/learn/advanced) and [Get Hired](/get-hired) for career growth
+- **New to Platform Engineering**: Start with [Technical Skills](/technical) section, building foundational knowledge
+- **Transitioning from SWE**: Focus on [Technical Skills](/technical) related to infrastructure and operations
+- **Current Platform Engineers**: Explore advanced [Technical Topics](/technical) and [Get Hired](/get-hired) for career growth
 
 ## 🌟 Top Resources by Category
 
