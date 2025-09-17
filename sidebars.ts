@@ -28,6 +28,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Core Fundamentals',
+      collapsed: false,
       items: [
         'core-technical/index',
         'core-technical/linux-systems',
@@ -38,6 +39,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Programming & Scripting',
+      collapsed: false,
       items: [
         'programming/index',
         'algorithms/index'
@@ -46,6 +48,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Infrastructure & Architecture',
+      collapsed: false,
       items: [
         'platform-infrastructure/index',
         'platform-infrastructure/distributed-systems',
@@ -56,6 +59,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Reliability & Operations',
+      collapsed: false,
       items: [
         'reliability-operations/index',
         'technical/sre-practices-incident-management',
@@ -66,6 +70,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Data & Messaging',
+      collapsed: false,
       items: [
         'technical/caching-data-stores',
         'technical/message-queues-event-driven'
@@ -74,6 +79,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'AI/ML Infrastructure',
+      collapsed: false,
       items: [
         'technical/ai-ml-platform',
         'technical/llm-infrastructure',
@@ -84,6 +90,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Advanced Topics',
+      collapsed: false,
       items: [
         'technical/linux-deep-dive',
         'technical/cloud-platforms',
@@ -104,6 +111,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Interview Process',
+      collapsed: false,
       items: [
         'interview-process/index',
         'practice/interview-formats',
@@ -113,6 +121,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'System Design',
+      collapsed: false,
       items: [
         'system-design/index'
       ]
@@ -120,6 +129,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Behavioral',
+      collapsed: false,
       items: [
         'behavioral/index'
       ]
@@ -127,6 +137,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Coding Challenges',
+      collapsed: false,
       items: [
         'coding-challenges/index'
       ]
@@ -142,6 +153,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Job Search',
+      collapsed: false,
       items: [
         'get-hired/index',
         'get-hired/job-search',
@@ -152,6 +164,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Career Development',
+      collapsed: false,
       items: [
         'career/index'
       ]
@@ -159,6 +172,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Compensation & Negotiation',
+      collapsed: false,
       items: [
         'compensation/index',
         'get-hired/negotiation'
@@ -175,6 +189,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Hands-On Practice',
+      collapsed: false,
       items: [
         'practice/index',
         'practice/hands-on-labs',
@@ -185,6 +200,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Company Guides',
+      collapsed: false,
       items: [
         'company-specific/index'
       ]
@@ -192,6 +208,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Additional Resources',
+      collapsed: false,
       items: [
         'resources/index'
       ]
