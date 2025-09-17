@@ -34,3 +34,35 @@
   height: 2rem;
   width: auto;
 }
+
+/* Ensure right sidebar (TOC) is visible */
+.table-of-contents {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+}
+
+/* Auto-expand sidebar categories on page load */
+.menu__list .menu__list {
+  display: block !important;
+  overflow: visible !important;
+  height: auto !important;
+}
+
+/* Ensure sidebar items are properly visible */
+.menu__link--sublist-caret:after {
+  transform: rotate(90deg);
+}
+
+/* Right sidebar (TOC) styling */
+@media (min-width: 997px) {
+  .col--3 {
+    --ifm-col-width: calc(3 / var(--ifm-col-count) * 100%);
+    padding-right: var(--ifm-spacing-horizontal);
+  }
+}
+
+/* Improve sidebar navigation visibility */
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link--sublist-caret:after,
+.theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible > .menu__link--sublist-caret:after {
+  transform: rotate(90deg);
+}

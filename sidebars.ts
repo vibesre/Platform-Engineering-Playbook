@@ -29,6 +29,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Core Fundamentals',
       collapsed: false,
+      collapsible: true,
       items: [
         'core-technical/index',
         'core-technical/linux-systems',
@@ -40,6 +41,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Programming & Scripting',
       collapsed: false,
+      collapsible: true,
       items: [
         'programming/index',
         'algorithms/index'
@@ -49,6 +51,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Infrastructure & Architecture',
       collapsed: false,
+      collapsible: true,
       items: [
         'platform-infrastructure/index',
         'platform-infrastructure/distributed-systems',
@@ -60,6 +63,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Reliability & Operations',
       collapsed: false,
+      collapsible: true,
       items: [
         'reliability-operations/index',
         'technical/sre-practices-incident-management',
@@ -71,6 +75,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Data & Messaging',
       collapsed: false,
+      collapsible: true,
       items: [
         'technical/caching-data-stores',
         'technical/message-queues-event-driven'
@@ -80,6 +85,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'AI/ML Infrastructure',
       collapsed: false,
+      collapsible: true,
       items: [
         'technical/ai-ml-platform',
         'technical/llm-infrastructure',
@@ -91,6 +97,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Advanced Topics',
       collapsed: false,
+      collapsible: true,
       items: [
         'technical/linux-deep-dive',
         'technical/cloud-platforms',
@@ -112,6 +119,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Interview Process',
       collapsed: false,
+      collapsible: true,
       items: [
         'interview-process/index',
         'practice/interview-formats',
@@ -122,6 +130,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'System Design',
       collapsed: false,
+      collapsible: true,
       items: [
         'system-design/index'
       ]
@@ -130,6 +139,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Behavioral',
       collapsed: false,
+      collapsible: true,
       items: [
         'behavioral/index'
       ]
@@ -138,6 +148,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Coding Challenges',
       collapsed: false,
+      collapsible: true,
       items: [
         'coding-challenges/index'
       ]
@@ -154,6 +165,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Job Search',
       collapsed: false,
+      collapsible: true,
       items: [
         'get-hired/index',
         'get-hired/job-search',
@@ -165,6 +177,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Career Development',
       collapsed: false,
+      collapsible: true,
       items: [
         'career/index'
       ]
@@ -173,6 +186,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Compensation & Negotiation',
       collapsed: false,
+      collapsible: true,
       items: [
         'compensation/index',
         'get-hired/negotiation'
@@ -190,6 +204,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Hands-On Practice',
       collapsed: false,
+      collapsible: true,
       items: [
         'practice/index',
         'practice/hands-on-labs',
@@ -201,6 +216,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Company Guides',
       collapsed: false,
+      collapsible: true,
       items: [
         'company-specific/index'
       ]
@@ -209,6 +225,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Additional Resources',
       collapsed: false,
+      collapsible: true,
       items: [
         'resources/index'
       ]
