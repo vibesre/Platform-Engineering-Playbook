@@ -65,29 +65,10 @@ const config: Config = {
       },
       items: [
         {
-          to: 'getting-started',
-          label: 'Getting Started',
+          type: 'docSidebar',
+          sidebarId: 'tutorialSidebar',
           position: 'left',
-        },
-        {
-          to: 'technical',
-          label: 'Technical Skills',
-          position: 'left',
-        },
-        {
-          to: 'interview-prep',
-          label: 'Interview Prep',
-          position: 'left',
-        },
-        {
-          to: 'career-guide',
-          label: 'Career Guide',
-          position: 'left',
-        },
-        {
-          to: 'practice-resources',
-          label: 'Practice & Resources',
-          position: 'left',
+          label: 'Documentation',
         },
         {
           href: 'https://github.com/vibesre/Platform-Engineering-Playbook',
