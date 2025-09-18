@@ -3,6 +3,8 @@ id: index
 title: Technical Skills
 sidebar_label: Overview
 slug: /technical-skills
+pagination_next: null
+pagination_prev: null
 ---
 
 # Technical Skills for Platform Engineers

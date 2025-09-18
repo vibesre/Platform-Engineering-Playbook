@@ -45,6 +45,8 @@ const config: Config = {
           routeBasePath: '/',
           editUrl:
             'https://github.com/vibesre/Platform-Engineering-Playbook/tree/main/',
+          showLastUpdateTime: false,
+          showLastUpdateAuthor: false,
         },
         blog: false,
         theme: {

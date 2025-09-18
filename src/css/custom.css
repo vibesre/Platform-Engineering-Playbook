@@ -36,23 +36,53 @@
 }
 
 /* Ensure right sidebar (TOC) is visible and properly positioned */
-.table-of-contents {
-  position: sticky;
-  top: calc(var(--ifm-navbar-height) + 2rem);
-  max-height: calc(100vh - var(--ifm-navbar-height) - 4rem);
-  overflow-y: auto;
+.theme-doc-toc-desktop {
+  position: sticky !important;
+  top: calc(var(--ifm-navbar-height) + 2rem) !important;
+  max-height: calc(100vh - var(--ifm-navbar-height) - 4rem) !important;
+  overflow-y: auto !important;
+  display: block !important;
 }
 
-/* Right sidebar (TOC) styling */
+/* Force proper layout structure */
 @media (min-width: 997px) {
-  .col--3 {
-    --ifm-col-width: calc(3 / var(--ifm-col-count) * 100%);
-    padding-right: var(--ifm-spacing-horizontal);
+  .theme-doc-page {
+    display: flex;
+    width: 100%;
   }
   
-  /* Ensure TOC is visible */
+  .theme-doc-main-container {
+    width: 100%;
+    display: flex;
+  }
+  
+  main[class*="docMainContainer"] {
+    flex: 1 1 auto;
+    max-width: calc(100% - 300px);
+  }
+  
   .theme-doc-toc-desktop {
     display: block !important;
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky !important;
+    top: calc(var(--ifm-navbar-height) + 1rem) !important;
+    height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+    overflow-y: auto;
+    padding-left: 1rem;
   }
+  
+  /* Hide mobile TOC */
+  .theme-doc-toc-mobile {
+    display: none !important;
+  }
+}
+
+/* Hide the bottom navigation (pagination) */
+.pagination-nav,
+.theme-doc-footer,
+nav.pagination-nav,
+.theme-doc-footer-nav-container {
+  display: none !important;
 }
 
