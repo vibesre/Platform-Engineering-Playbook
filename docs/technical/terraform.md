@@ -360,4 +360,4 @@ resource "aws_instance" "web" {
 
 ---
 
-**Next Steps**: After mastering Terraform, explore [Ansible](/technical/ansible) for configuration management or [Pulumi](/technical/pulumi) for infrastructure as actual code.
+**Next Steps**: After mastering Terraform, explore [AWS](/technical/aws) to apply your IaC skills or [Kubernetes](/technical/kubernetes) for container orchestration.

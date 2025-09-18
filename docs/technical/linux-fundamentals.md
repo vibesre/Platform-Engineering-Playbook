@@ -199,4 +199,4 @@ apt/yum/dnf, dpkg/rpm, snap
 
 ---
 
-**Next Steps**: Once comfortable with Linux fundamentals, move on to [Shell Scripting (Bash)](/technical/bash-scripting) to automate your workflows.
+**Next Steps**: Once comfortable with Linux fundamentals, explore [Docker](/technical/docker) to learn containerization or [AWS](/technical/aws) to understand cloud platforms.

@@ -39,24 +39,7 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           items: [
             'technical/linux-fundamentals',
-            'technical/system-administration',
-            'technical/bash-scripting',
-            'technical/process-management',
-            'technical/file-systems'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Networking',
-          collapsed: true,
-          collapsible: true,
-          items: [
-            'technical/tcp-ip',
-            'technical/dns',
-            'technical/load-balancing',
-            'technical/network-security',
-            'technical/tls-ssl',
-            'technical/network-troubleshooting'
+            'technical/linux-deep-dive'
           ]
         },
         {
@@ -66,11 +49,7 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           items: [
             'technical/aws',
-            'technical/gcp',
-            'technical/azure',
-            'technical/cloud-architecture',
-            'technical/cloud-networking',
-            'technical/cloud-security'
+            'technical/cloud-platforms'
           ]
         },
         {
@@ -81,10 +60,8 @@ const sidebars: SidebarsConfig = {
           items: [
             'technical/docker',
             'technical/kubernetes',
-            'technical/container-security',
-            'technical/helm',
-            'technical/service-mesh',
-            'technical/operators'
+            'technical/kubernetes-mastery',
+            'technical/serverless-edge-computing'
           ]
         },
         {
@@ -93,25 +70,7 @@ const sidebars: SidebarsConfig = {
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/terraform',
-            'technical/ansible',
-            'technical/pulumi',
-            'technical/cloudformation',
-            'technical/crossplane'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'CI/CD & GitOps',
-          collapsed: true,
-          collapsible: true,
-          items: [
-            'technical/git',
-            'technical/github-actions',
-            'technical/jenkins',
-            'technical/gitlab-ci',
-            'technical/argocd',
-            'technical/flux'
+            'technical/terraform'
           ]
         },
         {
@@ -120,52 +79,56 @@ const sidebars: SidebarsConfig = {
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/prometheus',
-            'technical/grafana',
-            'technical/elasticsearch',
-            'technical/opentelemetry',
-            'technical/datadog',
-            'technical/jaeger'
+            'technical/chaos-engineering',
+            'technical/sre-practices-incident-management'
           ]
         },
         {
           type: 'category',
-          label: 'Databases & Storage',
+          label: 'APIs & Integration',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/postgresql',
-            'technical/mysql',
-            'technical/mongodb',
-            'technical/redis',
-            'technical/cassandra',
-            'technical/object-storage'
+            'technical/api-design-protocols'
           ]
         },
         {
           type: 'category',
-          label: 'Programming Languages',
+          label: 'Data & Storage',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/python',
-            'technical/go',
-            'technical/javascript',
-            'technical/yaml',
-            'technical/regex'
+            'technical/caching-data-stores',
+            'technical/message-queues-event-driven'
           ]
         },
         {
           type: 'category',
-          label: 'Messaging & Streaming',
+          label: 'AI/ML Infrastructure',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/kafka',
-            'technical/rabbitmq',
-            'technical/redis-pubsub',
-            'technical/nats',
-            'technical/aws-messaging'
+            'technical/ai-ml-platform',
+            'technical/llm-infrastructure',
+            'technical/vector-databases-ai'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Security & Compliance',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/security-compliance'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Interview Preparation',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/ai-interview-prep'
           ]
         }
       ]

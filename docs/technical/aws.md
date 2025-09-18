@@ -384,4 +384,4 @@ kubectl expose deployment nginx --port=80 --type=LoadBalancer
 
 ---
 
-**Next Steps**: After mastering AWS, explore [Terraform](/technical/terraform) for infrastructure as code or dive into [Google Cloud Platform](/technical/gcp) for multi-cloud expertise.
+**Next Steps**: After mastering AWS, explore [Terraform](/technical/terraform) for infrastructure as code or [Docker](/technical/docker) and [Kubernetes](/technical/kubernetes) for container platforms.

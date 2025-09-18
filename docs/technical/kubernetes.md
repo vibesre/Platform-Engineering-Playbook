@@ -324,4 +324,4 @@ kubectl delete -f manifest.yaml
 
 ---
 
-**Next Steps**: After mastering Kubernetes basics, explore [Helm](/technical/helm) for package management and [Service Mesh](/technical/service-mesh) for advanced traffic management.
+**Next Steps**: After mastering Kubernetes basics, explore [Terraform](/technical/terraform) for infrastructure as code or dive deeper with [Kubernetes Mastery](/technical/kubernetes-mastery).
