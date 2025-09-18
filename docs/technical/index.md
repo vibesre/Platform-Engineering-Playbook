@@ -3,15 +3,17 @@ id: index
 title: Technical Skills
 sidebar_label: Overview
 slug: /technical-skills
+toc_min_heading_level: 2
+toc_max_heading_level: 2
 ---
 
 # Technical Skills for Platform Engineers
 
 Master the essential technical skills needed for platform engineering, SRE, and DevOps roles. This comprehensive guide covers 150+ technologies organized into clear categories.
 
-## 📍 Quick Navigation
-
 <div className="technical-nav-box">
+
+**📍 Quick Navigation**
 
 **Jump to:** [Linux & Systems](#-linux--systems) • [Networking](#-networking) • [Cloud Platforms](#️-cloud-platforms) • [Containers](#-containers--orchestration) • [IaC](#️-infrastructure-as-code) • [CI/CD](#-cicd--gitops) • [Monitoring](#-monitoring--observability) • [Databases](#-databases--storage) • [Programming](#-programming-languages) • [Security](#-security-tools) • [Messaging](#-messaging--streaming) • [Additional Tools](#️-additional-tools)
 

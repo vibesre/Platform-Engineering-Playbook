@@ -54,12 +54,24 @@
   background-color: var(--ifm-color-primary-lightest);
   border: 2px solid var(--ifm-color-primary-light);
   border-radius: 8px;
-  padding: 16px;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 20px 0 30px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 0.95rem;
 }
 
 [data-theme='dark'] .technical-nav-box {
   background-color: var(--ifm-color-primary-darkest);
   border-color: var(--ifm-color-primary-dark);
+}
+
+/* Make the navigation box sticky on scroll */
+@media (min-width: 997px) {
+  .technical-nav-box {
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 1rem);
+    z-index: 10;
+    background-color: var(--ifm-background-color);
+    border: 2px solid var(--ifm-color-primary);
+  }
 }
