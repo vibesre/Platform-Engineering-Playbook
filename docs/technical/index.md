@@ -7,210 +7,158 @@ slug: /technical-skills
 
 # Technical Skills for Platform Engineers
 
-Master all the technical knowledge you need for platform engineering excellence. This comprehensive section covers everything from fundamental skills to advanced platform engineering topics.
+Master the essential technical skills needed for platform engineering, SRE, and DevOps roles. Each topic includes carefully curated, high-quality learning resources.
 
-## 🚀 Featured: AI/ML Platform Engineering
+## 📚 Skills by Category
 
-The intersection of AI and infrastructure is creating unprecedented opportunities. Master these specialized skills:
+### 🐧 Linux & Systems
+Core operating system knowledge essential for platform engineers.
 
-### AI/ML Infrastructure
-- 🧠 **[AI/ML Platform Engineering](/technical/ai-ml-platform)** - Build and scale ML infrastructure
-- 🚀 **[LLM Infrastructure & Operations](/technical/llm-infrastructure)** - Deploy ChatGPT-scale systems
-- 🎯 **[AI Platform Interview Prep](/technical/ai-interview-prep)** - Ace AI platform interviews
+- **[Linux Fundamentals](/technical/linux-fundamentals)** - Core Linux concepts and commands
+- **[System Administration](/technical/system-administration)** - Managing Linux systems at scale
+- **[Shell Scripting (Bash)](/technical/bash-scripting)** - Automation with shell scripts
+- **[Process Management](/technical/process-management)** - Understanding processes and systemd
+- **[File Systems](/technical/file-systems)** - Storage, mounting, and file system types
 
-**Why it matters:** AI platform engineers command 20-30% salary premiums and work on cutting-edge infrastructure powering the AI revolution.
+### 🌐 Networking
+Understanding how systems communicate is crucial for platform engineering.
 
-## Core Topics Overview
+- **[TCP/IP Fundamentals](/technical/tcp-ip)** - Core networking protocols
+- **[DNS](/technical/dns)** - Domain Name System deep dive
+- **[Load Balancing](/technical/load-balancing)** - Distributing traffic effectively
+- **[Network Security](/technical/network-security)** - Firewalls, security groups, and VPNs
+- **[TLS/SSL](/technical/tls-ssl)** - Encryption and certificates
+- **[Network Troubleshooting](/technical/network-troubleshooting)** - Debugging network issues
 
-### Deep Dive Guides
-- 🐧 **[Linux Deep Dive](/technical/linux-deep-dive)** - Master Linux internals and system programming
-- ☸️ **[Kubernetes Mastery](/technical/kubernetes-mastery)** - Production-grade K8s expertise
-- ☁️ **[Cloud Platforms Deep Dive](/technical/cloud-platforms)** - AWS, GCP, and Azure at scale
+### ☁️ Cloud Platforms
+Master the major cloud providers and cloud-native concepts.
 
-### 1. Linux & System Programming
-Essential for understanding how applications interact with the operating system.
+- **[AWS](/technical/aws)** - Amazon Web Services
+- **[Google Cloud Platform](/technical/gcp)** - GCP services and best practices
+- **[Azure](/technical/azure)** - Microsoft Azure platform
+- **[Cloud Architecture](/technical/cloud-architecture)** - Multi-cloud and hybrid strategies
+- **[Cloud Networking](/technical/cloud-networking)** - VPCs, subnets, and connectivity
+- **[Cloud Security](/technical/cloud-security)** - IAM, policies, and compliance
 
-**Key Resources:**
-- 📚 **[The Linux Programming Interface](https://man7.org/tlpi/)** by Michael Kerrisk - The definitive guide to Linux system programming
-- 📖 [mxssl/sre-interview-prep-guide](https://github.com/mxssl/sre-interview-prep-guide#linux) - Linux internals section
-- 🔧 [Linux Journey](https://linuxjourney.com/) - Interactive Linux learning
+### 🐳 Containers & Orchestration
+Container technologies and orchestration platforms.
 
-**Must-Know Topics:**
-- File descriptors, pipes, and sockets
-- Process management and signals
-- Memory management
-- System calls
-- Shell scripting (Bash)
+- **[Docker](/technical/docker)** - Container fundamentals
+- **[Kubernetes](/technical/kubernetes)** - Container orchestration at scale
+- **[Container Security](/technical/container-security)** - Securing containerized workloads
+- **[Helm](/technical/helm)** - Kubernetes package management
+- **[Service Mesh](/technical/service-mesh)** - Istio, Linkerd, and traffic management
+- **[Operators](/technical/operators)** - Kubernetes operators and CRDs
 
-### 2. Networking
-Understanding networking is crucial for debugging distributed systems.
+### 🏗️ Infrastructure as Code
+Automate infrastructure provisioning and configuration.
 
-**Key Resources:**
-- 📖 [High Performance Browser Networking](https://hpbn.co/) - Free online book
-- 🎥 [Computer Networking Course](https://www.youtube.com/watch?v=qiQR5rTSshw) - FreeCodeCamp
-- 📖 [bregman-arie/devops-exercises - Networking](https://github.com/bregman-arie/devops-exercises#network)
+- **[Terraform](/technical/terraform)** - Infrastructure provisioning
+- **[Ansible](/technical/ansible)** - Configuration management
+- **[Pulumi](/technical/pulumi)** - Infrastructure as code using programming languages
+- **[CloudFormation](/technical/cloudformation)** - AWS native IaC
+- **[Crossplane](/technical/crossplane)** - Kubernetes-native infrastructure management
 
-**Must-Know Topics:**
-- OSI model and TCP/IP stack
-- HTTP/HTTPS, DNS, Load Balancing
-- Network troubleshooting (tcpdump, netstat, dig)
-- CDNs and reverse proxies
-- VPNs and network security
+### 🔄 CI/CD & GitOps
+Continuous integration, delivery, and GitOps practices.
 
-### 3. Containerization & Orchestration
+- **[Git](/technical/git)** - Version control fundamentals
+- **[GitHub Actions](/technical/github-actions)** - GitHub's CI/CD platform
+- **[Jenkins](/technical/jenkins)** - Classic CI/CD automation
+- **[GitLab CI](/technical/gitlab-ci)** - GitLab's integrated CI/CD
+- **[ArgoCD](/technical/argocd)** - GitOps continuous delivery
+- **[Flux](/technical/flux)** - GitOps toolkit
 
-**Docker:**
-- 📖 [Docker Official Documentation](https://docs.docker.com/)
-- 🔧 [NotHarshhaa/DevOps-Interview-Questions - Docker](https://github.com/NotHarshhaa/DevOps-Interview-Questions#docker)
-- 📖 [bregman-arie/devops-exercises - Docker](https://github.com/bregman-arie/devops-exercises#docker)
+### 📊 Monitoring & Observability
+Monitor, analyze, and understand system behavior.
 
-**Kubernetes:**
-- 📖 [Kubernetes Official Documentation](https://kubernetes.io/docs/)
-- 🔧 [NotHarshhaa/DevOps-Interview-Questions - Kubernetes](https://github.com/NotHarshhaa/DevOps-Interview-Questions#kubernetes)
-- 📖 [kelseyhightower/kubernetes-the-hard-way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
-- 🎮 [KillerCoda Kubernetes Scenarios](https://killercoda.com/kubernetes)
+- **[Prometheus](/technical/prometheus)** - Metrics and alerting
+- **[Grafana](/technical/grafana)** - Visualization and dashboards
+- **[Elasticsearch](/technical/elasticsearch)** - Log aggregation and search
+- **[OpenTelemetry](/technical/opentelemetry)** - Observability framework
+- **[Datadog](/technical/datadog)** - Commercial monitoring platform
+- **[Jaeger](/technical/jaeger)** - Distributed tracing
 
-### 4. Cloud Platforms
+### 💾 Databases & Storage
+Data persistence and storage solutions.
 
-**AWS:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - AWS](https://github.com/NotHarshhaa/DevOps-Interview-Questions#aws)
-- 🔧 [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
-- 📖 [bregman-arie/devops-exercises - AWS](https://github.com/bregman-arie/devops-exercises#aws)
+- **[PostgreSQL](/technical/postgresql)** - Relational database
+- **[MySQL](/technical/mysql)** - Popular open-source database
+- **[MongoDB](/technical/mongodb)** - Document database
+- **[Redis](/technical/redis)** - In-memory data store
+- **[Cassandra](/technical/cassandra)** - Wide-column distributed database
+- **[Object Storage](/technical/object-storage)** - S3 and compatible systems
 
-**Google Cloud Platform:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - GCP](https://github.com/NotHarshhaa/DevOps-Interview-Questions#gcp)
-- 🔧 [Google Cloud Architecture Framework](https://cloud.google.com/architecture/framework)
+### 💻 Programming Languages
+Languages essential for platform engineering.
 
-**Azure:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - Azure](https://github.com/NotHarshhaa/DevOps-Interview-Questions#azure)
-- 🔧 [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
+- **[Python](/technical/python)** - Automation and tooling
+- **[Go](/technical/go)** - Systems programming
+- **[JavaScript/Node.js](/technical/javascript)** - Full-stack development
+- **[YAML](/technical/yaml)** - Configuration language
+- **[Regular Expressions](/technical/regex)** - Pattern matching
 
-### 5. Infrastructure as Code
+### 📨 Messaging & Streaming
+Event-driven architectures and message queuing.
 
-**Terraform:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - Terraform](https://github.com/NotHarshhaa/DevOps-Interview-Questions#terraform)
-- 🔧 [HashiCorp Learn - Terraform](https://learn.hashicorp.com/terraform)
-- 📖 [bregman-arie/devops-exercises - Terraform](https://github.com/bregman-arie/devops-exercises#terraform)
+- **[Kafka](/technical/kafka)** - Distributed streaming platform
+- **[RabbitMQ](/technical/rabbitmq)** - Message broker
+- **[Redis Pub/Sub](/technical/redis-pubsub)** - Lightweight messaging
+- **[NATS](/technical/nats)** - Cloud-native messaging
+- **[AWS SQS/SNS](/technical/aws-messaging)** - AWS messaging services
 
-**Ansible:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - Ansible](https://github.com/NotHarshhaa/DevOps-Interview-Questions#ansible)
-- 🔧 [Ansible Documentation](https://docs.ansible.com/)
-- 📖 [bregman-arie/devops-exercises - Ansible](https://github.com/bregman-arie/devops-exercises#ansible)
+## 🎯 Learning Path Recommendations
 
-### 6. CI/CD
+### For Beginners
+1. Start with **Linux Fundamentals** and **TCP/IP**
+2. Learn **Docker** and basic **Git**
+3. Pick one cloud platform (**AWS** recommended)
+4. Master **Python** or **Go**
+5. Understand **Prometheus** and **Grafana**
 
-**Jenkins:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - Jenkins](https://github.com/NotHarshhaa/DevOps-Interview-Questions#jenkins)
-- 📖 [bregman-arie/devops-exercises - Jenkins](https://github.com/bregman-arie/devops-exercises#jenkins)
+### For Developers Transitioning to Platform Engineering
+1. Focus on **Kubernetes** and **Terraform**
+2. Deep dive into **Cloud Networking**
+3. Learn **Ansible** for configuration management
+4. Master **CI/CD** with GitHub Actions or GitLab
+5. Understand **Observability** principles
 
-**GitLab CI/CD:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - GitLab CI](https://github.com/NotHarshhaa/DevOps-Interview-Questions#gitlab-cicd)
-- 🔧 [GitLab CI/CD Documentation](https://docs.gitlab.com/ee/ci/)
+### For Experienced Engineers
+1. Master **Service Mesh** architectures
+2. Deep dive into **GitOps** with ArgoCD
+3. Learn **multiple cloud platforms**
+4. Understand **distributed systems** patterns
+5. Focus on **security** across all layers
 
-**GitHub Actions:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - GitHub Actions](https://github.com/NotHarshhaa/DevOps-Interview-Questions#github-actions)
-- 🔧 [GitHub Actions Documentation](https://docs.github.com/en/actions)
+## 📈 Industry Trends (2025)
 
-**ArgoCD:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - ArgoCD](https://github.com/NotHarshhaa/DevOps-Interview-Questions#argocd)
-- 🔧 [Argo CD Documentation](https://argo-cd.readthedocs.io/)
+### 🔥 Hot Technologies
+- **Platform Engineering** - Building internal developer platforms
+- **FinOps** - Cloud cost optimization
+- **eBPF** - Kernel-level observability
+- **WebAssembly** - Running code at the edge
+- **AI/ML Operations** - Managing ML workloads
 
-### 7. Monitoring & Observability
+### 📉 Declining Usage
+- **Chef/Puppet** - Replaced by Terraform/Ansible
+- **Nagios** - Replaced by modern monitoring
+- **Monolithic CI/CD** - Replaced by GitOps
+- **Traditional load balancers** - Replaced by service mesh
 
-**Prometheus & Grafana:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - Prometheus](https://github.com/NotHarshhaa/DevOps-Interview-Questions#prometheus)
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - Grafana](https://github.com/NotHarshhaa/DevOps-Interview-Questions#grafana)
-- 📖 [bregman-arie/devops-exercises - Prometheus](https://github.com/bregman-arie/devops-exercises#prometheus)
+## 🎓 Certification Recommendations
 
-**ELK Stack:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - ELK Stack](https://github.com/NotHarshhaa/DevOps-Interview-Questions#elk-stack)
-- 🔧 [Elastic Documentation](https://www.elastic.co/guide/index.html)
+### Essential Certifications
+1. **CKA** (Certified Kubernetes Administrator)
+2. **AWS Solutions Architect** or **DevOps Engineer**
+3. **HashiCorp Terraform** Associate
+4. **Google Cloud Professional** Cloud Architect
 
-### 8. System Design for Reliability
+### Advanced Certifications
+1. **CKS** (Certified Kubernetes Security Specialist)
+2. **AWS Advanced Networking**
+3. **Red Hat Certified Engineer** (RHCE)
+4. **Prometheus Certified Associate**
 
-**Key Resources:**
-- 📚 **[Designing Data-Intensive Applications](https://dataintensive.net/)** by Martin Kleppmann
-- 📖 [Google SRE Book](https://sre.google/sre-book/table-of-contents/) - Free online
-- 📖 [The System Design Primer](https://github.com/donnemartin/system-design-primer)
-- 🎥 [System Design Interview Channel](https://www.youtube.com/c/SystemDesignInterview)
+---
 
-**Must-Know Concepts:**
-- Load balancing strategies
-- Caching layers
-- Database scaling (replication, sharding)
-- Message queues and event-driven architecture
-- Microservices patterns
-- Failure modes and resilience patterns
-
-### 9. Programming & Scripting
-
-**Languages to Know:**
-- **Python** - Most common for automation and tooling
-- **Go** - Increasingly popular for infrastructure tools
-- **Bash** - Essential for system administration
-
-**Resources:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - Python](https://github.com/NotHarshhaa/DevOps-Interview-Questions#python)
-- 📖 [bregman-arie/devops-exercises - Python](https://github.com/bregman-arie/devops-exercises#python)
-- 📖 [bregman-arie/devops-exercises - Go](https://github.com/bregman-arie/devops-exercises#go)
-
-### 10. Security
-
-**Key Resources:**
-- 📖 [NotHarshhaa/DevOps-Interview-Questions - Security](https://github.com/NotHarshhaa/DevOps-Interview-Questions#security)
-- 📖 [OWASP DevSecOps Guideline](https://owasp.org/www-project-devsecops-guideline/)
-- 📚 **[Building Secure and Reliable Systems](https://sre.google/books/building-secure-reliable-systems/)** - Free from Google
-
-## Hands-On Practice
-
-### Interactive Learning Platforms
-- 🎮 [KillerCoda](https://killercoda.com/) - Free interactive scenarios
-- 🎮 [A Cloud Guru Playground](https://acloudguru.com/platform/cloud-sandbox-playgrounds) - Cloud sandboxes
-- 🎮 [Play with Docker](https://labs.play-with-docker.com/) - Docker playground
-- 🎮 [Play with Kubernetes](https://labs.play-with-k8s.com/) - K8s playground
-
-### Project Ideas
-1. Build a CI/CD pipeline from scratch
-2. Deploy a microservices application on Kubernetes
-3. Implement monitoring and alerting for a web application
-4. Create Infrastructure as Code for a three-tier application
-5. Build a disaster recovery solution
-
-## Study Plans by Experience Level
-
-### Entry Level (0-2 years)
-1. Master Linux fundamentals
-2. Learn Docker and basic Kubernetes
-3. Understand one cloud platform (AWS recommended)
-4. Basic CI/CD with Jenkins or GitHub Actions
-5. Python scripting
-
-### Mid Level (2-5 years)
-1. Deep dive into Kubernetes
-2. Master Infrastructure as Code (Terraform)
-3. Multi-cloud experience
-4. Advanced monitoring and observability
-5. System design fundamentals
-
-### Senior Level (5+ years)
-1. Complex system design
-2. Platform engineering concepts
-3. Cost optimization strategies
-4. Security best practices
-5. Leadership and architectural decisions
-
-## Additional Study Resources
-
-### Comprehensive Question Banks
-- 📖 [NotHarshhaa/DevOps-Interview-Questions](https://github.com/NotHarshhaa/DevOps-Interview-Questions) - 1100+ questions with answers
-- 📖 [bregman-arie/devops-exercises](https://github.com/bregman-arie/devops-exercises) - Exercises and questions
-- 📖 [rohitg00/devops-interview-questions](https://github.com/rohitg00/devops-interview-questions) - Platform engineering focus
-- 📖 [iam-veeramalla/devops-interview-preparation-guide](https://github.com/iam-veeramalla/devops-interview-preparation-guide) - Community-driven Q&A
-
-### Books for Deep Learning
-- 📚 **"Site Reliability Engineering"** - Google's SRE practices
-- 📚 **"The Site Reliability Workbook"** - Practical SRE implementation
-- 📚 **"Accelerate"** - DevOps metrics and practices
-- 📚 **"The DevOps Handbook"** - Implementation guide
-
-Remember: Focus on understanding concepts deeply rather than memorizing answers. Interviewers value practical experience and problem-solving skills over rote knowledge.
+Ready to dive in? Start with the fundamentals or jump to the technology you need to master!

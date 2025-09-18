@@ -34,84 +34,138 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Core Fundamentals',
+          label: 'Linux & Systems',
           collapsed: true,
           collapsible: true,
           items: [
-            'core-technical/index',
-            'core-technical/linux-systems',
-            'core-technical/networking',
-            'core-technical/cloud-platforms'
+            'technical/linux-fundamentals',
+            'technical/system-administration',
+            'technical/bash-scripting',
+            'technical/process-management',
+            'technical/file-systems'
           ]
         },
         {
           type: 'category',
-          label: 'Programming & Scripting',
+          label: 'Networking',
           collapsed: true,
           collapsible: true,
           items: [
-            'programming/index',
-            'algorithms/index'
+            'technical/tcp-ip',
+            'technical/dns',
+            'technical/load-balancing',
+            'technical/network-security',
+            'technical/tls-ssl',
+            'technical/network-troubleshooting'
           ]
         },
         {
           type: 'category',
-          label: 'Infrastructure & Architecture',
+          label: 'Cloud Platforms',
           collapsed: true,
           collapsible: true,
           items: [
-            'platform-infrastructure/index',
-            'platform-infrastructure/distributed-systems',
-            'technical/kubernetes-mastery',
-            'technical/serverless-edge-computing'
+            'technical/aws',
+            'technical/gcp',
+            'technical/azure',
+            'technical/cloud-architecture',
+            'technical/cloud-networking',
+            'technical/cloud-security'
           ]
         },
         {
           type: 'category',
-          label: 'Reliability & Operations',
+          label: 'Containers & Orchestration',
           collapsed: true,
           collapsible: true,
           items: [
-            'reliability-operations/index',
-            'technical/sre-practices-incident-management',
-            'technical/chaos-engineering',
-            'troubleshooting/index'
+            'technical/docker',
+            'technical/kubernetes',
+            'technical/container-security',
+            'technical/helm',
+            'technical/service-mesh',
+            'technical/operators'
           ]
         },
         {
           type: 'category',
-          label: 'Data & Messaging',
+          label: 'Infrastructure as Code',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/caching-data-stores',
-            'technical/message-queues-event-driven'
+            'technical/terraform',
+            'technical/ansible',
+            'technical/pulumi',
+            'technical/cloudformation',
+            'technical/crossplane'
           ]
         },
         {
           type: 'category',
-          label: 'AI/ML Infrastructure',
+          label: 'CI/CD & GitOps',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/ai-ml-platform',
-            'technical/llm-infrastructure',
-            'technical/vector-databases-ai',
-            'career/ai-platform-roadmap'
+            'technical/git',
+            'technical/github-actions',
+            'technical/jenkins',
+            'technical/gitlab-ci',
+            'technical/argocd',
+            'technical/flux'
           ]
         },
         {
           type: 'category',
-          label: 'Advanced Topics',
+          label: 'Monitoring & Observability',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/linux-deep-dive',
-            'technical/cloud-platforms',
-            'technical/api-design-protocols',
-            'technical/security-compliance',
-            'platform-engineering/index',
-            'core-skills/index'
+            'technical/prometheus',
+            'technical/grafana',
+            'technical/elasticsearch',
+            'technical/opentelemetry',
+            'technical/datadog',
+            'technical/jaeger'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Databases & Storage',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/postgresql',
+            'technical/mysql',
+            'technical/mongodb',
+            'technical/redis',
+            'technical/cassandra',
+            'technical/object-storage'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Programming Languages',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/python',
+            'technical/go',
+            'technical/javascript',
+            'technical/yaml',
+            'technical/regex'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Messaging & Streaming',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/kafka',
+            'technical/rabbitmq',
+            'technical/redis-pubsub',
+            'technical/nats',
+            'technical/aws-messaging'
           ]
         }
       ]
