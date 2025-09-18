@@ -35,7 +35,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Core Fundamentals',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'core-technical/index',
@@ -47,7 +47,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Programming & Scripting',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'programming/index',
@@ -57,7 +57,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Infrastructure & Architecture',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'platform-infrastructure/index',
@@ -69,7 +69,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Reliability & Operations',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'reliability-operations/index',
@@ -81,7 +81,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Data & Messaging',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'technical/caching-data-stores',
@@ -91,7 +91,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'AI/ML Infrastructure',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'technical/ai-ml-platform',
@@ -103,7 +103,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Advanced Topics',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'technical/linux-deep-dive',
@@ -130,7 +130,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Interview Process',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'interview-process/index',
@@ -141,7 +141,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'System Design',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'system-design/index'
@@ -150,7 +150,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Behavioral',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'behavioral/index'
@@ -159,7 +159,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Coding Challenges',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'coding-challenges/index'
@@ -181,7 +181,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Job Search',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'get-hired/index',
@@ -193,7 +193,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Career Development',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'career/index'
@@ -202,7 +202,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Compensation & Negotiation',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'compensation/index',
@@ -225,7 +225,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Hands-On Practice',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'practice/index',
@@ -237,7 +237,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Company Guides',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'company-specific/index'
@@ -246,7 +246,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Additional Resources',
-          collapsed: false,
+          collapsed: true,
           collapsible: true,
           items: [
             'resources/index'
