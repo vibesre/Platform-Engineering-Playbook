@@ -18,11 +18,6 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'intro',
           label: 'Welcome'
-        },
-        {
-          type: 'doc',
-          id: 'intro/index',
-          label: 'Introduction to Platform Engineering'
         }
       ]
     },

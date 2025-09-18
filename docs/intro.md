@@ -1,281 +1,250 @@
 ---
-title: Introduction
+title: Welcome
 sidebar_position: 1
 slug: /
 ---
 
-# Platform Engineering Playbook
+# Welcome to the Platform Engineering Playbook
 
 Your comprehensive guide to mastering Platform Engineering, Site Reliability Engineering (SRE), DevOps, and Production Engineering interviews and career development.
 
-## 🎯 Start Your Journey
+## 🎯 What This Guide Covers
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginTop: '2rem'}}>
+This guide is laser-focused on helping you succeed in platform engineering roles at top tech companies. We provide:
 
-<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
+- **Technical skills** - Master the fundamentals from Linux to Kubernetes
+- **System design** - Design large-scale infrastructure and platforms
+- **Interview preparation** - Ace technical and behavioral interviews
+- **Hands-on practice** - Build real projects for your portfolio
+- **Career guidance** - Navigate job search, negotiation, and growth
 
-### 📚 [Technical Skills](/technical-skills)
-**Master the fundamentals**
-- Core platform concepts
-- Infrastructure & cloud
-- Kubernetes & containers
-- Advanced architectures
-
-</div>
-
-<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
-
-### 💪 [Practice](/practice-resources)
-**Apply your knowledge**
-- Hands-on labs
-- Mock interviews
-- Real scenarios
-- Build portfolio
-
-</div>
-
-<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
-
-### 🚀 [Career Guide](/career-guide)
-**Land your dream role**
-- Resume optimization
-- Company research
-- Interview strategies
-- Salary negotiation
-
-</div>
-
-<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1.5rem'}}>
-
-### 📖 [Resources](/practice-resources)
-**Extra materials**
-- Books & courses
-- Communities
-- Quick references
-- External links
-
-</div>
-
-</div>
-
-## 🗺️ Choose Your Path
+## 🚀 Quick Start - Choose Your Path
 
 ### 🆕 Complete Beginner
-Explore the **[Technical Skills](/technical-skills)** section to build and strengthen your platform engineering knowledge.
+Start with **[Technical Skills](/technical-skills)** to build foundational knowledge in:
+- Linux systems and networking
+- Cloud platforms (AWS/GCP/Azure)
+- Containers and Kubernetes
+- Infrastructure as Code
 
 ### 🔄 Transitioning from Development
-Focus on **[Cloud Platforms](/technical/cloud-platforms)** and **[Kubernetes Mastery](/technical/kubernetes-mastery)** to build essential skills.
+Focus on platform-specific skills:
+- **[Cloud Platforms](/technical/cloud-platforms)** for infrastructure basics
+- **[Kubernetes Mastery](/technical/kubernetes-mastery)** for container orchestration
+- **[Infrastructure & Architecture](/platform-infrastructure)** for system design
 
 ### ⏱️ Interview in 2 Weeks
-Focus on **[Practice & Resources](/practice-resources)** section, especially mock interviews and common scenarios. Review relevant technical topics as needed.
+Fast-track your preparation:
+1. Review **[Interview Prep](/interview-prep)** for process and strategies
+2. Practice **[System Design](/system-design)** problems
+3. Do **[Mock Scenarios](/practice/mock-scenarios)**
+4. Study company-specific guides
 
 ### 📈 Leveling Up Your Career
-Dive into advanced **[Technical Topics](/technical-skills)** and focus on **[Career Guide](/career-guide)** for negotiation strategies and career growth.
+Advance to senior/staff roles:
+- Master **[Advanced Technical Topics](/technical-skills)**
+- Study **[Career Guide](/career-guide)** for growth strategies
+- Build impressive projects in **[Hands-On Labs](/hands-on-labs)**
 
-## 🌟 What Makes This Guide Special
+## 🌟 What is Platform Engineering?
 
-### Integrated Learning
-Each technical topic includes:
-- Core concepts and theory
-- Hands-on exercises
-- Common interview questions
-- Real-world applications
+Platform Engineering is the discipline of designing and building toolchains and workflows that enable self-service capabilities for software engineering organizations. Platform engineers create the foundation that development teams build upon.
 
-### Progressive Structure
-- **🟢 Beginner**: No prerequisites
-- **🟡 Intermediate**: 1+ years or basics complete
-- **🔴 Advanced**: Strong foundation required
+### Core Responsibilities
 
-### Practical Focus
-- Real interview questions from FAANG+
-- Actual scenarios you'll face
-- Projects for your portfolio
-- Industry best practices
+- **Build Internal Platforms** - Create self-service platforms that abstract infrastructure complexity
+- **Enable Developer Productivity** - Reduce cognitive load and accelerate development velocity
+- **Standardize Best Practices** - Implement golden paths for common scenarios
+- **Ensure Reliability** - Maintain platform stability, security, and performance at scale
 
-## What is Platform Engineering?
+### Platform Engineer vs Related Roles
 
-Platform Engineering is the discipline of designing and building toolchains and workflows that enable self-service capabilities for software engineering organizations in the cloud-native era. Platform engineers provide an integrated product most often referred to as an "Internal Developer Platform" covering the operational necessities of the entire lifecycle of applications.
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginTop: '1rem'}}>
 
-### Key Responsibilities
-- **Build Internal Platforms**: Create self-service platforms that abstract infrastructure complexity
-- **Enable Developer Productivity**: Reduce cognitive load on developers
-- **Standardize Best Practices**: Implement golden paths for common scenarios
-- **Maintain Reliability**: Ensure platform stability and performance
+<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1rem'}}>
 
-## Related Disciplines
+**Platform Engineer**
+- Builds internal developer platforms
+- Focus on developer experience
+- Creates infrastructure abstractions
+- Enables self-service capabilities
 
-### Site Reliability Engineering (SRE)
-Born at Google, SRE treats operations as a software problem. SREs use software engineering approaches to solve operational problems and create scalable, reliable systems.
+</div>
 
-**Focus Areas**: Error budgets, SLIs/SLOs, toil reduction, postmortems
+<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1rem'}}>
 
-### DevOps Engineering
-DevOps bridges development and operations, emphasizing collaboration, automation, and continuous improvement throughout the software lifecycle.
+**Site Reliability Engineer**
+- Ensures service reliability
+- Focus on SLOs and error budgets
+- Incident response and postmortems
+- Performance optimization
 
-**Focus Areas**: CI/CD pipelines, infrastructure automation, monitoring, deployment strategies
+</div>
 
-### Production Engineering
-Pioneered by Meta (Facebook), Production Engineers work embedded with product teams to ensure services are reliable and scalable from inception.
+<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1rem'}}>
 
-**Focus Areas**: Service architecture, capacity planning, performance optimization
+**DevOps Engineer**
+- Bridges dev and operations
+- Focus on CI/CD pipelines
+- Automation and tooling
+- Deployment strategies
 
-## Career Landscape 2025
+</div>
+
+<div style={{border: '1px solid #e1e4e8', borderRadius: '8px', padding: '1rem'}}>
+
+**Cloud Engineer**
+- Manages cloud infrastructure
+- Focus on specific platforms
+- Cost optimization
+- Cloud-native solutions
+
+</div>
+
+</div>
+
+## 📈 Why Platform Engineering in 2025?
 
 ### Market Demand
-- **87%** of enterprises are prioritizing platform engineering (Gartner, 2025)
+- **87%** of enterprises prioritizing platform engineering (Gartner)
+- **$150K-$400K+** total compensation range
+- **4x** growth in job postings since 2021
 - **25%** average salary premium over traditional ops roles
-- **4x** growth in platform engineering job postings since 2021
 
 ### Top Skills in Demand
-1. **Kubernetes & Container Orchestration** (mentioned in 76% of job posts)
+1. **Kubernetes & Container Orchestration** (76% of job posts)
 2. **Cloud Platforms** (AWS/GCP/Azure) (72%)
 3. **Infrastructure as Code** (Terraform/Pulumi) (68%)
 4. **GitOps & CI/CD** (65%)
 5. **Observability & Monitoring** (61%)
 
-### Career Progression Paths
+### Career Progression
 
 ```
-Junior Platform Engineer (0-2 years)
+Junior Platform Engineer (0-2 years) → $100K-$150K
     ↓
-Platform Engineer (2-5 years)
+Platform Engineer (2-5 years) → $130K-$200K
     ↓
-Senior Platform Engineer (5-8 years)
+Senior Platform Engineer (5-8 years) → $180K-$300K
     ↓
-Staff/Principal Platform Engineer (8+ years)
+Staff/Principal Platform Engineer (8+ years) → $250K-$500K+
     ↓
-Distinguished Engineer / Engineering Manager
+Distinguished Engineer / Engineering Manager → $400K+
 ```
 
-## How to Use This Playbook
+## 📚 How to Use This Playbook
 
-### 🚀 For Interview Preparation
+### Structured Learning Path (4-8 weeks)
 
-**4-8 Week Plan:**
-1. **Week 1-2**: Review [Technical Skills](/technical-skills) fundamentals relevant to the role
-2. **Week 3-4**: Deep dive into specific technical areas required for your target position
-3. **Week 5-6**: Heavy focus on [Practice & Resources](/practice-resources) - mock interviews and scenarios
-4. **Week 7-8**: Study company-specific information and practice with [Mock Scenarios](/practice/mock-scenarios)
+**Week 1-2: Core Technical Skills**
+- Master [Linux Systems](/core-technical/linux-systems) fundamentals
+- Review [Networking](/core-technical/networking) concepts
+- Explore [Cloud Platforms](/core-technical/cloud-platforms)
 
-### 📈 For Career Development
+**Week 3-4: Platform Infrastructure**
+- Study [Distributed Systems](/platform-infrastructure/distributed-systems)
+- Learn [Kubernetes](/technical/kubernetes-mastery) in depth
+- Understand [Infrastructure as Code](/technical-skills)
 
-- **New to Platform Engineering**: Start with [Technical Skills](/technical-skills) section, building foundational knowledge
-- **Transitioning from SWE**: Focus on [Technical Skills](/technical-skills) related to infrastructure and operations
-- **Current Platform Engineers**: Explore advanced [Technical Topics](/technical-skills) and [Career Guide](/career-guide) for career growth
+**Week 5-6: System Design & Architecture**
+- Practice [System Design](/system-design) problems
+- Review real-world architectures
+- Study scalability patterns
 
-## 🌟 Top Resources by Category
+**Week 7-8: Interview Practice**
+- Complete [Mock Scenarios](/practice/mock-scenarios)
+- Practice [Behavioral Questions](/behavioral)
+- Do company-specific prep
 
-### Essential Learning Paths
-- 🗺️ [DevOps Roadmap](https://roadmap.sh/devops) - Visual learning path
-- 🗺️ [SRE Learning Path](https://roadmap.sh/devops) - Google's SRE curriculum
-- 🗺️ [Platform Engineering Roadmap](https://github.com/platformengineering/roadmap) - Community-driven guide
+### Progressive Difficulty Levels
 
-### Must-Read Books
-1. 📚 **[Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)** - Google's comprehensive SRE guide (Free)
-2. 📚 **[The Site Reliability Workbook](https://sre.google/workbook/table-of-contents/)** - Practical SRE (Free)
-3. 📚 **[Designing Data-Intensive Applications](https://dataintensive.net/)** - Martin Kleppmann
-4. 📚 **[The Linux Programming Interface](https://man7.org/tlpi/)** - Michael Kerrisk
-5. 📚 **[Building Secure & Reliable Systems](https://sre.google/books/building-secure-reliable-systems/)** - Google (Free)
+- **🟢 Beginner** - No prerequisites required
+- **🟡 Intermediate** - 1+ years experience or basics complete
+- **🔴 Advanced** - Strong foundation required
 
-### GitHub Repositories
-- ⭐ [mxssl/sre-interview-prep-guide](https://github.com/mxssl/sre-interview-prep-guide) - 15k+ stars
+## ✅ Pre-Interview Checklist
+
+Before your interviews, ensure you can:
+
+- [ ] Explain complex distributed systems simply
+- [ ] Design scalable infrastructure from scratch
+- [ ] Write automation scripts in Python/Go/Bash
+- [ ] Discuss technical trade-offs intelligently
+- [ ] Share relevant experiences using STAR method
+- [ ] Handle system design on a whiteboard
+- [ ] Debug production issues systematically
+
+## 🔗 Essential Resources
+
+### Must-Read Books (Free)
+- 📚 [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) - Google's SRE guide
+- 📚 [The Site Reliability Workbook](https://sre.google/workbook/table-of-contents/) - Practical SRE
+- 📚 [Building Secure & Reliable Systems](https://sre.google/books/building-secure-reliable-systems/) - Google
+
+### Top GitHub Repositories
 - ⭐ [bregman-arie/devops-exercises](https://github.com/bregman-arie/devops-exercises) - 50k+ stars
+- ⭐ [dastergon/awesome-sre](https://github.com/dastergon/awesome-sre) - Curated SRE resources
 - ⭐ [NotHarshhaa/DevOps-Interview-Questions](https://github.com/NotHarshhaa/DevOps-Interview-Questions) - 1100+ questions
-- ⭐ [dastergon/awesome-sre](https://github.com/dastergon/awesome-sre) - Curated SRE list
-- ⭐ [kahun/awesome-sysadmin](https://github.com/kahun/awesome-sysadmin) - Sysadmin resources
-
-### Online Courses & Platforms
-- 🎓 [Google Cloud Skills Boost](https://www.cloudskillsboost.google/) - Free labs
-- 🎓 [KillerCoda](https://killercoda.com/) - Interactive scenarios
-- 🎓 [A Cloud Guru](https://acloudguru.com/) - Cloud certifications
-- 🎓 [Linux Academy](https://linuxacademy.com/) - Now part of A Cloud Guru
 
 ### Communities
 - 💬 [Platform Engineering Slack](https://platformengineering.org/slack) - 10k+ members
-- 💬 [SRE Weekly Newsletter](https://sreweekly.com/) - Curated incidents and articles
+- 💬 [SRE Weekly Newsletter](https://sreweekly.com/) - Curated content
 - 💬 [DevOps Subreddit](https://reddit.com/r/devops) - 500k+ members
-- 💬 [CNCF Slack](https://cloud-native.slack.com/) - Cloud Native community
 
-## Frequently Asked Questions
+## ❓ Frequently Asked Questions
 
-### Q: Platform Engineer vs SRE vs DevOps - What's the difference?
-**A:** While these roles overlap significantly:
-- **Platform Engineers** build internal developer platforms and tools
-- **SREs** focus on reliability, SLOs, and operational excellence  
-- **DevOps Engineers** emphasize CI/CD and development-operations collaboration
+**Q: Do I need to know how to code?**
+Yes! Focus on Python or Go for automation, Bash for scripting, and basic algorithms.
 
-Many companies use these titles interchangeably, so focus on the job responsibilities rather than the title.
+**Q: Which cloud should I learn first?**
+Start with AWS (largest market share), then expand based on target companies.
 
-### Q: Do I need to know how to code?
-**A:** Yes! Modern platform engineering requires strong coding skills. Focus on:
-- Python or Go for automation and tooling
-- Bash for system administration
-- Understanding of data structures and algorithms
+**Q: How important are certifications?**
+Helpful early in career, but hands-on experience matters more. Consider CKA or AWS certs.
 
-### Q: Which cloud should I learn first?
-**A:** Start with AWS as it has the largest market share, then expand to GCP or Azure based on your target companies. The concepts transfer well between clouds.
-
-### Q: How important are certifications?
-**A:** Certifications can help, especially early in your career, but hands-on experience is more valuable. Popular certifications:
-- AWS Solutions Architect / DevOps Engineer
-- CKA (Certified Kubernetes Administrator)
-- GCP Professional Cloud Architect
-
-### Q: What's the typical interview process?
-**A:** Most companies follow this pattern:
+**Q: What's the typical interview process?**
 1. Recruiter screen (30 min)
 2. Technical phone screen (45-60 min)
 3. Onsite loop (4-6 hours): Coding, System Design, Behavioral, Domain expertise
 
-## Success Stories
+## 🚦 Ready to Start?
 
-> "After 8 weeks of preparation using this playbook, I received offers from 3 FAANG companies and increased my compensation by 65%." - Senior Platform Engineer
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginTop: '2rem'}}>
 
-> "The system design section was invaluable. The real-world scenarios matched exactly what I was asked in interviews." - Staff SRE
+<div style={{border: '2px solid #0066cc', borderRadius: '8px', padding: '1.5rem', textAlign: 'center'}}>
 
-> "Coming from a traditional sysadmin role, the coding challenges section helped me level up and land my dream platform engineering job." - Platform Engineer
+### 📚 [Technical Skills →](/technical-skills)
+Build your foundation
 
-## Contributing
+</div>
 
-We welcome contributions from the community! This playbook gets better with every addition.
+<div style={{border: '2px solid #0066cc', borderRadius: '8px', padding: '1.5rem', textAlign: 'center'}}>
 
-### How to Contribute
-1. Fork the repository
-2. Create a feature branch (`git checkout -b add-new-resource`)
-3. Add your contribution with clear descriptions
-4. Submit a pull request with details about your addition
+### 🎯 [Interview Prep →](/interview-prep)
+Ace your interviews
 
-### Contribution Guidelines
-- ✅ High-quality, actively maintained resources
-- ✅ Relevant to platform/SRE/DevOps engineering
-- ✅ Include brief descriptions of why the resource is valuable
-- ✅ Mark paid resources clearly
-- ❌ No promotional or low-quality content
-- ❌ No outdated or unmaintained resources
+</div>
 
-## Stay Updated
+<div style={{border: '2px solid #0066cc', borderRadius: '8px', padding: '1.5rem', textAlign: 'center'}}>
 
-- 🔔 Watch this repository for updates
-- 📧 Join our [newsletter](https://platformengineeringplaybook.com/newsletter) (coming soon)
-- 🐦 Follow [@PlatformEngBook](https://twitter.com/PlatformEngBook) (coming soon)
+### 💪 [Practice Labs →](/practice-resources)
+Get hands-on experience
 
-## Support
+</div>
 
-- 🐛 [Report issues](https://github.com/vibesre/Platform-Engineering-Playbook/issues)
-- 💡 [Request features](https://github.com/vibesre/Platform-Engineering-Playbook/discussions)
-- ⭐ Star this repository to help others find it!
+<div style={{border: '2px solid #0066cc', borderRadius: '8px', padding: '1.5rem', textAlign: 'center'}}>
 
-## License
+### 🚀 [Career Guide →](/career-guide)
+Plan your growth
 
-This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. You are free to share and adapt this material for any purpose, even commercially, under the following terms:
-- Give appropriate credit
-- Indicate if changes were made
-- Share under the same license
+</div>
+
+</div>
 
 ---
+
+*Remember: Focus on understanding concepts deeply, not memorizing answers. Interviewers value problem-solving skills and real experience.*
 
 **Last Updated**: January 2025 | **Version**: 1.0.0
 
 *Built with ❤️ by the Platform Engineering community*
-
-*Inspired by [yangshun/tech-interview-handbook](https://github.com/yangshun/tech-interview-handbook) and the amazing platform engineering community*
