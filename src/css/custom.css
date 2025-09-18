@@ -48,3 +48,18 @@
     padding-right: var(--ifm-spacing-horizontal);
   }
 }
+
+/* Quick navigation styling for technical overview page */
+.technical-nav-box {
+  background-color: var(--ifm-color-primary-lightest);
+  border: 2px solid var(--ifm-color-primary-light);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+[data-theme='dark'] .technical-nav-box {
+  background-color: var(--ifm-color-primary-darkest);
+  border-color: var(--ifm-color-primary-dark);
+}

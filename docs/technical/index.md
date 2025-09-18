@@ -9,11 +9,13 @@ slug: /technical-skills
 
 Master the essential technical skills needed for platform engineering, SRE, and DevOps roles. This comprehensive guide covers 150+ technologies organized into clear categories.
 
-## 🎯 Quick Navigation
+## 📍 Quick Navigation
 
-Jump to: [Linux & Systems](#-linux--systems) | [Networking](#-networking) | [Cloud Platforms](#️-cloud-platforms) | [Containers](#-containers--orchestration) | [IaC](#️-infrastructure-as-code) | [CI/CD](#-cicd--gitops) | [Monitoring](#-monitoring--observability) | [Databases](#-databases--storage) | [Programming](#-programming-languages) | [Security](#-security-tools) | [Messaging](#-messaging--streaming)
+<div className="technical-nav-box">
 
----
+**Jump to:** [Linux & Systems](#-linux--systems) • [Networking](#-networking) • [Cloud Platforms](#️-cloud-platforms) • [Containers](#-containers--orchestration) • [IaC](#️-infrastructure-as-code) • [CI/CD](#-cicd--gitops) • [Monitoring](#-monitoring--observability) • [Databases](#-databases--storage) • [Programming](#-programming-languages) • [Security](#-security-tools) • [Messaging](#-messaging--streaming) • [Additional Tools](#️-additional-tools)
+
+</div>
 
 ## 🐧 Linux & Systems
 
