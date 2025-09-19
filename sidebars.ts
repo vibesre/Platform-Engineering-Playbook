@@ -39,7 +39,19 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           items: [
             'technical/linux-fundamentals',
-            'technical/linux-deep-dive'
+            'technical/linux-deep-dive',
+            'technical/linux-networking',
+            'technical/linux-performance',
+            'technical/linux-security',
+            'technical/system-administration',
+            'technical/bash',
+            'technical/bash-scripting',
+            'technical/process-management',
+            'technical/file-systems',
+            'technical/package-management',
+            'technical/tmux',
+            'technical/vim',
+            'technical/vscode'
           ]
         },
         {
@@ -48,8 +60,23 @@ const sidebars: SidebarsConfig = {
           collapsed: true,
           collapsible: true,
           items: [
+            'technical/cloud-platforms',
             'technical/aws',
-            'technical/cloud-platforms'
+            'technical/aws-cdk',
+            'technical/aws-messaging',
+            'technical/aws-secrets',
+            'technical/azure',
+            'technical/azure-devops',
+            'technical/azure-service-bus',
+            'technical/gcp',
+            'technical/gcp-pubsub',
+            'technical/alibaba-cloud',
+            'technical/digitalocean',
+            'technical/linode',
+            'technical/oracle-cloud',
+            'technical/openstack',
+            'technical/proxmox',
+            'technical/vmware'
           ]
         },
         {
@@ -59,8 +86,19 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           items: [
             'technical/docker',
+            'technical/docker-compose',
+            'technical/podman',
+            'technical/containerd',
+            'technical/cri-o',
             'technical/kubernetes',
             'technical/kubernetes-mastery',
+            'technical/k3s',
+            'technical/kind',
+            'technical/openshift',
+            'technical/rancher',
+            'technical/helm',
+            'technical/kustomize',
+            'technical/operators',
             'technical/serverless-edge-computing'
           ]
         },
@@ -70,7 +108,39 @@ const sidebars: SidebarsConfig = {
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/terraform'
+            'technical/terraform',
+            'technical/pulumi',
+            'technical/cloudformation',
+            'technical/crossplane',
+            'technical/ansible',
+            'technical/chef',
+            'technical/puppet',
+            'technical/saltstack',
+            'technical/packer',
+            'technical/cloud-init',
+            'technical/cloud-custodian'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'CI/CD & DevOps',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/git',
+            'technical/git-advanced',
+            'technical/github-actions',
+            'technical/gitlab-ci',
+            'technical/jenkins',
+            'technical/circleci',
+            'technical/teamcity',
+            'technical/tekton',
+            'technical/spinnaker',
+            'technical/argocd',
+            'technical/flux',
+            'technical/bazel',
+            'technical/gradle',
+            'technical/make'
           ]
         },
         {
@@ -79,27 +149,210 @@ const sidebars: SidebarsConfig = {
           collapsed: true,
           collapsible: true,
           items: [
+            'technical/prometheus',
+            'technical/grafana',
+            'technical/victoriametrics',
+            'technical/influxdb',
+            'technical/telegraf',
+            'technical/datadog',
+            'technical/new-relic',
+            'technical/appdynamics',
+            'technical/splunk',
+            'technical/elasticsearch',
+            'technical/logstash',
+            'technical/opensearch',
+            'technical/fluent-bit',
+            'technical/fluentd',
+            'technical/loki',
+            'technical/vector',
+            'technical/jaeger',
+            'technical/zipkin',
+            'technical/tempo',
+            'technical/opentelemetry',
             'technical/chaos-engineering',
-            'technical/sre-practices-incident-management'
+            'technical/sre-practices-incident-management',
+            'technical/pagerduty',
+            'technical/opsgenie',
+            'technical/victorops'
           ]
         },
         {
           type: 'category',
-          label: 'APIs & Integration',
+          label: 'Service Mesh & Networking',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/api-design-protocols'
+            'technical/istio',
+            'technical/linkerd',
+            'technical/service-mesh',
+            'technical/envoy',
+            'technical/traefik',
+            'technical/nginx',
+            'technical/haproxy',
+            'technical/consul-connect',
+            'technical/service-discovery',
+            'technical/dns',
+            'technical/tcp-ip',
+            'technical/http-https',
+            'technical/bgp',
+            'technical/network-troubleshooting',
+            'technical/vpn',
+            'technical/cdn'
           ]
         },
         {
           type: 'category',
-          label: 'Data & Storage',
+          label: 'Data & Message Systems',
           collapsed: true,
           collapsible: true,
           items: [
             'technical/caching-data-stores',
-            'technical/message-queues-event-driven'
+            'technical/redis',
+            'technical/redis-pubsub',
+            'technical/memcached',
+            'technical/etcd',
+            'technical/message-queues-event-driven',
+            'technical/kafka',
+            'technical/rabbitmq',
+            'technical/pulsar',
+            'technical/nats',
+            'technical/mqtt',
+            'technical/amqp'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Databases',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/postgresql',
+            'technical/mysql',
+            'technical/mariadb',
+            'technical/mongodb',
+            'technical/cassandra',
+            'technical/cockroachdb',
+            'technical/couchdb',
+            'technical/dynamodb',
+            'technical/tidb',
+            'technical/timescaledb',
+            'technical/clickhouse',
+            'technical/yugabyte'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Storage & Backup',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/minio',
+            'technical/ceph',
+            'technical/glusterfs',
+            'technical/velero',
+            'technical/restic'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Security & Secrets',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/security-compliance',
+            'technical/vault',
+            'technical/sealed-secrets',
+            'technical/sops',
+            'technical/cert-manager',
+            'technical/lets-encrypt',
+            'technical/keycloak',
+            'technical/okta',
+            'technical/oauth2-proxy',
+            'technical/ldap',
+            'technical/opa',
+            'technical/gatekeeper',
+            'technical/kyverno',
+            'technical/falco',
+            'technical/trivy',
+            'technical/snyk',
+            'technical/owasp-zap',
+            'technical/sonarqube',
+            'technical/container-security'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Programming Languages',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/go',
+            'technical/python',
+            'technical/rust',
+            'technical/javascript',
+            'technical/typescript',
+            'technical/ruby'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'APIs & Protocols',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/api-design-protocols',
+            'technical/graphql',
+            'technical/grpc',
+            'technical/json',
+            'technical/yaml',
+            'technical/toml',
+            'technical/hcl'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Testing & Quality',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/k6',
+            'technical/jmeter',
+            'technical/gatling',
+            'technical/selenium',
+            'technical/postman'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Cost & Compliance',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/kubecost',
+            'technical/infracost'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Documentation & Visualization',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/markdown',
+            'technical/drawio',
+            'technical/plantuml',
+            'technical/confluence'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Utilities & Tools',
+          collapsed: true,
+          collapsible: true,
+          items: [
+            'technical/jq',
+            'technical/yq',
+            'technical/regex'
           ]
         },
         {
@@ -111,15 +364,6 @@ const sidebars: SidebarsConfig = {
             'technical/ai-ml-platform',
             'technical/llm-infrastructure',
             'technical/vector-databases-ai'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Security & Compliance',
-          collapsed: true,
-          collapsible: true,
-          items: [
-            'technical/security-compliance'
           ]
         },
         {
