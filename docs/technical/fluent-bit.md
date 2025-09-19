@@ -6,7 +6,7 @@ Fluent Bit is a lightweight, high-performance log processor and forwarder design
 
 ## Key Features
 
-- **Ultra Lightweight**: <1MB memory footprint
+- **Ultra Lightweight**: &lt;1MB memory footprint
 - **High Performance**: Written in C for maximum efficiency
 - **Cloud Native**: Built for containers and Kubernetes
 - **Vendor Agnostic**: 100+ plugins for inputs and outputs
