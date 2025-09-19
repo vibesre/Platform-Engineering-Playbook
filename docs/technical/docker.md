@@ -256,6 +256,166 @@ volumes:
 - Security hardening
 - Monitoring and logging
 
+## Docker Compose
+
+Docker Compose is a tool for defining and running multi-container Docker applications. It uses YAML files to configure application services and enables you to create and start all services with a single command.
+
+### Key Features
+
+- **Multi-Container Applications**: Define complex applications with multiple services
+- **Declarative Configuration**: YAML-based service definitions
+- **Environment Management**: Different configurations for dev, staging, production
+- **Service Dependencies**: Define startup order and dependencies
+- **Volume and Network Management**: Shared storage and networking
+
+### Basic Web Application Stack
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/myapp
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
+```
+
+### Environment-Specific Configurations
+
+```yaml
+# docker-compose.override.yml (development)
+version: '3.8'
+
+services:
+  web:
+    environment:
+      - DEBUG=true
+      - LOG_LEVEL=debug
+    volumes:
+      - .:/app  # Enable hot reload
+
+# docker-compose.prod.yml (production)
+version: '3.8'
+
+services:
+  web:
+    environment:
+      - DEBUG=false
+      - LOG_LEVEL=info
+    restart: unless-stopped
+    deploy:
+      replicas: 3
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+```
+
+### Advanced Compose Features
+
+```yaml
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  nginx:
+    image: nginx:alpine
+    configs:
+      - source: nginx_config
+        target: /etc/nginx/nginx.conf
+    secrets:
+      - ssl_cert
+      - ssl_key
+
+configs:
+  nginx_config:
+    file: ./nginx.conf
+
+secrets:
+  ssl_cert:
+    file: ./ssl/cert.pem
+  ssl_key:
+    file: ./ssl/key.pem
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+    internal: true
+```
+
+### Common Compose Commands
+
+```bash
+# Start services
+docker-compose up -d
+
+# Stop services
+docker-compose down
+
+# View logs
+docker-compose logs -f service_name
+
+# Scale services
+docker-compose up -d --scale web=3
+
+# Build services
+docker-compose build
+
+# Execute commands in running containers
+docker-compose exec web bash
+
+# Environment-specific deployment
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
+
 ---
 
-**Next Steps**: After mastering Docker, dive into [Kubernetes](/technical/kubernetes) to orchestrate containers at scale.
+**Next Steps**: After mastering Docker and Compose, dive into [Kubernetes](/technical/kubernetes) to orchestrate containers at scale.

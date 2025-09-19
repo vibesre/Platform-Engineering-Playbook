@@ -18,7 +18,7 @@ Master the foundation of all modern infrastructure.
 ### Core Linux
 - **[Linux Fundamentals](/technical/linux-fundamentals)** ✅ - Commands, file systems, permissions
 - **[System Administration](/technical/system-administration)** - User management, systemd, services
-- **[Shell Scripting (Bash)](/technical/bash-scripting)** - Automation and scripting
+- **[Shell Scripting (Bash)](/technical/bash)** - Automation and scripting
 - **[Linux Performance](/technical/linux-performance)** - Tuning, analysis, optimization
 - **[Process Management](/technical/process-management)** - systemd, init, process control
 
@@ -123,7 +123,7 @@ Automate infrastructure provisioning and configuration.
 - **[Terraform](/technical/terraform)** ✅ - Multi-cloud infrastructure as code
 - **[Pulumi](/technical/pulumi)** - IaC using programming languages
 - **[CloudFormation](/technical/cloudformation)** - AWS native IaC
-- **[AWS CDK](/technical/aws-cdk)** - Cloud Development Kit
+- **[AWS CDK](/technical/aws#aws-cdk-cloud-development-kit)** - Cloud Development Kit (part of AWS guide)
 - **[Crossplane](/technical/crossplane)** - Kubernetes-native IaC
 
 ### Configuration Management
@@ -144,7 +144,7 @@ Implement continuous integration, delivery, and GitOps workflows.
 
 ### Version Control
 - **[Git](/technical/git)** - Distributed version control
-- **[Git Advanced](/technical/git-advanced)** - Rebasing, workflows, internals
+- **[Git](/technical/git)** - Distributed version control (includes advanced topics)
 
 ### CI/CD Platforms
 - **[GitHub Actions](/technical/github-actions)** - GitHub's CI/CD
@@ -214,7 +214,7 @@ Manage data persistence and storage at scale.
 - **[PostgreSQL](/technical/postgresql)** - Advanced open source DB
 - **[MySQL](/technical/mysql)** - Popular open source DB
 - **[MariaDB](/technical/mariadb)** - MySQL fork
-- **[Amazon RDS](/technical/rds)** - Managed relational DB
+- **[Amazon RDS](/technical/aws#database-services)** - Managed relational DB (part of AWS guide)
 
 ### NoSQL Databases
 - **[MongoDB](/technical/mongodb)** - Document database
@@ -226,12 +226,12 @@ Manage data persistence and storage at scale.
 - **[Redis](/technical/redis)** - In-memory data structure store
 - **[Memcached](/technical/memcached)** - Memory caching system
 - **[etcd](/technical/etcd)** - Distributed key-value store
-- **[Consul](/technical/consul-kv)** - Service mesh with KV store
+- **[Consul Connect](/technical/consul-connect)** - Service mesh with KV store
 
 ### Time Series Databases
-- **[InfluxDB](/technical/influxdb-tsdb)** - Purpose-built for metrics
+- **[InfluxDB](/technical/influxdb)** - Purpose-built for metrics
 - **[TimescaleDB](/technical/timescaledb)** - PostgreSQL for time series
-- **[Prometheus](/technical/prometheus-tsdb)** - Built-in TSDB
+- **[Prometheus](/technical/prometheus)** - Built-in TSDB
 
 ### NewSQL & Distributed
 - **[CockroachDB](/technical/cockroachdb)** - Distributed SQL
@@ -242,10 +242,10 @@ Manage data persistence and storage at scale.
 - **[MinIO](/technical/minio)** - S3-compatible object storage
 - **[Ceph](/technical/ceph)** - Distributed storage system
 - **[GlusterFS](/technical/glusterfs)** - Scalable network filesystem
-- **[Object Storage Overview](/technical/object-storage)** - S3, GCS, Azure Blob
+- **[MinIO](/technical/minio)** - S3-compatible object storage
 
 ### Search & Analytics
-- **[Elasticsearch](/technical/elasticsearch-search)** - Full-text search
+- **[Elasticsearch](/technical/elasticsearch)** - Full-text search
 - **[OpenSearch](/technical/opensearch)** - Open source search
 - **[ClickHouse](/technical/clickhouse)** - Column-oriented DBMS
 
@@ -285,7 +285,7 @@ Secure infrastructure and applications.
 
 ### Secrets Management
 - **[HashiCorp Vault](/technical/vault)** - Secrets and encryption management
-- **[AWS Secrets Manager](/technical/aws-secrets)** - AWS native secrets
+- **[AWS Secrets Manager](/technical/aws#aws-secrets-management)** - AWS native secrets (part of AWS guide)
 - **[SOPS](/technical/sops)** - Secrets operations
 - **[Sealed Secrets](/technical/sealed-secrets)** - K8s secrets encryption
 
@@ -302,7 +302,7 @@ Secure infrastructure and applications.
 - **[OWASP ZAP](/technical/owasp-zap)** - Web app security testing
 
 ### Policy & Compliance
-- **[Open Policy Agent](/technical/opa-security)** - Policy engine
+- **[Open Policy Agent](/technical/opa)** - Policy engine
 - **[Gatekeeper](/technical/gatekeeper)** - K8s policy controller
 - **[Kyverno](/technical/kyverno)** - K8s native policies
 - **[Security Compliance](/technical/security-compliance)** ✅ - Standards, frameworks
@@ -324,14 +324,14 @@ Build event-driven architectures and real-time data pipelines.
 - **[NATS](/technical/nats)** - Cloud-native messaging system
 
 ### Cloud Messaging
-- **[AWS SQS/SNS](/technical/aws-messaging)** - Queue and pub/sub
+- **[AWS SQS/SNS](/technical/aws#aws-messaging-services)** - Queue and pub/sub (part of AWS guide)
 - **[Google Pub/Sub](/technical/gcp-pubsub)** - Global message bus
 - **[Azure Service Bus](/technical/azure-service-bus)** - Enterprise messaging
 
 ### Protocols & Patterns
 - **[MQTT](/technical/mqtt)** - IoT messaging protocol
 - **[AMQP](/technical/amqp)** - Messaging protocol
-- **[Redis Pub/Sub](/technical/redis-pubsub)** - Simple pub/sub
+- **[Redis Pub/Sub](/technical/redis#redis-pubsub)** - Simple pub/sub (part of Redis guide)
 - **[Event-Driven Architecture](/technical/message-queues-event-driven)** ✅ - Patterns and practices
 
 ---
@@ -342,7 +342,7 @@ Build event-driven architectures and real-time data pipelines.
 - **[VS Code](/technical/vscode)** - Popular code editor
 - **[vim/neovim](/technical/vim)** - Terminal-based editor
 - **[tmux](/technical/tmux)** - Terminal multiplexer
-- **[Docker Compose](/technical/docker-compose)** - Multi-container apps
+- **[Docker Compose](/technical/docker#docker-compose)** - Multi-container apps (part of Docker guide)
 
 ### API Tools
 - **[Postman](/technical/postman)** - API development
@@ -364,7 +364,7 @@ Build event-driven architectures and real-time data pipelines.
 ### Backup & DR
 - **[Velero](/technical/velero)** - K8s backup and restore
 - **[Restic](/technical/restic)** - Fast, secure backup
-- **[Disaster Recovery](/technical/disaster-recovery)** - Strategies and tools
+- **[Velero](/technical/velero)** - K8s backup and restore
 
 ### Documentation
 - **[Confluence](/technical/confluence)** - Team collaboration
@@ -385,7 +385,7 @@ Build event-driven architectures and real-time data pipelines.
 
 ### For Developers → Platform Engineers
 1. Focus on **[Kubernetes](/technical/kubernetes)** ✅ and **[Terraform](/technical/terraform)** ✅
-2. Deep dive into **[Cloud Networking](/technical/cloud-networking)**
+2. Deep dive into **[Networking](/technical/tcp-ip)** fundamentals
 3. Learn **[Ansible](/technical/ansible)** for configuration
 4. Master **[CI/CD](/technical/github-actions)** with GitHub Actions
 5. Understand **[Observability](/technical/opentelemetry)** principles

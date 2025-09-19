@@ -45,7 +45,6 @@ const sidebars: SidebarsConfig = {
             'technical/linux-security',
             'technical/system-administration',
             'technical/bash',
-            'technical/bash-scripting',
             'technical/process-management',
             'technical/file-systems',
             'technical/package-management',
@@ -62,9 +61,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'technical/cloud-platforms',
             'technical/aws',
-            'technical/aws-cdk',
-            'technical/aws-messaging',
-            'technical/aws-secrets',
             'technical/azure',
             'technical/azure-devops',
             'technical/azure-service-bus',
@@ -86,7 +82,6 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           items: [
             'technical/docker',
-            'technical/docker-compose',
             'technical/podman',
             'technical/containerd',
             'technical/cri-o',
@@ -128,7 +123,6 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           items: [
             'technical/git',
-            'technical/git-advanced',
             'technical/github-actions',
             'technical/gitlab-ci',
             'technical/jenkins',
@@ -208,7 +202,6 @@ const sidebars: SidebarsConfig = {
           items: [
             'technical/caching-data-stores',
             'technical/redis',
-            'technical/redis-pubsub',
             'technical/memcached',
             'technical/etcd',
             'technical/message-queues-event-driven',

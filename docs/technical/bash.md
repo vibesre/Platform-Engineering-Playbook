@@ -1,16 +1,30 @@
-# Bash
+---
+title: Bash & Shell Scripting
+description: Master shell scripting with Bash for automation, system administration, and DevOps workflows
+---
+
+# Bash & Shell Scripting
+
+Bash (Bourne Again Shell) is the default shell for most Linux distributions and macOS. It's essential for platform engineers for automation, system administration, and creating deployment scripts. This comprehensive guide covers both interactive Bash usage and advanced scripting techniques for building robust automation solutions.
 
 ## Overview
 
-Bash (Bourne Again Shell) is the default shell for most Linux distributions and macOS. It's essential for platform engineers for automation, system administration, and creating deployment scripts. Mastering Bash enables efficient server management and infrastructure automation.
+Bash serves dual purposes as both an interactive command interpreter and a powerful scripting language:
+- **Interactive Shell**: Command-line interface for system interaction
+- **Scripting Language**: Automation of complex workflows and system administration
+- **POSIX Compliant**: Ensures portability across Unix-like systems
+- **Ubiquitous**: Available on virtually all Unix-like systems
+- **Integration**: Works seamlessly with system tools and utilities
 
 ## Key Features
 
-- **Ubiquitous**: Available on virtually all Unix-like systems
-- **Powerful**: Rich set of built-in commands and utilities
-- **Scripting**: Automate repetitive tasks and complex workflows
-- **Integration**: Works seamlessly with system tools and utilities
-- **Interactive**: Both command-line interface and scripting language
+- **Command Interpreter**: Processes user commands in real-time
+- **Scripting Language**: Executes sequences of commands from files
+- **Variables and Arrays**: String manipulation, numeric operations, data structures
+- **Control Structures**: Conditional statements, loops, functions
+- **Pattern Matching**: Glob patterns, regular expressions, parameter expansion
+- **Process Control**: Job control, signal handling, background processes
+- **Input/Output**: Redirection, pipes, here documents, process substitution
 
 ## Common Use Cases
 
@@ -173,12 +187,163 @@ backup_database() {
 }
 ```
 
-## Great Resources
+## Comprehensive Deployment Script Example
 
+Here's a production-ready deployment script demonstrating advanced Bash techniques:
+
+```bash
+#!/usr/bin/env bash
+#
+# Application Deployment Script
+# This script automates the deployment of a web application
+#
+# Usage: ./deploy.sh [environment] [version]
+# Example: ./deploy.sh production v2.1.0
+
+set -euo pipefail  # Exit on error, undefined variable, pipe failure
+
+# Color codes for output
+readonly RED='\033[0;31m'
+readonly GREEN='\033[0;32m'
+readonly YELLOW='\033[1;33m'
+readonly NC='\033[0m' # No Color
+
+# Configuration
+readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly LOG_FILE="/var/log/deploy-$(date +%Y%m%d-%H%M%S).log"
+readonly BACKUP_DIR="/backup/deployments"
+
+# Default values
+DEFAULT_ENV="staging"
+DEFAULT_VERSION="latest"
+
+# Functions
+log() {
+    local level="$1"
+    shift
+    local message="$*"
+    local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
+    
+    case "$level" in
+        INFO)
+            echo -e "${GREEN}[INFO]${NC} $message" | tee -a "$LOG_FILE"
+            ;;
+        WARN)
+            echo -e "${YELLOW}[WARN]${NC} $message" | tee -a "$LOG_FILE"
+            ;;
+        ERROR)
+            echo -e "${RED}[ERROR]${NC} $message" | tee -a "$LOG_FILE"
+            ;;
+    esac
+}
+
+validate_environment() {
+    local env="$1"
+    local valid_envs=("development" "staging" "production")
+    
+    if [[ " ${valid_envs[@]} " =~ " ${env} " ]]; then
+        return 0
+    else
+        log ERROR "Invalid environment: $env"
+        log ERROR "Valid environments: ${valid_envs[*]}"
+        return 1
+    fi
+}
+
+deploy_application() {
+    local env="$1"
+    local version="$2"
+    
+    log INFO "Deploying version $version to $env environment..."
+    
+    # Deploy logic here
+    return 0
+}
+
+# Main execution
+main() {
+    local environment="${1:-$DEFAULT_ENV}"
+    local version="${2:-$DEFAULT_VERSION}"
+    
+    log INFO "Starting deployment process..."
+    
+    if ! validate_environment "$environment"; then
+        exit 1
+    fi
+    
+    if deploy_application "$environment" "$version"; then
+        log INFO "Deployment completed successfully"
+        exit 0
+    else
+        log ERROR "Deployment failed"
+        exit 1
+    fi
+}
+
+# Trap signals for cleanup
+trap 'log ERROR "Script interrupted"; exit 130' INT TERM
+
+# Execute main function
+main "$@"
+```
+
+## Interview Tips
+
+### Common Questions
+1. **"What's the difference between $* and $@?"**
+   - `$*`: Treats all arguments as a single string
+   - `$@`: Preserves individual arguments (preferred)
+
+2. **"How do you handle errors in Bash scripts?"**
+   - Use `set -e` to exit on error
+   - Implement error handlers with trap
+   - Check return codes explicitly
+
+3. **"Explain [ ], [[ ]], and (( ))"**
+   - `[ ]`: POSIX test command
+   - `[[ ]]`: Bash conditional expression (preferred)
+   - `(( ))`: Arithmetic evaluation
+
+4. **"How do you debug Bash scripts?"**
+   ```bash
+   set -x                # Enable debug mode
+   PS4='${LINENO}: '     # Show line numbers
+   bash -n script.sh     # Syntax check
+   shellcheck script.sh  # Static analysis
+   ```
+
+### Practice Challenges
+- Write a log rotation script
+- Parse CSV files and generate reports
+- Create a system monitoring tool
+- Build a backup solution
+- Implement deployment automation
+
+## Essential Resources
+
+### Documentation & References
 - [Bash Manual](https://www.gnu.org/software/bash/manual/) - Official GNU Bash reference manual
-- [ShellCheck](https://www.shellcheck.net/) - Online shell script analyzer and linter
-- [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/) - Comprehensive beginner guide
 - [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/) - In-depth scripting techniques
+- [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/) - Comprehensive beginner guide
+- [Bash Hackers Wiki](https://wiki.bash-hackers.org/) - Modern Bash scripting techniques
+
+### Tools & Utilities
+- [ShellCheck](https://www.shellcheck.net/) - Static analysis tool for shell scripts
 - [explainshell.com](https://explainshell.com/) - Interactive command breakdown tool
+- [bashdb](http://bashdb.sourceforge.net/) - Bash debugger
+- [bats](https://github.com/bats-core/bats-core) - Bash Automated Testing System
+
+### Style Guides & Best Practices
+- [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html) - Industry best practices
 - [Bash Pitfalls](https://mywiki.wooledge.org/BashPitfalls) - Common mistakes and how to avoid them
-- [Google Shell Style Guide](https://google.github.io/styleguide/shellguide.html) - Best practices for shell scripting
+- [Greg's Wiki](https://mywiki.wooledge.org/BashGuide) - Community-maintained Bash guide
+
+### Books & Learning Resources
+- **"Learning the bash Shell"** by Cameron Newham - Comprehensive reference
+- **"Classic Shell Scripting"** by Arnold Robbins - POSIX shell scripting
+- **"bash Cookbook"** by Carl Albing - Solutions to common problems
+- **"Wicked Cool Shell Scripts"** by Dave Taylor - Practical examples
+
+---
+
+**Next Steps**: Master Bash fundamentals before moving to [Linux System Administration](/technical/system-administration) or exploring [Git](/technical/git) for version control automation.

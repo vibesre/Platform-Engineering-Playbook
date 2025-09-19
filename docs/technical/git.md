@@ -543,10 +543,211 @@ git count-objects -vH
 9. **Document Workflows**: Maintain clear README
 10. **Automate Checks**: Use hooks and CI/CD
 
+## Advanced Git Techniques
+
+### Git Internals
+
+Git uses a content-addressable filesystem with four object types:
+
+```bash
+# Examine object types
+git cat-file -t <sha>  # blob, tree, commit, tag
+
+# View object content
+git cat-file -p <sha>
+
+# Create objects manually
+echo "Hello, Git!" | git hash-object -w --stdin
+
+# Inspect objects directory
+find .git/objects -type f | head -5
+```
+
+### Advanced Rewriting and History Manipulation
+
+```bash
+# Interactive rebase for last 3 commits
+git rebase -i HEAD~3
+
+# Rewrite commit messages
+git commit --amend -m "New commit message"
+
+# Split a commit
+git reset HEAD~1
+git add file1
+git commit -m "First part"
+git add file2
+git commit -m "Second part"
+
+# Remove file from all history
+git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
+
+# Modern alternative to filter-branch
+git filter-repo --path passwords.txt --invert-paths
+```
+
+### Advanced Merge Strategies
+
+```bash
+# Octopus merge (multiple branches)
+git merge branch1 branch2 branch3
+
+# Ours strategy (keep our version)
+git merge -X ours feature-branch
+
+# Theirs strategy (prefer their version)
+git merge -X theirs feature-branch
+
+# Subtree merge
+git merge -s subtree feature-branch
+
+# Custom merge driver
+git config merge.ours.driver true
+```
+
+### Bisect for Bug Hunting
+
+```bash
+# Start bisect session
+git bisect start
+git bisect bad          # Current commit is bad
+git bisect good v1.0    # Version 1.0 was good
+
+# Git will checkout middle commit
+# Test and mark as good or bad
+git bisect good  # or git bisect bad
+
+# Automate with script
+git bisect run ./test_script.sh
+
+# End bisect session
+git bisect reset
+```
+
+### Advanced Stashing
+
+```bash
+# Stash with message
+git stash push -m "Work in progress on feature X"
+
+# Stash specific files
+git stash push -- file1.js file2.js
+
+# Create branch from stash
+git stash branch feature-stash stash@{0}
+
+# Stash untracked files
+git stash -u
+
+# Partial stashing
+git stash -p
+```
+
+### Worktrees for Parallel Development
+
+```bash
+# Create worktree
+git worktree add ../project-feature feature-branch
+
+# List worktrees
+git worktree list
+
+# Remove worktree
+git worktree remove ../project-feature
+
+# Prune deleted worktrees
+git worktree prune
+```
+
+### Hooks and Automation
+
+```bash
+# Pre-commit hook example
+#!/bin/sh
+# .git/hooks/pre-commit
+files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.js$')
+if [ "$files" = "" ]; then 
+    exit 0 
+fi
+
+echo $files | xargs ./node_modules/.bin/eslint
+if [ $? -ne 0 ]; then
+    echo "ESLint failed. Commit aborted."
+    exit 1
+fi
+
+# Pre-push hook example
+#!/bin/sh
+# .git/hooks/pre-push
+protected_branch='main'
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [ $protected_branch = $current_branch ]; then
+    echo "Direct push to main branch is not allowed"
+    exit 1
+fi
+```
+
+### Git Aliases for Power Users
+
+```bash
+# Add to ~/.gitconfig
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    visual = !gitk
+    
+    # Advanced aliases
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    find = "!git ls-files | grep -i"
+    grep = grep -Ii
+    cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
+```
+
+### Performance Optimization
+
+```bash
+# Garbage collection
+git gc --aggressive --prune=now
+
+# Repack objects
+git repack -ad
+
+# Count objects
+git count-objects -v
+
+# Verify repository integrity
+git fsck --full
+
+# Enable file system monitor (large repos)
+git config core.fsmonitor true
+git config core.untrackedcache true
+```
+
 ## Resources
 
-- [Pro Git Book](https://git-scm.com/book)
-- [Git Documentation](https://git-scm.com/docs)
-- [GitHub Flow Guide](https://guides.github.com/introduction/flow/)
-- [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
-- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+### Essential References
+- [Pro Git Book](https://git-scm.com/book) - Comprehensive Git guide
+- [Git Documentation](https://git-scm.com/docs) - Official command reference
+- [Git Internals](https://github.com/pluralsight/git-internals-pdf) - Deep dive into Git's architecture
+- [Oh Shit, Git!?!](https://ohshitgit.com/) - Solutions to common Git problems
+
+### Workflows and Best Practices
+- [GitHub Flow Guide](https://guides.github.com/introduction/flow/) - Simple Git workflow
+- [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) - Feature branch workflow
+- [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials) - Comprehensive tutorials
+- [Git Style Guide](https://github.com/agis/git-style-guide) - Formatting best practices
+
+### Tools and Utilities
+- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) - Quick reference
+- [GitKraken](https://www.gitkraken.com/) - Visual Git client
+- [tig](https://jonas.github.io/tig/) - Text-mode interface for Git
+- [git-standup](https://github.com/kamranahmedse/git-standup) - Review work from last working day
+
+---
+
+**Next Steps**: Master Git fundamentals before exploring advanced DevOps with [GitHub Actions](/technical/github-actions) or [GitLab CI](/technical/gitlab-ci).

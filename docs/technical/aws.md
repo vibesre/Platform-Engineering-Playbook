@@ -430,6 +430,363 @@ kubectl expose deployment nginx --port=80 --type=LoadBalancer
 - Cost optimization
 - Performance tuning
 
+## AWS CDK (Cloud Development Kit)
+
+AWS CDK allows you to define cloud infrastructure using familiar programming languages like TypeScript, Python, Java, and C#.
+
+### Key CDK Concepts
+
+```typescript
+// Example CDK Stack
+import * as cdk from '@aws-cdk/core';
+import * as s3 from '@aws-cdk/aws-s3';
+import * as lambda from '@aws-cdk/aws-lambda';
+import * as apigateway from '@aws-cdk/aws-apigateway';
+
+export class MyStack extends cdk.Stack {
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    // Create S3 bucket
+    const bucket = new s3.Bucket(this, 'MyBucket', {
+      versioned: true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
+
+    // Create Lambda function
+    const handler = new lambda.Function(this, 'MyHandler', {
+      runtime: lambda.Runtime.NODEJS_14_X,
+      code: lambda.Code.fromAsset('lambda'),
+      handler: 'index.handler',
+      environment: {
+        BUCKET_NAME: bucket.bucketName,
+      },
+    });
+
+    // Grant Lambda permissions to access S3
+    bucket.grantReadWrite(handler);
+
+    // Create API Gateway
+    const api = new apigateway.RestApi(this, 'MyApi', {
+      restApiName: 'My Service',
+    });
+
+    const integration = new apigateway.LambdaIntegration(handler);
+    api.root.addMethod('GET', integration);
+  }
+}
+```
+
+### CDK Best Practices
+
+```typescript
+// Use constructs for reusability
+export class DatabaseConstruct extends cdk.Construct {
+  public readonly instance: rds.DatabaseInstance;
+
+  constructor(scope: cdk.Construct, id: string) {
+    super(scope, id);
+
+    this.instance = new rds.DatabaseInstance(this, 'Database', {
+      engine: rds.DatabaseInstanceEngine.postgres({
+        version: rds.PostgresEngineVersion.VER_13_7,
+      }),
+      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T3, ec2.InstanceSize.MICRO),
+      vpc: vpc,
+      credentials: rds.Credentials.fromGeneratedSecret('postgres'),
+      deletionProtection: true,
+    });
+  }
+}
+```
+
+## AWS Messaging Services
+
+### Amazon SQS (Simple Queue Service)
+
+```python
+import boto3
+import json
+
+sqs = boto3.client('sqs')
+
+# Create queue
+queue_url = sqs.create_queue(
+    QueueName='my-queue',
+    Attributes={
+        'DelaySeconds': '5',
+        'MessageRetentionPeriod': '86400',
+        'VisibilityTimeoutSeconds': '30',
+    }
+)['QueueUrl']
+
+# Send message
+sqs.send_message(
+    QueueUrl=queue_url,
+    MessageBody=json.dumps({
+        'orderId': '12345',
+        'customerId': 'cust-456',
+        'amount': 99.99
+    }),
+    MessageAttributes={
+        'Priority': {
+            'StringValue': 'High',
+            'DataType': 'String'
+        }
+    }
+)
+
+# Receive and process messages
+while True:
+    messages = sqs.receive_message(
+        QueueUrl=queue_url,
+        MaxNumberOfMessages=10,
+        WaitTimeSeconds=20,
+    ).get('Messages', [])
+    
+    for message in messages:
+        # Process message
+        data = json.loads(message['Body'])
+        print(f"Processing order: {data['orderId']}")
+        
+        # Delete message after processing
+        sqs.delete_message(
+            QueueUrl=queue_url,
+            ReceiptHandle=message['ReceiptHandle']
+        )
+```
+
+### Amazon SNS (Simple Notification Service)
+
+```python
+import boto3
+
+sns = boto3.client('sns')
+
+# Create topic
+topic_arn = sns.create_topic(Name='order-notifications')['TopicArn']
+
+# Subscribe email endpoint
+sns.subscribe(
+    TopicArn=topic_arn,
+    Protocol='email',
+    Endpoint='admin@company.com'
+)
+
+# Subscribe SQS queue
+sns.subscribe(
+    TopicArn=topic_arn,
+    Protocol='sqs',
+    Endpoint='arn:aws:sqs:us-east-1:123456789012:order-processing-queue'
+)
+
+# Publish message
+sns.publish(
+    TopicArn=topic_arn,
+    Message=json.dumps({
+        'orderId': '12345',
+        'status': 'completed',
+        'timestamp': datetime.utcnow().isoformat()
+    }),
+    Subject='Order Status Update',
+    MessageAttributes={
+        'event_type': {
+            'DataType': 'String',
+            'StringValue': 'order_completed'
+        }
+    }
+)
+```
+
+### Amazon EventBridge
+
+```python
+import boto3
+
+eventbridge = boto3.client('events')
+
+# Create custom event bus
+eventbridge.create_event_bus(Name='my-application-events')
+
+# Create rule to route events
+eventbridge.put_rule(
+    Name='order-events-rule',
+    EventPattern=json.dumps({
+        'source': ['my.application'],
+        'detail-type': ['Order Status Change'],
+        'detail': {
+            'status': ['completed', 'cancelled']
+        }
+    }),
+    State='ENABLED',
+    EventBusName='my-application-events'
+)
+
+# Add target (Lambda function)
+eventbridge.put_targets(
+    Rule='order-events-rule',
+    EventBusName='my-application-events',
+    Targets=[
+        {
+            'Id': '1',
+            'Arn': 'arn:aws:lambda:us-east-1:123456789012:function:process-order-events',
+        }
+    ]
+)
+
+# Send custom event
+eventbridge.put_events(
+    Entries=[
+        {
+            'Source': 'my.application',
+            'DetailType': 'Order Status Change',
+            'Detail': json.dumps({
+                'orderId': '12345',
+                'status': 'completed',
+                'customerId': 'cust-456'
+            }),
+            'EventBusName': 'my-application-events'
+        }
+    ]
+)
+```
+
+## AWS Secrets Management
+
+### AWS Secrets Manager
+
+```python
+import boto3
+import json
+
+secrets_client = boto3.client('secretsmanager')
+
+# Create secret
+secrets_client.create_secret(
+    Name='prod/myapp/database',
+    Description='Database credentials for production',
+    SecretString=json.dumps({
+        'username': 'dbuser',
+        'password': 'super-secure-password',
+        'host': 'prod-db.cluster-xyz.us-east-1.rds.amazonaws.com',
+        'port': 5432,
+        'dbname': 'myapp'
+    })
+)
+
+# Retrieve secret
+def get_secret(secret_name):
+    try:
+        response = secrets_client.get_secret_value(SecretId=secret_name)
+        return json.loads(response['SecretString'])
+    except ClientError as e:
+        raise e
+
+# Use in application
+db_credentials = get_secret('prod/myapp/database')
+connection_string = f"postgresql://{db_credentials['username']}:{db_credentials['password']}@{db_credentials['host']}:{db_credentials['port']}/{db_credentials['dbname']}"
+```
+
+### AWS Systems Manager Parameter Store
+
+```python
+import boto3
+
+ssm = boto3.client('ssm')
+
+# Store parameter
+ssm.put_parameter(
+    Name='/myapp/prod/database/host',
+    Value='prod-db.cluster-xyz.us-east-1.rds.amazonaws.com',
+    Type='String',
+    Tier='Standard',
+    Tags=[
+        {
+            'Key': 'Environment',
+            'Value': 'Production'
+        },
+        {
+            'Key': 'Application',
+            'Value': 'MyApp'
+        }
+    ]
+)
+
+# Store secure parameter
+ssm.put_parameter(
+    Name='/myapp/prod/database/password',
+    Value='super-secure-password',
+    Type='SecureString',
+    KeyId='alias/aws/ssm',  # Use AWS managed key
+    Tier='Standard'
+)
+
+# Retrieve parameter
+def get_parameter(name, decrypt=False):
+    response = ssm.get_parameter(
+        Name=name,
+        WithDecryption=decrypt
+    )
+    return response['Parameter']['Value']
+
+# Retrieve multiple parameters
+def get_parameters_by_path(path):
+    response = ssm.get_parameters_by_path(
+        Path=path,
+        Recursive=True,
+        WithDecryption=True
+    )
+    return {param['Name']: param['Value'] for param in response['Parameters']}
+
+# Usage
+db_host = get_parameter('/myapp/prod/database/host')
+db_password = get_parameter('/myapp/prod/database/password', decrypt=True)
+all_db_config = get_parameters_by_path('/myapp/prod/database/')
+```
+
+### IAM Best Practices for Secrets
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": "arn:aws:secretsmanager:us-east-1:123456789012:secret:prod/myapp/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ssm:GetParameter",
+        "ssm:GetParameters",
+        "ssm:GetParametersByPath"
+      ],
+      "Resource": [
+        "arn:aws:ssm:us-east-1:123456789012:parameter/myapp/prod/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt"
+      ],
+      "Resource": "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": [
+            "secretsmanager.us-east-1.amazonaws.com",
+            "ssm.us-east-1.amazonaws.com"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 ---
 
-**Next Steps**: After mastering AWS, explore [Terraform](/technical/terraform) for infrastructure as code or [Docker](/technical/docker) and [Kubernetes](/technical/kubernetes) for container platforms.
+**Next Steps**: After mastering AWS fundamentals and advanced services, explore [Terraform](/technical/terraform) for infrastructure as code or [Docker](/technical/docker) and [Kubernetes](/technical/kubernetes) for container platforms.
