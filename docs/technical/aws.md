@@ -79,6 +79,54 @@ AWS is the market leader in cloud computing. As a platform engineer, deep AWS kn
 - **Link**: [qwiklabs.com](https://www.qwiklabs.com/)
 - **Why it's great**: Guided labs with temporary AWS accounts
 
+### 🛠️ Essential Tools & Platforms
+
+#### **AWS CLI**
+- **Link**: [aws.amazon.com/cli/](https://aws.amazon.com/cli/)
+- **Why it's great**: Essential command-line tool for AWS automation
+
+#### **AWS CloudShell**
+- **Link**: [aws.amazon.com/cloudshell/](https://aws.amazon.com/cloudshell/)
+- **Why it's great**: Browser-based shell with pre-configured AWS CLI
+
+#### **AWS Systems Manager Session Manager**
+- **Link**: [aws.amazon.com/systems-manager/](https://aws.amazon.com/systems-manager/)
+- **Why it's great**: Secure shell access without SSH keys or bastion hosts
+
+#### **AWS Cloud9**
+- **Link**: [aws.amazon.com/cloud9/](https://aws.amazon.com/cloud9/)
+- **Why it's great**: Cloud-based IDE for development
+
+#### **LocalStack**
+- **Link**: [localstack.cloud](https://localstack.cloud/)
+- **Why it's great**: Local AWS cloud stack for development and testing
+
+### 👥 Communities & Forums
+
+#### **AWS re:Post**
+- **Link**: [repost.aws](https://repost.aws/)
+- **Why it's great**: Official AWS community Q&A platform
+
+#### **r/aws Reddit**
+- **Link**: [reddit.com/r/aws](https://www.reddit.com/r/aws/)
+- **Why it's great**: Active community discussions and real-world experiences
+
+#### **AWS Community Builders**
+- **Link**: [aws.amazon.com/developer/community/community-builders/](https://aws.amazon.com/developer/community/community-builders/)
+- **Why it's great**: Connect with AWS experts and enthusiasts
+
+#### **AWS User Groups**
+- **Link**: [aws.amazon.com/developer/community/usergroups/](https://aws.amazon.com/developer/community/usergroups/)
+- **Why it's great**: Local meetups and networking opportunities
+
+#### **ServerlessLand**
+- **Link**: [serverlessland.com](https://serverlessland.com/)
+- **Why it's great**: Patterns, tools, and community for serverless on AWS
+
+#### **AWS Heroes**
+- **Link**: [aws.amazon.com/developer/community/heroes/](https://aws.amazon.com/developer/community/heroes/)
+- **Why it's great**: Learn from recognized AWS experts
+
 ## 🎯 Key Services to Master
 
 ### Compute Services
