@@ -1,5 +1,85 @@
 # MySQL
 
+MySQL is one of the world's most popular open-source relational databases, widely used for web applications and platform engineering. It's known for its reliability, ease of use, and strong performance for read-heavy workloads.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **MySQL Tutorial for Beginners - Full Course**
+- **Channel**: freeCodeCamp
+- **Link**: [YouTube - 4 hours](https://www.youtube.com/watch?v=7S_tz1z_5bA)
+- **Why it's great**: Comprehensive tutorial covering basics to advanced MySQL concepts
+
+#### **MySQL Database Tutorial**
+- **Channel**: Programming with Mosh
+- **Link**: [YouTube - 3 hours](https://www.youtube.com/watch?v=7S_tz1z_5bA)
+- **Why it's great**: Professional instruction with practical examples and best practices
+
+#### **MySQL Administration Tutorial**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=9ylj9NR0Lcg)
+- **Why it's great**: Focus on MySQL administration and production deployment
+
+### 📖 Essential Documentation
+
+#### **MySQL Official Documentation**
+- **Link**: [dev.mysql.com/doc/](https://dev.mysql.com/doc/)
+- **Why it's great**: Comprehensive official documentation with tutorials and reference
+
+#### **MySQL Tutorial**
+- **Link**: [mysqltutorial.org](https://www.mysqltutorial.org/)
+- **Why it's great**: Step-by-step tutorials with practical examples and exercises
+
+#### **MySQL Performance Best Practices**
+- **Link**: [dev.mysql.com/doc/refman/8.0/en/optimization.html](https://dev.mysql.com/doc/refman/8.0/en/optimization.html)
+- **Why it's great**: Official guide to MySQL performance optimization
+
+### 📝 Must-Read Blogs & Articles
+
+#### **MySQL Blog**
+- **Source**: Oracle MySQL Team
+- **Link**: [blogs.oracle.com/mysql/](https://blogs.oracle.com/mysql/)
+- **Why it's great**: Official updates and technical insights from MySQL team
+
+#### **Percona Database Performance Blog**
+- **Source**: Percona
+- **Link**: [percona.com/blog/](https://www.percona.com/blog/)
+- **Why it's great**: Expert insights on MySQL performance and optimization
+
+#### **MySQL vs PostgreSQL Comparison**
+- **Source**: DigitalOcean
+- **Link**: [digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql](https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems)
+- **Why it's great**: Comprehensive comparison of database technologies
+
+### 🎓 Structured Courses
+
+#### **MySQL for Data Analytics and Business Intelligence**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/sql-mysql-for-data-analytics-and-business-intelligence/](https://www.udemy.com/course/sql-mysql-for-data-analytics-and-business-intelligence/)
+- **Cost**: Paid
+- **Why it's great**: Practical course with real-world business scenarios
+
+#### **MySQL Database Administration**
+- **Platform**: Linux Academy
+- **Link**: [acloudguru.com/course/mysql-database-administration](https://acloudguru.com/course/mysql-database-administration)
+- **Cost**: Paid
+- **Why it's great**: Professional DBA training with production focus
+
+### 🛠️ Tools & Platforms
+
+#### **MySQL Workbench**
+- **Link**: [mysql.com/products/workbench/](https://www.mysql.com/products/workbench/)
+- **Why it's great**: Official visual tool for MySQL database design and administration
+
+#### **phpMyAdmin**
+- **Link**: [phpmyadmin.net](https://www.phpmyadmin.net/)
+- **Why it's great**: Popular web-based MySQL administration tool
+
+#### **PlanetScale**
+- **Link**: [planetscale.com](https://planetscale.com/)
+- **Why it's great**: Serverless MySQL platform with branching and generous free tier
+
 ## Overview
 
 MySQL is one of the world's most popular open-source relational databases, widely used for web applications and platform engineering. It's known for its reliability, ease of use, and strong performance for read-heavy workloads.

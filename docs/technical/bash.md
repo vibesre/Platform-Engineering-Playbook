@@ -7,6 +7,84 @@ description: Master shell scripting with Bash for automation, system administrat
 
 Bash (Bourne Again Shell) is the default shell for most Linux distributions and macOS. It's essential for platform engineers for automation, system administration, and creating deployment scripts. This comprehensive guide covers both interactive Bash usage and advanced scripting techniques for building robust automation solutions.
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Bash Scripting Full Course 3 Hours**
+- **Channel**: Programming with Mosh
+- **Link**: [YouTube - 3 hours](https://www.youtube.com/watch?v=e7BufAVwDiM)
+- **Why it's great**: Comprehensive coverage from basics to advanced scripting techniques
+
+#### **Linux Command Line Full Course**
+- **Channel**: freeCodeCamp
+- **Link**: [YouTube - 5 hours](https://www.youtube.com/watch?v=2PGnYjbYuUo)
+- **Why it's great**: Complete command line mastery with practical examples
+
+#### **Shell Scripting Tutorial**
+- **Channel**: Derek Banas
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=hwrnmQumtPw)
+- **Why it's great**: Fast-paced, comprehensive tutorial with real-world examples
+
+### 📖 Essential Documentation
+
+#### **GNU Bash Manual**
+- **Link**: [gnu.org/software/bash/manual/](https://www.gnu.org/software/bash/manual/)
+- **Why it's great**: Official comprehensive reference for all Bash features
+
+#### **Advanced Bash-Scripting Guide**
+- **Link**: [tldp.org/LDP/abs/html/](https://tldp.org/LDP/abs/html/)
+- **Why it's great**: In-depth guide with hundreds of practical examples
+
+#### **Bash Guide for Beginners**
+- **Link**: [tldp.org/LDP/Bash-Beginners-Guide/](https://tldp.org/LDP/Bash-Beginners-Guide/html/)
+- **Why it's great**: Perfect starting point with clear explanations and exercises
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Google Shell Style Guide**
+- **Source**: Google
+- **Link**: [google.github.io/styleguide/shellguide.html](https://google.github.io/styleguide/shellguide.html)
+- **Why it's great**: Industry best practices for professional shell scripting
+
+#### **Bash Pitfalls**
+- **Source**: Greg Wooledge
+- **Link**: [mywiki.wooledge.org/BashPitfalls](https://mywiki.wooledge.org/BashPitfalls)
+- **Why it's great**: Essential guide to avoiding common Bash mistakes
+
+#### **The Art of Command Line**
+- **Source**: Joshua Levy
+- **Link**: [github.com/jlevy/the-art-of-command-line](https://github.com/jlevy/the-art-of-command-line)
+- **Why it's great**: Comprehensive guide to mastering the command line
+
+### 🎓 Structured Courses
+
+#### **Linux Shell Scripting: A Complete Guide**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/linux-shell-scripting-free/](https://www.udemy.com/course/linux-shell-scripting-free/)
+- **Cost**: Free
+- **Why it's great**: Hands-on projects with real-world scripting scenarios
+
+#### **Bash Scripting and Shell Programming**
+- **Platform**: Linux Academy/A Cloud Guru
+- **Link**: [acloudguru.com](https://acloudguru.com/course/bash-scripting-and-shell-programming-linux)
+- **Cost**: Paid
+- **Why it's great**: Professional-grade training with labs and assessments
+
+### 🛠️ Tools & Platforms
+
+#### **ShellCheck**
+- **Link**: [shellcheck.net](https://www.shellcheck.net/)
+- **Why it's great**: Static analysis tool that catches errors and suggests improvements
+
+#### **explainshell.com**
+- **Link**: [explainshell.com](https://explainshell.com/)
+- **Why it's great**: Interactive tool that breaks down complex command lines
+
+#### **Bash-it Framework**
+- **Link**: [github.com/Bash-it/bash-it](https://github.com/Bash-it/bash-it)
+- **Why it's great**: Collection of community Bash commands and scripts for productivity
+
 ## Overview
 
 Bash serves dual purposes as both an interactive command interpreter and a powerful scripting language:

@@ -1,5 +1,85 @@
 # Prometheus
 
+Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. It's become the de facto standard for Kubernetes monitoring and is a graduated project of the Cloud Native Computing Foundation (CNCF).
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Prometheus Monitoring - Complete Tutorial**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=9TJx7QTrTyo)
+- **Why it's great**: Comprehensive overview of Prometheus monitoring stack
+
+#### **Prometheus Tutorial for Beginners**
+- **Channel**: KodeKloud
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=gFyW7HFHYfU)
+- **Why it's great**: Perfect introduction with hands-on examples
+
+#### **Monitoring Kubernetes with Prometheus**
+- **Channel**: Just me and Opensource
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=QoDqxm7ybLc)
+- **Why it's great**: Deep dive into Kubernetes monitoring patterns
+
+### 📖 Essential Documentation
+
+#### **Prometheus Official Documentation**
+- **Link**: [prometheus.io/docs/](https://prometheus.io/docs/)
+- **Why it's great**: Comprehensive official reference with tutorials and best practices
+
+#### **PromQL Documentation**
+- **Link**: [prometheus.io/docs/prometheus/latest/querying/](https://prometheus.io/docs/prometheus/latest/querying/)
+- **Why it's great**: Complete query language reference with examples
+
+#### **Prometheus Best Practices**
+- **Link**: [prometheus.io/docs/practices/](https://prometheus.io/docs/practices/)
+- **Why it's great**: Official best practices for naming, instrumentation, and alerting
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Robust Perception Blog**
+- **Source**: Brian Brazil (Prometheus creator)
+- **Link**: [robustperception.io/blog](https://www.robustperception.io/blog)
+- **Why it's great**: Deep technical insights from Prometheus experts
+
+#### **Prometheus Monitoring Guide**
+- **Source**: SigNoz
+- **Link**: [signoz.io/blog/prometheus-monitoring/](https://signoz.io/blog/prometheus-monitoring/)
+- **Why it's great**: Complete production setup guide with real-world examples
+
+#### **PromQL for Humans**
+- **Source**: Augment
+- **Link**: [github.com/augmentable-dev/promql-for-humans](https://github.com/augmentable-dev/promql-for-humans)
+- **Why it's great**: Practical PromQL examples and patterns
+
+### 🎓 Structured Courses
+
+#### **Prometheus Certified Associate (PCA)**
+- **Provider**: Linux Foundation
+- **Link**: [training.linuxfoundation.org/certification/prometheus-certified-associate/](https://training.linuxfoundation.org/certification/prometheus-certified-associate/)
+- **Cost**: Paid certification
+- **Why it's great**: Official CNCF certification with comprehensive training
+
+#### **Monitoring with Prometheus**
+- **Platform**: A Cloud Guru
+- **Link**: [acloudguru.com/course/monitoring-with-prometheus](https://acloudguru.com/course/monitoring-with-prometheus)
+- **Cost**: Paid
+- **Why it's great**: Production-focused course with hands-on labs
+
+### 🛠️ Tools & Platforms
+
+#### **Prometheus Playground**
+- **Link**: [play.prometheus.io](https://play.prometheus.io/)
+- **Why it's great**: Interactive PromQL query editor with sample data
+
+#### **Grafana Playground**
+- **Link**: [play.grafana.org](https://play.grafana.org/)
+- **Why it's great**: Pre-configured Grafana instance with Prometheus datasource
+
+#### **Prometheus Operator**
+- **Link**: [prometheus-operator.dev](https://prometheus-operator.dev/)
+- **Why it's great**: Kubernetes-native Prometheus deployment and management
+
 ## Overview
 
 Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. It's become the de facto standard for Kubernetes monitoring and is a graduated project of the Cloud Native Computing Foundation (CNCF).

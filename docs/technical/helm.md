@@ -1,5 +1,85 @@
 # Helm - Kubernetes Package Manager
 
+Helm is the package manager for Kubernetes, simplifying the deployment and management of applications. It uses a packaging format called charts, which are collections of files that describe a related set of Kubernetes resources.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Helm Tutorial for Beginners - Kubernetes Package Manager**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=fy8SHvNZGeE)
+- **Why it's great**: Comprehensive introduction to Helm concepts and practical usage
+
+#### **Helm Crash Course**
+- **Channel**: KodeKloud
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=kJscDZfHXrQ)
+- **Why it's great**: Quick start guide with hands-on examples and best practices
+
+#### **Advanced Helm Techniques**
+- **Channel**: DevOps Toolkit
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=WnYYtX_VRmU)
+- **Why it's great**: Deep dive into advanced Helm features and production patterns
+
+### 📖 Essential Documentation
+
+#### **Helm Official Documentation**
+- **Link**: [helm.sh/docs/](https://helm.sh/docs/)
+- **Why it's great**: Comprehensive official documentation with tutorials and examples
+
+#### **Helm Chart Development Guide**
+- **Link**: [helm.sh/docs/chart_template_guide/](https://helm.sh/docs/chart_template_guide/)
+- **Why it's great**: Complete guide to writing and templating Helm charts
+
+#### **Helm Best Practices**
+- **Link**: [helm.sh/docs/chart_best_practices/](https://helm.sh/docs/chart_best_practices/)
+- **Why it's great**: Official best practices for chart development and deployment
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Helm Blog**
+- **Source**: CNCF/Helm Project
+- **Link**: [helm.sh/blog/](https://helm.sh/blog/)
+- **Why it's great**: Official updates and technical insights from Helm maintainers
+
+#### **Helm Security Best Practices**
+- **Source**: Snyk
+- **Link**: [snyk.io/blog/kubernetes-helm-security-best-practices/](https://snyk.io/blog/kubernetes-helm-security-best-practices/)
+- **Why it's great**: Essential security considerations for Helm deployments
+
+#### **Helm vs Kustomize**
+- **Source**: GitLab
+- **Link**: [about.gitlab.com/blog/helm-vs-kustomize/](https://about.gitlab.com/blog/2021/02/22/gitlab-helm-deployment-strategy/)
+- **Why it's great**: Comparison of Kubernetes deployment tools and their strengths
+
+### 🎓 Structured Courses
+
+#### **Kubernetes and Helm Fundamentals**
+- **Platform**: Linux Academy
+- **Link**: [acloudguru.com/course/kubernetes-the-hard-way](https://acloudguru.com/course/kubernetes-the-hard-way)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive course covering Kubernetes and Helm integration
+
+#### **Helm Deep Dive**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/helm-package-manager-for-kubernetes/](https://www.udemy.com/course/helm-package-manager-for-kubernetes/)
+- **Cost**: Paid
+- **Why it's great**: Hands-on course with real-world chart development scenarios
+
+### 🛠️ Tools & Platforms
+
+#### **Artifact Hub**
+- **Link**: [artifacthub.io](https://artifacthub.io/)
+- **Why it's great**: Central repository for finding and sharing Helm charts
+
+#### **Helm Unittest Plugin**
+- **Link**: [github.com/helm-unittest/helm-unittest](https://github.com/helm-unittest/helm-unittest)
+- **Why it's great**: Testing framework for Helm charts
+
+#### **Chart Testing (ct)**
+- **Link**: [github.com/helm/chart-testing](https://github.com/helm/chart-testing)
+- **Why it's great**: Tool for linting and testing Helm charts in CI/CD pipelines
+
 ## Overview
 
 Helm is the package manager for Kubernetes, simplifying the deployment and management of applications. It uses a packaging format called charts, which are collections of files that describe a related set of Kubernetes resources.

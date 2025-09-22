@@ -1,8 +1,86 @@
 # Git - Distributed Version Control Fundamentals
 
-## Overview
-
 Git is a distributed version control system designed for speed, data integrity, and support for distributed, non-linear workflows. Created by Linus Torvalds in 2005, Git has become the de facto standard for version control in modern software development.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Git Tutorial for Beginners: Learn Git in 1 Hour**
+- **Channel**: Programming with Mosh
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=8JJ101D3knE)
+- **Why it's great**: Perfect introduction covering all essentials in concise format
+
+#### **Git and GitHub for Beginners - Crash Course**
+- **Channel**: freeCodeCamp
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=RGOj5yH7evk)
+- **Why it's great**: Comprehensive crash course with hands-on GitHub integration
+
+#### **Advanced Git Tutorial**
+- **Channel**: Atlassian
+- **Link**: [YouTube - Multiple videos](https://www.youtube.com/playlist?list=PLaY7qWIrmqtFkUBuMBth4i_fEJX4VQhAG)
+- **Why it's great**: Deep dive into advanced Git concepts and workflows
+
+### 📖 Essential Documentation
+
+#### **Pro Git Book**
+- **Link**: [git-scm.com/book](https://git-scm.com/book)
+- **Why it's great**: The definitive guide to Git, free and comprehensive
+
+#### **Git Official Documentation**
+- **Link**: [git-scm.com/docs](https://git-scm.com/docs)
+- **Why it's great**: Complete command reference with examples
+
+#### **Atlassian Git Tutorials**
+- **Link**: [atlassian.com/git/tutorials](https://www.atlassian.com/git/tutorials)
+- **Why it's great**: Excellent visual tutorials covering beginner to advanced topics
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Oh Shit, Git!?!**
+- **Source**: Katie Sylor-Miller
+- **Link**: [ohshitgit.com](https://ohshitgit.com/)
+- **Why it's great**: Practical solutions to common Git problems with humor
+
+#### **Git Workflows Comparison**
+- **Source**: Atlassian
+- **Link**: [atlassian.com/git/tutorials/comparing-workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
+- **Why it's great**: Comprehensive comparison of different Git workflows
+
+#### **A Successful Git Branching Model**
+- **Source**: Vincent Driessen
+- **Link**: [nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)
+- **Why it's great**: The classic Git Flow workflow explained
+
+### 🎓 Structured Courses
+
+#### **Version Control with Git**
+- **Platform**: Coursera (University of California, Davis)
+- **Link**: [coursera.org/learn/version-control-with-git](https://www.coursera.org/learn/version-control-with-git)
+- **Cost**: Free (audit mode)
+- **Why it's great**: Academic approach with solid fundamentals
+
+#### **Git Essential Training**
+- **Platform**: LinkedIn Learning
+- **Link**: [linkedin.com/learning/git-essential-training](https://www.linkedin.com/learning/git-essential-training-the-basics)
+- **Cost**: Paid
+- **Why it's great**: Professional training with real-world scenarios
+
+### 🛠️ Tools & Platforms
+
+#### **GitHub**
+- **Link**: [github.com](https://github.com/)
+- **Why it's great**: Most popular Git hosting with excellent collaboration features
+
+#### **GitKraken**
+- **Link**: [gitkraken.com](https://www.gitkraken.com/)
+- **Why it's great**: Beautiful visual Git client with merge conflict resolution
+
+#### **Git Cheat Sheet Interactive**
+- **Link**: [ndpsoftware.com/git-cheatsheet.html](https://ndpsoftware.com/git-cheatsheet.html)
+- **Why it's great**: Interactive visual representation of Git commands
+
+## Overview
 
 ## Core Concepts
 
@@ -728,25 +806,6 @@ git config core.fsmonitor true
 git config core.untrackedcache true
 ```
 
-## Resources
-
-### Essential References
-- [Pro Git Book](https://git-scm.com/book) - Comprehensive Git guide
-- [Git Documentation](https://git-scm.com/docs) - Official command reference
-- [Git Internals](https://github.com/pluralsight/git-internals-pdf) - Deep dive into Git's architecture
-- [Oh Shit, Git!?!](https://ohshitgit.com/) - Solutions to common Git problems
-
-### Workflows and Best Practices
-- [GitHub Flow Guide](https://guides.github.com/introduction/flow/) - Simple Git workflow
-- [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) - Feature branch workflow
-- [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials) - Comprehensive tutorials
-- [Git Style Guide](https://github.com/agis/git-style-guide) - Formatting best practices
-
-### Tools and Utilities
-- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) - Quick reference
-- [GitKraken](https://www.gitkraken.com/) - Visual Git client
-- [tig](https://jonas.github.io/tig/) - Text-mode interface for Git
-- [git-standup](https://github.com/kamranahmedse/git-standup) - Review work from last working day
 
 ---
 

@@ -1,5 +1,85 @@
 # Microsoft Azure
 
+Microsoft Azure is a comprehensive cloud computing platform offering over 200 products and cloud services designed to help organizations build, run, and manage applications across multiple clouds, on-premises, and at the edge. With its strong enterprise integration, hybrid cloud capabilities, and extensive compliance certifications, Azure is particularly popular among enterprises already using Microsoft technologies.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Azure Full Course - Learn Microsoft Azure in 8 Hours**
+- **Channel**: freeCodeCamp
+- **Link**: [YouTube - 8 hours](https://www.youtube.com/watch?v=NKEFWyqJ5XA)
+- **Why it's great**: Comprehensive tutorial covering core Azure services with hands-on labs
+
+#### **Azure Tutorial for Beginners**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=NKEFWyqJ5XA)
+- **Why it's great**: Perfect introduction to Azure fundamentals and key services
+
+#### **Microsoft Azure Master Class**
+- **Channel**: John Savill's Technical Training
+- **Link**: [YouTube Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nGlGPWs9xaLKT-vqfxdtA1o)
+- **Why it's great**: Deep technical training by Microsoft MVP with real-world scenarios
+
+### 📖 Essential Documentation
+
+#### **Microsoft Azure Documentation**
+- **Link**: [docs.microsoft.com/en-us/azure/](https://docs.microsoft.com/en-us/azure/)
+- **Why it's great**: Comprehensive official documentation with tutorials and best practices
+
+#### **Azure Architecture Center**
+- **Link**: [docs.microsoft.com/en-us/azure/architecture/](https://docs.microsoft.com/en-us/azure/architecture/)
+- **Why it's great**: Reference architectures and design patterns for Azure solutions
+
+#### **Azure Well-Architected Framework**
+- **Link**: [docs.microsoft.com/en-us/azure/architecture/framework/](https://docs.microsoft.com/en-us/azure/architecture/framework/)
+- **Why it's great**: Best practices for building reliable, secure, and efficient applications
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Azure Blog**
+- **Source**: Microsoft Azure
+- **Link**: [azure.microsoft.com/en-us/blog/](https://azure.microsoft.com/en-us/blog/)
+- **Why it's great**: Official updates, announcements, and technical insights
+
+#### **Azure Tips and Tricks**
+- **Source**: Michael Crump
+- **Link**: [azure.microsoft.com/en-us/resources/azure-tips-and-tricks/](https://azure.microsoft.com/en-us/resources/azure-tips-and-tricks/)
+- **Why it's great**: Practical tips and tricks for Azure development
+
+#### **Azure vs AWS vs GCP Comparison**
+- **Source**: Microsoft
+- **Link**: [azure.microsoft.com/en-us/overview/compare-azure-aws/](https://azure.microsoft.com/en-us/overview/compare-azure-aws/)
+- **Why it's great**: Official comparison guide for cloud platform selection
+
+### 🎓 Structured Courses
+
+#### **Microsoft Azure Fundamentals (AZ-900)**
+- **Platform**: Microsoft Learn
+- **Link**: [docs.microsoft.com/en-us/learn/paths/azure-fundamentals/](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/)
+- **Cost**: Free
+- **Why it's great**: Official Microsoft certification path with hands-on labs
+
+#### **Azure Administrator Associate (AZ-104)**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/70533-azure/](https://www.udemy.com/course/70533-azure/)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive course for Azure administration and management
+
+### 🛠️ Tools & Platforms
+
+#### **Azure Portal**
+- **Link**: [portal.azure.com](https://portal.azure.com/)
+- **Why it's great**: Web-based interface for managing all Azure resources
+
+#### **Azure Cloud Shell**
+- **Link**: [shell.azure.com](https://shell.azure.com/)
+- **Why it's great**: Browser-based shell with pre-installed Azure CLI and PowerShell
+
+#### **Azure DevTest Labs**
+- **Link**: [azure.microsoft.com/en-us/services/devtest-lab/](https://azure.microsoft.com/en-us/services/devtest-lab/)
+- **Why it's great**: Quickly create environments in Azure while minimizing waste and controlling cost
+
 ## Overview
 
 Microsoft Azure is a comprehensive cloud computing platform offering over 200 products and cloud services designed to help organizations build, run, and manage applications across multiple clouds, on-premises, and at the edge. With its strong enterprise integration, hybrid cloud capabilities, and extensive compliance certifications, Azure is particularly popular among enterprises already using Microsoft technologies.

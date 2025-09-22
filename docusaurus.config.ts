@@ -86,8 +86,8 @@ const config: Config = {
           title: 'Learn',
           items: [
             {
-              label: 'Getting Started',
-              to: '/getting-started',
+              label: 'Welcome',
+              to: '/',
             },
             {
               label: 'Technical Skills',

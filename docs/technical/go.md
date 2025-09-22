@@ -1,5 +1,83 @@
 # Go
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Go Programming Tutorial for Beginners - Complete Course**
+- **Channel**: freeCodeCamp
+- **Link**: [YouTube - 7 hours](https://www.youtube.com/watch?v=YS4e4q9oBaU)
+- **Why it's great**: Comprehensive introduction covering basics to advanced topics with hands-on projects
+
+#### **Go Tutorial for Beginners**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 3 hours](https://www.youtube.com/watch?v=yyUHQIec83I)
+- **Why it's great**: Perfect introduction to Go syntax, concepts, and practical examples
+
+#### **Golang Tutorial for Beginners**
+- **Channel**: Derek Banas
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=CF9S4QZuV30)
+- **Why it's great**: Fast-paced comprehensive overview with real-world examples
+
+### 📖 Essential Documentation
+
+#### **Go Official Documentation**
+- **Link**: [golang.org/doc](https://golang.org/doc/)
+- **Why it's great**: Complete language guide, tutorials, and best practices from the Go team
+
+#### **Effective Go**
+- **Link**: [golang.org/doc/effective_go](https://golang.org/doc/effective_go)
+- **Why it's great**: Essential guide to writing clear, idiomatic Go code with best practices
+
+#### **Go by Example**
+- **Link**: [gobyexample.com](https://gobyexample.com/)
+- **Why it's great**: Hands-on introduction with annotated examples covering all Go concepts
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Go Blog**
+- **Source**: Go Team
+- **Link**: [blog.golang.org](https://blog.golang.org/)
+- **Why it's great**: Official updates, feature announcements, and deep technical insights
+
+#### **Dave Cheney's Blog**
+- **Source**: Dave Cheney
+- **Link**: [dave.cheney.net](https://dave.cheney.net/)
+- **Why it's great**: Advanced Go patterns, performance optimization, and language insights
+
+#### **Go Time Podcast**
+- **Source**: Changelog
+- **Link**: [changelog.com/gotime](https://changelog.com/gotime)
+- **Why it's great**: Weekly podcast with Go experts discussing best practices and trends
+
+### 🎓 Structured Courses
+
+#### **Complete Go Programming Course**
+- **Platform**: Udemy (Todd McLeod)
+- **Link**: [udemy.com/course/learn-how-to-code/](https://www.udemy.com/course/learn-how-to-code/)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive course with exercises and real-world applications
+
+#### **A Tour of Go**
+- **Platform**: Go Team
+- **Link**: [tour.golang.org](https://tour.golang.org/)
+- **Cost**: Free
+- **Why it's great**: Interactive tutorial that covers the basics of Go programming
+
+### 🛠️ Tools & Platforms
+
+#### **Go Playground**
+- **Link**: [play.golang.org](https://play.golang.org/)
+- **Why it's great**: Online Go compiler for testing and sharing code snippets
+
+#### **Awesome Go**
+- **Link**: [awesome-go.com](https://awesome-go.com/)
+- **Why it's great**: Curated list of Go frameworks, libraries, and resources
+
+#### **Go Cloud Development Kit**
+- **Link**: [gocloud.dev](https://gocloud.dev/)
+- **Why it's great**: Cloud-portable libraries for building Go applications on any cloud
+
 ## Overview
 
 Go (Golang) is a statically typed, compiled programming language designed by Google for building reliable, efficient software. It's become the language of choice for cloud-native infrastructure, with most CNCF projects written in Go.

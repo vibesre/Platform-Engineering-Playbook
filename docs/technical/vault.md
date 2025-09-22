@@ -1,5 +1,85 @@
 # HashiCorp Vault
 
+HashiCorp Vault is a tool for securely accessing secrets and protecting sensitive data. It provides a unified interface to any secret while providing tight access control and recording a detailed audit log.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **HashiCorp Vault Tutorial for Beginners**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=VYfl-DpZ5wM)
+- **Why it's great**: Comprehensive introduction to Vault concepts and practical usage
+
+#### **Complete Vault Course - Secrets Management**
+- **Channel**: KodeKloud
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=m1h6gA5GBaE)
+- **Why it's great**: Hands-on tutorial covering authentication and secret engines
+
+#### **Vault on Kubernetes**
+- **Channel**: HashiCorp
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=UZy1hfhJs4Y)
+- **Why it's great**: Official guide to deploying Vault in Kubernetes environments
+
+### 📖 Essential Documentation
+
+#### **Vault Official Documentation**
+- **Link**: [vaultproject.io/docs](https://www.vaultproject.io/docs)
+- **Why it's great**: Comprehensive official documentation with tutorials and API reference
+
+#### **Vault Learning Guide**
+- **Link**: [learn.hashicorp.com/vault](https://learn.hashicorp.com/vault)
+- **Why it's great**: Step-by-step tutorials from basic to advanced concepts
+
+#### **Vault Production Hardening**
+- **Link**: [vaultproject.io/docs/concepts/production](https://www.vaultproject.io/docs/concepts/production)
+- **Why it's great**: Essential guide for production deployments and security
+
+### 📝 Must-Read Blogs & Articles
+
+#### **HashiCorp Blog - Vault**
+- **Source**: HashiCorp
+- **Link**: [hashicorp.com/blog/products/vault](https://www.hashicorp.com/blog/products/vault)
+- **Why it's great**: Official updates and advanced use cases from Vault creators
+
+#### **Vault Security Best Practices**
+- **Source**: Aqua Security
+- **Link**: [aquasec.com/cloud-native-academy/secrets-management/hashicorp-vault/](https://www.aquasec.com/cloud-native-academy/secrets-management/hashicorp-vault/)
+- **Why it's great**: Production security patterns and threat model considerations
+
+#### **Dynamic Secrets with Vault**
+- **Source**: Medium
+- **Link**: [medium.com/hashicorp-engineering/dynamic-database-credentials-with-vault-8e28ab1e84ee](https://medium.com/hashicorp-engineering/dynamic-database-credentials-with-vault-8e28ab1e84ee)
+- **Why it's great**: Deep dive into dynamic secret generation patterns
+
+### 🎓 Structured Courses
+
+#### **HashiCorp Certified: Vault Associate**
+- **Provider**: HashiCorp
+- **Link**: [hashicorp.com/certification/vault-associate](https://www.hashicorp.com/certification/vault-associate)
+- **Cost**: Paid certification
+- **Why it's great**: Official certification with comprehensive training materials
+
+#### **Securing Infrastructure with HashiCorp Vault**
+- **Platform**: Pluralsight
+- **Link**: [pluralsight.com/courses/hashicorp-vault-securing-infrastructure](https://www.pluralsight.com/courses/hashicorp-vault-securing-infrastructure)
+- **Cost**: Paid
+- **Why it's great**: Production-focused course with real-world scenarios
+
+### 🛠️ Tools & Platforms
+
+#### **Vault Playground**
+- **Link**: [play.instruqt.com/hashicorp](https://play.instruqt.com/hashicorp)
+- **Why it's great**: Interactive Vault tutorials in browser-based environments
+
+#### **Vault Helm Chart**
+- **Link**: [github.com/hashicorp/vault-helm](https://github.com/hashicorp/vault-helm)
+- **Why it's great**: Official Helm chart for deploying Vault on Kubernetes
+
+#### **Vault Operator**
+- **Link**: [github.com/banzaicloud/bank-vaults](https://github.com/banzaicloud/bank-vaults)
+- **Why it's great**: Kubernetes operator for managing Vault deployments and configuration
+
 ## Overview
 
 HashiCorp Vault is a tool for securely accessing secrets and protecting sensitive data. It provides a unified interface to any secret while providing tight access control and recording a detailed audit log.

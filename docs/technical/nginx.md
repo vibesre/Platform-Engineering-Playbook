@@ -5,6 +5,86 @@ description: "Master NGINX as a web server, reverse proxy, load balancer, and AP
 
 # NGINX Web Server
 
+NGINX is a high-performance web server, reverse proxy, load balancer, and API gateway. Known for its efficiency, stability, and rich feature set, NGINX powers many of the world's busiest websites. Platform engineers use NGINX for serving static content, proxying applications, load balancing, and implementing complex routing rules.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **NGINX Crash Course**
+- **Channel**: Traversy Media
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=7VAI73roXaY)
+- **Why it's great**: Perfect introduction covering web server and reverse proxy basics
+
+#### **NGINX Tutorial for Beginners**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=7YcW25PHnAA)
+- **Why it's great**: Comprehensive overview with practical configuration examples
+
+#### **NGINX Load Balancing Deep Dive**
+- **Channel**: Hussein Nasser
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=spbkCihFpQ8)
+- **Why it's great**: Advanced load balancing concepts and implementations
+
+### 📖 Essential Documentation
+
+#### **NGINX Official Documentation**
+- **Link**: [nginx.org/en/docs/](http://nginx.org/en/docs/)
+- **Why it's great**: Comprehensive official reference with all directives and modules
+
+#### **NGINX Beginner's Guide**
+- **Link**: [nginx.org/en/docs/beginners_guide.html](http://nginx.org/en/docs/beginners_guide.html)
+- **Why it's great**: Perfect starting point with basic configuration examples
+
+#### **NGINX Admin Guide**
+- **Link**: [docs.nginx.com/nginx/admin-guide/](https://docs.nginx.com/nginx/admin-guide/)
+- **Why it's great**: Production-focused configuration patterns and best practices
+
+### 📝 Must-Read Blogs & Articles
+
+#### **NGINX Blog**
+- **Source**: NGINX Inc.
+- **Link**: [nginx.com/blog/](https://www.nginx.com/blog/)
+- **Why it's great**: Official updates, performance tips, and use case studies
+
+#### **NGINX Configuration Best Practices**
+- **Source**: DigitalOcean
+- **Link**: [digitalocean.com/community/tutorials/nginx-essentials](https://www.digitalocean.com/community/tutorials/nginx-essentials-installation-and-configuration-fundamentals)
+- **Why it's great**: Practical security and performance optimization guide
+
+#### **NGINX Performance Tuning**
+- **Source**: NGINX
+- **Link**: [nginx.com/blog/tuning-nginx/](https://www.nginx.com/blog/tuning-nginx/)
+- **Why it's great**: Essential performance optimization techniques
+
+### 🎓 Structured Courses
+
+#### **NGINX Fundamentals**
+- **Platform**: Linux Academy
+- **Link**: [acloudguru.com/course/nginx-fundamentals](https://acloudguru.com/course/nginx-fundamentals)
+- **Cost**: Paid
+- **Why it's great**: Hands-on course covering web server to advanced proxy configurations
+
+#### **Mastering NGINX**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/nginx-crash-course/](https://www.udemy.com/course/nginx-crash-course/)
+- **Cost**: Paid
+- **Why it's great**: Complete course from basics to production deployment
+
+### 🛠️ Tools & Platforms
+
+#### **NGINX Config Generator**
+- **Link**: [nginxconfig.io](https://nginxconfig.io/)
+- **Why it's great**: Interactive tool for generating optimized NGINX configurations
+
+#### **NGINX Unit**
+- **Link**: [unit.nginx.org](https://unit.nginx.org/)
+- **Why it's great**: Dynamic application server for running multiple application frameworks
+
+#### **NGINX Playground**
+- **Link**: [github.com/trimstray/nginx-admins-handbook](https://github.com/trimstray/nginx-admins-handbook)
+- **Why it's great**: Comprehensive guide and reference for NGINX administrators
+
 ## Introduction
 
 NGINX is a high-performance web server, reverse proxy, load balancer, and API gateway. Known for its efficiency, stability, and rich feature set, NGINX powers many of the world's busiest websites. Platform engineers use NGINX for serving static content, proxying applications, load balancing, and implementing complex routing rules.

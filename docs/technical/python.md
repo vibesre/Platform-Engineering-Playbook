@@ -1,5 +1,85 @@
 # Python
 
+Python is a high-level, interpreted programming language that's become essential for platform engineering, automation, and infrastructure management. Its simple syntax, extensive libraries, and strong ecosystem make it ideal for scripting, tooling, and building infrastructure automation.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Python Tutorial for Beginners - Complete Course**
+- **Channel**: Programming with Mosh
+- **Link**: [YouTube - 6 hours](https://www.youtube.com/watch?v=_uQrJ0TkZlc)
+- **Why it's great**: Comprehensive tutorial covering Python fundamentals to advanced concepts
+
+#### **Python for DevOps and Infrastructure**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=Wvh-5ZCOXbs)
+- **Why it's great**: Platform engineering focused Python course with practical automation examples
+
+#### **Automate the Boring Stuff with Python**
+- **Channel**: Al Sweigart
+- **Link**: [YouTube Playlist](https://www.youtube.com/playlist?list=PL0-84-yl1fUnRuXGFe_F7qSH1LEnn9LkW)
+- **Why it's great**: Practical automation tasks perfect for platform engineers
+
+### 📖 Essential Documentation
+
+#### **Python Official Documentation**
+- **Link**: [docs.python.org](https://docs.python.org/)
+- **Why it's great**: Comprehensive official language reference and tutorials
+
+#### **Real Python**
+- **Link**: [realpython.com](https://realpython.com/)
+- **Why it's great**: High-quality tutorials and courses for all skill levels
+
+#### **Python DevOps Guide**
+- **Link**: [python-guide.readthedocs.io](https://docs.python-guide.org/)
+- **Why it's great**: Best practices guide for Python development and deployment
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Python Software Foundation Blog**
+- **Source**: Python Software Foundation
+- **Link**: [blog.python.org](https://blog.python.org/)
+- **Why it's great**: Official updates and insights from Python core team
+
+#### **Effective Python**
+- **Source**: Brett Slatkin
+- **Link**: [effectivepython.com](https://effectivepython.com/)
+- **Why it's great**: Best practices and advanced Python techniques
+
+#### **Python for DevOps**
+- **Source**: Noah Gift
+- **Link**: [github.com/noahgift/python-devops-course](https://github.com/noahgift/python-devops-course)
+- **Why it's great**: Comprehensive DevOps-focused Python resources
+
+### 🎓 Structured Courses
+
+#### **Python for Everybody Specialization**
+- **Platform**: Coursera (University of Michigan)
+- **Link**: [coursera.org/specializations/python](https://www.coursera.org/specializations/python)
+- **Cost**: Free (audit mode)
+- **Why it's great**: University-level course with comprehensive fundamentals
+
+#### **Complete Python Developer Course**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/complete-python-developer-zero-to-mastery/](https://www.udemy.com/course/complete-python-developer-zero-to-mastery/)
+- **Cost**: Paid
+- **Why it's great**: Hands-on course with real-world projects and best practices
+
+### 🛠️ Tools & Platforms
+
+#### **Python Package Index (PyPI)**
+- **Link**: [pypi.org](https://pypi.org/)
+- **Why it's great**: Central repository for Python packages and libraries
+
+#### **Jupyter Notebooks**
+- **Link**: [jupyter.org](https://jupyter.org/)
+- **Why it's great**: Interactive development environment perfect for experimentation
+
+#### **Python.org Online Console**
+- **Link**: [python.org/shell/](https://www.python.org/shell/)
+- **Why it's great**: Browser-based Python interpreter for quick testing
+
 ## Overview
 
 Python is a high-level, interpreted programming language that's become essential for platform engineering, automation, and infrastructure management. Its simple syntax, extensive libraries, and strong ecosystem make it ideal for scripting, tooling, and building infrastructure automation.

@@ -1,8 +1,86 @@
 # Redis
 
-## Overview
-
 Redis is an in-memory data structure store used as a database, cache, and message broker. It's essential for platform engineers building high-performance applications that need fast data access, caching, and real-time features.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Redis Crash Course Tutorial**
+- **Channel**: Traversy Media
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=jgpVdJB2sKQ)
+- **Why it's great**: Comprehensive overview covering all essential Redis concepts
+
+#### **Redis Tutorial for Beginners**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=OqCK95AS-YE)
+- **Why it's great**: Perfect introduction with practical examples and use cases
+
+#### **Redis University Course**
+- **Channel**: Redis
+- **Link**: [university.redis.com](https://university.redis.com/)
+- **Why it's great**: Official comprehensive training with hands-on labs
+
+### 📖 Essential Documentation
+
+#### **Redis Official Documentation**
+- **Link**: [redis.io/documentation](https://redis.io/documentation)
+- **Why it's great**: Comprehensive official docs with examples and best practices
+
+#### **Redis Commands Reference**
+- **Link**: [redis.io/commands](https://redis.io/commands)
+- **Why it's great**: Complete command documentation with interactive examples
+
+#### **Redis Best Practices**
+- **Link**: [redis.com/redis-best-practices/](https://redis.com/redis-best-practices/)
+- **Why it's great**: Production-ready guidance for performance and security
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Redis Blog**
+- **Source**: Redis Labs
+- **Link**: [redis.com/blog/](https://redis.com/blog/)
+- **Why it's great**: Latest updates, use cases, and technical deep dives
+
+#### **Scaling Redis at Twitter**
+- **Source**: Twitter Engineering
+- **Link**: [blog.twitter.com/engineering/scaling-redis](https://blog.twitter.com/engineering/en_us/topics/infrastructure/2014/scaling-redis-at-twitter.html)
+- **Why it's great**: Real-world scaling challenges and solutions
+
+#### **Redis Memory Optimization**
+- **Source**: Redis
+- **Link**: [redis.io/topics/memory-optimization](https://redis.io/topics/memory-optimization)
+- **Why it's great**: Essential guide for production memory management
+
+### 🎓 Structured Courses
+
+#### **Redis for Developers**
+- **Platform**: Redis University
+- **Link**: [university.redis.com/courses/ru102js/](https://university.redis.com/courses/ru102js/)
+- **Cost**: Free
+- **Why it's great**: Hands-on course with real application development
+
+#### **Redis Data Structures**
+- **Platform**: Pluralsight
+- **Link**: [pluralsight.com/courses/redis-data-structures](https://www.pluralsight.com/courses/redis-data-structures)
+- **Cost**: Paid
+- **Why it's great**: Deep dive into Redis data structures and their use cases
+
+### 🛠️ Tools & Platforms
+
+#### **RedisInsight**
+- **Link**: [redis.com/redis-enterprise/redis-insight/](https://redis.com/redis-enterprise/redis-insight/)
+- **Why it's great**: Visual Redis database management and monitoring tool
+
+#### **Redis CLI Interactive Tutorial**
+- **Link**: [try.redis.io](https://try.redis.io/)
+- **Why it's great**: Hands-on browser-based Redis experience
+
+#### **Redis Desktop Manager**
+- **Link**: [resp.app](https://resp.app/)
+- **Why it's great**: Cross-platform Redis GUI with advanced features
+
+## Overview
 
 ## Key Features
 

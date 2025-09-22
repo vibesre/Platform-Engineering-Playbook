@@ -1,5 +1,85 @@
 # MongoDB
 
+MongoDB is a popular NoSQL document database designed for scalability and developer productivity. It stores data in flexible, JSON-like documents and is widely used for modern applications requiring schema flexibility and horizontal scaling.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **MongoDB Tutorial for Beginners - Complete Course**
+- **Channel**: freeCodeCamp
+- **Link**: [YouTube - 2.5 hours](https://www.youtube.com/watch?v=c2M-rlkkT5o)
+- **Why it's great**: Comprehensive introduction to MongoDB concepts and operations
+
+#### **MongoDB Crash Course**
+- **Channel**: Traversy Media
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=-56x56UppqQ)
+- **Why it's great**: Quick start guide with practical examples and CRUD operations
+
+#### **MongoDB University - Complete Developer Course**
+- **Channel**: MongoDB
+- **Link**: [YouTube Playlist](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jpvoYriLI0bY8DOgWZfi6u)
+- **Why it's great**: Official training videos from MongoDB with hands-on exercises
+
+### 📖 Essential Documentation
+
+#### **MongoDB Official Documentation**
+- **Link**: [docs.mongodb.com](https://docs.mongodb.com/)
+- **Why it's great**: Comprehensive official documentation with tutorials and examples
+
+#### **MongoDB Manual**
+- **Link**: [docs.mongodb.com/manual/](https://docs.mongodb.com/manual/)
+- **Why it's great**: Complete reference for MongoDB features and operations
+
+#### **MongoDB Best Practices**
+- **Link**: [docs.mongodb.com/manual/administration/production-notes/](https://docs.mongodb.com/manual/administration/production-notes/)
+- **Why it's great**: Essential guide for production deployments and optimization
+
+### 📝 Must-Read Blogs & Articles
+
+#### **MongoDB Blog**
+- **Source**: MongoDB Inc.
+- **Link**: [mongodb.com/blog](https://www.mongodb.com/blog)
+- **Why it's great**: Official updates, use cases, and technical insights
+
+#### **MongoDB vs SQL Databases**
+- **Source**: MongoDB
+- **Link**: [mongodb.com/compare/mongodb-mysql](https://www.mongodb.com/compare/mongodb-mysql)
+- **Why it's great**: Comprehensive comparison of NoSQL vs SQL approaches
+
+#### **MongoDB Performance Tuning**
+- **Source**: Studio 3T
+- **Link**: [studio3t.com/knowledge-base/articles/mongodb-performance-tuning/](https://studio3t.com/knowledge-base/articles/mongodb-performance-tuning/)
+- **Why it's great**: Practical performance optimization techniques
+
+### 🎓 Structured Courses
+
+#### **MongoDB University**
+- **Platform**: MongoDB Inc.
+- **Link**: [university.mongodb.com](https://university.mongodb.com/)
+- **Cost**: Free
+- **Why it's great**: Official MongoDB certification courses with hands-on labs
+
+#### **Complete MongoDB Developer Course**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/the-complete-developers-guide-to-mongodb/](https://www.udemy.com/course/the-complete-developers-guide-to-mongodb/)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive course with real-world application development
+
+### 🛠️ Tools & Platforms
+
+#### **MongoDB Atlas**
+- **Link**: [cloud.mongodb.com](https://cloud.mongodb.com/)
+- **Why it's great**: Fully managed MongoDB service with generous free tier
+
+#### **MongoDB Compass**
+- **Link**: [mongodb.com/products/compass](https://www.mongodb.com/products/compass)
+- **Why it's great**: Official GUI for MongoDB with visual query building
+
+#### **Studio 3T**
+- **Link**: [studio3t.com](https://studio3t.com/)
+- **Why it's great**: Professional MongoDB IDE with advanced query and management features
+
 ## Overview
 
 MongoDB is a popular NoSQL document database designed for scalability and developer productivity. It stores data in flexible, JSON-like documents and is widely used for modern applications requiring schema flexibility and horizontal scaling.

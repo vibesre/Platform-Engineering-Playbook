@@ -1,5 +1,83 @@
 # cert-manager
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **cert-manager Tutorial - Automatic TLS in Kubernetes**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=7m4_kZOObzw)
+- **Why it's great**: Comprehensive introduction to cert-manager with hands-on setup and configuration
+
+#### **Kubernetes TLS Certificates with cert-manager**
+- **Channel**: Just me and Opensource
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=hoLUigg4V18)
+- **Why it's great**: Practical guide to implementing TLS certificates in Kubernetes clusters
+
+#### **Let's Encrypt and cert-manager Deep Dive**
+- **Channel**: Cloud Native Skunkworks
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=3bwdcPn-_9c)
+- **Why it's great**: Advanced cert-manager features and ACME protocol integration
+
+### 📖 Essential Documentation
+
+#### **cert-manager Official Documentation**
+- **Link**: [cert-manager.io/docs](https://cert-manager.io/docs/)
+- **Why it's great**: Comprehensive official documentation with setup guides and best practices
+
+#### **cert-manager Configuration Reference**
+- **Link**: [cert-manager.io/docs/configuration](https://cert-manager.io/docs/configuration/)
+- **Why it's great**: Complete reference for all cert-manager CRDs and configuration options
+
+#### **cert-manager Tutorials**
+- **Link**: [cert-manager.io/docs/tutorials](https://cert-manager.io/docs/tutorials/)
+- **Why it's great**: Step-by-step tutorials for common cert-manager use cases
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Jetstack Blog - cert-manager**
+- **Source**: Jetstack (Venafi)
+- **Link**: [blog.jetstack.io](https://blog.jetstack.io/)
+- **Why it's great**: Official updates and advanced patterns from cert-manager creators
+
+#### **Kubernetes TLS Best Practices**
+- **Source**: CNCF
+- **Link**: [kubernetes.io/docs/concepts/configuration/tls](https://kubernetes.io/docs/concepts/configuration/tls/)
+- **Why it's great**: Official Kubernetes guidance on TLS certificate management
+
+#### **cert-manager vs Manual Certificate Management**
+- **Source**: Various
+- **Link**: [learnk8s.io/cert-manager](https://learnk8s.io/cert-manager/)
+- **Why it's great**: Comparison of certificate management approaches and benefits
+
+### 🎓 Structured Courses
+
+#### **Kubernetes Security and cert-manager**
+- **Platform**: Linux Academy (A Cloud Guru)
+- **Link**: [acloudguru.com/course/kubernetes-security](https://acloudguru.com/course/kubernetes-security)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive security course including certificate management
+
+#### **Kubernetes TLS and PKI Course**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/kubernetes-tls](https://www.udemy.com/course/kubernetes-tls/)
+- **Cost**: Paid
+- **Why it's great**: Deep dive into Kubernetes TLS and certificate management
+
+### 🛠️ Tools & Platforms
+
+#### **cert-manager Helm Chart**
+- **Link**: [github.com/jetstack/cert-manager](https://github.com/jetstack/cert-manager)
+- **Why it's great**: Official Helm chart for easy cert-manager deployment
+
+#### **Venafi Machine Identity Management**
+- **Link**: [venafi.com/machine-identity-management](https://venafi.com/machine-identity-management/)
+- **Why it's great**: Enterprise cert-manager integration and advanced certificate lifecycle management
+
+#### **cert-manager CSI Driver**
+- **Link**: [github.com/cert-manager/csi-driver](https://github.com/cert-manager/csi-driver)
+- **Why it's great**: Mount certificates as volumes using Container Storage Interface
+
 ## Overview
 
 cert-manager is a Kubernetes-native certificate management controller that automates the provisioning and management of TLS certificates. It integrates with various certificate authorities and provides a declarative approach to certificate lifecycle management.

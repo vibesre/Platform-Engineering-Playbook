@@ -1,5 +1,85 @@
 # GitLab CI/CD - GitLab's Integrated CI/CD
 
+GitLab CI/CD is a powerful, integrated continuous integration and deployment tool built into GitLab. It uses YAML configuration files to define pipelines, supports complex workflows, and provides features like Auto DevOps, security scanning, and deployment environments.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **GitLab CI/CD Tutorial for Beginners**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=qP8kir_GUgo)
+- **Why it's great**: Comprehensive introduction to GitLab CI/CD with practical examples
+
+#### **Complete GitLab CI/CD Pipeline Tutorial**
+- **Channel**: DevOps Journey
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=BO8h0y9CEI0)
+- **Why it's great**: Hands-on tutorial building production-ready pipelines
+
+#### **GitLab Auto DevOps**
+- **Channel**: GitLab
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=0Tc0YYBxqi4)
+- **Why it's great**: Official guide to GitLab's automated DevOps features
+
+### 📖 Essential Documentation
+
+#### **GitLab CI/CD Documentation**
+- **Link**: [docs.gitlab.com/ee/ci/](https://docs.gitlab.com/ee/ci/)
+- **Why it's great**: Comprehensive official documentation with examples and best practices
+
+#### **GitLab CI/CD YAML Reference**
+- **Link**: [docs.gitlab.com/ee/ci/yaml/](https://docs.gitlab.com/ee/ci/yaml/)
+- **Why it's great**: Complete YAML syntax reference for pipeline configuration
+
+#### **GitLab CI/CD Examples**
+- **Link**: [docs.gitlab.com/ee/ci/examples/](https://docs.gitlab.com/ee/ci/examples/)
+- **Why it's great**: Ready-to-use pipeline templates for different languages and frameworks
+
+### 📝 Must-Read Blogs & Articles
+
+#### **GitLab Blog - CI/CD**
+- **Source**: GitLab
+- **Link**: [about.gitlab.com/blog/tags.html#ci-cd](https://about.gitlab.com/blog/tags.html#ci-cd)
+- **Why it's great**: Official updates and advanced CI/CD patterns
+
+#### **GitLab CI/CD Best Practices**
+- **Source**: GitLab
+- **Link**: [docs.gitlab.com/ee/ci/pipelines/pipeline_efficiency.html](https://docs.gitlab.com/ee/ci/pipelines/pipeline_efficiency.html)
+- **Why it's great**: Performance optimization and efficiency guidelines
+
+#### **GitLab vs GitHub Actions**
+- **Source**: GitLab
+- **Link**: [about.gitlab.com/devops-tools/github-vs-gitlab/](https://about.gitlab.com/devops-tools/github-vs-gitlab/)
+- **Why it's great**: Comprehensive comparison of CI/CD platforms
+
+### 🎓 Structured Courses
+
+#### **GitLab CI: Pipelines, CI/CD and DevOps for Beginners**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/gitlab-ci-pipelines-ci-cd-and-devops-for-beginners/](https://www.udemy.com/course/gitlab-ci-pipelines-ci-cd-and-devops-for-beginners/)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive course with hands-on projects and real-world scenarios
+
+#### **GitLab Professional Services Training**
+- **Platform**: GitLab
+- **Link**: [about.gitlab.com/services/education/](https://about.gitlab.com/services/education/)
+- **Cost**: Paid
+- **Why it's great**: Official training with certification options
+
+### 🛠️ Tools & Platforms
+
+#### **GitLab Runner**
+- **Link**: [docs.gitlab.com/runner/](https://docs.gitlab.com/runner/)
+- **Why it's great**: Self-hosted runners for custom environments and scaling
+
+#### **GitLab Container Registry**
+- **Link**: [docs.gitlab.com/ee/user/packages/container_registry/](https://docs.gitlab.com/ee/user/packages/container_registry/)
+- **Why it's great**: Integrated Docker registry for storing and managing container images
+
+#### **GitLab Auto DevOps**
+- **Link**: [docs.gitlab.com/ee/topics/autodevops/](https://docs.gitlab.com/ee/topics/autodevops/)
+- **Why it's great**: Automated CI/CD pipelines with minimal configuration
+
 ## Overview
 
 GitLab CI/CD is a powerful, integrated continuous integration and deployment tool built into GitLab. It uses YAML configuration files to define pipelines, supports complex workflows, and provides features like Auto DevOps, security scanning, and deployment environments.

@@ -2,6 +2,85 @@
 
 TypeScript is a typed superset of JavaScript that compiles to plain JavaScript, providing static type checking and enhanced developer experience for large-scale applications.
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **TypeScript Tutorial for Beginners - Complete Course**
+- **Channel**: Programming with Mosh
+- **Link**: [YouTube - 5 hours](https://www.youtube.com/watch?v=d56mG7DezGs)
+- **Why it's great**: Comprehensive tutorial covering TypeScript fundamentals to advanced features
+
+#### **TypeScript Crash Course**
+- **Channel**: Traversy Media
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=BCg4U1FzODs)
+- **Why it's great**: Quick start guide with practical examples and project setup
+
+#### **TypeScript Course for Beginners**
+- **Channel**: freeCodeCamp
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=gp5H0Vw39yw)
+- **Why it's great**: Hands-on course with real-world TypeScript applications
+
+### 📖 Essential Documentation
+
+#### **TypeScript Official Documentation**
+- **Link**: [typescriptlang.org/docs](https://www.typescriptlang.org/docs/)
+- **Why it's great**: Comprehensive official documentation with examples and best practices
+
+#### **TypeScript Handbook**
+- **Link**: [typescriptlang.org/docs/handbook/intro.html](https://www.typescriptlang.org/docs/handbook/intro.html)
+- **Why it's great**: Complete guide covering all TypeScript concepts and features
+
+#### **TypeScript Deep Dive**
+- **Author**: Basarat Ali Syed
+- **Link**: [basarat.gitbook.io/typescript/](https://basarat.gitbook.io/typescript/)
+- **Why it's great**: Free comprehensive book covering advanced TypeScript patterns
+
+### 📝 Must-Read Blogs & Articles
+
+#### **TypeScript Blog**
+- **Source**: Microsoft TypeScript Team
+- **Link**: [devblogs.microsoft.com/typescript/](https://devblogs.microsoft.com/typescript/)
+- **Why it's great**: Official updates and insights from TypeScript core team
+
+#### **TypeScript Best Practices**
+- **Source**: Matt Pocock
+- **Link**: [github.com/total-typescript/beginners-typescript-tutorial](https://github.com/total-typescript/beginners-typescript-tutorial)
+- **Why it's great**: Practical TypeScript patterns and advanced techniques
+
+#### **TypeScript vs JavaScript**
+- **Source**: Various
+- **Link**: [typescriptlang.org/why-create-typescript](https://www.typescriptlang.org/why-create-typescript)
+- **Why it's great**: Understanding the benefits and migration strategies
+
+### 🎓 Structured Courses
+
+#### **Understanding TypeScript**
+- **Platform**: Udemy (Maximilian Schwarzmüller)
+- **Link**: [udemy.com/course/understanding-typescript/](https://www.udemy.com/course/understanding-typescript/)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive course with practical projects and advanced concepts
+
+#### **Total TypeScript**
+- **Platform**: Matt Pocock
+- **Link**: [totaltypescript.com](https://www.totaltypescript.com/)
+- **Cost**: Paid
+- **Why it's great**: Advanced TypeScript workshops and practical exercises
+
+### 🛠️ Tools & Platforms
+
+#### **TypeScript Playground**
+- **Link**: [typescriptlang.org/play](https://www.typescriptlang.org/play)
+- **Why it's great**: Online TypeScript editor with instant compilation and sharing
+
+#### **TS Node**
+- **Link**: [typestrong.org/ts-node/](https://typestrong.org/ts-node/)
+- **Why it's great**: Execute TypeScript directly in Node.js without compilation
+
+#### **TypeScript ESLint**
+- **Link**: [typescript-eslint.io](https://typescript-eslint.io/)
+- **Why it's great**: ESLint and Prettier configurations for TypeScript projects
+
 ## Installation and Setup
 
 ### Node.js Project Setup

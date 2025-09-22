@@ -1,5 +1,83 @@
 # Loki
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Grafana Loki Tutorial - Complete Log Aggregation Solution**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=h_GGd7HfKQ8)
+- **Why it's great**: Comprehensive introduction to Loki with hands-on setup and configuration
+
+#### **Loki and Promtail for Log Collection**
+- **Channel**: DevOps Journey
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=CQiawXlgabQ)
+- **Why it's great**: Practical guide to setting up log collection with Promtail and Loki
+
+#### **Complete Observability Stack - Prometheus, Loki, Grafana**
+- **Channel**: freeCodeCamp
+- **Link**: [YouTube - 3 hours](https://www.youtube.com/watch?v=9TJx7QTrTyo)
+- **Why it's great**: Full observability stack tutorial including Loki for logging
+
+### 📖 Essential Documentation
+
+#### **Grafana Loki Documentation**
+- **Link**: [grafana.com/docs/loki](https://grafana.com/docs/loki/)
+- **Why it's great**: Comprehensive official documentation with setup guides and best practices
+
+#### **LogQL Query Language Guide**
+- **Link**: [grafana.com/docs/loki/latest/logql](https://grafana.com/docs/loki/latest/logql/)
+- **Why it's great**: Complete reference for LogQL syntax and advanced querying techniques
+
+#### **Promtail Configuration Reference**
+- **Link**: [grafana.com/docs/loki/latest/clients/promtail](https://grafana.com/docs/loki/latest/clients/promtail/)
+- **Why it's great**: Detailed guide for configuring log shipping agent with Promtail
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Grafana Labs Blog - Loki**
+- **Source**: Grafana Labs
+- **Link**: [grafana.com/blog/tag/loki](https://grafana.com/blog/tag/loki/)
+- **Why it's great**: Official updates, case studies, and advanced Loki patterns
+
+#### **Loki Best Practices and Performance**
+- **Source**: Grafana Labs
+- **Link**: [grafana.com/blog/2020/10/28/loki-2.0-released](https://grafana.com/blog/2020/10/28/loki-2.0-released/)
+- **Why it's great**: Performance optimization and best practices for production deployments
+
+#### **Log Aggregation with Loki vs ELK Stack**
+- **Source**: Various
+- **Link**: [grafana.com/blog/2019/12/16/observability-with-grafana-loki-and-jaeger](https://grafana.com/blog/2019/12/16/observability-with-grafana-loki-and-jaeger/)
+- **Why it's great**: Comparative analysis and use case recommendations
+
+### 🎓 Structured Courses
+
+#### **Complete Grafana Course - Loki, Prometheus, Grafana**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/grafana-tutorial/](https://www.udemy.com/course/grafana-tutorial/)
+- **Cost**: Paid
+- **Why it's great**: Hands-on course covering complete observability stack including Loki
+
+#### **Observability Engineering Course**
+- **Platform**: Honeycomb.io
+- **Link**: [honeycomb.io/resources/observability-engineering-course](https://honeycomb.io/resources/observability-engineering-course/)
+- **Cost**: Free
+- **Why it's great**: Comprehensive observability principles including log aggregation strategies
+
+### 🛠️ Tools & Platforms
+
+#### **Loki Helm Chart**
+- **Link**: [github.com/grafana/helm-charts/tree/main/charts/loki](https://github.com/grafana/helm-charts/tree/main/charts/loki)
+- **Why it's great**: Production-ready Kubernetes deployment with best practices
+
+#### **Awesome Loki**
+- **Link**: [github.com/grafana/awesome-loki](https://github.com/grafana/awesome-loki)
+- **Why it's great**: Community-curated list of Loki tools, integrations, and resources
+
+#### **Grafana Cloud Logs**
+- **Link**: [grafana.com/products/cloud/logs](https://grafana.com/products/cloud/logs/)
+- **Why it's great**: Managed Loki service with scalability and integration features
+
 ## Overview
 
 Loki is a horizontally-scalable, highly-available log aggregation system inspired by Prometheus. It stores only metadata about logs and uses labels for indexing, making it cost-effective for log storage and fast for queries.

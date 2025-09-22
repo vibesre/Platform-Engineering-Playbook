@@ -1,5 +1,83 @@
 # Keycloak
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Keycloak Tutorial - Complete Identity Management Course**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=duawSV69LDI)
+- **Why it's great**: Comprehensive introduction to Keycloak with practical setup and configuration
+
+#### **Spring Boot Security with Keycloak**
+- **Channel**: Java Brains
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=haHFoeWUz0k)
+- **Why it's great**: Hands-on integration of Keycloak with Spring Boot applications
+
+#### **Keycloak Identity and Access Management**
+- **Channel**: Red Hat Developer
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=mdZauKsMDiI)
+- **Why it's great**: Official overview of Keycloak features and enterprise use cases
+
+### 📖 Essential Documentation
+
+#### **Keycloak Official Documentation**
+- **Link**: [keycloak.org/documentation](https://www.keycloak.org/documentation)
+- **Why it's great**: Comprehensive official documentation with setup guides and configuration examples
+
+#### **Keycloak Admin REST API Reference**
+- **Link**: [keycloak.org/docs-api/latest/rest-api](https://www.keycloak.org/docs-api/latest/rest-api/)
+- **Why it's great**: Complete REST API documentation for automated Keycloak management
+
+#### **Keycloak Client Adapters Guide**
+- **Link**: [keycloak.org/docs/latest/securing_apps](https://www.keycloak.org/docs/latest/securing_apps/)
+- **Why it's great**: Integration guides for various programming languages and frameworks
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Red Hat Developer Blog - Keycloak**
+- **Source**: Red Hat
+- **Link**: [developers.redhat.com/topics/keycloak](https://developers.redhat.com/topics/keycloak)
+- **Why it's great**: Official updates, best practices, and advanced configuration patterns
+
+#### **Keycloak Identity Management Guide**
+- **Source**: Baeldung
+- **Link**: [baeldung.com/spring-boot-keycloak](https://www.baeldung.com/spring-boot-keycloak)
+- **Why it's great**: Practical tutorials for integrating Keycloak with modern applications
+
+#### **OAuth 2.0 and OpenID Connect with Keycloak**
+- **Source**: Auth0 Blog
+- **Link**: [auth0.com/blog/keycloak-identity-management](https://auth0.com/blog/keycloak-identity-management/)
+- **Why it's great**: Deep dive into modern authentication protocols with Keycloak
+
+### 🎓 Structured Courses
+
+#### **Complete Keycloak Identity Management Course**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/keycloak-identity-management](https://www.udemy.com/course/keycloak-identity-management/)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive course covering Keycloak from basics to advanced features
+
+#### **Red Hat Single Sign-On (Keycloak) Training**
+- **Platform**: Red Hat Training
+- **Link**: [redhat.com/en/services/training](https://www.redhat.com/en/services/training/)
+- **Cost**: Paid
+- **Why it's great**: Official enterprise-grade training with certification
+
+### 🛠️ Tools & Platforms
+
+#### **Keycloak Helm Chart**
+- **Link**: [github.com/codecentric/helm-charts/tree/master/charts/keycloak](https://github.com/codecentric/helm-charts/tree/master/charts/keycloak)
+- **Why it's great**: Production-ready Kubernetes deployment for Keycloak
+
+#### **Awesome Keycloak**
+- **Link**: [github.com/thomasdarimont/awesome-keycloak](https://github.com/thomasdarimont/awesome-keycloak)
+- **Why it's great**: Curated list of Keycloak resources, extensions, and integrations
+
+#### **Keycloak Quickstarts**
+- **Link**: [github.com/keycloak/keycloak-quickstarts](https://github.com/keycloak/keycloak-quickstarts)
+- **Why it's great**: Ready-to-use example applications and integration patterns
+
 ## Overview
 
 Keycloak is an open-source identity and access management solution that provides authentication, authorization, user management, and single sign-on (SSO) capabilities for modern applications and services.

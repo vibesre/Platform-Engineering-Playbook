@@ -1,5 +1,83 @@
 # Vim
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Vim Tutorial for Beginners - Complete Course**
+- **Channel**: freeCodeCamp
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=IiwGbcd8S7I)
+- **Why it's great**: Comprehensive introduction to Vim with practical examples and hands-on exercises
+
+#### **Mastering Vim Quickly**
+- **Channel**: Thoughtbot
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=wlR5gYd6um0)
+- **Why it's great**: Focused approach to learning essential Vim commands and workflows
+
+#### **Vim as IDE - Complete Tutorial**
+- **Channel**: ThePrimeagen
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=ctH-a-1eUME)
+- **Why it's great**: Advanced Vim usage with plugins and IDE-like functionality
+
+### 📖 Essential Documentation
+
+#### **Vim Official Documentation**
+- **Link**: [vimhelp.org](https://vimhelp.org/)
+- **Why it's great**: Complete official documentation with searchable help system
+
+#### **Vim User Manual**
+- **Link**: [vimdoc.sourceforge.net/htmldoc/usr_toc.html](http://vimdoc.sourceforge.net/htmldoc/usr_toc.html)
+- **Why it's great**: Structured learning path from basics to advanced features
+
+#### **Vim Reference Manual**
+- **Link**: [vimdoc.sourceforge.net/htmldoc/help.html](http://vimdoc.sourceforge.net/htmldoc/help.html)
+- **Why it's great**: Comprehensive reference for all Vim commands and options
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Practical Vim Tips**
+- **Source**: Vim Tips Wiki
+- **Link**: [vim.fandom.com/wiki/Vim_Tips_Wiki](https://vim.fandom.com/wiki/Vim_Tips_Wiki)
+- **Why it's great**: Community-driven collection of practical tips and tricks
+
+#### **Learn Vim Progressively**
+- **Source**: Yann Esposito
+- **Link**: [yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively](http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/)
+- **Why it's great**: Step-by-step approach to mastering Vim gradually
+
+#### **Coming Home to Vim**
+- **Source**: Steve Losh
+- **Link**: [stevelosh.com/blog/2010/09/coming-home-to-vim](http://stevelosh.com/blog/2010/09/coming-home-to-vim/)
+- **Why it's great**: Philosophical approach to understanding Vim's design and power
+
+### 🎓 Structured Courses
+
+#### **Practical Vim Book**
+- **Platform**: Pragmatic Programmers
+- **Link**: [pragprog.com/titles/dnvim2/practical-vim-second-edition](https://pragprog.com/titles/dnvim2/practical-vim-second-edition/)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive book with practical techniques and real-world examples
+
+#### **Vim Masterclass**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/vim-commands-cheat-sheet](https://www.udemy.com/course/vim-commands-cheat-sheet/)
+- **Cost**: Paid
+- **Why it's great**: Structured course with exercises and practical applications
+
+### 🛠️ Tools & Platforms
+
+#### **Vim Adventures**
+- **Link**: [vim-adventures.com](https://vim-adventures.com/)
+- **Why it's great**: Interactive game to learn Vim commands in a fun way
+
+#### **Vim Awesome**
+- **Link**: [vimawesome.com](https://vimawesome.com/)
+- **Why it's great**: Discover and explore Vim plugins with ratings and usage statistics
+
+#### **OpenVim Interactive Tutorial**
+- **Link**: [openvim.com](https://www.openvim.com/)
+- **Why it's great**: Interactive browser-based Vim tutorial with hands-on practice
+
 ## Overview
 
 Vim is a powerful, modal text editor that's essential for platform engineers working on remote servers and in terminal environments. It's highly configurable, efficient for text editing, and available on virtually every Unix-like system.

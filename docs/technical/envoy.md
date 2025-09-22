@@ -6,6 +6,84 @@ sidebar_label: "Envoy"
 
 # Envoy Proxy
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Envoy Proxy Tutorial - Service Mesh and Load Balancing**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=40gKzHQWgP0)
+- **Why it's great**: Comprehensive introduction to Envoy with practical service mesh examples
+
+#### **Complete Envoy Proxy Course**
+- **Channel**: KodeKloud
+- **Link**: [YouTube - 3 hours](https://www.youtube.com/watch?v=5jbxbOBsaRs)
+- **Why it's great**: In-depth coverage of Envoy configuration, filters, and advanced features
+
+#### **Service Mesh with Envoy and Istio**
+- **Channel**: Google Cloud Tech
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=s_Fm9aBU7sU)
+- **Why it's great**: Real-world implementation of Envoy in service mesh architecture
+
+### 📖 Essential Documentation
+
+#### **Envoy Proxy Official Documentation**
+- **Link**: [envoyproxy.io/docs](https://www.envoyproxy.io/docs/envoy/latest/)
+- **Why it's great**: Comprehensive official documentation with configuration examples and API reference
+
+#### **Envoy Configuration Reference**
+- **Link**: [envoyproxy.io/docs/envoy/latest/configuration](https://www.envoyproxy.io/docs/envoy/latest/configuration/)
+- **Why it's great**: Complete configuration guide for listeners, filters, and clusters
+
+#### **xDS Protocol Guide**
+- **Link**: [envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol](https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol)
+- **Why it's great**: Deep dive into dynamic configuration APIs and control plane integration
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Envoy Proxy Blog**
+- **Source**: Envoy Proxy Team
+- **Link**: [blog.envoyproxy.io](https://blog.envoyproxy.io/)
+- **Why it's great**: Official updates, performance insights, and advanced configuration patterns
+
+#### **Service Mesh Patterns with Envoy**
+- **Source**: CNCF
+- **Link**: [servicemesh.es](https://servicemesh.es/)
+- **Why it's great**: Best practices and patterns for implementing service mesh with Envoy
+
+#### **Envoy Performance and Optimization**
+- **Source**: Lyft Engineering
+- **Link**: [eng.lyft.com/envoy-internals](https://eng.lyft.com/envoy-internals-deep-dive-7f2d37a31a42)
+- **Why it's great**: Deep technical insights from Envoy's original creators
+
+### 🎓 Structured Courses
+
+#### **Service Mesh with Envoy and Istio Course**
+- **Platform**: A Cloud Guru
+- **Link**: [acloudguru.com/course/service-mesh-with-envoy-and-istio](https://acloudguru.com/course/service-mesh-with-envoy-and-istio)
+- **Cost**: Paid
+- **Why it's great**: Hands-on course with practical labs and real-world scenarios
+
+#### **Envoy Proxy Fundamentals**
+- **Platform**: Envoy Academy
+- **Link**: [academy.envoyproxy.io](https://academy.envoyproxy.io/)
+- **Cost**: Free
+- **Why it's great**: Official training materials with interactive tutorials
+
+### 🛠️ Tools & Platforms
+
+#### **Envoy Examples Repository**
+- **Link**: [github.com/envoyproxy/examples](https://github.com/envoyproxy/examples)
+- **Why it's great**: Ready-to-use configuration examples for common use cases
+
+#### **Envoy Control Plane**
+- **Link**: [github.com/envoyproxy/go-control-plane](https://github.com/envoyproxy/go-control-plane)
+- **Why it's great**: Reference implementation for building Envoy control planes
+
+#### **Envoy Gateway**
+- **Link**: [gateway.envoyproxy.io](https://gateway.envoyproxy.io/)
+- **Why it's great**: Kubernetes-native API gateway powered by Envoy
+
 ## Introduction
 
 Envoy is a high-performance distributed proxy designed for single services and applications, as well as a communication bus and universal data plane designed for large microservice service mesh architectures. Originally built at Lyft, Envoy is now a CNCF graduated project and forms the data plane for many service mesh implementations.

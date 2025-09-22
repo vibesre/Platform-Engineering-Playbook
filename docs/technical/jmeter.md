@@ -1,5 +1,83 @@
 # JMeter
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **JMeter Tutorial for Beginners - Complete Course**
+- **Channel**: Software Testing Mentor
+- **Link**: [YouTube - 3 hours](https://www.youtube.com/watch?v=M-iAXz8vs48)
+- **Why it's great**: Comprehensive introduction to JMeter with hands-on load testing examples
+
+#### **Apache JMeter Performance Testing**
+- **Channel**: Raghav Pal
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=eQcVL92z-Kw)
+- **Why it's great**: Practical guide covering JMeter installation, test plans, and result analysis
+
+#### **JMeter Load Testing - Advanced Tutorial**
+- **Channel**: BlazeMeter
+- **Link**: [YouTube - 1.5 hours](https://www.youtube.com/watch?v=M_VIlkx_W0o)
+- **Why it's great**: Advanced JMeter techniques including distributed testing and CI/CD integration
+
+### 📖 Essential Documentation
+
+#### **Apache JMeter Official Documentation**
+- **Link**: [jmeter.apache.org/usermanual](https://jmeter.apache.org/usermanual/index.html)
+- **Why it's great**: Comprehensive official documentation with detailed user manual and examples
+
+#### **JMeter User Manual**
+- **Link**: [jmeter.apache.org/usermanual/get-started.html](https://jmeter.apache.org/usermanual/get-started.html)
+- **Why it's great**: Step-by-step getting started guide with test plan creation tutorials
+
+#### **JMeter Best Practices Guide**
+- **Link**: [jmeter.apache.org/usermanual/best-practices.html](https://jmeter.apache.org/usermanual/best-practices.html)
+- **Why it's great**: Official best practices for performance testing and JMeter optimization
+
+### 📝 Must-Read Blogs & Articles
+
+#### **BlazeMeter Blog**
+- **Source**: BlazeMeter (Perforce)
+- **Link**: [blazemeter.com/blog](https://www.blazemeter.com/blog/)
+- **Why it's great**: Expert insights, tutorials, and advanced JMeter techniques
+
+#### **JMeter Performance Testing Guide**
+- **Source**: Guru99
+- **Link**: [guru99.com/jmeter-tutorials.html](https://www.guru99.com/jmeter-tutorials.html)
+- **Why it's great**: Comprehensive tutorials covering all aspects of JMeter testing
+
+#### **Performance Testing Best Practices**
+- **Source**: LoadRunner Community
+- **Link**: [community.microfocus.com/adtd/loadrunner](https://community.microfocus.com/adtd/loadrunner/)
+- **Why it's great**: Industry best practices and performance testing methodologies
+
+### 🎓 Structured Courses
+
+#### **JMeter Performance Testing Course**
+- **Platform**: Udemy
+- **Link**: [udemy.com/course/jmeter-performance-testing](https://www.udemy.com/course/jmeter-performance-testing/)
+- **Cost**: Paid
+- **Why it's great**: Hands-on course with real-world performance testing scenarios
+
+#### **BlazeMeter University**
+- **Platform**: BlazeMeter
+- **Link**: [blazemeter.com/university](https://www.blazemeter.com/university/)
+- **Cost**: Free
+- **Why it's great**: Comprehensive training program with certification options
+
+### 🛠️ Tools & Platforms
+
+#### **JMeter Plugins Manager**
+- **Link**: [jmeter-plugins.org](https://jmeter-plugins.org/)
+- **Why it's great**: Extended functionality with custom graphs, listeners, and samplers
+
+#### **BlazeMeter Cloud Platform**
+- **Link**: [blazemeter.com](https://www.blazemeter.com/)
+- **Why it's great**: Cloud-based JMeter testing with scaling and advanced analytics
+
+#### **JMeter Docker Images**
+- **Link**: [hub.docker.com/r/justb4/jmeter](https://hub.docker.com/r/justb4/jmeter/)
+- **Why it's great**: Containerized JMeter for easy deployment and CI/CD integration
+
 Apache JMeter is an open-source load testing tool designed to analyze and measure the performance of web applications, databases, FTP servers, and other services. It supports various protocols and provides a comprehensive GUI for test creation and execution.
 
 ## Installation

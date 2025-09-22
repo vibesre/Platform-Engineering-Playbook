@@ -1,5 +1,85 @@
 # Ansible: Agentless Automation and Configuration Management
 
+Ansible is an open-source automation platform that provides configuration management, application deployment, and task automation. Its agentless architecture and human-readable YAML syntax make it one of the most popular automation tools in modern infrastructure.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Ansible Full Course - Complete Tutorial**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=1id6ERvfozo)
+- **Why it's great**: Comprehensive hands-on tutorial covering all essential concepts
+
+#### **Ansible Tutorial for Beginners**
+- **Channel**: KodeKloud
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=EcnqJbxBcM0)
+- **Why it's great**: Perfect introduction with practical examples and labs
+
+#### **Ansible Advanced Concepts**
+- **Channel**: Learn Linux TV
+- **Link**: [YouTube Playlist](https://www.youtube.com/playlist?list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70)
+- **Why it's great**: Deep dive into advanced features and real-world scenarios
+
+### 📖 Essential Documentation
+
+#### **Ansible Official Documentation**
+- **Link**: [docs.ansible.com](https://docs.ansible.com/)
+- **Why it's great**: Comprehensive official docs with examples and best practices
+
+#### **Ansible Galaxy Documentation**
+- **Link**: [galaxy.ansible.com/docs/](https://galaxy.ansible.com/docs/)
+- **Why it's great**: Guide to sharing and using community roles and collections
+
+#### **Ansible Best Practices**
+- **Link**: [docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html)
+- **Why it's great**: Official guidance on writing maintainable playbooks
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Red Hat Ansible Blog**
+- **Source**: Red Hat
+- **Link**: [redhat.com/en/blog/topic/ansible](https://www.redhat.com/en/blog/topic/ansible)
+- **Why it's great**: Official updates, use cases, and technical insights
+
+#### **Ansible for DevOps**
+- **Source**: Jeff Geerling
+- **Link**: [ansiblefordevops.com](https://www.ansiblefordevops.com/)
+- **Why it's great**: Practical guide to using Ansible for modern infrastructure
+
+#### **Best Practices for Ansible**
+- **Source**: Leucos
+- **Link**: [leucos.github.io/ansible-files-layout](https://leucos.github.io/ansible-files-layout)
+- **Why it's great**: Community-driven best practices for project organization
+
+### 🎓 Structured Courses
+
+#### **Red Hat Certified Specialist in Ansible Automation**
+- **Provider**: Red Hat Training
+- **Link**: [redhat.com/en/services/training/do407-automation-ansible-i](https://www.redhat.com/en/services/training/do407-automation-ansible-i)
+- **Cost**: Paid certification
+- **Why it's great**: Official Red Hat certification with hands-on labs
+
+#### **Ansible Essentials: Simplicity in Automation**
+- **Platform**: Linux Academy
+- **Link**: [acloudguru.com/course/ansible-essentials-simplicity-in-automation](https://acloudguru.com/course/ansible-essentials-simplicity-in-automation)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive course with practical automation scenarios
+
+### 🛠️ Tools & Platforms
+
+#### **Ansible Galaxy**
+- **Link**: [galaxy.ansible.com](https://galaxy.ansible.com/)
+- **Why it's great**: Community hub for sharing roles, collections, and playbooks
+
+#### **Ansible Lint**
+- **Link**: [ansible-lint.readthedocs.io](https://ansible-lint.readthedocs.io/)
+- **Why it's great**: Static analysis tool for improving playbook quality
+
+#### **AWX (Ansible Web UI)**
+- **Link**: [github.com/ansible/awx](https://github.com/ansible/awx)
+- **Why it's great**: Open-source web-based interface for Ansible automation
+
 ## Overview
 
 Ansible is an open-source automation platform that provides configuration management, application deployment, and task automation. Its agentless architecture and human-readable YAML syntax make it one of the most popular automation tools in modern infrastructure.

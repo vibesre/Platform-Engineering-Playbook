@@ -1,5 +1,83 @@
 # SOPS (Secrets OPerationS)
 
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **SOPS Tutorial - Secrets Management with Encryption**
+- **Channel**: DevOps Journey
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=DWzJ87KbwxA)
+- **Why it's great**: Comprehensive introduction to SOPS with hands-on encryption examples
+
+#### **GitOps and SOPS for Kubernetes Secrets**
+- **Channel**: Cloud Native Skunkworks
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=8pbdXAd-F44)
+- **Why it's great**: Practical guide to managing Kubernetes secrets with SOPS and GitOps
+
+#### **AWS KMS and SOPS Integration**
+- **Channel**: Be A Better Dev
+- **Link**: [YouTube - 30 minutes](https://www.youtube.com/watch?v=V2PRhxphH2w)
+- **Why it's great**: Focused tutorial on integrating SOPS with AWS KMS for cloud-native secrets
+
+### 📖 Essential Documentation
+
+#### **SOPS Official Documentation**
+- **Link**: [github.com/mozilla/sops](https://github.com/mozilla/sops)
+- **Why it's great**: Complete official documentation with installation guides and usage examples
+
+#### **SOPS Configuration Reference**
+- **Link**: [github.com/mozilla/sops/blob/main/README.rst](https://github.com/mozilla/sops/blob/main/README.rst)
+- **Why it's great**: Detailed configuration options and encryption key management
+
+#### **Age Encryption Tool Documentation**
+- **Link**: [github.com/FiloSottile/age](https://github.com/FiloSottile/age)
+- **Why it's great**: Modern encryption tool that integrates perfectly with SOPS
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Mozilla Security Blog - SOPS**
+- **Source**: Mozilla Security
+- **Link**: [blog.mozilla.org/security/2015/11/17/managing-secrets-with-sops](https://blog.mozilla.org/security/2015/11/17/managing-secrets-with-sops/)
+- **Why it's great**: Original blog post introducing SOPS with design principles and best practices
+
+#### **GitOps and Secret Management**
+- **Source**: Weaveworks
+- **Link**: [weave.works/blog/gitops-secret-management](https://www.weave.works/blog/gitops-secret-management/)
+- **Why it's great**: Best practices for managing secrets in GitOps workflows with SOPS
+
+#### **Kubernetes Secrets Management with SOPS**
+- **Source**: Various DevOps Blogs
+- **Link**: [kubernetes.io/docs/concepts/configuration/secret](https://kubernetes.io/docs/concepts/configuration/secret/)
+- **Why it's great**: Official Kubernetes guidance on secret management and SOPS integration
+
+### 🎓 Structured Courses
+
+#### **DevSecOps and Secrets Management Course**
+- **Platform**: A Cloud Guru
+- **Link**: [acloudguru.com/course/devsecops-essentials](https://acloudguru.com/course/devsecops-essentials)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive course covering SOPS and other secrets management tools
+
+#### **GitOps Fundamentals with Secret Management**
+- **Platform**: Linux Academy
+- **Link**: [linuxacademy.com/course/gitops-fundamentals](https://linuxacademy.com/course/gitops-fundamentals/)
+- **Cost**: Paid
+- **Why it's great**: Practical course including SOPS for GitOps secret management
+
+### 🛠️ Tools & Platforms
+
+#### **Helm Secrets Plugin**
+- **Link**: [github.com/jkroepke/helm-secrets](https://github.com/jkroepke/helm-secrets)
+- **Why it's great**: Helm plugin for managing encrypted secrets using SOPS
+
+#### **SOPS Terraform Provider**
+- **Link**: [registry.terraform.io/providers/carlpett/sops](https://registry.terraform.io/providers/carlpett/sops/latest/docs)
+- **Why it's great**: Terraform integration for managing encrypted configuration with SOPS
+
+#### **ArgoCD SOPS Plugin**
+- **Link**: [github.com/argoproj-labs/argocd-vault-plugin](https://github.com/argoproj-labs/argocd-vault-plugin)
+- **Why it's great**: ArgoCD integration for GitOps workflows with encrypted secrets
+
 SOPS is an editor of encrypted files that supports YAML, JSON, ENV, INI and BINARY formats and encrypts with AWS KMS, GCP KMS, Azure Key Vault, age, and PGP.
 
 ## Installation

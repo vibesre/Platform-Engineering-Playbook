@@ -1,5 +1,85 @@
 # ArgoCD - Declarative GitOps for Kubernetes
 
+ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It follows the GitOps pattern of using Git repositories as the source of truth for defining the desired application state.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **ArgoCD Tutorial for Beginners - GitOps CD for Kubernetes**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=MeU5_k9ssrs)
+- **Why it's great**: Comprehensive introduction to ArgoCD and GitOps principles
+
+#### **Complete GitOps Course - ArgoCD**
+- **Channel**: DevOps Journey
+- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=2WSJF7d8dws)
+- **Why it's great**: Hands-on tutorial covering installation to production setup
+
+#### **ArgoCD Deep Dive**
+- **Channel**: CNCF
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=aWDIQMbp1cc)
+- **Why it's great**: Technical deep dive by ArgoCD maintainers
+
+### 📖 Essential Documentation
+
+#### **ArgoCD Official Documentation**
+- **Link**: [argo-cd.readthedocs.io](https://argo-cd.readthedocs.io/)
+- **Why it's great**: Comprehensive official documentation with getting started guides
+
+#### **GitOps Guide**
+- **Link**: [argoproj.github.io/argo-cd/](https://argoproj.github.io/argo-cd/)
+- **Why it's great**: Complete guide to GitOps principles and practices
+
+#### **ArgoCD Best Practices**
+- **Link**: [argo-cd.readthedocs.io/en/stable/user-guide/best_practices/](https://argo-cd.readthedocs.io/en/stable/user-guide/best_practices/)
+- **Why it's great**: Production-ready configuration patterns and security practices
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Argo Project Blog**
+- **Source**: Argo Project
+- **Link**: [argoproj.io/blog/](https://argoproj.io/blog/)
+- **Why it's great**: Official updates and technical insights from maintainers
+
+#### **GitOps with ArgoCD Guide**
+- **Source**: Codefresh
+- **Link**: [codefresh.io/learn/argo-cd/](https://codefresh.io/learn/argo-cd/)
+- **Why it's great**: Practical guide to implementing GitOps workflows
+
+#### **ArgoCD vs Flux Comparison**
+- **Source**: Weave Works
+- **Link**: [weave.works/blog/gitops-with-flux-v2](https://www.weave.works/blog/gitops-with-flux-v2)
+- **Why it's great**: Comparison of GitOps tools and their strengths
+
+### 🎓 Structured Courses
+
+#### **GitOps Fundamentals**
+- **Platform**: Linux Foundation (LFS169)
+- **Link**: [training.linuxfoundation.org/training/gitops-fundamentals/](https://training.linuxfoundation.org/training/gitops-fundamentals/)
+- **Cost**: Free
+- **Why it's great**: Official CNCF course covering GitOps principles and tools
+
+#### **Kubernetes GitOps with ArgoCD**
+- **Platform**: A Cloud Guru
+- **Link**: [acloudguru.com/course/kubernetes-gitops-with-argocd](https://acloudguru.com/course/kubernetes-gitops-with-argocd)
+- **Cost**: Paid
+- **Why it's great**: Hands-on labs with real-world scenarios
+
+### 🛠️ Tools & Platforms
+
+#### **ArgoCD Demo Environment**
+- **Link**: [killercoda.com/argoproj](https://killercoda.com/argoproj)
+- **Why it's great**: Interactive demos and tutorials in browser
+
+#### **ArgoCD CLI**
+- **Link**: [argo-cd.readthedocs.io/en/stable/cli_installation/](https://argo-cd.readthedocs.io/en/stable/cli_installation/)
+- **Why it's great**: Command-line interface for ArgoCD management
+
+#### **ArgoCD Autopilot**
+- **Link**: [argocd-autopilot.readthedocs.io](https://argocd-autopilot.readthedocs.io/)
+- **Why it's great**: Tool for bootstrapping ArgoCD with GitOps repository structure
+
 ## Overview
 
 ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It follows the GitOps pattern of using Git repositories as the source of truth for defining the desired application state.

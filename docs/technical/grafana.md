@@ -1,5 +1,85 @@
 # Grafana
 
+Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources. It's most commonly used for visualizing time series data for infrastructure and application analytics.
+
+## 📚 Top Learning Resources
+
+### 🎥 Video Courses
+
+#### **Grafana Tutorial for Beginners - Complete Course**
+- **Channel**: TechWorld with Nana
+- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=QDqly_xhF_Y)
+- **Why it's great**: Comprehensive introduction covering dashboards, alerts, and data sources
+
+#### **Grafana Crash Course**
+- **Channel**: KodeKloud
+- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=hZ0-yNqNpp8)
+- **Why it's great**: Quick start guide with practical examples
+
+#### **Advanced Grafana Techniques**
+- **Channel**: PromLabs
+- **Link**: [YouTube Playlist](https://www.youtube.com/playlist?list=PLDGkOdUX1Ujqe8z6YMDj3RPZHS0mKPdN8)
+- **Why it's great**: Deep dive into advanced features by Grafana experts
+
+### 📖 Essential Documentation
+
+#### **Grafana Official Documentation**
+- **Link**: [grafana.com/docs/](https://grafana.com/docs/)
+- **Why it's great**: Comprehensive official documentation with tutorials and examples
+
+#### **Grafana Best Practices**
+- **Link**: [grafana.com/docs/grafana/latest/best-practices/](https://grafana.com/docs/grafana/latest/best-practices/)
+- **Why it's great**: Official guidance on dashboard design and performance optimization
+
+#### **Grafana Community Hub**
+- **Link**: [grafana.com/grafana/dashboards/](https://grafana.com/grafana/dashboards/)
+- **Why it's great**: Thousands of pre-built dashboards for common use cases
+
+### 📝 Must-Read Blogs & Articles
+
+#### **Grafana Blog**
+- **Source**: Grafana Labs
+- **Link**: [grafana.com/blog/](https://grafana.com/blog/)
+- **Why it's great**: Latest features, use cases, and technical deep dives
+
+#### **Grafana Design Principles**
+- **Source**: Grafana Labs
+- **Link**: [grafana.com/blog/2020/01/24/grafana-dashboard-design-principles/](https://grafana.com/blog/2020/01/24/grafana-dashboard-design-principles/)
+- **Why it's great**: Essential guide to creating effective dashboards
+
+#### **Monitoring Mixins**
+- **Source**: Monitoring Mixins Community
+- **Link**: [monitoring.mixins.dev](https://monitoring.mixins.dev/)
+- **Why it's great**: Reusable Grafana dashboards and Prometheus alerts
+
+### 🎓 Structured Courses
+
+#### **Grafana Fundamentals**
+- **Platform**: Grafana Education
+- **Link**: [grafana.com/education/](https://grafana.com/education/)
+- **Cost**: Free
+- **Why it's great**: Official training with hands-on labs and certification
+
+#### **Observability Engineering**
+- **Platform**: O'Reilly
+- **Link**: [learning.oreilly.com](https://learning.oreilly.com/library/view/observability-engineering/9781492076438/)
+- **Cost**: Paid
+- **Why it's great**: Comprehensive observability concepts including Grafana
+
+### 🛠️ Tools & Platforms
+
+#### **Grafana Play**
+- **Link**: [play.grafana.org](https://play.grafana.org/)
+- **Why it's great**: Live demo environment with sample data and dashboards
+
+#### **Grafana Cloud**
+- **Link**: [grafana.com/products/cloud/](https://grafana.com/products/cloud/)
+- **Why it's great**: Hosted Grafana with generous free tier
+
+#### **Awesome Grafana**
+- **Link**: [github.com/rfmoz/grafana-dashboards](https://github.com/rfmoz/grafana-dashboards)
+- **Why it's great**: Collection of useful Grafana dashboards and resources
+
 ## Overview
 
 Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources. It's most commonly used for visualizing time series data for infrastructure and application analytics.

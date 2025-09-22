@@ -4,22 +4,9 @@ const sidebars: SidebarsConfig = {
   // Default sidebar containing all sections
   tutorialSidebar: [
     {
-      type: 'category',
-      label: 'Getting Started',
-      collapsed: true,
-      collapsible: true,
-      items: [
-        {
-          type: 'doc',
-          id: 'getting-started/index',
-          label: 'Getting Started Overview'
-        },
-        {
-          type: 'doc',
-          id: 'intro',
-          label: 'Welcome'
-        }
-      ]
+      type: 'doc',
+      id: 'intro',
+      label: 'Welcome'
     },
     {
       type: 'category',
