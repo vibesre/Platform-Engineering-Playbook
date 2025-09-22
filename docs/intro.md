@@ -20,7 +20,25 @@ Think of it as that bookmark folder you wish you had organized better, but actua
 
 ## Where to Start
 
-**[→ Check out the Technical Skills section](/technical-skills)** - that's where all the technology overviews live, organized by category (Linux & Systems, Cloud Platforms, Containers, etc.).
+<div style={{textAlign: 'center', margin: '2rem 0'}}>
+<a href="/technical-skills" style={{
+  display: 'inline-block',
+  padding: '1rem 2rem',
+  fontSize: '1.2rem',
+  fontWeight: 'bold',
+  color: 'white',
+  backgroundColor: '#0066cc',
+  borderRadius: '8px',
+  textDecoration: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  transition: 'background-color 0.2s ease'
+}} onMouseOver={(e) => e.target.style.backgroundColor = '#0052a3'} onMouseOut={(e) => e.target.style.backgroundColor = '#0066cc'}>
+📚 Browse the Technical Skills →
+</a>
+</div>
+
+That's where all the technology overviews live, organized by category (Linux & Systems, Cloud Platforms, Containers, etc.).
 
 If you're looking for other stuff like interview prep or career guidance, those sections exist too, but the technical reference is the main event.
 
