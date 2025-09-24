@@ -1,793 +1,132 @@
-# Flux - GitOps Toolkit for Kubernetes
+# Flux
 
-## Overview
+## 📚 Learning Resources
 
-Flux is a set of continuous and progressive delivery solutions for Kubernetes that are open and extensible. It's the GitOps toolkit that enables you to manage Kubernetes clusters and deliver applications using Git repositories as the source of truth.
+### 📖 Essential Documentation
+- [Flux Official Documentation](https://fluxcd.io/docs/) - Comprehensive official docs with guides and API reference
+- [Flux Getting Started Guide](https://fluxcd.io/docs/get-started/) - Step-by-step installation and first deployment
+- [Flux Guides](https://fluxcd.io/docs/guides/) - Best practices and production patterns
+- [Flux API Reference](https://fluxcd.io/docs/components/) - Complete component and CRD documentation
+- [GitOps Toolkit Components](https://fluxcd.io/docs/components/) - Understanding Flux v2 architecture
 
-## Architecture
+### 📝 Essential Guides & Community
+- [Flux Blog](https://fluxcd.io/blog/) - Official updates, tutorials, and technical insights
+- [CNCF Flux Resources](https://www.cncf.io/projects/flux/) - Project overview and ecosystem information
+- [Awesome Flux](https://github.com/fluxcd/awesome-flux) - Curated list of Flux resources and tools
+- [GitOps Best Practices](https://www.weave.works/technologies/gitops/) - GitOps methodology and patterns
+- [Flux vs ArgoCD Comparison](https://blog.container-solutions.com/flux-vs-argo-cd) - Understanding GitOps tool differences
 
-### Core Components
+### 🎥 Video Tutorials
+- [Flux Tutorial for Beginners](https://www.youtube.com/watch?v=R6OeIgb7lUI) - TechWorld with Nana (1 hour)
+- [GitOps with Flux v2](https://www.youtube.com/watch?v=nGLpUCQh7RE) - CNCF (45 minutes)
+- [Flux Deep Dive](https://www.youtube.com/watch?v=7E_DeaFLXBA) - KubeCon presentation (1 hour)
+- [Flux Workshop Series](https://www.youtube.com/playlist?list=PLbx4FZ4kOKntmgJqaTdIbhHyPkxp0K2K1) - Hands-on learning playlist
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         Flux v2 Components                       │
-├─────────────────────────┬───────────────────────────────────────┤
-│    Source Controller    │         Kustomize Controller         │
-│  • Git repositories     │  • Kustomization reconciliation     │
-│  • Helm repositories    │  • Post-build substitutions        │
-│  • OCI repositories     │  • Health assessments              │
-│  • S3 buckets          │  • Dependency management           │
-├─────────────────────────┼───────────────────────────────────────┤
-│    Helm Controller      │      Notification Controller        │
-│  • Helm releases       │  • Event dispatching               │
-│  • Chart dependencies  │  • Alert forwarding                │
-│  • Value overrides     │  • Webhook receivers               │
-├─────────────────────────┼───────────────────────────────────────┤
-│   Image Automation      │        Image Reflector              │
-│     Controller         │         Controller                  │
-│  • Image updates       │  • Image scanning                  │
-│  • Git commits         │  • Tag discovery                   │
-│  • Pull requests       │  • Policy matching                 │
-└─────────────────────────┴───────────────────────────────────────┘
-                                    │
-                                    ▼
-                        ┌─────────────────────────┐
-                        │   Target Kubernetes     │
-                        │      Resources         │
-                        └─────────────────────────┘
-```
+### 🎓 Professional Courses
+- [GitOps Fundamentals](https://training.linuxfoundation.org/training/gitops-fundamentals-lfs169/) - Linux Foundation (Free)
+- [Flux GitOps Course](https://www.udemy.com/course/gitops-with-flux/) - Complete hands-on course
+- [Cloud Native GitOps](https://www.coursera.org/learn/gitops-cloud-native-ci-cd) - Coursera specialization
+- [Kubernetes GitOps](https://acloudguru.com/course/kubernetes-gitops-with-flux) - A Cloud Guru practical course
 
-### Key Concepts
+### 📚 Books
+- "GitOps and Kubernetes" by Billy Yuen - [Purchase on Amazon](https://www.amazon.com/GitOps-Kubernetes-Continuous-Deployment-Argo/dp/1617297275)
+- "GitOps Cookbook" by Natale Vinto - [Purchase on Amazon](https://www.amazon.com/GitOps-Cookbook-Kubernetes-Automation-Practices/dp/1492097465)
+- "Cloud Native DevOps with Kubernetes" by John Arundel - [Purchase on Amazon](https://www.amazon.com/Cloud-Native-DevOps-Kubernetes-Applications/dp/1492040762)
 
-1. **GitRepository**: Defines a Git repository source
-2. **OCIRepository**: Defines an OCI artifact source
-3. **HelmRepository**: Defines a Helm chart repository
-4. **Kustomization**: Defines what to deploy from sources
-5. **HelmRelease**: Defines a Helm chart release
-6. **ImageRepository**: Tracks container image tags
-7. **ImagePolicy**: Defines image update rules
-8. **Alert**: Defines notification rules
-9. **Provider**: Defines notification endpoints
+### 🛠️ Interactive Tools
+- [Flux Bootstrap](https://fluxcd.io/docs/get-started/) - Official getting started environment
+- [Killercoda Flux Scenarios](https://killercoda.com/flux) - Interactive Flux learning scenarios
+- [Flux CLI Installation](https://fluxcd.io/docs/installation/) - Command-line tool for Flux management
+- [Flux2 Monitoring Example](https://github.com/fluxcd/flux2-monitoring-example) - Complete monitoring setup
+- [Flux Multi-Tenancy Example](https://github.com/fluxcd/flux2-multi-tenancy) - Multi-tenant GitOps patterns
 
-## Installation
+### 🚀 Ecosystem Tools
+- [Flagger](https://flagger.app/) - Progressive delivery for Kubernetes with Flux
+- [Weave GitOps](https://www.weave.works/product/gitops/) - Enterprise GitOps platform built on Flux
+- [tf-controller](https://github.com/weaveworks/tf-controller) - Terraform controller for Flux
+- [Flux Image Automation](https://fluxcd.io/docs/guides/image-automation/) - Automatic image updates
+- [Flux Notification Controller](https://fluxcd.io/docs/components/notification/) - Event notifications and webhooks
 
-### Prerequisites
+### 🌐 Community & Support
+- [Flux Community](https://fluxcd.io/community/) - Official community resources and forums
+- [CNCF Slack #flux](https://slack.cncf.io/) - Real-time community support
+- [Flux GitHub](https://github.com/fluxcd/flux2) - Source code and issue tracking
+- [Stack Overflow Flux](https://stackoverflow.com/questions/tagged/flux) - Technical Q&A and troubleshooting
 
-```bash
-# Kubernetes cluster 1.20+
-kubectl version --client
+## Understanding Flux: GitOps Toolkit for Kubernetes
 
-# GitHub personal access token (for bootstrap)
-export GITHUB_TOKEN=<your-token>
-export GITHUB_USER=<your-username>
-```
+Flux is a set of continuous and progressive delivery solutions for Kubernetes that are open and extensible. It's the GitOps toolkit that enables you to manage Kubernetes clusters and deliver applications using Git repositories as the source of truth. Created by Weaveworks and now a CNCF graduated project, Flux has become the leading GitOps implementation for Kubernetes.
 
-### Install Flux CLI
+### How Flux Works
 
-```bash
-# macOS
-brew install fluxcd/tap/flux
+Flux operates on GitOps principles that fundamentally change how we think about continuous delivery:
 
-# Linux
-curl -s https://fluxcd.io/install.sh | sudo bash
+1. **Pull-Based Architecture**: Instead of pushing changes to clusters, Flux controllers continuously monitor Git repositories and pull changes when detected.
 
-# Verify installation
-flux --version
-```
+2. **Declarative Configuration**: All infrastructure and application configurations are declared as code in Git repositories, providing version control and audit trails.
 
-### Bootstrap Flux
+3. **Continuous Reconciliation**: Flux controllers continuously compare the desired state (in Git) with the actual state (in Kubernetes) and automatically correct any drift.
 
-```bash
-# Check prerequisites
-flux check --pre
+4. **Composable Components**: Flux v2 is built as a toolkit of specialized controllers that can be used independently or together.
 
-# Bootstrap with GitHub
-flux bootstrap github \
-  --owner=$GITHUB_USER \
-  --repository=fleet-infra \
-  --branch=main \
-  --path=./clusters/production \
-  --personal
+### The Flux Ecosystem
 
-# Bootstrap with GitLab
-flux bootstrap gitlab \
-  --owner=$GITLAB_USER \
-  --repository=fleet-infra \
-  --branch=main \
-  --path=./clusters/production \
-  --personal
-```
+Flux is more than just a deployment tool—it's a comprehensive GitOps platform:
 
-## Configuration Examples
+- **Source Controller**: Manages Git repositories, Helm repositories, and OCI artifacts as sources of truth
+- **Kustomize Controller**: Applies Kustomize configurations and manages dependencies
+- **Helm Controller**: Manages Helm chart releases with advanced lifecycle capabilities
+- **Notification Controller**: Provides event notifications and webhook integrations
+- **Image Automation Controllers**: Automatically update container images and commit changes back to Git
+- **Flagger**: Progressive delivery addon for canary deployments and feature flags
 
-### Git Repository Source
+### Why Flux Dominates GitOps
 
-```yaml
-# sources/app-repo.yaml
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: GitRepository
-metadata:
-  name: app-config
-  namespace: flux-system
-spec:
-  interval: 1m
-  ref:
-    branch: main
-  url: https://github.com/myorg/app-config
-  secretRef:
-    name: github-credentials
+1. **Security First**: Pull-based model means cluster credentials never leave your infrastructure
+2. **Kubernetes Native**: Built specifically for Kubernetes with deep understanding of K8s resources
+3. **Composable Architecture**: Use only the components you need, extend with custom controllers
+4. **Multi-Tenancy**: Built-in support for team isolation and namespace boundaries
+5. **Progressive Delivery**: Advanced deployment strategies with Flagger integration
+
+### Mental Model for Success
+
+Think of Flux as an intelligent synchronization system between Git and Kubernetes. Just as a conductor keeps an orchestra in sync with the musical score, Flux keeps your Kubernetes clusters in sync with the configuration "score" defined in your Git repositories, automatically detecting and correcting any deviations.
+
+Key insight: Flux shifts you from imperative deployment commands to declarative desired state management, making deployments more reliable, auditable, and collaborative through Git workflows.
+
+### Where to Start Your Journey
+
+1. **Understand GitOps Principles**: Learn the four core principles—declarative, versioned, immutable, and continuously reconciled.
+
+2. **Master Git Workflows**: Understand how Git branches, pull requests, and merge strategies work with GitOps patterns.
+
+3. **Learn Flux Components**: Start with Source and Kustomize controllers, then explore Helm and advanced features.
+
+4. **Practice Repository Patterns**: Structure Git repositories following GitOps best practices with proper separation of concerns.
+
+5. **Explore Multi-Tenancy**: Understand how to isolate teams and environments using Flux's multi-tenancy features.
+
+6. **Implement Progressive Delivery**: Use Flagger for advanced deployment strategies and automated rollbacks.
+
+### Key Concepts to Master
+
+- **Source Management**: Git repositories, Helm repositories, and OCI artifacts as sources of truth
+- **Kustomization Workflows**: How Flux applies and manages Kubernetes manifests
+- **Helm Integration**: Managing Helm charts and releases through GitOps workflows
+- **Image Automation**: Automatic container image updates with Git commits
+- **Multi-Tenancy Patterns**: Team isolation, namespace management, and RBAC integration
+- **Progressive Delivery**: Canary deployments, feature flags, and automated rollbacks
+- **Security Model**: RBAC, admission controllers, and secret management
+- **Monitoring and Alerting**: Observability patterns and notification systems
+
+Flux represents the evolution from push-based CI/CD pipelines to pull-based GitOps workflows. Master the GitOps principles, understand Kubernetes-native patterns, and gradually build expertise in advanced multi-tenant and progressive delivery strategies.
+
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: github-credentials
-  namespace: flux-system
-type: Opaque
-stringData:
-  username: git
-  password: ${GITHUB_TOKEN}
-```
 
-### Kustomization Deployment
+### 📡 Stay Updated
 
-```yaml
-# apps/base/kustomization.yaml
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: apps
-  namespace: flux-system
-spec:
-  interval: 10m
-  sourceRef:
-    kind: GitRepository
-    name: app-config
-  path: "./deploy/overlays/production"
-  prune: true
-  validation: client
-  timeout: 5m
-  postBuild:
-    substitute:
-      cluster_name: "production"
-      region: "us-east-1"
-    substituteFrom:
-    - kind: ConfigMap
-      name: cluster-vars
-    - kind: Secret
-      name: cluster-secrets
-  healthChecks:
-  - apiVersion: apps/v1
-    kind: Deployment
-    name: webapp
-    namespace: default
-```
+**Release Notes**: [Flux Core](https://github.com/fluxcd/flux2/releases) • [Flagger](https://github.com/fluxcd/flagger/releases) • [Flux CLI](https://github.com/fluxcd/flux2/releases) • [Image Automation](https://github.com/fluxcd/image-automation-controller/releases)
 
-### Helm Release
+**Project News**: [Flux Blog](https://fluxcd.io/blog/) • [CNCF Blog - Flux](https://www.cncf.io/blog/?_sft_projects=flux) • [Flux Newsletter](https://lists.cncf.io/g/cncf-flux-announce) • [GitOps Days](https://www.gitopsdays.com/)
 
-```yaml
-# infrastructure/ingress-nginx/release.yaml
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
-metadata:
-  name: ingress-nginx
-  namespace: flux-system
-spec:
-  interval: 1h
-  url: https://kubernetes.github.io/ingress-nginx
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: ingress-nginx
-  namespace: flux-system
-spec:
-  interval: 1h
-  releaseName: ingress-nginx
-  targetNamespace: ingress-nginx
-  chart:
-    spec:
-      chart: ingress-nginx
-      version: "4.0.6"
-      sourceRef:
-        kind: HelmRepository
-        name: ingress-nginx
-  values:
-    controller:
-      replicaCount: 3
-      service:
-        type: LoadBalancer
-        annotations:
-          service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
-      resources:
-        requests:
-          cpu: 100m
-          memory: 128Mi
-        limits:
-          cpu: 1000m
-          memory: 512Mi
-  install:
-    createNamespace: true
-    remediation:
-      retries: 3
-  upgrade:
-    remediation:
-      retries: 3
-      remediateLastFailure: true
-    cleanupOnFail: true
-  rollback:
-    timeout: 10m
-    recreate: true
-    cleanupOnFail: true
-```
-
-### Multi-Tenancy Configuration
-
-```yaml
-# tenants/base/kustomization.yaml
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-- team-a.yaml
-- team-b.yaml
-- team-c.yaml
-
-# tenants/base/team-a.yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: team-a
-  labels:
-    toolkit.fluxcd.io/tenant: team-a
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: team-a
-  namespace: team-a
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: team-a-admin
-  namespace: team-a
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: admin
-subjects:
-- kind: ServiceAccount
-  name: team-a
-  namespace: team-a
----
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: GitRepository
-metadata:
-  name: team-a
-  namespace: team-a
-spec:
-  interval: 1m
-  ref:
-    branch: main
-  url: https://github.com/myorg/team-a-config
-  secretRef:
-    name: git-credentials
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: team-a-apps
-  namespace: team-a
-spec:
-  interval: 5m
-  sourceRef:
-    kind: GitRepository
-    name: team-a
-  path: "./apps"
-  prune: true
-  serviceAccountName: team-a
-  validation: client
-```
-
-## Production Patterns
-
-### Repository Structure
-
-```
-fleet-infra/
-├── clusters/
-│   ├── production/
-│   │   ├── flux-system/           # Flux components
-│   │   │   ├── gotk-components.yaml
-│   │   │   └── gotk-sync.yaml
-│   │   ├── infrastructure/        # Infrastructure controllers
-│   │   │   ├── kustomization.yaml
-│   │   │   ├── sources/
-│   │   │   └── controllers/
-│   │   └── apps/                  # Application workloads
-│   │       ├── kustomization.yaml
-│   │       ├── base/
-│   │       └── production/
-│   └── staging/
-│       └── ...
-├── infrastructure/
-│   ├── controllers/
-│   │   ├── cert-manager/
-│   │   ├── ingress-nginx/
-│   │   └── kyverno/
-│   └── configs/
-│       ├── cluster-issuers/
-│       └── network-policies/
-└── tenants/
-    ├── base/
-    ├── production/
-    └── staging/
-```
-
-### Image Automation
-
-```yaml
-# image-automation/webapp.yaml
-apiVersion: image.toolkit.fluxcd.io/v1beta2
-kind: ImageRepository
-metadata:
-  name: webapp
-  namespace: flux-system
-spec:
-  image: myorg/webapp
-  interval: 1m
-  provider: generic
-  secretRef:
-    name: docker-registry-credentials
----
-apiVersion: image.toolkit.fluxcd.io/v1beta2
-kind: ImagePolicy
-metadata:
-  name: webapp
-  namespace: flux-system
-spec:
-  imageRepositoryRef:
-    name: webapp
-  policy:
-    semver:
-      range: ">=1.0.0 <2.0.0"
----
-apiVersion: image.toolkit.fluxcd.io/v1beta1
-kind: ImageUpdateAutomation
-metadata:
-  name: webapp
-  namespace: flux-system
-spec:
-  interval: 1m
-  sourceRef:
-    kind: GitRepository
-    name: app-config
-  git:
-    checkout:
-      ref:
-        branch: main
-    commit:
-      author:
-        email: fluxcdbot@users.noreply.github.com
-        name: fluxcdbot
-      messageTemplate: |
-        Automated image update
-        
-        [ci skip]
-    push:
-      branch: main
-  update:
-    path: "./apps/webapp"
-    strategy: Setters
-```
-
-### Progressive Delivery with Flagger
-
-```yaml
-# flagger/webapp-canary.yaml
-apiVersion: flagger.app/v1beta1
-kind: Canary
-metadata:
-  name: webapp
-  namespace: production
-spec:
-  provider: nginx
-  targetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: webapp
-  ingressRef:
-    apiVersion: networking.k8s.io/v1
-    kind: Ingress
-    name: webapp
-  service:
-    port: 80
-    targetPort: http
-    gateways:
-    - public-gateway
-    hosts:
-    - app.example.com
-  analysis:
-    interval: 1m
-    threshold: 5
-    maxWeight: 50
-    stepWeight: 10
-    metrics:
-    - name: request-success-rate
-      thresholdRange:
-        min: 99
-      interval: 30s
-    - name: request-duration
-      thresholdRange:
-        max: 500
-      interval: 30s
-    webhooks:
-    - name: acceptance-test
-      type: pre-rollout
-      url: http://flagger-loadtester.test/
-      timeout: 30s
-      metadata:
-        type: bash
-        cmd: "curl -sd 'test' http://webapp-canary.production/health | grep ok"
-    - name: load-test
-      type: rollout
-      url: http://flagger-loadtester.test/
-      metadata:
-        cmd: "hey -z 2m -q 10 -c 2 http://webapp-canary.production/"
-```
-
-### Monitoring and Alerting
-
-```yaml
-# monitoring/alerts.yaml
-apiVersion: notification.toolkit.fluxcd.io/v1beta2
-kind: Provider
-metadata:
-  name: slack
-  namespace: flux-system
-spec:
-  type: slack
-  channel: flux-alerts
-  secretRef:
-    name: slack-webhook
----
-apiVersion: notification.toolkit.fluxcd.io/v1beta2
-kind: Alert
-metadata:
-  name: on-call
-  namespace: flux-system
-spec:
-  providerRef:
-    name: slack
-  eventSeverity: info
-  eventSources:
-  - kind: GitRepository
-    name: '*'
-  - kind: Kustomization
-    name: '*'
-  - kind: HelmRelease
-    name: '*'
-  exclusionList:
-  - "waiting.*socket"
-  summary: |
-    Cluster: production
-    Message: {{ .Message }}
-    Metadata: {{ range .Metadata }}{{ .Key }}={{ .Value }} {{ end }}
----
-apiVersion: notification.toolkit.fluxcd.io/v1beta2
-kind: Alert
-metadata:
-  name: infra-alerts
-  namespace: flux-system
-spec:
-  providerRef:
-    name: slack
-  eventSeverity: error
-  eventSources:
-  - kind: Kustomization
-    name: infrastructure
-  - kind: Kustomization
-    name: flux-system
-```
-
-### Secrets Management
-
-```yaml
-# secrets/sealed-secrets.yaml
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
-metadata:
-  name: sealed-secrets
-  namespace: flux-system
-spec:
-  interval: 1h
-  url: https://bitnami-labs.github.io/sealed-secrets
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: sealed-secrets-controller
-  namespace: flux-system
-spec:
-  interval: 1h
-  chart:
-    spec:
-      chart: sealed-secrets
-      version: "2.7.1"
-      sourceRef:
-        kind: HelmRepository
-        name: sealed-secrets
-  install:
-    createNamespace: true
-  values:
-    resources:
-      requests:
-        cpu: 50m
-        memory: 64Mi
-      limits:
-        cpu: 200m
-        memory: 256Mi
-```
-
-### Network Policies
-
-```yaml
-# policies/flux-system-netpol.yaml
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: flux-controllers
-  namespace: flux-system
-spec:
-  podSelector:
-    matchLabels:
-      app.kubernetes.io/part-of: flux
-  policyTypes:
-  - Ingress
-  - Egress
-  ingress:
-  - from:
-    - namespaceSelector: {}
-      podSelector:
-        matchLabels:
-          app.kubernetes.io/part-of: flux
-  egress:
-  - to:
-    - namespaceSelector: {}
-  - to:
-    - namespaceSelector:
-        matchLabels:
-          name: kube-system
-      podSelector:
-        matchLabels:
-          k8s-app: kube-dns
-    ports:
-    - port: 53
-      protocol: UDP
-  - to:
-    - ipBlock:
-        cidr: 0.0.0.0/0
-        except:
-        - 169.254.169.254/32
-```
-
-## Security Best Practices
-
-### RBAC Configuration
-
-```yaml
-# rbac/flux-view.yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: flux-view
-rules:
-- apiGroups: ["source.toolkit.fluxcd.io"]
-  resources: ["*"]
-  verbs: ["get", "list", "watch"]
-- apiGroups: ["kustomize.toolkit.fluxcd.io"]
-  resources: ["*"]
-  verbs: ["get", "list", "watch"]
-- apiGroups: ["helm.toolkit.fluxcd.io"]
-  resources: ["*"]
-  verbs: ["get", "list", "watch"]
-- apiGroups: ["notification.toolkit.fluxcd.io"]
-  resources: ["*"]
-  verbs: ["get", "list", "watch"]
-- apiGroups: ["image.toolkit.fluxcd.io"]
-  resources: ["*"]
-  verbs: ["get", "list", "watch"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: flux-view-binding
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: flux-view
-subjects:
-- kind: Group
-  name: flux-viewers
-  apiGroup: rbac.authorization.k8s.io
-```
-
-### Policy Enforcement
-
-```yaml
-# policies/kyverno-flux.yaml
-apiVersion: kyverno.io/v1
-kind: ClusterPolicy
-metadata:
-  name: flux-multi-tenancy
-spec:
-  validationFailureAction: enforce
-  background: false
-  rules:
-  - name: serviceAccountName
-    match:
-      any:
-      - resources:
-          kinds:
-          - Kustomization
-          - HelmRelease
-          namespaces:
-          - "team-*"
-    validate:
-      message: ".spec.serviceAccountName is required"
-      pattern:
-        spec:
-          serviceAccountName: "?*"
-  - name: sourceNamespace  
-    match:
-      any:
-      - resources:
-          kinds:
-          - Kustomization
-          - HelmRelease
-          namespaces:
-          - "team-*"
-    validate:
-      message: "must use GitRepository from the same namespace"
-      pattern:
-        spec:
-          sourceRef:
-            namespace: "{{request.object.metadata.namespace}}"
-```
-
-## Troubleshooting
-
-### Common Commands
-
-```bash
-# Check Flux components
-flux check
-
-# Get all Flux resources
-flux get all -A
-
-# Get sources
-flux get sources git -A
-flux get sources helm -A
-flux get sources oci -A
-
-# Get deployments
-flux get kustomizations -A
-flux get helmreleases -A
-
-# Reconcile resources
-flux reconcile source git flux-system
-flux reconcile kustomization apps
-
-# Suspend/Resume
-flux suspend kustomization apps
-flux resume kustomization apps
-
-# Check logs
-kubectl -n flux-system logs deployment/source-controller
-kubectl -n flux-system logs deployment/kustomize-controller
-kubectl -n flux-system logs deployment/helm-controller
-
-# Export resources
-flux export source git --all > sources.yaml
-flux export kustomization --all > kustomizations.yaml
-
-# Diff local vs cluster
-flux diff kustomization apps --path ./apps
-
-# Tree view
-flux tree kustomization flux-system
-```
-
-### Debug Mode
-
-```yaml
-# Enable debug logging
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: source-controller
-  namespace: flux-system
-spec:
-  template:
-    spec:
-      containers:
-      - name: manager
-        args:
-        - --log-level=debug
-        - --log-encoding=json
-```
-
-## Migration from Flux v1
-
-### Migration Steps
-
-```bash
-# Install Flux v2
-flux install
-
-# Migrate Helm Releases
-flux create source helm bitnami \
-  --url=https://charts.bitnami.com/bitnami \
-  --interval=1h
-
-flux create helmrelease redis \
-  --source=HelmRepository/bitnami \
-  --chart=redis \
-  --chart-version=">14.0.0" \
-  --interval=1h
-
-# Migrate Git repositories
-flux create source git webapp \
-  --url=https://github.com/myorg/webapp \
-  --branch=main \
-  --interval=1m
-
-flux create kustomization webapp \
-  --source=webapp \
-  --path="./deploy" \
-  --prune=true \
-  --interval=10m
-```
-
-## Integration Examples
-
-### GitHub Actions
-
-```yaml
-# .github/workflows/flux-diff.yaml
-name: Flux Diff
-on:
-  pull_request:
-    branches: [main]
-    paths: ["clusters/**.yaml"]
-
-jobs:
-  diff:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: fluxcd/flux2/action@main
-    - run: |
-        flux diff kustomization apps \
-          --path ./clusters/production \
-          --github-token ${{ secrets.GITHUB_TOKEN }}
-```
-
-### Prometheus Monitoring
-
-```yaml
-# monitoring/podmonitor.yaml
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  name: flux-system
-  namespace: flux-system
-spec:
-  selector:
-    matchLabels:
-      app.kubernetes.io/part-of: flux
-  podMetricsEndpoints:
-  - port: http-prom
-    interval: 30s
-    scrapeTimeout: 10s
-```
+**Community**: [Flux Community](https://fluxcd.io/community/) • [CNCF Slack #flux](https://slack.cncf.io/) • [GitHub Flux](https://github.com/fluxcd/flux2) • [Stack Overflow Flux](https://stackoverflow.com/questions/tagged/flux)

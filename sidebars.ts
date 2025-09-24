@@ -21,44 +21,17 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Linux & Systems',
+          label: 'Cloud Platforms & Services',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/linux-fundamentals',
-            'technical/linux-deep-dive',
-            'technical/linux-networking',
-            'technical/linux-performance',
-            'technical/linux-security',
-            'technical/system-administration',
-            'technical/bash',
-            'technical/process-management',
-            'technical/file-systems',
-            'technical/package-management',
-            'technical/tmux',
-            'technical/vim',
-            'technical/vscode'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Cloud Platforms',
-          collapsed: true,
-          collapsible: true,
-          items: [
-            'technical/cloud-platforms',
             'technical/aws',
             'technical/azure',
-            'technical/azure-devops',
-            'technical/azure-service-bus',
             'technical/gcp',
-            'technical/gcp-pubsub',
-            'technical/alibaba-cloud',
-            'technical/digitalocean',
-            'technical/linode',
-            'technical/oracle-cloud',
+            'technical/iam',
+            'technical/serverless',
+            'technical/api-gateway',
             'technical/openstack',
-            'technical/proxmox',
             'technical/vmware'
           ]
         },
@@ -69,19 +42,14 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           items: [
             'technical/docker',
-            'technical/podman',
-            'technical/containerd',
-            'technical/cri-o',
             'technical/kubernetes',
-            'technical/kubernetes-mastery',
-            'technical/k3s',
-            'technical/kind',
-            'technical/openshift',
-            'technical/rancher',
+            'technical/container-registries',
             'technical/helm',
             'technical/kustomize',
             'technical/operators',
-            'technical/serverless-edge-computing'
+            'technical/k3s',
+            'technical/podman',
+            'technical/containerd'
           ]
         },
         {
@@ -91,173 +59,115 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           items: [
             'technical/terraform',
-            'technical/pulumi',
-            'technical/cloudformation',
-            'technical/crossplane',
             'technical/ansible',
-            'technical/chef',
-            'technical/puppet',
-            'technical/saltstack',
+            'technical/cloudformation',
+            'technical/pulumi',
+            'technical/crossplane',
             'technical/packer',
-            'technical/cloud-init',
-            'technical/cloud-custodian'
+            'technical/cloud-init'
           ]
         },
         {
           type: 'category',
-          label: 'CI/CD & DevOps',
+          label: 'CI/CD & GitOps',
           collapsed: true,
           collapsible: true,
           items: [
             'technical/git',
+            'technical/jenkins',
             'technical/github-actions',
             'technical/gitlab-ci',
-            'technical/jenkins',
             'technical/circleci',
-            'technical/teamcity',
-            'technical/tekton',
             'technical/spinnaker',
             'technical/argocd',
-            'technical/flux',
-            'technical/bazel',
-            'technical/gradle',
-            'technical/make'
+            'technical/flux'
           ]
         },
         {
           type: 'category',
-          label: 'Monitoring & Observability',
+          label: 'Observability & Monitoring',
           collapsed: true,
           collapsible: true,
           items: [
             'technical/prometheus',
             'technical/grafana',
-            'technical/victoriametrics',
-            'technical/influxdb',
-            'technical/telegraf',
-            'technical/datadog',
-            'technical/new-relic',
-            'technical/appdynamics',
-            'technical/splunk',
             'technical/elasticsearch',
-            'technical/logstash',
-            'technical/opensearch',
-            'technical/fluent-bit',
             'technical/fluentd',
             'technical/loki',
-            'technical/vector',
-            'technical/jaeger',
-            'technical/zipkin',
-            'technical/tempo',
             'technical/opentelemetry',
-            'technical/chaos-engineering',
-            'technical/sre-practices-incident-management',
-            'technical/pagerduty',
-            'technical/opsgenie',
-            'technical/victorops'
+            'technical/jaeger',
+            'technical/datadog',
+            'technical/splunk',
+            'technical/new-relic',
+            'technical/influxdb',
+            'technical/telegraf',
+            'technical/sre-practices-incident-management'
           ]
         },
         {
           type: 'category',
-          label: 'Service Mesh & Networking',
+          label: 'Networking & Service Mesh',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/istio',
-            'technical/linkerd',
-            'technical/service-mesh',
-            'technical/envoy',
-            'technical/traefik',
+            'technical/tcp-ip',
+            'technical/dns',
+            'technical/linux-networking',
             'technical/nginx',
             'technical/haproxy',
-            'technical/consul-connect',
-            'technical/service-discovery',
-            'technical/dns',
-            'technical/tcp-ip',
-            'technical/http-https',
-            'technical/bgp',
-            'technical/network-troubleshooting',
-            'technical/vpn',
-            'technical/cdn'
+            'technical/envoy',
+            'technical/traefik',
+            'technical/istio',
+            'technical/consul-connect'
           ]
         },
         {
           type: 'category',
-          label: 'Data & Message Systems',
+          label: 'Security & Compliance',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/caching-data-stores',
-            'technical/redis',
-            'technical/memcached',
-            'technical/etcd',
-            'technical/message-queues-event-driven',
-            'technical/kafka',
-            'technical/rabbitmq',
-            'technical/pulsar',
-            'technical/nats',
-            'technical/mqtt',
-            'technical/amqp'
+            'technical/vault',
+            'technical/container-security',
+            'technical/zero-trust',
+            'technical/opa',
+            'technical/trivy',
+            'technical/falco',
+            'technical/cert-manager',
+            'technical/keycloak',
+            'technical/gatekeeper',
+            'technical/kyverno'
           ]
         },
         {
           type: 'category',
-          label: 'Databases',
+          label: 'Data & Storage',
           collapsed: true,
           collapsible: true,
           items: [
             'technical/postgresql',
             'technical/mysql',
-            'technical/mariadb',
             'technical/mongodb',
-            'technical/cassandra',
-            'technical/cockroachdb',
-            'technical/couchdb',
+            'technical/redis',
             'technical/dynamodb',
-            'technical/tidb',
-            'technical/timescaledb',
+            'technical/cassandra',
+            'technical/influxdb',
             'technical/clickhouse',
-            'technical/yugabyte'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Storage & Backup',
-          collapsed: true,
-          collapsible: true,
-          items: [
             'technical/minio',
             'technical/ceph',
-            'technical/glusterfs',
-            'technical/velero',
-            'technical/restic'
+            'technical/etcd'
           ]
         },
         {
           type: 'category',
-          label: 'Security & Secrets',
+          label: 'Messaging & Streaming',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/security-compliance',
-            'technical/vault',
-            'technical/sealed-secrets',
-            'technical/sops',
-            'technical/cert-manager',
-            'technical/lets-encrypt',
-            'technical/keycloak',
-            'technical/okta',
-            'technical/oauth2-proxy',
-            'technical/ldap',
-            'technical/opa',
-            'technical/gatekeeper',
-            'technical/kyverno',
-            'technical/falco',
-            'technical/trivy',
-            'technical/snyk',
-            'technical/owasp-zap',
-            'technical/sonarqube',
-            'technical/container-security'
+            'technical/kafka',
+            'technical/rabbitmq',
+            'technical/nats',
+            'technical/apache-airflow'
           ]
         },
         {
@@ -266,93 +176,40 @@ const sidebars: SidebarsConfig = {
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/go',
             'technical/python',
-            'technical/rust',
+            'technical/go',
+            'technical/bash',
             'technical/javascript',
-            'technical/typescript',
-            'technical/ruby'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'APIs & Protocols',
-          collapsed: true,
-          collapsible: true,
-          items: [
-            'technical/api-design-protocols',
-            'technical/graphql',
-            'technical/grpc',
-            'technical/json',
             'technical/yaml',
-            'technical/toml',
+            'technical/json',
             'technical/hcl'
           ]
         },
         {
           type: 'category',
-          label: 'Testing & Quality',
+          label: 'Linux & Systems',
           collapsed: true,
           collapsible: true,
           items: [
-            'technical/k6',
-            'technical/jmeter',
-            'technical/gatling',
-            'technical/selenium',
-            'technical/postman'
+            'technical/linux-fundamentals',
+            'technical/linux-performance',
+            'technical/system-administration',
+            'technical/linux-security'
           ]
         },
         {
           type: 'category',
-          label: 'Cost & Compliance',
+          label: 'Platform Engineering',
           collapsed: true,
           collapsible: true,
           items: [
+            'technical/platform-engineering',
+            'technical/backstage',
+            'technical/api-design-protocols',
             'technical/kubecost',
-            'technical/infracost'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Documentation & Visualization',
-          collapsed: true,
-          collapsible: true,
-          items: [
-            'technical/markdown',
-            'technical/drawio',
-            'technical/plantuml',
-            'technical/confluence'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Utilities & Tools',
-          collapsed: true,
-          collapsible: true,
-          items: [
-            'technical/jq',
-            'technical/yq',
-            'technical/regex'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'AI/ML Infrastructure',
-          collapsed: true,
-          collapsible: true,
-          items: [
-            'technical/ai-ml-platform',
-            'technical/llm-infrastructure',
-            'technical/vector-databases-ai'
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Interview Preparation',
-          collapsed: true,
-          collapsible: true,
-          items: [
-            'technical/ai-interview-prep'
+            'technical/velero',
+            'technical/tmux',
+            'technical/vim'
           ]
         }
       ]
@@ -375,8 +232,7 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           items: [
             'interview-process/index',
-            'practice/interview-formats',
-            'technical/ai-interview-prep'
+            'practice/interview-formats'
           ]
         },
         {

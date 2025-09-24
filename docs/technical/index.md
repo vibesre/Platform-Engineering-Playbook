@@ -9,72 +9,21 @@ pagination_prev: null
 
 # Technical Skills for Platform Engineers
 
-Master the essential technical skills needed for platform engineering, SRE, and DevOps roles. This comprehensive guide covers 150+ technologies organized into clear categories.
+Master the essential technical skills needed for platform engineering, SRE, and DevOps roles. This focused guide covers 85 core technologies that appear most frequently in job requirements and drive modern infrastructure.
 
-## 🐧 Linux & Systems
+## ☁️ Cloud Platforms & Services
 
-Master the foundation of all modern infrastructure.
+Master the major cloud providers and their core services.
 
-### Core Linux
-- **[Linux Fundamentals](/technical/linux-fundamentals)** ✅ - Commands, file systems, permissions
-- **[System Administration](/technical/system-administration)** - User management, systemd, services
-- **[Shell Scripting (Bash)](/technical/bash)** - Automation and scripting
-- **[Linux Performance](/technical/linux-performance)** - Tuning, analysis, optimization
-- **[Process Management](/technical/process-management)** - systemd, init, process control
+### Public Cloud Providers
+- **[AWS](/technical/aws)** - Market leader with 32% share, most mature ecosystem
+- **[Microsoft Azure](/technical/azure)** - Enterprise favorite, strong hybrid cloud
+- **[Google Cloud Platform](/technical/gcp)** - Best Kubernetes support, ML/AI leadership
 
-### Advanced Linux
-- **[Linux Security](/technical/linux-security)** - SELinux, AppArmor, hardening
-- **[File Systems](/technical/file-systems)** - ext4, XFS, ZFS, Btrfs
-- **[Linux Networking](/technical/linux-networking)** - iptables, netfilter, routing
-- **[Package Management](/technical/package-management)** - apt, yum, dnf, snap
-- **[Linux Deep Dive](/technical/linux-deep-dive)** ✅ - Kernel, internals, advanced topics
-
----
-
-## 🌐 Networking
-
-Build reliable, secure, and performant networks.
-
-### Fundamentals
-- **[TCP/IP & OSI Model](/technical/tcp-ip)** - Networking fundamentals
-- **[DNS](/technical/dns)** - BIND, CoreDNS, Route53
-- **[HTTP/HTTPS](/technical/http-https)** - Protocols, headers, optimization
-- **[Network Troubleshooting](/technical/network-troubleshooting)** - tcpdump, Wireshark, dig
-
-### Load Balancing & Proxies
-- **[NGINX](/technical/nginx)** - Web server, reverse proxy, load balancer
-- **[HAProxy](/technical/haproxy)** - High-performance load balancer
-- **[Traefik](/technical/traefik)** - Cloud-native edge router
-- **[Envoy](/technical/envoy)** - Modern L7 proxy and service mesh
-
-### Advanced Networking
-- **[BGP](/technical/bgp)** - Border Gateway Protocol
-- **[VPN Technologies](/technical/vpn)** - WireGuard, OpenVPN, IPSec
-- **[CDN](/technical/cdn)** - CloudFlare, Fastly, Akamai
-- **[Service Discovery](/technical/service-discovery)** - Consul, CoreDNS, etcd
-
----
-
-## ☁️ Cloud Platforms
-
-Master the major cloud providers and cloud-native architectures.
-
-### Major Providers
-- **[AWS](/technical/aws)** ✅ - Amazon Web Services (EC2, S3, RDS, Lambda, etc.)
-- **[Google Cloud Platform](/technical/gcp)** - Compute Engine, GKE, BigQuery
-- **[Microsoft Azure](/technical/azure)** - VMs, AKS, Azure Functions
-- **[Cloud Platforms Overview](/technical/cloud-platforms)** ✅ - Multi-cloud strategies
-
-### Other Providers
-- **[DigitalOcean](/technical/digitalocean)** - Simple cloud platform
-- **[Linode](/technical/linode)** - Developer-friendly cloud
-- **[Alibaba Cloud](/technical/alibaba-cloud)** - Asia-focused cloud
-- **[Oracle Cloud](/technical/oracle-cloud)** - Enterprise cloud platform
-
-### Private Cloud
-- **[OpenStack](/technical/openstack)** - Open source cloud platform
-- **[VMware vSphere](/technical/vmware)** - Enterprise virtualization
-- **[Proxmox](/technical/proxmox)** - Open source virtualization
+### Cloud Services
+- **[IAM](/technical/iam)** - Identity and Access Management across clouds
+- **[Serverless](/technical/serverless)** - Lambda, Functions, and event-driven compute
+- **[API Gateway](/technical/api-gateway)** - Managing and securing APIs at scale
 
 ---
 
@@ -82,36 +31,20 @@ Master the major cloud providers and cloud-native architectures.
 
 Build and manage containerized applications at scale.
 
-### Container Runtimes
-- **[Docker](/technical/docker)** ✅ - Container platform and ecosystem
-- **[containerd](/technical/containerd)** - Industry-standard runtime
-- **[Podman](/technical/podman)** - Daemonless containers
-- **[CRI-O](/technical/cri-o)** - Lightweight Kubernetes runtime
-
-### Orchestration Platforms
-- **[Kubernetes](/technical/kubernetes)** ✅ - Container orchestration standard
-- **[Kubernetes Mastery](/technical/kubernetes-mastery)** ✅ - Advanced K8s topics
-- **[OpenShift](/technical/openshift)** - Enterprise Kubernetes
-- **[Rancher](/technical/rancher)** - Multi-cluster management
-- **[Nomad](/technical/nomad)** - Simple orchestrator
+### Core Technologies
+- **[Docker](/technical/docker)** - Container platform standard
+- **[Kubernetes](/technical/kubernetes)** - Container orchestration leader
+- **[Container Registries](/technical/container-registries)** - Image storage and distribution
 
 ### Kubernetes Ecosystem
-- **[Helm](/technical/helm)** - Kubernetes package manager
-- **[Kustomize](/technical/kustomize)** - K8s configuration management
-- **[Operators](/technical/operators)** - Kubernetes native apps
+- **[Helm](/technical/helm)** - Package management for Kubernetes
+- **[Kustomize](/technical/kustomize)** - Template-free K8s configuration
+- **[Operators](/technical/operators)** - Kubernetes native applications
 - **[K3s](/technical/k3s)** - Lightweight Kubernetes
-- **[Kind](/technical/kind)** - K8s in Docker for testing
 
-### Service Mesh
-- **[Istio](/technical/istio)** - Connect, secure, control microservices
-- **[Linkerd](/technical/linkerd)** - Ultralight service mesh
-- **[Consul Connect](/technical/consul-connect)** - Service mesh by HashiCorp
-- **[Service Mesh Overview](/technical/service-mesh)** - Concepts and comparison
-
-### Container Security
-- **[Falco](/technical/falco)** - Runtime security
-- **[OPA](/technical/opa)** - Open Policy Agent
-- **[Container Security Best Practices](/technical/container-security)** - Scanning, policies
+### Advanced Container Tools
+- **[Podman](/technical/podman)** - Daemonless container engine
+- **[containerd](/technical/containerd)** - Industry-standard runtime
 
 ---
 
@@ -119,313 +52,233 @@ Build and manage containerized applications at scale.
 
 Automate infrastructure provisioning and configuration.
 
-### Provisioning
-- **[Terraform](/technical/terraform)** ✅ - Multi-cloud infrastructure as code
-- **[Pulumi](/technical/pulumi)** - IaC using programming languages
-- **[CloudFormation](/technical/cloudformation)** - AWS native IaC
-- **[AWS CDK](/technical/aws#aws-cdk-cloud-development-kit)** - Cloud Development Kit (part of AWS guide)
-- **[Crossplane](/technical/crossplane)** - Kubernetes-native IaC
-
-### Configuration Management
+### Primary Tools
+- **[Terraform](/technical/terraform)** - Multi-cloud infrastructure as code
 - **[Ansible](/technical/ansible)** - Agentless automation
-- **[SaltStack](/technical/saltstack)** - Event-driven automation
-- **[Chef](/technical/chef)** - Policy-based configuration
-- **[Puppet](/technical/puppet)** - Declarative configuration
+- **[CloudFormation](/technical/cloudformation)** - AWS native IaC
 
-### Image Building
-- **[Packer](/technical/packer)** - Multi-platform image builder
+### Modern IaC
+- **[Pulumi](/technical/pulumi)** - IaC with real programming languages
+- **[Crossplane](/technical/crossplane)** - Kubernetes-native infrastructure
+
+### Supporting Tools
+- **[Packer](/technical/packer)** - Multi-platform image building
 - **[Cloud-init](/technical/cloud-init)** - Instance initialization
 
 ---
 
 ## 🔄 CI/CD & GitOps
 
-Implement continuous integration, delivery, and GitOps workflows.
+Implement continuous integration, delivery, and deployment.
 
 ### Version Control
-- **[Git](/technical/git)** - Distributed version control
-- **[Git](/technical/git)** - Distributed version control (includes advanced topics)
+- **[Git](/technical/git)** - Distributed version control system
 
 ### CI/CD Platforms
-- **[GitHub Actions](/technical/github-actions)** - GitHub's CI/CD
-- **[GitLab CI](/technical/gitlab-ci)** - Integrated DevOps platform
-- **[Jenkins](/technical/jenkins)** - Extensible automation server
+- **[Jenkins](/technical/jenkins)** - Most widely adopted CI/CD server
+- **[GitHub Actions](/technical/github-actions)** - GitHub's integrated CI/CD
+- **[GitLab CI](/technical/gitlab-ci)** - Complete DevOps platform
 - **[CircleCI](/technical/circleci)** - Cloud-native CI/CD
-- **[TeamCity](/technical/teamcity)** - JetBrains CI server
-- **[Azure DevOps](/technical/azure-devops)** - Microsoft's DevOps platform
+- **[Spinnaker](/technical/spinnaker)** - Multi-cloud continuous delivery
 
-### GitOps Tools
-- **[ArgoCD](/technical/argocd)** - Declarative GitOps for K8s
-- **[Flux](/technical/flux)** - GitOps toolkit
-- **[Tekton](/technical/tekton)** - Cloud-native CI/CD
-- **[Spinnaker](/technical/spinnaker)** - Multi-cloud CD
-
-### Build Tools
-- **[Bazel](/technical/bazel)** - Google's build tool
-- **[Gradle](/technical/gradle)** - Build automation
-- **[Make](/technical/make)** - Classic build tool
+### GitOps
+- **[ArgoCD](/technical/argocd)** - Declarative GitOps for Kubernetes
+- **[Flux](/technical/flux)** - CNCF GitOps toolkit
 
 ---
 
-## 📊 Monitoring & Observability
+## 📊 Observability & Monitoring
 
 Monitor, analyze, and understand system behavior.
 
-### Metrics & Monitoring
-- **[Prometheus](/technical/prometheus)** - Cloud-native monitoring
-- **[Grafana](/technical/grafana)** - Visualization platform
-- **[VictoriaMetrics](/technical/victoriametrics)** - Fast time series DB
-- **[InfluxDB](/technical/influxdb)** - Time series database
-- **[Telegraf](/technical/telegraf)** - Metrics collection agent
+### Metrics & Visualization
+- **[Prometheus](/technical/prometheus)** - Cloud-native monitoring standard
+- **[Grafana](/technical/grafana)** - Visualization and dashboards
 
 ### Logging
-- **[Elasticsearch](/technical/elasticsearch)** - Search and analytics
-- **[Logstash](/technical/logstash)** - Log processing pipeline
-- **[Fluentd](/technical/fluentd)** - Unified logging layer
-- **[Fluent Bit](/technical/fluent-bit)** - Fast log processor
-- **[Loki](/technical/loki)** - Like Prometheus for logs
-- **[Vector](/technical/vector)** - High-performance observability pipeline
+- **[Elasticsearch](/technical/elasticsearch)** - Search and analytics engine
+- **[Fluentd](/technical/fluentd)** - Log collection and forwarding
+- **[Loki](/technical/loki)** - Prometheus-style log aggregation
 
-### Tracing
+### Tracing & APM
+- **[OpenTelemetry](/technical/opentelemetry)** - Observability framework standard
 - **[Jaeger](/technical/jaeger)** - Distributed tracing
-- **[Zipkin](/technical/zipkin)** - Distributed tracing system
-- **[Tempo](/technical/tempo)** - Grafana's tracing backend
-- **[OpenTelemetry](/technical/opentelemetry)** - Observability framework
 
-### APM & Commercial
-- **[Datadog](/technical/datadog)** - Cloud monitoring platform
-- **[New Relic](/technical/new-relic)** - Application performance
-- **[AppDynamics](/technical/appdynamics)** - Business monitoring
-- **[Splunk](/technical/splunk)** - Data platform
-
-### Incident Management
-- **[PagerDuty](/technical/pagerduty)** - Incident response
-- **[Opsgenie](/technical/opsgenie)** - Alert management
-- **[VictorOps](/technical/victorops)** - Incident management
-- **[SRE Practices](/technical/sre-practices-incident-management)** ✅ - On-call, postmortems
+### Commercial Solutions
+- **[Datadog](/technical/datadog)** - Full-stack observability platform
+- **[Splunk](/technical/splunk)** - Enterprise data platform
+- **[New Relic](/technical/new-relic)** - Application performance monitoring
 
 ---
 
-## 💾 Databases & Storage
+## 💻 Languages & Tools
 
-Manage data persistence and storage at scale.
+Essential programming languages and development tools.
 
-### Relational Databases
-- **[PostgreSQL](/technical/postgresql)** - Advanced open source DB
-- **[MySQL](/technical/mysql)** - Popular open source DB
-- **[MariaDB](/technical/mariadb)** - MySQL fork
-- **[Amazon RDS](/technical/aws#database-services)** - Managed relational DB (part of AWS guide)
-
-### NoSQL Databases
-- **[MongoDB](/technical/mongodb)** - Document database
-- **[Cassandra](/technical/cassandra)** - Wide column store
-- **[DynamoDB](/technical/dynamodb)** - AWS managed NoSQL
-- **[CouchDB](/technical/couchdb)** - JSON document DB
-
-### Key-Value Stores
-- **[Redis](/technical/redis)** - In-memory data structure store
-- **[Memcached](/technical/memcached)** - Memory caching system
-- **[etcd](/technical/etcd)** - Distributed key-value store
-- **[Consul Connect](/technical/consul-connect)** - Service mesh with KV store
-
-### Time Series Databases
-- **[InfluxDB](/technical/influxdb)** - Purpose-built for metrics
-- **[TimescaleDB](/technical/timescaledb)** - PostgreSQL for time series
-- **[Prometheus](/technical/prometheus)** - Built-in TSDB
-
-### NewSQL & Distributed
-- **[CockroachDB](/technical/cockroachdb)** - Distributed SQL
-- **[TiDB](/technical/tidb)** - MySQL-compatible distributed DB
-- **[YugabyteDB](/technical/yugabyte)** - Distributed SQL
-
-### Object Storage
-- **[MinIO](/technical/minio)** - S3-compatible object storage
-- **[Ceph](/technical/ceph)** - Distributed storage system
-- **[GlusterFS](/technical/glusterfs)** - Scalable network filesystem
-- **[MinIO](/technical/minio)** - S3-compatible object storage
-
-### Search & Analytics
-- **[Elasticsearch](/technical/elasticsearch)** - Full-text search
-- **[OpenSearch](/technical/opensearch)** - Open source search
-- **[ClickHouse](/technical/clickhouse)** - Column-oriented DBMS
-
----
-
-## 💻 Programming Languages
-
-Essential languages for platform engineering and automation.
-
-### Primary Languages
-- **[Python](/technical/python)** - Automation, tooling, scripting
-- **[Go](/technical/go)** - Systems programming, cloud native
-- **[Bash](/technical/bash)** - Shell scripting, automation
-
-### Secondary Languages
-- **[JavaScript/Node.js](/technical/javascript)** - Full-stack, tooling
-- **[TypeScript](/technical/typescript)** - Type-safe JavaScript
-- **[Rust](/technical/rust)** - Systems programming
-- **[Ruby](/technical/ruby)** - Scripting, configuration
+### Core Languages
+- **[Python](/technical/python)** - #1 for automation and tooling
+- **[Go](/technical/go)** - Cloud-native systems language
+- **[Bash](/technical/bash)** - Shell scripting essential
+- **[JavaScript](/technical/javascript)** - Full-stack development
 
 ### Configuration Languages
-- **[YAML](/technical/yaml)** - Human-readable data serialization
+- **[YAML](/technical/yaml)** - Kubernetes and CI/CD configs
 - **[JSON](/technical/json)** - Data interchange format
-- **[TOML](/technical/toml)** - Configuration files
 - **[HCL](/technical/hcl)** - HashiCorp Configuration Language
-
-### Utilities
-- **[Regular Expressions](/technical/regex)** - Pattern matching
-- **[jq](/technical/jq)** - Command-line JSON processor
-- **[yq](/technical/yq)** - YAML processor
 
 ---
 
-## 🔐 Security Tools
+## 🔐 Security & Compliance
 
 Secure infrastructure and applications.
 
-### Secrets Management
-- **[HashiCorp Vault](/technical/vault)** - Secrets and encryption management
-- **[AWS Secrets Manager](/technical/aws#aws-secrets-management)** - AWS native secrets (part of AWS guide)
-- **[SOPS](/technical/sops)** - Secrets operations
-- **[Sealed Secrets](/technical/sealed-secrets)** - K8s secrets encryption
+### Core Security
+- **[HashiCorp Vault](/technical/vault)** - Secrets management leader
+- **[Container Security](/technical/container-security)** - Scanning and runtime protection
+- **[Zero Trust](/technical/zero-trust)** - Modern security architecture
 
-### Identity & Access
-- **[Keycloak](/technical/keycloak)** - Identity and access management
-- **[OAuth2 Proxy](/technical/oauth2-proxy)** - Reverse proxy authentication
-- **[Okta](/technical/okta)** - Identity platform
-- **[LDAP/Active Directory](/technical/ldap)** - Directory services
+### Policy & Scanning
+- **[OPA](/technical/opa)** - Policy as code standard
+- **[Trivy](/technical/trivy)** - Vulnerability scanning
+- **[Falco](/technical/falco)** - Runtime threat detection
 
-### Security Scanning
-- **[Trivy](/technical/trivy)** - Vulnerability scanner
-- **[Snyk](/technical/snyk)** - Developer security platform
-- **[SonarQube](/technical/sonarqube)** - Code quality and security
-- **[OWASP ZAP](/technical/owasp-zap)** - Web app security testing
+### Certificates & Identity
+- **[cert-manager](/technical/cert-manager)** - Kubernetes certificate management
+- **[Keycloak](/technical/keycloak)** - Open source identity management
 
-### Policy & Compliance
-- **[Open Policy Agent](/technical/opa)** - Policy engine
-- **[Gatekeeper](/technical/gatekeeper)** - K8s policy controller
-- **[Kyverno](/technical/kyverno)** - K8s native policies
-- **[Security Compliance](/technical/security-compliance)** ✅ - Standards, frameworks
+---
 
-### Certificate Management
-- **[cert-manager](/technical/cert-manager)** - K8s certificate management
-- **[Let's Encrypt](/technical/lets-encrypt)** - Free SSL/TLS certificates
+## 🌐 Networking & Load Balancing
+
+Build reliable, secure, and performant networks.
+
+### Core Networking
+- **[TCP/IP](/technical/tcp-ip)** - Networking fundamentals
+- **[DNS](/technical/dns)** - Domain name system
+- **[Linux Networking](/technical/linux-networking)** - iptables, routing, performance
+
+### Load Balancers & Proxies
+- **[NGINX](/technical/nginx)** - Web server and reverse proxy
+- **[HAProxy](/technical/haproxy)** - High-performance load balancer
+- **[Envoy](/technical/envoy)** - Modern cloud-native proxy
+- **[Traefik](/technical/traefik)** - Cloud-native edge router
+
+### Service Mesh
+- **[Istio](/technical/istio)** - Most adopted service mesh
+- **[Consul](/technical/consul-connect)** - Service discovery and mesh
+
+---
+
+## 💾 Data & Storage
+
+Manage databases, caching, and persistent storage.
+
+### Relational Databases
+- **[PostgreSQL](/technical/postgresql)** - Most advanced open source database
+- **[MySQL](/technical/mysql)** - Most popular open source database
+
+### NoSQL & Caching
+- **[MongoDB](/technical/mongodb)** - Document database leader
+- **[Redis](/technical/redis)** - In-memory data structure store
+- **[DynamoDB](/technical/dynamodb)** - AWS managed NoSQL
+- **[Cassandra](/technical/cassandra)** - Distributed wide-column store
+
+### Specialized Databases
+- **[InfluxDB](/technical/influxdb)** - Time series database
+- **[ClickHouse](/technical/clickhouse)** - Real-time analytics
+
+### Storage Solutions
+- **[MinIO](/technical/minio)** - S3-compatible object storage
+- **[Ceph](/technical/ceph)** - Distributed storage system
+- **[etcd](/technical/etcd)** - Distributed key-value store
 
 ---
 
 ## 📨 Messaging & Streaming
 
-Build event-driven architectures and real-time data pipelines.
+Build event-driven architectures.
 
 ### Message Brokers
 - **[Apache Kafka](/technical/kafka)** - Distributed streaming platform
-- **[RabbitMQ](/technical/rabbitmq)** - Message broker
-- **[Apache Pulsar](/technical/pulsar)** - Cloud-native messaging
-- **[NATS](/technical/nats)** - Cloud-native messaging system
+- **[RabbitMQ](/technical/rabbitmq)** - Message broker standard
+- **[NATS](/technical/nats)** - Cloud-native messaging
 
-### Cloud Messaging
-- **[AWS SQS/SNS](/technical/aws#aws-messaging-services)** - Queue and pub/sub (part of AWS guide)
-- **[Google Pub/Sub](/technical/gcp-pubsub)** - Global message bus
-- **[Azure Service Bus](/technical/azure-service-bus)** - Enterprise messaging
-
-### Protocols & Patterns
-- **[MQTT](/technical/mqtt)** - IoT messaging protocol
-- **[AMQP](/technical/amqp)** - Messaging protocol
-- **[Redis Pub/Sub](/technical/redis#redis-pubsub)** - Simple pub/sub (part of Redis guide)
-- **[Event-Driven Architecture](/technical/message-queues-event-driven)** ✅ - Patterns and practices
+### Workflow Orchestration
+- **[Apache Airflow](/technical/apache-airflow)** - Workflow automation platform
 
 ---
 
-## 🛠️ Additional Tools
+## 🐧 Linux & Systems
+
+Master the foundation of all modern infrastructure.
+
+### Core Skills
+- **[Linux Fundamentals](/technical/linux-fundamentals)** - Essential commands and concepts
+- **[Linux Performance](/technical/linux-performance)** - Optimization and tuning
+- **[System Administration](/technical/system-administration)** - Managing Linux systems
+
+### Advanced Topics
+- **[Linux Security](/technical/linux-security)** - Hardening and best practices
+
+---
+
+## 🎯 Platform Engineering
+
+Build internal developer platforms and golden paths.
+
+### Core Concepts
+- **[Platform Engineering](/technical/platform-engineering)** - Building internal platforms
+- **[Backstage](/technical/backstage)** - Spotify's developer portal platform
+- **[SRE Practices](/technical/sre-practices-incident-management)** - Reliability engineering
+
+### Supporting Technologies
+- **[Cost Optimization](/technical/kubecost)** - FinOps and cost management
+- **[OpenStack](/technical/openstack)** - Private cloud platform
+- **[VMware](/technical/vmware)** - Enterprise virtualization
+- **[REST/GraphQL/gRPC](/technical/api-design-protocols)** - API design patterns
+
+---
+
+## 🚀 Additional Essential Tools
+
+### Backup & Recovery
+- **[Velero](/technical/velero)** - Kubernetes backup and restore
+
+### Policy & Governance
+- **[Kyverno](/technical/kyverno)** - Kubernetes native policies
+- **[Gatekeeper](/technical/gatekeeper)** - OPA-based admission controller
 
 ### Development Tools
-- **[VS Code](/technical/vscode)** - Popular code editor
-- **[vim/neovim](/technical/vim)** - Terminal-based editor
 - **[tmux](/technical/tmux)** - Terminal multiplexer
-- **[Docker Compose](/technical/docker#docker-compose)** - Multi-container apps (part of Docker guide)
-
-### API Tools
-- **[Postman](/technical/postman)** - API development
-- **[gRPC](/technical/grpc)** - High-performance RPC
-- **[GraphQL](/technical/graphql)** - Query language for APIs
-- **[API Design](/technical/api-design-protocols)** ✅ - REST, GraphQL, gRPC
-
-### Testing Tools
-- **[k6](/technical/k6)** - Modern load testing
-- **[JMeter](/technical/jmeter)** - Performance testing
-- **[Gatling](/technical/gatling)** - Load testing framework
-- **[Selenium](/technical/selenium)** - Browser automation
-
-### Cost Management
-- **[Kubecost](/technical/kubecost)** - K8s cost monitoring
-- **[Infracost](/technical/infracost)** - Cloud cost estimates
-- **[Cloud Custodian](/technical/cloud-custodian)** - Rules engine
-
-### Backup & DR
-- **[Velero](/technical/velero)** - K8s backup and restore
-- **[Restic](/technical/restic)** - Fast, secure backup
-- **[Velero](/technical/velero)** - K8s backup and restore
-
-### Documentation
-- **[Confluence](/technical/confluence)** - Team collaboration
-- **[Markdown](/technical/markdown)** - Documentation format
-- **[PlantUML](/technical/plantuml)** - Diagram as code
-- **[Draw.io](/technical/drawio)** - Diagramming tool
+- **[vim](/technical/vim)** - Text editor
 
 ---
 
-## 🎯 Learning Paths
+## 📈 Getting Started
 
 ### For Beginners
-1. Start with **[Linux Fundamentals](/technical/linux-fundamentals)** ✅
-2. Learn **[Docker](/technical/docker)** ✅ and basic **[Git](/technical/git)**
-3. Pick one cloud: **[AWS](/technical/aws)** ✅ (recommended)
-4. Master **[Python](/technical/python)** or **[Go](/technical/go)**
+1. Start with **[Linux Fundamentals](/technical/linux-fundamentals)**
+2. Learn **[Docker](/technical/docker)** and **[Git](/technical/git)**
+3. Pick one cloud: **[AWS](/technical/aws)** (recommended for job market)
+4. Master **[Python](/technical/python)** for automation
 5. Understand **[Prometheus](/technical/prometheus)** and **[Grafana](/technical/grafana)**
 
 ### For Developers → Platform Engineers
-1. Focus on **[Kubernetes](/technical/kubernetes)** ✅ and **[Terraform](/technical/terraform)** ✅
-2. Deep dive into **[Networking](/technical/tcp-ip)** fundamentals
-3. Learn **[Ansible](/technical/ansible)** for configuration
-4. Master **[CI/CD](/technical/github-actions)** with GitHub Actions
-5. Understand **[Observability](/technical/opentelemetry)** principles
+1. Deep dive into **[Kubernetes](/technical/kubernetes)**
+2. Master **[Terraform](/technical/terraform)** for infrastructure as code
+3. Learn **[ArgoCD](/technical/argocd)** for GitOps
+4. Understand **[Platform Engineering](/technical/platform-engineering)** principles
+5. Explore **[Backstage](/technical/backstage)** for developer portals
 
 ### For Experienced Engineers
-1. Master **[Service Mesh](/technical/istio)** architectures
-2. Implement **[GitOps](/technical/argocd)** with ArgoCD
-3. Learn **multiple cloud platforms**
-4. Deep dive into **[Security](/technical/vault)** and compliance
-5. Focus on **[Cost Optimization](/technical/kubecost)**
+1. Implement **[Zero Trust](/technical/zero-trust)** architectures
+2. Master **[Service Mesh](/technical/istio)** with Istio
+3. Build **[Internal Developer Platforms](/technical/platform-engineering)**
+4. Optimize costs with **[FinOps](/technical/kubecost)** practices
+5. Scale with **[Apache Airflow](/technical/apache-airflow)** for complex workflows
 
 ---
 
-## 📈 Industry Trends (2025)
+All pages include curated learning resources to help you master each technology.
 
-### 🔥 Hot Technologies
-- **Platform Engineering** - Internal developer platforms
-- **FinOps** - Cloud financial management
-- **eBPF** - Kernel programming for observability
-- **WebAssembly** - WASM for edge computing
-- **AI/ML Infrastructure** - GPU clusters, vector databases
-
-### 📉 Declining Technologies
-- Traditional configuration management (Puppet, Chef)
-- Monolithic CI/CD platforms
-- Legacy monitoring (Nagios, Zabbix)
-- Hardware load balancers
-
----
-
-## 🏗️ Building Your Skills
-
-1. **Start with fundamentals** - Don't skip Linux and networking basics
-2. **Get hands-on experience** - Build real projects, not just tutorials
-3. **Focus on one area** - Master one technology stack before expanding
-4. **Join communities** - Participate in Slack channels, forums, conferences
-5. **Contribute to open source** - Best way to learn from experts
-
----
-
-**Legend**: ✅ = Guide available | 🚧 = Coming soon
-
-Ready to dive in? Start with the fundamentals or jump to the technology you need to master!
+Ready to accelerate your platform engineering career? Start with the fundamentals or jump directly to the technology you need to master!

@@ -1,812 +1,112 @@
-# Git - Distributed Version Control Fundamentals
+# Git
 
-Git is a distributed version control system designed for speed, data integrity, and support for distributed, non-linear workflows. Created by Linus Torvalds in 2005, Git has become the de facto standard for version control in modern software development.
-
-## 📚 Top Learning Resources
-
-### 🎥 Video Courses
-
-#### **Git Tutorial for Beginners: Learn Git in 1 Hour**
-- **Channel**: Programming with Mosh
-- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=8JJ101D3knE)
-- **Why it's great**: Perfect introduction covering all essentials in concise format
-
-#### **Git and GitHub for Beginners - Crash Course**
-- **Channel**: freeCodeCamp
-- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=RGOj5yH7evk)
-- **Why it's great**: Comprehensive crash course with hands-on GitHub integration
-
-#### **Advanced Git Tutorial**
-- **Channel**: Atlassian
-- **Link**: [YouTube - Multiple videos](https://www.youtube.com/playlist?list=PLaY7qWIrmqtFkUBuMBth4i_fEJX4VQhAG)
-- **Why it's great**: Deep dive into advanced Git concepts and workflows
+## 📚 Learning Resources
 
 ### 📖 Essential Documentation
+- [Git Official Documentation](https://git-scm.com/doc) - Comprehensive reference and guides
+- [Pro Git Book](https://git-scm.com/book/en/v2) - Free official book by Scott Chacon
+- [Git Reference](https://git-scm.com/docs) - Complete command reference
+- [Git GitHub Repository](https://github.com/git/git) - 56.6k⭐ The version control system
+- [GitHub Docs](https://docs.github.com/) - Platform-specific Git workflows
 
-#### **Pro Git Book**
-- **Link**: [git-scm.com/book](https://git-scm.com/book)
-- **Why it's great**: The definitive guide to Git, free and comprehensive
+### 📝 Specialized Guides
+- [Atlassian Git Tutorial](https://www.atlassian.com/git) - Visual explanations of Git concepts
+- [GitHub Flow Guide](https://docs.github.com/en/get-started/using-github/github-flow) - Simple branching model
+- [Git Branching Strategies](https://www.flagship.io/git-branching-strategies/) - Comparing different workflows (2024)
+- [Conventional Commits](https://www.conventionalcommits.org/) - Commit message standards
+- [Git Tips](https://github.com/git-tips/tips) - 21.4k⭐ Collection of Git tips
 
-#### **Git Official Documentation**
-- **Link**: [git-scm.com/docs](https://git-scm.com/docs)
-- **Why it's great**: Complete command reference with examples
+### 🎥 Video Tutorials
+- [Git and GitHub for Beginners](https://www.youtube.com/watch?v=RGOj5yH7evk) - freeCodeCamp crash course (1 hour)
+- [Git Tutorial for Beginners](https://www.youtube.com/watch?v=8JJ101D3knE) - Programming with Mosh (1 hour)
+- [Advanced Git Tutorial](https://www.youtube.com/watch?v=qsTthZi23VE) - Intermediate concepts (30 min)
+- [Git Internals](https://www.youtube.com/watch?v=P6jD966jzlk) - How Git works under the hood (45 min)
 
-#### **Atlassian Git Tutorials**
-- **Link**: [atlassian.com/git/tutorials](https://www.atlassian.com/git/tutorials)
-- **Why it's great**: Excellent visual tutorials covering beginner to advanced topics
+### 🎓 Professional Courses
+- [Version Control with Git](https://www.coursera.org/learn/version-control-with-git) - Atlassian course (Free audit)
+- [Git Complete](https://www.udemy.com/course/git-complete/) - Comprehensive Udemy course
+- [GitHub Professional Certificate](https://www.edx.org/certificates/professional-certificate/githubx-github) - Official GitHub training
+- [Git Essential Training](https://www.linkedin.com/learning/git-essential-training-the-basics) - LinkedIn Learning
 
-### 📝 Must-Read Blogs & Articles
+### 📚 Books
+- "Pro Git" by Scott Chacon & Ben Straub - [Free Online](https://git-scm.com/book) | [Purchase on Amazon](https://www.amazon.com/dp/1484200772)
+- "Git Pocket Guide" by Richard E. Silverman - [Purchase on O'Reilly](https://www.oreilly.com/library/view/git-pocket-guide/9781449327507/)
+- "Version Control with Git" by Jon Loeliger & Matthew McCullough - [Purchase on O'Reilly](https://www.oreilly.com/library/view/version-control-with/9781492091189/)
 
-#### **Oh Shit, Git!?!**
-- **Source**: Katie Sylor-Miller
-- **Link**: [ohshitgit.com](https://ohshitgit.com/)
-- **Why it's great**: Practical solutions to common Git problems with humor
+### 🛠️ Interactive Tools
+- [Learn Git Branching](https://learngitbranching.js.org/) - Visual and interactive Git tutorial
+- [GitHub Learning Lab](https://github.com/apps/github-learning-lab) - Hands-on GitHub courses
+- [Git Exercises](https://gitexercises.fracz.com/) - Interactive Git practice exercises
+- [Oh My Git!](https://ohmygit.org/) - Open source Git learning game
 
-#### **Git Workflows Comparison**
-- **Source**: Atlassian
-- **Link**: [atlassian.com/git/tutorials/comparing-workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
-- **Why it's great**: Comprehensive comparison of different Git workflows
+### 🚀 Ecosystem Tools
+- [GitHub CLI](https://github.com/cli/cli) - 37.3k⭐ GitHub's official command line tool
+- [GitLab](https://gitlab.com/) - Complete DevOps platform
+- [Gitea](https://github.com/go-gitea/gitea) - 45.2k⭐ Self-hosted Git service
+- [tig](https://github.com/jonas/tig) - 12.5k⭐ Text-mode interface for Git
 
-#### **A Successful Git Branching Model**
-- **Source**: Vincent Driessen
-- **Link**: [nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)
-- **Why it's great**: The classic Git Flow workflow explained
+### 🌐 Community & Support
+- [Git Mailing List](https://lore.kernel.org/git/) - Official development discussions
+- [GitHub Community](https://github.community/) - GitHub-specific help forum
+- [Stack Overflow Git](https://stackoverflow.com/questions/tagged/git) - Q&A for Git problems
+- [r/git Reddit](https://www.reddit.com/r/git/) - Git community discussions
 
-### 🎓 Structured Courses
+## Understanding Git: The Foundation of Modern Software Development
 
-#### **Version Control with Git**
-- **Platform**: Coursera (University of California, Davis)
-- **Link**: [coursera.org/learn/version-control-with-git](https://www.coursera.org/learn/version-control-with-git)
-- **Cost**: Free (audit mode)
-- **Why it's great**: Academic approach with solid fundamentals
+Git revolutionized version control by introducing a distributed model that transformed how developers collaborate. Created by Linus Torvalds in 2005 for Linux kernel development, Git has become the universal standard for tracking changes in code, enabling millions of developers to work together seamlessly.
 
-#### **Git Essential Training**
-- **Platform**: LinkedIn Learning
-- **Link**: [linkedin.com/learning/git-essential-training](https://www.linkedin.com/learning/git-essential-training-the-basics)
-- **Cost**: Paid
-- **Why it's great**: Professional training with real-world scenarios
+### How Git Works
 
-### 🛠️ Tools & Platforms
+Git's genius lies in its simplicity and efficiency. Unlike centralized version control systems, Git gives every developer a complete copy of the repository with full history. This distributed nature means you can work offline, commit changes locally, and sync with others when ready.
 
-#### **GitHub**
-- **Link**: [github.com](https://github.com/)
-- **Why it's great**: Most popular Git hosting with excellent collaboration features
+At its core, Git tracks content through snapshots, not differences. When you commit, Git stores a snapshot of your entire project, using SHA-1 hashes to ensure integrity. If files haven't changed, Git simply links to the previous identical file, making it incredibly space-efficient. The three states - working directory, staging area, and repository - give you precise control over what changes to record.
 
-#### **GitKraken**
-- **Link**: [gitkraken.com](https://www.gitkraken.com/)
-- **Why it's great**: Beautiful visual Git client with merge conflict resolution
+### The Git Ecosystem
 
-#### **Git Cheat Sheet Interactive**
-- **Link**: [ndpsoftware.com/git-cheatsheet.html](https://ndpsoftware.com/git-cheatsheet.html)
-- **Why it's great**: Interactive visual representation of Git commands
+While Git provides the core version control engine, an entire ecosystem has grown around it. GitHub popularized social coding with pull requests and issues. GitLab offers a complete DevOps platform. Bitbucket integrates with Atlassian tools. These platforms add collaboration features, code review workflows, and CI/CD pipelines on top of Git's foundation.
 
-## Overview
+The ecosystem includes GUI clients for those who prefer visual interfaces, extensions that enhance Git's capabilities, and integrations with every development tool imaginable. Standards like Git Flow and GitHub Flow provide branching strategies for teams. Conventional Commits standardize commit messages for automation.
 
-## Core Concepts
+### Why Git Dominates Version Control
 
-### Repository Structure
+Git won because it solved the right problems at the right time. The distributed model eliminated single points of failure and enabled new workflows. Branching became cheap and fast, encouraging experimentation. The staging area provided fine-grained control over commits. Performance was orders of magnitude better than predecessors.
 
-Git stores data as a series of snapshots of a miniature filesystem:
+But technical superiority alone doesn't explain Git's dominance. GitHub's social features made open source collaboration frictionless. The pull request model became the standard for code review. Git's flexibility allowed teams to adapt it to their workflows rather than forcing specific processes.
 
-```
-.git/
-├── objects/       # Database of all files, commits, trees
-├── refs/          # References to commits (branches, tags)
-├── HEAD           # Pointer to current branch
-├── config         # Repository configuration
-├── hooks/         # Scripts triggered by Git events
-└── index          # Staging area
-```
+### Mental Model for Success
 
-### Three States of Files
+Think of Git like a time machine for your code. Each commit is a snapshot in time that you can return to. Branches are alternate timelines where you can experiment without affecting the main timeline. Merging brings changes from one timeline into another. 
 
-1. **Modified**: Changed but not staged
-2. **Staged**: Marked for inclusion in next commit
-3. **Committed**: Safely stored in local database
+The key insight: Git tracks content, not files. When you understand that Git is managing a directed acyclic graph of content snapshots, operations like rebasing, cherry-picking, and resetting become intuitive rather than mysterious.
 
-### Git Objects
+### Where to Start Your Journey
 
-```bash
-# Blob: File content
-$ git hash-object -w file.txt
-e69de29bb2d1d6434b8b29ae775ad8c2e48c5391
+1. **Master the basics first** - Init, add, commit, push, pull - make these second nature
+2. **Understand the three states** - Working directory, staging area, and repository
+3. **Learn branching and merging** - Create feature branches and merge them cleanly
+4. **Practice resolving conflicts** - They're inevitable; get comfortable with them
+5. **Explore the power features** - Interactive rebase, cherry-pick, and bisect
+6. **Adopt a workflow** - Choose Git Flow, GitHub Flow, or create your own
 
-# Tree: Directory structure
-$ git write-tree
-4b825dc642cb6eb9a060e54bf8d69288fbee4904
+### Key Concepts to Master
 
-# Commit: Snapshot with metadata
-$ git commit-tree <tree-sha> -m "Initial commit"
-```
+- **The Object Model** - Blobs, trees, commits, and tags form Git's foundation
+- **Branching and Merging** - Cheap branches enable parallel development
+- **The Staging Area** - Fine control over what goes into each commit
+- **Remote Repositories** - Synchronizing work across distributed copies
+- **Rewriting History** - When and how to use rebase, amend, and reset
+- **Git Hooks** - Automating workflows with client and server-side scripts
+- **Submodules and Subtrees** - Managing dependencies and nested repositories
+- **Git Internals** - Understanding refs, packfiles, and the object database
 
-## Essential Commands
-
-### Repository Initialization
-
-```bash
-# Create new repository
-git init
-
-# Clone existing repository
-git clone https://github.com/user/repo.git
-
-# Clone with specific branch
-git clone -b develop https://github.com/user/repo.git
-
-# Shallow clone (limited history)
-git clone --depth 1 https://github.com/user/repo.git
-```
-
-### Basic Workflow
-
-```bash
-# Check status
-git status
-
-# Stage changes
-git add file.txt                  # Single file
-git add .                         # All changes
-git add -p                        # Interactive staging
-git add *.js                      # Pattern matching
-
-# Commit changes
-git commit -m "Add feature"
-git commit -am "Fix bug"          # Stage and commit
-git commit --amend                # Modify last commit
-
-# View history
-git log
-git log --oneline --graph --all
-git log --since="2 weeks ago"
-git log --author="John"
-git log -p                        # Show patches
-```
-
-### Branching and Merging
-
-```bash
-# Branch management
-git branch                        # List branches
-git branch feature-x              # Create branch
-git checkout feature-x            # Switch branch
-git checkout -b feature-y         # Create and switch
-git branch -d feature-x           # Delete branch
-git branch -D feature-x           # Force delete
-
-# Merging
-git merge feature-x               # Merge branch
-git merge --no-ff feature-x       # No fast-forward
-git merge --squash feature-x      # Squash commits
-
-# Rebasing
-git rebase main                   # Rebase onto main
-git rebase -i HEAD~3             # Interactive rebase
-```
-
-### Remote Operations
-
-```bash
-# Remote management
-git remote -v                     # List remotes
-git remote add upstream <url>     # Add remote
-git remote remove origin          # Remove remote
-git remote set-url origin <url>   # Change URL
-
-# Fetching and pulling
-git fetch origin                  # Fetch changes
-git pull origin main              # Fetch and merge
-git pull --rebase origin main     # Fetch and rebase
-
-# Pushing
-git push origin main              # Push to remote
-git push -u origin feature-x      # Set upstream
-git push --force                  # Force push (danger!)
-git push --force-with-lease       # Safer force push
-```
-
-## Practical Workflows
-
-### Feature Branch Workflow
-
-```bash
-# 1. Create feature branch
-git checkout -b feature/user-authentication
-
-# 2. Make changes and commit
-git add src/auth.js
-git commit -m "Add authentication module"
-
-# 3. Keep branch updated
-git checkout main
-git pull origin main
-git checkout feature/user-authentication
-git rebase main
-
-# 4. Push and create pull request
-git push -u origin feature/user-authentication
-
-# 5. After merge, clean up
-git checkout main
-git pull origin main
-git branch -d feature/user-authentication
-git push origin --delete feature/user-authentication
-```
-
-### Gitflow Workflow
-
-```bash
-# Initialize gitflow
-git flow init
-
-# Feature development
-git flow feature start new-feature
-# ... make changes ...
-git flow feature finish new-feature
-
-# Release process
-git flow release start 1.0.0
-# ... finalize release ...
-git flow release finish 1.0.0
-
-# Hotfix
-git flow hotfix start critical-fix
-# ... fix issue ...
-git flow hotfix finish critical-fix
-```
-
-### Commit Message Best Practices
-
-```bash
-# Good commit message format
-<type>(<scope>): <subject>
-
-<body>
-
-<footer>
-
-# Example
-feat(auth): Add JWT token validation
-
-- Implement token verification middleware
-- Add expiration check
-- Include role-based permissions
-
-Closes #123
-```
-
-Types:
-- `feat`: New feature
-- `fix`: Bug fix
-- `docs`: Documentation
-- `style`: Code style changes
-- `refactor`: Code restructuring
-- `test`: Test changes
-- `chore`: Build/auxiliary changes
-
-## Configuration
-
-### Global Configuration
-
-```bash
-# User identity
-git config --global user.name "John Doe"
-git config --global user.email "john@example.com"
-
-# Editor
-git config --global core.editor "vim"
-
-# Aliases
-git config --global alias.co checkout
-git config --global alias.br branch
-git config --global alias.ci commit
-git config --global alias.st status
-git config --global alias.unstage 'reset HEAD --'
-git config --global alias.last 'log -1 HEAD'
-git config --global alias.visual '!gitk'
-
-# Line endings
-git config --global core.autocrlf true  # Windows
-git config --global core.autocrlf input # Mac/Linux
-
-# Default branch name
-git config --global init.defaultBranch main
-```
-
-### Repository Configuration
-
-```bash
-# .gitignore
-node_modules/
-*.log
-.env
-dist/
-.DS_Store
-*.swp
-
-# .gitattributes
-*.jpg binary
-*.png binary
-*.pdf binary
-*.sh text eol=lf
-*.bat text eol=crlf
-```
-
-## Collaboration Patterns
-
-### Pull Request Workflow
-
-1. **Fork and Clone**
-```bash
-# Fork on GitHub, then:
-git clone https://github.com/yourusername/repo.git
-git remote add upstream https://github.com/original/repo.git
-```
-
-2. **Create Feature Branch**
-```bash
-git checkout -b feature/amazing-feature
-```
-
-3. **Keep Fork Updated**
-```bash
-git fetch upstream
-git checkout main
-git merge upstream/main
-git push origin main
-```
-
-4. **Submit Pull Request**
-```bash
-git push origin feature/amazing-feature
-# Create PR on GitHub
-```
-
-### Code Review Process
-
-```bash
-# Fetch PR locally for review
-git fetch origin pull/123/head:pr-123
-git checkout pr-123
-
-# Review and test
-# Provide feedback on PR
-
-# Merge strategies
-git checkout main
-git merge --no-ff pr-123        # Preserve history
-git merge --squash pr-123       # Clean history
-```
-
-## Troubleshooting
-
-### Common Issues
-
-```bash
-# Undo last commit (keep changes)
-git reset --soft HEAD~1
-
-# Undo last commit (discard changes)
-git reset --hard HEAD~1
-
-# Recover deleted branch
-git reflog
-git checkout -b recovered-branch <sha>
-
-# Fix detached HEAD
-git checkout main
-
-# Remove untracked files
-git clean -fd
-
-# Stash changes
-git stash
-git stash pop
-git stash list
-git stash apply stash@{2}
-
-# Cherry-pick commit
-git cherry-pick <commit-sha>
-
-# Find lost commits
-git fsck --lost-found
-```
-
-### Merge Conflicts
-
-```bash
-# During merge conflict
-<<<<<<< HEAD
-Current changes
-=======
-Incoming changes
->>>>>>> feature-branch
-
-# Resolution process
-# 1. Edit files to resolve conflicts
-# 2. Stage resolved files
-git add resolved-file.txt
-# 3. Complete merge
-git commit
-
-# Abort merge
-git merge --abort
-```
-
-## Security Best Practices
-
-### Sensitive Data
-
-```bash
-# Remove sensitive data from history
-git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
-
-# Using BFG Repo-Cleaner (faster)
-bfg --delete-files passwords.txt
-git reflog expire --expire=now --all
-git gc --prune=now --aggressive
-
-# Prevent commits with secrets
-# .gitleaks.toml configuration
-title = "Gitleaks Config"
-[[rules]]
-  description = "AWS Access Key"
-  regex = '''AKIA[0-9A-Z]{16}'''
-  tags = ["key", "AWS"]
-```
-
-### Signed Commits
-
-```bash
-# Configure GPG signing
-git config --global user.signingkey <key-id>
-git config --global commit.gpgsign true
-
-# Sign commits
-git commit -S -m "Signed commit"
-
-# Verify signatures
-git log --show-signature
-git verify-commit <commit-sha>
-```
-
-## Performance Optimization
-
-### Large Repositories
-
-```bash
-# Enable partial clone
-git clone --filter=blob:none <url>
-
-# Sparse checkout
-git sparse-checkout init --cone
-git sparse-checkout set src/frontend
-
-# Garbage collection
-git gc --aggressive --prune=now
-
-# Pack optimization
-git repack -a -d -f --depth=250 --window=250
-
-# Performance config
-git config core.preloadindex true
-git config core.fscache true
-git config gc.auto 256
-```
-
-### Git LFS (Large File Storage)
-
-```bash
-# Install and initialize
-git lfs install
-git lfs track "*.psd"
-git lfs track "*.zip"
-git add .gitattributes
-
-# Clone with LFS
-git lfs clone <repository-url>
-
-# Fetch LFS objects
-git lfs fetch
-git lfs pull
-```
-
-## Integration Examples
-
-### Pre-commit Hooks
-
-```bash
-#!/bin/bash
-# .git/hooks/pre-commit
-
-# Run tests
-npm test
-if [ $? -ne 0 ]; then
-  echo "Tests failed. Commit aborted."
-  exit 1
-fi
-
-# Check for console.log
-if git diff --cached | grep -q "console\.log"; then
-  echo "console.log found. Commit aborted."
-  exit 1
-fi
-
-# Format code
-npm run format
-git add -A
-```
-
-### CI/CD Integration
-
-```yaml
-# .github/workflows/main.yml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run tests
-        run: |
-          npm install
-          npm test
-```
-
-## Production Patterns
-
-### Release Management
-
-```bash
-# Semantic versioning tags
-git tag -a v1.0.0 -m "Release version 1.0.0"
-git push origin v1.0.0
-
-# List tags
-git tag -l "v1.*"
-
-# Checkout specific version
-git checkout v1.0.0
-
-# Delete tag
-git tag -d v1.0.0
-git push origin --delete v1.0.0
-```
-
-### Monorepo Strategies
-
-```bash
-# Subtree management
-git subtree add --prefix=libs/shared https://github.com/org/shared.git main
-git subtree pull --prefix=libs/shared https://github.com/org/shared.git main
-git subtree push --prefix=libs/shared https://github.com/org/shared.git main
-
-# Submodule management
-git submodule add https://github.com/org/lib.git libs/external
-git submodule update --init --recursive
-git submodule foreach git pull origin main
-```
-
-## Monitoring and Analytics
-
-```bash
-# Contribution statistics
-git shortlog -sn
-git log --format='%aN' | sort | uniq -c | sort -rn
-
-# Code churn
-git log --stat --oneline
-
-# File history
-git log --follow -p -- path/to/file
-
-# Blame analysis
-git blame -L 10,20 file.js
-git blame -w -M -C file.js  # Ignore whitespace, detect moves/copies
-
-# Repository size
-git count-objects -vH
-```
-
-## Best Practices Summary
-
-1. **Commit Often**: Make small, focused commits
-2. **Write Clear Messages**: Use conventional commit format
-3. **Branch Strategically**: Use feature branches
-4. **Pull Before Push**: Keep your branch updated
-5. **Review Before Merge**: Use pull requests
-6. **Tag Releases**: Use semantic versioning
-7. **Backup Important Branches**: Push to remote regularly
-8. **Clean History**: Use interactive rebase wisely
-9. **Document Workflows**: Maintain clear README
-10. **Automate Checks**: Use hooks and CI/CD
-
-## Advanced Git Techniques
-
-### Git Internals
-
-Git uses a content-addressable filesystem with four object types:
-
-```bash
-# Examine object types
-git cat-file -t <sha>  # blob, tree, commit, tag
-
-# View object content
-git cat-file -p <sha>
-
-# Create objects manually
-echo "Hello, Git!" | git hash-object -w --stdin
-
-# Inspect objects directory
-find .git/objects -type f | head -5
-```
-
-### Advanced Rewriting and History Manipulation
-
-```bash
-# Interactive rebase for last 3 commits
-git rebase -i HEAD~3
-
-# Rewrite commit messages
-git commit --amend -m "New commit message"
-
-# Split a commit
-git reset HEAD~1
-git add file1
-git commit -m "First part"
-git add file2
-git commit -m "Second part"
-
-# Remove file from all history
-git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
-
-# Modern alternative to filter-branch
-git filter-repo --path passwords.txt --invert-paths
-```
-
-### Advanced Merge Strategies
-
-```bash
-# Octopus merge (multiple branches)
-git merge branch1 branch2 branch3
-
-# Ours strategy (keep our version)
-git merge -X ours feature-branch
-
-# Theirs strategy (prefer their version)
-git merge -X theirs feature-branch
-
-# Subtree merge
-git merge -s subtree feature-branch
-
-# Custom merge driver
-git config merge.ours.driver true
-```
-
-### Bisect for Bug Hunting
-
-```bash
-# Start bisect session
-git bisect start
-git bisect bad          # Current commit is bad
-git bisect good v1.0    # Version 1.0 was good
-
-# Git will checkout middle commit
-# Test and mark as good or bad
-git bisect good  # or git bisect bad
-
-# Automate with script
-git bisect run ./test_script.sh
-
-# End bisect session
-git bisect reset
-```
-
-### Advanced Stashing
-
-```bash
-# Stash with message
-git stash push -m "Work in progress on feature X"
-
-# Stash specific files
-git stash push -- file1.js file2.js
-
-# Create branch from stash
-git stash branch feature-stash stash@{0}
-
-# Stash untracked files
-git stash -u
-
-# Partial stashing
-git stash -p
-```
-
-### Worktrees for Parallel Development
-
-```bash
-# Create worktree
-git worktree add ../project-feature feature-branch
-
-# List worktrees
-git worktree list
-
-# Remove worktree
-git worktree remove ../project-feature
-
-# Prune deleted worktrees
-git worktree prune
-```
-
-### Hooks and Automation
-
-```bash
-# Pre-commit hook example
-#!/bin/sh
-# .git/hooks/pre-commit
-files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.js$')
-if [ "$files" = "" ]; then 
-    exit 0 
-fi
-
-echo $files | xargs ./node_modules/.bin/eslint
-if [ $? -ne 0 ]; then
-    echo "ESLint failed. Commit aborted."
-    exit 1
-fi
-
-# Pre-push hook example
-#!/bin/sh
-# .git/hooks/pre-push
-protected_branch='main'
-current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
-
-if [ $protected_branch = $current_branch ]; then
-    echo "Direct push to main branch is not allowed"
-    exit 1
-fi
-```
-
-### Git Aliases for Power Users
-
-```bash
-# Add to ~/.gitconfig
-[alias]
-    co = checkout
-    br = branch
-    ci = commit
-    st = status
-    unstage = reset HEAD --
-    last = log -1 HEAD
-    visual = !gitk
-    
-    # Advanced aliases
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    find = "!git ls-files | grep -i"
-    grep = grep -Ii
-    cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
-```
-
-### Performance Optimization
-
-```bash
-# Garbage collection
-git gc --aggressive --prune=now
-
-# Repack objects
-git repack -ad
-
-# Count objects
-git count-objects -v
-
-# Verify repository integrity
-git fsck --full
-
-# Enable file system monitor (large repos)
-git config core.fsmonitor true
-git config core.untrackedcache true
-```
-
+Start with the command line to truly understand Git, then adopt GUI tools for daily work. Remember that Git is a tool for communication with your future self and your team - write clear commit messages and maintain clean history.
 
 ---
 
-**Next Steps**: Master Git fundamentals before exploring advanced DevOps with [GitHub Actions](/technical/github-actions) or [GitLab CI](/technical/gitlab-ci).
+### 📡 Stay Updated
+
+**Release Notes**: [Git Releases](https://github.com/git/git/tags) • [Git Rev News](https://git.github.io/rev_news/) • [GitHub Changelog](https://github.blog/changelog/)
+
+**Project News**: [Git Mailing List](https://lore.kernel.org/git/) • [GitHub Blog](https://github.blog/) • [GitLab Blog](https://about.gitlab.com/blog/)
+
+**Community**: [Git Contributors Summit](https://git.github.io/rev_news/2024/10/31/edition-116/) • [GitHub Universe](https://githubuniverse.com/) • [Git Merge](https://git-merge.com/)

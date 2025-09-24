@@ -1,729 +1,98 @@
-# Consul Connect Service Mesh
+# Consul Connect
 
-## Overview
+## 📚 Learning Resources
+
+### 📖 Essential Documentation
+- [Consul Connect Documentation](https://developer.hashicorp.com/consul/docs/connect) - Official HashiCorp guide to service mesh features
+- [Consul GitHub Repository](https://github.com/hashicorp/consul) - 28.2k⭐ Source code and community issues
+- [Consul Configuration Reference](https://developer.hashicorp.com/consul/docs/agent/config/config-files) - Complete configuration options
+- [Envoy Proxy Integration](https://developer.hashicorp.com/consul/docs/connect/proxies/envoy) - Default Connect sidecar proxy configuration
+
+### 📝 Specialized Guides
+- [HashiCorp Learn - Consul Connect](https://learn.hashicorp.com/tutorials/consul/service-mesh) - Official tutorials for service mesh setup
+- [Multi-Datacenter Service Mesh](https://developer.hashicorp.com/consul/tutorials/datacenter-deploy/wan-federation-consul-connect) - WAN federation with Connect
+- [Consul Connect Security](https://developer.hashicorp.com/consul/docs/security/acl) - ACL and security best practices
+- [Production Deployment Guide](https://developer.hashicorp.com/consul/tutorials/datacenter-deploy/deployment-guide) - Enterprise-ready deployment patterns
+
+### 🎥 Video Tutorials
+- [HashiCorp Consul Connect Deep Dive](https://www.youtube.com/watch?v=8T8t4-hQY74) - Service mesh fundamentals (45 min)
+- [Consul Connect with Kubernetes](https://www.youtube.com/watch?v=k3LJt0dWV-M) - K8s integration walkthrough (30 min)
+- [Service Mesh Security with Consul](https://www.youtube.com/watch?v=CxGhIRaU4r4) - mTLS and authorization (40 min)
+
+### 🎓 Professional Courses
+- [HashiCorp Certified: Consul Associate](https://www.hashicorp.com/certification/consul-associate) - Official HashiCorp certification
+- [Service Mesh with Consul](https://www.pluralsight.com/courses/consul-service-mesh) - Pluralsight comprehensive course (Paid)
+- [Cloud Native Networking](https://training.linuxfoundation.org/training/cloud-native-networking-with-kubernetes-cni-and-istio/) - Linux Foundation course (Paid)
+
+### 📚 Books
+- "Consul Up and Running" by Luke Kysow - [Purchase on O'Reilly](https://www.oreilly.com/library/view/consul-up-and/9781491915721/)
+- "Building Microservices" by Sam Newman - [Purchase on Amazon](https://www.amazon.com/dp/1492034029)
+- "Microservices Security in Action" by Prabath Siriwardena - [Purchase on Amazon](https://www.amazon.com/dp/1617295957)
+
+### 🛠️ Interactive Tools
+- [Consul Demo Environment](https://demo.consul.io/) - Interactive web-based Consul exploration
+- [Katacoda Consul Scenarios](https://www.katacoda.com/hashicorp/scenarios/consul-connect) - Hands-on learning environment
+- [Consul K8s Helm Chart](https://github.com/hashicorp/consul-k8s) - Official Kubernetes integration
+
+### 🚀 Ecosystem Tools
+- [Consul Template](https://github.com/hashicorp/consul-template) - 4.8k⭐ Configuration templating tool
+- [Consul ESM](https://github.com/hashicorp/consul-esm) - External Service Monitor for legacy integration
+- [Consul Replicate](https://github.com/hashicorp/consul-replicate) - Data center synchronization tool
+- [Fabio](https://github.com/fabiolb/fabio) - 7.2k⭐ Load balancer with Consul integration
+
+### 🌐 Community & Support
+- [HashiCorp Community Forum](https://discuss.hashicorp.com/c/consul/29) - Official community support
+- [Consul Slack Channel](https://consul-request.herokuapp.com/) - Community chat and discussions
+- [HashiConf](https://hashiconf.com/) - Annual HashiCorp conference
+
+## Understanding Consul Connect: HashiCorp's Service Mesh Solution
 
 Consul Connect is HashiCorp's service mesh solution that provides secure service-to-service connectivity with automatic TLS encryption and identity-based authorization. Built on top of HashiCorp Consul, it integrates service discovery, configuration, and segmentation into a unified platform that works across multiple platforms and runtimes.
 
-## Architecture
+### How Consul Connect Works
+Connect extends Consul's service discovery with a Certificate Authority (CA) that issues TLS certificates for service identity. Each service gets a unique certificate that identifies it within the mesh. Sidecar proxies (typically Envoy) intercept network traffic and establish mTLS connections between services based on intention policies.
 
-### Core Components
+The control plane stores service configuration and intentions in Consul's distributed key-value store, while the data plane handles traffic routing and policy enforcement. This architecture enables Connect to work across diverse environments including VMs, containers, and serverless functions.
 
-#### Control Plane
-- **Consul Servers**: Store service registry, configuration, and coordinate the mesh
-- **Connect CA**: Built-in certificate authority for service identity
-- **Intentions**: Service-to-service authorization rules
-- **Configuration Entries**: Centralized mesh configuration
+### The Consul Connect Ecosystem
+Connect integrates with major orchestration platforms including Kubernetes, Nomad, and traditional VM environments. It supports multiple proxy implementations with Envoy as the default, but also works with HAProxy, F5, and custom proxies through the proxy API.
 
-#### Data Plane
-- **Envoy Proxy**: Default sidecar proxy (pluggable architecture)
-- **Built-in Proxy**: Lightweight alternative for development
-- **Native Integration**: SDK for direct application integration
+The ecosystem includes HashiCorp's broader stack with Vault for certificate management, Nomad for orchestration, and Terraform for infrastructure provisioning. Third-party integrations span monitoring tools, API gateways, and cloud provider services.
 
-### Architecture Patterns
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Service   │────▶│    Envoy    │────▶│   Consul    │
-│     App     │     │   Sidecar   │     │   Servers   │
-└─────────────┘     └─────────────┘     └─────────────┘
-                            │
-                    ┌───────▼────────┐
-                    │ Service Mesh   │
-                    │ Control Plane  │
-                    └────────────────┘
-```
+### Why Consul Connect Dominates Multi-Platform Service Mesh
+Connect excels in heterogeneous environments where services run across VMs, containers, and multiple orchestrators. Unlike Kubernetes-specific solutions, Connect provides consistent security and observability across platforms. Its agent-based architecture works well in environments with existing Consul deployments.
 
-### Multi-Runtime Support
-- Kubernetes (via Helm chart)
-- VMs and bare metal
-- Nomad integration
-- AWS ECS and Lambda
-- Multi-cloud and hybrid deployments
+The intention-based security model provides fine-grained authorization without requiring application changes. Multi-datacenter federation enables global service mesh deployments with WAN connectivity between regions.
 
-## Installation
+### Mental Model for Success
+Think of Consul Connect like a secure corporate network with smart security badges. Every service gets a unique, constantly-rotating security badge (certificate) that identifies who they are. The network infrastructure (sidecar proxies) checks these badges at every interaction and only allows communication if there's explicit permission (intentions). The corporate directory (Consul) keeps track of where everyone is located and what their current contact information is. Just as employees can move between office buildings while keeping their access rights, services can move between environments while maintaining their secure connections.
 
-### Prerequisites
-- Kubernetes 1.22+ (for K8s deployment)
-- Helm 3.2+
-- Consul 1.14+
+### Where to Start Your Journey
+1. **Deploy single-node Consul** - Start with a local Consul agent in development mode
+2. **Enable Connect** - Configure Connect and deploy your first service with sidecar proxy
+3. **Create intentions** - Define allow/deny policies between services
+4. **Add monitoring** - Configure metrics collection and observability
+5. **Scale to multiple nodes** - Set up a production Consul cluster with HA
+6. **Implement gateways** - Configure ingress and mesh gateways for external traffic
 
-### Kubernetes Installation
+### Key Concepts to Master
+- **Service identity** - Certificate-based service authentication and SPIFFE compatibility
+- **Intentions** - L4 and L7 authorization policies between services
+- **Proxy configuration** - Sidecar proxy deployment and traffic interception
+- **Certificate authority** - Built-in CA and external CA integration (Vault)
+- **Multi-datacenter federation** - WAN federation and cross-DC service communication
+- **Traffic management** - Load balancing, circuit breaking, and traffic splitting
+- **Observability integration** - Metrics, tracing, and logging configuration
+- **Native integration** - SDK-based Connect for applications without proxies
 
-#### Helm Installation
-```bash
-# Add HashiCorp Helm repository
-helm repo add hashicorp https://helm.releases.hashicorp.com
-helm repo update
+Start with simple service-to-service connections in a single datacenter, then progressively add L7 features, multi-DC capabilities, and production monitoring. Understanding Consul fundamentals (service discovery, health checking) is essential before diving into Connect features.
 
-# Install Consul with Connect enabled
-helm install consul hashicorp/consul \
-  --set global.name=consul \
-  --set global.datacenter=dc1 \
-  --set connectInject.enabled=true \
-  --set connectInject.default=true \
-  --set controller.enabled=true \
-  --set ui.enabled=true \
-  --set ui.service.type=LoadBalancer
-```
-
-#### Production Configuration
-```yaml
-# values-production.yaml
-global:
-  name: consul
-  datacenter: us-east-1
-  gossipEncryption:
-    secretName: consul-gossip-encryption-key
-    secretKey: key
-  tls:
-    enabled: true
-    enableAutoEncrypt: true
-  acls:
-    manageSystemACLs: true
-
-server:
-  replicas: 5
-  bootstrapExpect: 5
-  resources:
-    requests:
-      memory: 256Mi
-      cpu: 250m
-    limits:
-      memory: 512Mi
-      cpu: 500m
-  affinity: |
-    podAntiAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchLabels:
-              app: {{ template "consul.name" . }}
-              release: "{{ .Release.Name }}"
-              component: server
-
-connectInject:
-  enabled: true
-  default: true
-  transparentProxy:
-    defaultEnabled: true
-  cni:
-    enabled: true
-  resources:
-    requests:
-      memory: 128Mi
-      cpu: 100m
-    limits:
-      memory: 256Mi
-      cpu: 200m
-
-controller:
-  enabled: true
-
-ui:
-  enabled: true
-  service:
-    type: LoadBalancer
-```
-
-### VM Installation
-```bash
-# Install Consul binary
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-sudo apt-get update && sudo apt-get install consul
-
-# Configure Consul agent
-cat > /etc/consul.d/consul.hcl <<EOF
-datacenter = "dc1"
-data_dir = "/opt/consul"
-log_level = "INFO"
-server = false
-encrypt = "base64_encoded_gossip_key"
-retry_join = ["consul-server-1", "consul-server-2", "consul-server-3"]
-
-connect {
-  enabled = true
-}
-
-ports {
-  grpc = 8502
-}
-
-enable_central_service_config = true
-EOF
-
-# Start Consul
-sudo systemctl start consul
-```
-
-## Traffic Management
-
-### Service Defaults
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ServiceDefaults
-metadata:
-  name: frontend
-spec:
-  protocol: http
-  meshGateway:
-    mode: local
-  expose:
-    checks: true
-    paths:
-      - path: /health
-        localPathPort: 8080
-        listenerPort: 21500
-```
-
-### Service Splitter (Canary Deployment)
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ServiceSplitter
-metadata:
-  name: api
-spec:
-  splits:
-    - weight: 90
-      service: api-v1
-    - weight: 10
-      service: api-v2
-      requestHeaders:
-        set:
-          x-version: "v2"
-```
-
-### Service Router
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ServiceRouter
-metadata:
-  name: api
-spec:
-  routes:
-    - match:
-        http:
-          pathPrefix: /admin
-          header:
-            - name: x-admin-token
-              present: true
-      destination:
-        service: api-admin
-    - match:
-        http:
-          pathPrefix: /v2
-      destination:
-        service: api-v2
-    - destination:
-        service: api-v1
-```
-
-### Service Resolver
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ServiceResolver
-metadata:
-  name: api
-spec:
-  defaultSubset: v1
-  subsets:
-    v1:
-      filter: "Service.Meta.version == v1"
-    v2:
-      filter: "Service.Meta.version == v2"
-  loadBalancer:
-    policy: maglev
-    hashPolicies:
-      - field: header
-        fieldValue: x-session-id
-  connectTimeout: 15s
-  requestTimeout: 30s
-```
-
-### Ingress Gateway
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: IngressGateway
-metadata:
-  name: public-gateway
-spec:
-  listeners:
-    - port: 80
-      protocol: http
-      services:
-        - name: frontend
-          hosts: ["app.example.com"]
-        - name: api
-          hosts: ["api.example.com"]
-```
-
-### Mesh Gateway for Multi-DC
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: MeshGateway
-metadata:
-  name: mesh-gateway
-spec:
-  replicas: 3
-  service:
-    type: LoadBalancer
-  resources:
-    requests:
-      memory: 256Mi
-      cpu: 250m
-    limits:
-      memory: 512Mi
-      cpu: 500m
-```
-
-## Security
-
-### Service Intentions (Zero-Trust Authorization)
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ServiceIntentions
-metadata:
-  name: frontend-to-api
-spec:
-  destination:
-    name: api
-  sources:
-    - name: frontend
-      permissions:
-        - action: allow
-          http:
-            pathPrefix: /api
-            methods: ["GET", "POST"]
-        - action: deny
-          http:
-            pathPrefix: /api/admin
-    - name: monitoring
-      permissions:
-        - action: allow
-          http:
-            pathExact: /metrics
-            methods: ["GET"]
-```
-
-### JWT Authentication
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: JWTProvider
-metadata:
-  name: auth-provider
-spec:
-  issuer: "https://auth.example.com"
-  jsonWebKeySet:
-    remote:
-      uri: "https://auth.example.com/.well-known/jwks.json"
-  audiences:
-    - "api.example.com"
-  locations:
-    - header:
-        name: "Authorization"
-        valuePrefix: "Bearer "
-  forwarding:
-    headerName: "X-JWT-Token"
-```
-
-### ACL Configuration
-```hcl
-# Bootstrap ACL system
-acl = {
-  enabled = true
-  default_policy = "deny"
-  down_policy = "extend-cache"
-  enable_token_persistence = true
-}
-
-# Service token policy
-service "api" {
-  policy = "write"
-}
-
-service "frontend" {
-  policy = "write"
-}
-
-service_prefix "" {
-  policy = "read"
-}
-
-node_prefix "" {
-  policy = "read"
-}
-```
-
-### Certificate Management
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ProxyDefaults
-metadata:
-  name: global
-spec:
-  config:
-    protocol: http
-  meshGateway:
-    mode: local
-  expose:
-    checks: true
-  accessLogs:
-    enabled: true
-    jsonFormat: true
-```
-
-### Vault Integration
-```yaml
-# Configure Vault as CA provider
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ConnectCA
-metadata:
-  name: vault-ca
-spec:
-  provider: vault
-  config:
-    address: https://vault.example.com:8200
-    token: s.1234567890abcdef
-    rootPKIPath: pki/
-    intermediatePKIPath: pki_int/
-```
-
-## Observability
-
-### Metrics with Prometheus
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ProxyDefaults
-metadata:
-  name: global
-spec:
-  config:
-    envoy_prometheus_bind_addr: "0.0.0.0:9102"
-    envoy_stats_bind_addr: "0.0.0.0:9103"
-  expose:
-    checks: true
-    paths:
-      - path: /metrics
-        protocol: http
-        localPathPort: 9102
-        listenerPort: 20200
-```
-
-### Distributed Tracing
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ProxyDefaults
-metadata:
-  name: global
-spec:
-  config:
-    envoy_tracing_json: |
-      {
-        "http": {
-          "name": "envoy.tracers.zipkin",
-          "typedConfig": {
-            "@type": "type.googleapis.com/envoy.config.trace.v3.ZipkinConfig",
-            "collector_cluster": "zipkin",
-            "collector_endpoint_version": "HTTP_JSON",
-            "collector_endpoint": "/api/v2/spans",
-            "shared_span_context": false
-          }
-        }
-      }
-```
-
-### Access Logs
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ServiceDefaults
-metadata:
-  name: api
-spec:
-  protocol: http
-  accessLogs:
-    enabled: true
-    disableListenerLogs: false
-    type: stdout
-    jsonFormat: |
-      {
-        "timestamp": "%START_TIME%",
-        "method": "%REQ(:METHOD)%",
-        "path": "%REQ(X-ENVOY-ORIGINAL-PATH?:PATH)%",
-        "protocol": "%PROTOCOL%",
-        "response_code": "%RESPONSE_CODE%",
-        "response_flags": "%RESPONSE_FLAGS%",
-        "bytes_received": "%BYTES_RECEIVED%",
-        "bytes_sent": "%BYTES_SENT%",
-        "duration": "%DURATION%",
-        "upstream_service_time": "%RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)%"
-      }
-```
-
-### Service Topology Visualization
-```bash
-# Access Consul UI
-kubectl port-forward svc/consul-ui 8500:80
-
-# Query service topology
-consul catalog services
-consul health service api
-
-# View upstream dependencies
-consul connect proxy -service frontend -upstream-destinatio
-```
-
-## Production Deployment Patterns
-
-### Multi-Region Federation
-```yaml
-# Primary datacenter configuration
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: Mesh
-metadata:
-  name: mesh
-spec:
-  transparentProxy:
-    meshDestinationsOnly: true
-  tls:
-    incoming:
-      tlsMinVersion: TLSv1_2
-    outgoing:
-      tlsMinVersion: TLSv1_2
 ---
-# Federation through mesh gateways
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ServiceDefaults
-metadata:
-  name: global
-spec:
-  meshGateway:
-    mode: remote
-```
 
-### Disaster Recovery
-```bash
-# Backup Consul data
-consul snapshot save backup.snap
+### 📡 Stay Updated
 
-# Restore from snapshot
-consul snapshot restore backup.snap
+**Release Notes**: [Consul Releases](https://github.com/hashicorp/consul/releases) • [Consul K8s Releases](https://github.com/hashicorp/consul-k8s/releases) • [Security Updates](https://discuss.hashicorp.com/c/consul/29)
 
-# Automated backup CronJob
-kubectl create cronjob consul-backup \
-  --image=consul:latest \
-  --schedule="0 2 * * *" \
-  -- /bin/sh -c "consul snapshot save /backup/consul-$(date +%Y%m%d).snap"
-```
+**Project News**: [HashiCorp Blog](https://www.hashicorp.com/blog/products/consul) • [Consul Engineering Updates](https://www.consul.io/blog) • [Service Mesh Newsletter](https://servicemesh.es/)
 
-### GitOps with ArgoCD
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: consul-config
-  namespace: argocd
-spec:
-  project: infrastructure
-  source:
-    repoURL: https://github.com/company/consul-configs
-    targetRevision: main
-    path: overlays/production
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: consul
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
-```
-
-### Progressive Delivery
-```yaml
-# Traffic splitting with Flagger
-apiVersion: flagger.app/v1beta1
-kind: Canary
-metadata:
-  name: api
-  namespace: production
-spec:
-  provider: consul
-  targetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: api
-  progressDeadlineSeconds: 60
-  service:
-    name: api
-    port: 8080
-  analysis:
-    interval: 1m
-    threshold: 5
-    maxWeight: 50
-    stepWeight: 10
-    metrics:
-    - name: request-success-rate
-      thresholdRange:
-        min: 99
-      interval: 1m
-    webhooks:
-    - name: acceptance-test
-      type: pre-rollout
-      url: http://flagger-loadtester.test/
-      timeout: 30s
-```
-
-### Performance Optimization
-```yaml
-# Consul server performance tuning
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: consul-server-config
-data:
-  extra.json: |
-    {
-      "performance": {
-        "raft_multiplier": 1,
-        "leave_drain_time": "5s",
-        "rpc_hold_timeout": "7s"
-      },
-      "limits": {
-        "http_max_conns_per_client": 200
-      },
-      "dns_config": {
-        "cache_max_age": "30s",
-        "use_cache": true
-      }
-    }
-```
-
-## Best Practices
-
-### Service Registration
-```yaml
-# Kubernetes service with Consul annotations
-apiVersion: v1
-kind: Service
-metadata:
-  name: api
-  annotations:
-    consul.hashicorp.com/service-name: "api"
-    consul.hashicorp.com/service-port: "8080"
-    consul.hashicorp.com/service-tags: "v1,production"
-    consul.hashicorp.com/service-meta-version: "1.0.0"
-spec:
-  selector:
-    app: api
-  ports:
-  - port: 8080
-```
-
-### Health Checking
-```yaml
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ServiceDefaults
-metadata:
-  name: api
-spec:
-  protocol: http
-  healthCheck:
-    enabled: true
-    interval: 10s
-    timeout: 5s
-    deregisterCriticalServiceAfter: 30m
-    http: "/health"
-    successBeforePassing: 2
-    failuresBeforeCritical: 3
-```
-
-### Resource Management
-```yaml
-# Sidecar proxy resources
-apiVersion: v1
-kind: Pod
-metadata:
-  annotations:
-    consul.hashicorp.com/connect-inject: "true"
-    consul.hashicorp.com/sidecar-proxy-cpu-request: "100m"
-    consul.hashicorp.com/sidecar-proxy-cpu-limit: "200m"
-    consul.hashicorp.com/sidecar-proxy-memory-request: "128Mi"
-    consul.hashicorp.com/sidecar-proxy-memory-limit: "256Mi"
-```
-
-### Troubleshooting
-```bash
-# Check service mesh health
-consul members
-consul operator raft list-peers
-
-# Debug proxy configuration
-consul connect proxy -service frontend -log-level debug
-
-# View intentions
-consul intention match frontend
-
-# Check certificates
-consul connect ca get-config
-consul connect ca list
-
-# Debug service discovery
-consul catalog services -detailed
-consul health service api -passing
-
-# Proxy metrics
-curl http://localhost:19000/stats/prometheus
-```
-
-## Integration Examples
-
-### CI/CD Pipeline
-```yaml
-# GitLab CI example
-deploy:
-  script:
-    - consul kv put config/app/version "$CI_COMMIT_SHA"
-    - kubectl set image deployment/api api=api:$CI_COMMIT_SHA
-    - consul config write service-splitter-canary.yaml
-  environment:
-    name: production
-```
-
-### Monitoring Stack Integration
-```yaml
-# Grafana dashboard for Consul
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: consul-grafana-dashboard
-data:
-  consul-dashboard.json: |
-    {
-      "dashboard": {
-        "title": "Consul Service Mesh",
-        "panels": [
-          {
-            "targets": [
-              {
-                "expr": "consul_service_instances{service=\"$service\"}"
-              }
-            ]
-          }
-        ]
-      }
-    }
-```
-
-### Cost Optimization
-```bash
-# Analyze proxy resource usage
-kubectl top pods -n production --containers | grep consul-sidecar
-
-# Optimize DNS queries
-consul config write - <<EOF
-Kind: ProxyDefaults
-Name: global
-Config:
-  local_request_timeout_ms: 5000
-  local_idle_timeout_ms: 60000
-EOF
-```
+**Community**: [HashiConf Sessions](https://hashiconf.com/) • [Community Office Hours](https://discuss.hashicorp.com/t/consul-office-hours/41536) • [User Groups](https://www.meetup.com/pro/hashicorp/)

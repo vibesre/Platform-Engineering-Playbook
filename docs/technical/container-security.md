@@ -1,769 +1,99 @@
-# Container Security Best Practices and Tools
+# Container Security
 
-## Overview
+## 📚 Learning Resources
 
-Container security encompasses the entire lifecycle of containerized applications, from development through deployment and runtime. This guide provides comprehensive best practices, tools, and implementation patterns for securing containers in production environments.
+### 📖 Essential Documentation
+- [NIST Container Security Guide](https://csrc.nist.gov/publications/detail/sp/800-190/final) - SP 800-190 comprehensive security framework
+- [CIS Docker Benchmark](https://www.cisecurity.org/benchmark/docker) - Industry standard security configuration guidelines
+- [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes) - Kubernetes security configuration standards
+- [OWASP Container Security](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html) - Web application security project guidelines
 
-## Container Security Layers
+### 📝 Specialized Guides
+- [Docker Security Best Practices](https://docs.docker.com/engine/security/) - Official Docker security recommendations
+- [Kubernetes Security Concepts](https://kubernetes.io/docs/concepts/security/) - Official K8s security documentation
+- [Container Image Scanning Guide](https://docs.docker.com/engine/scan/) - Vulnerability detection and remediation
+- [Runtime Security with Falco](https://falco.org/docs/) - Cloud-native runtime security monitoring
 
-```
-┌─────────────────────────────────────────────┐
-│             Host OS Security                 │
-├─────────────────────────────────────────────┤
-│           Container Runtime                  │
-├─────────────────────────────────────────────┤
-│         Container Orchestration              │
-├─────────────────────────────────────────────┤
-│            Container Images                  │
-├─────────────────────────────────────────────┤
-│             Applications                     │
-└─────────────────────────────────────────────┘
-```
+### 🎥 Video Tutorials
+- [Container Security Fundamentals](https://www.youtube.com/watch?v=VjSJqc13PTE) - CNCF security overview (45 min)
+- [Kubernetes Security Best Practices](https://www.youtube.com/watch?v=oBf5lrmquYI) - Comprehensive K8s security (60 min)
+- [Container Image Security](https://www.youtube.com/watch?v=j2jqLkEDbAs) - Image vulnerability management (30 min)
 
-## Image Security
+### 🎓 Professional Courses
+- [Certified Kubernetes Security Specialist (CKS)](https://www.cncf.io/certification/cks/) - CNCF official security certification
+- [Container Security](https://www.sans.org/cyber-security-courses/container-security-essential-practical-skills/) - SANS comprehensive security course (Paid)
+- [Docker Security](https://www.pluralsight.com/courses/docker-security) - Pluralsight security-focused course (Paid)
+- [Cloud Security](https://www.coursera.org/specializations/cloud-security) - Google Cloud security specialization (Free audit)
 
-### 1. Base Image Selection
+### 📚 Books
+- "Container Security" by Liz Rice - [Free PDF](https://www.oreilly.com/library/view/container-security/9781492056690/) | [Purchase on Amazon](https://www.amazon.com/dp/1492056707)
+- "Kubernetes Security and Observability" by Brendan Creane - [Purchase on Amazon](https://www.amazon.com/dp/1098118804)
+- "Hacking Kubernetes" by Andrew Martin - [Purchase on O'Reilly](https://www.oreilly.com/library/view/hacking-kubernetes/9781492081722/)
 
-```dockerfile
-# Good: Use specific, minimal base images
-FROM alpine:3.18.4
+### 🛠️ Interactive Tools
+- [Trivy Vulnerability Scanner](https://github.com/aquasecurity/trivy) - 22.5k⭐ Container image and filesystem scanner
+- [Docker Bench for Security](https://github.com/docker/docker-bench-security) - 9.8k⭐ CIS Docker Benchmark checker
+- [Kubernetes Goat](https://github.com/madhuakula/kubernetes-goat) - 4.4k⭐ Intentionally vulnerable K8s environment
 
-# Better: Use distroless images
-FROM gcr.io/distroless/static-debian11
+### 🚀 Ecosystem Tools
+- [Falco](https://github.com/falcosecurity/falco) - 7.2k⭐ Runtime security monitoring
+- [Aqua Security](https://www.aquasec.com/) - Comprehensive container security platform
+- [Sysdig Secure](https://sysdig.com/products/secure/) - Runtime threat detection and compliance
+- [Twistlock/Prisma Cloud](https://www.paloaltonetworks.com/prisma/cloud) - Full-stack container security
 
-# Best: Use scratch for static binaries
-FROM scratch
-```
+### 🌐 Community & Support
+- [Cloud Native Security](https://github.com/cncf/sig-security) - CNCF Security Special Interest Group
+- [OWASP Container Security](https://owasp.org/www-project-container-security/) - Open Web Application Security Project
+- [r/kubernetes Security](https://www.reddit.com/r/kubernetes/search?q=security) - Community discussions and advice
 
-### 2. Multi-Stage Builds
+## Understanding Container Security: Defense in Depth for Cloud-Native Workloads
 
-```dockerfile
-# Build stage
-FROM golang:1.21-alpine AS builder
-WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod download
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+Container security encompasses the entire lifecycle of containerized applications, from development through deployment and runtime. This comprehensive approach protects against vulnerabilities, misconfigurations, and malicious activities across the container stack.
 
-# Final stage
-FROM scratch
-COPY --from=builder /app/main /main
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-USER 1001
-ENTRYPOINT ["/main"]
-```
+### How Container Security Works
+Container security operates across multiple layers: image security scans for vulnerabilities and malware during build time, runtime security monitors behavior and enforces policies, and infrastructure security secures the underlying platforms. Each layer provides specific protections - image scanning prevents vulnerable code deployment, runtime monitoring detects anomalous behavior, and platform security controls access and network traffic.
 
-### 3. Image Scanning
+Modern container security integrates with CI/CD pipelines to shift security left, catching issues early in development. Security policies are enforced through admission controllers, pod security standards, and runtime protection systems that continuously monitor container behavior.
 
-#### Trivy Integration
+### The Container Security Ecosystem
+The ecosystem spans multiple domains: vulnerability scanners analyze images for known CVEs, configuration assessment tools verify security settings, runtime security platforms monitor behavior, and compliance tools ensure adherence to security standards. Cloud providers offer native security services while specialized vendors provide comprehensive platforms.
 
-```yaml
-# GitLab CI image scanning
-image-scan:
-  stage: security
-  image:
-    name: aquasec/trivy:latest
-    entrypoint: [""]
-  script:
-    - trivy image --exit-code 1 --severity HIGH,CRITICAL $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-    - trivy image --format json --output trivy-report.json $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-  artifacts:
-    reports:
-      container_scanning: trivy-report.json
-```
+Integration points include container registries with built-in scanning, Kubernetes admission controllers for policy enforcement, service meshes for secure communication, and observability platforms for security analytics. The ecosystem continues evolving with emerging standards like SPIFFE/SPIRE for workload identity.
 
-#### Grype Configuration
+### Why Container Security Dominates Cloud-Native Protection
+Container security has become critical because containers fundamentally change the threat landscape. Traditional perimeter-based security fails with ephemeral, distributed workloads. Containers share kernel resources, creating new attack vectors, while their immutable nature enables new security paradigms like image-based policies.
 
-```yaml
-# .grype.yaml
-check-for-app-update: true
-db:
-  auto-update: true
-  cache-dir: "/tmp/grype-db"
+The dynamic nature of container environments - with frequent deployments, auto-scaling, and service communication - requires automated security that can adapt to changing conditions. Container security provides this through policy-as-code, continuous monitoring, and automated remediation.
 
-ignore:
-  - vulnerability: CVE-2021-12345
-    fix-state: wont-fix
-    package:
-      name: libssl
-      version: 1.1.1
-```
+### Mental Model for Success
+Think of container security like a multi-layered fortress protecting a medieval city. The outer walls are your image security - screening what enters your environment. The watchtowers are vulnerability scanners - constantly surveying for known threats. The guards at gates are admission controllers - checking credentials and permissions before allowing entry. Inside the city, the patrol guards are runtime security tools - monitoring behavior and detecting anomalies. The armory represents your security policies - standardized defenses ready to deploy. Just as medieval security relied on multiple coordinated defenses, container security requires layered protection across the entire stack.
 
-### 4. Image Signing
+### Where to Start Your Journey
+1. **Secure your images** - Implement vulnerability scanning in your CI/CD pipeline and use minimal base images
+2. **Apply Pod Security Standards** - Configure security contexts and pod security policies in Kubernetes
+3. **Enable runtime monitoring** - Deploy Falco or similar runtime security monitoring
+4. **Implement network segmentation** - Use network policies to control traffic between services
+5. **Audit configurations** - Run CIS benchmarks and security configuration assessments
+6. **Set up incident response** - Create procedures for responding to security alerts and breaches
 
-```bash
-# Cosign image signing
-# Generate keypair
-cosign generate-key-pair
+### Key Concepts to Master
+- **Image security** - Vulnerability scanning, image signing, and supply chain protection
+- **Runtime security** - Behavioral monitoring, anomaly detection, and threat response
+- **Network security** - Microsegmentation, service mesh security, and ingress protection
+- **Identity and access** - RBAC, service accounts, and workload identity management
+- **Compliance frameworks** - CIS benchmarks, NIST guidelines, and industry standards
+- **Security automation** - Policy-as-code, automated remediation, and DevSecOps integration
+- **Incident response** - Security monitoring, alerting, and breach response procedures
+- **Supply chain security** - Software bill of materials (SBOM) and provenance tracking
 
-# Sign image
-cosign sign --key cosign.key $REGISTRY/myapp:v1.0.0
-
-# Verify signature
-cosign verify --key cosign.pub $REGISTRY/myapp:v1.0.0
-```
-
-## Runtime Security
-
-### 1. Security Contexts
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: secure-pod
-spec:
-  securityContext:
-    runAsNonRoot: true
-    runAsUser: 1000
-    fsGroup: 2000
-    seccompProfile:
-      type: RuntimeDefault
-  containers:
-  - name: app
-    image: myapp:latest
-    securityContext:
-      allowPrivilegeEscalation: false
-      readOnlyRootFilesystem: true
-      capabilities:
-        drop:
-        - ALL
-        add:
-        - NET_BIND_SERVICE
-    volumeMounts:
-    - name: tmp
-      mountPath: /tmp
-    - name: cache
-      mountPath: /app/cache
-  volumes:
-  - name: tmp
-    emptyDir: {}
-  - name: cache
-    emptyDir: {}
-```
-
-### 2. Pod Security Standards
-
-```yaml
-# Pod Security Policy (deprecated, use Pod Security Standards)
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: secure-namespace
-  labels:
-    pod-security.kubernetes.io/enforce: restricted
-    pod-security.kubernetes.io/audit: restricted
-    pod-security.kubernetes.io/warn: restricted
-```
-
-### 3. Runtime Protection with Falco
-
-```yaml
-# Falco DaemonSet
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: falco
-  namespace: falco
-spec:
-  selector:
-    matchLabels:
-      app: falco
-  template:
-    metadata:
-      labels:
-        app: falco
-    spec:
-      serviceAccountName: falco
-      containers:
-      - name: falco
-        image: falcosecurity/falco:latest
-        securityContext:
-          privileged: true
-        volumeMounts:
-        - name: config-volume
-          mountPath: /etc/falco
-        - name: proc-fs
-          mountPath: /host/proc
-          readOnly: true
-        - name: docker-socket
-          mountPath: /host/var/run/docker.sock
-          readOnly: true
-      volumes:
-      - name: config-volume
-        configMap:
-          name: falco-config
-      - name: proc-fs
-        hostPath:
-          path: /proc
-      - name: docker-socket
-        hostPath:
-          path: /var/run/docker.sock
-```
-
-#### Falco Rules
-
-```yaml
-# Custom Falco rules
-- rule: Unauthorized Process in Container
-  desc: Detect unauthorized processes running in containers
-  condition: >
-    spawned_process and container and
-    not proc.name in (allowed_processes)
-  output: >
-    Unauthorized process started in container
-    (user=%user.name command=%proc.cmdline container=%container.name)
-  priority: WARNING
-  tags: [container, process]
-
-- list: allowed_processes
-  items: [nginx, node, python, java]
-```
-
-## Network Security
-
-### 1. Network Policies
-
-```yaml
-# Default deny all traffic
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: default-deny-all
-  namespace: production
-spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-  - Egress
+Start with basic image scanning and gradually implement runtime monitoring, network policies, and comprehensive security automation. Focus on integrating security into existing DevOps workflows rather than bolting it on afterward.
 
 ---
-# Allow specific traffic
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: web-netpol
-  namespace: production
-spec:
-  podSelector:
-    matchLabels:
-      app: web
-  policyTypes:
-  - Ingress
-  - Egress
-  ingress:
-  - from:
-    - namespaceSelector:
-        matchLabels:
-          name: production
-      podSelector:
-        matchLabels:
-          app: frontend
-    ports:
-    - protocol: TCP
-      port: 8080
-  egress:
-  - to:
-    - namespaceSelector:
-        matchLabels:
-          name: production
-      podSelector:
-        matchLabels:
-          app: database
-    ports:
-    - protocol: TCP
-      port: 5432
-  - to:
-    - namespaceSelector:
-        matchLabels:
-          name: kube-system
-      podSelector:
-        matchLabels:
-          k8s-app: kube-dns
-    ports:
-    - protocol: UDP
-      port: 53
-```
 
-### 2. Service Mesh Security
+### 📡 Stay Updated
 
-```yaml
-# Istio mTLS configuration
-apiVersion: security.istio.io/v1beta1
-kind: PeerAuthentication
-metadata:
-  name: default
-  namespace: production
-spec:
-  mtls:
-    mode: STRICT
+**Release Notes**: [Falco Releases](https://github.com/falcosecurity/falco/releases) • [Trivy Updates](https://github.com/aquasecurity/trivy/releases) • [Kubernetes Security](https://kubernetes.io/blog/categories/security/)
 
----
-# Authorization policy
-apiVersion: security.istio.io/v1beta1
-kind: AuthorizationPolicy
-metadata:
-  name: frontend-ingress
-  namespace: production
-spec:
-  selector:
-    matchLabels:
-      app: frontend
-  action: ALLOW
-  rules:
-  - from:
-    - source:
-        principals: ["cluster.local/ns/production/sa/backend"]
-    to:
-    - operation:
-        methods: ["GET", "POST"]
-        paths: ["/api/*"]
-```
+**Project News**: [CNCF Security Blog](https://www.cncf.io/blog/category/security/) • [Cloud Native Security News](https://www.aquasec.com/cloud-native-academy/) • [Container Security Research](https://sysdig.com/blog/tag/security/)
 
-## Secrets Management
-
-### 1. External Secrets Operator
-
-```yaml
-# SecretStore configuration
-apiVersion: external-secrets.io/v1beta1
-kind: SecretStore
-metadata:
-  name: vault-backend
-spec:
-  provider:
-    vault:
-      server: "https://vault.company.com"
-      path: "secret"
-      version: "v2"
-      auth:
-        kubernetes:
-          mountPath: "kubernetes"
-          role: "app-role"
-          serviceAccountRef:
-            name: "app-sa"
-
----
-# ExternalSecret
-apiVersion: external-secrets.io/v1beta1
-kind: ExternalSecret
-metadata:
-  name: app-secrets
-spec:
-  refreshInterval: 15s
-  secretStoreRef:
-    name: vault-backend
-    kind: SecretStore
-  target:
-    name: app-secrets
-    creationPolicy: Owner
-  data:
-  - secretKey: database-password
-    remoteRef:
-      key: app/database
-      property: password
-```
-
-### 2. Sealed Secrets
-
-```yaml
-# Sealed Secret example
-apiVersion: bitnami.com/v1alpha1
-kind: SealedSecret
-metadata:
-  name: mysecret
-  namespace: production
-spec:
-  encryptedData:
-    password: AgBvA8JqMz2kV2wK8Hj6X9rPL8Qpw...
-  template:
-    metadata:
-      name: mysecret
-      namespace: production
-    type: Opaque
-```
-
-## Vulnerability Management
-
-### 1. Continuous Scanning Pipeline
-
-```yaml
-# GitHub Actions workflow
-name: Security Scan
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: '0 0 * * *'  # Daily scan
-
-jobs:
-  container-scan:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Build image
-      run: docker build -t ${{ github.repository }}:${{ github.sha }} .
-    
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@master
-      with:
-        image-ref: ${{ github.repository }}:${{ github.sha }}
-        format: 'sarif'
-        output: 'trivy-results.sarif'
-        severity: 'CRITICAL,HIGH'
-    
-    - name: Upload Trivy scan results
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: 'trivy-results.sarif'
-    
-    - name: Run Grype vulnerability scanner
-      uses: anchore/scan-action@v3
-      with:
-        image: ${{ github.repository }}:${{ github.sha }}
-        fail-build: true
-        severity-cutoff: high
-```
-
-### 2. Admission Control with OPA
-
-```yaml
-# ImagePolicyWebhook configuration
-apiVersion: v1
-kind: Config
-clusters:
-- name: image-bouncer-webhook
-  cluster:
-    certificate-authority: /etc/kubernetes/image-bouncer/ca.crt
-    server: https://image-bouncer.kube-system.svc:443/image_policy
-contexts:
-- name: image-bouncer-webhook
-  context:
-    cluster: image-bouncer-webhook
-    user: api-server
-current-context: image-bouncer-webhook
-users:
-- name: api-server
-  user:
-    client-certificate: /etc/kubernetes/image-bouncer/client.crt
-    client-key: /etc/kubernetes/image-bouncer/client.key
-```
-
-## Security Tools Integration
-
-### 1. Kube-bench
-
-```bash
-# Run CIS Kubernetes Benchmark
-kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml
-
-# Check results
-kubectl logs -l app=kube-bench
-
-# Custom configuration
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: kube-bench-custom
-spec:
-  template:
-    spec:
-      containers:
-      - name: kube-bench
-        image: aquasec/kube-bench:latest
-        command: ["kube-bench"]
-        args: ["node", "--benchmark", "cis-1.6"]
-        volumeMounts:
-        - name: var-lib-kubelet
-          mountPath: /var/lib/kubelet
-          readOnly: true
-        - name: etc-systemd
-          mountPath: /etc/systemd
-          readOnly: true
-        - name: etc-kubernetes
-          mountPath: /etc/kubernetes
-          readOnly: true
-      volumes:
-      - name: var-lib-kubelet
-        hostPath:
-          path: /var/lib/kubelet
-      - name: etc-systemd
-        hostPath:
-          path: /etc/systemd
-      - name: etc-kubernetes
-        hostPath:
-          path: /etc/kubernetes
-      restartPolicy: Never
-```
-
-### 2. Kubesec
-
-```yaml
-# Kubesec analysis in CI/CD
-kubesec-scan:
-  stage: security
-  script:
-    - curl -X POST --data-binary @deployment.yaml https://v2.kubesec.io/scan
-    - |
-      score=$(curl -X POST --data-binary @deployment.yaml https://v2.kubesec.io/scan | jq '.[0].score')
-      if [ "$score" -lt "5" ]; then
-        echo "Security score too low: $score"
-        exit 1
-      fi
-```
-
-### 3. RBAC Audit
-
-```yaml
-# ServiceAccount with minimal permissions
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: app-sa
-  namespace: production
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: app-role
-  namespace: production
-rules:
-- apiGroups: [""]
-  resources: ["configmaps"]
-  verbs: ["get", "list"]
-- apiGroups: [""]
-  resources: ["secrets"]
-  resourceNames: ["app-secrets"]
-  verbs: ["get"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: app-rolebinding
-  namespace: production
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: app-role
-subjects:
-- kind: ServiceAccount
-  name: app-sa
-  namespace: production
-```
-
-## Compliance and Auditing
-
-### 1. Audit Logging
-
-```yaml
-# Audit policy
-apiVersion: audit.k8s.io/v1
-kind: Policy
-rules:
-  # Log pod creation at Metadata level
-  - level: Metadata
-    omitStages:
-    - RequestReceived
-    resources:
-    - group: ""
-      resources: ["pods"]
-    namespaces: ["production", "staging"]
-    
-  # Log secret access at RequestResponse level
-  - level: RequestResponse
-    omitStages:
-    - RequestReceived
-    resources:
-    - group: ""
-      resources: ["secrets"]
-    
-  # Log everything else at Metadata level
-  - level: Metadata
-    omitStages:
-    - RequestReceived
-```
-
-### 2. Compliance Scanning with Polaris
-
-```yaml
-# Polaris configuration
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: polaris-config
-  namespace: polaris
-data:
-  config.yaml: |
-    checks:
-      cpuRequestsMissing: warning
-      cpuLimitsMissing: error
-      memoryRequestsMissing: warning
-      memoryLimitsMissing: error
-      readinessProbeMissing: warning
-      livenessProbeMissing: warning
-      pullPolicyNotAlways: ignore
-      tagNotSpecified: error
-      hostNetworkSet: error
-      hostPIDSet: error
-      notReadOnlyRootFilesystem: warning
-      runAsRootAllowed: error
-      runAsPrivileged: error
-      dangerousCapabilities: error
-      insecureCapabilities: warning
-    exemptions:
-      - controllerNames:
-        - kube-system
-        - kube-proxy
-        - kube-dns
-        rules:
-        - hostNetworkSet
-```
-
-## Production Security Patterns
-
-### 1. Zero Trust Architecture
-
-```yaml
-# Calico GlobalNetworkPolicy for zero trust
-apiVersion: projectcalico.org/v3
-kind: GlobalNetworkPolicy
-metadata:
-  name: deny-all-traffic
-spec:
-  tier: security
-  order: 1000
-  selector: all()
-  types:
-  - Ingress
-  - Egress
-  ingress:
-  - action: Deny
-  egress:
-  - action: Deny
-```
-
-### 2. Container Isolation
-
-```yaml
-# gVisor runtime class
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: gvisor
-handler: runsc
----
-# Pod using gVisor
-apiVersion: v1
-kind: Pod
-metadata:
-  name: secure-pod
-spec:
-  runtimeClassName: gvisor
-  containers:
-  - name: app
-    image: myapp:latest
-```
-
-### 3. Workload Identity
-
-```yaml
-# Workload Identity binding (GKE example)
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: app-sa
-  namespace: production
-  annotations:
-    iam.gke.io/gcp-service-account: app@project-id.iam.gserviceaccount.com
-```
-
-## Monitoring and Incident Response
-
-### 1. Security Monitoring Stack
-
-```yaml
-# Prometheus ServiceMonitor for security metrics
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: falco-exporter
-  namespace: falco
-spec:
-  selector:
-    matchLabels:
-      app: falco-exporter
-  endpoints:
-  - port: metrics
-    interval: 30s
-    path: /metrics
-```
-
-### 2. Alerting Rules
-
-```yaml
-# PrometheusRule for security alerts
-apiVersion: monitoring.coreos.com/v1
-kind: PrometheusRule
-metadata:
-  name: security-alerts
-  namespace: monitoring
-spec:
-  groups:
-  - name: container-security
-    interval: 30s
-    rules:
-    - alert: ContainerPrivilegedMode
-      expr: |
-        kube_pod_container_security_context_privileged{namespace!~"kube-.*"} > 0
-      for: 1m
-      labels:
-        severity: critical
-      annotations:
-        summary: "Container running in privileged mode"
-        description: "Container {{ $labels.container }} in pod {{ $labels.pod }} is running in privileged mode"
-    
-    - alert: ContainerRunningAsRoot
-      expr: |
-        kube_pod_container_security_context_run_as_user{namespace!~"kube-.*"} == 0
-      for: 5m
-      labels:
-        severity: warning
-      annotations:
-        summary: "Container running as root"
-        description: "Container {{ $labels.container }} in pod {{ $labels.pod }} is running as root user"
-```
-
-## Security Checklist
-
-### Development Phase
-- [ ] Use minimal base images
-- [ ] Implement multi-stage builds
-- [ ] Run as non-root user
-- [ ] Scan images for vulnerabilities
-- [ ] Sign container images
-- [ ] Use specific image tags, not latest
-
-### Deployment Phase
-- [ ] Implement Pod Security Standards
-- [ ] Configure RBAC with least privilege
-- [ ] Use Network Policies
-- [ ] Enable audit logging
-- [ ] Implement admission control
-- [ ] Configure resource limits
-
-### Runtime Phase
-- [ ] Enable runtime protection (Falco)
-- [ ] Implement network segmentation
-- [ ] Monitor security events
-- [ ] Regular vulnerability scanning
-- [ ] Incident response procedures
-- [ ] Regular security audits
-
-## Conclusion
-
-Container security requires a comprehensive, defense-in-depth approach spanning the entire container lifecycle. By implementing these best practices and leveraging the security tools ecosystem, organizations can significantly reduce their attack surface while maintaining the agility and efficiency that containers provide.
+**Community**: [KubeCon Security Talks](https://www.cncf.io/kubecon-cloudnativecon-events/) • [OWASP Events](https://owasp.org/events/) • [Cloud Security Alliance](https://cloudsecurityalliance.org/)

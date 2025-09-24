@@ -1,592 +1,114 @@
-# CircleCI Technical Documentation
-
-## Overview
-
-CircleCI is a cloud-native continuous integration and continuous delivery (CI/CD) platform that automates the build, test, and deployment processes. It provides a modern approach to CI/CD with a focus on speed, reliability, and ease of use.
-
-## Architecture
-
-### Core Components
-
-#### 1. **CircleCI Cloud Infrastructure**
-- **Multi-tenant SaaS Architecture**: Shared infrastructure with isolated execution environments
-- **Container-based Execution**: Docker-first approach for build environments
-- **Distributed Job Processing**: Horizontal scaling across multiple availability zones
-- **Queue Management**: Intelligent job scheduling and resource allocation
-
-#### 2. **Execution Environments**
-- **Docker Executors**: Container-based builds with custom images
-- **Machine Executors**: Full VM environments for complex workloads
-- **macOS Executors**: Native Apple hardware for iOS/macOS development
-- **Windows Executors**: Native Windows environments for .NET and Windows applications
-- **GPU Executors**: CUDA-enabled environments for ML/AI workloads
-
-#### 3. **Resource Classes**
-```yaml
-# Example resource class configuration
-version: 2.1
-jobs:
-  build:
-    docker:
-      - image: cimg/node:16.0
-    resource_class: large  # 4 vCPUs, 8GB RAM
-```
-
-### Infrastructure Options
-
-#### 1. **CircleCI Cloud**
-- Fully managed SaaS solution
-- No infrastructure maintenance
-- Automatic updates and scaling
-- Multi-region availability
-
-#### 2. **CircleCI Server**
-- Self-hosted option for on-premises deployment
-- Air-gapped environment support
-- Full control over infrastructure
-- Kubernetes-based architecture
-
-#### 3. **Hybrid Model**
-- Cloud control plane with self-hosted runners
-- Best of both worlds approach
-- Compliance-friendly architecture
-
-## Pipeline Configuration
-
-### Configuration as Code
-
-CircleCI uses YAML-based configuration stored in `.circleci/config.yml`:
-
-```yaml
-version: 2.1
-
-# Define reusable executors
-executors:
-  node-executor:
-    docker:
-      - image: cimg/node:16.0
-    working_directory: ~/repo
-
-# Define reusable commands
-commands:
-  install-deps:
-    steps:
-      - restore_cache:
-          keys:
-            - v1-deps-{{ checksum "package-lock.json" }}
-      - run: npm ci
-      - save_cache:
-          key: v1-deps-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
-
-# Define jobs
-jobs:
-  test:
-    executor: node-executor
-    steps:
-      - checkout
-      - install-deps
-      - run:
-          name: Run tests
-          command: npm test
-      - store_test_results:
-          path: test-results
-
-  build:
-    executor: node-executor
-    steps:
-      - checkout
-      - install-deps
-      - run:
-          name: Build application
-          command: npm run build
-      - persist_to_workspace:
-          root: .
-          paths:
-            - dist
-
-  deploy:
-    executor: node-executor
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          name: Deploy to production
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              ./deploy.sh production
-            fi
-
-# Define workflows
-workflows:
-  version: 2
-  build-test-deploy:
-    jobs:
-      - test:
-          filters:
-            branches:
-              ignore: /^dependabot\/.*/
-      - build:
-          requires:
-            - test
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: main
-```
-
-### Advanced Pipeline Features
-
-#### 1. **Dynamic Configuration**
-```yaml
-version: 2.1
-setup: true
-
-orbs:
-  continuation: circleci/continuation@0.1.2
-
-jobs:
-  setup:
-    executor: continuation/default
-    steps:
-      - checkout
-      - run:
-          name: Generate config
-          command: |
-            ./scripts/generate-config.sh > generated-config.yml
-      - continuation/continue:
-          configuration_path: generated-config.yml
-```
-
-#### 2. **Matrix Jobs**
-```yaml
-jobs:
-  test:
-    parameters:
-      node-version:
-        type: string
-      os:
-        type: executor
-    executor: << parameters.os >>
-    steps:
-      - checkout
-      - run: nvm use << parameters.node-version >>
-      - run: npm test
-
-workflows:
-  matrix-tests:
-    jobs:
-      - test:
-          matrix:
-            parameters:
-              node-version: ["14", "16", "18"]
-              os: ["linux", "macos", "windows"]
-```
-
-#### 3. **Conditional Workflows**
-```yaml
-workflows:
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"
-          filters:
-            branches:
-              only:
-                - main
-    jobs:
-      - nightly-regression-tests
-      - security-scan
-```
-
-## Integrations
-
-### Version Control Systems
-
-#### 1. **GitHub Integration**
-- OAuth-based authentication
-- Status checks and PR comments
-- GitHub Checks API integration
-- Branch protection rules
-- GitHub Actions interoperability
-
-#### 2. **GitLab Integration**
-- Full GitLab.com and self-hosted support
-- Merge request pipelines
-- GitLab CI migration tools
-- Multi-project pipelines
-
-#### 3. **Bitbucket Integration**
-- Bitbucket Cloud and Server support
-- Pull request builds
-- Branch permissions
-- Bitbucket Pipelines migration
-
-### Artifact and Package Management
-
-#### 1. **Docker Registries**
-```yaml
-jobs:
-  publish-docker:
-    steps:
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: Build and push Docker image
-          command: |
-            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-            docker build -t myapp:${CIRCLE_SHA1} .
-            docker push myapp:${CIRCLE_SHA1}
-```
-
-#### 2. **Package Managers**
-- npm/Yarn registry publishing
-- Maven Central deployment
-- PyPI package publishing
-- RubyGems publishing
-- NuGet package management
-
-### Cloud Provider Integrations
-
-#### 1. **AWS Integration**
-```yaml
-orbs:
-  aws-cli: circleci/aws-cli@3.1
-  aws-ecs: circleci/aws-ecs@3.2
-
-jobs:
-  deploy-to-ecs:
-    executor: aws-cli/default
-    steps:
-      - aws-cli/setup
-      - aws-ecs/update-service:
-          cluster-name: production-cluster
-          service-name: my-service
-          container-image-name-updates: "container=my-app,tag=${CIRCLE_SHA1}"
-```
-
-#### 2. **Google Cloud Platform**
-```yaml
-orbs:
-  gcp-cli: circleci/gcp-cli@2.4
-
-jobs:
-  deploy-to-gke:
-    executor: gcp-cli/default
-    steps:
-      - gcp-cli/setup
-      - run:
-          name: Deploy to GKE
-          command: |
-            gcloud container clusters get-credentials prod-cluster
-            kubectl apply -f k8s/
-```
-
-#### 3. **Azure Integration**
-```yaml
-orbs:
-  azure-cli: circleci/azure-cli@1.2
-
-jobs:
-  deploy-to-azure:
-    executor: azure-cli/default
-    steps:
-      - azure-cli/login
-      - run:
-          name: Deploy to Azure App Service
-          command: |
-            az webapp deployment source config-zip \
-              --resource-group myResourceGroup \
-              --name myapp \
-              --src dist.zip
-```
-
-### Monitoring and Observability
-
-#### 1. **Metrics and Insights**
-- Build performance metrics
-- Success rate tracking
-- Duration trends
-- Resource utilization
-- Cost analysis
-
-#### 2. **Third-party Integrations**
-- Datadog pipeline monitoring
-- New Relic deployment tracking
-- PagerDuty incident management
-- Slack/Teams notifications
-- Jira issue tracking
-
-## Enterprise Features
-
-### Security and Compliance
-
-#### 1. **Access Control**
-- **RBAC (Role-Based Access Control)**: Granular permission management
-- **SAML/SSO Integration**: Enterprise identity providers
-- **LDAP Support**: Directory service integration
-- **OAuth/OIDC**: Modern authentication protocols
-
-#### 2. **Secrets Management**
-```yaml
-# Context-based secrets
-contexts:
-  - production-secrets:
-      environment_variables:
-        AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-        AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-```
-
-#### 3. **Compliance Features**
-- **Audit Logging**: Comprehensive activity tracking
-- **Data Residency**: Region-specific data storage
-- **FedRAMP Compliance**: Government-ready infrastructure
-- **SOC 2 Type II**: Security certification
-- **GDPR Compliance**: Data protection standards
-
-### Advanced Security Features
-
-#### 1. **Security Scanning**
-```yaml
-orbs:
-  security: circleci/security-orb@1.0
-
-jobs:
-  security-scan:
-    steps:
-      - checkout
-      - security/dependency-check
-      - security/static-analysis
-      - security/container-scan:
-          image: myapp:latest
-```
-
-#### 2. **Supply Chain Security**
-- SLSA compliance
-- Software bill of materials (SBOM)
-- Dependency vulnerability scanning
-- Container image signing
-- Provenance attestation
-
-### Scale and Performance
-
-#### 1. **Parallelism and Splitting**
-```yaml
-jobs:
-  test:
-    parallelism: 4
-    steps:
-      - run:
-          name: Run tests in parallel
-          command: |
-            TESTFILES=$(circleci tests glob "spec/**/*.rb" | circleci tests split --split-by=timings)
-            bundle exec rspec $TESTFILES
-```
-
-#### 2. **Resource Optimization**
-- **Docker Layer Caching**: Faster image builds
-- **Dependency Caching**: Intelligent cache management
-- **Workspace Persistence**: Cross-job data sharing
-- **Custom Resource Classes**: Tailored compute resources
-
-#### 3. **Performance Features**
-- **Pipeline Caching**: Multi-level caching strategy
-- **Shallow Cloning**: Faster repository checkout
-- **Selective Builds**: Change-based execution
-- **Build Queue Prioritization**: Critical path optimization
-
-### Organization Management
-
-#### 1. **Multi-tenancy**
-- Organization hierarchy
-- Project grouping
-- Team management
-- Cross-team collaboration
-
-#### 2. **Usage Analytics**
-- Credit consumption tracking
-- User activity reports
-- Pipeline performance metrics
-- Cost allocation by team/project
-
-#### 3. **Governance**
-- Policy as code
-- Compliance automation
-- Configuration policies
-- Security policies
-
-### API and Extensibility
-
-#### 1. **CircleCI API v2**
-```bash
-# Trigger pipeline via API
-curl -X POST https://circleci.com/api/v2/project/gh/org/repo/pipeline \
-  -H "Circle-Token: ${CIRCLECI_TOKEN}" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "branch": "main",
-    "parameters": {
-      "deploy_env": "production"
-    }
-  }'
-```
-
-#### 2. **Orbs (Reusable Packages)**
-```yaml
-# Creating custom orbs
-version: 2.1
-
-description: Custom deployment orb
-
-commands:
-  deploy:
-    parameters:
-      environment:
-        type: string
-    steps:
-      - run:
-          name: Deploy to << parameters.environment >>
-          command: ./deploy.sh << parameters.environment >>
-
-jobs:
-  deploy-job:
-    parameters:
-      env:
-        type: string
-    executor: default
-    steps:
-      - deploy:
-          environment: << parameters.env >>
-```
-
-#### 3. **Webhooks**
-- Pipeline status notifications
-- Job completion events
-- Workflow state changes
-- Custom event handlers
-
-### Disaster Recovery and Business Continuity
-
-#### 1. **High Availability**
-- Multi-region deployment
-- Automatic failover
-- Load balancing
-- Health monitoring
-
-#### 2. **Backup and Recovery**
-- Configuration backup
-- Build artifact retention
-- Audit log archival
-- Disaster recovery procedures
-
-#### 3. **SLA and Support**
-- 99.9% uptime SLA
-- 24/7 enterprise support
-- Dedicated customer success
-- Priority bug fixes
-
-## Best Practices
-
-### Pipeline Optimization
-
-1. **Use Caching Effectively**
-   - Cache dependencies between builds
-   - Use Docker layer caching
-   - Implement checksum-based cache keys
-
-2. **Parallelize Tests**
-   - Split test suites across containers
-   - Use timing data for optimal distribution
-   - Run independent jobs concurrently
-
-3. **Optimize Docker Images**
-   - Use purpose-built CI images
-   - Minimize layer count
-   - Cache image layers
-
-### Security Best Practices
-
-1. **Secrets Management**
-   - Use contexts for environment-specific secrets
-   - Rotate credentials regularly
-   - Never commit secrets to code
-
-2. **Access Control**
-   - Implement least privilege principle
-   - Use project-level permissions
-   - Enable SSO for enterprise accounts
-
-3. **Supply Chain Security**
-   - Scan dependencies for vulnerabilities
-   - Sign and verify artifacts
-   - Implement SLSA framework
-
-### Cost Optimization
-
-1. **Resource Right-sizing**
-   - Choose appropriate resource classes
-   - Monitor credit usage
-   - Optimize parallelism settings
-
-2. **Build Efficiency**
-   - Reduce build frequency with smart triggers
-   - Use change detection for monorepos
-   - Implement build caching strategies
-
-## Migration Guide
-
-### From Other CI/CD Platforms
-
-#### 1. **Jenkins Migration**
-- Use CircleCI's Jenkins Converter
-- Map Jenkins plugins to CircleCI orbs
-- Migrate Jenkinsfile to config.yml
-
-#### 2. **GitLab CI Migration**
-- Convert .gitlab-ci.yml syntax
-- Map GitLab features to CircleCI
-- Migrate GitLab runners to CircleCI executors
-
-#### 3. **GitHub Actions Migration**
-- Transform workflow YAML
-- Map actions to orbs
-- Migrate secrets and variables
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Build Failures**
-   - Check resource allocation
-   - Verify environment variables
-   - Review dependency versions
-
-2. **Performance Issues**
-   - Analyze build insights
-   - Optimize caching strategy
-   - Review parallelism settings
-
-3. **Integration Problems**
-   - Verify authentication tokens
-   - Check network connectivity
-   - Review API rate limits
-
-### Debug Tools
-
-1. **SSH Debug Sessions**
-   - Connect to running containers
-   - Inspect build environment
-   - Test commands interactively
-
-2. **Local CLI**
-   - Validate configuration locally
-   - Test jobs before pushing
-   - Debug orb development
-
-## Conclusion
-
-CircleCI provides a comprehensive CI/CD platform with strong cloud-native capabilities, extensive integrations, and enterprise-grade features. Its focus on developer experience, combined with powerful automation capabilities, makes it suitable for organizations of all sizes looking to modernize their software delivery practices.
+# CircleCI
+
+## 📚 Learning Resources
+
+### 📖 Essential Documentation
+- [CircleCI Documentation](https://circleci.com/docs/) - Official comprehensive documentation
+- [Configuration Reference](https://circleci.com/docs/configuration-reference/) - Complete YAML configuration syntax
+- [Orbs Registry](https://circleci.com/developer/orbs) - Reusable configuration packages
+- [API Documentation](https://circleci.com/docs/api/) - REST API for automation and integration
+- [CircleCI Server Documentation](https://circleci.com/docs/server/) - On-premises installation guide
+
+### 📝 Specialized Guides
+- [Configuration Cookbook](https://circleci.com/docs/configuration-cookbook/) - Common configuration patterns
+- [Best Practices Guide](https://circleci.com/blog/config-best-practices/) - Optimization and efficiency tips
+- [Docker Layer Caching](https://circleci.com/docs/docker-layer-caching/) - Accelerating container builds
+- [Workflows Guide](https://circleci.com/docs/workflows/) - Complex pipeline orchestration
+- [Security Best Practices](https://circleci.com/docs/security/) - Securing CI/CD pipelines
+
+### 🎥 Video Tutorials
+- [CircleCI Fundamentals](https://www.youtube.com/watch?v=CB7vnoXI0pE) - Getting started tutorial (45 min)
+- [Advanced CircleCI Workflows](https://www.youtube.com/watch?v=FCiX_X5e88M) - Complex pipeline patterns (60 min)
+- [CI/CD with Docker](https://www.youtube.com/watch?v=Qf4ZxqMAQ_Y) - Container-based builds (40 min)
+- [CircleCI Orbs Deep Dive](https://www.youtube.com/watch?v=A9od4fSdvKI) - Creating reusable components (35 min)
+
+### 🎓 Professional Courses
+- [CircleCI Academy](https://academy.circleci.com/) - Free official training courses
+- [Continuous Integration with CircleCI](https://www.udemy.com/course/continuous-integration-with-circleci/) - Udemy comprehensive course
+- [DevOps with CircleCI](https://www.pluralsight.com/courses/continuous-integration-delivery-circleci) - Pluralsight course
+- [Docker and CircleCI](https://www.linkedin.com/learning/docker-continuous-delivery) - LinkedIn Learning course
+
+### 📚 Books
+- "Continuous Integration, Delivery, and Deployment" by Sander Rossel - [Purchase on Amazon](https://www.amazon.com/dp/1787286347)
+- "Learning Continuous Integration with Jenkins" by Nikhil Pathania - [Purchase on Amazon](https://www.amazon.com/dp/1788479351)
+- "Pipeline as Code" by Kief Morris - [Purchase on Amazon](https://www.amazon.com/dp/1617297100)
+- "The DevOps Handbook" by Gene Kim - [Purchase on Amazon](https://www.amazon.com/dp/1950508404)
+
+### 🛠️ Interactive Tools
+- [CircleCI CLI](https://circleci.com/docs/local-cli/) - Local pipeline testing and validation
+- [Config Editor](https://circleci.com/docs/config-editor/) - Visual configuration builder
+- [Orb Development Kit](https://circleci.com/docs/orb-development-kit/) - Tools for creating custom orbs
+- [CircleCI Insights](https://circleci.com/docs/insights/) - Pipeline analytics and optimization
+
+### 🚀 Ecosystem Tools
+- [CircleCI Orbs](https://circleci.com/developer/orbs) - 1000+ pre-built integrations and tools
+- [Codecov](https://codecov.io/) - Code coverage reporting integration
+- [Docker Hub](https://hub.docker.com/) - Container registry integration
+- [GitHub Actions](https://github.com/features/actions) - Alternative CI/CD platform
+- [GitLab CI](https://docs.gitlab.com/ee/ci/) - Competitive CI/CD solution
+
+### 🌐 Community & Support
+- [CircleCI Community Forum](https://discuss.circleci.com/) - User discussions and support
+- [CircleCI Support](https://support.circleci.com/) - Official customer support portal
+- [CircleCI Reddit](https://www.reddit.com/r/CircleCI/) - Community discussions
+- [CircleCI Discord](https://discord.gg/circleci) - Real-time community chat
+- [CircleCI Office Hours](https://circleci.com/events/) - Regular Q&A sessions
+
+## Understanding CircleCI: Cloud-Native Continuous Integration
+
+CircleCI is a modern, cloud-based continuous integration and delivery platform that automates the build, test, and deployment processes. It provides fast, reliable CI/CD with powerful features like parallelism, Docker support, and extensive integrations, making it ideal for teams seeking to accelerate their software delivery.
+
+### How CircleCI Works
+
+CircleCI uses a YAML configuration file (.circleci/config.yml) to define pipelines that run in isolated, clean environments called executors. When code is pushed to your repository, CircleCI automatically triggers builds that can run tests, build artifacts, and deploy applications across multiple environments simultaneously.
+
+The platform supports various executor types including Docker containers, virtual machines, and macOS environments. Jobs can be organized into workflows that enable complex scenarios like parallel testing, approval gates, and conditional deployments. Everything runs in the cloud with minimal setup required.
+
+### The CircleCI Ecosystem
+
+CircleCI integrates with major version control systems (GitHub, GitLab, Bitbucket), cloud providers (AWS, GCP, Azure), container registries, and monitoring tools. The Orbs marketplace provides pre-built integrations for popular tools, reducing configuration complexity.
+
+The ecosystem includes enterprise features like LDAP authentication, audit logging, and compliance controls. CircleCI Server offers on-premises deployment for organizations with strict security requirements, while the cloud version provides instant scalability and zero maintenance overhead.
+
+### Why CircleCI Dominates Modern CI/CD
+
+CircleCI's strength lies in its simplicity and power. Unlike traditional CI tools that require complex server management, CircleCI provides instant setup with powerful features like Docker layer caching, test parallelism, and intelligent resource optimization. Its credit-based pricing model scales naturally with usage.
+
+The platform excels at modern development practices with first-class support for containers, microservices, and cloud-native applications. Features like SSH debugging, performance insights, and advanced caching help teams ship faster while maintaining code quality.
+
+### Mental Model for Success
+
+Think of CircleCI like an automated assembly line for software. Just as an assembly line has different stations where workers perform specific tasks in sequence or parallel, CircleCI runs your code through different jobs (stations) that build, test, and deploy your application. Workflows act like the assembly line coordinator, determining which jobs run when and in what order. The cloud infrastructure is like having an unlimited number of assembly lines that can be instantly provisioned when you need them.
+
+### Where to Start Your Journey
+
+1. **Connect your repository** - Link GitHub, GitLab, or Bitbucket to start triggering builds
+2. **Write your first config** - Create a simple .circleci/config.yml with basic build steps
+3. **Add testing** - Configure your test suite to run automatically on every commit
+4. **Implement caching** - Speed up builds by caching dependencies and build artifacts
+5. **Create workflows** - Organize jobs into efficient parallel and sequential patterns
+6. **Deploy automatically** - Set up deployment jobs for staging and production environments
+7. **Monitor and optimize** - Use insights to identify bottlenecks and improve performance
+
+### Key Concepts to Master
+
+- **Jobs and steps** - Individual units of work and the commands they execute
+- **Executors** - Different environments (Docker, VM, macOS) for running jobs
+- **Workflows** - Orchestrating multiple jobs with dependencies and conditions
+- **Orbs** - Reusable configuration packages for common tasks
+- **Caching strategies** - Optimizing build times with dependency and workspace caching
+- **Parallelism** - Splitting tests and jobs across multiple containers
+- **Environment variables** - Managing secrets and configuration across environments
+- **Resource classes** - Choosing appropriate CPU and memory for different workloads
+
+Start with simple linear pipelines, then progress to complex workflows with parallel execution, approval gates, and multiple deployment environments. Focus on optimizing build times and maintaining pipeline reliability.
+
+---
+
+### 📡 Stay Updated
+
+**Release Notes**: [CircleCI Updates](https://circleci.com/changelog/) • [Server Releases](https://circleci.com/server/changelog/) • [Orb Updates](https://circleci.com/developer/orbs)
+
+**Project News**: [CircleCI Blog](https://circleci.com/blog/) • [Engineering Blog](https://circleci.com/blog/tag/engineering/) • [Product Updates](https://circleci.com/product/)
+
+**Community**: [CircleCI Events](https://circleci.com/events/) • [User Meetups](https://www.meetup.com/topics/circleci/) • [Developer Relations](https://twitter.com/circleci)

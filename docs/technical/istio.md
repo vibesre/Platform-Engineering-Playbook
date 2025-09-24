@@ -1,638 +1,98 @@
-# Istio Service Mesh
+# Istio
 
-Istio is an open-source service mesh that provides a uniform way to connect, secure, control, and observe microservices. It manages communication between services while providing advanced traffic management, security, and observability capabilities without requiring changes to application code.
-
-## 📚 Top Learning Resources
-
-### 🎥 Video Courses
-
-#### **Istio Service Mesh Tutorial for Beginners**
-- **Channel**: TechWorld with Nana
-- **Link**: [YouTube - 1 hour](https://www.youtube.com/watch?v=16fgzklcF7Y)
-- **Why it's great**: Clear introduction to service mesh concepts with practical Istio examples
-
-#### **Istio in Action - Complete Course**
-- **Channel**: KodeKloud
-- **Link**: [YouTube - 2 hours](https://www.youtube.com/watch?v=KQhzA6fGbgI)
-- **Why it's great**: Comprehensive hands-on tutorial covering traffic management and security
-
-#### **Service Mesh with Istio**
-- **Channel**: IBM Technology
-- **Link**: [YouTube - 45 minutes](https://www.youtube.com/watch?v=6zDrLvpfCK4)
-- **Why it's great**: Technical deep dive into Istio architecture and components
+## 📚 Learning Resources
 
 ### 📖 Essential Documentation
+- [Istio Documentation](https://istio.io/latest/docs/) - Comprehensive official documentation with setup guides and examples
+- [Istio GitHub Repository](https://github.com/istio/istio) - 35.7k⭐ Main project repository with community issues
+- [Istio Concepts Guide](https://istio.io/latest/docs/concepts/) - Complete guide to understanding service mesh architecture
+- [Istio by Example](https://istiobyexample.dev/) - Practical examples and recipes for common Istio patterns
 
-#### **Istio Official Documentation**
-- **Link**: [istio.io/latest/docs/](https://istio.io/latest/docs/)
-- **Why it's great**: Comprehensive official documentation with setup guides and examples
+### 📝 Specialized Guides
+- [Istio Blog](https://blog.istio.io/) - Official updates and technical insights from Istio maintainers
+- [Istio Security Best Practices](https://www.cncf.io/blog/2021/03/08/istio-security-best-practices/) - Essential security considerations for production deployments
+- [Red Hat Istio Guide](https://www.redhat.com/en/topics/microservices/what-is-istio) - Comprehensive guide to service mesh benefits and implementation
+- [Istio Traffic Management](https://istio.io/latest/docs/concepts/traffic-management/) - Deep dive into routing and traffic control
 
-#### **Istio Concepts**
-- **Link**: [istio.io/latest/docs/concepts/](https://istio.io/latest/docs/concepts/)
-- **Why it's great**: Complete guide to understanding service mesh architecture
+### 🎥 Video Tutorials
+- [Istio Service Mesh Tutorial for Beginners](https://www.youtube.com/watch?v=16fgzklcF7Y) - TechWorld with Nana introduction (60 min)
+- [Istio in Action Complete Course](https://www.youtube.com/watch?v=KQhzA6fGbgI) - KodeKloud hands-on tutorial (120 min)
+- [Service Mesh with Istio](https://www.youtube.com/watch?v=6zDrLvpfCK4) - IBM Technology architecture deep dive (45 min)
 
-#### **Istio By Example**
-- **Link**: [istiobyexample.dev](https://istiobyexample.dev/)
-- **Why it's great**: Practical examples and recipes for common Istio patterns
+### 🎓 Professional Courses
+- [Service Mesh Fundamentals](https://training.linuxfoundation.org/training/service-mesh-fundamentals/) - Linux Foundation LFS244 course (Paid)
+- [Mastering Service Mesh with Istio](https://www.udemy.com/course/istio-hands-on-for-kubernetes/) - Udemy hands-on course (Paid)
+- [Istio Service Mesh](https://www.pluralsight.com/courses/istio-getting-started) - Pluralsight comprehensive training (Paid)
 
-### 📝 Must-Read Blogs & Articles
+### 📚 Books
+- "Istio: Up and Running" by Lee Calcote - [Purchase on Amazon](https://www.amazon.com/dp/1492043788)
+- "Mastering Service Mesh" by Anjus Sreedharan - [Purchase on Amazon](https://www.amazon.com/dp/1789615798)
+- "Production Kubernetes" by Josh Rosso - [Purchase on Amazon](https://www.amazon.com/dp/1492092304)
 
-#### **Istio Blog**
-- **Source**: Istio Project
-- **Link**: [blog.istio.io](https://blog.istio.io/)
-- **Why it's great**: Official updates and technical insights from Istio maintainers
+### 🛠️ Interactive Tools
+- [Istio Playground](https://killercoda.com/istio) - Interactive Istio tutorials in browser-based environments
+- [Kiali](https://kiali.io/) - Service mesh observability platform for Istio with graph visualization
+- [Istio CLI (istioctl)](https://istio.io/latest/docs/reference/commands/istioctl/) - Official command-line tool for configuration and debugging
 
-#### **Getting Started with Istio**
-- **Source**: Red Hat
-- **Link**: [redhat.com/en/topics/microservices/what-is-istio](https://www.redhat.com/en/topics/microservices/what-is-istio)
-- **Why it's great**: Comprehensive guide to service mesh benefits and implementation
+### 🚀 Ecosystem Tools
+- [Jaeger](https://www.jaegertracing.io/) - 20.3k⭐ Distributed tracing system with Istio integration
+- [Prometheus](https://prometheus.io/) - 54.4k⭐ Metrics collection and monitoring for service mesh
+- [Flagger](https://github.com/fluxcd/flagger) - 4.8k⭐ Progressive delivery operator for Istio canary deployments
+- [Grafana](https://grafana.com/) - Visualization platform with pre-built Istio dashboards
 
-#### **Istio Security Best Practices**
-- **Source**: CNCF
-- **Link**: [cncf.io/blog/istio-security-best-practices/](https://www.cncf.io/blog/2021/03/08/istio-security-best-practices/)
-- **Why it's great**: Essential security considerations for production deployments
+### 🌐 Community & Support
+- [Istio Community](https://istio.io/latest/about/community/) - Official community resources and communication channels
+- [Istio Slack](https://istio.slack.com/) - Community chat and real-time support discussions
+- [Service Mesh Interface](https://smi-spec.io/) - Standard specification for service mesh interoperability
 
-### 🎓 Structured Courses
-
-#### **Istio Fundamentals**
-- **Platform**: Linux Foundation (LFS244)
-- **Link**: [training.linuxfoundation.org/training/service-mesh-fundamentals/](https://training.linuxfoundation.org/training/service-mesh-fundamentals/)
-- **Cost**: Paid
-- **Why it's great**: Official CNCF course covering service mesh concepts
-
-#### **Mastering Service Mesh with Istio**
-- **Platform**: Udemy
-- **Link**: [udemy.com/course/istio-hands-on-for-kubernetes/](https://www.udemy.com/course/istio-hands-on-for-kubernetes/)
-- **Cost**: Paid
-- **Why it's great**: Hands-on course with practical microservices scenarios
-
-### 🛠️ Tools & Platforms
-
-#### **Istio Playground**
-- **Link**: [killercoda.com/istio](https://killercoda.com/istio)
-- **Why it's great**: Interactive Istio tutorials in browser-based environments
-
-#### **Kiali**
-- **Link**: [kiali.io](https://kiali.io/)
-- **Why it's great**: Service mesh observability platform for Istio
-
-#### **Jaeger**
-- **Link**: [jaegertracing.io](https://www.jaegertracing.io/)
-- **Why it's great**: Distributed tracing system that integrates with Istio
-
-## Overview
+## Understanding Istio: Enterprise Service Mesh Platform
 
 Istio is an open-source service mesh that provides a uniform way to connect, secure, control, and observe microservices. It manages communication between services while providing advanced traffic management, security, and observability capabilities without requiring changes to application code.
 
-## Architecture
+### How Istio Works
+Istio uses a sidecar proxy architecture where Envoy proxies are deployed alongside each service instance to handle all network traffic. The control plane (Istiod) configures these proxies with routing rules, security policies, and telemetry collection. This separation between data plane and control plane enables sophisticated traffic management without modifying applications.
 
-### Core Components
+The mesh operates transparently - applications communicate normally while Istio handles cross-cutting concerns like encryption, authentication, load balancing, and observability. Certificate management is automated through SPIFFE/SPIRE integration, providing strong service identity and automatic mTLS.
 
-#### Control Plane
-- **Istiod**: Unified control plane component that combines:
-  - **Pilot**: Service discovery, traffic management configuration
-  - **Citadel**: Certificate management and security
-  - **Galley**: Configuration validation and distribution
+### The Istio Ecosystem
+Istio integrates with the broader cloud-native ecosystem through standard interfaces and protocols. It works seamlessly with Kubernetes ingress controllers, certificate managers, and monitoring systems. The ecosystem includes observability tools like Kiali for topology visualization, Jaeger for distributed tracing, and Prometheus for metrics collection.
 
-#### Data Plane
-- **Envoy Proxy**: High-performance sidecar proxy
-  - Deployed alongside each service instance
-  - Handles all network traffic
-  - Provides rich telemetry data
+Gateway integrations enable progressive delivery patterns with tools like Flagger and Argo Rollouts. Policy engines like Open Policy Agent provide fine-grained access controls. Multi-cluster federation enables service communication across regions and cloud providers while maintaining security and observability.
 
-### Architecture Patterns
+### Why Istio Dominates Enterprise Service Mesh
+Istio provides enterprise-grade features that many organizations require at scale: automatic mTLS encryption, sophisticated traffic routing, and comprehensive observability. Its maturity and CNCF graduation status provide confidence for production deployments. The platform is vendor-neutral and works across different cloud providers and on-premises environments.
 
-```yaml
-# Sidecar injection architecture
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: production
-  labels:
-    istio-injection: enabled
-```
+Rich traffic management capabilities enable advanced deployment patterns like canary releases, circuit breaking, and fault injection. The security model provides defense-in-depth with service-to-service authentication, authorization policies, and network segmentation. Extensive observability eliminates the black box problem in microservices architectures.
 
-### Traffic Flow
-1. Service A → Envoy Proxy A → Envoy Proxy B → Service B
-2. Control plane configures proxy behavior
-3. Telemetry collected at each hop
+### Mental Model for Success
+Think of Istio like an intelligent air traffic control system for your microservices. Just as air traffic control manages all aircraft movement, routing, and safety protocols without pilots needing to coordinate directly with each other, Istio manages all service-to-service communication invisibly. The control tower (Istiod) provides flight plans (routing rules) and safety protocols (security policies) to ground controllers (Envoy proxies) stationed at each airport (service). Pilots (applications) focus on their core function while the system handles navigation, security clearances, and communication protocols. The system provides complete visibility into all traffic patterns and can reroute around problems automatically.
 
-## Installation
+### Where to Start Your Journey
+1. **Install Istio** - Deploy Istio to a test cluster using the demo profile to explore core functionality
+2. **Enable sidecar injection** - Label namespaces for automatic proxy injection and deploy sample applications
+3. **Configure traffic management** - Create Virtual Services and Destination Rules for basic routing
+4. **Implement security** - Enable mTLS and create authorization policies between services
+5. **Add observability** - Install Kiali, Jaeger, and Grafana to visualize service communication
+6. **Practice advanced patterns** - Implement canary deployments, circuit breakers, and fault injection
 
-### Prerequisites
-- Kubernetes cluster (1.23+)
-- kubectl configured
-- Helm 3+ (optional)
+### Key Concepts to Master
+- **Sidecar proxies** - Envoy proxies that intercept and manage all service network traffic
+- **Control plane** - Istiod component that configures proxies and manages certificates
+- **Virtual Services** - Traffic routing rules that define how requests flow to services
+- **Destination Rules** - Load balancing, connection pooling, and outlier detection policies
+- **Gateways** - Ingress and egress traffic configuration for mesh boundaries
+- **Service entries** - Registration of external services for mesh traffic management
+- **Peer Authentication** - mTLS configuration and service identity verification
+- **Authorization policies** - Fine-grained access control between services
 
-### Installation Methods
+Start with basic traffic routing and security, then progressively add observability and advanced traffic management features. Understanding the Envoy proxy data plane and control plane interaction is crucial for effective troubleshooting and optimization.
 
-#### Using istioctl
-```bash
-# Download Istio
-curl -L https://istio.io/downloadIstio | sh -
-cd istio-*
-
-# Add istioctl to PATH
-export PATH=$PWD/bin:$PATH
-
-# Install Istio with default configuration
-istioctl install --set profile=demo -y
-
-# Verify installation
-kubectl get pods -n istio-system
-istioctl verify-install
-```
-
-#### Using Helm
-```bash
-# Add Istio Helm repository
-helm repo add istio https://istio-release.storage.googleapis.com/charts
-helm repo update
-
-# Install Istio base components
-helm install istio-base istio/base -n istio-system --create-namespace
-
-# Install Istiod
-helm install istiod istio/istiod -n istio-system --wait
-
-# Install ingress gateway
-helm install istio-ingress istio/gateway -n istio-system
-```
-
-#### Production Profile
-```bash
-# Install production-ready configuration
-istioctl install --set profile=production \
-  --set values.pilot.resources.requests.memory=512Mi \
-  --set values.pilot.resources.requests.cpu=500m \
-  --set values.global.proxy.resources.requests.memory=128Mi \
-  --set values.global.proxy.resources.requests.cpu=100m
-```
-
-### Enable Sidecar Injection
-```bash
-# Label namespace for automatic injection
-kubectl label namespace default istio-injection=enabled
-
-# Manual injection
-istioctl kube-inject -f deployment.yaml | kubectl apply -f -
-```
-
-## Traffic Management
-
-### Virtual Services
-Define routing rules for service traffic:
-
-```yaml
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
-  name: reviews-route
-spec:
-  hosts:
-  - reviews
-  http:
-  - match:
-    - headers:
-        user:
-          exact: jason
-    route:
-    - destination:
-        host: reviews
-        subset: v2
-  - route:
-    - destination:
-        host: reviews
-        subset: v1
-```
-
-### Destination Rules
-Configure load balancing and connection pooling:
-
-```yaml
-apiVersion: networking.istio.io/v1beta1
-kind: DestinationRule
-metadata:
-  name: reviews-destination
-spec:
-  host: reviews
-  trafficPolicy:
-    connectionPool:
-      tcp:
-        maxConnections: 100
-      http:
-        http1MaxPendingRequests: 10
-        http2MaxRequests: 100
-    loadBalancer:
-      consistentHash:
-        httpCookie:
-          name: "session-cookie"
-          ttl: 3600s
-  subsets:
-  - name: v1
-    labels:
-      version: v1
-  - name: v2
-    labels:
-      version: v2
-```
-
-### Traffic Shifting
-Gradual rollout with weighted routing:
-
-```yaml
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
-  name: reviews-canary
-spec:
-  hosts:
-  - reviews
-  http:
-  - route:
-    - destination:
-        host: reviews
-        subset: v1
-      weight: 75
-    - destination:
-        host: reviews
-        subset: v2
-      weight: 25
-```
-
-### Circuit Breaking
-```yaml
-apiVersion: networking.istio.io/v1beta1
-kind: DestinationRule
-metadata:
-  name: httpbin-circuit-breaker
-spec:
-  host: httpbin
-  trafficPolicy:
-    outlierDetection:
-      consecutiveErrors: 5
-      interval: 30s
-      baseEjectionTime: 30s
-      maxEjectionPercent: 50
-      minHealthPercent: 30
-```
-
-### Retry and Timeout Policies
-```yaml
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
-  name: ratings-retry
-spec:
-  hosts:
-  - ratings
-  http:
-  - timeout: 10s
-    retries:
-      attempts: 3
-      perTryTimeout: 2s
-      retryOn: gateway-error,connect-failure,refused-stream
-    route:
-    - destination:
-        host: ratings
-```
-
-## Security
-
-### Mutual TLS (mTLS)
-Enable automatic mTLS between services:
-
-```yaml
-# Mesh-wide mTLS
-apiVersion: security.istio.io/v1beta1
-kind: PeerAuthentication
-metadata:
-  name: default
-  namespace: istio-system
-spec:
-  mtls:
-    mode: STRICT
-```
-
-### Authorization Policies
-Fine-grained access control:
-
-```yaml
-apiVersion: security.istio.io/v1beta1
-kind: AuthorizationPolicy
-metadata:
-  name: frontend-ingress
-  namespace: production
-spec:
-  selector:
-    matchLabels:
-      app: frontend
-  action: ALLOW
-  rules:
-  - from:
-    - source:
-        principals: ["cluster.local/ns/production/sa/backend"]
-    to:
-    - operation:
-        methods: ["GET", "POST"]
-        paths: ["/api/*"]
-  - from:
-    - source:
-        namespaces: ["monitoring"]
-    to:
-    - operation:
-        methods: ["GET"]
-        paths: ["/metrics"]
-```
-
-### JWT Authentication
-```yaml
-apiVersion: security.istio.io/v1beta1
-kind: RequestAuthentication
-metadata:
-  name: jwt-auth
-  namespace: production
-spec:
-  selector:
-    matchLabels:
-      app: frontend
-  jwtRules:
-  - issuer: "https://auth.example.com"
-    jwksUri: "https://auth.example.com/.well-known/jwks.json"
-    audiences:
-    - "frontend.example.com"
-```
-
-### Service Identity with SPIFFE
-```yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: frontend
-  namespace: production
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: frontend
-spec:
-  template:
-    spec:
-      serviceAccountName: frontend
-```
 
-## Observability
+### 📡 Stay Updated
 
-### Distributed Tracing
-Enable Jaeger integration:
+**Release Notes**: [Istio Releases](https://github.com/istio/istio/releases) • [Security Updates](https://istio.io/latest/news/security/) • [Feature Roadmap](https://istio.io/latest/about/feature-stages/)
 
-```yaml
-apiVersion: install.istio.io/v1alpha1
-kind: IstioOperator
-metadata:
-  name: control-plane
-spec:
-  meshConfig:
-    defaultConfig:
-      proxyStatsMatcher:
-        inclusionRegexps:
-        - ".*outlier_detection.*"
-        - ".*circuit_breakers.*"
-    extensionProviders:
-    - name: jaeger
-      envoyExtAuthzHttp:
-        service: jaeger-collector.istio-system.svc.cluster.local
-        port: 14268
-        path: /api/traces
-```
+**Project News**: [Istio Blog](https://blog.istio.io/) • [CNCF Newsletter](https://www.cncf.io/newsroom/newsletter/) • [Service Mesh News](https://servicemesh.es/)
 
-### Metrics with Prometheus
-```yaml
-# Configure telemetry
-apiVersion: telemetry.istio.io/v1alpha1
-kind: Telemetry
-metadata:
-  name: custom-metrics
-  namespace: istio-system
-spec:
-  metrics:
-  - providers:
-    - name: prometheus
-    dimensions:
-      request_protocol: request.protocol | "unknown"
-      response_code: response.code | 200
-    tags:
-      custom_tag:
-        value: "my_tag_value"
-```
-
-### Grafana Dashboards
-```bash
-# Install Grafana addon
-kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.19/samples/addons/grafana.yaml
-
-# Access Grafana
-istioctl dashboard grafana
-```
-
-### Kiali Service Mesh Observability
-```bash
-# Install Kiali
-kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.19/samples/addons/kiali.yaml
-
-# Access Kiali dashboard
-istioctl dashboard kiali
-```
-
-## Production Deployment Patterns
-
-### Multi-Cluster Deployment
-```yaml
-# Primary cluster
-apiVersion: install.istio.io/v1alpha1
-kind: IstioOperator
-metadata:
-  name: primary-cluster
-spec:
-  values:
-    pilot:
-      env:
-        PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION: true
-    global:
-      meshID: mesh1
-      multiCluster:
-        clusterName: cluster-1
-      network: network1
-```
-
-### GitOps Integration
-```yaml
-# ArgoCD Application
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: istio-control-plane
-  namespace: argocd
-spec:
-  project: infrastructure
-  source:
-    repoURL: https://github.com/company/istio-config
-    targetRevision: main
-    path: overlays/production
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: istio-system
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-```
-
-### Resource Optimization
-```yaml
-# Sidecar resource limits
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: istio-custom-resources
-  namespace: istio-system
-data:
-  custom_resources.yaml: |
-    global:
-      proxy:
-        resources:
-          requests:
-            cpu: 50m
-            memory: 64Mi
-          limits:
-            cpu: 200m
-            memory: 256Mi
-        concurrency: 2
-```
-
-### Progressive Delivery
-```yaml
-# Flagger canary deployment
-apiVersion: flagger.app/v1beta1
-kind: Canary
-metadata:
-  name: frontend
-  namespace: production
-spec:
-  targetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: frontend
-  progressDeadlineSeconds: 60
-  service:
-    port: 80
-    targetPort: 8080
-    gateways:
-    - public-gateway.istio-system.svc.cluster.local
-    hosts:
-    - app.example.com
-  analysis:
-    interval: 30s
-    threshold: 5
-    maxWeight: 50
-    stepWeight: 10
-    metrics:
-    - name: request-success-rate
-      thresholdRange:
-        min: 99
-      interval: 1m
-    - name: request-duration
-      thresholdRange:
-        max: 500
-      interval: 30s
-```
-
-### Disaster Recovery
-```yaml
-# Backup configuration
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: istio-config-backup
-  namespace: istio-system
-spec:
-  schedule: "0 2 * * *"
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: backup
-            image: bitnami/kubectl:latest
-            command:
-            - /bin/sh
-            - -c
-            - |
-              kubectl get virtualservices,destinationrules,serviceentries,gateways,peerauthentications,authorizationpolicies \
-                --all-namespaces -o yaml > /backup/istio-config-$(date +%Y%m%d).yaml
-          restartPolicy: OnFailure
-```
-
-## Best Practices
-
-### Performance Tuning
-- Limit sidecar scope with Sidecar resources
-- Use protocol sniffing judiciously
-- Configure appropriate resource limits
-- Enable stats inclusion selectively
-
-### Security Hardening
-- Enable STRICT mTLS mode
-- Use authorization policies extensively
-- Regular certificate rotation
-- Implement egress controls
-
-### Operational Excellence
-- Monitor control plane health
-- Set up alerts for proxy errors
-- Regular configuration audits
-- Implement gradual rollouts
-
-### Troubleshooting Tools
-```bash
-# Check proxy configuration
-istioctl proxy-config cluster <pod-name> -n <namespace>
-
-# Analyze configuration
-istioctl analyze -n production
-
-# Debug proxy logs
-kubectl logs <pod-name> -c istio-proxy -n <namespace>
-
-# Check mTLS status
-istioctl authn tls-check <pod-name> -n <namespace>
-```
-
-## Integration Examples
-
-### CI/CD Pipeline
-```yaml
-# Validate Istio configuration
-- name: Validate Istio Config
-  run: |
-    istioctl analyze --recursive manifests/
-    
-# Deploy with traffic shifting
-- name: Deploy Canary
-  run: |
-    kubectl apply -f canary-virtualservice.yaml
-    kubectl set image deployment/frontend frontend=app:${{ github.sha }}
-```
-
-### Monitoring Stack
-- Prometheus for metrics collection
-- Grafana for visualization
-- Jaeger for distributed tracing
-- Kiali for service mesh observability
-- ELK stack for log aggregation
-
-### Cost Optimization
-- Right-size proxy resources
-- Use namespace-scoped injection
-- Implement telemetry sampling
-- Regular unused configuration cleanup
+**Community**: [IstioCon Events](https://events.istio.io/) • [KubeCon Service Mesh Track](https://www.cncf.io/kubecon-cloudnativecon-events/) • [Cloud Native Meetups](https://www.meetup.com/topics/cloud-native/)
