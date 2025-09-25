@@ -48,7 +48,18 @@ const config: Config = {
           showLastUpdateTime: false,
           showLastUpdateAuthor: false,
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            xslt: true,
+          },
+          editUrl:
+            'https://github.com/vibesre/Platform-Engineering-Playbook/tree/main/',
+          onInlineTags: 'warn',
+          onInlineAuthors: 'warn',
+          onUntruncatedBlogPosts: 'warn',
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -71,6 +82,11 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Documentation',
+        },
+        {
+          to: '/blog',
+          position: 'left',
+          label: 'Blog',
         },
         {
           href: 'https://github.com/vibesre/Platform-Engineering-Playbook',
