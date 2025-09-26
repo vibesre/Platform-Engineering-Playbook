@@ -4,7 +4,7 @@ title: "Why Elasticsearch Engineers Earn $24K More Than Cloud Architects (And Wh
 authors: [vibesre]
 tags:
   [platform-engineering, salary, career, elasticsearch, cloud, specialization]
-date: 2025-01-25
+date: 2025-09-24
 description: The 2025 salary data reveals a shocking truth - specialized tool expertise now pays significantly more than broad cloud platform knowledge. Here's what you need to know.
 image: /img/blog/platform-engineering-tier-list.png
 ---
