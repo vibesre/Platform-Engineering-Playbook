@@ -10,7 +10,7 @@ slug: /
 
 I started this playbook mostly for myself! Working in platform engineering means keeping track of _a ton_ of different technologies.Kubernetes, Terraform, observability tools, CI/CD systems, cloud services, networking concepts, and on and on. I was constantly forgetting the specifics of tools I hadn't used in a while or trying to remember which resources actually helped me learn something properly.
 
-So, I looked through several other sites devoted to SRE, DevOps, Production Engineering, and of course, Platform Engineering. I then asked a bunch of different AI tools to add the best resources they could find to the list of technologies. I also asked them to look at [salary data](https://platformengineeringplaybook.com/blog/why-elasticsearch-engineers-earn-more-than-cloud-architects) to see what technologies were actually in demand.
+So, I looked through several other sites devoted to SRE, DevOps, Production Engineering, and of course, Platform Engineering. I then asked a bunch of different AI tools to add the best resources they could find to the list of technologies. I also asked them to look at [salary data](/blog/why-elasticsearch-engineers-earn-more-than-cloud-architects) to see what technologies were actually in demand.
 
 Now, as I review, I am going through each page and making sure that I love all the linked resources. I'm also generating audio summaries so that I can get a quick high level overview of the current state of the art in each technology. I'm hoping this will help me keep track of the latest trends and technologies in the field.
 
