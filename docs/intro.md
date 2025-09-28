@@ -18,7 +18,7 @@ I invite everyone to contribute to the playbook! If you find any errorrs, or kno
 
 ## What This Actually Is
 
-This is basically a curated index of platform engineering technologies. It's not trying to teach you everything from scratch—there are already great resources for that. Instead, it's more like a organized directory of 150+ tools and concepts that show up in platform engineering work, each with links to the best learning materials I've found.
+This is basically a curated index of platform engineering technologies. It's not trying to teach you everything from scratch, there are already great resources for that. Instead, it's more like a organized directory of 150+ tools and concepts that show up in platform engineering work, each with links to the best learning materials I've found.
 
 Think of it as that bookmark folder you wish you had organized better, but actually organized.
 

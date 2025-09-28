@@ -22,6 +22,10 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Cloud Platforms & Services',
+          link: {
+            type: 'doc',
+            id: 'technical/cloud-platforms'
+          },
           collapsed: true,
           collapsible: true,
           items: [
