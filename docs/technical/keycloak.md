@@ -1,5 +1,6 @@
 # Keycloak
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

@@ -4,6 +4,7 @@ sidebar_position: 4
 
 # Salary Negotiation
 
+<GitHubButtons />
 Master the art of negotiating platform engineering compensation packages.
 
 ## Market Research

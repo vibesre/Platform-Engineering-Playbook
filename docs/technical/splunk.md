@@ -1,5 +1,6 @@
 # Splunk
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

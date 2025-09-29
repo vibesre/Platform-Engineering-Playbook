@@ -1,5 +1,6 @@
 # Apache Cassandra
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

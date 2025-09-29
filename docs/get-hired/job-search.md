@@ -4,6 +4,7 @@ sidebar_position: 2
 
 # Job Search Strategies
 
+<GitHubButtons />
 Learn effective strategies for finding platform engineering opportunities.
 
 ## Where to Find Platform Engineering Jobs

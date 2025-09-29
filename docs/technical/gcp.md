@@ -1,5 +1,6 @@
 # Google Cloud Platform (GCP)
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

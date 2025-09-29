@@ -9,6 +9,7 @@ pagination_prev: null
 
 # Technical Skills for Platform Engineers
 
+<GitHubButtons />
 Master the essential technical skills needed for platform engineering, SRE, and DevOps roles. This focused guide covers 85 core technologies that appear most frequently in job requirements and drive modern infrastructure.
 
 ## ☁️ Cloud Platforms & Services

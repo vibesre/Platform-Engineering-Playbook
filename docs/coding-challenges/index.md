@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Platform Engineering Coding Challenges
 
+<GitHubButtons />
 This section contains coding challenges specifically tailored for platform engineering interviews. These problems focus on real-world scenarios you'll encounter when building and maintaining infrastructure.
 
 ## Challenge Categories

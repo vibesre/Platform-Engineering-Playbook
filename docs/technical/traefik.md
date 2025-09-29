@@ -1,5 +1,6 @@
 # Traefik
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

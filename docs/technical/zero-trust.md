@@ -1,5 +1,6 @@
 # Zero Trust Architecture
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

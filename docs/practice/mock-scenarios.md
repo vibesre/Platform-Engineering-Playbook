@@ -4,6 +4,7 @@ sidebar_position: 4
 
 # Mock Interview Scenarios
 
+<GitHubButtons />
 Practice with realistic platform engineering interview scenarios.
 
 ## Scenario 1: Production Outage

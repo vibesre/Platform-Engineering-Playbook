@@ -1,5 +1,6 @@
 # Jenkins
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

@@ -1,5 +1,6 @@
 # ArgoCD
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

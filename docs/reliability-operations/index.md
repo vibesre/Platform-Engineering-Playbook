@@ -6,6 +6,7 @@ sidebar_label: Overview
 
 # Reliability & Operations
 
+<GitHubButtons />
 Master the practices and principles that keep systems running at scale. This section covers Site Reliability Engineering (SRE), incident management, monitoring, and operational excellence.
 
 ## What You'll Learn

@@ -1,5 +1,6 @@
 # Istio
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

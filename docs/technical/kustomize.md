@@ -1,5 +1,6 @@
 # Kustomize
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

@@ -1,5 +1,6 @@
 # Kubernetes
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

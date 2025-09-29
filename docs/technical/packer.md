@@ -1,5 +1,6 @@
 # Packer
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

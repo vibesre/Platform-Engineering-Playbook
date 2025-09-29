@@ -1,5 +1,6 @@
 # System Administration
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

@@ -1,5 +1,6 @@
 # NGINX
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

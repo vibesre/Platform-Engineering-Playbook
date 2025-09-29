@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Troubleshooting & Debugging Guide for Platform Engineers
 
+<GitHubButtons />
 Production issues don't wait for convenient times. This guide covers systematic approaches to troubleshooting, essential tools, and real-world scenarios you'll face as a platform engineer.
 
 ## The Troubleshooting Mindset

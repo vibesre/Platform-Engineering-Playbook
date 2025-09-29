@@ -1,5 +1,6 @@
 # New Relic
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

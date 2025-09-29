@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Core Technical Skills
 
+<GitHubButtons />
 Master the fundamental technical skills every platform engineer needs to succeed in interviews.
 
 ## 📋 What You'll Learn

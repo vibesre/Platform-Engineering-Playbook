@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Behavioral Skills & Interviews
 
+<GitHubButtons />
 Behavioral interviews assess your soft skills, cultural fit, and how you handle real-world situations. For Platform/SRE/DevOps roles, expect questions about incidents, collaboration, and technical leadership.
 
 ## The STAR Method

@@ -1,5 +1,6 @@
 # OpenTelemetry
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

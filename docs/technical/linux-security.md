@@ -1,5 +1,6 @@
 # Linux Security
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

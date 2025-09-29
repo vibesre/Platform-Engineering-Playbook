@@ -1,5 +1,6 @@
 # Linux Performance
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

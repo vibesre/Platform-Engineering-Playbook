@@ -1,5 +1,6 @@
 # JSON
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

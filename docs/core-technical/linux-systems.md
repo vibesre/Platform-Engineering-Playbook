@@ -5,6 +5,7 @@ sidebar_position: 2
 
 # Linux Systems for Platform Engineers
 
+<GitHubButtons />
 Master Linux fundamentals and internals for platform engineering interviews.
 
 ## 🎯 Interview Focus Areas

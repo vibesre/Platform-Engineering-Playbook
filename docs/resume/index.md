@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Resume Preparation Guide
 
+<GitHubButtons />
 Your resume is often the first impression you make. For Platform Engineering/SRE/DevOps roles, it needs to demonstrate both technical depth and operational impact.
 
 ## Resume Structure

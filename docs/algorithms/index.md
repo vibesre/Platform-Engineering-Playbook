@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Algorithms & Data Structures for Platform Engineers
 
+<GitHubButtons />
 While platform engineering interviews focus less on traditional algorithm problems than software engineering interviews, you still need to demonstrate strong coding skills and understand algorithms relevant to distributed systems and infrastructure.
 
 ## Why Algorithms Matter in Platform Engineering

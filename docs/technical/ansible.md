@@ -1,5 +1,6 @@
 # Ansible
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

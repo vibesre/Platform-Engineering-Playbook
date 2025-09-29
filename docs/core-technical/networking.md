@@ -5,6 +5,7 @@ sidebar_position: 3
 
 # Networking for Platform Engineers
 
+<GitHubButtons />
 Master networking concepts and troubleshooting for platform engineering interviews.
 
 ## 🎯 Interview Focus Areas

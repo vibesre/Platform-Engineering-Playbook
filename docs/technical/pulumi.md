@@ -1,5 +1,6 @@
 # Pulumi
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

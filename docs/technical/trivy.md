@@ -1,5 +1,6 @@
 # Trivy
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

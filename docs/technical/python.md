@@ -1,5 +1,6 @@
 # Python
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

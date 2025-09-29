@@ -4,6 +4,7 @@ sidebar_position: 2
 
 # Hands-On Labs
 
+<GitHubButtons />
 Practical exercises to build platform engineering skills.
 
 ## Lab Environment Setup

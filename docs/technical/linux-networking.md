@@ -1,5 +1,6 @@
 # Linux Networking
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

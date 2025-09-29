@@ -7,6 +7,7 @@ slug: /career-guide
 
 # Platform Engineering Career Guide
 
+<GitHubButtons />
 Navigate your platform engineering career journey from entry-level to leadership positions. This guide covers job searching, resume building, negotiation, and long-term career development.
 
 ## Career Stages

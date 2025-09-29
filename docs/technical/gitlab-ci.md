@@ -1,5 +1,6 @@
 # GitLab CI/CD
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

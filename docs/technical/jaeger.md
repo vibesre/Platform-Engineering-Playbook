@@ -1,5 +1,6 @@
 # Jaeger
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

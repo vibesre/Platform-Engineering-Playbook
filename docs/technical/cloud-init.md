@@ -1,5 +1,6 @@
 # Cloud-init
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

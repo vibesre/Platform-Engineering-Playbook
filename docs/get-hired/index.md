@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # 🚀 Get Hired
 
+<GitHubButtons />
 Your complete guide to landing your dream platform engineering role. From crafting the perfect resume to negotiating your offer, we've got you covered.
 
 ## What's Inside

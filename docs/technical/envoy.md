@@ -6,6 +6,7 @@ sidebar_label: "Envoy"
 
 # Envoy Proxy
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

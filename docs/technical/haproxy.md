@@ -6,6 +6,7 @@ sidebar_label: "HAProxy"
 
 # HAProxy
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

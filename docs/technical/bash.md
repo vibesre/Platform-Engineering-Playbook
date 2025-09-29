@@ -1,5 +1,6 @@
 # Bash
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

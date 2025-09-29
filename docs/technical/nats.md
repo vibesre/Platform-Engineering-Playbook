@@ -1,5 +1,6 @@
 # NATS
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

@@ -7,6 +7,7 @@ slug: /core-skills
 
 # Core Skills for Platform Engineers
 
+<GitHubButtons />
 Master the fundamental technical skills that form the foundation of platform engineering. These core competencies are essential regardless of your specialization or the specific technologies your organization uses.
 
 ## Skill Categories

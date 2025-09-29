@@ -1,5 +1,6 @@
 # Serverless Computing
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

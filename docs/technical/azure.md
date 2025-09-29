@@ -1,5 +1,6 @@
 # Azure
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

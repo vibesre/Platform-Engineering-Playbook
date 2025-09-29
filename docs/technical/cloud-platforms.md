@@ -1,5 +1,6 @@
 # Cloud Platforms & Services
 
+<GitHubButtons />
 Welcome to the Cloud Platforms & Services section of the Platform Engineering Playbook. This section covers the major cloud providers and related services that platform engineers work with daily.
 
 ## 📋 What You'll Find Here
@@ -40,6 +41,10 @@ If you're new to cloud platforms, here's a suggested learning path:
 - [Cloud Native Computing Foundation](https://www.cncf.io/) - Vendor-neutral home for cloud native projects
 - [The Cloud Native Landscape](https://landscape.cncf.io/) - Interactive map of cloud native technologies
 - [Multi-Cloud Architecture Patterns](https://cloud.google.com/architecture/framework) - Applicable beyond just GCP
+
+## 🎙️ Podcast Episode
+
+**[The Real Story Behind Multi-Cloud Architecture](/podcasts/cloud-providers-episode)** - A deep dive conversation between two senior engineers about cloud provider decisions, featuring discussions on cloud repatriation trends, specialized platforms, and practical wisdom for platform engineers. (25-30 minute episode)
 
 ---
 

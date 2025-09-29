@@ -1,5 +1,6 @@
 # GitHub Actions
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

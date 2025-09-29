@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # System Design for Platform Engineers
 
+<GitHubButtons />
 System design interviews for platform engineering roles focus on building reliable, scalable, and maintainable infrastructure. Unlike product-focused system design, you'll need to demonstrate deep understanding of distributed systems, infrastructure components, and operational excellence.
 
 ## Platform Engineering System Design Focus Areas

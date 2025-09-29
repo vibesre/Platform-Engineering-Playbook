@@ -5,6 +5,7 @@ sidebar_position: 2
 
 # Distributed Systems for Platform Engineers
 
+<GitHubButtons />
 Master distributed systems concepts essential for platform engineering interviews.
 
 ## 🎯 Interview Focus Areas

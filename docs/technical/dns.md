@@ -5,6 +5,7 @@ description: "Master DNS fundamentals, BIND, CoreDNS, and Route53 for robust nam
 
 # DNS (Domain Name System)
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

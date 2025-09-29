@@ -1,5 +1,6 @@
 # containerd
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

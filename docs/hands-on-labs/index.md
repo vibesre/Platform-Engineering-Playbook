@@ -6,6 +6,7 @@ sidebar_label: Overview
 
 # Hands-On Labs
 
+<GitHubButtons />
 Put your platform engineering knowledge into practice with these comprehensive, real-world labs. Each lab is designed to simulate actual scenarios you'll encounter in platform engineering roles.
 
 ## Lab Categories

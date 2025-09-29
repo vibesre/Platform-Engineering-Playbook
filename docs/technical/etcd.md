@@ -1,5 +1,6 @@
 # etcd
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

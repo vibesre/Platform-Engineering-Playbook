@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Additional Resources
 
+<GitHubButtons />
 A curated list of communities, tools, platforms, and resources to support your Platform Engineering/SRE/DevOps journey.
 
 ## Online Communities

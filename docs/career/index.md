@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Career Progression Guide
 
+<GitHubButtons />
 Understanding career paths in Platform Engineering, SRE, and DevOps helps you plan your growth and prepare for the next level.
 
 ## Career Paths Overview

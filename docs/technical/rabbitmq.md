@@ -1,5 +1,6 @@
 # RabbitMQ
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

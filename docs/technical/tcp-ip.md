@@ -1,5 +1,6 @@
 # TCP/IP and OSI Model
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

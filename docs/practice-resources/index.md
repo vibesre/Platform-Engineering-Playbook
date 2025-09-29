@@ -7,6 +7,7 @@ slug: /practice-resources
 
 # Practice & Resources
 
+<GitHubButtons />
 Access hands-on labs, company-specific guides, and curated resources to accelerate your platform engineering journey. This section provides practical materials for skill development and interview preparation.
 
 ## 🧪 Hands-On Labs

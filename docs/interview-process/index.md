@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Interview Process Guide
 
+<GitHubButtons />
 Understanding the interview process helps you prepare effectively. This guide covers what to expect at different companies and stages.
 
 ## Interview Process Overview

@@ -1,5 +1,6 @@
 # MySQL
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

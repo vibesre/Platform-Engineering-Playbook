@@ -1,5 +1,6 @@
 # Kubecost
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

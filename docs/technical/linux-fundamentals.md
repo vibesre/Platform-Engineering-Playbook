@@ -1,5 +1,6 @@
 # Linux Fundamentals
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

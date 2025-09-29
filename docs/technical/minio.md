@@ -1,5 +1,6 @@
 # MinIO
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

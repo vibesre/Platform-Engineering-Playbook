@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # 💪 Practice & Prepare
 
+<GitHubButtons />
 Welcome to the practice section! This is where you'll apply what you've learned through hands-on labs, mock interviews, and real-world scenarios.
 
 ## What's Inside

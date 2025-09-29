@@ -1,5 +1,6 @@
 # Container Registries
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

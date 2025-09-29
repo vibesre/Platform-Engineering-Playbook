@@ -1,0 +1,60 @@
+.github-buttons-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  margin-top: -10px;
+  align-items: center;
+}
+
+.github-button-custom {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #24292e;
+  background-color: #fafbfc;
+  border: 1px solid rgba(27,31,35,.15);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.github-button-custom:hover {
+  background-color: #f3f4f6;
+  border-color: rgba(27,31,35,.25);
+  text-decoration: none;
+  color: #24292e;
+}
+
+[data-theme='dark'] .github-button-custom {
+  color: #c9d1d9;
+  background-color: #21262d;
+  border-color: #30363d;
+}
+
+[data-theme='dark'] .github-button-custom:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+  color: #c9d1d9;
+}
+
+.github-button-custom svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.github-star-count {
+  margin-left: 4px;
+  padding: 2px 6px;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+[data-theme='dark'] .github-star-count {
+  background-color: rgba(255, 255, 255, 0.1);
+}

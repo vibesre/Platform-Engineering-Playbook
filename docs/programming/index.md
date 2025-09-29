@@ -6,6 +6,7 @@ sidebar_label: Overview
 
 # Programming for Platform Engineers
 
+<GitHubButtons />
 Master the programming skills essential for platform engineering, from scripting and automation to building robust platform tools and services.
 
 ## Core Programming Languages

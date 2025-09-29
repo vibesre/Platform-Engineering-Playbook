@@ -6,6 +6,7 @@ slug: /
 
 # Platform Engineering Playbook
 
+<GitHubButtons />
 ## Why I Made This
 
 I started this playbook mostly for myself! Working in platform engineering means keeping track of _a ton_ of different technologies.Kubernetes, Terraform, observability tools, CI/CD systems, cloud services, networking concepts, and on and on. I was constantly forgetting the specifics of tools I hadn't used in a while or trying to remember which resources actually helped me learn something properly.

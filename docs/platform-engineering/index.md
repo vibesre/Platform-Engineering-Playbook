@@ -7,6 +7,7 @@ slug: /platform-engineering
 
 # Advanced Platform Engineering
 
+<GitHubButtons />
 Dive deep into the specialized knowledge and practices that define modern platform engineering. This section covers advanced topics that platform engineers encounter when building and maintaining production-grade platforms.
 
 ## Core Platform Capabilities

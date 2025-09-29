@@ -1,5 +1,6 @@
 # AWS (Amazon Web Services)
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

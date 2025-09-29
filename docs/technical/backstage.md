@@ -1,5 +1,6 @@
 # Backstage
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

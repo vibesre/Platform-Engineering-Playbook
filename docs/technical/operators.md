@@ -1,5 +1,6 @@
 # Kubernetes Operators
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

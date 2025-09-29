@@ -1,5 +1,6 @@
 # Redis
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

@@ -4,6 +4,7 @@ sidebar_position: 3
 
 # Company Research
 
+<GitHubButtons />
 Comprehensive guide to researching potential employers in platform engineering.
 
 ## Research Framework

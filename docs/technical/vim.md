@@ -1,5 +1,6 @@
 # Vim
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

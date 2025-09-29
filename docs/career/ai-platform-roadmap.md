@@ -5,6 +5,7 @@ sidebar_position: 3
 
 # AI Platform Engineering Roadmap
 
+<GitHubButtons />
 A comprehensive learning path to transition into AI/ML platform engineering, whether you're coming from traditional platform engineering, ML engineering, or starting fresh.
 
 ## Overview

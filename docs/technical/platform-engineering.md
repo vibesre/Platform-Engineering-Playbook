@@ -1,5 +1,6 @@
 # Platform Engineering
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

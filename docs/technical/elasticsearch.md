@@ -1,5 +1,6 @@
 # Elasticsearch
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

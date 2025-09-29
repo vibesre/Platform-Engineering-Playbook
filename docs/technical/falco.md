@@ -1,5 +1,6 @@
 # Falco - Runtime Security for Containers
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

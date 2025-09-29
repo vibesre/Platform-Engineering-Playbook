@@ -1,5 +1,6 @@
 # Spinnaker
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

@@ -1,5 +1,6 @@
 # Gatekeeper
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

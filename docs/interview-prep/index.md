@@ -7,6 +7,7 @@ slug: /interview-prep
 
 # Platform Engineering Interview Preparation
 
+<GitHubButtons />
 Ace your platform engineering interviews with comprehensive preparation covering technical skills, system design, behavioral questions, and practical coding challenges.
 
 ## Interview Process Overview

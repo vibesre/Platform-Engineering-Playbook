@@ -1,5 +1,6 @@
 # Go
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

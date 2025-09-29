@@ -1,5 +1,6 @@
 # Datadog
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

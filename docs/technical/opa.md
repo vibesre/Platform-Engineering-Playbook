@@ -1,5 +1,6 @@
 # Open Policy Agent (OPA)
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

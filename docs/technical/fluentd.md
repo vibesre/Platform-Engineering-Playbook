@@ -1,5 +1,6 @@
 # Fluentd
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

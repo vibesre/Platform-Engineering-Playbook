@@ -1,5 +1,6 @@
 # HCL
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

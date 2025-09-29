@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Platform Infrastructure
 
+<GitHubButtons />
 Build and scale the platforms that power modern applications.
 
 ## 📋 What You'll Learn

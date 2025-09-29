@@ -1,5 +1,6 @@
 # Consul Connect
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

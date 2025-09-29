@@ -1,5 +1,6 @@
 # Crossplane
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

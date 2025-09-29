@@ -1,5 +1,6 @@
 # Loki
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

@@ -1,5 +1,6 @@
 # VMware vSphere
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

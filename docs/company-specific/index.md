@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Company-Specific Interview Preparation
 
+<GitHubButtons />
 Each company has unique interview processes, culture, and focus areas for platform engineering roles. This guide provides detailed preparation strategies for major tech companies.
 
 ## Interview Process Overview

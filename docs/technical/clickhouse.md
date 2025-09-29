@@ -1,5 +1,6 @@
 # ClickHouse
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

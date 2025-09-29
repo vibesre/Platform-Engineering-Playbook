@@ -1,5 +1,6 @@
 # Kyverno
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

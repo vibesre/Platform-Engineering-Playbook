@@ -5,6 +5,7 @@ sidebar_position: 10
 
 # SRE Practices & Incident Management
 
+<GitHubButtons />
 Master the principles and practices of Site Reliability Engineering, from SLOs and error budgets to incident response and post-mortems. Learn how to build and operate systems that are reliable, scalable, and maintainable.
 
 ## 📚 Essential Resources

@@ -1,5 +1,6 @@
 # JavaScript
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

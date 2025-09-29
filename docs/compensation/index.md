@@ -5,6 +5,7 @@ sidebar_position: 1
 
 # Compensation & Negotiation Guide for Platform Engineers
 
+<GitHubButtons />
 Understanding your market value and negotiating effectively is crucial for your career. This guide covers compensation trends, negotiation strategies, and total compensation analysis for platform engineering roles.
 
 ## Platform Engineering Compensation Overview

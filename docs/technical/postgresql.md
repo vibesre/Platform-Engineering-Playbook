@@ -1,5 +1,6 @@
 # PostgreSQL
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

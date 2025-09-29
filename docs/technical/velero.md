@@ -1,5 +1,6 @@
 # Velero
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

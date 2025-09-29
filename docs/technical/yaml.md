@@ -1,5 +1,6 @@
 # YAML
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

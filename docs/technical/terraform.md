@@ -1,5 +1,6 @@
 # Terraform
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

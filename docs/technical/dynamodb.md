@@ -1,5 +1,6 @@
 # Amazon DynamoDB
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

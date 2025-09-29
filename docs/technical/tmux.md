@@ -1,5 +1,6 @@
 # tmux
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

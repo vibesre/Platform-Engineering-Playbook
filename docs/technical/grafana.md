@@ -1,5 +1,6 @@
 # Grafana
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

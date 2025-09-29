@@ -1,5 +1,6 @@
 # Flux
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

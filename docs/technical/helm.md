@@ -1,5 +1,6 @@
 # Helm
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

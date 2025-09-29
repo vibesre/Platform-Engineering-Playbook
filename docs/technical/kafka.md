@@ -1,5 +1,6 @@
 # Apache Kafka
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

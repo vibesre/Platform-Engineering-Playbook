@@ -1,5 +1,6 @@
 # HashiCorp Vault
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

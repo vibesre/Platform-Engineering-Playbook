@@ -1,5 +1,6 @@
 # InfluxDB
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

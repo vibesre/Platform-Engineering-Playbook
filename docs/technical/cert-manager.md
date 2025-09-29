@@ -1,5 +1,6 @@
 # cert-manager
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

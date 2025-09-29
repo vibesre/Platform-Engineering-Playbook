@@ -1,5 +1,6 @@
 # K3s
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

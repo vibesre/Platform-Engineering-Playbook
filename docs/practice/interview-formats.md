@@ -4,6 +4,7 @@ sidebar_position: 3
 
 # Interview Formats
 
+<GitHubButtons />
 Understand different platform engineering interview formats and how to prepare.
 
 ## Phone Screening

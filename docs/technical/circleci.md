@@ -1,5 +1,6 @@
 # CircleCI
 
+<GitHubButtons />
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation
