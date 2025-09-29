@@ -42,9 +42,7 @@ If you're new to cloud platforms, here's a suggested learning path:
 - [The Cloud Native Landscape](https://landscape.cncf.io/) - Interactive map of cloud native technologies
 - [Multi-Cloud Architecture Patterns](https://cloud.google.com/architecture/framework) - Applicable beyond just GCP
 
-## 🎙️ Podcast Episode
-
-**[The Real Story Behind Multi-Cloud Architecture](/podcasts/cloud-providers-episode)** - A deep dive conversation between two senior engineers about cloud provider decisions, featuring discussions on cloud repatriation trends, specialized platforms, and practical wisdom for platform engineers. (25-30 minute episode)
+> 🎙️ **Listen to the podcast episode**: [Public Cloud Providers - The Real Story Behind Multi-Cloud Architecture](/podcasts/cloud-providers-episode) - A deep dive conversation exploring cloud provider decisions, multi-cloud strategies, and the rise of specialized platforms.
 
 ---
 

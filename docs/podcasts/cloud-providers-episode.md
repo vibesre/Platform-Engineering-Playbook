@@ -1,53 +1,21 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-custom_edit_url: https://github.com/vibesre/Platform-Engineering-Playbook/edit/main/docs/podcasts/cloud-providers-episode.md
 ---
 
 # Public Cloud Providers - The Real Story Behind Multi-Cloud Architecture
 
-import BrowserOnly from '@docusaurus/BrowserOnly';
+## The Platform Engineering Playbook Podcast
 
-<BrowserOnly fallback={<div>Loading...</div>}>
-  {() => {
-    // Load GitHub buttons script
-    if (typeof window !== 'undefined' && !window.gitHubButtonsLoaded) {
-      const script = document.createElement('script');
-      script.src = 'https://buttons.github.io/buttons.js';
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-      window.gitHubButtonsLoaded = true;
-    }
-    
-    return (
-      <div style={{marginBottom: '20px', height: '28px'}}>
-        <a className="github-button" 
-           href="https://github.com/vibesre/Platform-Engineering-Playbook/edit/main/docs/podcasts/cloud-providers-episode.md" 
-           data-icon="octicon-pencil" 
-           data-size="large"
-           aria-label="Edit vibesre/Platform-Engineering-Playbook on GitHub">
-          Edit
-        </a>
-        {' '}
-        <a className="github-button" 
-           href="https://github.com/vibesre/Platform-Engineering-Playbook" 
-           data-icon="octicon-star" 
-           data-size="large" 
-           data-show-count="true"
-           aria-label="Star vibesre/Platform-Engineering-Playbook on GitHub">
-          Star
-        </a>
-      </div>
-    );
-  }}
-</BrowserOnly>
+<GitHubButtons />
 
-## Episode: Why Every Cloud Decision Is Really About Lock-In Trade-offs
+### Episode: Why Every Cloud Decision Is Really About Lock-In Trade-offs
 
 **Duration:** 25-30 minutes  
 **Speakers:** Alex and Jordan  
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
+
+> 📚 **Read the technical guide**: [Cloud Platforms](/technical/cloud-platforms) - Comprehensive overview of AWS, Azure, GCP, and emerging cloud providers with learning resources and best practices.
 
 ---
 
@@ -428,4 +396,3 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 - Respectful disagreements on controversial topics
 - Shared discoveries and "aha" moments
 - Technical depth appropriate for senior audience
-
