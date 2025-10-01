@@ -9,6 +9,8 @@
 .cache-loader
 
 # Misc
+podcast-generator/
+.github/workflows/generate-podcast.yml
 .DS_Store
 .env.local
 .env.development.local
