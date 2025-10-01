@@ -33,6 +33,32 @@ Now, as I review, I am going through each page and making sure that I love all t
 
 I invite everyone to contribute to the playbook! If you find any errorrs, or know of resources that should be added, please make a PR!
 
+<div style={{
+  textAlign: 'center',
+  margin: '3rem 0',
+  padding: '2rem',
+  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  borderRadius: '16px',
+  boxShadow: '0 10px 40px rgba(102, 126, 234, 0.3)'
+}}>
+  <a href="/technical-skills" style={{
+    display: 'inline-block',
+    padding: '1rem 3rem',
+    fontSize: '1.3rem',
+    fontWeight: '700',
+    color: '#fff',
+    background: 'rgba(255, 255, 255, 0.2)',
+    backdropFilter: 'blur(10px)',
+    borderRadius: '12px',
+    textDecoration: 'none',
+    border: '2px solid rgba(255, 255, 255, 0.3)',
+    transition: 'all 0.3s ease',
+    letterSpacing: '0.5px'
+  }}>
+    📚 Browse the Technical Skills →
+  </a>
+</div>
+
 ## What This Actually Is
 
 This is basically a curated index of platform engineering technologies. It's not trying to teach you everything from scratch, there are already great resources for that. Instead, it's more like a organized directory of 150+ tools and concepts that show up in platform engineering work, each with links to the best learning materials I've found.
@@ -55,25 +81,7 @@ Explore our comprehensive guides on the most in-demand platform engineering tech
 
 ## Where to Start
 
-<div style={{textAlign: 'center', margin: '2rem 0'}}>
-<a href="/technical-skills" style={{
-  display: 'inline-block',
-  padding: '1rem 2rem',
-  fontSize: '1.2rem',
-  fontWeight: 'bold',
-  color: 'white',
-  backgroundColor: '#0066cc',
-  borderRadius: '8px',
-  textDecoration: 'none',
-  border: 'none',
-  cursor: 'pointer',
-  transition: 'background-color 0.2s ease'
-}} onMouseOver={(e) => e.target.style.backgroundColor = '#0052a3'} onMouseOut={(e) => e.target.style.backgroundColor = '#0066cc'}>
-📚 Browse the Technical Skills →
-</a>
-</div>
-
-That's where all the technology overviews live, organized by category (Linux & Systems, Cloud Platforms, Containers, etc.).
+The [technical skills section](/technical-skills) is where all the technology overviews live, organized by category (Linux & Systems, Cloud Platforms, Containers, etc.).
 
 If you're looking for other stuff like interview prep or career guidance, those sections exist too, but the technical reference is the main event.
 
