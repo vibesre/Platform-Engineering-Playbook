@@ -6,6 +6,14 @@ categories: ["Fiction", "Platform Engineering", "Educational"]
 tags:
   ["kubernetes", "docker", "infrastructure", "fantasy", "audiobook", "scifi"]
 description: "Chapter 1 of The Orchestrator's Codex - a fantasy novel where platform engineering technologies are the magic system. Follow Kira Chen as she discovers a mysterious Pattern threatening to crash the entire system."
+keywords:
+  - platform engineering fiction
+  - kubernetes fantasy novel
+  - tech fiction
+  - infrastructure fantasy
+  - educational fiction
+datePublished: "2024-11-26"
+dateModified: "2024-11-26"
 ---
 
 # Chapter 1: The Last Restart
