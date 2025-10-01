@@ -1,3 +1,21 @@
+---
+title: "ClickHouse - Columnar Database for Analytics"
+description: "Master ClickHouse for real-time analytics: learn columnar storage, SQL optimization, distributed queries, and high-performance OLAP workload management."
+keywords:
+  - ClickHouse
+  - columnar database
+  - OLAP database
+  - real-time analytics
+  - ClickHouse tutorial
+  - analytical database
+  - time-series database
+  - data warehouse
+  - ClickHouse SQL
+  - distributed database
+  - high-performance database
+  - analytics platform
+---
+
 # ClickHouse
 
 <GitHubButtons />

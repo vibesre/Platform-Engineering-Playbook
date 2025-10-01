@@ -1,3 +1,19 @@
+---
+title: "NGINX - High-Performance Web Server and Reverse Proxy"
+description: "Master NGINX for web infrastructure and load balancing. Learn reverse proxy, SSL termination, and performance tuning for platform engineering interviews."
+keywords:
+  - nginx
+  - web server
+  - reverse proxy
+  - load balancer
+  - nginx tutorial
+  - ssl termination
+  - nginx configuration
+  - api gateway
+  - nginx interview questions
+  - http server
+---
+
 # NGINX
 
 <GitHubButtons />

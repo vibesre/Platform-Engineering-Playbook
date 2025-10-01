@@ -1,3 +1,9 @@
+---
+title: "Datadog - Unified Observability and Monitoring Platform"
+description: "Master Datadog for infrastructure monitoring, APM, and log management. Learn unified observability at scale. Key platform for enterprise engineering interviews."
+keywords: [datadog, observability, monitoring, apm, infrastructure monitoring, log management, platform engineering, devops, metrics, traces, logs, distributed tracing]
+---
+
 # Datadog
 
 <GitHubButtons />

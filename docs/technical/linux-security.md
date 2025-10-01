@@ -1,3 +1,21 @@
+---
+title: "Linux Security - Hardening and Best Practices"
+description: "Master Linux security: learn system hardening, SELinux, AppArmor, security auditing, and compliance with CIS benchmarks for secure infrastructure management."
+keywords:
+  - Linux security
+  - system hardening
+  - SELinux
+  - AppArmor
+  - security audit
+  - CIS benchmark
+  - Linux compliance
+  - security best practices
+  - kernel security
+  - access control
+  - security monitoring
+  - vulnerability management
+---
+
 # Linux Security
 
 <GitHubButtons />

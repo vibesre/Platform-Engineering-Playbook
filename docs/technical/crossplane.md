@@ -1,3 +1,21 @@
+---
+title: "Crossplane - Universal Control Plane"
+description: "Master Crossplane for infrastructure as code: build self-service platforms, provision cloud resources via Kubernetes, and create custom APIs with composition patterns."
+keywords:
+  - crossplane
+  - infrastructure as code
+  - kubernetes IaC
+  - control plane
+  - cloud provisioning
+  - crossplane tutorial
+  - platform engineering
+  - custom APIs
+  - composition
+  - multi-cloud
+  - resource management
+  - CNCF crossplane
+---
+
 # Crossplane
 
 <GitHubButtons />

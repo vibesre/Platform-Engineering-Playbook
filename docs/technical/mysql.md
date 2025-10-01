@@ -1,3 +1,21 @@
+---
+title: "MySQL - Relational Database Management System"
+description: "Master MySQL for production databases: learn SQL optimization, replication, high availability, backup strategies, and performance tuning for scalable applications."
+keywords:
+  - MySQL
+  - relational database
+  - MySQL tutorial
+  - SQL database
+  - database optimization
+  - MySQL replication
+  - database administration
+  - MySQL performance
+  - SQL queries
+  - database management
+  - RDBMS
+  - MySQL cluster
+---
+
 # MySQL
 
 <GitHubButtons />

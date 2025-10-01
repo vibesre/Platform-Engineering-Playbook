@@ -1,3 +1,21 @@
+---
+title: "Serverless - Function as a Service (FaaS)"
+description: "Master serverless computing with AWS Lambda, Azure Functions, and Google Cloud Functions. Learn event-driven architecture, function deployment, and serverless patterns."
+keywords:
+  - serverless
+  - AWS Lambda
+  - Azure Functions
+  - Google Cloud Functions
+  - FaaS
+  - serverless architecture
+  - event-driven
+  - serverless framework
+  - function deployment
+  - serverless patterns
+  - cloud functions
+  - serverless computing
+---
+
 # Serverless Computing
 
 <GitHubButtons />

@@ -1,6 +1,30 @@
+---
+title: "Prometheus - Cloud-Native Monitoring and Alerting"
+description: "Master Prometheus monitoring with tutorials, PromQL guides, and certification prep. Learn time-series metrics, alerting, service discovery, and interview questions."
+keywords: ["prometheus", "prometheus tutorial", "monitoring", "observability", "promql", "alerting", "metrics", "time-series database", "kubernetes monitoring", "prometheus interview questions", "cloud native", "cncf"]
+---
+
 # Prometheus
 
 <GitHubButtons />
+
+## Quick Answer
+
+**What is Prometheus?**
+Prometheus is an open-source monitoring and alerting toolkit designed for reliability and scalability, specializing in time-series metrics collection and powerful query capabilities.
+
+**Primary Use Cases**: Cloud-native application monitoring, Kubernetes cluster observability, microservices metrics collection, alerting on service health and performance
+
+**Market Position**: 56k+ GitHub stars, CNCF graduated project (2018), adopted by 65% of organizations using cloud-native technologies (CNCF 2023)
+
+**Learning Time**: 1-2 weeks for basic setup, 1-2 months for PromQL proficiency, 3-6 months to master alerting rules and production federation patterns
+
+**Key Certifications**: Prometheus Certified Associate (PCA) by Linux Foundation
+
+**Best For**: SRE teams monitoring distributed systems, organizations running Kubernetes, teams needing powerful metric queries and custom alerting logic
+
+[Full guide below ↓](#-learning-resources)
+
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

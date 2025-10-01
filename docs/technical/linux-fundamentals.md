@@ -1,3 +1,21 @@
+---
+title: "Linux Fundamentals - Core Concepts and Commands"
+description: "Master Linux fundamentals: learn command line, file systems, processes, permissions, shell scripting, and essential tools for platform engineering and system administration."
+keywords:
+  - Linux fundamentals
+  - Linux tutorial
+  - Linux commands
+  - command line
+  - Linux administration
+  - shell scripting
+  - Linux file system
+  - Linux permissions
+  - system administration
+  - Linux basics
+  - Unix commands
+  - Linux kernel
+---
+
 # Linux Fundamentals
 
 <GitHubButtons />

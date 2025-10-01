@@ -1,3 +1,21 @@
+---
+title: "TCP/IP - Network Protocol Fundamentals"
+description: "Master TCP/IP and OSI model: learn network layers, IP addressing, routing, transport protocols, and troubleshooting for infrastructure and cloud networking."
+keywords:
+  - TCP/IP
+  - OSI model
+  - network protocols
+  - IP addressing
+  - network layers
+  - routing
+  - networking fundamentals
+  - transport protocols
+  - network troubleshooting
+  - internet protocol
+  - network architecture
+  - protocol stack
+---
+
 # TCP/IP and OSI Model
 
 <GitHubButtons />

@@ -1,3 +1,21 @@
+---
+title: "Trivy - Vulnerability Scanner"
+description: "Master Trivy for security scanning: detect vulnerabilities in containers, IaC, filesystems, and Git repositories. Integrate scanning into CI/CD and Kubernetes workflows."
+keywords:
+  - Trivy
+  - vulnerability scanner
+  - container scanning
+  - security scanning
+  - Aqua Security
+  - image scanning
+  - IaC scanning
+  - dependency scanning
+  - Trivy operator
+  - security automation
+  - vulnerability detection
+  - DevSecOps
+---
+
 # Trivy
 
 <GitHubButtons />

@@ -1,5 +1,21 @@
 ---
-title: Welcome
+title: "Platform Engineering Playbook - Master SRE, DevOps & Cloud Technologies"
+description: "Comprehensive guide to platform engineering, SRE, and DevOps: learn Kubernetes, Terraform, AWS, Docker, observability, and more. Includes interview prep, career guidance, and 150+ technology resources."
+keywords:
+  - platform engineering
+  - SRE
+  - DevOps
+  - site reliability engineering
+  - kubernetes
+  - terraform
+  - docker
+  - AWS
+  - cloud platforms
+  - interview preparation
+  - DevOps engineer
+  - platform engineer career
+  - infrastructure as code
+  - container orchestration
 sidebar_position: 1
 slug: /
 ---
@@ -22,6 +38,20 @@ I invite everyone to contribute to the playbook! If you find any errorrs, or kno
 This is basically a curated index of platform engineering technologies. It's not trying to teach you everything from scratch, there are already great resources for that. Instead, it's more like a organized directory of 150+ tools and concepts that show up in platform engineering work, each with links to the best learning materials I've found.
 
 Think of it as that bookmark folder you wish you had organized better, but actually organized.
+
+### Popular Topics
+
+Explore our comprehensive guides on the most in-demand platform engineering technologies:
+
+**Container & Orchestration:** [Kubernetes](/technical/kubernetes) • [Docker](/technical/docker) • [Helm](/technical/helm) • [ArgoCD](/technical/argocd)
+
+**Infrastructure as Code:** [Terraform](/technical/terraform) • [Ansible](/technical/ansible) • [Pulumi](/technical/pulumi) • [CloudFormation](/technical/cloudformation)
+
+**Cloud Platforms:** [AWS](/technical/aws) • [Azure](/technical/azure) • [GCP](/technical/gcp)
+
+**Observability:** [Prometheus](/technical/prometheus) • [Grafana](/technical/grafana) • [Elasticsearch](/technical/elasticsearch) • [Datadog](/technical/datadog)
+
+**CI/CD:** [GitHub Actions](/technical/github-actions) • [GitLab CI](/technical/gitlab-ci) • [Jenkins](/technical/jenkins)
 
 ## Where to Start
 

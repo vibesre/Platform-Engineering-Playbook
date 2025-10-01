@@ -1,3 +1,21 @@
+---
+title: "Apache Airflow - Workflow Orchestration Platform"
+description: "Master Apache Airflow for data pipeline orchestration: learn DAG development, task scheduling, workflow automation, and production best practices for data engineering workflows."
+keywords:
+  - apache airflow
+  - workflow orchestration
+  - data pipelines
+  - airflow tutorial
+  - DAG development
+  - task scheduling
+  - data engineering
+  - workflow automation
+  - airflow operators
+  - ETL pipelines
+  - data orchestration
+  - airflow best practices
+---
+
 # Apache Airflow
 
 <GitHubButtons />

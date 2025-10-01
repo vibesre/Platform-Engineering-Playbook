@@ -1,3 +1,19 @@
+---
+title: "Istio - Enterprise Service Mesh Platform"
+description: "Master Istio for microservices management. Learn traffic control, security, and observability in service mesh for platform engineering interviews and cloud-native apps."
+keywords:
+  - istio
+  - service mesh
+  - microservices
+  - kubernetes
+  - istio tutorial
+  - traffic management
+  - mtls
+  - envoy proxy
+  - service mesh security
+  - istio interview questions
+---
+
 # Istio
 
 <GitHubButtons />

@@ -1,3 +1,21 @@
+---
+title: "IAM - Identity and Access Management"
+description: "Master IAM across cloud platforms: learn AWS IAM, Azure AD, and GCP IAM. Implement secure authentication, authorization, RBAC, and zero-trust security models."
+keywords:
+  - IAM
+  - identity and access management
+  - AWS IAM
+  - Azure AD
+  - Google Cloud IAM
+  - authentication
+  - authorization
+  - RBAC
+  - access control
+  - cloud security
+  - identity management
+  - zero trust
+---
+
 # Identity and Access Management (IAM)
 
 <GitHubButtons />

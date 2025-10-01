@@ -1,3 +1,9 @@
+---
+title: "Ansible - IT Automation and Configuration Management"
+description: "Learn Ansible automation with playbooks, roles, and collections. Complete guide to configuration management with tutorials, certification prep, and interview questions."
+keywords: ["ansible", "ansible tutorial", "automation", "configuration management", "infrastructure as code", "devops", "playbooks", "ansible interview questions", "it automation", "red hat ansible", "yaml", "agentless automation"]
+---
+
 # Ansible
 
 <GitHubButtons />

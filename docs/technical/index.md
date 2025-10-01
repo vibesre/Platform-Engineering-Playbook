@@ -1,6 +1,20 @@
 ---
 id: index
-title: Technical Skills
+title: "Platform Engineering Technical Skills - Complete Technology Guide"
+description: "Master 150+ platform engineering technologies: Kubernetes, Terraform, AWS, Docker, observability, CI/CD, and more. Comprehensive guides, tutorials, and resources for SRE and DevOps engineers."
+keywords:
+  - platform engineering
+  - technical skills
+  - DevOps technologies
+  - SRE tools
+  - kubernetes tutorial
+  - terraform guide
+  - AWS certification
+  - docker guide
+  - infrastructure as code
+  - container orchestration
+  - observability tools
+  - CI/CD platforms
 sidebar_label: Overview
 slug: /technical-skills
 pagination_next: null

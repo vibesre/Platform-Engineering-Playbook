@@ -1,3 +1,19 @@
+---
+title: "GitLab CI/CD - Complete DevOps Platform"
+description: "Learn GitLab CI/CD for integrated DevOps workflows. Master pipeline syntax, runners, and Auto DevOps for platform engineering interviews and enterprise deployments."
+keywords:
+  - gitlab ci
+  - gitlab cicd
+  - devops platform
+  - pipeline automation
+  - gitlab runner
+  - auto devops
+  - gitlab tutorial
+  - gitops
+  - gitlab interview questions
+  - continuous deployment
+---
+
 # GitLab CI/CD
 
 <GitHubButtons />

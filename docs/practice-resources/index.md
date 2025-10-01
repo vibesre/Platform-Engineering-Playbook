@@ -1,8 +1,22 @@
 ---
 id: index
-title: Practice & Resources
+title: Platform Engineering Practice Resources | Labs, Guides & Learning Materials
 sidebar_label: Overview
 slug: /practice-resources
+description: Access hands-on labs, company-specific interview guides, and curated resources to accelerate your platform engineering skills and interview preparation.
+keywords:
+  - platform engineering labs
+  - DevOps practice resources
+  - hands-on Kubernetes labs
+  - cloud platform tutorials
+  - SRE learning resources
+  - tech interview practice
+  - company interview guides
+  - FAANG interview prep
+  - infrastructure learning
+  - cloud certification prep
+  - technical skills practice
+  - engineering resources
 ---
 
 # Practice & Resources

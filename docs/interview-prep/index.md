@@ -1,8 +1,22 @@
 ---
 id: index
-title: Interview Preparation
+title: Platform Engineering Interview Preparation Guide | Technical & Behavioral
 sidebar_label: Overview
 slug: /interview-prep
+description: Master platform engineering interviews with comprehensive prep for system design, coding challenges, behavioral questions, and technical skills assessment.
+keywords:
+  - platform engineering interview
+  - SRE interview preparation
+  - DevOps interview questions
+  - system design interview
+  - Kubernetes interview
+  - cloud engineering interview
+  - technical interview prep
+  - behavioral interview guide
+  - coding challenges platform
+  - infrastructure engineer interview
+  - interview preparation guide
+  - tech interview resources
 ---
 
 # Platform Engineering Interview Preparation

@@ -1,3 +1,21 @@
+---
+title: "Telegraf - Metrics Collection Agent"
+description: "Master Telegraf for metric collection: configure input plugins, process data, and export to InfluxDB, Prometheus, and other monitoring backends for observability."
+keywords:
+  - Telegraf
+  - metrics collection
+  - monitoring agent
+  - InfluxData
+  - Telegraf plugins
+  - metric aggregation
+  - data collection
+  - monitoring tools
+  - time-series metrics
+  - observability
+  - Telegraf configuration
+  - TICK stack
+---
+
 # Telegraf
 
 <GitHubButtons />

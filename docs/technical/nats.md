@@ -1,3 +1,21 @@
+---
+title: "NATS - Cloud-Native Messaging System"
+description: "Master NATS for distributed messaging: learn pub-sub patterns, JetStream persistence, clustering, and real-time communication for microservices and cloud-native apps."
+keywords:
+  - NATS
+  - messaging system
+  - pub-sub
+  - message broker
+  - JetStream
+  - distributed messaging
+  - NATS tutorial
+  - cloud-native messaging
+  - real-time messaging
+  - microservices communication
+  - CNCF NATS
+  - message streaming
+---
+
 # NATS
 
 <GitHubButtons />

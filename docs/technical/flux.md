@@ -1,3 +1,9 @@
+---
+title: "Flux - GitOps Continuous Delivery for Kubernetes"
+description: "Master Flux GitOps toolkit for Kubernetes. Learn pull-based deployments, progressive delivery, and multi-tenancy. Essential for modern platform engineering."
+keywords: [flux, gitops, kubernetes, continuous delivery, fluxcd, kubernetes automation, platform engineering, devops, cloud native, helm, progressive delivery, cncf]
+---
+
 # Flux
 
 <GitHubButtons />

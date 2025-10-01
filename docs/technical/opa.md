@@ -1,3 +1,21 @@
+---
+title: "OPA - Open Policy Agent"
+description: "Master OPA for policy as code: learn Rego language, policy enforcement, authorization, and unified policy management across microservices and cloud platforms."
+keywords:
+  - OPA
+  - Open Policy Agent
+  - policy as code
+  - Rego language
+  - policy enforcement
+  - authorization
+  - CNCF OPA
+  - policy management
+  - access control
+  - security policies
+  - policy testing
+  - cloud-native policy
+---
+
 # Open Policy Agent (OPA)
 
 <GitHubButtons />

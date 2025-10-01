@@ -1,3 +1,21 @@
+---
+title: "Backstage - Developer Portal Platform"
+description: "Master Backstage by Spotify: build internal developer portals, software catalogs, and platform engineering solutions. Learn plugins, templates, and TechDocs integration."
+keywords:
+  - backstage
+  - developer portal
+  - internal developer platform
+  - software catalog
+  - platform engineering
+  - backstage plugins
+  - developer experience
+  - Spotify backstage
+  - TechDocs
+  - service catalog
+  - developer tools
+  - IDP
+---
+
 # Backstage
 
 <GitHubButtons />

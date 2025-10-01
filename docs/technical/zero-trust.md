@@ -1,3 +1,21 @@
+---
+title: "Zero Trust - Modern Security Architecture"
+description: "Master Zero Trust security: implement identity-based access, micro-segmentation, continuous verification, and least-privilege principles for cloud-native infrastructure."
+keywords:
+  - Zero Trust
+  - zero trust architecture
+  - security architecture
+  - identity security
+  - zero trust security
+  - BeyondCorp
+  - micro-segmentation
+  - continuous verification
+  - least privilege
+  - NIST zero trust
+  - security model
+  - identity-based security
+---
+
 # Zero Trust Architecture
 
 <GitHubButtons />

@@ -1,3 +1,21 @@
+---
+title: "Linux Networking - Configuration and Troubleshooting"
+description: "Master Linux networking: learn TCP/IP, iptables, routing, network namespaces, iproute2, and troubleshooting tools for production infrastructure management."
+keywords:
+  - Linux networking
+  - network configuration
+  - iptables
+  - iproute2
+  - network troubleshooting
+  - TCP/IP
+  - Linux routing
+  - network namespaces
+  - netfilter
+  - network tools
+  - Linux firewall
+  - network administration
+---
+
 # Linux Networking
 
 <GitHubButtons />

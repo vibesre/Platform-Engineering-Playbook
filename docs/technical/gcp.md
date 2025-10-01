@@ -1,3 +1,9 @@
+---
+title: "GCP - Google's Data and AI Cloud Platform"
+description: "Master Google Cloud Platform with our comprehensive guide. Learn BigQuery, Kubernetes, and AI/ML services. Critical for data-focused platform engineering roles."
+keywords: [gcp, google cloud, bigquery, kubernetes engine, cloud platform, data analytics, machine learning, cloud infrastructure, platform engineering, serverless, gcp certification, cloud native]
+---
+
 # Google Cloud Platform (GCP)
 
 <GitHubButtons />

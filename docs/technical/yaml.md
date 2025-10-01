@@ -1,3 +1,21 @@
+---
+title: "YAML - Data Serialization Language"
+description: "Master YAML for configuration files: learn syntax, data structures, best practices for Kubernetes, CI/CD, and infrastructure as code configurations."
+keywords:
+  - YAML
+  - YAML syntax
+  - configuration files
+  - data serialization
+  - YAML tutorial
+  - Kubernetes YAML
+  - YAML format
+  - configuration language
+  - structured data
+  - YAML best practices
+  - markup language
+  - YAML validation
+---
+
 # YAML
 
 <GitHubButtons />

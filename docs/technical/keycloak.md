@@ -1,3 +1,21 @@
+---
+title: "Keycloak - Open Source Identity Management"
+description: "Master Keycloak for authentication and authorization: implement SSO, OAuth2, OIDC, SAML, and user federation for secure application access management."
+keywords:
+  - Keycloak
+  - identity management
+  - SSO
+  - single sign-on
+  - OAuth2
+  - OpenID Connect
+  - OIDC
+  - SAML
+  - authentication
+  - authorization
+  - IAM
+  - user federation
+---
+
 # Keycloak
 
 <GitHubButtons />

@@ -1,3 +1,21 @@
+---
+title: "Kyverno - Kubernetes Native Policy Management"
+description: "Master Kyverno for Kubernetes policy enforcement: validate, mutate, and generate resources with declarative policies. No new language required, just Kubernetes YAML."
+keywords:
+  - Kyverno
+  - Kubernetes policy
+  - policy enforcement
+  - admission control
+  - policy management
+  - Kubernetes security
+  - resource validation
+  - policy as code
+  - CNCF Kyverno
+  - Kubernetes governance
+  - compliance automation
+  - mutation policies
+---
+
 # Kyverno
 
 <GitHubButtons />

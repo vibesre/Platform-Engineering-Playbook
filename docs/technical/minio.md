@@ -1,3 +1,21 @@
+---
+title: "MinIO - High-Performance Object Storage"
+description: "Master MinIO for S3-compatible storage: deploy distributed object storage, learn data protection, multi-tenancy, and cloud-native backup strategies."
+keywords:
+  - MinIO
+  - object storage
+  - S3 compatible
+  - distributed storage
+  - MinIO tutorial
+  - cloud storage
+  - MinIO cluster
+  - data storage
+  - backup storage
+  - Kubernetes storage
+  - self-hosted storage
+  - S3 alternative
+---
+
 # MinIO
 
 <GitHubButtons />

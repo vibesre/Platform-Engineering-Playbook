@@ -1,3 +1,19 @@
+---
+title: "PostgreSQL - Advanced Open Source Database"
+description: "Learn PostgreSQL for enterprise database management. Master SQL, MVCC, indexing, and performance tuning for platform engineering roles and technical interviews."
+keywords:
+  - postgresql
+  - postgres
+  - relational database
+  - sql
+  - database administration
+  - mvcc
+  - postgresql tutorial
+  - acid transactions
+  - database optimization
+  - postgresql interview questions
+---
+
 # PostgreSQL
 
 <GitHubButtons />

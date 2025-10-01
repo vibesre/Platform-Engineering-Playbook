@@ -1,3 +1,21 @@
+---
+title: "JavaScript - Modern Web Development"
+description: "Master JavaScript for platform engineering: learn Node.js, async programming, APIs, and modern JavaScript for automation, tooling, and backend development."
+keywords:
+  - JavaScript
+  - Node.js
+  - JavaScript tutorial
+  - async programming
+  - Express.js
+  - npm
+  - backend JavaScript
+  - web development
+  - JavaScript automation
+  - modern JavaScript
+  - ES6
+  - JavaScript APIs
+---
+
 # JavaScript
 
 <GitHubButtons />

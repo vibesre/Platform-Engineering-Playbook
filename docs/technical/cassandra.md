@@ -1,3 +1,21 @@
+---
+title: "Apache Cassandra - Distributed NoSQL Database"
+description: "Master Apache Cassandra for distributed databases: learn CQL, data modeling, cluster management, and production operations for high-availability NoSQL workloads."
+keywords:
+  - apache cassandra
+  - cassandra database
+  - NoSQL database
+  - distributed database
+  - CQL
+  - cassandra data modeling
+  - cassandra tutorial
+  - wide column store
+  - database scalability
+  - cassandra cluster
+  - high availability
+  - distributed systems
+---
+
 # Apache Cassandra
 
 <GitHubButtons />

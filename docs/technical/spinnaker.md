@@ -1,3 +1,21 @@
+---
+title: "Spinnaker - Multi-Cloud Continuous Delivery"
+description: "Master Spinnaker for enterprise CD: automate deployments across AWS, GCP, Azure, and Kubernetes with advanced strategies like canary, blue-green, and rolling updates."
+keywords:
+  - Spinnaker
+  - continuous delivery
+  - CD platform
+  - multi-cloud deployment
+  - deployment automation
+  - Spinnaker pipelines
+  - canary deployment
+  - blue-green deployment
+  - Kubernetes deployment
+  - release management
+  - deployment strategies
+  - Netflix Spinnaker
+---
+
 # Spinnaker
 
 <GitHubButtons />

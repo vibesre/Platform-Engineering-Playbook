@@ -1,6 +1,59 @@
+---
+title: "Terraform - Infrastructure as Code Platform"
+description: "Master Terraform for infrastructure as code: learn AWS/Azure/GCP provisioning, modules, state management, and production best practices. Includes Terraform certification prep and interview questions."
+keywords:
+  - terraform
+  - infrastructure as code
+  - IaC
+  - terraform tutorial
+  - terraform AWS
+  - terraform Azure
+  - terraform GCP
+  - terraform interview questions
+  - terraform modules
+  - terraform state
+  - HashiCorp certified
+  - terraform best practices
+schema:
+  type: FAQPage
+  questions:
+    - question: "What is Terraform and when should you use it?"
+      answer: "Terraform is an open-source Infrastructure as Code (IaC) tool that provisions and manages cloud infrastructure through declarative configuration files. Use Terraform when you need to version control infrastructure, maintain consistency across environments, or manage multi-cloud deployments. With 46.6k GitHub stars and support for 3,000+ providers, it's ideal for teams wanting reproducible infrastructure, but overkill for simple single-server deployments or one-off manual changes."
+    - question: "What's the best learning path for Terraform beginners?"
+      answer: "Start by learning HCL syntax and basic resource definitions, then practice the core workflow: terraform init, plan, apply, and destroy. Begin with a single cloud provider (AWS, Azure, or GCP) to avoid complexity, create simple resources like VPCs and instances, then progress to modules and remote state management. Expect 4-6 weeks of consistent practice to become productive, and use HashiCorp's free tutorials before attempting certification."
+    - question: "What are common Terraform interview questions?"
+      answer: "Interviewers ask about state file management and remote backends, the difference between terraform plan and apply, how to handle secrets securely, module design patterns, and managing resource dependencies. Expect scenario questions about state drift, importing existing infrastructure, handling team collaboration with state locking, and the differences between count, for_each, and dynamic blocks. Senior roles require knowledge of workspace strategies and CI/CD integration."
+    - question: "Terraform vs Ansible vs CloudFormation - which tool should I use?"
+      answer: "Terraform excels at infrastructure provisioning across multiple clouds with 3,000+ providers, making it ideal for multi-cloud strategies. Use CloudFormation only for AWS-exclusive environments where deep AWS integration matters. Choose Ansible for configuration management and application deployment after infrastructure exists. Many teams use Terraform for infrastructure provisioning and Ansible for configuration, as they solve complementary problems - Terraform creates the servers, Ansible configures them."
+    - question: "What are Terraform state management best practices?"
+      answer: "Always use remote state backends (S3 with DynamoDB for AWS, Azure Storage, Terraform Cloud) to enable team collaboration and prevent state corruption. Enable state locking to prevent concurrent modifications, never commit state files to version control, and use separate state files per environment. Implement state backups, use workspaces judiciously (prefer separate directories), and regularly clean up unused resources to keep state files manageable under 10MB."
+    - question: "Is the HashiCorp Terraform Associate certification worth it for career growth?"
+      answer: "The HashiCorp Certified Terraform Associate certification validates foundational skills and typically increases salary offers by 10-20% for DevOps and platform engineering roles. With 92% of Fortune 500 companies using Terraform, certification demonstrates commitment and practical knowledge. The exam costs $70.50, requires hands-on experience (not just studying), and is valid for 2 years. Most valuable for engineers with 6-12 months Terraform experience seeking mid-level positions."
+    - question: "How do I handle Terraform state drift and conflicts?"
+      answer: "Detect drift by running terraform plan regularly to compare actual infrastructure with configuration. Use terraform refresh cautiously (it updates state without making changes) or terraform apply -refresh-only in newer versions. For conflicts, enable state locking with DynamoDB or equivalent, use terraform state commands to manually resolve issues, and implement automated drift detection in CI/CD. If state is corrupted, restore from backups and use terraform import to reconcile real infrastructure."
+---
+
 # Terraform
 
 <GitHubButtons />
+
+## Quick Answer
+
+**What is Terraform?**
+Terraform is an infrastructure as code (IaC) tool that enables declarative provisioning and management of cloud and on-premises infrastructure through configuration files.
+
+**Primary Use Cases**: Multi-cloud infrastructure provisioning, cloud resource automation, infrastructure versioning and compliance, disaster recovery infrastructure
+
+**Market Position**: 46.6k+ GitHub stars, used by 100+ million users globally (HashiCorp 2024), industry standard for cloud-agnostic IaC
+
+**Learning Time**: 2-4 weeks for basic usage, 2-3 months for production modules, 6-12 months to master state management and advanced patterns
+
+**Key Certifications**: HashiCorp Certified: Terraform Associate (003)
+
+**Best For**: Platform engineers managing multi-cloud infrastructure, teams implementing GitOps workflows, organizations requiring infrastructure versioning and compliance
+
+[Full guide below ↓](#-learning-resources)
+
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

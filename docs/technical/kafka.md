@@ -1,3 +1,19 @@
+---
+title: "Apache Kafka - Distributed Event Streaming Platform"
+description: "Learn Apache Kafka for real-time data streaming. Master topics, partitions, and stream processing for platform engineering interviews and event-driven architectures."
+keywords:
+  - apache kafka
+  - kafka
+  - event streaming
+  - message broker
+  - stream processing
+  - kafka tutorial
+  - distributed systems
+  - kafka streams
+  - kafka interview questions
+  - event driven architecture
+---
+
 # Apache Kafka
 
 <GitHubButtons />

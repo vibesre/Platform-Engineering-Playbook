@@ -1,3 +1,21 @@
+---
+title: "Container Security - Best Practices and Scanning"
+description: "Master container security: learn vulnerability scanning, image hardening, runtime security, and compliance with CIS benchmarks, NIST guidelines, and OWASP best practices."
+keywords:
+  - container security
+  - Docker security
+  - Kubernetes security
+  - image scanning
+  - vulnerability scanning
+  - container hardening
+  - runtime security
+  - CIS benchmark
+  - security best practices
+  - container compliance
+  - image security
+  - OWASP container security
+---
+
 # Container Security
 
 <GitHubButtons />

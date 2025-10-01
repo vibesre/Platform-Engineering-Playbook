@@ -1,3 +1,9 @@
+---
+title: "ArgoCD - GitOps Continuous Delivery for Kubernetes"
+description: "Master ArgoCD and GitOps with tutorials on continuous delivery, multi-cluster management, and deployment strategies. Includes interview questions and best practices."
+keywords: ["argocd", "argocd tutorial", "gitops", "continuous delivery", "kubernetes", "devops", "ci cd", "argocd interview questions", "deployment automation", "argo", "cloud native", "declarative deployment"]
+---
+
 # ArgoCD
 
 <GitHubButtons />

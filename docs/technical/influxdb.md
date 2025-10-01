@@ -1,3 +1,21 @@
+---
+title: "InfluxDB - Time-Series Database"
+description: "Master InfluxDB for time-series data: learn Flux query language, metric storage, data retention policies, and real-time monitoring for observability platforms."
+keywords:
+  - InfluxDB
+  - time-series database
+  - Flux query language
+  - metrics database
+  - InfluxDB tutorial
+  - time-series data
+  - monitoring database
+  - InfluxData
+  - real-time analytics
+  - metric storage
+  - observability
+  - TSDB
+---
+
 # InfluxDB
 
 <GitHubButtons />

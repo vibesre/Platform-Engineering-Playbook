@@ -1,3 +1,21 @@
+---
+title: "API Gateway - Traffic Management and Security"
+description: "Learn API Gateway patterns with Kong, AWS API Gateway, and NGINX: master rate limiting, authentication, routing, and microservices traffic management strategies."
+keywords:
+  - API gateway
+  - Kong gateway
+  - AWS API Gateway
+  - API management
+  - rate limiting
+  - API security
+  - microservices gateway
+  - API routing
+  - traffic management
+  - API authentication
+  - gateway patterns
+  - API proxy
+---
+
 # API Gateway
 
 <GitHubButtons />

@@ -1,6 +1,20 @@
 ---
-title: Platform Engineering Coding Challenges
+title: Platform Engineering Coding Challenges | Practice Problems & Solutions
 sidebar_position: 1
+description: Practice real-world platform engineering coding challenges covering infrastructure automation, monitoring, distributed systems, and resource management.
+keywords:
+  - platform engineering coding
+  - DevOps coding challenges
+  - infrastructure automation code
+  - system programming interview
+  - Kubernetes coding problems
+  - distributed systems coding
+  - monitoring system design
+  - resource management algorithms
+  - security coding challenges
+  - infrastructure interview code
+  - scripting interview questions
+  - technical coding problems
 ---
 
 # Platform Engineering Coding Challenges

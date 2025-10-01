@@ -34,7 +34,68 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+    localeConfigs: {
+      en: {
+        htmlLang: 'en-US',
+        label: 'English',
+      },
+    },
   },
+
+  // SEO metadata
+  headTags: [
+    // Preconnect to external domains for performance
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'dns-prefetch',
+        href: 'https://www.google-analytics.com',
+      },
+    },
+    // Meta tags for SEO
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'keywords',
+        content: 'platform engineering, SRE, DevOps, kubernetes, terraform, docker, AWS, interview preparation, site reliability engineering, DevOps engineer, cloud platforms, container orchestration',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'author',
+        content: 'Platform Engineering Playbook',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'robots',
+        content: 'index, follow',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:type',
+        content: 'website',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+    },
+  ],
 
   presets: [
     [
@@ -47,6 +108,7 @@ const config: Config = {
             'https://github.com/vibesre/Platform-Engineering-Playbook/tree/main/',
           showLastUpdateTime: false,
           showLastUpdateAuthor: false,
+          breadcrumbs: true,
         },
         blog: {
           showReadingTime: true,
@@ -59,6 +121,8 @@ const config: Config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
+          blogSidebarTitle: 'Recent Posts',
+          blogSidebarCount: 'ALL',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -66,6 +130,12 @@ const config: Config = {
         gtag: {
           trackingID: 'G-JYN3ZYTSNR',
           anonymizeIP: true,
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**', '/blog/tags/**', '/blog/archive'],
+          filename: 'sitemap.xml',
         },
       } satisfies Preset.Options,
     ],

@@ -1,3 +1,21 @@
+---
+title: "Linux Performance - Tuning and Optimization"
+description: "Master Linux performance analysis: learn profiling, benchmarking, system tuning, and optimization techniques with perf, BPF, and monitoring tools for production systems."
+keywords:
+  - Linux performance
+  - performance tuning
+  - system optimization
+  - performance analysis
+  - Linux profiling
+  - perf tools
+  - BPF
+  - eBPF
+  - performance monitoring
+  - system benchmarking
+  - resource optimization
+  - Linux tuning
+---
+
 # Linux Performance
 
 <GitHubButtons />

@@ -1,6 +1,20 @@
 ---
-title: System Design for Platform Engineers
+title: System Design for Platform Engineers | Interview Questions & Solutions
 sidebar_position: 1
+description: Master platform engineering system design interviews with real-world scenarios, architecture patterns, and scalability strategies for distributed systems.
+keywords:
+  - system design interview
+  - platform engineering architecture
+  - distributed systems design
+  - infrastructure system design
+  - scalability patterns
+  - cloud architecture interview
+  - Kubernetes system design
+  - microservices architecture
+  - system design questions
+  - technical architecture interview
+  - platform design patterns
+  - infrastructure architecture
 ---
 
 # System Design for Platform Engineers

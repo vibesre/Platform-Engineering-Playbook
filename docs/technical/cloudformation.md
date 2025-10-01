@@ -1,3 +1,9 @@
+---
+title: "CloudFormation - AWS Native Infrastructure as Code"
+description: "Master AWS CloudFormation templates and stacks. Learn declarative infrastructure automation for AWS. Essential knowledge for AWS-focused platform engineers."
+keywords: [cloudformation, aws, infrastructure as code, iac, aws automation, cloud infrastructure, yaml templates, aws devops, platform engineering, aws cdk, infrastructure automation, aws certification]
+---
+
 # CloudFormation
 
 <GitHubButtons />

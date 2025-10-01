@@ -1,3 +1,19 @@
+---
+title: "HashiCorp Vault - Secrets Management Platform"
+description: "Learn HashiCorp Vault for enterprise secrets management. Master dynamic secrets, authentication, and security policies for platform engineering and zero-trust architecture."
+keywords:
+  - hashicorp vault
+  - vault
+  - secrets management
+  - dynamic secrets
+  - security
+  - vault tutorial
+  - authentication
+  - encryption
+  - vault interview questions
+  - zero trust
+---
+
 # HashiCorp Vault
 
 <GitHubButtons />

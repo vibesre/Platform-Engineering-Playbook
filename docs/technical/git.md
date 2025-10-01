@@ -1,3 +1,9 @@
+---
+title: "Git - Distributed Version Control System"
+description: "Master Git version control with tutorials on branching, merging, rebasing, and workflows. Comprehensive guide with interview questions and best practices."
+keywords: ["git", "git tutorial", "version control", "github", "git workflow", "branching", "merging", "git interview questions", "devops", "source control", "git commands", "collaboration"]
+---
+
 # Git
 
 <GitHubButtons />

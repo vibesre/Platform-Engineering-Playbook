@@ -1,3 +1,21 @@
+---
+title: "New Relic - Application Performance Monitoring"
+description: "Master New Relic for observability: monitor applications, infrastructure, and logs. Learn NRQL querying, APM instrumentation, and distributed tracing strategies."
+keywords:
+  - New Relic
+  - APM
+  - application monitoring
+  - observability platform
+  - NRQL
+  - performance monitoring
+  - distributed tracing
+  - infrastructure monitoring
+  - application insights
+  - monitoring tools
+  - telemetry
+  - New Relic One
+---
+
 # New Relic
 
 <GitHubButtons />

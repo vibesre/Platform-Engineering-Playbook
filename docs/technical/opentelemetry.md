@@ -1,3 +1,21 @@
+---
+title: "OpenTelemetry - Observability Framework"
+description: "Master OpenTelemetry for unified observability: instrument applications, collect traces and metrics, and integrate with monitoring backends using vendor-neutral standards."
+keywords:
+  - OpenTelemetry
+  - observability
+  - distributed tracing
+  - metrics collection
+  - OTEL
+  - telemetry
+  - instrumentation
+  - CNCF OpenTelemetry
+  - tracing
+  - application monitoring
+  - observability framework
+  - telemetry data
+---
+
 # OpenTelemetry
 
 <GitHubButtons />

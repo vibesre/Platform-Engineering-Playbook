@@ -1,3 +1,21 @@
+---
+title: "Amazon DynamoDB - Managed NoSQL Database"
+description: "Master AWS DynamoDB: learn key-value and document database patterns, capacity planning, global tables, DynamoDB Streams, and performance optimization strategies."
+keywords:
+  - DynamoDB
+  - AWS DynamoDB
+  - NoSQL database
+  - key-value store
+  - DynamoDB tutorial
+  - serverless database
+  - DynamoDB streams
+  - global tables
+  - DynamoDB design patterns
+  - database scalability
+  - AWS database
+  - managed database
+---
+
 # Amazon DynamoDB
 
 <GitHubButtons />

@@ -1,3 +1,9 @@
+---
+title: "Kustomize - Template-Free Kubernetes Configuration"
+description: "Master Kustomize for Kubernetes configuration management. Learn bases, overlays, and GitOps patterns. Critical skill for platform engineering interviews."
+keywords: [kustomize, kubernetes, configuration management, gitops, kubernetes manifests, kubectl, platform engineering, devops, k8s customization, cloud native, kubernetes tools, infrastructure automation]
+---
+
 # Kustomize
 
 <GitHubButtons />

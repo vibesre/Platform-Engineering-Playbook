@@ -1,3 +1,21 @@
+---
+title: "Falco - Cloud-Native Runtime Security"
+description: "Master Falco for container runtime security: detect threats, create custom rules, monitor kernel events, and integrate security alerts with SIEM systems and incident response."
+keywords:
+  - Falco
+  - runtime security
+  - container security
+  - Kubernetes security
+  - threat detection
+  - Falco rules
+  - security monitoring
+  - CNCF Falco
+  - intrusion detection
+  - security alerts
+  - eBPF security
+  - cloud-native security
+---
+
 # Falco - Runtime Security for Containers
 
 <GitHubButtons />

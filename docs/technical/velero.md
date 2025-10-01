@@ -1,3 +1,21 @@
+---
+title: "Velero - Kubernetes Backup and Disaster Recovery"
+description: "Master Velero for Kubernetes backup: implement disaster recovery, cluster migration, and resource backup strategies with cloud-native backup automation."
+keywords:
+  - Velero
+  - Kubernetes backup
+  - disaster recovery
+  - cluster backup
+  - Kubernetes migration
+  - backup automation
+  - VMware Tanzu
+  - Kubernetes DR
+  - backup restoration
+  - cloud-native backup
+  - cluster migration
+  - persistent volume backup
+---
+
 # Velero
 
 <GitHubButtons />

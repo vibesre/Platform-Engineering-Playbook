@@ -1,3 +1,21 @@
+---
+title: "Platform Engineering - Internal Developer Platforms"
+description: "Master platform engineering: build internal developer platforms, improve developer experience, implement golden paths, and create self-service infrastructure."
+keywords:
+  - platform engineering
+  - internal developer platform
+  - IDP
+  - developer experience
+  - DevEx
+  - platform teams
+  - golden paths
+  - self-service infrastructure
+  - platform as a product
+  - developer productivity
+  - platform strategy
+  - Team Topologies
+---
+
 # Platform Engineering
 
 <GitHubButtons />

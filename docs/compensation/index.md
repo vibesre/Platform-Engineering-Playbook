@@ -1,6 +1,20 @@
 ---
-title: Compensation & Negotiation Guide
+title: Platform Engineer Compensation Guide | Salary Negotiation & Market Data
 sidebar_position: 1
+description: Master salary negotiation with comprehensive platform engineering compensation data, negotiation strategies, and total compensation analysis by level and location.
+keywords:
+  - platform engineer salary
+  - DevOps engineer compensation
+  - SRE salary guide
+  - tech salary negotiation
+  - software engineering salary
+  - cloud engineer salary
+  - compensation negotiation
+  - tech industry salary
+  - FAANG compensation
+  - total compensation analysis
+  - salary by experience level
+  - tech job offers negotiation
 ---
 
 # Compensation & Negotiation Guide for Platform Engineers

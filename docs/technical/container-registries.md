@@ -1,3 +1,21 @@
+---
+title: "Container Registries - Docker Hub, Harbor, ECR Guide"
+description: "Master container registries: learn Docker Hub, Harbor, AWS ECR, and Azure ACR. Secure image storage, vulnerability scanning, and registry management best practices."
+keywords:
+  - container registries
+  - Docker Hub
+  - Harbor registry
+  - AWS ECR
+  - Azure ACR
+  - Google GCR
+  - container images
+  - registry security
+  - image scanning
+  - OCI registry
+  - container storage
+  - private registry
+---
+
 # Container Registries
 
 <GitHubButtons />

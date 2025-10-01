@@ -1,3 +1,21 @@
+---
+title: "tmux - Terminal Multiplexer"
+description: "Master tmux for terminal management: learn sessions, windows, panes, customization, and productivity workflows for efficient server administration and development."
+keywords:
+  - tmux
+  - terminal multiplexer
+  - terminal sessions
+  - tmux tutorial
+  - terminal productivity
+  - session management
+  - terminal windows
+  - terminal panes
+  - tmux configuration
+  - command line tools
+  - terminal emulator
+  - remote sessions
+---
+
 # tmux
 
 <GitHubButtons />

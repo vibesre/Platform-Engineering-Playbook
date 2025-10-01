@@ -1,3 +1,9 @@
+---
+title: "Azure - Microsoft's Enterprise Cloud Platform"
+description: "Master Azure cloud platform with our comprehensive guide. Learn core services, hybrid cloud, and enterprise integration. Essential for platform engineering interviews."
+keywords: [azure, microsoft cloud, azure devops, cloud computing, azure kubernetes, enterprise cloud, azure architecture, hybrid cloud, platform engineering, cloud infrastructure, azure certification, infrastructure as code]
+---
+
 # Azure
 
 <GitHubButtons />

@@ -1,3 +1,21 @@
+---
+title: "Gatekeeper - Kubernetes Policy Controller"
+description: "Master Gatekeeper for Kubernetes policy enforcement: write OPA Rego policies, create constraint templates, implement admission control, and enforce security standards."
+keywords:
+  - Gatekeeper
+  - Kubernetes policy
+  - OPA Gatekeeper
+  - admission control
+  - policy enforcement
+  - Rego language
+  - constraint templates
+  - Kubernetes security
+  - compliance automation
+  - CNCF Gatekeeper
+  - policy as code
+  - mutation policies
+---
+
 # Gatekeeper
 
 <GitHubButtons />

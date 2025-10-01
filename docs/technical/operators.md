@@ -1,3 +1,21 @@
+---
+title: "Kubernetes Operators - Application Automation"
+description: "Master Kubernetes Operators: build custom controllers, automate complex applications, and manage stateful workloads with operator pattern and Operator SDK."
+keywords:
+  - Kubernetes Operators
+  - operator pattern
+  - custom controllers
+  - Operator SDK
+  - Kubebuilder
+  - operator framework
+  - application automation
+  - stateful applications
+  - custom resources
+  - CRD
+  - operator lifecycle
+  - Kubernetes automation
+---
+
 # Kubernetes Operators
 
 <GitHubButtons />

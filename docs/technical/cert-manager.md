@@ -1,3 +1,21 @@
+---
+title: "cert-manager - Kubernetes Certificate Management"
+description: "Master cert-manager for Kubernetes TLS certificates: automate Let's Encrypt, manage certificate lifecycles, and secure ingress with automated certificate provisioning."
+keywords:
+  - cert-manager
+  - kubernetes certificates
+  - TLS certificates
+  - Let's Encrypt
+  - certificate automation
+  - kubernetes TLS
+  - ACME protocol
+  - certificate management
+  - ingress certificates
+  - SSL certificates
+  - kubernetes security
+  - certificate renewal
+---
+
 # cert-manager
 
 <GitHubButtons />

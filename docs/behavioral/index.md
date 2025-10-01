@@ -1,6 +1,20 @@
 ---
-title: Overview
+title: Behavioral Interview Guide for Platform Engineers | STAR Method & Examples
 sidebar_position: 1
+description: Ace behavioral interviews for platform, SRE, and DevOps roles with proven STAR method answers, leadership examples, and incident management scenarios.
+keywords:
+  - behavioral interview questions
+  - STAR method examples
+  - platform engineer interview
+  - SRE behavioral questions
+  - DevOps interview behavioral
+  - leadership interview questions
+  - incident management examples
+  - technical leadership interview
+  - soft skills interview
+  - collaboration examples
+  - conflict resolution interview
+  - tech interview behavioral
 ---
 
 # Behavioral Skills & Interviews

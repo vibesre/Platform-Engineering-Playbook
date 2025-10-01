@@ -1,3 +1,21 @@
+---
+title: "RabbitMQ - Message Broker for Microservices"
+description: "Master RabbitMQ for message queuing: learn AMQP protocol, exchange types, routing patterns, clustering, and reliable message delivery for distributed systems."
+keywords:
+  - RabbitMQ
+  - message broker
+  - message queue
+  - AMQP
+  - RabbitMQ tutorial
+  - message routing
+  - microservices messaging
+  - distributed messaging
+  - RabbitMQ cluster
+  - message patterns
+  - queue management
+  - asynchronous messaging
+---
+
 # RabbitMQ
 
 <GitHubButtons />

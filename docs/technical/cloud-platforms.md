@@ -1,3 +1,21 @@
+---
+title: "Cloud Platforms - AWS, Azure, GCP Guide"
+description: "Comprehensive guide to major cloud platforms: compare AWS, Azure, and GCP services. Learn cloud architecture, IAM, serverless, and multi-cloud strategies for platform engineers."
+keywords:
+  - cloud platforms
+  - AWS
+  - Azure
+  - Google Cloud Platform
+  - GCP
+  - cloud computing
+  - cloud services
+  - cloud architecture
+  - multi-cloud
+  - cloud comparison
+  - cloud providers
+  - cloud infrastructure
+---
+
 # Cloud Platforms & Services
 
 <GitHubButtons />

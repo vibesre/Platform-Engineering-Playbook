@@ -1,3 +1,21 @@
+---
+title: "VMware vSphere - Enterprise Virtualization Platform"
+description: "Master VMware vSphere: learn ESXi hypervisor, vCenter management, VM operations, networking, storage, and high availability for enterprise virtualization."
+keywords:
+  - VMware
+  - vSphere
+  - ESXi
+  - virtualization
+  - vCenter
+  - hypervisor
+  - VMware administration
+  - virtual machines
+  - enterprise virtualization
+  - VMware infrastructure
+  - datacenter virtualization
+  - VMware tutorial
+---
+
 # VMware vSphere
 
 <GitHubButtons />

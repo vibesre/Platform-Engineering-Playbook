@@ -1,3 +1,20 @@
+---
+title: "Elasticsearch - Distributed Search and Analytics Engine"
+description: "Master Elasticsearch for full-text search and log analytics. Learn Query DSL, indexing, and cluster management for platform engineering roles and technical interviews."
+keywords:
+  - elasticsearch
+  - search engine
+  - elk stack
+  - log analytics
+  - query dsl
+  - indexing
+  - distributed search
+  - elasticsearch tutorial
+  - lucene
+  - kibana
+  - logstash
+---
+
 # Elasticsearch
 
 <GitHubButtons />

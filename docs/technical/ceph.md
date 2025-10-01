@@ -1,3 +1,21 @@
+---
+title: "Ceph - Distributed Storage System"
+description: "Master Ceph distributed storage: learn RADOS, RBD, CephFS, and object storage. Deploy scalable, fault-tolerant storage clusters for cloud and Kubernetes environments."
+keywords:
+  - ceph
+  - distributed storage
+  - ceph storage
+  - RADOS
+  - ceph cluster
+  - ceph tutorial
+  - software-defined storage
+  - block storage
+  - object storage
+  - CephFS
+  - rook ceph
+  - storage cluster
+---
+
 # Ceph
 
 <GitHubButtons />

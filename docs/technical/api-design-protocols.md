@@ -1,3 +1,21 @@
+---
+title: "API Design & Protocols - REST, GraphQL, gRPC Guide"
+description: "Complete guide to API design patterns and protocols: master REST, GraphQL, gRPC, and modern API best practices for building scalable, developer-friendly APIs."
+keywords:
+  - API design
+  - REST API
+  - GraphQL
+  - gRPC
+  - API protocols
+  - API best practices
+  - OpenAPI
+  - API patterns
+  - microservices APIs
+  - API architecture
+  - API documentation
+  - API standards
+---
+
 # API Design & Protocols
 
 <GitHubButtons />

@@ -1,3 +1,21 @@
+---
+title: "Kubecost - Kubernetes Cost Monitoring"
+description: "Master Kubecost for cloud cost optimization: track Kubernetes spending, allocate costs, monitor resources, and implement FinOps best practices with OpenCost integration."
+keywords:
+  - Kubecost
+  - Kubernetes cost
+  - cloud cost monitoring
+  - cost optimization
+  - FinOps
+  - OpenCost
+  - resource allocation
+  - cost analysis
+  - Kubernetes spending
+  - cloud spend
+  - cost visibility
+  - resource costs
+---
+
 # Kubecost
 
 <GitHubButtons />

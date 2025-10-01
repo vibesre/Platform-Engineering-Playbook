@@ -1,3 +1,19 @@
+---
+title: "GitHub Actions - Cloud-Native CI/CD Platform"
+description: "Master GitHub Actions for workflow automation and CI/CD. Learn YAML syntax, marketplace actions, and matrix builds for platform engineering and DevOps interviews."
+keywords:
+  - github actions
+  - ci cd
+  - workflow automation
+  - github
+  - devops
+  - continuous integration
+  - yaml
+  - github actions tutorial
+  - actions marketplace
+  - github interview questions
+---
+
 # GitHub Actions
 
 <GitHubButtons />

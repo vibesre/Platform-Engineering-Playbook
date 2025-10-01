@@ -1,3 +1,21 @@
+---
+title: "Consul Connect - Service Mesh by HashiCorp"
+description: "Master Consul Connect service mesh: learn service-to-service authentication, mTLS, traffic management, and multi-datacenter service networking with Envoy integration."
+keywords:
+  - Consul Connect
+  - service mesh
+  - HashiCorp Consul
+  - mTLS
+  - service discovery
+  - Envoy proxy
+  - service networking
+  - microservices security
+  - zero trust networking
+  - service-to-service authentication
+  - distributed systems
+  - multi-datacenter
+---
+
 # Consul Connect
 
 <GitHubButtons />

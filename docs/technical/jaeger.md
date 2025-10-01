@@ -1,3 +1,9 @@
+---
+title: "Jaeger - Distributed Tracing for Microservices"
+description: "Master Jaeger for distributed tracing and microservices observability. Learn trace analysis and performance debugging. Key for platform engineering interviews."
+keywords: [jaeger, distributed tracing, microservices, observability, opentelemetry, platform engineering, performance monitoring, service mesh, cloud native, cncf, tracing, devops]
+---
+
 # Jaeger
 
 <GitHubButtons />

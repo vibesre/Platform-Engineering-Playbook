@@ -1,8 +1,22 @@
 ---
 id: index
-title: Career Guide
+title: Platform Engineering Career Guide | Job Search & Career Development
 sidebar_label: Overview
 slug: /career-guide
+description: Navigate your platform engineering career from entry-level to leadership. Covers job search strategies, resume building, salary negotiation, and career growth.
+keywords:
+  - platform engineering career
+  - DevOps career path
+  - SRE career guide
+  - cloud engineer jobs
+  - platform engineer salary
+  - tech career development
+  - job search strategies
+  - resume optimization
+  - career progression tech
+  - engineering career advice
+  - infrastructure engineer career
+  - tech job hunting
 ---
 
 # Platform Engineering Career Guide

@@ -1,3 +1,21 @@
+---
+title: "etcd - Distributed Key-Value Store"
+description: "Master etcd for distributed systems: learn consensus algorithms, cluster management, and high-availability configuration. Understand Kubernetes' backing datastore."
+keywords:
+  - etcd
+  - distributed key-value store
+  - etcd cluster
+  - consensus algorithm
+  - Raft consensus
+  - etcd tutorial
+  - distributed systems
+  - Kubernetes etcd
+  - service discovery
+  - configuration management
+  - CNCF etcd
+  - high availability
+---
+
 # etcd
 
 <GitHubButtons />

@@ -1,3 +1,21 @@
+---
+title: "System Administration - Linux Server Management"
+description: "Master system administration: learn user management, service configuration, system monitoring, backup strategies, and security hardening for production Linux servers."
+keywords:
+  - system administration
+  - Linux administration
+  - server management
+  - sysadmin
+  - systemd
+  - system monitoring
+  - user management
+  - service configuration
+  - server maintenance
+  - Linux servers
+  - infrastructure management
+  - system operations
+---
+
 # System Administration
 
 <GitHubButtons />

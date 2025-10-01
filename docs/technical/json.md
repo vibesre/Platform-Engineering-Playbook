@@ -1,3 +1,21 @@
+---
+title: "JSON - JavaScript Object Notation"
+description: "Master JSON data format: learn syntax, schema validation, best practices for APIs, configuration files, and data interchange in modern web and platform engineering."
+keywords:
+  - JSON
+  - JavaScript Object Notation
+  - JSON format
+  - data interchange
+  - JSON schema
+  - API data format
+  - configuration format
+  - JSON syntax
+  - data serialization
+  - JSON tutorial
+  - structured data
+  - JSON validation
+---
+
 # JSON
 
 <GitHubButtons />

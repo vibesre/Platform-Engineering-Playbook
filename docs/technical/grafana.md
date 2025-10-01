@@ -1,3 +1,21 @@
+---
+title: "Grafana - Observability Visualization Platform"
+description: "Learn Grafana for monitoring dashboards and observability. Master data sources, alerting, and visualization for platform engineering interviews and production systems."
+keywords:
+  - grafana
+  - monitoring
+  - observability
+  - dashboard
+  - visualization
+  - prometheus
+  - metrics
+  - alerting
+  - grafana tutorial
+  - grafana interview questions
+  - platform engineering
+  - devops
+---
+
 # Grafana
 
 <GitHubButtons />

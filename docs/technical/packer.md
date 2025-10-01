@@ -1,3 +1,21 @@
+---
+title: "Packer - Machine Image Automation"
+description: "Master Packer for image automation: build consistent machine images for AWS, Azure, GCP, and VMware. Automate AMI, VM, and container image creation workflows."
+keywords:
+  - Packer
+  - machine images
+  - image automation
+  - HashiCorp Packer
+  - AMI creation
+  - VM images
+  - Packer tutorial
+  - infrastructure automation
+  - image building
+  - cloud images
+  - golden images
+  - immutable infrastructure
+---
+
 # Packer
 
 <GitHubButtons />

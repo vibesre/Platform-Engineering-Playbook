@@ -1,3 +1,9 @@
+---
+title: "Splunk - Enterprise Data Analytics and SIEM Platform"
+description: "Master Splunk for log analysis, security monitoring, and operational intelligence. Learn SPL and enterprise observability. Critical for security-focused roles."
+keywords: [splunk, log management, siem, security monitoring, spl, data analytics, enterprise monitoring, platform engineering, observability, splunk enterprise, log analysis, operational intelligence]
+---
+
 # Splunk
 
 <GitHubButtons />

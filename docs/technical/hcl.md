@@ -1,3 +1,21 @@
+---
+title: "HCL - HashiCorp Configuration Language"
+description: "Master HCL for infrastructure as code: learn Terraform syntax, variables, expressions, functions, and configuration patterns for HashiCorp tools and IaC workflows."
+keywords:
+  - HCL
+  - HashiCorp Configuration Language
+  - Terraform syntax
+  - configuration language
+  - HCL tutorial
+  - infrastructure as code
+  - Terraform language
+  - HCL expressions
+  - configuration files
+  - declarative syntax
+  - IaC language
+  - HashiCorp tools
+---
+
 # HCL
 
 <GitHubButtons />

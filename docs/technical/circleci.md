@@ -1,3 +1,21 @@
+---
+title: "CircleCI - Cloud CI/CD Platform"
+description: "Master CircleCI for continuous integration: learn pipeline configuration, orbs, workflows, and automated testing strategies for modern software delivery."
+keywords:
+  - CircleCI
+  - continuous integration
+  - CI/CD platform
+  - CircleCI tutorial
+  - CircleCI orbs
+  - pipeline automation
+  - CircleCI workflows
+  - automated testing
+  - deployment automation
+  - CircleCI configuration
+  - cloud CI/CD
+  - build automation
+---
+
 # CircleCI
 
 <GitHubButtons />

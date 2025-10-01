@@ -1,3 +1,21 @@
+---
+title: "OpenStack - Open Source Cloud Platform"
+description: "Master OpenStack for private cloud infrastructure: learn compute, storage, networking, and orchestration for building and managing on-premises cloud environments."
+keywords:
+  - OpenStack
+  - private cloud
+  - cloud infrastructure
+  - OpenStack tutorial
+  - IaaS platform
+  - cloud computing
+  - OpenStack deployment
+  - Nova compute
+  - Swift storage
+  - Neutron networking
+  - open source cloud
+  - cloud management
+---
+
 # OpenStack
 
 <GitHubButtons />

@@ -1,3 +1,9 @@
+---
+title: "Loki - Cost-Effective Log Aggregation Like Prometheus"
+description: "Master Grafana Loki for efficient log aggregation. Learn LogQL, label design, and cost optimization. Essential for cloud-native observability engineering."
+keywords: [loki, grafana loki, log aggregation, logql, prometheus, observability, platform engineering, cloud native, log management, grafana, kubernetes logging, devops]
+---
+
 # Loki
 
 <GitHubButtons />

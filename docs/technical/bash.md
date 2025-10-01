@@ -1,3 +1,9 @@
+---
+title: "Bash - System Automation and Scripting"
+description: "Master Bash shell scripting for system automation. Learn pipelines, scripting patterns, and Unix tools. Fundamental skill for all platform engineering roles."
+keywords: [bash, shell scripting, linux, unix, automation, devops, system administration, command line, platform engineering, scripting languages, infrastructure automation, bash programming]
+---
+
 # Bash
 
 <GitHubButtons />

@@ -1,3 +1,9 @@
+---
+title: "Pulumi - Infrastructure as Real Programming Code"
+description: "Master Pulumi IaC with TypeScript, Python, and Go. Learn modern infrastructure automation with real programming languages. Key for platform engineering interviews."
+keywords: [pulumi, infrastructure as code, iac, typescript, python, golang, cloud automation, infrastructure engineering, devops, platform engineering, terraform alternative, cloud infrastructure]
+---
+
 # Pulumi
 
 <GitHubButtons />

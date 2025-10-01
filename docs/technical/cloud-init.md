@@ -1,3 +1,21 @@
+---
+title: "Cloud-init - Cloud Instance Initialization"
+description: "Master cloud-init for automated VM configuration: learn user data, cloud-config, and instance initialization across AWS, Azure, GCP, and OpenStack platforms."
+keywords:
+  - cloud-init
+  - cloud instance initialization
+  - user data
+  - cloud-config
+  - VM automation
+  - instance configuration
+  - cloud provisioning
+  - AWS user data
+  - Azure custom script
+  - infrastructure automation
+  - VM bootstrapping
+  - cloud-init tutorial
+---
+
 # Cloud-init
 
 <GitHubButtons />

@@ -1,3 +1,21 @@
+---
+title: "Traefik - Cloud-Native Edge Router"
+description: "Master Traefik for dynamic routing: configure automatic service discovery, TLS management, middleware, and load balancing for Kubernetes and Docker environments."
+keywords:
+  - Traefik
+  - edge router
+  - reverse proxy
+  - Traefik proxy
+  - dynamic routing
+  - service discovery
+  - load balancer
+  - Kubernetes ingress
+  - TLS automation
+  - API gateway
+  - cloud-native proxy
+  - Traefik tutorial
+---
+
 # Traefik
 
 <GitHubButtons />

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow admin/build paths
+Disallow: /admin/
+Disallow: /.docusaurus/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://platformengineeringplaybook.com/sitemap.xml
+
+# Crawl rate
+Crawl-delay: 1

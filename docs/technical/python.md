@@ -1,3 +1,9 @@
+---
+title: "Python - Programming for Platform Engineering"
+description: "Learn Python for DevOps and automation. Complete guide with tutorials, libraries, testing, and scripting patterns. Includes interview questions and certification prep."
+keywords: ["python", "python tutorial", "python for devops", "automation", "scripting", "infrastructure automation", "python interview questions", "platform engineering", "boto3", "pytest", "python packages", "programming"]
+---
+
 # Python
 
 <GitHubButtons />

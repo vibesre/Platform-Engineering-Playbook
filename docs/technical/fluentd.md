@@ -1,3 +1,21 @@
+---
+title: "Fluentd - Unified Logging Layer"
+description: "Master Fluentd for log aggregation: collect, transform, and route logs from multiple sources. Build reliable logging pipelines with plugins and buffering strategies."
+keywords:
+  - Fluentd
+  - log aggregation
+  - log collection
+  - unified logging
+  - Fluentd plugins
+  - logging pipeline
+  - log forwarding
+  - CNCF Fluentd
+  - log parsing
+  - data collection
+  - observability
+  - log management
+---
+
 # Fluentd
 
 <GitHubButtons />

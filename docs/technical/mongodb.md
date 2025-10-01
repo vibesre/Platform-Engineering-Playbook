@@ -1,3 +1,19 @@
+---
+title: "MongoDB - Developer-Friendly Document Database"
+description: "Master MongoDB for NoSQL document storage. Learn schema design, aggregation, and sharding for platform engineering interviews and modern application development."
+keywords:
+  - mongodb
+  - nosql
+  - document database
+  - mongodb tutorial
+  - aggregation framework
+  - schema design
+  - mongodb atlas
+  - mongodb interview questions
+  - json database
+  - database scalability
+---
+
 # MongoDB
 
 <GitHubButtons />

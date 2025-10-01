@@ -1,3 +1,19 @@
+---
+title: "Redis - In-Memory Data Store and Cache"
+description: "Master Redis for caching and real-time data. Learn data structures, persistence, and clustering for platform engineering interviews and distributed systems."
+keywords:
+  - redis
+  - in-memory database
+  - cache
+  - data structures
+  - redis tutorial
+  - redis cluster
+  - pub sub
+  - redis sentinel
+  - nosql
+  - redis interview questions
+---
+
 # Redis
 
 <GitHubButtons />

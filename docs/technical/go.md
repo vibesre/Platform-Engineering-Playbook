@@ -1,3 +1,9 @@
+---
+title: "Go - Cloud Native Programming Language"
+description: "Master Go programming for cloud infrastructure. Learn concurrency, systems programming, and CLI tools. Top language for platform engineering interviews."
+keywords: [golang, go programming, cloud native, systems programming, concurrency, kubernetes, docker, platform engineering, devops tools, infrastructure programming, goroutines, microservices]
+---
+
 # Go
 
 <GitHubButtons />

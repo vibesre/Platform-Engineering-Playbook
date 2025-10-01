@@ -1,3 +1,21 @@
+---
+title: "containerd - Industry-Standard Container Runtime"
+description: "Master containerd container runtime: learn CRI integration, Kubernetes deployment, and container lifecycle management. Understand Docker's core runtime component."
+keywords:
+  - containerd
+  - container runtime
+  - CRI
+  - Kubernetes runtime
+  - container lifecycle
+  - containerd tutorial
+  - Docker runtime
+  - container orchestration
+  - container management
+  - CNCF containerd
+  - runtime security
+  - container operations
+---
+
 # containerd
 
 <GitHubButtons />

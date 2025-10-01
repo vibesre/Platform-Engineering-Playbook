@@ -1,3 +1,19 @@
+---
+title: "Jenkins - CI/CD Automation Server"
+description: "Learn Jenkins for continuous integration and deployment pipelines. Master pipeline syntax, plugins, and distributed builds for DevOps interviews and automation."
+keywords:
+  - jenkins
+  - ci cd
+  - continuous integration
+  - pipeline
+  - automation
+  - devops
+  - build automation
+  - jenkins tutorial
+  - jenkinsfile
+  - jenkins interview questions
+---
+
 # Jenkins
 
 <GitHubButtons />

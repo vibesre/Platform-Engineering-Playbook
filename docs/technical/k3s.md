@@ -1,3 +1,21 @@
+---
+title: "K3s - Lightweight Kubernetes"
+description: "Master K3s for edge and IoT: deploy lightweight Kubernetes clusters, learn resource optimization, single-binary installation, and production-ready edge computing."
+keywords:
+  - K3s
+  - lightweight Kubernetes
+  - edge Kubernetes
+  - K3s tutorial
+  - Rancher K3s
+  - IoT Kubernetes
+  - single-node Kubernetes
+  - edge computing
+  - resource-efficient Kubernetes
+  - K3s cluster
+  - embedded Kubernetes
+  - minimal Kubernetes
+---
+
 # K3s
 
 <GitHubButtons />

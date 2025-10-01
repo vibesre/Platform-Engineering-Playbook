@@ -1,3 +1,21 @@
+---
+title: "Vim - Powerful Text Editor"
+description: "Master Vim for efficient text editing: learn modes, motions, commands, plugins, and productivity workflows for coding, system administration, and DevOps work."
+keywords:
+  - Vim
+  - text editor
+  - Vim tutorial
+  - code editor
+  - Neovim
+  - Vim commands
+  - text editing
+  - productivity tools
+  - command line editor
+  - Vim plugins
+  - modal editing
+  - developer tools
+---
+
 # Vim
 
 <GitHubButtons />
