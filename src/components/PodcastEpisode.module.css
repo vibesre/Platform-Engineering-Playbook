@@ -1,0 +1,79 @@
+.episode {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.subtitle {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.meta span {
+  font-size: 0.95rem;
+}
+
+.relatedGuide {
+  padding: 1rem;
+  background-color: var(--ifm-color-info-contrast-background);
+  border-left: 4px solid var(--ifm-color-info);
+  border-radius: 4px;
+  line-height: 1.6;
+}
+
+.relatedGuide a {
+  font-weight: 600;
+}
+
+.dialogue {
+  margin-top: 3rem;
+}
+
+.dialogue h3 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.loading, .error {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: var(--ifm-color-danger);
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .meta {
+    font-size: 0.875rem;
+  }
+}

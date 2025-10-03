@@ -1,0 +1,26 @@
+{
+  "id": "ai-platform-engineering-episode",
+  "title": "AI Platform Engineering - The Real Story Behind Shadow AI and Developer Productivity",
+  "subtitle": "",
+  "duration": "12-15 minutes",
+  "datePublished": "2025-10-02",
+  "relatedGuide": {
+    "title": "AI-Powered Platform Engineering",
+    "url": "/blog/2025-02-ai-powered-platform-engineering-beyond-the-hype"
+  },
+  "speakers": {
+    "Speaker 1": {
+      "name": "Jordan",
+      "role": "Host"
+    },
+    "Speaker 2": {
+      "name": "Alex",
+      "role": "Co-host"
+    }
+  },
+  "seo": {
+    "description": "",
+    "keywords": [],
+    "schema": "PodcastEpisode"
+  }
+}

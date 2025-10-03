@@ -1,0 +1,23 @@
+{
+  "id": "cloud-providers-episode",
+  "title": "Public Cloud Providers - The Real Story Behind Multi-Cloud Architecture",
+  "subtitle": "",
+  "duration": "25-30 minutes",
+  "datePublished": "2025-10-02",
+  "relatedGuide": null,
+  "speakers": {
+    "Speaker 1": {
+      "name": "Jordan",
+      "role": "Host"
+    },
+    "Speaker 2": {
+      "name": "Alex",
+      "role": "Co-host"
+    }
+  },
+  "seo": {
+    "description": "",
+    "keywords": [],
+    "schema": "PodcastEpisode"
+  }
+}

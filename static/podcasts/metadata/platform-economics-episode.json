@@ -1,0 +1,23 @@
+{
+  "id": "platform-economics-episode",
+  "title": "Platform Economics - Why Your 130 Tools Are Killing Your ROI",
+  "subtitle": "",
+  "duration": "18 minutes",
+  "datePublished": "2025-10-02",
+  "relatedGuide": null,
+  "speakers": {
+    "Speaker 1": {
+      "name": "Jordan",
+      "role": "Host"
+    },
+    "Speaker 2": {
+      "name": "Alex",
+      "role": "Co-host"
+    }
+  },
+  "seo": {
+    "description": "",
+    "keywords": [],
+    "schema": "PodcastEpisode"
+  }
+}

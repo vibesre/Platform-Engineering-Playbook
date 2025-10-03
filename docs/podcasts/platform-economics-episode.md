@@ -1,6 +1,7 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
+sidebar_label: "🎙️ Platform Economics"
 ---
 
 # Platform Economics - Why Your 130 Tools Are Killing Your ROI
@@ -9,8 +10,8 @@ hide_table_of_contents: false
 
 <GitHubButtons />
 
-**Duration:** 18 minutes  
-**Speakers:** Alex and Jordan  
+**Duration:** 18 minutes
+**Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
 > 📝 **Read the full blog post**: [The $261 Billion Problem: Why Your Platform Engineering ROI is Broken (And How to Fix It)](/blog/2025-01-platform-engineering-economics-hidden-costs-roi) - Comprehensive written analysis with actionable strategies and resource links.

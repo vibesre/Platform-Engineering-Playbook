@@ -1,6 +1,7 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
+sidebar_label: "🎙️ Public Cloud Providers"
 ---
 
 # Public Cloud Providers - The Real Story Behind Multi-Cloud Architecture
@@ -9,13 +10,11 @@ hide_table_of_contents: false
 
 <GitHubButtons />
 
-### Episode: Why Every Cloud Decision Is Really About Lock-In Trade-offs
-
-**Duration:** 25-30 minutes  
-**Speakers:** Alex and Jordan  
+**Duration:** 25-30 minutes
+**Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
-> 📚 **Read the technical guide**: [Cloud Platforms](/technical/cloud-platforms) - Comprehensive overview of AWS, Azure, GCP, and emerging cloud providers with learning resources and best practices.
+> 📝 **Read the technical guide**: [Cloud Platforms](/technical/cloud-platforms) - Comprehensive overview of AWS, Azure, GCP, and emerging cloud providers with learning resources and best practices.
 
 ---
 

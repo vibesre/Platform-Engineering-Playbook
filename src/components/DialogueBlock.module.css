@@ -1,0 +1,76 @@
+.dialogueBlock {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.dialogueBlock:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.jordan {
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+.alex {
+  border-left: 3px solid var(--ifm-color-success);
+}
+
+.speaker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.jordan .avatar {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+}
+
+.alex .avatar {
+  background: linear-gradient(135deg, var(--ifm-color-success) 0%, var(--ifm-color-success-dark) 100%);
+}
+
+.speakerName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.text {
+  flex: 1;
+  line-height: 1.7;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .speaker {
+    min-width: 60px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .speakerName {
+    font-size: 0.75rem;
+  }
+}
