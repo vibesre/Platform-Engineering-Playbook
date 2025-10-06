@@ -34,13 +34,13 @@ schema:
 
 You're paying $1,200/month for Vercel. Your AWS bill would be $300 for the same workload. But managing that infrastructure yourself means hiring a DevOps engineer at $150K/year. The math keeps changing, and nobody's showing you the real numbers.
 
-Welcome to the 2025 PaaS landscape, where the AWS complexity tax has spawned an entire industry of abstraction layers—each promising Heroku-like simplicity with cloud-scale performance. But which one actually delivers?
+Welcome to the 2025 PaaS landscape, where the [AWS](/technical/aws) complexity tax has spawned an entire industry of abstraction layers—each promising Heroku-like simplicity with cloud-scale performance. But which one actually delivers?
 
 This isn't another feature checklist. We've analyzed pricing models, tested deployment workflows, and talked to teams running production workloads on each platform. Here's what you actually need to know.
 
 ## Quick Answer (TL;DR)
 
-**Problem**: AWS offers unmatched scale and pricing, but managing it requires dedicated DevOps expertise. Simplified PaaS platforms charge 3-5x markups for convenience.
+**Problem**: [AWS](/technical/aws) offers unmatched scale and pricing, but managing it requires dedicated DevOps expertise. Simplified PaaS platforms charge 3-5x markups for convenience.
 
 **Solution**: New-generation PaaS platforms offer different trade-offs:
 - **Flightcontrol**: AWS infra in your account, managed interface ($97-397/month + AWS costs)
@@ -52,7 +52,7 @@ This isn't another feature checklist. We've analyzed pricing models, tested depl
 **ROI**: The break-even point varies by team size and workload, but generally:
 - <5 engineers: Use Railway or Render's free/hobby tiers
 - 5-15 engineers: Fly.io or Flightcontrol depending on AWS preference
-- 15+ engineers: Flightcontrol or self-managed with IaC
+- 15+ engineers: Flightcontrol or self-managed with [infrastructure as code](/technical/terraform)
 
 **Timeline**: Platform migration typically takes 2-4 weeks; ROI realized in 3-6 months
 
@@ -85,7 +85,7 @@ A mid-sized team (10-20 engineers) running typical web applications needs:
 - Monitoring and logging infrastructure
 - Disaster recovery plans
 
-Doing this properly requires 1-2 dedicated DevOps engineers ($150-200K each) or significant time from your existing team. Even with infrastructure-as-code tools like Terraform, you're looking at hundreds of hours of initial setup and ongoing maintenance.
+Doing this properly requires 1-2 dedicated DevOps engineers ($150-200K each) or significant time from your existing team. Even with infrastructure-as-code tools like [Terraform](/technical/terraform), you're looking at hundreds of hours of initial setup and ongoing maintenance.
 
 The 2024 Platform Engineering survey found that teams spend an average of 30% of their infrastructure time just maintaining deployment pipelines and dealing with AWS complexity ([Platform Engineering State of the Union, 2024](https://platformengineering.org/state-of-platform-engineering-2024)).
 
@@ -331,7 +331,7 @@ Render is cheaper: $64/month saved (44% less)
 
 ### Fly.io: Global Edge, Technical Control
 
-**What It Is**: Fly.io runs your Docker containers on hardware-isolated VMs (Fly Machines) distributed globally, with sub-100ms response times worldwide.
+**What It Is**: Fly.io runs your [Docker](/technical/docker) containers on hardware-isolated VMs (Fly Machines) distributed globally, with sub-100ms response times worldwide.
 
 **Pricing Model** ([verified January 2025](https://fly.io/docs/about/pricing/)):
 - **Pay-as-you-go**: No monthly minimum, per-second billing
