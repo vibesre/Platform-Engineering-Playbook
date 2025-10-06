@@ -35,7 +35,7 @@ interface PodcastEpisodeProps {
   episodeId: string;
 }
 
-export default function PodcastEpisode({ episodeId }: PodcastEpisodeProps): JSX.Element {
+export default function PodcastEpisode({ episodeId }: PodcastEpisodeProps): React.ReactElement {
   const [metadata, setMetadata] = useState<EpisodeMetadata | null>(null);
   const [dialogue, setDialogue] = useState<DialogueLine[]>([]);
   const [loading, setLoading] = useState(true);

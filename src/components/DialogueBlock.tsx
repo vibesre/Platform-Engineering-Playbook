@@ -7,7 +7,7 @@ interface DialogueBlockProps {
   text: string;
 }
 
-export default function DialogueBlock({ speaker, speakerName, text }: DialogueBlockProps): JSX.Element {
+export default function DialogueBlock({ speaker, speakerName, text }: DialogueBlockProps): React.ReactElement {
   const isJordan = speaker === 'Speaker 1';
 
   return (

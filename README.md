@@ -34,6 +34,23 @@ npm start
 
 This will start a local development server at `http://localhost:3000/`
 
+### Testing
+
+The project includes automated testing to ensure content quality:
+
+```bash
+# Validate MDX/Markdown files
+npm run test:mdx
+
+# Run TypeScript type checking
+npm run typecheck
+
+# Run full test suite (including build)
+npm run test:all
+```
+
+**Pre-commit hooks automatically run tests** before each commit to prevent broken code from being committed. See [docs/TESTING.md](docs/TESTING.md) for details.
+
 ## Project Structure
 
 ```

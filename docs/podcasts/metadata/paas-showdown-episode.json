@@ -1,0 +1,11 @@
+{
+  "title": "PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io",
+  "duration": "12-15 minutes",
+  "speakers": ["Alex", "Jordan"],
+  "targetAudience": "Senior platform engineers, SREs, DevOps engineers with 5+ years experience",
+  "relatedContent": {
+    "blog": "/blog/2025-10-paas-showdown-flightcontrol-vercel-railway-render-fly",
+    "technicalGuides": []
+  },
+  "audioFile": "paas-showdown-episode.mp3"
+}

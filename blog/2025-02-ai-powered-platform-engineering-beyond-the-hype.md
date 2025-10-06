@@ -43,6 +43,8 @@ schema:
 
 # AI Platform Engineering: How to Implement AI Governance, Developer Tools & MLOps [2025 Guide]
 
+> 🎙️ **Listen to the podcast episode**: [AI-Powered Platform Engineering: Beyond the Hype](/podcasts/ai-platform-engineering-episode) - A deep dive conversation exploring AI governance, Shadow AI challenges, and practical implementation strategies with real-world examples.
+
 ## Quick Answer (TL;DR)
 
 **Problem**: 85% of organizations face Shadow AI challenges—employees using unauthorized AI tools without governance, creating security and compliance risks.

@@ -38,6 +38,8 @@ Welcome to the 2025 PaaS landscape, where the [AWS](/technical/aws) complexity t
 
 This isn't another feature checklist. We've analyzed pricing models, tested deployment workflows, and talked to teams running production workloads on each platform. Here's what you actually need to know.
 
+> 🎙️ **Listen to the podcast episode**: [PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io](/podcasts/paas-showdown-episode) - A deep dive conversation exploring these platforms with real-world pricing examples and decision frameworks.
+
 ## Quick Answer (TL;DR)
 
 **Problem**: [AWS](/technical/aws) offers unmatched scale and pricing, but managing it requires dedicated DevOps expertise. Simplified PaaS platforms charge 3-5x markups for convenience.
@@ -50,7 +52,7 @@ This isn't another feature checklist. We've analyzed pricing models, tested depl
 - **Fly.io**: Global edge deployment, technical control (pay-per-second)
 
 **ROI**: The break-even point varies by team size and workload, but generally:
-- <5 engineers: Use Railway or Render's free/hobby tiers
+- Under 5 engineers: Use Railway or Render's free/hobby tiers
 - 5-15 engineers: Fly.io or Flightcontrol depending on AWS preference
 - 15+ engineers: Flightcontrol or self-managed with [infrastructure as code](/technical/terraform)
 
@@ -410,7 +412,7 @@ Fly.io saves: ~$188/month (72% less)
 
 ### Scenario 1: Solo Developer Side Project
 
-**Workload**: Next.js blog, low traffic (<1000 visitors/month), needs database
+**Workload**: Next.js blog, low traffic (under 1000 visitors/month), needs database
 
 **Best Choice**: Render or Railway Free/Hobby
 
@@ -496,7 +498,7 @@ Winner: Flightcontrol saves ~$11K/month vs hiring,
 - ✅ Compliance requires infrastructure control
 - ✅ You're hitting cost ceilings on other platforms
 - ✅ You need AWS-specific services (SageMaker, etc.)
-- ❌ Avoid if: You're avoiding AWS, team <5 people, want simplest option
+- ❌ Avoid if: You're avoiding AWS, team under 5 people, want simplest option
 
 ### Use Vercel When:
 - ✅ Using Next.js heavily
@@ -518,7 +520,7 @@ Winner: Flightcontrol saves ~$11K/month vs hiring,
 - ✅ Want predictable monthly bills
 - ✅ Need generous free tier for side projects
 - ✅ Value simplicity over advanced features
-- ✅ Small team (<10 people)
+- ✅ Small team (under 10 people)
 - ✅ Don't need edge optimization
 - ❌ Avoid if: Need advanced features, global deployment
 

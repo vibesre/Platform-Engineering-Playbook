@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Pre-commit hook for Platform Engineering Playbook
+# Runs validation checks before allowing commits
+
+echo "🔍 Running pre-commit checks..."
+echo ""
+
+# 1. Validate MDX/Markdown files
+echo "📝 Validating MDX/Markdown files..."
+npm run test:mdx || exit 1
+echo ""
+
+# 2. Run TypeScript type checking
+echo "🔧 Checking TypeScript types..."
+npm run typecheck || exit 1
+echo ""
+
+# 3. Quick build test (faster than full build)
+echo "🏗️  Testing Docusaurus build..."
+npm run build || exit 1
+echo ""
+
+echo "✅ All pre-commit checks passed!"
+echo ""
