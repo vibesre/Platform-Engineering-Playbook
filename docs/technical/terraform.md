@@ -65,6 +65,7 @@ Terraform is an infrastructure as code (IaC) tool that enables declarative provi
 
 ### 📝 Specialized Guides
 - [Terraform Best Practices](https://www.terraform-best-practices.com/) - Community-driven recommendations
+- [Gruntwork Terraform Crash Course](https://gruntwork.io/blog/a-crash-course-on-terraform) - Comprehensive beginner guide
 - [Google Cloud Terraform Guide](https://cloud.google.com/docs/terraform) - GCP-specific patterns (2024)
 - [AWS Provider Best Practices](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/resource-tagging) - AWS tagging and organization
 - [Terraform Module Patterns](https://developer.hashicorp.com/terraform/language/modules/develop) - Reusable module design
@@ -72,13 +73,16 @@ Terraform is an infrastructure as code (IaC) tool that enables declarative provi
 
 ### 🎥 Video Tutorials
 - [Complete Terraform Course](https://www.youtube.com/watch?v=7xngnjfIlK4) - TechWorld with Nana (2.5 hours)
+- [HashiCorp Terraform Associate Certification](https://www.youtube.com/watch?v=SPcwo0Gq9T8) - Complete certification prep
 - [Terraform in 100 Seconds](https://www.youtube.com/watch?v=tomUWcQ0P3k) - Fireship quick intro
 - [HashiCorp Terraform Tutorials](https://www.youtube.com/playlist?list=PLtK75qxsQaMIHQOaDd0Zl_jOuu1m3vcWO) - Official series
 - [Terraform for AWS](https://www.youtube.com/watch?v=SLB_c_ayRMo) - freeCodeCamp course (2 hours)
 
 ### 🎓 Professional Courses
 - [HashiCorp Certified: Terraform Associate](https://www.hashicorp.com/certification/terraform-associate) - Official certification
+- [Terraform Associate Learning Path](https://developer.hashicorp.com/terraform/tutorials/certification-003/associate-study-003) - Official study guide
 - [Terraform Cloud Engineer](https://developer.hashicorp.com/terraform/tutorials) - Free HashiCorp tutorials
+- [Terraform for Beginners](https://www.coursera.org/projects/terraform-for-absolute-beginners) - Coursera guided project
 - [Infrastructure Automation](https://www.coursera.org/learn/terraform-gcp) - Google Cloud course (Free audit)
 - [Terraform Deep Dive](https://www.pluralsight.com/courses/terraform-deep-dive) - Advanced Pluralsight course (Paid)
 
