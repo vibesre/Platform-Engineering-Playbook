@@ -354,18 +354,6 @@ const sidebars: SidebarsConfig = {
           ]
         }
       ]
-    },
-    {
-      type: 'category',
-      label: 'Podcast Scripts',
-      collapsed: true,
-      collapsible: true,
-      items: [
-        'podcasts/ai-platform-engineering-episode',
-        'podcasts/cloud-providers-episode',
-        'podcasts/platform-economics-episode',
-        'podcasts/paas-showdown-episode'
-      ]
     }
   ]
 };

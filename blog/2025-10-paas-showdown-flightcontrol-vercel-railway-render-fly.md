@@ -38,7 +38,7 @@ Welcome to the 2025 PaaS landscape, where the [AWS](/technical/aws) complexity t
 
 This isn't another feature checklist. We've analyzed pricing models, tested deployment workflows, and talked to teams running production workloads on each platform. Here's what you actually need to know.
 
-> 🎙️ **Listen to the podcast episode**: [PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io](/podcasts/paas-showdown-episode) - A deep dive conversation exploring these platforms with real-world pricing examples and decision frameworks.
+> 🎙️ **Listen to the podcast episode**: [PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io](/podcasts/00004-paas-showdown) - A deep dive conversation exploring these platforms with real-world pricing examples and decision frameworks.
 
 ## Quick Answer (TL;DR)
 

@@ -1,7 +1,8 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ AI Platform Engineering"
+sidebar_label: "🎙️ #001: AI Platform Engineering"
+slug: 00001-ai-platform-engineering
 ---
 
 # AI Platform Engineering - The Real Story Behind Shadow AI and Developer Productivity

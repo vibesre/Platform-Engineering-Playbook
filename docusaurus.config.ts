@@ -163,6 +163,11 @@ const config: Config = {
           label: 'Blog',
         },
         {
+          to: '/podcasts',
+          position: 'left',
+          label: 'Podcast',
+        },
+        {
           href: 'https://github.com/vibesre/Platform-Engineering-Playbook',
           label: 'GitHub',
           position: 'right',

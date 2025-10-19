@@ -46,7 +46,7 @@ Welcome to platform engineering economics in 2025—where the hidden costs are k
 
 **Tool sprawl is costing you more than licenses:** With enterprises managing 130+ tools, engineers lose 3.8 hours daily to context switching (23 min per switch), custom tools consume 20-30% of team capacity for maintenance, and companies spend $400k on AI tools with only 29% developer trust. The real ROI metrics that matter: 40% fewer outages, 60% faster incident recovery, and understanding that downtime costs $500k-$1M per hour. Consolidate tools, measure outcomes not outputs, and treat your platform as a product developers actually want to use.
 
-> 🎙️ **Listen to the podcast episode**: [Platform Economics - Why Your 130 Tools Are Killing Your ROI](/podcasts/platform-economics-episode) - A deep dive conversation exploring these topics with real-world examples and expert insights.
+> 🎙️ **Listen to the podcast episode**: [Platform Economics - Why Your 130 Tools Are Killing Your ROI](/podcasts/00003-platform-economics) - A deep dive conversation exploring these topics with real-world examples and expert insights.
 
 ## Key Statistics (2025)
 

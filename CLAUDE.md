@@ -1163,7 +1163,7 @@ python3 scripts/ssml_utils.py
 
 **Workflow for New Podcast Episodes**:
 1. Write script in `docs/podcasts/scripts/00XXX-episode-name.txt`
-   - Use `Speaker 1:` and `Speaker 2:` format
+   - Use `Jordan:` and `Alex:` speaker format (NOT `Speaker 1:` and `Speaker 2:`)
    - Write naturally without pause/pronunciation tags initially
 2. Add pause tags: `python3 scripts/add_ssml_tags.py ../docs/podcasts/scripts --file 00XXX-episode-name.txt`
 3. Add pronunciation tags: `python3 scripts/add_pronunciation_tags.py ../docs/podcasts/scripts --file 00XXX-episode-name.txt`
@@ -1173,11 +1173,23 @@ python3 scripts/ssml_utils.py
    - Check pause placement (natural conversation flow)
    - Verify pronunciation tags on ALL technical terms
    - Test specific terms if uncertain
-5. Create episode page in `docs/podcasts/episode-name.md`
+5. Create episode page in `docs/podcasts/00XXX-episode-name.md`
+   - **MUST use same 5-digit episode prefix as script file**
+   - Add frontmatter with episode number and slug:
+     ```yaml
+     ---
+     displayed_sidebar: tutorialSidebar
+     hide_table_of_contents: false
+     sidebar_label: "🎙️ #XXX: Episode Title"
+     slug: 00XXX-episode-name
+     ---
+     ```
    - Copy dialogue from script
    - Strip ALL `[pause]` and pronunciation tags before publishing
    - Use `ssml_utils.py` to strip tags automatically
-6. Generate audio: `python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00XXX-episode-name.txt`
+   - Change `Jordan:` and `Alex:` to `**Jordan**:` and `**Alex**:` for formatting
+6. Update podcast index: Add episode to `docs/podcasts/index.md` with link `/podcasts/00XXX-episode-name`
+7. Generate audio: `python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00XXX-episode-name.txt`
    - Intro and outro automatically added
    - Pause tags converted to `<break>` SSML
    - Pronunciation tags preserved in SSML
@@ -1282,9 +1294,15 @@ The metadata .txt file is automatically generated during podcast creation and pl
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ [Episode Title]"
+sidebar_label: "🎙️ #001: [Episode Title]"
+slug: 00001-episode-name
 ---
 ```
+
+**IMPORTANT**:
+- `sidebar_label` must use format `🎙️ #XXX: Title` (with episode number)
+- `slug` must match filename without `.md` extension (e.g., `00001-episode-name`)
+- The slug preserves episode numbers in URLs for permanent, shareable links
 
 ### Page Header (EXACT format)
 ```markdown
@@ -1304,7 +1322,9 @@ sidebar_label: "🎙️ [Episode Title]"
 ```
 
 ### Required Elements Checklist
-- [ ] Frontmatter with `sidebar_label: "🎙️ [Title]"`
+- [ ] Frontmatter with `sidebar_label: "🎙️ #XXX: [Title]"` (episode number required)
+- [ ] Frontmatter with `slug: 00XXX-episode-name` (matches filename without .md)
+- [ ] Filename uses 5-digit episode prefix: `00005-topic-name.md`
 - [ ] H1 title with full episode name
 - [ ] `## The Platform Engineering Playbook Podcast`
 - [ ] `<GitHubButtons />` on its own line
@@ -1313,6 +1333,7 @@ sidebar_label: "🎙️ [Episode Title]"
 - [ ] `**Target Audience:**` exact text as above
 - [ ] Blockquote with 📝 emoji (consistent across all episodes)
 - [ ] Horizontal rule `---` after metadata
+- [ ] URL will be `/podcasts/00XXX-episode-name` (episode number preserved)
 
 ### Content Sections
 Follow the dialogue from the script with section headers like:
@@ -1328,17 +1349,84 @@ Format dialogue as:
 ```
 
 ### File Organization
-- **MD file**: `docs/podcasts/episode-name.md` (no prefix)
-- **Script file**: `docs/podcasts/scripts/00001-episode-name.txt` (with 5-digit prefix)
-- **Metadata file**: `docs/podcasts/metadata/episode-name.json` (no prefix)
+- **MD file**: `docs/podcasts/00001-episode-name.md` (with 5-digit episode prefix)
+- **Script file**: `docs/podcasts/scripts/00001-episode-name.txt` (with 5-digit episode prefix)
+- **Metadata file**: `docs/podcasts/metadata/episode-name.json` (no prefix - kept for compatibility)
+
+**URL Format**: Docusaurus uses the `slug` field from frontmatter to generate URLs:
+- File: `docs/podcasts/00001-ai-platform-engineering.md`
+- Slug: `slug: 00001-ai-platform-engineering`
+- URL: `/podcasts/00001-ai-platform-engineering` ✅ Episode number preserved!
 
 ### Creating New Episodes
-1. Increment episode number: `00004`, `00005`, etc.
-2. Create script: `docs/podcasts/scripts/00004-new-episode.txt`
-3. Create metadata: `docs/podcasts/metadata/new-episode.json`
-4. Create MD page: `docs/podcasts/new-episode.md` (use template above)
-5. Add to sidebar: `sidebars.ts` → `podcasts/new-episode`
-6. **CRITICAL**: Cross-link podcast and blog post (see below)
+
+**Step-by-Step Workflow**:
+
+1. **Determine episode number**: Check existing episodes, increment (e.g., `00005`, `00006`)
+
+2. **Create script file**: `docs/podcasts/scripts/00005-topic-name.txt`
+   - Use `Jordan:` and `Alex:` speaker format
+   - Write naturally, add SSML tags later
+
+3. **Create MD page**: `docs/podcasts/00005-topic-name.md`
+   - **MUST use same 5-digit prefix as script file**
+   - Add frontmatter with episode number and slug:
+   ```yaml
+   ---
+   displayed_sidebar: tutorialSidebar
+   hide_table_of_contents: false
+   sidebar_label: "🎙️ #005: Your Episode Title"
+   slug: 00005-topic-name
+   ---
+   ```
+
+4. **Update podcast index**: Add episode to `docs/podcasts/index.md`
+   - Link format: `[Episode Title](/podcasts/00005-topic-name)`
+   - Episode number must match file and slug
+
+5. **Cross-link with blog/docs** (if applicable):
+   - Blog → Podcast: `/podcasts/00005-topic-name`
+   - Podcast → Blog: `/blog/your-blog-post-slug`
+
+6. **Process script for TTS**:
+   - Add pause tags: `python3 scripts/add_ssml_tags.py`
+   - Add pronunciation tags: `python3 scripts/add_pronunciation_tags.py`
+
+7. **Generate audio**: `python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00005-topic-name.txt`
+
+**CRITICAL Checklist**:
+- [ ] Episode number consistent across: filename, slug, sidebar_label
+- [ ] Slug field matches filename (without `.md`)
+- [ ] Cross-links use numbered URLs (`/podcasts/00005-topic-name`)
+- [ ] Sidebar label uses `#005:` format
+- [ ] URL will be `/podcasts/00005-topic-name` (permanent & shareable)
+
+---
+
+### Why Episode Numbers in URLs?
+
+**Permanent & Shareable Links**:
+- External sharing is clear: `/podcasts/00001-ai-platform-engineering` shows it's Episode 1
+- No confusion when sharing on social media, newsletters, or documentation
+- Professional standard: Most podcasts use episode numbers in URLs
+
+**Future-Proof Against Collisions**:
+- Can create multiple episodes on same topic without URL conflicts
+- Example: `/podcasts/00001-ai-platform-engineering` (Episode 1)
+- Example: `/podcasts/00012-ai-platform-engineering` (Episode 12, revisiting topic)
+- Example: `/podcasts/00025-ai-platform-engineering-mlops` (Episode 25, specialized focus)
+
+**Chronological Organization**:
+- Files naturally sort by episode number in filesystem
+- URLs maintain episode order
+- Easy to reference: "See Episode 5 at /podcasts/00005-paas-showdown"
+
+**Industry Standard**:
+- Examples: Changelog Podcast (`/podcast/changelog-001`), Shop Talk Show (`/episodes/001-pilot-episode`), Syntax.fm (`/show/001-how-to-learn-javascript`)
+- Listeners expect numbered episodes in podcast URLs
+- Makes referencing episodes in show notes natural
+
+---
 
 ### Cross-Linking Requirement (MANDATORY)
 
@@ -1346,13 +1434,15 @@ Format dialogue as:
 
 #### In the Blog Post (after intro, before Quick Answer):
 ```markdown
-> 🎙️ **Listen to the podcast episode**: [Episode Title](/podcasts/episode-name) - Brief description highlighting conversation format and key topics.
+> 🎙️ **Listen to the podcast episode**: [Episode Title](/podcasts/00005-episode-name) - Brief description highlighting conversation format and key topics.
 ```
 
 **Example:**
 ```markdown
-> 🎙️ **Listen to the podcast episode**: [PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io](/podcasts/paas-showdown-episode) - A deep dive conversation exploring these platforms with real-world pricing examples and decision frameworks.
+> 🎙️ **Listen to the podcast episode**: [PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io](/podcasts/00004-paas-showdown) - A deep dive conversation exploring these platforms with real-world pricing examples and decision frameworks.
 ```
+
+**IMPORTANT**: Always use the numbered URL format (`/podcasts/00004-topic`) for permanent, shareable links.
 
 #### In the Podcast Page (in metadata section after speakers):
 ```markdown

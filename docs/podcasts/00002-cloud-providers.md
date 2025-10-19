@@ -1,7 +1,8 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ Public Cloud Providers"
+sidebar_label: "🎙️ #002: Public Cloud Providers"
+slug: 00002-cloud-providers
 ---
 
 # Public Cloud Providers - The Real Story Behind Multi-Cloud Architecture

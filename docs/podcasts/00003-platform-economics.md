@@ -1,7 +1,8 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ Platform Economics"
+sidebar_label: "🎙️ #003: Platform Economics"
+slug: 00003-platform-economics
 ---
 
 # Platform Economics - Why Your 130 Tools Are Killing Your ROI
