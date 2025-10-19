@@ -1195,6 +1195,11 @@ python3 scripts/ssml_utils.py
    - Pronunciation tags preserved in SSML
    - All XML characters properly escaped
    - Audio normalized and stitched
+8. (Optional) Generate video: `python3 scripts/generate_video.py output_latest/00XXX-episode-name.mp3`
+   - Creates MP4 video with looping background animation
+   - 1920x1080 Full HD resolution
+   - Suitable for YouTube, social media, website embedding
+   - See `podcast-generator/VIDEO_GENERATION.md` for details
 
 **MANDATORY Pronunciation Tags** (Never skip these):
 - Kubernetes, K8s, kubectl

@@ -43,6 +43,17 @@ schema:
 
 # AI Platform Engineering: How to Implement AI Governance, Developer Tools & MLOps [2025 Guide]
 
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%', marginBottom: '2rem'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/McKRXZvoNuY"
+    title="AI Platform Engineering Podcast Episode"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen>
+  </iframe>
+</div>
+
 > 🎙️ **Listen to the podcast episode**: [AI-Powered Platform Engineering: Beyond the Hype](/podcasts/00001-ai-platform-engineering) - A deep dive conversation exploring AI governance, Shadow AI challenges, and practical implementation strategies with real-world examples.
 
 ## Quick Answer (TL;DR)
