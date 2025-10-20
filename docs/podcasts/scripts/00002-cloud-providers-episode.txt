@@ -138,7 +138,7 @@ Jordan: Security has gotten more nuanced too. It's not just <say-as interpret-as
 
 Alex: And zero-trust architectures. The perimeter is gone. Every service needs to authenticate and authorize every request.
 
-Jordan: What about skills that are becoming less relevant? [pause] Manual server management, definitely. If you're still SSHing into servers to debug issues, you're doing it wrong. Everything should be observable through metrics and logs.
+Jordan: What about skills that are becoming less relevant? [pause] Manual server management, definitely. If you're still <phoneme alphabet="ipa" ph="ɛs ɛs eɪtʃ ɪŋ">SSHing</phoneme> into servers to debug issues, you're doing it wrong. Everything should be observable through metrics and logs.
 
 Alex: Here's a controversial one—I think deep <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> knowledge is becoming less important for most teams.
 
