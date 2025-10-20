@@ -1,11 +1,11 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ #003: Platform Economics"
+sidebar_label: "🎙️ #003: 130 Tools, 20% Utilization, $71K/Year Lost"
 slug: 00003-platform-economics
 ---
 
-# Platform Economics - Why Your 130 Tools Are Killing Your ROI
+# 130 Tools, 20% Utilization, $71K/Year Lost Per Engineer - The Platform Sprawl Tax
 
 ## The Platform Engineering Playbook Podcast
 

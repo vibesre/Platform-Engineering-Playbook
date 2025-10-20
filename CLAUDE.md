@@ -1059,9 +1059,19 @@ Alex: [Second speaker's dialogue]
 Jordan: [Continuation...]
 ```
 
-**CRITICAL**: Scripts MUST use `Jordan:` and `Alex:` as speaker names, NOT `Speaker 1:` and `Speaker 2:`. The TTS generator maps these names to specific voices:
-- `Jordan` → Kore voice (authoritative, slightly slower)
-- `Alex` → Algieba voice (energetic, normal speed)
+**CRITICAL**: Scripts MUST use `Jordan:` and `Alex:` as speaker names (NOT `Speaker 1:` and `Speaker 2:`).
+
+**Speaker Name Normalization**:
+- All speaker names are automatically normalized to lowercase
+- `Jordan` / `JORDAN` / `jordan` → `jordan`
+- `Alex` / `ALEX` / `alex` → `alex`
+- `Speaker 1` → `jordan` (legacy support)
+- `Speaker 2` → `alex` (legacy support)
+
+**Voice Mapping** (configured in `podcast-generator/config.yaml`):
+- `jordan` → `en-US-Chirp3-HD-Kore` (authoritative, 0.95x speed)
+- `alex` → `en-US-Chirp3-HD-Algieba` (energetic, 1.0x speed)
+- Unknown speakers cause immediate script failure (no silent fallbacks)
 
 **SSML Pause Tags** (W3C SSML Standard):
 - **Available tags in scripts**: `[pause short]`, `[pause]`, `[pause long]`
@@ -1112,16 +1122,25 @@ Speaker 1: We're deploying <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kuberne
 - Target: 100 words, Max: 200 words per chunk
 - Preserves natural conversation flow
 
-**TTS Best Practices** (Google Cloud Neural2):
-- Uses proper W3C SSML format with `<speak>`, `<break>`, `<phoneme>`, and `<say-as>` tags
-- **CRITICAL**: Chirp3-HD voices DO NOT support SSML - must use Neural2 or WaveNet
-- Voices: Jordan (Neural2-J female), Alex (Neural2-D male) - SSML-compatible
-- Speaking rates: Jordan 0.95x (authoritative), Alex 1.0x (energetic)
-- Pitch adjustment: Jordan -2.0 (slightly lower), Alex 0.0 (normal)
-- Sample rate: 24kHz (Neural2 standard)
+**TTS Best Practices** (Google Cloud Chirp3-HD):
+- **Voice Configuration**: Defined in `podcast-generator/config.yaml` (NEVER hardcoded)
+  - Jordan: `en-US-Chirp3-HD-Kore` (authoritative, 0.95x speed)
+  - Alex: `en-US-Chirp3-HD-Algieba` (energetic, 1.0x speed)
+  - Alternative voices configured as fallback chain
+- **Chirp3-HD Format**: Uses `markup` field with `[pause]` tags + `custom_pronunciations` API
+  - `[pause]` tags converted automatically (NOT full SSML)
+  - `<phoneme>` tags extracted and passed via custom_pronunciations API
+  - `<say-as>` tags stripped (Chirp3-HD handles acronyms naturally)
+  - NO other SSML tags supported (would cause errors)
+- **Voice Consistency System**:
+  - All voices validated on startup (fail fast if invalid)
+  - Voice metadata tracked in cache for every chunk
+  - Cache invalidated automatically if voice config changes
+  - See `podcast-generator/VOICE_SYSTEM.md` for details
 - Audio profile: `headphone-class-device` (optimized for podcast listening)
+- Sample rate: 24kHz (Chirp3-HD natural rate)
 - NO speaker names spoken in audio (handled by voice selection)
-- All XML special characters automatically escaped
+- All special characters properly escaped
 
 **SSML Tag Management** (CRITICAL - Read Carefully):
 - **In source scripts** (`docs/podcasts/scripts/*.txt`): Use simplified `[pause]` tags for readability
@@ -1189,17 +1208,23 @@ python3 scripts/ssml_utils.py
    - Use `ssml_utils.py` to strip tags automatically
    - Change `Jordan:` and `Alex:` to `**Jordan**:` and `**Alex**:` for formatting
 6. Update podcast index: Add episode to `docs/podcasts/index.md` with link `/podcasts/00XXX-episode-name`
-7. Generate audio: `python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00XXX-episode-name.txt`
-   - Intro and outro automatically added
-   - Pause tags converted to `<break>` SSML
-   - Pronunciation tags preserved in SSML
-   - All XML characters properly escaped
-   - Audio normalized and stitched
-8. (Optional) Generate video: `python3 scripts/generate_video.py output_latest/00XXX-episode-name.mp3`
-   - Creates MP4 video with looping background animation
-   - 1920x1080 Full HD resolution
-   - Suitable for YouTube, social media, website embedding
-   - See `podcast-generator/VIDEO_GENERATION.md` for details
+7. Generate audio and video: `python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00XXX-episode-name.txt`
+   - **Audio generation (MP3)**:
+     - Intro and outro automatically added
+     - Pause tags converted to `<break>` SSML
+     - Pronunciation tags preserved in SSML
+     - All XML characters properly escaped
+     - Audio normalized and stitched
+   - **Video generation (MP4)** - AUTOMATIC (lockstep with audio):
+     - Automatically generated after audio completes
+     - MP4 video with looping background animation
+     - 1920x1080 Full HD resolution
+     - Suitable for YouTube, social media, website embedding
+     - See `podcast-generator/VIDEO_GENERATION.md` for details
+   - **Both outputs** saved to `output_latest/`:
+     - `00XXX-episode-name.mp3` (audio)
+     - `00XXX-episode-name.mp4` (video)
+     - `00XXX-episode-name.txt` (metadata)
 
 **MANDATORY Pronunciation Tags** (Never skip these):
 - Kubernetes, K8s, kubectl
@@ -1210,6 +1235,48 @@ python3 scripts/ssml_utils.py
 - MLOps, AIOps, PaaS, IaaS, SaaS
 
 **Consult `PRONUNCIATION_GUIDE.md` for complete list** (80+ terms documented)
+
+**Regenerating Episodes After Edits** (Efficient Workflow):
+
+When making small changes to existing episodes (pronunciation fixes, typo corrections, single line edits):
+
+❌ **DON'T use `--force` flag unnecessarily**:
+```bash
+# This regenerates ALL chunks (expensive, slow, wasteful)
+python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00002-episode.txt --force
+```
+
+✅ **DO use selective regeneration** (default behavior):
+```bash
+# This only regenerates chunks that changed (efficient, fast)
+python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00002-episode.txt
+```
+
+**How Selective Regeneration Works**:
+- Script compares text content of each chunk against cached version
+- Only regenerates chunks where text actually changed
+- Reuses cached audio for unchanged chunks
+- Stitches everything together
+
+**Example**: Fixing "SSHing" pronunciation in episode 00002
+- Changed line 141 (in chunk 71 out of 108 total chunks)
+- WITHOUT `--force`: Regenerates ~15 seconds (1 chunk) ✅
+- WITH `--force`: Regenerates 23 minutes (108 chunks) ❌
+
+**When to Use `--force`**:
+- Voice settings changed (pitch, speed, voice selection)
+- SSML processing logic changed
+- Ensuring consistency across all chunks after major script refactor
+- Cache might be corrupted or outdated
+
+**Cost Impact**:
+- Selective: ~$0.002 for 1 chunk (200 words @ $0.000010/char)
+- Force: ~$0.20 for 108 chunks (21,600 words)
+- 100x cost difference for single-line edits!
+
+**After Regeneration**:
+- If only audio changed: No need to update episode .md page
+- If script dialogue changed: Update .md page and strip SSML tags
 
 ---
 
@@ -1224,12 +1291,12 @@ python3 scripts/ssml_utils.py
 ### Format (Optimized for Engagement)
 
 ```
-Title: [Compelling Episode Title - Value Proposition]
+Title: [EXACT H1 title from episode page - character-for-character match]
 
 Description:
 [2-3 engaging sentences that hook the listener and explain what they'll learn. Include a call-to-action to visit the episode page and contribute.]
 
-🔗 Full episode page: https://platformengineeringplaybook.com/podcasts/[episode-slug]
+🔗 Full episode page: https://platformengineeringplaybook.com/podcasts/[episode-slug with 5-digit number]
 
 📝 See a mistake or have insights to add? This podcast is community-driven - open a PR on GitHub to contribute your perspective!
 
@@ -1249,9 +1316,11 @@ Target Audience: Senior platform engineers, SREs, DevOps engineers with 5+ years
 ### Content Guidelines for Metadata Files
 
 **Title**:
-- Compelling and specific (not just "Episode 1")
-- Include value proposition
-- Example: "AI Platform Engineering Crisis - Shadow AI, Governance & AIOps That Works"
+- **CRITICAL**: Title MUST exactly match the H1 title on the episode page (e.g., `docs/podcasts/00002-cloud-providers.md`)
+- Check the episode page H1 (first heading after frontmatter) and copy it character-for-character
+- Include same punctuation (colons, dashes, etc.)
+- Example: If page says "Public Cloud Providers - The Real Story Behind Multi-Cloud Architecture", metadata file MUST use that exact title
+- **Common mistake**: Creating "engaging" titles for metadata that differ from the published episode page—this causes confusion across distribution channels
 
 **Description**:
 - Start with a hook (surprising stat, provocative question, or relatable problem)
@@ -1259,6 +1328,13 @@ Target Audience: Senior platform engineers, SREs, DevOps engineers with 5+ years
 - Include call-to-action to visit episode page
 - Mention community contribution opportunity
 - 2-3 sentences max
+
+**Episode URL**:
+- **CRITICAL**: URL MUST use the numbered slug format from frontmatter
+- Format: `https://platformengineeringplaybook.com/podcasts/00XXX-episode-name`
+- Check the episode page's `slug` field in frontmatter (NOT the filename)
+- Example: If `slug: 00002-cloud-providers`, URL is `/podcasts/00002-cloud-providers`
+- **Common mistake**: Using old slug format without episode numbers (e.g., `/podcasts/cloud-providers-episode`)
 
 **Summary**:
 - 5-7 bullet points

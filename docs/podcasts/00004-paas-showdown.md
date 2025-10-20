@@ -1,11 +1,11 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ #004: PaaS Showdown 2025"
+sidebar_label: "🎙️ #004: Same App: $41 vs $1,010"
 slug: 00004-paas-showdown
 ---
 
-# PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io
+# Same App: $41 on Railway vs $1,010 on Vercel - The Real Cost of 'Simple' PaaS
 
 ## The Platform Engineering Playbook Podcast
 

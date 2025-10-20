@@ -1,11 +1,11 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ #001: AI Platform Engineering"
+sidebar_label: "🎙️ #001: 75% of Your Team Uses Unauthorized AI"
 slug: 00001-ai-platform-engineering
 ---
 
-# AI Platform Engineering - The Real Story Behind Shadow AI and Developer Productivity
+# 75% of Your Team Uses Unauthorized AI - Why Your Blocking Strategy Backfires
 
 ## The Platform Engineering Playbook Podcast
 

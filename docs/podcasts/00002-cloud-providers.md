@@ -1,11 +1,11 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ #002: Public Cloud Providers"
+sidebar_label: "🎙️ #002: How 37signals Saved $2M/Year Leaving AWS"
 slug: 00002-cloud-providers
 ---
 
-# Public Cloud Providers - The Real Story Behind Multi-Cloud Architecture
+# How 37signals Saved $2M/Year Leaving AWS - The New Multi-Cloud Reality
 
 ## The Platform Engineering Playbook Podcast
 
