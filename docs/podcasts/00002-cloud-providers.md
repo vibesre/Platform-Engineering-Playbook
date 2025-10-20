@@ -1,11 +1,11 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ #002: How 37signals Saved $2M/Year Leaving AWS"
+sidebar_label: "🎙️ #002: Cloud Providers in 2025"
 slug: 00002-cloud-providers
 ---
 
-# How 37signals Saved $2M/Year Leaving AWS - The New Multi-Cloud Reality
+# Cloud Providers in 2025 - Platform Abstractions, GPU Dynamics, and the New Multi-Cloud Reality
 
 ## The Platform Engineering Playbook Podcast
 
@@ -16,6 +16,21 @@ slug: 00002-cloud-providers
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
 > 📝 **Read the technical guide**: [Cloud Platforms](/technical/cloud-platforms) - Comprehensive overview of AWS, Azure, GCP, and emerging cloud providers with learning resources and best practices.
+
+---
+
+## 🎥 Watch on YouTube
+
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/ouJd-LeZnZ8"
+    title="Cloud Providers in 2025 - Platform Engineering Playbook Podcast"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  />
+</div>
 
 ---
 

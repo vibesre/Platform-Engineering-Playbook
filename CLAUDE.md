@@ -1280,6 +1280,68 @@ python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00002-episode.txt
 
 ---
 
+## Episode Title Requirements (CRITICAL)
+
+**The single source of truth for episode titles is the SCRIPT CONTENT**, not aspirational marketing copy.
+
+### Title Derivation Process
+
+1. **Read the entire script** (`docs/podcasts/scripts/XXXXX-episode-name.txt`)
+2. **Identify the main topics actually discussed** in the dialogue
+3. **Create a title that accurately describes the script content**:
+   - Must reflect what listeners will actually hear
+   - Include 2-3 specific topics or technologies mentioned
+   - NO clickbait or stories not discussed in the script
+   - NO "How Company X Saved $Y" unless that story is actually told
+4. **Use the title consistently**:
+   - Episode page H1 (`docs/podcasts/XXXXX-episode-name.md`)
+   - Metadata file title (`podcast-generator/output_latest/XXXXX-episode-name.txt`)
+   - Sidebar label in frontmatter
+
+### Title Formula
+
+**Format**: `[Primary Topic] in [Year] - [2-3 Key Themes from Script]`
+
+**Examples of CORRECT titles** (based on actual script content):
+- ✅ `Cloud Providers in 2025 - Platform Abstractions, GPU Dynamics, and Multi-Cloud Reality`
+  - Script discusses: platform abstractions (Vercel, Fly.io), GPU shortage, multi-cloud specialization
+- ✅ `Kubernetes Best Practices - Production Readiness, Security, and Cost Optimization`
+  - Script discusses: production checklists, security hardening, cost reduction strategies
+
+**Examples of WRONG titles** (not matching script):
+- ❌ `How 37signals Saved $2M/Year Leaving AWS - The New Multi-Cloud Reality`
+  - If script NEVER discusses the 37signals story, this is FALSE ADVERTISING
+- ❌ `The Ultimate Guide to Docker`
+  - If script only covers Docker basics, this overpromises
+
+### Title Validation Checklist
+
+Before publishing, verify:
+- [ ] Read the full script file
+- [ ] Listed every major topic/technology discussed
+- [ ] Title mentions ONLY topics that appear in script
+- [ ] Title does NOT promise stories/examples not in script
+- [ ] Episode page H1 matches this title exactly
+- [ ] Metadata file title matches this title exactly
+- [ ] Sidebar label uses shortened version of title
+
+### Common Mistakes to Avoid
+
+1. **Aspirational titles**: "How X Saved Millions" when script never tells that story
+2. **Outdated titles**: Episode page still has old title after script was rewritten
+3. **Marketing titles**: Clickbait that doesn't match actual content
+4. **Mismatched titles**: Episode page says one thing, metadata says another
+
+### Fixing Mismatched Titles
+
+If you discover title doesn't match script:
+1. Read the script to understand actual content
+2. Update episode page H1 to reflect script
+3. Update metadata file title to match episode page H1
+4. Update sidebar_label in frontmatter
+
+---
+
 ## Podcast Episode Metadata Files (podcast-generator/output_latest/*.txt)
 
 **REQUIRED**: Every episode must have a companion `.txt` metadata file in `output_latest/` for distribution and engagement.
