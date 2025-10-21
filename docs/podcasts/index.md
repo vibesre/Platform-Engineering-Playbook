@@ -18,7 +18,47 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## Episodes
+## Courses
+
+Structured, multi-episode educational series designed for deep learning and skill mastery. Each course uses single-presenter lecture format optimized for retention with learning science principles (spaced repetition, active recall, progressive complexity).
+
+**Available Courses**:
+
+*No courses published yet. Coming soon!*
+
+<!-- Example course entry format:
+### 📖 [Course Name](/podcasts/courses/course-slug)
+
+[Brief 1-2 sentence description of what the course teaches]
+
+- **Episodes**: X lessons
+- **Duration**: ~Y hours total
+- **Level**: [Fundamentals/Intermediate/Advanced]
+- **Prerequisites**: [What you need to know before starting]
+
+**What You'll Learn**:
+- [Key outcome 1]
+- [Key outcome 2]
+- [Key outcome 3]
+
+---
+-->
+
+---
+
+## Latest Episodes
+
+Mix of podcast episodes (🎙️ conversational discussions) and course lessons (📖 structured learning):
+
+<!-- Course lessons will appear here mixed chronologically with podcast episodes
+Example:
+- 📖 **[Course: Kubernetes Fundamentals - Lesson 3](/podcasts/courses/kubernetes-fundamentals/lesson-03)** (15 min) - Understanding Pods
+- 🎙️ **[#005: PaaS Showdown 2025](/podcasts/00005-paas-showdown)** (14 min) - Brief description
+-->
+
+---
+
+## Podcast Episodes
 
 ### Episode 4: PaaS Showdown 2025
 

@@ -619,9 +619,30 @@ schema:
 
 ---
 
-## The Platform Engineering Playbook - Podcast Script Guide
+## Podcast Production
 
-Create natural conversations between two experienced engineers for senior platform professionals (5+ years) seeking strategic insights on technology choices, market dynamics, and skill optimization.
+### Using Claude Code Skills
+
+For podcast production, use the dedicated Claude Code skills in `.claude/skills/`:
+
+1. **podcast-research** - Topic discovery and community validation
+2. **podcast-outline** - Story planning with narrative frameworks (MANDATORY before script)
+3. **podcast-script** - Convert outline to natural Jordan/Alex dialogue
+4. **podcast-validate** - Fact-check statistics, verify sources, ensure accuracy
+5. **podcast-format** - Add SSML pause tags and pronunciation guidance
+6. **podcast-publish** - Generate audio/video, create episode page, update index
+
+Each skill contains detailed instructions, storytelling templates, quality checklists, and examples. This enforces the workflow (e.g., can't write script without outline) and ensures consistent quality.
+
+**Quick Start**: `"Use the podcast-research skill to find trending platform engineering topics"`
+
+---
+
+## Podcast Episode Requirements - Quick Reference
+
+**Target Audience**: Senior platform engineers, SREs, DevOps engineers (5+ years experience)
+
+**Voice**: Two experienced engineers (Jordan and Alex) having a strategic discussion with natural interruptions, respectful disagreement, and technical depth.
 
 ### ⚠️ CRITICAL: Intro/Outro Format (READ THIS FIRST)
 
@@ -659,957 +680,528 @@ Create natural conversations between two experienced engineers for senior platfo
 - ❌ NO thank yous or goodbyes (outro MP3 handles this)
 - ❌ NO "Keep building thoughtfully" or "Until next time" (outro MP3 handles this)
 
-### Core Requirements
+### Episode Structure
 
-**Audience**: Senior platform engineers, SREs, DevOps engineers who want nuanced comparisons and business context, not basic tutorials.
+**Duration**: 12-15 minutes of dialogue
 
-**Conversational Style**: True dialogue with natural interruptions, respectful disagreement, shared discoveries, and technical depth from production experience.
-
----
-
-## 📖 Storytelling Framework for Podcast Scripts
-
-**CRITICAL**: Before writing any podcast script, you MUST first create a narrative outline that establishes a compelling story arc. Technical content without narrative structure becomes a list of facts. Great podcasts teach through stories.
-
-### Phase 1: Story Planning (MANDATORY First Step)
-
-**Before writing dialogue, answer these questions:**
-
-1. **What's the Central Tension?**
-   - What problem/dilemma does the listener care about?
-   - What's at stake? (Money, time, career, team effectiveness)
-   - What makes this urgent NOW?
-
-2. **What's the Journey?**
-   - Where are we starting? (Current state, common belief)
-   - What discoveries do we make along the way?
-   - Where do we end up? (New understanding, decision framework)
-
-3. **What's the Emotional Arc?**
-   - Start: Recognition ("I've seen this problem")
-   - Middle: Discovery/Surprise ("Wait, THAT's why?")
-   - End: Empowerment ("Now I know what to do")
-
-4. **What's the Throughline?**
-   - One sentence that captures the episode's narrative journey
-   - Example: "From thinking PaaS is 'too expensive' to understanding the real cost equation"
-   - Example: "From drowning in AI governance to discovering the counterintuitive approach that actually works"
-
-### Story Structure Templates
-
-Choose one of these proven narrative structures before writing:
-
-#### 1. **The Mystery/Discovery Structure**
-- **Hook**: Present a puzzling situation or surprising fact
-- **Investigation**: Explore the evidence, test assumptions
-- **Revelation**: Uncover the real explanation
-- **Application**: How to use this insight
-- **Best for**: Technical deep-dives, comparing technologies
-
-**Example Outline**:
-```
-Hook: "Everyone says Kubernetes is overkill for small teams, but companies with 5 engineers are adopting it. Why?"
-Investigation: Look at what problems they're actually solving
-Revelation: It's not about scale, it's about standardization and hiring
-Application: Decision framework based on team composition, not size
-```
-
-#### 2. **The Before/After Transformation**
-- **Before State**: Common approach/belief and its problems
-- **Catalyst**: What forces change (incident, cost, growth)
-- **Journey**: What the transition looks like in practice
-- **After State**: New reality and specific outcomes
-- **Best for**: Platform engineering practices, organizational change
-
-**Example Outline**:
-```
-Before: Manual deployments, hero culture, knowledge silos
-Catalyst: Key engineer leaves, 3-day outage from tribal knowledge
-Journey: Painful process of documentation, automation, standardization
-After: 10x deployment frequency, reduced MTTR, team can take vacations
-```
-
-#### 3. **The Economic Detective Story**
-- **Apparent Cost**: Surface-level pricing comparison
-- **Hidden Costs**: Uncover what's not on the pricing page
-- **Real Calculation**: Build complete TCO model
-- **Surprising Conclusion**: Often opposite of initial assumption
-- **Best for**: PaaS comparisons, build vs buy decisions
-
-**Example Outline**:
-```
-Apparent: "$397/month vs free AWS? That's crazy expensive"
-Hidden: Engineering time, on-call burden, opportunity cost
-Real Calculation: $397 vs $15K/month in team time
-Surprising: The "expensive" option saves $175K/year
-```
-
-#### 4. **The Skills Evolution Arc**
-- **What Was Essential**: Technologies/skills that mattered 2-3 years ago
-- **What Changed**: Market shift, technology maturation, new problems
-- **What's Emerging**: Skills gaining importance now
-- **Strategic Positioning**: How to adapt your learning/hiring
-- **Best for**: Career guidance, team building, technology trends
-
-**Example Outline**:
-```
-Was: Deep Kubernetes expertise, custom observability stacks
-Changed: Managed services matured, AI workloads emerged
-Emerging: AI platform engineering, cost optimization, security automation
-Strategy: Upskill existing team vs hire specialists vs partner/buy
-```
-
-#### 5. **The Contrarian Take**
-- **Conventional Wisdom**: What "everyone knows" to be true
-- **Counter-Evidence**: Data/stories that don't fit the narrative
-- **Alternative Explanation**: A different way to see the problem
-- **When Each Applies**: Framework for context-specific truth
-- **Best for**: Challenging assumptions, nuanced comparisons
-
-**Example Outline**:
-```
-Conventional: "Microservices are the modern way to build systems"
-Counter: 90% of startups would ship faster with a monolith
-Alternative: Architecture should match team structure and maturity
-Framework: Monolith until X team size/complexity, then split strategically
-```
-
-### Narrative Techniques for Technical Content
-
-**1. The Anchoring Statistic**
-- Open with a number that challenges assumptions
-- Return to it throughout the episode
-- Example: "85% of organizations have shadow AI" → becomes recurring theme
-
-**2. The Case Study Arc**
-- Introduce a real company's situation (anonymized if needed)
-- Follow their decision-making process
-- Reveal outcomes (good and bad)
-- Extract lessons
-
-**3. The Thought Experiment**
-- "Let's design X from first principles"
-- Walk through decision points
-- Compare to actual market solutions
-- Discover why things evolved the way they did
-
-**4. The Historical Context Pattern**
-- "Five years ago, we solved this with X"
-- "That worked until Y changed"
-- "Now we're seeing Z emerge"
-- Creates perspective and anticipates future
-
-**5. The Devil's Advocate Dance**
-- One speaker presents best case
-- Other speaker pokes holes
-- First speaker concedes/refines
-- Builds nuanced understanding through respectful disagreement
-
-### Episode Outline Template (USE THIS)
-
-Before writing dialogue, complete this outline:
-
-```
-EPISODE TITLE: [Working title]
-NARRATIVE STRUCTURE: [Which template above?]
-CENTRAL TENSION: [What problem/dilemma?]
-THROUGHLINE: [One-sentence journey]
-
-ACT 1: SETUP (2-3 min)
-- Hook: [Surprising fact, compelling question, or relatable problem]
-- Stakes: [Why this matters to the listener NOW]
-- Promise: [What we'll discover/resolve by the end]
-
-ACT 2: EXPLORATION (5-7 min)
-- Discovery 1: [First key insight with supporting evidence]
-- Discovery 2: [Second key insight, builds on first]
-- Discovery 3: [Third insight, often counterintuitive]
-- Complication: [Where it gets interesting/nuanced]
-
-ACT 3: RESOLUTION (3-4 min)
-- Synthesis: [How insights connect into framework]
-- Application: [Practical decision-making guidance]
-- Empowerment: [What listener can do with this]
-
-EMOTIONAL BEATS:
-- Recognition moment: [Where listener thinks "I've been there"]
-- Surprise moment: [Where listener thinks "Wait, really?"]
-- Empowerment moment: [Where listener thinks "Now I know what to do"]
-
-KEY CALLBACKS:
-- [Concept from Act 1 that we return to in Act 3]
-- [Running theme that unifies disparate facts]
-```
-
-### Quality Checklist for Story-Driven Scripts
-
-Before considering a script complete:
-
-- [ ] **Throughline is clear**: Could you state the episode's journey in one sentence?
-- [ ] **Hook is compelling**: Would a listener keep listening after 60 seconds?
-- [ ] **Each section builds**: Does each part create momentum toward resolution?
-- [ ] **Insights connect**: Do discoveries build on each other vs random facts?
-- [ ] **Emotional beats land**: Are there 2-3 moments of recognition/surprise/empowerment?
-- [ ] **Callbacks create unity**: Do we return to opening themes/questions?
-- [ ] **Payoff satisfies**: Does the ending deliver on the opening promise?
-- [ ] **Narrative rhythm**: Does it feel like a story, not a bulleted list?
-- [ ] **Technical depth maintained**: Story serves the learning, not replaces it
-- [ ] **Listener value clear**: What can they DO differently after listening?
-
-### Anti-Patterns to Avoid
-
-**❌ The Encyclopedia Entry**
-- Just listing facts about technology without narrative
-- Fix: Use "mystery" or "economic detective" structure
-
-**❌ The Feature Tour**
-- Walking through features without connecting to real problems
-- Fix: Use "before/after transformation" with actual pain points
-
-**❌ The Meandering Discussion**
-- Topics connected only by being related to same technology
-- Fix: Establish throughline and cut anything that doesn't advance it
-
-**❌ The False Debate**
-- Creating artificial controversy for engagement
-- Fix: Use "contrarian take" only when genuinely nuanced
-
-**❌ The Abandoned Setup**
-- Opening with compelling question that never gets answered
-- Fix: Outline Act 3 resolution before writing Act 1 hook
-
-### Example: Transforming Facts Into Story
-
-**❌ BEFORE (List of Facts)**:
-```
-Speaker 1: PaaS platforms are getting popular.
-Speaker 2: Yeah, let's talk about pricing. Flightcontrol is $397/month...
-Speaker 1: Vercel is $20/month for Pro...
-Speaker 2: Railway has pay-as-you-go...
-[15 minutes of pricing details]
-```
-
-**✅ AFTER (Story Structure - Economic Detective)**:
-```
-Speaker 1: "A developer asked me: 'How can anyone justify $397/month for Flightcontrol when AWS is free?' It's a fair question. Until you do the actual math."
-
-Speaker 2: "Right, because we're comparing the wrong numbers. The real question isn't $397 vs $0. What are we actually comparing?"
-
-[Act 1: Setup - Establishes mystery of pricing]
-
-Speaker 1: "Let me walk through what happened when we calculated this for a 5-person team..."
-
-[Act 2: Exploration - Uncover hidden costs through case study]
-
-Speaker 2: "So the 'expensive' option saved them $175K per year. That's the part that doesn't show up in pricing pages."
-
-[Act 3: Resolution - Framework for real cost calculation]
-```
-
-### Outline Review Process
-
-**MANDATORY**: Before writing full dialogue:
-
-1. **Write the outline** using template above
-2. **Test the throughline**: Can you state the journey in one sentence?
-3. **Verify emotional beats**: Mark recognition/surprise/empowerment moments
-4. **Check building blocks**: Does each section create momentum?
-5. **Get feedback** (if possible): "Here's the story arc, does this sound compelling?"
-6. **ONLY THEN write dialogue** that brings the outline to life
-
-**Remember**: The outline is your story architecture. Dialogue is the execution. You can't build a compelling episode without first designing the narrative structure.
+**Sections**:
+1. Episode Introduction (30-45s) - Preview topics, set context
+2. Landscape Overview (3-4 min) - Market dynamics, design philosophy
+3. Technical Deep Dive (4-5 min) - Compare 2-3 solutions
+4. Underdogs & Specialists (2-3 min) - Niche players, emerging solutions
+5. Skills Evolution (3-4 min) - Table stakes, declining, rising importance
+6. Practical Wisdom (2 min) - Mistakes to avoid, decision frameworks
+7. Closing Thoughts (1-2 min) - Key insight, actionable takeaway
 
 ---
 
-### Episode Structure (12-15 minutes)
+## File Naming & URLs
 
-**IMPORTANT**: Scripts should NOT include intro/outro - these are handled by separate MP3 files.
+**Episode Numbers**: Use 5-digit prefix (00001, 00002, ..., 00099, 00100)
 
-**Intro MP3** (podcast-generator/intros/intro.mp3):
-- Welcomes listeners to the podcast
-- Explains the AI-powered, community-driven format
-- Invites contributions via platformengineeringplaybook.com
-- Standard intro plays before every episode
+**Files**:
+- Script: `docs/podcasts/scripts/00005-topic-name.txt`
+- Episode page: `docs/podcasts/00005-topic-name.md`
+- URL: `/podcasts/00005-topic-name` (permanent, shareable)
 
-**Outro MP3** (podcast-generator/outros/outro.mp3):
-- Thanks listeners
-- Directs to platformengineeringplaybook.com for content and GitHub
-- Encourages ratings and GitHub stars
-- Standard outro plays after every episode
-
-**Script Content** (what you write):
-1. **Episode Introduction** (30-45s): Direct preview of what the episode covers
-   - No "Welcome to the show" or host introductions
-   - Start with "Today we're diving into..."
-   - Preview 2-3 main topics to be covered
-   - Set context for why this matters now
-2. **Landscape Overview** (3-4 min): Current state, market dynamics, design philosophy evolution
-3. **Technical Deep Dive** (4-5 min): Compare 2-3 solutions from engineering and business perspectives
-4. **Underdogs & Specialists** (2-3 min): Niche players, regional leaders, emerging solutions
-5. **Skills Evolution** (3-4 min): What's table stakes, losing relevance, rising importance
-6. **Practical Wisdom** (2 min): Architectural mistakes, evaluation frameworks, boring tech principle
-7. **Closing Thoughts** (1-2 min): Key insight, actionable takeaway
-   - No "Thanks for listening" or goodbye messages
-   - End with practical takeaway or forward-looking statement
-   - Final line should feel conclusive but not like a formal signoff
-
-### Natural Conversation Techniques
-
-- **Building Momentum**: "You mentioned X earlier..." → "Oh yeah, that's a perfect example..."
-- **Respectful Disagreement**: "I'm not sure I fully agree..." → "How so?" → Context-specific perspectives
-- **Shared Learning**: "Wait, they're doing WHAT...?" → "I know, right? It sounds crazy until..."
-- **Technical Storytelling**: Reference real incidents, production failures, architectural decisions
-
-### Always Cover
-
-1. **Design Philosophy**: Original problems and solutions
-2. **Evolution**: How they've adapted to changing needs  
-3. **Trade-offs**: What you give up for benefits
-4. **Operational Reality**: Production experience
-5. **Team Impact**: Organizational effects
-6. **Future Direction**: Where technology is heading
-
-### Avoid
-
-- Basic explanations, absolute statements, marketing speak
-- Installation guides, outdated information
-- Focus on features over strategic implications
-
-### Research Sources
-
-- Production postmortems, engineering blogs from scale companies
-- GitHub issues, practitioner conference talks (not vendor pitches)
-- Job postings, compensation data for skill demand analysis
-
-### Show Branding
-
-**Name**: The Platform Engineering Playbook
-**Tagline**: "Where we dissect the technologies, trends, and decisions that shape platform engineering at scale"
-
-**Intro/Outro Handling**:
-- **DO NOT** write intro/outro text in scripts - handled by MP3 files
-- **Intro MP3 contains**: Welcome, show description, community invitation
-- **Outro MP3 contains**: Thanks, website link, GitHub star request
-
-**Script Opening Examples** (CORRECT):
-```
-✅ Good Example 1:
-Speaker 1: Today we're diving into the AI platform engineering crisis that 85% of organizations are facing right now. Shadow AI, governance that actually works, AIOps that delivers real ROI, and how to build platforms that support AI workloads without losing your mind.
-Speaker 2: We'll talk about why the "just ban AI tools" approach fails 100% of the time, and what actually works instead. Plus, we'll look at some genuinely impressive AIOps results and what this means for platform engineering careers.
-
-✅ Good Example 2:
-Speaker 1: Today we're diving into the twenty twenty-five PaaS landscape. Flightcontrol, Vercel, Railway, Render, Fly dot io—everyone's promising Heroku-like simplicity with cloud-scale performance. But which one actually delivers?
-Speaker 2: We'll break down the pricing models, compare real-world costs for the same workload, and give you a decision framework for choosing the right platform for your team size and technical expertise.
-```
-
-```
-❌ Bad Example (DO NOT DO THIS):
-Speaker 2: ...so they deployed GitHub Copilot to 2,000 developers, productivity went up 55%...
-Speaker 1: Wait, let me guess - the security team tried to block everything?
-Speaker 2: Worse. They blocked the official tools. Classic security theater backfire.
-Speaker 1: That's the perfect example of what we're diving into today. Welcome to The Platform Engineering Playbook - I'm Jordan.
-Speaker 2: I'm Alex. This is the show where we dissect the technologies...
-
-[This is WRONG - no cold opens, no welcomes, no host introductions!]
-```
-
-**Script Closing Examples** (CORRECT):
-```
-✅ Good Example 1:
-Speaker 1: The fundamentals of good engineering remain constant, even as the landscape evolves.
-Speaker 2: And that's what matters most - making thoughtful decisions for your teams and staying ahead of the curve.
-
-✅ Good Example 2:
-Speaker 2: The fundamentals of good engineering remain constant, even as the landscape evolves. Start with simplicity, prove the value, then scale to control as your needs grow.
-
-✅ Good Example 3:
-Speaker 1: Consolidation is coming whether we like it or not. The economics simply don't support 130-tool portfolios anymore. Start with one area, prove the value, and expand from there.
-```
-
-```
-❌ Bad Example (DO NOT DO THIS):
-Speaker 2: The fundamentals of good engineering remain constant, even as the landscape evolves.
-Speaker 1: That's what we're here for - cutting through the noise to help you make better decisions for your teams and your career.
-Speaker 2: Thanks for tuning in to The Platform Engineering Playbook. Keep building thoughtfully.
-Speaker 1: Until next time.
-
-[This is WRONG - the outro MP3 handles all the thanks/goodbye!]
-```
-
-**PROHIBITED PHRASES** (these are in intro/outro MP3s - NEVER include in scripts):
-- ❌ "Welcome to The Platform Engineering Playbook"
-- ❌ "I'm Jordan" / "I'm Alex"
-- ❌ "This is the show where we dissect..."
-- ❌ "That's what we're here for"
-- ❌ "Thanks for tuning in" / "Thanks for listening"
-- ❌ "Keep building thoughtfully"
-- ❌ "Until next time"
-- ❌ Any variation of cold open hooks that drop mid-conversation
-
-**Episode Naming**: "[Technology] - The Real Story Behind [Key Insight]"
-
-**Voice**: Two experienced engineers having a coffee chat about strategic technology decisions
-
-### Script Format & TTS Guidelines
-
-**Raw Script Format** (stored in `docs/podcasts/scripts/`):
-```
-Jordan: [First speaker's dialogue]
-Alex: [Second speaker's dialogue]
-Jordan: [Continuation...]
-```
-
-**CRITICAL**: Scripts MUST use `Jordan:` and `Alex:` as speaker names (NOT `Speaker 1:` and `Speaker 2:`).
-
-**Speaker Name Normalization**:
-- All speaker names are automatically normalized to lowercase
-- `Jordan` / `JORDAN` / `jordan` → `jordan`
-- `Alex` / `ALEX` / `alex` → `alex`
-- `Speaker 1` → `jordan` (legacy support)
-- `Speaker 2` → `alex` (legacy support)
-
-**Voice Mapping** (configured in `podcast-generator/config.yaml`):
-- `jordan` → `en-US-Chirp3-HD-Kore` (authoritative, 0.95x speed)
-- `alex` → `en-US-Chirp3-HD-Algieba` (energetic, 1.0x speed)
-- Unknown speakers cause immediate script failure (no silent fallbacks)
-
-**SSML Pause Tags** (W3C SSML Standard):
-- **Available tags in scripts**: `[pause short]`, `[pause]`, `[pause long]`
-- **Converts to SSML**:
-  - `[pause short]` → `<break strength="weak"/>`
-  - `[pause]` → `<break strength="medium"/>`
-  - `[pause long]` → `<break strength="strong"/>`
-- **Strategic placement** for natural pacing:
-  - After statistics/percentages: "increased 890% [pause]"
-  - After rhetorical questions: "What's the catch? [pause]"
-  - After dramatic reveals: "here's the kicker - [pause]"
-  - After contrast words: "But, [pause] there's more"
-  - In lists: "First, [pause short] second, [pause short] third"
-  - After emphatic statements: "That's transformational. [pause]"
-- **Auto-generation**: Use `python3 scripts/add_ssml_tags.py` to batch-add tags
-- **Example**: "Team efficiency improved 50%, [pause] but here's the stat that blew my mind - [pause] false positive alerts dropped 96%."
-- **Format**: Scripts use simplified `[pause]` syntax; TTS generator converts to proper SSML `<speak>` tags automatically
-- Use judiciously - too many pauses sound unnatural
-
-**Why Custom Tags?**
-- Easier to read/edit in plain text scripts
-- Automatically converted to proper SSML during TTS generation
-- All XML characters properly escaped
-- Follows Google Cloud Text-to-Speech SSML specification
-
-**Pronunciation Tags** (CRITICAL for Natural TTS):
-- **Reference Guide**: `podcast-generator/PRONUNCIATION_GUIDE.md` (comprehensive list)
-- **Common Mispronunciations** that MUST be tagged:
-  - **Kubernetes** → `<phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme>` (NOT "koo-ber-NET-eez")
-  - **PostgreSQL/Postgres** → `<phoneme alphabet="ipa" ph="ˈpoʊstɡrɛs">Postgres</phoneme>` (drop the Q-L)
-  - **Azure** → `<phoneme alphabet="ipa" ph="ˈæʒɚ">Azure</phoneme>` ("AZH-er" not "ah-ZOOR")
-  - **K8s** → `<phoneme alphabet="ipa" ph="keɪ eɪts">K8s</phoneme>` ("K eights" not "K eight S")
-  - **YAML** → `<phoneme alphabet="ipa" ph="ˈjæməl">YAML</phoneme>` ("YAM-ul" not "Y-A-M-L")
-  - **Nginx** → `<phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">Nginx</phoneme>` ("engine-X")
-  - **AWS, GCP, API, GPU, CPU, etc.** → Use `<say-as interpret-as="characters">TERM</say-as>`
-- **Auto-tagging**: `python3 scripts/add_pronunciation_tags.py` adds tags automatically
-- **Testing**: All pronunciation tags tested in `test_ssml_conversion.py`
-- **Format**: Tags preserved during SSML conversion (not escaped)
-
-**Example with Pronunciation Tags**:
-```
-Speaker 1: We're deploying <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> on <say-as interpret-as="characters">AWS</say-as> [pause] with <phoneme alphabet="ipa" ph="ˈpoʊstɡrɛs">Postgres</phoneme> as our database.
-```
-
-**Chunking Rules**:
-- Chunks NEVER break within a speaker's segment
-- Only chunk at speaker boundaries (Speaker 1 → Speaker 2 transitions)
-- Target: 100 words, Max: 200 words per chunk
-- Preserves natural conversation flow
-
-**TTS Best Practices** (Google Cloud Chirp3-HD):
-- **Voice Configuration**: Defined in `podcast-generator/config.yaml` (NEVER hardcoded)
-  - Jordan: `en-US-Chirp3-HD-Kore` (authoritative, 0.95x speed)
-  - Alex: `en-US-Chirp3-HD-Algieba` (energetic, 1.0x speed)
-  - Alternative voices configured as fallback chain
-- **Chirp3-HD Format**: Uses `markup` field with `[pause]` tags + `custom_pronunciations` API
-  - `[pause]` tags converted automatically (NOT full SSML)
-  - `<phoneme>` tags extracted and passed via custom_pronunciations API
-  - `<say-as>` tags stripped (Chirp3-HD handles acronyms naturally)
-  - NO other SSML tags supported (would cause errors)
-- **Voice Consistency System**:
-  - All voices validated on startup (fail fast if invalid)
-  - Voice metadata tracked in cache for every chunk
-  - Cache invalidated automatically if voice config changes
-  - See `podcast-generator/VOICE_SYSTEM.md` for details
-- Audio profile: `headphone-class-device` (optimized for podcast listening)
-- Sample rate: 24kHz (Chirp3-HD natural rate)
-- NO speaker names spoken in audio (handled by voice selection)
-- All special characters properly escaped
-
-**SSML Tag Management** (CRITICAL - Read Carefully):
-- **In source scripts** (`docs/podcasts/scripts/*.txt`): Use simplified `[pause]` tags for readability
-- **In episode pages** (`docs/podcasts/*.md`): SSML tags MUST BE stripped (never visible to readers)
-- **During TTS generation**: Automatically converted to proper W3C SSML format
-- **Conversion process**:
-  1. `[pause short]` → `<break strength="weak"/>`
-  2. `[pause]` → `<break strength="medium"/>`
-  3. `[pause long]` → `<break strength="strong"/>`
-  4. All XML special characters (`<`, `>`, `&`, `"`, `'`) are escaped
-  5. Wrapped in `<speak>...</speak>` root element
-- **Google Cloud TTS API Support**: Fully compliant with W3C SSML specification
-  - Supports all break strengths: x-weak, weak, medium, strong, x-strong
-  - Characters count toward API limits (including SSML tags)
-  - Special characters properly escaped per Google's requirements
-
-**Required for ALL New Scripts**:
-1. ✅ Use `[pause]` tags (not raw SSML) in source scripts
-2. ✅ Add pause tags strategically (see placement guide above)
-3. ✅ Strip pause tags when displaying on episode pages
-4. ✅ Test with: `python3 test_ssml_conversion.py`
-5. ✅ Validate: `python3 scripts/ssml_utils.py`
-
-**Generation Commands**:
-```bash
-# Generate podcast audio from script (with SSML tags and intro/outro)
-cd podcast-generator
-python3 scripts/generate_podcast.py ../docs/podcasts/scripts/episode-name.txt --force
-
-# Add SSML tags to scripts (batch process)
-python3 scripts/add_ssml_tags.py ../docs/podcasts/scripts
-
-# Test SSML conversion
-python3 test_ssml_conversion.py
-
-# Validate SSML tags in a script
-python3 scripts/ssml_utils.py
-```
-
-**Workflow for New Podcast Episodes**:
-1. Write script in `docs/podcasts/scripts/00XXX-episode-name.txt`
-   - Use `Jordan:` and `Alex:` speaker format (NOT `Speaker 1:` and `Speaker 2:`)
-   - Write naturally without pause/pronunciation tags initially
-2. Add pause tags: `python3 scripts/add_ssml_tags.py ../docs/podcasts/scripts --file 00XXX-episode-name.txt`
-3. Add pronunciation tags: `python3 scripts/add_pronunciation_tags.py ../docs/podcasts/scripts --file 00XXX-episode-name.txt`
-   - See `PRONUNCIATION_GUIDE.md` for full reference
-   - Script auto-tags common terms (AWS, Kubernetes, Postgres, etc.)
-4. Review and manually adjust:
-   - Check pause placement (natural conversation flow)
-   - Verify pronunciation tags on ALL technical terms
-   - Test specific terms if uncertain
-5. Create episode page in `docs/podcasts/00XXX-episode-name.md`
-   - **MUST use same 5-digit episode prefix as script file**
-   - Add frontmatter with episode number and slug:
-     ```yaml
-     ---
-     displayed_sidebar: tutorialSidebar
-     hide_table_of_contents: false
-     sidebar_label: "🎙️ #XXX: Episode Title"
-     slug: 00XXX-episode-name
-     ---
-     ```
-   - Copy dialogue from script
-   - Strip ALL `[pause]` and pronunciation tags before publishing
-   - Use `ssml_utils.py` to strip tags automatically
-   - Change `Jordan:` and `Alex:` to `**Jordan**:` and `**Alex**:` for formatting
-6. Update podcast index: Add episode to `docs/podcasts/index.md` with link `/podcasts/00XXX-episode-name`
-7. Generate audio and video: `python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00XXX-episode-name.txt`
-   - **Audio generation (MP3)**:
-     - Intro and outro automatically added
-     - Pause tags converted to `<break>` SSML
-     - Pronunciation tags preserved in SSML
-     - All XML characters properly escaped
-     - Audio normalized and stitched
-   - **Video generation (MP4)** - AUTOMATIC (lockstep with audio):
-     - Automatically generated after audio completes
-     - MP4 video with looping background animation
-     - 1920x1080 Full HD resolution
-     - Suitable for YouTube, social media, website embedding
-     - See `podcast-generator/VIDEO_GENERATION.md` for details
-   - **Both outputs** saved to `output_latest/`:
-     - `00XXX-episode-name.mp3` (audio)
-     - `00XXX-episode-name.mp4` (video)
-     - `00XXX-episode-name.txt` (metadata)
-
-**MANDATORY Pronunciation Tags** (Never skip these):
-- Kubernetes, K8s, kubectl
-- PostgreSQL, Postgres, MySQL, SQLite, Redis
-- Azure, Heroku, Vercel, Nginx
-- AWS, GCP, API, GPU, CPU, RAM (use say-as)
-- YAML, JSON (not XML, HTML, CSS)
-- MLOps, AIOps, PaaS, IaaS, SaaS
-
-**Consult `PRONUNCIATION_GUIDE.md` for complete list** (80+ terms documented)
-
-**Regenerating Episodes After Edits** (Efficient Workflow):
-
-When making small changes to existing episodes (pronunciation fixes, typo corrections, single line edits):
-
-❌ **DON'T use `--force` flag unnecessarily**:
-```bash
-# This regenerates ALL chunks (expensive, slow, wasteful)
-python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00002-episode.txt --force
-```
-
-✅ **DO use selective regeneration** (default behavior):
-```bash
-# This only regenerates chunks that changed (efficient, fast)
-python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00002-episode.txt
-```
-
-**How Selective Regeneration Works**:
-- Script compares text content of each chunk against cached version
-- Only regenerates chunks where text actually changed
-- Reuses cached audio for unchanged chunks
-- Stitches everything together
-
-**Example**: Fixing "SSHing" pronunciation in episode 00002
-- Changed line 141 (in chunk 71 out of 108 total chunks)
-- WITHOUT `--force`: Regenerates ~15 seconds (1 chunk) ✅
-- WITH `--force`: Regenerates 23 minutes (108 chunks) ❌
-
-**When to Use `--force`**:
-- Voice settings changed (pitch, speed, voice selection)
-- SSML processing logic changed
-- Ensuring consistency across all chunks after major script refactor
-- Cache might be corrupted or outdated
-
-**Cost Impact**:
-- Selective: ~$0.002 for 1 chunk (200 words @ $0.000010/char)
-- Force: ~$0.20 for 108 chunks (21,600 words)
-- 100x cost difference for single-line edits!
-
-**After Regeneration**:
-- If only audio changed: No need to update episode .md page
-- If script dialogue changed: Update .md page and strip SSML tags
+**Why Numbered URLs?**
+- Professional standard (Changelog, Syntax.fm, etc.)
+- Prevents collisions (can revisit topics with different episode numbers)
+- Chronological organization
+- Easy to reference in show notes
 
 ---
 
-## Episode Title Requirements (CRITICAL)
+## Episode Page Format
 
-**The single source of truth for episode titles is the SCRIPT CONTENT**, not aspirational marketing copy.
-
-### Title Derivation Process
-
-1. **Read the entire script** (`docs/podcasts/scripts/XXXXX-episode-name.txt`)
-2. **Identify the main topics actually discussed** in the dialogue
-3. **Create a title that accurately describes the script content**:
-   - Must reflect what listeners will actually hear
-   - Include 2-3 specific topics or technologies mentioned
-   - NO clickbait or stories not discussed in the script
-   - NO "How Company X Saved $Y" unless that story is actually told
-4. **Use the title consistently**:
-   - Episode page H1 (`docs/podcasts/XXXXX-episode-name.md`)
-   - Metadata file title (`podcast-generator/output_latest/XXXXX-episode-name.txt`)
-   - Sidebar label in frontmatter
-
-### Title Formula
-
-**Format**: `[Primary Topic] in [Year] - [2-3 Key Themes from Script]`
-
-**Examples of CORRECT titles** (based on actual script content):
-- ✅ `Cloud Providers in 2025 - Platform Abstractions, GPU Dynamics, and Multi-Cloud Reality`
-  - Script discusses: platform abstractions (Vercel, Fly.io), GPU shortage, multi-cloud specialization
-- ✅ `Kubernetes Best Practices - Production Readiness, Security, and Cost Optimization`
-  - Script discusses: production checklists, security hardening, cost reduction strategies
-
-**Examples of WRONG titles** (not matching script):
-- ❌ `How 37signals Saved $2M/Year Leaving AWS - The New Multi-Cloud Reality`
-  - If script NEVER discusses the 37signals story, this is FALSE ADVERTISING
-- ❌ `The Ultimate Guide to Docker`
-  - If script only covers Docker basics, this overpromises
-
-### Title Validation Checklist
-
-Before publishing, verify:
-- [ ] Read the full script file
-- [ ] Listed every major topic/technology discussed
-- [ ] Title mentions ONLY topics that appear in script
-- [ ] Title does NOT promise stories/examples not in script
-- [ ] Episode page H1 matches this title exactly
-- [ ] Metadata file title matches this title exactly
-- [ ] Sidebar label uses shortened version of title
-
-### Common Mistakes to Avoid
-
-1. **Aspirational titles**: "How X Saved Millions" when script never tells that story
-2. **Outdated titles**: Episode page still has old title after script was rewritten
-3. **Marketing titles**: Clickbait that doesn't match actual content
-4. **Mismatched titles**: Episode page says one thing, metadata says another
-
-### Fixing Mismatched Titles
-
-If you discover title doesn't match script:
-1. Read the script to understand actual content
-2. Update episode page H1 to reflect script
-3. Update metadata file title to match episode page H1
-4. Update sidebar_label in frontmatter
-
----
-
-## Podcast Episode Metadata Files (podcast-generator/output_latest/*.txt)
-
-**REQUIRED**: Every episode must have a companion `.txt` metadata file in `output_latest/` for distribution and engagement.
-
-### File Naming
-- MP3 file: `output_latest/00001-episode-name.mp3`
-- Metadata file: `output_latest/00001-episode-name.txt`
-
-### Format (Optimized for Engagement)
-
-```
-Title: [EXACT H1 title from episode page - character-for-character match]
-
-Description:
-[2-3 engaging sentences that hook the listener and explain what they'll learn. Include a call-to-action to visit the episode page and contribute.]
-
-🔗 Full episode page: https://platformengineeringplaybook.com/podcasts/[episode-slug with 5-digit number]
-
-📝 See a mistake or have insights to add? This podcast is community-driven - open a PR on GitHub to contribute your perspective!
-
-Summary:
-• [Key point 1 - concrete takeaway]
-• [Key point 2 - concrete takeaway]
-• [Key point 3 - concrete takeaway]
-• [Key point 4 - concrete takeaway]
-• [Key point 5 - concrete takeaway]
-
-Duration: [X minutes]
-
-Speakers: Alex and Jordan
-Target Audience: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
-```
-
-### Content Guidelines for Metadata Files
-
-**Title**:
-- **CRITICAL**: Title MUST exactly match the H1 title on the episode page (e.g., `docs/podcasts/00002-cloud-providers.md`)
-- Check the episode page H1 (first heading after frontmatter) and copy it character-for-character
-- Include same punctuation (colons, dashes, etc.)
-- Example: If page says "Public Cloud Providers - The Real Story Behind Multi-Cloud Architecture", metadata file MUST use that exact title
-- **Common mistake**: Creating "engaging" titles for metadata that differ from the published episode page—this causes confusion across distribution channels
-
-**Description**:
-- Start with a hook (surprising stat, provocative question, or relatable problem)
-- Explain what listeners will learn in concrete terms
-- Include call-to-action to visit episode page
-- Mention community contribution opportunity
-- 2-3 sentences max
-
-**Episode URL**:
-- **CRITICAL**: URL MUST use the numbered slug format from frontmatter
-- Format: `https://platformengineeringplaybook.com/podcasts/00XXX-episode-name`
-- Check the episode page's `slug` field in frontmatter (NOT the filename)
-- Example: If `slug: 00002-cloud-providers`, URL is `/podcasts/00002-cloud-providers`
-- **Common mistake**: Using old slug format without episode numbers (e.g., `/podcasts/cloud-providers-episode`)
-
-**Summary**:
-- 5-7 bullet points
-- Each bullet should be a concrete, actionable takeaway
-- Use specific numbers, tools, or frameworks mentioned
-- Avoid generic statements
-- Focus on "what you'll learn" not "what we discuss"
-
-**Example - Good vs Bad**:
-
-❌ Bad Summary:
-```
-• We talk about AI in platform engineering
-• Discussion of various governance approaches
-• Overview of AIOps tools
-```
-
-✅ Good Summary:
-```
-• Why 85% of organizations struggle with shadow AI and the governance approach that actually works
-• Real ROI from AIOps: 50% faster incident resolution and 96% reduction in false positives
-• Decision framework: when to embrace AI tools vs when to standardize
-• The counterintuitive "paved path" strategy that beats policy enforcement 100% of the time
-```
-
-### Auto-Generation
-
-The metadata .txt file is automatically generated during podcast creation and placed in `output_latest/`. When an episode is regenerated, the .txt file is updated in place (not moved to history).
-
----
-
-## Podcast Episode Page Format (docs/podcasts/*.md)
-
-**REQUIRED** format for all published podcast episode pages. All episodes MUST follow this exact structure:
-
-### Frontmatter
+**Frontmatter** (required):
 ```yaml
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ #001: [Episode Title]"
-slug: 00001-episode-name
+sidebar_label: "🎙️ #005: Episode Title"
+slug: 00005-episode-name
 ---
 ```
 
-**IMPORTANT**:
-- `sidebar_label` must use format `🎙️ #XXX: Title` (with episode number)
-- `slug` must match filename without `.md` extension (e.g., `00001-episode-name`)
-- The slug preserves episode numbers in URLs for permanent, shareable links
-
-### Page Header (EXACT format)
+**Page Header**:
 ```markdown
-# [Full Episode Title] - [Subtitle]
+# [Full Episode Title]
 
 ## The Platform Engineering Playbook Podcast
 
 <GitHubButtons />
 
-**Duration:** [X-Y minutes or X minutes]
+**Duration:** [X minutes]
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
-> 📝 **Read the [full blog post/technical guide]**: [Link Title](URL) - Brief description of related content.
+> 📝 **Read the [full blog post](/blog/related-slug)**: Description. (IF blog post exists)
 
 ---
 ```
 
-### Required Elements Checklist
-- [ ] Frontmatter with `sidebar_label: "🎙️ #XXX: [Title]"` (episode number required)
-- [ ] Frontmatter with `slug: 00XXX-episode-name` (matches filename without .md)
-- [ ] Filename uses 5-digit episode prefix: `00005-topic-name.md`
-- [ ] H1 title with full episode name
-- [ ] `## The Platform Engineering Playbook Podcast`
-- [ ] `<GitHubButtons />` on its own line
-- [ ] `**Duration:**` with NO trailing spaces
-- [ ] `**Speakers:** Alex and Jordan`
-- [ ] `**Target Audience:**` exact text as above
-- [ ] Blockquote with 📝 emoji (consistent across all episodes)
-- [ ] Horizontal rule `---` after metadata
-- [ ] URL will be `/podcasts/00XXX-episode-name` (episode number preserved)
-
-### Content Sections
-Follow the dialogue from the script with section headers like:
-- `### Cold Open`
-- `### [Topic Name]`
-- `### Closing Thoughts`
-
-Format dialogue as:
-```markdown
-**Alex**: Dialogue text here.
-
-**Jordan**: Response text here.
-```
-
-### File Organization
-- **MD file**: `docs/podcasts/00001-episode-name.md` (with 5-digit episode prefix)
-- **Script file**: `docs/podcasts/scripts/00001-episode-name.txt` (with 5-digit episode prefix)
-- **Metadata file**: `docs/podcasts/metadata/episode-name.json` (no prefix - kept for compatibility)
-
-**URL Format**: Docusaurus uses the `slug` field from frontmatter to generate URLs:
-- File: `docs/podcasts/00001-ai-platform-engineering.md`
-- Slug: `slug: 00001-ai-platform-engineering`
-- URL: `/podcasts/00001-ai-platform-engineering` ✅ Episode number preserved!
-
-### Creating New Episodes
-
-**Step-by-Step Workflow**:
-
-1. **Determine episode number**: Check existing episodes, increment (e.g., `00005`, `00006`)
-
-2. **Create script file**: `docs/podcasts/scripts/00005-topic-name.txt`
-   - Use `Jordan:` and `Alex:` speaker format
-   - Write naturally, add SSML tags later
-
-3. **Create MD page**: `docs/podcasts/00005-topic-name.md`
-   - **MUST use same 5-digit prefix as script file**
-   - Add frontmatter with episode number and slug:
-   ```yaml
-   ---
-   displayed_sidebar: tutorialSidebar
-   hide_table_of_contents: false
-   sidebar_label: "🎙️ #005: Your Episode Title"
-   slug: 00005-topic-name
-   ---
-   ```
-
-4. **Update podcast index**: Add episode to `docs/podcasts/index.md`
-   - Link format: `[Episode Title](/podcasts/00005-topic-name)`
-   - Episode number must match file and slug
-
-5. **Cross-link with blog/docs** (if applicable):
-   - Blog → Podcast: `/podcasts/00005-topic-name`
-   - Podcast → Blog: `/blog/your-blog-post-slug`
-
-6. **Process script for TTS**:
-   - Add pause tags: `python3 scripts/add_ssml_tags.py`
-   - Add pronunciation tags: `python3 scripts/add_pronunciation_tags.py`
-
-7. **Generate audio**: `python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00005-topic-name.txt`
-
-**CRITICAL Checklist**:
-- [ ] Episode number consistent across: filename, slug, sidebar_label
-- [ ] Slug field matches filename (without `.md`)
-- [ ] Cross-links use numbered URLs (`/podcasts/00005-topic-name`)
-- [ ] Sidebar label uses `#005:` format
-- [ ] URL will be `/podcasts/00005-topic-name` (permanent & shareable)
+**Dialogue Format**:
+- Speaker names: `**Jordan**:` and `**Alex**:`
+- Blank lines between speakers
+- No SSML tags (strip before publishing)
 
 ---
 
-### Why Episode Numbers in URLs?
+## Script Format
 
-**Permanent & Shareable Links**:
-- External sharing is clear: `/podcasts/00001-ai-platform-engineering` shows it's Episode 1
-- No confusion when sharing on social media, newsletters, or documentation
-- Professional standard: Most podcasts use episode numbers in URLs
+**Location**: `docs/podcasts/scripts/00005-topic-name.txt`
 
-**Future-Proof Against Collisions**:
-- Can create multiple episodes on same topic without URL conflicts
-- Example: `/podcasts/00001-ai-platform-engineering` (Episode 1)
-- Example: `/podcasts/00012-ai-platform-engineering` (Episode 12, revisiting topic)
-- Example: `/podcasts/00025-ai-platform-engineering-mlops` (Episode 25, specialized focus)
+**Speaker names**: `Jordan:` and `Alex:` (NOT Speaker 1/2)
 
-**Chronological Organization**:
-- Files naturally sort by episode number in filesystem
-- URLs maintain episode order
-- Easy to reference: "See Episode 5 at /podcasts/00005-paas-showdown"
-
-**Industry Standard**:
-- Examples: Changelog Podcast (`/podcast/changelog-001`), Shop Talk Show (`/episodes/001-pilot-episode`), Syntax.fm (`/show/001-how-to-learn-javascript`)
-- Listeners expect numbered episodes in podcast URLs
-- Makes referencing episodes in show notes natural
+**Content**: Write naturally without tags initially. Tags added later by podcast-format skill.
 
 ---
 
-### Cross-Linking Requirement (MANDATORY)
+## TTS Tags Reference
 
-**When creating a podcast episode with a corresponding blog post, you MUST cross-link them in both directions:**
+**SSML Pause Tags** (added by formatting skill):
+- `[pause short]` - After list items
+- `[pause]` - After statistics, questions
+- `[pause long]` - After dramatic reveals
 
-#### In the Blog Post (after intro, before Quick Answer):
-```markdown
-> 🎙️ **Listen to the podcast episode**: [Episode Title](/podcasts/00005-episode-name) - Brief description highlighting conversation format and key topics.
+**Pronunciation Tags** (see `podcast-generator/PRONUNCIATION_GUIDE.md`):
+- `<phoneme alphabet="ipa" ph="...">Term</phoneme>` - IPA pronunciation
+- `<say-as interpret-as="characters">AWS</say-as>` - Letter-by-letter
+
+**Common terms requiring tags**: Kubernetes, PostgreSQL, Azure, YAML, MLOps, Nginx
+
+**Note**: Tags added automatically by `add_ssml_tags.py` and `add_pronunciation_tags.py`
+
+---
+
+## Metadata File Format
+
+**Location**: `podcast-generator/output_latest/00005-topic-name.txt` (auto-generated)
+
+```
+Title: [EXACT H1 from episode page]
+
+Description:
+[2-3 engaging sentences with hook and call-to-action]
+
+🔗 Full episode page: https://platformengineeringplaybook.com/podcasts/00005-topic-name
+
+📝 See a mistake or have insights to add? This podcast is community-driven - open a PR on GitHub!
+
+Summary:
+• [Concrete takeaway 1]
+• [Concrete takeaway 2]
+• [Concrete takeaway 3-5]
+
+Duration: [X minutes]
+Speakers: Alex and Jordan
+Target Audience: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 ```
 
-**Example:**
+**CRITICAL**: Title must exactly match episode page H1, URL must use numbered format.
+
+---
+
+## Cross-Linking Requirement (MANDATORY)
+
+**When creating a podcast episode with a corresponding blog post, cross-link them in both directions:**
+
+### In Blog Post (after intro, before Quick Answer):
 ```markdown
-> 🎙️ **Listen to the podcast episode**: [PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io](/podcasts/00004-paas-showdown) - A deep dive conversation exploring these platforms with real-world pricing examples and decision frameworks.
+> 🎙️ **Listen to the podcast episode**: [Episode Title](/podcasts/00005-episode-name) - Brief description highlighting conversation format.
 ```
 
-**IMPORTANT**: Always use the numbered URL format (`/podcasts/00004-topic`) for permanent, shareable links.
-
-#### In the Podcast Page (in metadata section after speakers):
+### In Podcast Page (after duration/speakers):
 ```markdown
-> 📝 **Read the [full blog post](/blog/blog-post-slug)**: Brief description highlighting written format and comprehensive analysis.
+> 📝 **Read the [full blog post](/blog/related-slug)**: Brief description highlighting written format.
 ```
 
-**Example:**
-```markdown
-> 📝 **Read the [full blog post](/blog/2025-10-paas-showdown-flightcontrol-vercel-railway-render-fly)**: Deep dive into pricing, technical trade-offs, and decision frameworks for choosing the right PaaS platform.
-```
-
-**Why This Matters:**
-- Gives users choice of format (audio vs written)
-- Improves SEO through internal linking
-- Increases content engagement and time on site
-- Creates a cohesive content experience
-
-**Checklist for New Content:**
-- [ ] Blog post links to podcast episode (if one exists)
-- [ ] Podcast page links to blog post (if one exists)
-- [ ] Links use emoji indicators (🎙️ for podcast, 📝 for blog)
-- [ ] Descriptions are unique and value-focused
+**Checklist**:
+- [ ] Blog post links to podcast (if one exists)
+- [ ] Podcast page links to blog (if one exists)
+- [ ] Links use emoji indicators (🎙️ podcast, 📝 blog)
+- [ ] URLs use numbered format (`/podcasts/00005-name`)
 - [ ] Links tested and working
 
 ---
 
-*End of Podcast Script Guide*
+*For detailed podcast production workflows, storytelling templates, validation checklists, and formatting instructions, use the Claude Code skills in `.claude/skills/podcast-*`*
+
+---
+
+## Course Series Production
+
+### Overview
+
+Course series are structured, multi-episode educational content designed for deep learning and skill mastery. Unlike podcasts (conversational episodes), courses use single-presenter lecture format optimized for retention using learning science principles.
+
+**Key Differences from Podcasts**:
+- **Format**: Single presenter (Autonoe voice) vs two-person dialogue (Jordan/Alex)
+- **Structure**: Curriculum-driven with progressive complexity vs standalone episodes
+- **Pedagogy**: Learning objectives, spaced repetition, active recall vs storytelling
+- **Location**: `/podcasts/courses/[course-slug]/` with episode navigation vs flat `/podcasts/00XXX-name`
+- **Feed**: Appears in podcast feed AND course index
+
+### Using Course Skills
+
+For course production, use the dedicated Claude Code skills in `.claude/skills/`:
+
+1. **lesson-research** - Topic discovery, learning path analysis, pain point identification
+2. **lesson-curriculum** - Multi-episode curriculum design with learning science principles
+3. **lesson-outline** - Structure individual lesson episodes (MANDATORY before script)
+4. **lesson-script** - Convert outline to single-presenter educational narration
+5. **lesson-validate** - Fact-check, verify sources, validate pedagogy
+6. **lesson-format** - Add SSML tags for Autonoe voice TTS
+7. **lesson-publish** - Generate audio/video, create episode pages, update course index
+
+**Quick Start**: `"Use the lesson-research skill to research [topic] for a course"`
+
+### Course Requirements
+
+**Target Audience**: Senior platform engineers, SREs, DevOps engineers (5+ years experience)
+
+**Presenter**: Single instructor using Autonoe voice (Chirp 3 HD, 0.95x speed)
+
+**Episode Length**: ~15 minutes (12-18 minutes acceptable, flexible based on content)
+
+**Series Scope**: Flexible based on topic (typically 5-20 episodes)
+
+**Content Format**: Audio + transcript (expandable to include exercises/labs later)
+
+### Pedagogical Principles Applied
+
+All courses integrate evidence-based learning science:
+
+**1. Spaced Repetition** (2-3x better retention):
+- Key concepts introduced early, reinforced in later episodes
+- Dedicated review episodes every 3-4 lessons
+- Callbacks in every episode to previous material
+
+**2. Active Recall** (strengthens memory):
+- "Before we continue, try to recall..." prompts
+- Pause points for learner practice
+- Retrieval questions before showing answers
+
+**3. Progressive Complexity** (scaffolding):
+- Episode 1: Simple mental models
+- Episodes 2-N: Build incrementally
+- Each episode assumes ONLY previous episodes
+
+**4. Chunking** (cognitive load management):
+- One core concept per episode
+- 10-15 minute episodes (optimal attention span)
+- Break complex topics across multiple episodes
+
+**5. Interleaving** (improves discrimination):
+- Mix related concepts across episodes
+- Return to topics with new context
+- Compare/contrast throughout
+
+**6. Elaborative Rehearsal** (deeper encoding):
+- Multiple examples per concept
+- Analogies to familiar ideas
+- Different explanations of same concept
+
+### Course Structure
+
+**File Organization**:
+```
+docs/podcasts/courses/
+├── course-slug/
+│   ├── index.md                      # Course overview/curriculum
+│   ├── lesson-01.md                  # Episode pages
+│   ├── lesson-02.md
+│   ├── ...
+│   ├── curriculum-plan.md            # Internal planning (not published)
+│   ├── scripts/
+│   │   ├── lesson-01.txt
+│   │   ├── lesson-02.txt
+│   │   └── ...
+│   └── outlines/
+│       ├── lesson-01-outline.md
+│       ├── lesson-02-outline.md
+│       └── ...
+```
+
+**Course Index Page** (`index.md`):
+- Overview of course and learning outcomes
+- Prerequisites
+- Module structure with episode links
+- Time commitment estimate
+
+**Lesson Episode Pages** (`lesson-XX.md`):
+- Learning objectives
+- Prerequisites (including previous lessons)
+- Clean transcript
+- Navigation (prev/next/course)
+
+### Lesson Episode Format
+
+**Frontmatter**:
+```yaml
+---
+displayed_sidebar: tutorialSidebar
+hide_table_of_contents: false
+sidebar_label: "📖 #XX: Lesson Title"
+slug: courses/[course-slug]/lesson-XX
+---
+```
+
+**Page Structure**:
+```markdown
+# Lesson XX: [Title]
+
+## [Course Name]
+
+<GitHubButtons />
+
+**Course**: [Link to course index](/podcasts/courses/[course-slug])
+**Episode**: XX of N
+**Duration**: X minutes
+**Presenter**: [Fictional persona name]
+**Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
+
+## Learning Objectives
+
+By the end of this lesson, you'll be able to:
+- [Objective 1]
+- [Objective 2]
+- [Objective 3]
+
+## Prerequisites
+
+- [Prerequisite 1]
+- [Link to previous lesson if sequential]
+
+---
+
+[Clean lesson narration]
+
+---
+
+## Navigation
+
+⬅️ **Previous**: [Lesson XX-1](./lesson-XX-1) | **Next**: [Lesson XX+1](./lesson-XX+1) ➡️
+
+📚 **[Back to Course Overview](./index)**
+```
+
+### Script Format for Lessons
+
+**No Speaker Labels**: Single presenter, natural flow
+
+**Teaching Techniques Required**:
+- **Signposting**: "First... Second... Finally..."
+- **Analogies**: Relate to familiar concepts
+- **Elaboration**: "In other words..." / "To put it another way..."
+- **Think-Alouds**: "Here's how I think through this..."
+- **Pause Points**: "Pause and try this yourself..."
+- **Callbacks**: "Remember when we covered X in Episode Y?"
+
+**Script Example**:
+```
+Welcome to Episode 3 of Kubernetes Fundamentals. Today we're exploring Pods.
+
+If you're like most engineers, you've probably wondered why we need Pods
+when we already have containers. Great question. Let's dive in.
+
+By the end of this lesson, you'll understand the Pod abstraction, why
+containers alone aren't enough, and when to use different Pod patterns.
+
+Let's start with a mental model. Think of Pods like shipping containers...
+[Continue naturally]
+```
+
+### Integration with Podcast Feed
+
+**Courses appear in TWO places**:
+
+1. **Course Index** (`/podcasts/courses/[course-slug]`):
+   - Full curriculum with all episodes
+   - Module structure
+   - Progressive learning path
+
+2. **Main Podcast Feed** (`/podcasts/index.md`):
+   - Mixed chronologically with podcast episodes
+   - Use 📖 emoji (vs 🎙️ for podcasts)
+   - Include course name in title
+
+**Podcast Feed Entry Format**:
+```markdown
+- 📖 **[Course: Kubernetes Fundamentals - Lesson 3](/podcasts/courses/kubernetes-fundamentals/lesson-03)** (15 min) - Understanding Pods
+- 🎙️ **[#005: PaaS Showdown 2025](/podcasts/00005-paas-showdown)** (14 min) - Brief description
+```
+
+### Curriculum Design Standards
+
+**Module Structure** (typical 8-12 episode course):
+```
+Module 1: Foundations (2-3 episodes)
+├─ Episode 1: Mental Model & First Principles
+├─ Episode 2: Essential Concepts
+└─ Episode 3: Hands-On Fundamentals
+
+Module 2: Core Topics (4-6 episodes)
+├─ Episodes 4-N: Individual concepts (one per episode)
+└─ Episode N: Review & Integration
+
+Module 3: Production Readiness (2-3 episodes)
+├─ Episode N+1: Advanced Patterns
+└─ Episode N+2: Mastery & Next Steps
+```
+
+**Review Episodes** (every 3-4 lessons):
+- Active recall phase (retrieval questions)
+- Integration phase (how concepts connect)
+- Troubleshooting phase (common issues)
+- Preview phase (what's coming)
+
+### Learning Objectives Requirements
+
+**Must be**:
+- **Specific**: Not "understand X" but "explain why X exists"
+- **Measurable**: Learner can verify achievement
+- **Achievable**: Realistic for one 15-min episode
+- **Action-oriented**: Use verbs (explain, create, diagnose, design)
+
+**Good Examples**:
+- "Explain the Pod abstraction and why containers alone aren't enough"
+- "Create a Deployment manifest that scales to 5 replicas"
+- "Diagnose why a Pod is in CrashLoopBackOff state"
+
+**Bad Examples**:
+- "Understand Pods" (too vague)
+- "Learn about Kubernetes" (not specific)
+- "Master container orchestration" (not achievable in one episode)
+
+### Voice & Tone Guidelines
+
+**Presenter Voice**:
+- Conversational but authoritative
+- Patient and clear
+- Respectful of learner intelligence
+- Shares practical experience
+
+**Perspective**:
+- Use "we" (inclusive): "we'll explore", "let's examine"
+- Use "you" (direct): "you'll be able to", "you might encounter"
+- Use "I" sparingly (personal anecdotes, opinions)
+
+**Example Voice**:
+```
+"Now, here's where it gets interesting. Most engineers assume X, but
+in production, you'll find Y. Let me show you why this matters.
+
+Imagine you're debugging a failed deployment at 2 AM. You need to know
+the difference between a Pod crash and a container crash. Here's how
+I think through this..."
+```
+
+### Content Quality Standards
+
+**Technical Depth**:
+- Appropriate for senior engineers (5+ years)
+- Don't explain basics they know (containers, Linux)
+- DO explain technology-specific concepts
+- Focus on production implications
+- Include edge cases and gotchas
+
+**Engagement**:
+- Real-world examples with specific numbers
+- Production scenarios (not just toy examples)
+- Honest about trade-offs
+- Acknowledge complexity
+- Decision frameworks (when to use what)
+
+**Accuracy** (validated via lesson-validate skill):
+- Every statistic sourced
+- Technical claims match official docs
+- Code examples runnable
+- Pricing current with dates
+- Examples tested
+
+### TTS Generation
+
+**Voice**: Autonoe (Chirp 3 HD)
+- Voice ID: `en-US-Chirp3-HD-Autonoe`
+- Speed: 0.95x (clarity for technical content)
+- Clear and professional
+
+**SSML Tags** (added by lesson-format skill):
+- Pause tags: `[pause]`, `[pause short]`, `[pause long]`
+- Pronunciation: `<phoneme alphabet="ipa" ph="...">Term</phoneme>`
+- Acronyms: `<say-as interpret-as="characters">AWS</say-as>`
+
+**Pause Placement** (teaching-specific):
+- After learning objectives
+- Before/after analogies
+- Around think-aloud sections
+- For active recall prompts (longer pauses)
+- Before major transitions
+
+### Course Production Checklist
+
+**Research Phase**:
+- [ ] Topic validated (sufficient depth, community interest)
+- [ ] Learning path mapped (beginner → proficient)
+- [ ] Pain points identified (Stack Overflow, Reddit, GitHub)
+- [ ] Prerequisites clear
+- [ ] Knowledge gaps in existing content identified
+
+**Curriculum Design Phase**:
+- [ ] Episode structure determined (X episodes, Y modules)
+- [ ] Spaced repetition mapped (key concepts repeated 3+ times)
+- [ ] Review episodes placed (every 3-4 lessons)
+- [ ] Learning objectives specific and measurable
+- [ ] Concept dependencies clear
+
+**Per-Episode Production**:
+- [ ] Outline created (MANDATORY before script)
+- [ ] Script written (follows outline, uses teaching techniques)
+- [ ] Script validated (facts checked, pedagogy sound)
+- [ ] Script formatted (SSML tags, pronunciations)
+- [ ] Audio/video generated (Autonoe voice)
+- [ ] Episode page created (clean transcript, navigation)
+- [ ] Course index updated
+- [ ] Podcast feed updated
+- [ ] Build successful, URLs work
+
+### Common Mistakes to Avoid
+
+**❌ No Curriculum Plan**:
+- Jumping straight to writing scripts without curriculum
+- Episodes don't build on each other
+- No spaced repetition or review
+
+**Fix**: Always use lesson-curriculum skill before writing first script
+
+**❌ Podcast-Style Dialogue**:
+- Using two-person conversation format
+- Jordan/Alex speaker labels
+
+**Fix**: Single presenter, natural lecture flow
+
+**❌ Missing Pedagogical Elements**:
+- No learning objectives
+- No active recall moments
+- No spaced repetition callbacks
+- Passive information delivery
+
+**Fix**: Use lesson-outline templates with required teaching techniques
+
+**❌ Wrong Prerequisites**:
+- Assuming knowledge not in previous episodes
+- Not linking to prerequisite lessons
+
+**Fix**: Validate prerequisites in lesson-validate skill
+
+**❌ Missing Course Navigation**:
+- Episode pages without prev/next links
+- Not linked from course index
+
+**Fix**: Use lesson-publish skill which handles all integrations
+
+---
+
+*For detailed course production workflows, curriculum templates, teaching techniques, and validation checklists, use the Claude Code skills in `.claude/skills/lesson-*`*
