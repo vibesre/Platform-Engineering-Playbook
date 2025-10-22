@@ -17,6 +17,8 @@ slug: 00004-paas-showdown
 
 > 📝 **Read the [full blog post](/blog/2025-10-paas-showdown-flightcontrol-vercel-railway-render-fly)**: Deep dive into pricing, technical trade-offs, and decision frameworks for choosing the right PaaS platform.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KAsdIBCFIgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ---
 
 ### Cold Open Hook

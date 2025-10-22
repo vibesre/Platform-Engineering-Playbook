@@ -40,6 +40,8 @@ This isn't another feature checklist. We've analyzed pricing models, tested depl
 
 > 🎙️ **Listen to the podcast episode**: [PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io](/podcasts/00004-paas-showdown) - A deep dive conversation exploring these platforms with real-world pricing examples and decision frameworks.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KAsdIBCFIgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Quick Answer (TL;DR)
 
 **Problem**: [AWS](/technical/aws) offers unmatched scale and pricing, but managing it requires dedicated DevOps expertise. Simplified PaaS platforms charge 3-5x markups for convenience.
