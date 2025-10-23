@@ -26,6 +26,12 @@ pagination_prev: null
 <GitHubButtons />
 Master the essential technical skills needed for platform engineering, SRE, and DevOps roles. This focused guide covers 85 core technologies that appear most frequently in job requirements and drive modern infrastructure.
 
+> 🎙️ **Listen to the podcast**: [The Platform Engineering Tools Tier List 2025](/podcasts/00005-platform-tools-tier-list) - Which skills command $24K+ higher salaries? We analyze 220+ tools from the Dice 2025 report, break down the commoditization trap, and reveal S-tier specializations earning $130K-152K.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C8YMttCuNok" title="The Platform Engineering Tools Tier List 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<PodcastSubscribeButtons />
+
 ## ☁️ Cloud Platforms & Services
 
 Master the major cloud providers and their core services.

@@ -146,11 +146,15 @@ slug: 00XXX-episode-name
 [Continue with all sections...]
 ```
 
-### Phase 3: Verify Metadata File
+### Phase 3: Complete Metadata File
 
 **Location**: `podcast-generator/output_latest/00XXX-episode-name.txt`
 
-**Auto-Generated During Audio Creation**
+**Auto-Generated During Audio Creation** with:
+- ✅ Title extracted from filename
+- ✅ URL with episode number prefix
+- ✅ **Duration from actual MP3** in hh:mm:ss format (via ffprobe)
+- ⚠️ Description and Summary are **placeholders** - must be filled in
 
 **Required Format**:
 ```
@@ -161,7 +165,7 @@ Description:
 
 🔗 Full episode page: https://platformengineeringplaybook.com/podcasts/00XXX-episode-name
 
-📝 See a mistake or have insights to add? This podcast is community-driven - open a PR on GitHub to contribute!
+📝 See a mistake or have insights to add? This podcast is community-driven - open a PR on GitHub!
 
 Summary:
 • [Concrete takeaway 1]
@@ -170,17 +174,17 @@ Summary:
 • [Concrete takeaway 4]
 • [Concrete takeaway 5]
 
-Duration: [X minutes]
-
+Duration: hh:mm:ss
 Speakers: Alex and Jordan
 Target Audience: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 ```
 
-**CRITICAL Checks**:
+**CRITICAL: Fill In Placeholders**:
+- [ ] **Description**: 2-3 engaging sentences with specific numbers/insights
+- [ ] **Summary**: 5-7 concrete, actionable takeaways (not generic)
 - [ ] Title EXACTLY matches episode page H1
 - [ ] URL uses numbered slug format: `/podcasts/00XXX-episode-name`
-- [ ] Summary points are concrete and actionable
-- [ ] Description is engaging (not dry)
+- [ ] Duration is actual MP3 length in hh:mm:ss (auto-generated)
 
 ### Phase 4: Add Cross-Links
 

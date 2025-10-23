@@ -32,6 +32,8 @@ slug: 00002-cloud-providers
   />
 </div>
 
+<PodcastSubscribeButtons />
+
 ---
 
 **Jordan**: Today we're diving deep into the cloud provider landscape, and we're going way beyond the usual AWS versus Azure versus GCP debate. We're talking about why companies like Cloudflare are becoming cloud providers, why Hetzner is suddenly cool again, and what the rise of specialized platforms means for your architecture decisions.

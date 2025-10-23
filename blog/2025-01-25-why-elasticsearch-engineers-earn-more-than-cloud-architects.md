@@ -91,6 +91,8 @@ If you're grinding through cloud certifications thinking it's your ticket to the
 4. Target S-tier tools solving million-dollar business problems
 5. Follow the 18-month roadmap to transition from B-tier ($115K) to S-tier ($135K+)
 
+> 🎙️ **Listen to the podcast episode**: [The Platform Engineering Tools Tier List 2025](/podcasts/00005-platform-tools-tier-list) - Jordan and Alex break down the commoditization trap, S-tier specializations, and practical career roadmaps for maximizing your compensation.
+
 ## The Numbers Don't Lie
 
 Here's what platform engineers are actually earning in 2025:

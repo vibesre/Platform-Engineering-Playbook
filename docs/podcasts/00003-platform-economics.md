@@ -19,6 +19,8 @@ slug: 00003-platform-economics
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3SfOMkuKpIY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+<PodcastSubscribeButtons />
+
 ---
 
 **Jordan**: Today we're diving into something every platform team faces but nobody wants to talk about—the economics of platform engineering.  Specifically, why you're probably bleeding money on tools you don't use and metrics that don't matter.

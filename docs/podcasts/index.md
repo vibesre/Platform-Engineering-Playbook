@@ -16,6 +16,8 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience seeking strategic insights on technology choices, market dynamics, and skill optimization.
 
+<PodcastSubscribeButtons />
+
 ---
 
 ## Courses
@@ -50,15 +52,25 @@ Structured, multi-episode educational series designed for deep learning and skil
 
 Mix of podcast episodes (🎙️ conversational discussions) and course lessons (📖 structured learning):
 
-<!-- Course lessons will appear here mixed chronologically with podcast episodes
-Example:
-- 📖 **[Course: Kubernetes Fundamentals - Lesson 3](/podcasts/courses/kubernetes-fundamentals/lesson-03)** (15 min) - Understanding Pods
-- 🎙️ **[#005: PaaS Showdown 2025](/podcasts/00005-paas-showdown)** (14 min) - Brief description
--->
+- 🎙️ **[#005: Platform Tools Tier List 2025](/podcasts/00005-platform-tools-tier-list)** (13 min) - Which skills command $24K+ higher salaries?
+- 🎙️ **[#004: PaaS Showdown 2025](/podcasts/00004-paas-showdown)** (14 min) - Flightcontrol vs Vercel vs Railway vs Render vs Fly.io
+- 🎙️ **[#003: Platform Economics](/podcasts/00003-platform-economics)** (18 min) - Hidden costs and ROI of platform engineering
+- 🎙️ **[#002: Cloud Providers](/podcasts/00002-cloud-providers)** (20 min) - AWS vs Azure vs GCP deep dive
+- 🎙️ **[#001: AI Platform Engineering](/podcasts/00001-ai-platform-engineering)** (15 min) - Shadow AI and governance
 
 ---
 
 ## Podcast Episodes
+
+### Episode 5: Platform Tools Tier List 2025
+
+[🎙️ The Platform Engineering Tools Tier List 2025: Which Skills Command $24K+ Higher Salaries](/podcasts/00005-platform-tools-tier-list)
+
+Which skills command $24K+ higher salaries? We analyze 220+ tools from the Dice 2025 report, break down the commoditization trap (Git -3%, Docker -2%, Kubernetes -1%), reveal S-tier specializations earning $130K-152K, and provide practical 18-month career roadmaps from B-tier to S-tier compensation.
+
+**Duration:** 13 minutes
+
+---
 
 ### Episode 4: PaaS Showdown 2025
 

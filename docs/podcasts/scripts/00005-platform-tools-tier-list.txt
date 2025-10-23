@@ -1,0 +1,159 @@
+Jordan: Today we're diving into the question every platform engineer asks at some point in their career: What should I actually be learning? [pause] Not what's trending on Hacker News, not what recruiters are spamming you about—what actually translates to career growth and higher compensation?
+
+Alex: And the data is going to surprise people. [pause] Because if you're grinding through your fifth <say-as interpret-as="characters">AWS</say-as> certification thinking that's the path to one-fifty-K, the numbers tell a very different story.
+
+Jordan: Let me hit you with a number that should change your entire learning strategy. [pause] Elasticsearch engineers earn a hundred thirty-nine thousand five hundred forty-nine dollars. [pause] <phoneme alphabet="ipa" ph="ˈæʒɚ">Azure</phoneme> architects? [pause short] A hundred fifteen thousand three hundred four. [pause] That's a twenty-four thousand dollar gap.
+
+Alex: Wait, for doing what most people would call less important work?
+
+Jordan: Exactly. [pause] That's the uncomfortable truth we're going to unpack today. We analyzed over two hundred twenty skills from the twenty twenty-five Dice Tech Salary Report, and the pattern is clear—specialized tool expertise now commands significantly higher salaries than broad cloud platform knowledge.
+
+Alex: And before anyone thinks this is just about money, it's really about where the market is heading. The skills that pay more are the skills that are scarce and solve expensive problems.
+
+Jordan: Right. [pause] So by the end of this episode, you'll know exactly which tools are table stakes—everyone needs them—which are declining, avoid those, and which command S-tier salaries, north of one-thirty-K, all backed by real salary data.
+
+Alex: Let's start with what I'm calling the commoditization trap, [pause] because this is where most engineers are getting it wrong.
+
+Jordan: Okay, hit me with it.
+
+Alex: Git salary growth: negative three percent. [pause short] Docker: negative two percent. [pause short] <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>: negative one percent, [pause] despite ninety-three percent adoption rate.
+
+Jordan: Wait, [pause] <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> salaries are declining?
+
+Alex: Yep. And that <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> certification you just spent eighty hours studying for? [pause] It's now the baseline expectation, not the competitive edge.
+
+Jordan: That's brutal. [pause] But it makes sense when you think about it. When ninety-three percent of companies use something, it's no longer a differentiator.
+
+Alex: Exactly. Universal adoption equals commodity pricing. [pause] It's Economics one-oh-one. When everyone has the skill, it stops commanding a premium.
+
+Jordan: And <phoneme alphabet="ipa" ph="noʊ ˌɛskjuː ˈɛl">NoSQL</phoneme> as a generic skill? [pause] Down seven percent. [pause] That's the worst decline in the data.
+
+Alex: Right, because saying you know <phoneme alphabet="ipa" ph="noʊ ˌɛskjuː ˈɛl">NoSQL</phoneme> is like saying you know databases. It's too broad. The market rewards specificity now.
+
+Jordan: So what's on the other end of this spectrum? [pause] The S-tier stuff?
+
+Alex: Elasticsearch: one hundred thirty-nine thousand five hundred forty-nine, up three percent. [pause short] Apache <phoneme alphabet="ipa" ph="ˈkɑfkə">Kafka</phoneme>: one hundred thirty-six thousand five hundred twenty-six, up three percent. [pause short] <phoneme alphabet="ipa" ph="ˈrɛdɪs">Redis</phoneme>: one hundred thirty-six thousand three hundred fifty-seven, up five percent. [pause short] Golang: one hundred thirty-four thousand seven hundred twenty-seven, up ten percent.
+
+Jordan: Ten percent growth on Go. [pause] That's significant.
+
+Alex: These tools solve million-dollar problems with high barriers to entry. [pause] You can't learn Elasticsearch in a weekend. You can't become a <phoneme alphabet="ipa" ph="ˈkɑfkə">Kafka</phoneme> expert by watching a YouTube playlist.
+
+Jordan: And the business impact is direct. [pause short] Search affects revenue. [pause short] Real-time data pipelines affect decision-making. [pause short] Performance optimization affects user experience and retention.
+
+Alex: Plus scarcity. [pause] Way fewer engineers have deep expertise in these tools compared to, say, Docker basics.
+
+Jordan: I actually know someone who made this exact transition. [pause] Five <say-as interpret-as="characters">AWS</say-as> certifications, earning around one-twenty-K. [pause] Switched focus to deep Elasticsearch mastery over eighteen months. [pause] Now at one-thirty-nine-K.
+
+Alex: Nineteen thousand dollars annual raise from changing focus, not changing companies. [pause] That's the power of specialization.
+
+Jordan: But here's where I want to push back a little. [pause] What about emerging tools? [pause] Should you bet on the future or double down on proven S-tier?
+
+Alex: Great question. [pause] Let's look at the fastest-growing skills. [pause short] Natural Language Processing: up twenty-one percent to one hundred thirty-one thousand six hundred twenty-one. [pause short] Document databases: up twenty-one percent. [pause short] Caching expertise: up sixteen percent. [pause short] <say-as interpret-as="characters">AWS</say-as> CodeWhisperer: up sixteen percent.
+
+Jordan: So <say-as interpret-as="characters">AI</say-as>-related skills are exploding.
+
+Alex: The fastest-growing skills combine <say-as interpret-as="characters">AI</say-as> and <say-as interpret-as="characters">ML</say-as> with platform engineering, or they solve performance and scale problems. [pause] But here's the tension—<phoneme alphabet="ipa" ph="ˈoʊpən tɛˈlɛmɪtri">OpenTelemetry</phoneme> might be the future standard for observability, but <phoneme alphabet="ipa" ph="ˈkɑfkə">Kafka</phoneme> pays S-tier salaries today.
+
+Jordan: So do you learn the emerging bet or the proven commodity?
+
+Alex: I think you need both, but in sequence. [pause] You can't jump straight to <phoneme alphabet="ipa" ph="ˈoʊpən tɛˈlɛmɪtri">OpenTelemetry</phoneme> without understanding observability fundamentals first.
+
+Jordan: Let's break this down by category then. [pause] What's essential versus what's emerging?
+
+Alex: For infrastructure as code, [pause] Terraform or OpenTofu is table stakes. Largest provider ecosystem, everyone expects you to know it. [pause] <phoneme alphabet="ipa" ph="puˈlumi">Pulumi</phoneme> is emerging with its programming language approach, but Terraform is the standard.
+
+Jordan: Observability?
+
+Alex: Foundation is <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme> plus <phoneme alphabet="ipa" ph="ɡrəˈfɑnə">Grafana</phoneme>, [pause] gets you to about one-twenty-five-K. [pause] If you specialize in the <phoneme alphabet="ipa" ph="ɛlk">ELK</phoneme> stack or distributed tracing with Jaeger, you're in the one-thirty to one-forty range. [pause] <phoneme alphabet="ipa" ph="ˈoʊpən tɛˈlɛmɪtri">OpenTelemetry</phoneme> and eBPF are the emerging technologies.
+
+Jordan: eBPF is fascinating because it's shifting observability responsibilities from app teams to platform teams.
+
+Alex: Twenty-five percent of survey respondents are now in platform engineering roles, [pause] according to <phoneme alphabet="ipa" ph="ɡrəˈfɑnə">Grafana</phoneme>'s twenty twenty-five predictions. [pause] eBPF is a big driver of that shift.
+
+Jordan: What about data infrastructure? [pause] That seems to be where the highest salaries are.
+
+Alex: <phoneme alphabet="ipa" ph="ˈpoʊstɡrɛs kju ɛl">PostgreSQL</phoneme> foundation: one hundred thirty-one-K. [pause short] <phoneme alphabet="ipa" ph="ˈrɛdɪs">Redis</phoneme> specialization: one hundred thirty-six-K. [pause short] Elasticsearch: one hundred thirty-nine-K. [pause short] <phoneme alphabet="ipa" ph="ˈkɑfkə">Kafka</phoneme>: one hundred thirty-six-K. [pause] The pattern is clear—learn the foundation first, then pick a specialization path.
+
+Jordan: And for developer experience tools?
+
+Alex: Backstage has the highest <say-as interpret-as="characters">CNCF</say-as> end-user contributions. [pause] It's becoming the standard for internal developer portals. [pause] Argo <say-as interpret-as="characters">CD</say-as> is the GitOps leader. [pause short] GitHub Actions and Jenkins are A-tier for <say-as interpret-as="characters">CI</say-as>/<say-as interpret-as="characters">CD</say-as>.
+
+Jordan: Here's something that surprised me in the research. [pause] Industry context matters as much as tool choice. [pause] Insurance pays a median of one hundred forty-six thousand three hundred sixty-eight. [pause] Education pays one hundred eighteen thousand thirty-one.
+
+Alex: That's a twenty-eight thousand dollar gap just from industry choice.
+
+Jordan: So you could be an S-tier Elasticsearch specialist, [pause] but if you're in education, you might earn less than a B-tier cloud engineer in insurance.
+
+Alex: That's the uncomfortable math. [pause] Location, industry, company size—they all factor in. But controlling for those variables, the tier pattern holds.
+
+Jordan: Let's talk about the practical roadmap. [pause] If someone's listening to this thinking, okay, I need to level up, where do they start?
+
+Alex: Three phases. [pause] Phase one, foundation, takes three months. [pause short] Linux fundamentals, [pause short] Git, [pause short] Docker basics, [pause short] Python or Go, [pause short] and one cloud platform—I'd say <say-as interpret-as="characters">AWS</say-as> for the job market.
+
+Jordan: And this gets you to what, ninety to one-ten-K entry positions?
+
+Alex: Exactly. [pause] Phase two, core platform skills, months four through nine. [pause] Deep <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> knowledge—not just a certification, actual understanding. [pause short] Terraform or <phoneme alphabet="ipa" ph="ˈænsəbəl">Ansible</phoneme>. [pause short] <say-as interpret-as="characters">CI</say-as>/<say-as interpret-as="characters">CD</say-as> with Jenkins or GitHub Actions or Argo. [pause short] Monitoring foundation with <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme> and <phoneme alphabet="ipa" ph="ɡrəˈfɑnə">Grafana</phoneme>. [pause short] Networking fundamentals.
+
+Jordan: This is the one-fifteen to one-twenty-five-K range. [pause] Mid-level platform engineer.
+
+Alex: Right. [pause] Phase three is where it gets interesting. [pause] Months ten through eighteen, pick one specialization path. [pause] Three main tracks.
+
+Jordan: Break them down.
+
+Alex: Track one: Data and Search Specialization. [pause] <phoneme alphabet="ipa" ph="ˈpoʊstɡrɛs kju ɛl">PostgreSQL</phoneme>, [pause short] then <phoneme alphabet="ipa" ph="ˈrɛdɪs">Redis</phoneme>, [pause short] then Elasticsearch, [pause short] then <phoneme alphabet="ipa" ph="ˈkɑfkə">Kafka</phoneme>. [pause] Focus on scalable data infrastructure, real-time analytics. [pause] Salary potential: one-thirty-five to one-forty-K.
+
+Jordan: Track two?
+
+Alex: Streaming and Events. [pause] Start with basic queues, [pause short] move to <phoneme alphabet="ipa" ph="ˈkɑfkə">Kafka</phoneme>, [pause short] then event-driven architectures. [pause] Real-time data pipelines, event sourcing. [pause] One-thirty to one-thirty-seven-K potential.
+
+Jordan: And track three?
+
+Alex: Observability specialization. [pause] Logs to metrics to distributed tracing to eBPF. [pause] Tools are <phoneme alphabet="ipa" ph="ɛlk">ELK</phoneme>, [pause short] <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme>, [pause short] <phoneme alphabet="ipa" ph="ɡrəˈfɑnə">Grafana</phoneme>, [pause short] <phoneme alphabet="ipa" ph="ˈoʊpən tɛˈlɛmɪtri">OpenTelemetry</phoneme>, [pause short] eBPF. [pause] One-twenty-five to one-thirty-five-K. [pause] Best for engineers who love troubleshooting and visibility.
+
+Jordan: How do you choose which path?
+
+Alex: Four criteria. [pause] One: Does it solve million-dollar business problems? [pause short] Two: How many engineers have deep expertise—fewer equals higher pay. [pause short] Three: What's the market trajectory—growing fifteen to twenty-one percent or declining three to seven percent? [pause short] Four: What's the barrier to entry—easy to learn means commodity, complex means premium.
+
+Jordan: Let's talk about the mistakes people make, [pause] because I've seen all of these.
+
+Alex: Mistake number one: The certification collector. [pause] Fifteen cloud certifications gets you around one-twenty-K. [pause] Deep Elasticsearch expertise gets you one-thirty-nine-K. [pause] That's nineteen thousand a year lost by optimizing for quantity over depth.
+
+Jordan: Mistake number two: Ignoring market signals. [pause] <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> negative one percent, [pause short] Docker negative two percent, [pause short] Git negative three percent. [pause] These are telling you something.
+
+Alex: The action is to move up the stack to specialization before your current skills commoditize completely.
+
+Jordan: Mistake number three, and this is a big one: Platform-only focus. [pause] Pure platform engineers plateau at around one-forty-K. [pause] Add Go programming, you're at one-fifty-K plus. [pause short] Add data engineering, one-fifty-five-K. [pause short] Add machine learning and <say-as interpret-as="characters">AI</say-as> integration, one-sixty-K. [pause short] Add security expertise, one-sixty-five-K plus.
+
+Alex: The market pays for rare combinations, not long resume lists.
+
+Jordan: So what should someone do Monday morning? [pause] Like, practically speaking?
+
+Alex: Audit your current skills against the tier list. [pause] Be honest. Where are you—B-tier, A-tier?—versus where you want to be.
+
+Jordan: And then what?
+
+Alex: Pick one S-tier specialization based on interest and market data. [pause] Not just passion. Passion plus one-thirty-five-K salary.
+
+Jordan: How much time commitment are we talking?
+
+Alex: Thirty minutes daily for twelve to eighteen months compounds massively. [pause] That's not overwhelming, but it's consistent.
+
+Jordan: And you should be tracking publicly. [pause] Update LinkedIn, [pause short] write blog posts, [pause short] contribute to open source in your chosen area.
+
+Alex: Make your learning visible. [pause] That's how opportunities find you.
+
+Jordan: I want to circle back to something we opened with. [pause] That twenty-four thousand dollar gap between Elasticsearch engineers and <phoneme alphabet="ipa" ph="ˈæʒɚ">Azure</phoneme> architects. [pause] Why does that exist?
+
+Alex: Scarcity plus high impact plus barrier to entry equals premium pricing. [pause] <phoneme alphabet="ipa" ph="ˈæʒɚ">Azure</phoneme> is a commodity skill now. [pause] Elasticsearch expertise is not.
+
+Jordan: And this isn't going to reverse. [pause] The trend is clear—generalist era is over.
+
+Alex: While you're collecting cloud certifications, [pause] specialists are solving harder problems, building deeper expertise, and commanding higher salaries.
+
+Jordan: The tier list is clear. [pause short] The salary data is transparent. [pause short] The roadmap is defined. [pause] The only question is: which tier will you choose?
+
+Alex: Start with the audit this week. [pause] Just list your current skills and map them to the salary data. You might be surprised where you actually stand.
+
+Jordan: And remember, the best platform is the one your developers choose to use, not the one you mandate. [pause] Same principle applies to your career—choose the specialization that aligns with both market demand and your actual interests.
+
+Alex: The fundamentals remain constant even as the landscape evolves. [pause] Deep expertise in solving expensive problems will always command premium compensation.

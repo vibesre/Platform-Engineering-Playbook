@@ -28,6 +28,8 @@ slug: 00001-ai-platform-engineering
   </iframe>
 </div>
 
+<PodcastSubscribeButtons />
+
 ---
 
 **Jordan**: Today we're diving into a crisis that 85% of organizations are facing right now. Shadow AI - employees adopting AI tools faster than IT teams can assess them. GenAI traffic surged 890% in just one year.
