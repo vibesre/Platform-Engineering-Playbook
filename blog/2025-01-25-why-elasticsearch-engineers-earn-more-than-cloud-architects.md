@@ -93,6 +93,10 @@ If you're grinding through cloud certifications thinking it's your ticket to the
 
 > 🎙️ **Listen to the podcast episode**: [The Platform Engineering Tools Tier List 2025](/podcasts/00005-platform-tools-tier-list) - Jordan and Alex break down the commoditization trap, S-tier specializations, and practical career roadmaps for maximizing your compensation.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_b6q2xSN7T4" title="The Platform Engineering Tools Tier List 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<PodcastSubscribeButtons />
+
 ## The Numbers Don't Lie
 
 Here's what platform engineers are actually earning in 2025:
