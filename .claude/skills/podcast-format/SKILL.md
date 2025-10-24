@@ -84,6 +84,7 @@ Jordan: That's transformational. [pause] And it's happening right now across the
 - Place after key insights for emphasis
 - Use before important transitions
 - Help TTS "breathe" naturally
+- **MANDATORY**: Add `[pause long]` at the very end of the script (after final dialogue, before outro MP3) to prevent jarring transition into outro
 
 **DON'T**:
 - Overuse (sounds robotic)
@@ -92,6 +93,9 @@ Jordan: That's transformational. [pause] And it's happening right now across the
 - Replace natural sentence breaks
 
 **Target**: 15-25 pause tags per 12-minute episode
+
+**Ending Silence** (REQUIRED):
+Every episode MUST end with `[pause long]` tag (~1 second silence) after the final line of dialogue. This prevents jarring transitions when the outro MP3 begins. The generate_podcast.py script automatically appends intro.mp3 and outro.mp3, so the script should end cleanly with a pause tag.
 
 ## Pronunciation Tags
 
@@ -365,6 +369,7 @@ When this skill is invoked:
    - Run automated script: `add_ssml_tags.py`
    - Review and adjust manually
    - Aim for 15-25 total pauses
+   - **CRITICAL**: Manually add `[pause long]` at the very end of the script (after final dialogue line)
 
 4. **Add pronunciation tags**:
    - Run automated script: `add_pronunciation_tags.py`

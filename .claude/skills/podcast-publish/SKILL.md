@@ -418,28 +418,39 @@ When this skill is invoked:
    - Strip SSML tags from dialogue
    - Format speaker names
 
-5. **Verify metadata file**:
+5. **Update metadata duration**:
+   - Get actual duration from mp3:
+     ```bash
+     ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \
+       podcast-generator/output_latest/00XXX-name.mp3
+     ```
+   - Convert seconds to MM:SS format
+   - Update `Duration:` field in `podcast-generator/output_latest/00XXX-name.txt`
+   - Replace estimated duration with actual runtime
+
+6. **Verify metadata file**:
    - Check `output_latest/00XXX-name.txt`
    - Title matches episode page H1
    - URL uses numbered format
+   - Duration is actual mp3 length (not estimated)
 
-6. **Add cross-links** (if related blog exists):
+7. **Add cross-links** (if related blog exists):
    - Episode page → blog post
    - Blog post → episode page
 
-7. **Update index**:
+8. **Update index**:
    - Add to `docs/podcasts/index.md`
    - Top of list, with episode number
 
-8. **Build and verify**:
+9. **Build and verify**:
    ```bash
    npm run build
    ```
    Check for errors.
 
-9. **Complete checklist** (all items)
+10. **Complete checklist** (all items)
 
-10. **Report to user**:
+11. **Report to user**:
     - Episode published successfully
     - URLs: `/podcasts/00XXX-name`
     - Audio/video locations

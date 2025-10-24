@@ -348,6 +348,74 @@ Jordan: Until next time, keep building thoughtfully.
 
 ---
 
+## Metadata File Format
+
+After writing the script, generate a metadata .txt file with this structure:
+
+```
+Title: [EXACT H1 from episode page]
+
+Description:
+[2-3 engaging sentences with hook and call-to-action. Focus on what problem this solves, what listeners will learn, and why it matters NOW]
+
+🔗 Full episode page: https://platformengineeringplaybook.com/podcasts/00XXX-episode-slug
+
+📝 See a mistake or have insights to add? This podcast is community-driven - open a PR on GitHub!
+
+Summary:
+• [Concrete takeaway 1 with specific numbers/tools/decisions]
+• [Concrete takeaway 2 with specific numbers/tools/decisions]
+• [Concrete takeaway 3 with specific numbers/tools/decisions]
+• [Concrete takeaway 4 with specific numbers/tools/decisions]
+• [Concrete takeaway 5 with specific numbers/tools/decisions]
+
+Duration: [Estimated X minutes based on word count]
+Speakers: Alex and Jordan
+Target Audience: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
+```
+
+**Good vs Bad Metadata Examples**:
+
+### ✅ GOOD Description
+```
+Description:
+The PaaS market in 2025 is crowded with players promising Heroku simplicity. We break down the real economics behind Flightcontrol, Railway, Render, Vercel, and Fly.io—and give you a decision framework for when $400/month beats "free" AWS. Learn which PaaS wins for which workload, and how to justify the cost to your CTO.
+```
+
+### ❌ BAD Description
+```
+Description:
+In this episode we talk about PaaS platforms. We discuss several options and their features. You'll learn about the PaaS landscape and how to choose the right one.
+```
+
+### ✅ GOOD Summary
+```
+Summary:
+• Flightcontrol starts at $397/month but saves 20+ hours/month in AWS complexity—break-even at $100/hr engineer time
+• Railway wins for prototypes (5-minute deploys), Render for production reliability (99.99% SLA), Fly.io for global edge computing
+• The "boring tech" principle applies: start with PaaS simplicity, migrate to AWS control only when scale demands it (typically >$50K/month spend)
+• Multi-environment costs are the hidden killer: 3 environments on PaaS = $1,200/month, careful capacity planning is critical
+• Decision framework: Flightcontrol for AWS-native teams, Railway for speed, Render for reliability, Vercel for frontend, Fly.io for edge
+```
+
+### ❌ BAD Summary
+```
+Summary:
+• Overview of PaaS platforms
+• Comparison of different options
+• Cost considerations
+• Decision-making framework
+• Best practices for deployment
+```
+
+**Key Differences**:
+- ✅ Specific numbers, prices, tools
+- ✅ Actionable insights with conditions
+- ✅ Real trade-offs and decision points
+- ❌ Generic statements that could apply to anything
+
+---
+
 ## Instructions for Claude
 
 When this skill is invoked:
@@ -383,9 +451,20 @@ When this skill is invoked:
 7. **Save to correct location**:
    `docs/podcasts/scripts/00XXX-topic-name.txt`
 
-8. **Report to user**:
+8. **Generate episode metadata**:
+   - Read the script you just wrote
+   - Analyze key insights, technical discussions, takeaways
+   - Create metadata file with:
+     - **Title**: Extract from outline or episode page H1 (exact match)
+     - **Description**: 2-3 engaging sentences with hook and call-to-action
+     - **Summary**: 3-5 concrete, specific takeaways (NOT generic bullets)
+   - Save to: `podcast-generator/output_latest/00XXX-topic-name.txt`
+   - Use format from CLAUDE.md (see "Metadata File Format" section)
+
+9. **Report to user**:
    - Episode number and filename
    - Estimated duration
+   - Metadata file created
    - Next step: Use podcast-validate skill to fact-check
 
 **Remember**: The outline is your blueprint. Your job is to bring it to life with natural, engaging dialogue that teaches through story.

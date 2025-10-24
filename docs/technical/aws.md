@@ -37,6 +37,10 @@ Amazon Web Services is a comprehensive cloud computing platform offering over 20
 
 [Full guide below ↓](#-learning-resources)
 
+> 🎙️ **Listen to the podcast episode**: [AWS State of the Union 2025](/podcasts/00006-aws-state-of-the-union-2025) - Navigate 200+ AWS services with strategic clarity, career frameworks, and practical guidance for experienced platform engineers.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dfW6eVdCWi0" title="AWS State of the Union 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

@@ -1,12 +1,12 @@
 ---
 name: Podcast Validate
-description: Fact-check podcast scripts for accuracy, verify sources, check for marketing speak vs data, and ensure technical correctness.
-allowed-tools: Read, WebFetch, Grep, Glob
+description: Fact-check podcast scripts for accuracy, verify sources, check for marketing speak vs data, ensure technical correctness, and update pronunciation guide with new terms.
+allowed-tools: Read, WebFetch, Grep, Glob, Edit
 ---
 
 # Podcast Validate
 
-Verify the accuracy and quality of podcast scripts before formatting and publishing. The Platform Engineering Playbook's reputation depends on technical correctness and trustworthy information.
+Verify the accuracy and quality of podcast scripts before formatting and publishing. The Platform Engineering Playbook's reputation depends on technical correctness and trustworthy information. Also identifies and adds new technical terms to the pronunciation guide.
 
 ## When to Use This Skill
 
@@ -34,6 +34,7 @@ The podcast targets senior engineers who:
 3. **Pricing data must be current with dates noted**
 4. **Case studies must be real (or clearly hypothetical)**
 5. **No marketing speak without data backing**
+6. **New technical terms must be added to pronunciation guide**
 
 ## Validation Checklist
 
@@ -370,6 +371,15 @@ Produce a **Validation Report**:
 2. **Line 78**: "Game-changing platform"
    - **Fix**: Specific benefits instead of hyperbole
 
+## New Pronunciations Added
+
+**Terms added to PRONUNCIATION_GUIDE.md**:
+1. **Lambda** → `<phoneme alphabet="ipa" ph="ˈlæmdə">Lambda</phoneme>` ("LAM-duh")
+2. **Fargate** → `<phoneme alphabet="ipa" ph="ˈfɑrɡeɪt">Fargate</phoneme>` ("FAR-gate")
+3. **re:Invent** → `<phoneme alphabet="ipa" ph="reɪ ɪnˈvɛnt">re:Invent</phoneme>` ("ray in-VENT")
+
+*Note: Pronunciation guide updated to version X.X.X*
+
 ## Recommendations
 
 ### Before Formatting
@@ -379,7 +389,7 @@ Produce a **Validation Report**:
 
 ### Before Publishing
 - [ ] Verify all sources still accessible
-- [ ] Check pronunciation tags on technical terms
+- [ ] Pronunciation tags will be added during formatting phase
 - [ ] Ensure consistent terminology throughout
 
 ## Status: [READY/NEEDS FIXES/MAJOR ISSUES]
@@ -439,16 +449,28 @@ When this skill is invoked:
    - Practical over academic
    - Skeptical of hype
 
-6. **Create validation report** with:
+6. **Check pronunciation requirements**:
+   - Read `podcast-generator/PRONUNCIATION_GUIDE.md`
+   - Scan script for technical terms (databases, cloud services, tools, etc.)
+   - Identify terms NOT in pronunciation guide that TTS might mispronounce
+   - For new terms:
+     - Look up correct pronunciation (IPA format)
+     - Add to PRONUNCIATION_GUIDE.md with SSML tag
+     - Include in validation report "New Terms Added" section
+   - Focus on: Brand names, AWS services, databases, programming languages, acronyms
+   - Example new terms to watch for: service names (Lambda, Fargate), events (re:Invent), tools (Trainium)
+
+7. **Create validation report** with:
    - Summary of issues found
    - HIGH/MEDIUM/LOW priority categorization
    - Specific line numbers and suggested fixes
    - Overall status (READY/NEEDS FIXES/MAJOR ISSUES)
+   - **New Pronunciations Added section** (if any terms were added to guide)
 
-7. **Save validation report**:
+8. **Save validation report**:
    - Location: `podcast-generator/validation-reports/[episode-number]-validation.md`
    - This is an internal working file, not published content
 
-8. **Present report to user** and wait for fixes before proceeding to formatting
+9. **Present report to user** and wait for fixes before proceeding to formatting
 
 **Remember**: One inaccurate claim undermines the entire podcast. Better to remove a statistic than include one you can't verify.

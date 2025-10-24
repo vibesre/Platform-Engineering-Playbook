@@ -1,30 +1,30 @@
-Jordan: Today we're diving into the twenty twenty-five <phoneme alphabet="ipa" ph="pæs">PaaS</phoneme> landscape. Flightcontrol, <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme>, Railway, Render, Fly dot io—everyone's promising <phoneme alphabet="ipa" ph="hɛˈroʊku">Heroku</phoneme>-like simplicity with cloud-scale performance. [pause] But which one actually delivers?
+Jordan: Today we're diving into the twenty twenty-five <phoneme alphabet="ipa" ph="pæs">PaaS</phoneme> landscape. Flightcontrol, <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme>, Railway, Render, Fly dot io—everyone's promising <phoneme alphabet="ipa" ph="hɛˈroʊku">Heroku</phoneme>-like simplicity with cloud-scale performance. But which one actually delivers?
 
-Alex: We'll break down the pricing models, [pause] compare real-world costs for the same workload, [pause] and give you a decision framework for choosing the right platform for your team size and technical expertise.
+Alex: We'll break down the pricing models, compare real-world costs for the same workload, and give you a decision framework for choosing the right platform for your team size and technical expertise.
 
-Jordan: Plus, we'll talk about when it makes sense to just build your own infrastructure instead, [pause] and what the break-even point actually looks like when you factor in engineering time and opportunity cost.
+Jordan: Plus, we'll talk about when it makes sense to just build your own infrastructure instead, and what the break-even point actually looks like when you factor in engineering time and opportunity cost.
 
 Alex: So let's start with the fundamental question: why are we even talking about these platforms? [pause] What problem are they solving?
 
-Jordan: The AWS complexity tax is very real. A mid-sized team running typical web apps needs VPC configuration, load balancers, auto-scaling, managed databases, S3 with proper IAM, CloudFront CDN, CI/CD pipelines, monitoring infrastructure, disaster recovery plans. Doing this properly requires one to two dedicated DevOps engineers at a hundred fifty to two hundred K each.
+Jordan: The <say-as interpret-as="characters">AWS</say-as> complexity tax is very real. A mid-sized team running typical web apps needs VPC configuration, load balancers, auto-scaling, managed databases, S3 with proper IAM, CloudFront CDN, CI/CD pipelines, monitoring infrastructure, disaster recovery plans. Doing this properly requires one to two dedicated DevOps engineers at a hundred fifty to two hundred K each.
 
-Alex: And the 2024 Platform Engineering survey found teams spend an average of thirty percent of their infrastructure time just maintaining deployment pipelines and dealing with AWS complexity.
+Alex: And the 2024 Platform Engineering survey found teams spend an average of thirty percent of their infrastructure time just maintaining deployment pipelines and dealing with <say-as interpret-as="characters">AWS</say-as> complexity.
 
-Jordan: Right. So <phoneme alphabet="ipa" ph="pæs">PaaS</phoneme> platforms are trading money for time. The question is: is that trade-off worth it for your team? [pause]
+Jordan: Right. So <phoneme alphabet="ipa" ph="pæs">PaaS</phoneme> platforms are trading money for time. The question is: is that trade-off worth it for your team?
 
-Alex: Let's break down the five major players. Starting with Flightcontrol because it's the most interesting architecture—it deploys to your own AWS account.
+Alex: Let's break down the five major players. Starting with Flightcontrol because it's the most interesting architecture—it deploys to your own <say-as interpret-as="characters">AWS</say-as> account.
 
-Jordan: Yeah, Flightcontrol is unique here. You're paying them ninety-seven to three ninety-seven dollars a month for a management layer, but the actual infrastructure costs go directly to AWS on your bill.
+Jordan: Yeah, Flightcontrol is unique here. You're paying them ninety-seven to three ninety-seven dollars a month for a management layer, but the actual infrastructure costs go directly to <say-as interpret-as="characters">AWS</say-as> on your bill.
 
 Alex: So the pricing model is: Free tier for single users. Starter is ninety-seven a month for twenty-five users, includes five services. Business is three ninety-seven a month for a hundred users, includes ten services. Enterprise is custom pricing with SSO, SCIM, SOC 2 Type Two.
 
-Jordan: And critically—you pay AWS infrastructure costs separately. So for a typical startup with five services, you're looking at ninety-seven dollars for Flightcontrol plus maybe three hundred in AWS costs. About four hundred total.
+Jordan: And critically—you pay <say-as interpret-as="characters">AWS</say-as> infrastructure costs separately. So for a typical startup with five services, you're looking at ninety-seven dollars for Flightcontrol plus maybe three hundred in AWS costs. About four hundred total.
 
-Alex: Compare that to <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme> running the same workload. <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme> Pro is twenty dollars per user—let's say three users, so sixty dollars. [pause] But then bandwidth overage for fifty gigs is four hundred bucks. Function execution adds another hundred. You're at five sixty total.
+Alex: Compare that to <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme> running the same workload. Vercel Pro is twenty dollars per user—let's say three users, so sixty dollars. But then bandwidth overage for fifty gigs is four hundred bucks. Function execution adds another hundred. You're at five sixty total.
 
 Jordan: That's a hundred sixty a month savings, or about twenty-eight percent. And the gap widens as you scale.
 
-Alex: But Flightcontrol isn't for everyone. You need AWS knowledge for troubleshooting. Preview environments count as services and add up quickly. And you're not avoiding AWS entirely—you're just managing it more easily.
+Alex: But Flightcontrol isn't for everyone. You need <say-as interpret-as="characters">AWS</say-as> knowledge for troubleshooting. Preview environments count as services and add up quickly. And you're not avoiding AWS entirely—you're just managing it more easily.
 
 Jordan: It makes economic sense when you're hitting <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme>'s bandwidth or compute limits. Below fifty gigs monthly bandwidth, simpler platforms may be more cost-effective.
 
@@ -40,35 +40,35 @@ Alex: I've seen teams think they're on a twenty-dollar-a-month Pro plan, and the
 
 Jordan: Yeah, what looks like sixty bucks for three team members becomes eight hundred for bandwidth, a hundred fifty for functions—suddenly you're at a thousand and ten per month. Railway would be about a hundred twenty for the same workload. That's an eighty-eight percent premium.
 
-Alex: So when does <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme> make sense? [pause]
+Alex: So when does <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme> make sense?
 
-Jordan: When developer experience justifies the premium. Frontend teams that absolutely need instant previews and edge optimization. Teams within the free tier limits for side projects. [pause] But be very careful about bandwidth and compute usage.
+Jordan: When developer experience justifies the premium. Frontend teams that absolutely need instant previews and edge optimization. Teams within the free tier limits for side projects. But be very careful about bandwidth and compute usage.
 
-Alex: Let's talk about Railway—the modern Heroku.
+Alex: Let's talk about Railway—the modern <phoneme alphabet="ipa" ph="hɛˈroʊku">Heroku</phoneme>.
 
-Jordan: Railway modernizes the Heroku model with transparent usage-based pricing. Hobby is five dollars a month minimum, Pro is twenty dollars minimum. [pause] But you only pay for what you actually use beyond those minimums.
+Jordan: Railway modernizes the <phoneme alphabet="ipa" ph="hɛˈroʊku">Heroku</phoneme> model with transparent usage-based pricing. Hobby is five dollars a month minimum, Pro is twenty dollars minimum. But you only pay for what you actually use beyond those minimums.
 
 Alex: And the resource costs are pay-per-second. Memory is point-zero-zero-zero-three-eight-six per gigabyte-second. vCPU is point-zero-zero-zero-seven-seven-two per vCPU-second. Storage is point-zero-zero-zero-zero-zero-six per gigabyte-second. Egress is five cents per gig.
 
-Jordan: For a typical small production app—two web services with one gig RAM and one vCPU each, that's about thirty-five a month. Postgres database with two gigs RAM, twenty bucks. Redis cache with five-twelve megs, five dollars. Twenty gigs of egress, one dollar. Total about sixty-one, but the Pro plan includes twenty in credit, so actual bill is forty-one.
+Jordan: For a typical small production app—two web services with one gig RAM and one vCPU each, that's about thirty-five a month. <phoneme alphabet="ipa" ph="ˈpoʊstɡrɛs">Postgres</phoneme> database with two gigs RAM, twenty bucks. Redis cache with five-twelve megs, five dollars. Twenty gigs of egress, one dollar. Total about sixty-one, but the Pro plan includes twenty in credit, so actual bill is forty-one.
 
-Alex: That's really transparent. What's the catch? [pause]
+Alex: That's really transparent. What's the catch?
 
-Jordan: Free tier is trial-only, thirty days. Pro has a twenty-dollar minimum even if you use less. Egress at five cents per gig adds up—that's ten X more expensive than raw AWS egress. And there's no built-in CDN, so pair it with Cloudflare if you need that.
+Jordan: Free tier is trial-only, thirty days. Pro has a twenty-dollar minimum even if you use less. Egress at five cents per gig adds up—that's ten X more expensive than raw <say-as interpret-as="characters">AWS</say-as> egress. And there's no built-in CDN, so pair it with Cloudflare if you need that.
 
-Alex: Best for? [pause]
+Alex: Best for?
 
-Jordan: Startups wanting predictable costs with usage-based pricing. Teams migrating from Heroku. Full-stack apps needing databases and background workers.
+Jordan: Startups wanting predictable costs with usage-based pricing. Teams migrating from <phoneme alphabet="ipa" ph="hɛˈroʊku">Heroku</phoneme>. Full-stack apps needing databases and background workers.
 
-Alex: Render is next—they position as "more flexible than serverless, less complex than AWS."
+Alex: Render is next—they position as "more flexible than serverless, less complex than <say-as interpret-as="characters">AWS</say-as>."
 
 Jordan: Render has straightforward pricing. Hobby tier is free with one project and a hundred gigs bandwidth. Professional is nineteen a month per user with unlimited projects and five hundred gigs bandwidth. Organization is twenty-nine per user with one terabyte bandwidth and audit logs. Enterprise is custom with SSO, SCIM, guaranteed uptime.
 
 Alex: And compute is prorated per second. Free tier is five-twelve megs RAM with point-one CPU. Starter is seven dollars for five-twelve megs and point-five CPU. Standard is twenty-five for two gigs and one CPU. Pro is eighty-five for four gigs and two CPUs.
 
-Jordan: For a production web app plus database, you're looking at Professional plan for two users, that's thirty-eight. Standard web service is twenty-five. Postgres Standard is twenty. Total is eighty-three per month.
+Jordan: For a production web app plus database, you're looking at Professional plan for two users, that's thirty-eight. Standard web service is twenty-five. <phoneme alphabet="ipa" ph="ˈpoʊstɡrɛs">Postgres</phoneme> Standard is twenty. Total is eighty-three per month.
 
-Alex: Compare that to Flightcontrol Starter at ninety-seven plus AWS costs of about fifty—total is a hundred forty-seven. Render is sixty-four dollars cheaper, forty-four percent less.
+Alex: Compare that to Flightcontrol Starter at ninety-seven plus <say-as interpret-as="characters">AWS</say-as> costs of about fifty—total is a hundred forty-seven. Render is sixty-four dollars cheaper, forty-four percent less.
 
 Jordan: The catch: free tier services spin down after inactivity. Bandwidth limits can be restrictive for media-heavy sites. Fewer advanced features than competitors. No edge deployment—single region by default.
 
@@ -82,43 +82,43 @@ Jordan: Fly runs your Docker containers on hardware-isolated VMs—they call the
 
 Alex: Pricing is pure pay-as-you-go. No monthly minimum. VM pricing is based on CPU/RAM presets, roughly five dollars per month per gigabyte of RAM plus CPU cost. Storage is fifteen cents per gig per month. Bandwidth starts at two cents per gig in North America and Europe, up to twelve cents in other regions.
 
-Jordan: For a global web app running in three regions—three VMs with one gig RAM and one CPU each, that's forty-five a month. Postgres with four gigs RAM, twenty-five. Ten gigs storage, a dollar fifty. Thirty gigs bandwidth mostly North America and Europe, one dollar. Total about seventy-two fifty.
+Jordan: For a global web app running in three regions—three VMs with one gig RAM and one CPU each, that's forty-five a month. <phoneme alphabet="ipa" ph="ˈpoʊstɡrɛs">Postgres</phoneme> with four gigs RAM, twenty-five. Ten gigs storage, a dollar fifty. Thirty gigs bandwidth mostly North America and Europe, one dollar. Total about seventy-two fifty.
 
 Alex: Same globally on <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme> would easily be two sixty or more. Fly saves about a hundred eighty-eight a month, seventy-two percent less.
 
-Jordan: The trade-off: steeper learning curve. You need to be comfortable with Docker and infrastructure concepts. Bandwidth costs vary significantly by region. No managed services beyond Postgres—bring your own Redis. Documentation assumes infrastructure knowledge.
+Jordan: The trade-off: steeper learning curve. You need to be comfortable with Docker and infrastructure concepts. Bandwidth costs vary significantly by region. No managed services beyond <phoneme alphabet="ipa" ph="ˈpoʊstɡrɛs">Postgres</phoneme>—bring your own Redis. Documentation assumes infrastructure knowledge.
 
 Alex: So best for teams comfortable with Docker that need global low-latency deployment. WebSocket or stateful apps. ML workloads with GPU access.
 
-Jordan: Right. If you're technical and want control without full AWS complexity, Fly is powerful.
+Jordan: Right. If you're technical and want control without full <say-as interpret-as="characters">AWS</say-as> complexity, Fly is powerful.
 
-Alex: Okay, let's do the decision framework. When should you choose each platform? [pause]
+Alex: Okay, let's do the decision framework. When should you choose each platform?
 
-Jordan: Use Flightcontrol when you're already on AWS or have AWS expertise, team size is ten-plus engineers, compliance requires infrastructure control, you're hitting cost ceilings on other platforms, or you need AWS-specific services like SageMaker. Avoid if you're trying to avoid AWS, team is under five people, or you want the simplest option.
+Jordan: Use Flightcontrol when you're already on <say-as interpret-as="characters">AWS</say-as> or have AWS expertise, team size is ten-plus engineers, compliance requires infrastructure control, you're hitting cost ceilings on other platforms, or you need AWS-specific services like SageMaker. Avoid if you're trying to avoid AWS, team is under five people, or you want the simplest option.
 
 Alex: Use <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme> when you're using Next dot JS heavily, developer experience is top priority, you're a frontend team that values instant previews, budget supports premium pricing, or you need best-in-class edge performance. Avoid if you're budget-conscious, have high bandwidth needs, or need backend services.
 
-Jordan: Use Railway when you want transparent usage-based pricing, need databases plus background workers, you're migrating from Heroku, you're a startup with unpredictable traffic, or you value modern DX without complexity. Avoid if you need edge deployment or enterprise features.
+Jordan: Use Railway when you want transparent usage-based pricing, need databases plus background workers, you're migrating from <phoneme alphabet="ipa" ph="hɛˈroʊku">Heroku</phoneme>, you're a startup with unpredictable traffic, or you value modern DX without complexity. Avoid if you need edge deployment or enterprise features.
 
 Alex: Use Render when you want predictable monthly bills, need generous free tier for side projects, value simplicity over advanced features, you're a small team under ten people, or don't need edge optimization. Avoid if you need advanced features or global deployment.
 
-Jordan: Use Fly dot io when you need global low-latency deployment, you're comfortable with Docker and infrastructure, want technical control without full AWS complexity, running WebSocket or stateful apps, or need GPU access for ML workloads. Avoid if you want fully managed experience or prefer GUI over CLI.
+Jordan: Use Fly dot io when you need global low-latency deployment, you're comfortable with Docker and infrastructure, want technical control without full <say-as interpret-as="characters">AWS</say-as> complexity, running WebSocket or stateful apps, or need GPU access for ML workloads. Avoid if you want fully managed experience or prefer GUI over CLI.
 
-Alex: And the big question—when should you just build your own with Terraform or Pulumi? [pause]
+Alex: And the big question—when should you just build your own with Terraform or <phoneme alphabet="ipa" ph="puˈlumi">Pulumi</phoneme>?
 
-Jordan: The break-even point is around three to five dedicated platform engineers. If your team is over thirty engineers with a dedicated platform team, very specific compliance requirements, heavy AWS-specific service usage, cost optimization is critical with ten-K-plus monthly bills, or infrastructure itself is a competitive advantage—then building makes sense.
+Jordan: The break-even point is around three to five dedicated platform engineers. If your team is over thirty engineers with a dedicated platform team, very specific compliance requirements, heavy <say-as interpret-as="characters">AWS</say-as>-specific service usage, cost optimization is critical with ten-K-plus monthly bills, or infrastructure itself is a competitive advantage—then building makes sense.
 
-Alex: But here's the math. Year one with two platform engineers: three hundred K in salary and benefits. AWS infrastructure, a hundred twenty K. Terraform tooling, ten K. Total four hundred thirty K per year.
+Alex: But here's the math. Year one with two platform engineers: three hundred K in salary and benefits. <say-as interpret-as="characters">AWS</say-as> infrastructure, a hundred twenty K. Terraform tooling, ten K. Total four hundred thirty K per year.
 
-Jordan: <phoneme alphabet="ipa" ph="pæs">PaaS</phoneme> alternative like Flightcontrol for thirty engineers: platform fee is forty-seven sixty-four annually. AWS costs, a hundred twenty K. Total a hundred twenty-four thousand seven sixty-four.
+Jordan: <phoneme alphabet="ipa" ph="pæs">PaaS</phoneme> alternative like Flightcontrol for thirty engineers: platform fee is forty-seven sixty-four annually. <say-as interpret-as="characters">AWS</say-as> costs, a hundred twenty K. Total a hundred twenty-four thousand seven sixty-four.
 
 Alex: Self-managed costs three point four times more in year one. And that's before you factor in the opportunity cost of not shipping features.
 
 Jordan: Exactly. Unless you have thirty-plus engineers or very specific requirements, <phoneme alphabet="ipa" ph="pæs">PaaS</phoneme> platforms provide better ROI than building. The engineering time saved compounds into faster feature delivery.
 
-Alex: Any final thoughts on hidden costs to watch? [pause]
+Alex: Any final thoughts on hidden costs to watch?
 
-Jordan: For Flightcontrol: preview environments count as services and can add up. AWS costs can surprise without proper monitoring. For <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme>: bandwidth charges scale aggressively, image optimization bills separately, Enterprise has steep minimum. For Railway: twenty-dollar Pro minimum even if you use less, egress is ten X AWS pricing. For Render: free tier spins down with cold starts, bandwidth limits are strict. For Fly: bandwidth costs vary wildly by region, steeper learning curve means time investment.
+Jordan: For Flightcontrol: preview environments count as services and can add up. <say-as interpret-as="characters">AWS</say-as> costs can surprise without proper monitoring. For <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme>: bandwidth charges scale aggressively, image optimization bills separately, Enterprise has steep minimum. For Railway: twenty-dollar Pro minimum even if you use less, egress is ten X AWS pricing. For Render: free tier spins down with cold starts, bandwidth limits are strict. For Fly: bandwidth costs vary wildly by region, steeper learning curve means time investment.
 
 Alex: The key insight here is that there's no universal answer. If you're a solo developer, use Render free or Railway hobby. Five-person startup, Railway or Render Professional. Scaling to twenty-plus engineers, Flightcontrol starts making sense. Frontend-focused on Next dot JS, <phoneme alphabet="ipa" ph="vɝˈsɛl">Vercel</phoneme> if you can afford it. Need global edge, Fly dot io wins on price-performance.
 
@@ -126,4 +126,4 @@ Jordan: And remember, you can migrate. These platforms make it relatively straig
 
 Alex: The platforms are converging on features but diverging on pricing models and target audiences. Match your team's size, technical expertise, and budget to the right trade-off.
 
-Jordan: The fundamentals of good engineering remain constant, even as the landscape evolves. [pause] Start with simplicity, prove the value, then scale to control as your needs grow.
+Jordan: The fundamentals of good engineering remain constant, even as the landscape evolves. Start with simplicity, prove the value, then scale to control as your needs grow.

@@ -16,9 +16,9 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience seeking strategic insights on technology choices, market dynamics, and skill optimization.
 
-## 🎥 Latest Episode: Platform Tools Tier List 2025
+## 🎥 Latest Episode: The $75M/Hour Lesson - AWS Outage October 2025
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_b6q2xSN7T4" title="The Platform Engineering Tools Tier List 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_PLACEHOLDER" title="The $75 Million Per Hour Lesson: Inside the 2025 AWS US-EAST-1 Outage" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <PodcastSubscribeButtons />
 
@@ -56,6 +56,8 @@ Structured, multi-episode educational series designed for deep learning and skil
 
 Mix of podcast episodes (🎙️ conversational discussions) and course lessons (📖 structured learning):
 
+- 🎙️ **[#007: The $75M/Hour Lesson - AWS Outage October 2025](/podcasts/00007-aws-outage-october-2025)** (16 min) - DNS race condition, cascading failures, and the wake-up call on centralized cloud architecture
+- 🎙️ **[#006: AWS State of the Union 2025](/podcasts/00006-aws-state-of-the-union-2025)** (28 min) - Navigate 200+ AWS services with strategic clarity and career frameworks
 - 🎙️ **[#005: Platform Tools Tier List 2025](/podcasts/00005-platform-tools-tier-list)** (13 min) - Which skills command $24K+ higher salaries?
 - 🎙️ **[#004: PaaS Showdown 2025](/podcasts/00004-paas-showdown)** (14 min) - Flightcontrol vs Vercel vs Railway vs Render vs Fly.io
 - 🎙️ **[#003: Platform Economics](/podcasts/00003-platform-economics)** (18 min) - Hidden costs and ROI of platform engineering
@@ -65,6 +67,16 @@ Mix of podcast episodes (🎙️ conversational discussions) and course lessons 
 ---
 
 ## Podcast Episodes
+
+### Episode 6: AWS State of the Union 2025
+
+[🎙️ AWS State of the Union 2025: Navigate 200+ Services with Strategic Clarity](/podcasts/00006-aws-state-of-the-union-2025)
+
+You're an experienced platform engineer. AWS has over 200 services. Where do you start? We cut through the complexity: which 20 services matter, how AWS specialization ($127K) stacks against specialized tools on AWS ($135-139K), and practical guidance for engineers returning to AWS or migrating from Azure/GCP. Includes career tier frameworks, cost optimization strategies, and service selection playbooks.
+
+**Duration:** 28 minutes
+
+---
 
 ### Episode 5: Platform Tools Tier List 2025
 
