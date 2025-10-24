@@ -16,9 +16,9 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience seeking strategic insights on technology choices, market dynamics, and skill optimization.
 
-## 🎥 Latest Episode: AWS State of the Union 2025
+## 🎥 Latest Episode: GCP State of the Union 2025
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dfW6eVdCWi0" title="AWS State of the Union 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PLACEHOLDER_GCP_VIDEO" title="GCP State of the Union 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <PodcastSubscribeButtons />
 
@@ -56,6 +56,7 @@ Structured, multi-episode educational series designed for deep learning and skil
 
 Mix of podcast episodes (🎙️ conversational discussions) and course lessons (📖 structured learning):
 
+- 🎙️ **[#008: GCP State of the Union 2025](/podcasts/00008-gcp-state-of-the-union-2025)** (17 min) - When depth beats breadth: GCP's 32% growth vs AWS's 17%
 - 🎙️ **[#006: AWS State of the Union 2025](/podcasts/00006-aws-state-of-the-union-2025)** (29 min) - Navigate 200+ AWS services with strategic clarity and career frameworks
 - 🎙️ **[#005: Platform Tools Tier List 2025](/podcasts/00005-platform-tools-tier-list)** (13 min) - Which skills command $24K+ higher salaries?
 - 🎙️ **[#004: PaaS Showdown 2025](/podcasts/00004-paas-showdown)** (14 min) - Flightcontrol vs Vercel vs Railway vs Render vs Fly.io
@@ -66,6 +67,16 @@ Mix of podcast episodes (🎙️ conversational discussions) and course lessons 
 ---
 
 ## Podcast Episodes
+
+### Episode 8: GCP State of the Union 2025
+
+[🎙️ GCP State of the Union 2025: When Depth Beats Breadth](/podcasts/00008-gcp-state-of-the-union-2025)
+
+GCP grows at 32% while AWS manages 17%—nearly 2x faster despite having half the services. We break down why Google's depth-over-breadth strategy is winning AI/ML and data workloads in 2025. Learn about 3x network performance advantages, automatic sustained use discounts (no Reserved Instance forecasting!), and when GCP's specialist positioning beats AWS's generalist approach.
+
+**Duration:** 17 minutes
+
+---
 
 ### Episode 6: AWS State of the Union 2025
 
