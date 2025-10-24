@@ -28,7 +28,7 @@ Master the essential technical skills needed for platform engineering, SRE, and 
 
 > 🎙️ **Listen to the podcast**: [The Platform Engineering Tools Tier List 2025](/podcasts/00005-platform-tools-tier-list) - Which skills command $24K+ higher salaries? We analyze 220+ tools from the Dice 2025 report, break down the commoditization trap, and reveal S-tier specializations earning $130K-152K.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/C8YMttCuNok" title="The Platform Engineering Tools Tier List 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_b6q2xSN7T4" title="The Platform Engineering Tools Tier List 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <PodcastSubscribeButtons />
 

@@ -16,6 +16,10 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience seeking strategic insights on technology choices, market dynamics, and skill optimization.
 
+## 🎥 Latest Episode: Platform Tools Tier List 2025
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_b6q2xSN7T4" title="The Platform Engineering Tools Tier List 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <PodcastSubscribeButtons />
 
 ---
