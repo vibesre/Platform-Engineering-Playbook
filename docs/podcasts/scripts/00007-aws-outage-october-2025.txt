@@ -8,7 +8,7 @@ Alex: That's exactly the question every platform engineer needs to answer Monday
 
 Jordan: Let's start with what actually happened. Give me the timeline.
 
-Alex: Eleven forty-eight PM PDT on October nineteenth. Customers start seeing increased DynamoDB <say-as interpret-as="characters">API</say-as> error rates in US-EAST-1. At first, it looks like a normal spike. But within minutes, it's clear this is different. DynamoDB can't resolve its <say-as interpret-as="characters">DNS</say-as> endpoint. New connections are failing.
+Alex: Eleven forty-eight PM PDT on October nineteenth. Customers start seeing increased DynamoDB <say-as interpret-as="characters">API</say-as> error rates in <say-as interpret-as="characters">US</say-as>-EAST-1. At first, it looks like a normal spike. But within minutes, it's clear this is different. DynamoDB can't resolve its <say-as interpret-as="characters">DNS</say-as> endpoint. New connections are failing.
 
 Jordan: And DynamoDB isn't just another service. It's foundational infrastructure that everything else depends on.
 
@@ -40,7 +40,7 @@ Alex: Now Enactor Two does what it's supposed to do - triggers cleanup of stale 
 
 Jordan: Wait, so the good plan gets replaced with stale data? [pause]
 
-Alex: Exactly. And then the cleanup process runs and says "this Old Plan is stale, delete it." Except it's actually deleting the active plan. The result is an empty <say-as interpret-as="characters">DNS</say-as> record for dynamodb dot us-east-1 dot amazonaws dot com.
+Alex: Exactly. And then the cleanup process runs and says "this Old Plan is stale, delete it." Except it's actually deleting the active plan. The result is an empty <say-as interpret-as="characters">DNS</say-as> record for dynamodb dot <say-as interpret-as="characters">US</say-as>-EAST-1 dot amazonaws dot com.
 
 Jordan: And the system can't recover automatically because...
 
@@ -94,21 +94,21 @@ Jordan: That's the reframing. We've been thinking about multi-region as expensiv
 
 Alex: Completely. Option A - spend four hundred dollars a month for a managed multi-region platform. Option B - accept seventy-five million per hour risk exposure. Option C - spend fifteen thousand a month in engineering time building your own. The math suddenly looks very different.
 
-Jordan: And here's what makes this worse - US-EAST-1 isn't just another <say-as interpret-as="characters">AWS</say-as> region.
+Jordan: And here's what makes this worse - <say-as interpret-as="characters">US</say-as>-EAST-1 isn't just another <say-as interpret-as="characters">AWS</say-as> region.
 
-Alex: This is the part that surprised a lot of companies. US-EAST-1 is the control plane for the world. It's <say-as interpret-as="characters">AWS</say-as>'s oldest region, launched in two thousand six. It's the most mature, most interconnected, most deeply integrated.
+Alex: This is the part that surprised a lot of companies. <say-as interpret-as="characters">US</say-as>-EAST-1 is the control plane for the world. It's <say-as interpret-as="characters">AWS</say-as>'s oldest region, launched in two thousand six. It's the most mature, most interconnected, most deeply integrated.
 
-Jordan: Even if your services are running in EU or Asia, they depend on US-EAST-1 for control plane operations.
+Jordan: Even if your services are running in EU or Asia, they depend on <say-as interpret-as="characters">US</say-as>-EAST-1 for control plane operations.
 
-Alex: Right. Companies thought they were multi-region. They had workloads in multiple regions. But they discovered dependencies they didn't know existed. Your compute might be in EU-WEST-1, but the control plane that manages it? That's in US-EAST-1.
+Alex: Right. Companies thought they were multi-region. They had workloads in multiple regions. But they discovered dependencies they didn't know existed. Your compute might be in EU-WEST-1, but the control plane that manages it? That's in <say-as interpret-as="characters">US</say-as>-EAST-1.
 
 Jordan: Why is it architected this way? [pause]
 
-Alex: Backwards compatibility and operational complexity. US-EAST-1 handles thirty-five to forty percent of global <say-as interpret-as="characters">AWS</say-as> traffic. It's where all the original services were built. Moving the control plane would be a massive undertaking with enormous risk.
+Alex: Backwards compatibility and operational complexity. <say-as interpret-as="characters">US</say-as>-EAST-1 handles thirty-five to forty percent of global <say-as interpret-as="characters">AWS</say-as> traffic. It's where all the original services were built. Moving the control plane would be a massive undertaking with enormous risk.
 
 Jordan: So it's an architectural constant we have to live with.
 
-Alex: Unless you're using GovCloud or EU Sovereign Cloud, which have separate control planes. But for the vast majority of <say-as interpret-as="characters">AWS</say-as> customers, US-EAST-1 is your control plane whether you know it or not.
+Alex: Unless you're using GovCloud or EU Sovereign Cloud, which have separate control planes. But for the vast majority of <say-as interpret-as="characters">AWS</say-as> customers, <say-as interpret-as="characters">US</say-as>-EAST-1 is your control plane whether you know it or not.
 
 Jordan: What is <say-as interpret-as="characters">AWS</say-as> actually changing in response to this? [pause]
 
@@ -116,7 +116,7 @@ Alex: Immediate actions - they're adding safeguards to prevent the <say-as inter
 
 Jordan: But they're not changing the fundamental architecture.
 
-Alex: No. US-EAST-1 remains the global control plane. [pause] The centralized model that created the vulnerability is staying. They're just adding better guardrails.
+Alex: No. <say-as interpret-as="characters">US</say-as>-EAST-1 remains the global control plane. [pause] The centralized model that created the vulnerability is staying. They're just adding better guardrails.
 
 Jordan: Which means the systemic risk [pause] remains.
 
@@ -124,7 +124,7 @@ Alex: Just with better defenses. And that's the lesson for platform engineers. Y
 
 Jordan: So let's make this practical. It's Monday morning. [pause] What three questions should every platform engineer be asking? [pause]
 
-Alex: Question one - what's our single-region exposure? And I don't just mean where your workloads run. I mean what fails if US-EAST-1 goes dark? Map the critical paths. Document the dependencies you didn't know existed.
+Alex: Question one - what's our single-region exposure? And I don't just mean where your workloads run. I mean what fails if <say-as interpret-as="characters">US</say-as>-EAST-1 goes dark? Map the critical paths. Document the dependencies you didn't know existed.
 
 Jordan: Because a lot of teams are about to discover they're not as multi-region as they thought.
 
@@ -140,7 +140,7 @@ Alex: If you're an individual engineer, study the <say-as interpret-as="characte
 
 Jordan: For platform teams? [pause]
 
-Alex: Schedule a DR drill this week. Pretend <say-as interpret-as="characters">AWS</say-as> US-EAST-1 is down. What breaks? Can you failover? How long does it take? Map all your single-region dependencies - you'll be surprised what you find. Price out multi-region options because the business case just got a lot clearer.
+Alex: Schedule a DR drill this week. Pretend <say-as interpret-as="characters">AWS</say-as> <say-as interpret-as="characters">US</say-as>-EAST-1 is down. What breaks? Can you failover? How long does it take? Map all your single-region dependencies - you'll be surprised what you find. Price out multi-region options because the business case just got a lot clearer.
 
 Jordan: And for leadership? [pause]
 
