@@ -17,7 +17,16 @@ slug: 00006-aws-state-of-the-union-2025
 
 > 📝 **Explore the [AWS technical guide](/technical/aws)**: Comprehensive learning resources, certification prep, and best practices for mastering Amazon Web Services.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dfW6eVdCWi0" title="AWS State of the Union 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/dfW6eVdCWi0"
+    title="AWS State of the Union 2025"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
 ---
 

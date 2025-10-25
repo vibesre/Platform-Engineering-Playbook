@@ -17,6 +17,17 @@ slug: 00007-aws-outage-october-2025
 
 > 📝 **Read the [full blog post](/blog/aws-us-east-1-outage-october-2025-postmortem-analysis)**: Deep technical analysis with timeline, cost breakdown, and decision frameworks for platform teams.
 
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/5Xu8jjZ3qjk"
+    title="The $75 Million Per Hour Lesson: Inside the 2025 AWS US-EAST-1 Outage"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ---
 
 **Jordan**: Today we're diving into the October twenty twenty-five AWS outage. October nineteenth, eleven forty-eight PM. Ring doorbells stop working. Robinhood freezes trading. Roblox goes offline for millions of players. Medicare enrollment goes dark. All at once. Six point five million outage reports flood in globally.

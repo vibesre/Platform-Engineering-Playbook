@@ -93,7 +93,16 @@ If you're grinding through cloud certifications thinking it's your ticket to the
 
 > 🎙️ **Listen to the podcast episode**: [The Platform Engineering Tools Tier List 2025](/podcasts/00005-platform-tools-tier-list) - Jordan and Alex break down the commoditization trap, S-tier specializations, and practical career roadmaps for maximizing your compensation.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_b6q2xSN7T4" title="The Platform Engineering Tools Tier List 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/_b6q2xSN7T4"
+    title="The Platform Engineering Tools Tier List 2025"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
 <PodcastSubscribeButtons />
 

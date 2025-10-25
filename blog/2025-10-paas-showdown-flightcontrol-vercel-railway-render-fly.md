@@ -40,7 +40,16 @@ This isn't another feature checklist. We've analyzed pricing models, tested depl
 
 > 🎙️ **Listen to the podcast episode**: [PaaS Showdown 2025: Flightcontrol vs Vercel vs Railway vs Render vs Fly.io](/podcasts/00004-paas-showdown) - A deep dive conversation exploring these platforms with real-world pricing examples and decision frameworks.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KAsdIBCFIgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/KAsdIBCFIgo"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
 ## Quick Answer (TL;DR)
 

@@ -48,7 +48,16 @@ Welcome to platform engineering economics in 2025—where the hidden costs are k
 
 > 🎙️ **Listen to the podcast episode**: [Platform Economics - Why Your 130 Tools Are Killing Your ROI](/podcasts/00003-platform-economics) - A deep dive conversation exploring these topics with real-world examples and expert insights.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3SfOMkuKpIY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/3SfOMkuKpIY"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
 ## Key Statistics (2025)
 
