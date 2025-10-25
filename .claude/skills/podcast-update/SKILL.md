@@ -61,12 +61,22 @@ Use this skill when:
    - Show count: "X out of Y chunks will be regenerated"
    - Estimate cost savings vs full regeneration
 
-5. **Regenerate chunks**:
+5. **Preserve metadata before regeneration**:
+   - **CRITICAL**: Backup the metadata .txt file first
+   - `cp output_latest/00XXX-name.txt /tmp/00XXX-name-metadata-backup.txt`
+   - The generate script creates placeholder metadata - we'll restore the real one after
+
+6. **Regenerate chunks**:
    - Run `generate_podcast.py` WITHOUT `--force` flag
    - System auto-detects changed chunks
    - Regenerate only affected chunks
 
-6. **Report results**:
+7. **Restore metadata**:
+   - **CRITICAL**: Restore the backed-up metadata file
+   - `cp /tmp/00XXX-name-metadata-backup.txt output_latest/00XXX-name.txt`
+   - Update duration if it changed (from ffprobe output)
+
+8. **Report results**:
    - How many chunks regenerated
    - How many chunks reused from cache
    - Cost saved by smart regeneration
@@ -87,11 +97,21 @@ Use this skill when:
    - Show which chunks changed
    - Estimate cost savings
 
-4. **Regenerate chunks**:
+4. **Preserve metadata before regeneration**:
+   - **CRITICAL**: Backup the metadata .txt file first
+   - `cp output_latest/00XXX-name.txt /tmp/00XXX-name-metadata-backup.txt`
+   - The generate script creates placeholder metadata - we'll restore the real one after
+
+5. **Regenerate chunks**:
    - Run `generate_podcast.py` WITHOUT `--force`
    - Smart chunk detection
 
-5. **Report results**:
+6. **Restore metadata**:
+   - **CRITICAL**: Restore the backed-up metadata file
+   - `cp /tmp/00XXX-name-metadata-backup.txt output_latest/00XXX-name.txt`
+   - Update duration if it changed (from ffprobe output)
+
+7. **Report results**:
    - Regeneration summary
    - Updated file locations
 
@@ -178,9 +198,12 @@ Before finalizing updates:
 - [ ] Pause tags not accidentally removed
 
 **For Regeneration**:
+- [ ] Backed up metadata .txt file before regeneration
 - [ ] Used generate_podcast.py WITHOUT --force
 - [ ] Verified only changed chunks regenerated
 - [ ] Checked cache summary shows reuse
+- [ ] Restored metadata .txt file after regeneration
+- [ ] Updated duration in metadata if it changed
 - [ ] Updated files exist in output_latest/
 
 ## Common Mistakes to Avoid
@@ -190,6 +213,12 @@ Before finalizing updates:
 **Right**: `generate_podcast.py script.txt`
 
 The chunking system auto-detects changes. Using `--force` regenerates ALL chunks unnecessarily.
+
+### ❌ Forgetting to preserve metadata
+**Wrong**: Regenerate and lose carefully crafted metadata (title/description/summary)
+**Right**: Backup metadata .txt before regeneration, restore after
+
+The generate script creates placeholder metadata. For minor updates (pronunciation fixes, small edits), preserve the existing metadata.
 
 ### ❌ Forgetting PRONUNCIATION_GUIDE.md
 **Wrong**: Only update the script
@@ -297,7 +326,13 @@ When this skill is invoked:
    Proceed with regeneration? [Y/n]
    ```
 
-5. **Regenerate smartly**:
+5. **Preserve metadata**:
+   ```bash
+   # Backup metadata BEFORE regeneration
+   cp podcast-generator/output_latest/00XXX-name.txt /tmp/00XXX-name-metadata-backup.txt
+   ```
+
+6. **Regenerate smartly**:
    ```bash
    cd podcast-generator
    python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00XXX-name.txt
@@ -305,7 +340,17 @@ When this skill is invoked:
 
    **NEVER use --force flag** (defeats smart chunking)
 
-6. **Monitor and report**:
+7. **Restore metadata**:
+   ```bash
+   # Restore metadata AFTER regeneration
+   cp /tmp/00XXX-name-metadata-backup.txt podcast-generator/output_latest/00XXX-name.txt
+
+   # Update duration if needed (get from ffprobe)
+   ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 output_latest/00XXX-name.mp3
+   # Then update Duration: field in the .txt file
+   ```
+
+8. **Monitor and report**:
    - Watch for "Regenerated X/Y chunks, reused Y from cache"
    - Report cost savings
    - Confirm updated files exist
