@@ -57,6 +57,7 @@ Structured, multi-episode educational series designed for deep learning and skil
 Mix of podcast episodes (🎙️ conversational discussions) and course lessons (📖 structured learning):
 
 - 🎙️ **[#008: GCP State of the Union 2025](/podcasts/00008-gcp-state-of-the-union-2025)** (17 min) - When depth beats breadth: GCP's 32% growth vs AWS's 17%
+- 🎙️ **[#007: AWS Outage October 2025](/podcasts/00007-aws-outage-october-2025)** (16 min) - The $75M/hour lesson: DNS race condition in DynamoDB
 - 🎙️ **[#006: AWS State of the Union 2025](/podcasts/00006-aws-state-of-the-union-2025)** (29 min) - Navigate 200+ AWS services with strategic clarity and career frameworks
 - 🎙️ **[#005: Platform Tools Tier List 2025](/podcasts/00005-platform-tools-tier-list)** (13 min) - Which skills command $24K+ higher salaries?
 - 🎙️ **[#004: PaaS Showdown 2025](/podcasts/00004-paas-showdown)** (14 min) - Flightcontrol vs Vercel vs Railway vs Render vs Fly.io
@@ -75,6 +76,18 @@ Mix of podcast episodes (🎙️ conversational discussions) and course lessons 
 GCP grows at 32% while AWS manages 17%—nearly 2x faster despite having half the services. We break down why Google's depth-over-breadth strategy is winning AI/ML and data workloads in 2025. Learn about 3x network performance advantages, automatic sustained use discounts (no Reserved Instance forecasting!), and when GCP's specialist positioning beats AWS's generalist approach.
 
 **Duration:** 17 minutes
+
+---
+
+### Episode 7: AWS Outage October 2025
+
+[🎙️ The $75 Million Per Hour Lesson: Inside the 2025 AWS US-EAST-1 Outage](/podcasts/00007-aws-outage-october-2025)
+
+October 19, 2025. 11:48 PM. Ring doorbells stop. Robinhood freezes trading. Roblox goes dark. 6.5 million outage reports globally. A DNS race condition in DynamoDB cascaded into 70+ AWS services down, affecting 1000+ companies from gaming to government. We dissect the technical failure, the $75M/hour cost, and what it reveals about single-region control plane dependencies. Essential listening for multi-cloud strategy and resilience planning.
+
+**Duration:** 16 minutes
+
+[📝 Read the full blog post](/blog/aws-us-east-1-outage-october-2025-postmortem-analysis) with timeline, cost breakdown, and decision frameworks.
 
 ---
 
