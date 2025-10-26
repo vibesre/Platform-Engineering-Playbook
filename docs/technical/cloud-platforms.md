@@ -19,6 +19,18 @@ keywords:
 # Cloud Platforms & Services
 
 <GitHubButtons />
+
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/ouJd-LeZnZ8"
+    title="Cloud Providers in 2025 - Platform Abstractions, GPU Dynamics, and the New Multi-Cloud Reality"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
 Welcome to the Cloud Platforms & Services section of the Platform Engineering Playbook. This section covers the major cloud providers and related services that platform engineers work with daily.
 
 ## 📋 What You'll Find Here
