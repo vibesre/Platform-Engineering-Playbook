@@ -7,6 +7,18 @@ keywords: [gcp, google cloud, bigquery, kubernetes engine, cloud platform, data 
 # Google Cloud Platform (GCP)
 
 <GitHubButtons />
+
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/v5F9fudm4hQ"
+    title="GCP State of the Union 2025 - When Depth Beats Breadth"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation
