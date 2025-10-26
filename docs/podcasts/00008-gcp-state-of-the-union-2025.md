@@ -17,6 +17,8 @@ slug: 00008-gcp-state-of-the-union-2025
 
 <PodcastSubscribeButtons />
 
+---
+
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe
     style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
@@ -27,8 +29,6 @@ slug: 00008-gcp-state-of-the-union-2025
     allowfullscreen>
   </iframe>
 </div>
-
----
 
 **Jordan**: Today we're diving into GCP—Google Cloud Platform—and here's the stat that's wild. GCP has eleven percent market share. AWS has thirty one percent. So why is GCP growing at thirty two percent year over year while AWS grows at seventeen percent? And why might the number three cloud provider be your number one choice for twenty twenty five?
 
