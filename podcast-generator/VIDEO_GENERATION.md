@@ -31,7 +31,7 @@ The video generation process takes podcast audio files (MP3) and combines them w
 - Format: MP4 (H.264)
 - The video loops automatically to match the audio length
 
-**Source:** Copied from `/Users/ericking/Documents/vibesre/logo/logo_podcast_animated_text.mp4`
+**Source:** Custom animated logo video (not included in repo)
 
 ## Usage
 
@@ -202,9 +202,8 @@ ffmpeg -version
 # Check if background video exists
 ls -lh podcast-generator/assets/background.mp4
 
-# If missing, copy from source
-cp /Users/ericking/Documents/vibesre/logo/logo_podcast_animated_text.mp4 \
-   podcast-generator/assets/background.mp4
+# If missing, add your custom background video
+# cp /path/to/your/background-video.mp4 podcast-generator/assets/background.mp4
 ```
 
 ### Large File Sizes
