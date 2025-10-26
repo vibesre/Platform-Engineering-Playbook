@@ -86,3 +86,32 @@ nav.pagination-nav,
   display: none !important;
 }
 
+/* Mobile navbar fixes - ensure navbar is visible and functional on mobile */
+@media (max-width: 996px) {
+  /* Ensure navbar is visible and has proper z-index */
+  .navbar {
+    display: flex !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    width: 100% !important;
+  }
+
+  /* Ensure mobile toggle button is visible */
+  .navbar__toggle {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Ensure navbar items container is properly positioned */
+  .navbar__items {
+    display: flex !important;
+  }
+
+  /* Mobile sidebar should overlay content */
+  .navbar-sidebar {
+    position: fixed !important;
+    z-index: 101 !important;
+  }
+}
+

@@ -96,7 +96,7 @@ October 19, 2025. 11:48 PM. Ring doorbells stop. Robinhood freezes trading. Robl
 
 **Duration:** 16 minutes
 
-[📝 Read the full blog post](/blog/aws-us-east-1-outage-october-2025-postmortem-analysis) with timeline, cost breakdown, and decision frameworks.
+[📝 Read the full blog post](/blog/2025/10/24/aws-us-east-1-outage-october-2025-postmortem-analysis) with timeline, cost breakdown, and decision frameworks.
 
 ---
 
