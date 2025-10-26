@@ -1,0 +1,52 @@
+# Podcast Generator .gitignore
+
+# Cache files
+cache/
+*.cache
+
+# Output files
+output/
+output_latest/
+output_history/
+*.mp3
+*.mp4
+*.wav
+*.m4a
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# API Keys (just in case)
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
+*_concat.txt
+
+# Test outputs
+test_output*
+
+# Validation reports (internal working files)
+validation-reports/

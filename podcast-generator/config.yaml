@@ -1,0 +1,55 @@
+# Podcast Generation Configuration
+
+# Google AI Studio settings
+google_ai:
+  model: "gemini-1.5-flash"
+  api_key_env: "GOOGLE_AI_API_KEY"
+
+# Voice configuration for speakers
+# Using Chirp3-HD voices which support markup field for [pause] tags
+# and custom_pronunciations API for phonetic tags
+speakers:
+  jordan:
+    voice: "en-US-Chirp3-HD-Kore"  # Female voice (9/10 rating)
+    speed: 0.95  # Slightly slower, more authoritative
+    pitch: 0
+    volume_gain_db: 0.0
+    alternatives:  # Fallback voices in case of errors
+      - "en-US-Chirp3-HD-Charon"
+      - "en-US-Journey-D"
+  alex:
+    voice: "en-US-Chirp3-HD-Algieba"  # Male voice
+    speed: 1.0  # Normal speed, energetic
+    pitch: 0
+    volume_gain_db: 0.0
+    alternatives:  # Fallback voices in case of errors
+      - "en-US-Chirp3-HD-Aoede"
+      - "en-US-Journey-F"
+
+# Audio settings
+audio:
+  sample_rate: 44100
+  bitrate: "128k"
+  format: "mp3"
+  chunk_overlap_ms: 50  # Crossfade duration
+
+# Chunking configuration
+chunking:
+  min_words: 80
+  max_words: 150
+  target_words: 100  # Ideal chunk size for dialogue
+  target_duration_seconds: 45
+  max_duration_seconds: 90
+
+# Paths
+paths:
+  cache_dir: "cache"
+  chunks_dir: "cache/chunks"
+  output_dir: "output"
+  manifest_file: "cache/manifest.json"
+
+# Processing settings
+processing:
+  max_retries: 3
+  retry_delay: 1.0
+  rate_limit_delay: 0.5
