@@ -50,7 +50,7 @@ python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00XXX-name.txt
    - Synchronized with audio
    - Suitable for YouTube, social media
 
-4. **Outputs Created** (`podcast-generator/output_latest/`):
+4. **Outputs Created** (`podcast-generator/episodes/00XXX-name/`):
    - `00XXX-episode-name.mp3` (audio)
    - `00XXX-episode-name.mp4` (video)
    - `00XXX-episode-name.txt` (metadata)
@@ -148,7 +148,7 @@ slug: 00XXX-episode-name
 
 ### Phase 3: Complete Metadata File
 
-**Location**: `podcast-generator/output_latest/00XXX-episode-name.txt`
+**Location**: `podcast-generator/episodes/00XXX-name/00XXX-episode-name.txt`
 
 **Auto-Generated During Audio Creation** with:
 - ✅ Title extracted from filename
@@ -271,9 +271,9 @@ Check:
 Complete this checklist before considering episode published:
 
 **Files Created**:
-- [ ] Audio: `podcast-generator/output_latest/00XXX-name.mp3`
-- [ ] Video: `podcast-generator/output_latest/00XXX-name.mp4`
-- [ ] Metadata: `podcast-generator/output_latest/00XXX-name.txt`
+- [ ] Audio: `podcast-generator/episodes/00XXX-name/00XXX-name.mp3`
+- [ ] Video: `podcast-generator/episodes/00XXX-name/00XXX-name.mp4`
+- [ ] Metadata: `podcast-generator/episodes/00XXX-name/00XXX-name.txt`
 - [ ] Episode page: `docs/podcasts/00XXX-name.md`
 - [ ] Script: `docs/podcasts/scripts/00XXX-name.txt` (with tags)
 
@@ -364,8 +364,8 @@ python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00XXX-name.txt --fo
 - Force: ~$0.20 for full episode (100+ chunks)
 
 **After Regeneration**:
-- Audio/video/metadata updated in `output_latest/`
-- Previous version archived in `output_history/`
+- Audio/video/metadata updated in `episodes/00XXX-name/`
+- Previous version archived in `episodes/00XXX-name/history/`
 - Episode page only needs updating if dialogue changed
 
 ## Workflow Summary
@@ -422,14 +422,14 @@ When this skill is invoked:
    - Get actual duration from mp3:
      ```bash
      ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \
-       podcast-generator/output_latest/00XXX-name.mp3
+       podcast-generator/episodes/00XXX-name/00XXX-name.mp3
      ```
    - Convert seconds to MM:SS format
-   - Update `Duration:` field in `podcast-generator/output_latest/00XXX-name.txt`
+   - Update `Duration:` field in `podcast-generator/episodes/00XXX-name/00XXX-name.txt`
    - Replace estimated duration with actual runtime
 
 6. **Verify metadata file**:
-   - Check `output_latest/00XXX-name.txt`
+   - Check `episodes/00XXX-name/00XXX-name.txt`
    - Title matches episode page H1
    - URL uses numbered format
    - Duration is actual mp3 length (not estimated)

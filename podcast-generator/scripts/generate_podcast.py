@@ -296,29 +296,35 @@ class PodcastGenerator:
         active_hashes = [chunk.hash for chunk in chunks]
         self.cache_manager.clean_orphaned_chunks(episode_id, active_hashes)
         
-        # Step 4: Set up output directories
+        # Step 4: Set up output directories (new episode-based structure)
         output_base_dir = Path(self.config["paths"]["output_dir"]).parent
-        output_latest_dir = output_base_dir / "output_latest"
-        output_history_dir = output_base_dir / "output_history"
+        episodes_dir = output_base_dir / "episodes"
+        episode_dir = episodes_dir / episode_id
+        episode_history_dir = episode_dir / "history"
 
-        # Create directories if they don't exist
-        output_latest_dir.mkdir(exist_ok=True)
-        output_history_dir.mkdir(exist_ok=True)
+        # Create episode directory if it doesn't exist
+        episode_dir.mkdir(parents=True, exist_ok=True)
 
-        # Check if episode already exists in output_latest
-        latest_episode_path = output_latest_dir / f"{episode_id}.mp3"
+        # Check if episode already exists
+        latest_episode_path = episode_dir / f"{episode_id}.mp3"
         if latest_episode_path.exists():
             # Move existing version to history with timestamp
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            history_filename = f"{episode_id}_{timestamp}.mp3"
-            history_path = output_history_dir / history_filename
-            print(f"\n📦 Moving previous version to history: {history_filename}")
-            latest_episode_path.rename(history_path)
+            history_dir = episode_history_dir / timestamp
+            history_dir.mkdir(parents=True, exist_ok=True)
+
+            # Move all episode files to history
+            for ext in ['.mp3', '.mp4', '.txt']:
+                old_file = episode_dir / f"{episode_id}{ext}"
+                if old_file.exists():
+                    new_file = history_dir / f"{episode_id}{ext}"
+                    print(f"📦 Moving previous version to history/{timestamp}/{episode_id}{ext}")
+                    old_file.rename(new_file)
 
         # Step 5: Stitch chunks together
         print("\n🔗 Stitching audio chunks...")
         temp_filename = f"temp_{episode_id}.mp3"
-        temp_path = output_latest_dir / temp_filename
+        temp_path = episode_dir / temp_filename
 
         # Prepare metadata
         metadata = {
@@ -395,7 +401,7 @@ class PodcastGenerator:
 
         # Step 8: Generate metadata .txt file
         print("\n📝 Generating episode metadata...")
-        metadata_path = output_latest_dir / f"{episode_id}.txt"
+        metadata_path = episode_dir / f"{episode_id}.txt"
         self._generate_metadata_file(
             episode_id=episode_id,
             script_path=script_path,

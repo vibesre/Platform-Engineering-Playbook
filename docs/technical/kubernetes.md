@@ -55,6 +55,20 @@ Kubernetes is an open-source container orchestration platform that automates dep
 
 [Full guide below ↓](#-learning-resources)
 
+---
+
+## 🎓 Kubernetes Production Mastery Course
+
+**NEW**: 10-episode course designed to transform you from a Kubernetes user into a production engineer.
+
+📖 **[Start the Course →](/podcasts/courses/kubernetes-production-mastery)**
+
+**What's Covered**: Production mindset & failure patterns • Resource management & OOMKilled prevention • Networking & troubleshooting • Security (RBAC, secrets) • Observability & debugging • Storage & StatefulSets • High availability & DR • GitOps deployments • Cost optimization
+
+🎙️ Audio lessons with full transcripts • 🎯 Production-focused for senior engineers
+
+---
+
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

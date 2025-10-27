@@ -257,7 +257,9 @@ class GoogleCloudTTSGenerator:
         """
         import re
 
-        custom_params = []
+        # Use dict to deduplicate pronunciations by phrase
+        # API requires each phrase to appear only once
+        pronunciation_dict = {}
         clean_text = text
 
         # Extract <phoneme alphabet="ipa" ph="...">Word</phoneme>
@@ -266,16 +268,24 @@ class GoogleCloudTTSGenerator:
             pronunciation = match.group(1)
             phrase = match.group(2)
 
-            # Create CustomPronunciationParams object
-            param = texttospeech.CustomPronunciationParams(
-                phrase=phrase,
-                phonetic_encoding=texttospeech.CustomPronunciationParams.PhoneticEncoding.PHONETIC_ENCODING_IPA,
-                pronunciation=pronunciation
-            )
-            custom_params.append(param)
+            # Deduplicate case-insensitively (API treats "kubectl" and "Kubectl" as same)
+            phrase_lower = phrase.lower()
+            if phrase_lower not in pronunciation_dict:
+                pronunciation_dict[phrase_lower] = pronunciation
 
-            # Replace with just the word
+            # Replace with just the word (preserve original case in text)
             clean_text = clean_text.replace(match.group(0), phrase)
+
+        # Convert deduplicated dict to CustomPronunciationParams list
+        # Use lowercase phrases since API is case-insensitive
+        custom_params = [
+            texttospeech.CustomPronunciationParams(
+                phrase=phrase,  # phrase is already lowercase from dict keys
+                phonetic_encoding=texttospeech.CustomPronunciationParams.PhoneticEncoding.PHONETIC_ENCODING_IPA,
+                pronunciation=pron
+            )
+            for phrase, pron in pronunciation_dict.items()
+        ]
 
         # Extract <say-as interpret-as="characters">WORD</say-as>
         # For Chirp3-HD, strip these tags and rely on natural acronym handling

@@ -33,12 +33,15 @@ sudo apt-get install ffmpeg
 ### 2. Configure Google AI Studio
 
 1. Get an API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. **Option A**: Create a `.env` file (recommended for local development):
+2. Add your API key to `.env` file:
    ```bash
-   cp .env.example .env
-   # Edit .env and add your API key
+   # Edit podcast-generator/.env
+   GOOGLE_AI_API_KEY=your-api-key-here
    ```
-3. **Option B**: Set environment variable:
+
+   **Note**: The scripts automatically read from `.env` - this is the recommended method.
+
+   **Alternative**: Set environment variable temporarily:
    ```bash
    export GOOGLE_AI_API_KEY='your-api-key-here'
    ```

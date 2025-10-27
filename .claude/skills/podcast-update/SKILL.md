@@ -63,7 +63,7 @@ Use this skill when:
 
 5. **Preserve metadata before regeneration**:
    - **CRITICAL**: Backup the metadata .txt file first
-   - `cp output_latest/00XXX-name.txt /tmp/00XXX-name-metadata-backup.txt`
+   - `cp episodes/00XXX-name/00XXX-name.txt /tmp/00XXX-name-metadata-backup.txt`
    - The generate script creates placeholder metadata - we'll restore the real one after
 
 6. **Regenerate chunks**:
@@ -73,7 +73,7 @@ Use this skill when:
 
 7. **Restore metadata**:
    - **CRITICAL**: Restore the backed-up metadata file
-   - `cp /tmp/00XXX-name-metadata-backup.txt output_latest/00XXX-name.txt`
+   - `cp /tmp/00XXX-name-metadata-backup.txt episodes/00XXX-name/00XXX-name.txt`
    - Update duration if it changed (from ffprobe output)
 
 8. **Report results**:
@@ -99,7 +99,7 @@ Use this skill when:
 
 4. **Preserve metadata before regeneration**:
    - **CRITICAL**: Backup the metadata .txt file first
-   - `cp output_latest/00XXX-name.txt /tmp/00XXX-name-metadata-backup.txt`
+   - `cp episodes/00XXX-name/00XXX-name.txt /tmp/00XXX-name-metadata-backup.txt`
    - The generate script creates placeholder metadata - we'll restore the real one after
 
 5. **Regenerate chunks**:
@@ -108,7 +108,7 @@ Use this skill when:
 
 6. **Restore metadata**:
    - **CRITICAL**: Restore the backed-up metadata file
-   - `cp /tmp/00XXX-name-metadata-backup.txt output_latest/00XXX-name.txt`
+   - `cp /tmp/00XXX-name-metadata-backup.txt episodes/00XXX-name/00XXX-name.txt`
    - Update duration if it changed (from ffprobe output)
 
 7. **Report results**:
@@ -204,7 +204,7 @@ Before finalizing updates:
 - [ ] Checked cache summary shows reuse
 - [ ] Restored metadata .txt file after regeneration
 - [ ] Updated duration in metadata if it changed
-- [ ] Updated files exist in output_latest/
+- [ ] Updated files exist in episodes/00XXX-name/
 
 ## Common Mistakes to Avoid
 
@@ -278,8 +278,8 @@ python3 scripts/generate_podcast.py ../docs/podcasts/scripts/00XXX-name.txt
 
 - Script: `docs/podcasts/scripts/00004-paas-showdown-episode.txt`
 - Guide: `podcast-generator/PRONUNCIATION_GUIDE.md`
-- Audio: `podcast-generator/output_latest/00004-paas-showdown-episode.mp3`
-- Video: `podcast-generator/output_latest/00004-paas-showdown-episode.mp4`
+- Audio: `podcast-generator/episodes/00004-name/00004-paas-showdown-episode.mp3`
+- Video: `podcast-generator/episodes/00004-name/00004-paas-showdown-episode.mp4`
 
 ## Status
 
@@ -329,7 +329,7 @@ When this skill is invoked:
 5. **Preserve metadata**:
    ```bash
    # Backup metadata BEFORE regeneration
-   cp podcast-generator/output_latest/00XXX-name.txt /tmp/00XXX-name-metadata-backup.txt
+   cp podcast-generator/episodes/00XXX-name/00XXX-name.txt /tmp/00XXX-name-metadata-backup.txt
    ```
 
 6. **Regenerate smartly**:
@@ -343,10 +343,10 @@ When this skill is invoked:
 7. **Restore metadata**:
    ```bash
    # Restore metadata AFTER regeneration
-   cp /tmp/00XXX-name-metadata-backup.txt podcast-generator/output_latest/00XXX-name.txt
+   cp /tmp/00XXX-name-metadata-backup.txt podcast-generator/episodes/00XXX-name/00XXX-name.txt
 
    # Update duration if needed (get from ffprobe)
-   ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 output_latest/00XXX-name.mp3
+   ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 episodes/00XXX-name/00XXX-name.mp3
    # Then update Duration: field in the .txt file
    ```
 

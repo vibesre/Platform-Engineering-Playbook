@@ -16,13 +16,13 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience seeking strategic insights on technology choices, market dynamics, and skill optimization.
 
-## 🎥 Latest Episode: GCP State of the Union 2025
+## 🎥 Latest Episode: Kubernetes Production Mastery - Lesson 01
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe
     style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-    src="https://www.youtube.com/embed/PLACEHOLDER_GCP_VIDEO"
-    title="GCP State of the Union 2025"
+    src="https://www.youtube.com/embed/PNQX1iw2qK8"
+    title="Kubernetes Production Mastery - Lesson 01: Production Mindset"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
@@ -39,7 +39,38 @@ Structured, multi-episode educational series designed for deep learning and skil
 
 **Available Courses**:
 
-*No courses published yet. Coming soon!*
+### 📖 Kubernetes Production Mastery
+
+Transform from a Kubernetes user into a production Kubernetes engineer. Learn how to run Kubernetes at scale with confidence through real-world failure patterns, systematic debugging, and battle-tested best practices.
+
+- **Episodes**: 10 lessons (1 published, 9 coming soon)
+- **Duration**: ~3 hours total
+- **Level**: Intermediate to Advanced
+- **Prerequisites**: Basic Kubernetes knowledge (pods, deployments, services)
+
+**What You'll Learn**:
+- Production mindset: Think in failure modes, not just success cases
+- Resource management: Prevent OOMKilled and cascading failures
+- RBAC, secrets, and security for multi-tenant clusters
+- Systematic debugging workflow for production incidents
+- Stateful workloads, networking, and observability
+- Cluster operations, multi-tenancy, and advanced patterns
+
+**Published Lessons**:
+- 📖 [Lesson 01: Production Mindset](/podcasts/00009-kubernetes-production-mastery-lesson-01) (17 min) - Learn the 5 failure patterns that break systems at scale and the 6-item production readiness checklist
+
+**🎥 Watch on YouTube**:
+
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/videoseries?list=PLIjf2e3L8dZxzE2XWsUvbd7pxmS9BaUqr"
+    title="Kubernetes Production Mastery Course Playlist"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
 <!-- Example course entry format:
 ### 📖 [Course Name](/podcasts/courses/course-slug)
@@ -65,6 +96,7 @@ Structured, multi-episode educational series designed for deep learning and skil
 
 Mix of podcast episodes (🎙️ conversational discussions) and course lessons (📖 structured learning):
 
+- 📖 **[#009: Kubernetes Production Mastery - Lesson 01](/podcasts/00009-kubernetes-production-mastery-lesson-01)** (17 min) - Learn the 5 failure patterns that break systems at scale and the 6-item production readiness checklist
 - 🎙️ **[#008: GCP State of the Union 2025](/podcasts/00008-gcp-state-of-the-union-2025)** (17 min) - When depth beats breadth: GCP's 32% growth vs AWS's 17%
 - 🎙️ **[#007: AWS Outage October 2025](/podcasts/00007-aws-outage-october-2025)** (16 min) - The $75M/hour lesson: DNS race condition in DynamoDB
 - 🎙️ **[#006: AWS State of the Union 2025](/podcasts/00006-aws-state-of-the-union-2025)** (29 min) - Navigate 200+ AWS services with strategic clarity and career frameworks

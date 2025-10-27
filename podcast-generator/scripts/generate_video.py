@@ -5,7 +5,7 @@ Generate video versions of podcast episodes by overlaying audio on a looping bac
 Usage:
     python3 scripts/generate_video.py path/to/episode.mp3
     python3 scripts/generate_video.py path/to/episode.mp3 --output custom_output.mp4
-    python3 scripts/generate_video.py --all  # Process all MP3s in output_latest/
+    python3 scripts/generate_video.py --all  # Process all MP3s in episodes/*/
 """
 
 import argparse
@@ -119,13 +119,30 @@ def generate_video(audio_path, background_video, output_path):
         sys.exit(1)
 
 
-def process_all_mp3s(output_dir, background_video):
-    """Process all MP3 files in output_latest/ directory."""
-    output_dir = Path(output_dir)
-    mp3_files = sorted(output_dir.glob('*.mp3'))
+def process_all_mp3s(episodes_dir, background_video):
+    """Process all MP3 files in episodes/*/ directories."""
+    episodes_dir = Path(episodes_dir)
+
+    # Find all episode directories
+    episode_dirs = sorted([d for d in episodes_dir.iterdir() if d.is_dir()])
+
+    if not episode_dirs:
+        print(f"No episode directories found in {episodes_dir}")
+        return
+
+    # Collect all MP3 files from episode directories
+    mp3_files = []
+    for episode_dir in episode_dirs:
+        # Look for MP3 files directly in episode directory (not in history/)
+        for mp3 in episode_dir.glob('*.mp3'):
+            # Skip files in history subdirectories
+            if 'history' not in mp3.parts:
+                mp3_files.append(mp3)
+
+    mp3_files = sorted(mp3_files)
 
     if not mp3_files:
-        print(f"No MP3 files found in {output_dir}")
+        print(f"No MP3 files found in episode directories")
         return
 
     print(f"Found {len(mp3_files)} MP3 files to process\n")
@@ -155,16 +172,16 @@ def main():
         epilog="""
 Examples:
   # Generate video for a single episode
-  python3 scripts/generate_video.py output_latest/00001-episode.mp3
+  python3 scripts/generate_video.py episodes/00001-episode-name/00001-episode-name.mp3
 
   # Generate video with custom output name
-  python3 scripts/generate_video.py output_latest/00001-episode.mp3 --output custom.mp4
+  python3 scripts/generate_video.py episodes/00001-episode-name/00001-episode-name.mp3 --output custom.mp4
 
   # Generate videos for all episodes
   python3 scripts/generate_video.py --all
 
-  # Generate videos for all episodes in specific directory
-  python3 scripts/generate_video.py --all --dir output_history/2024-10-19
+  # Generate videos for all episodes in episodes directory
+  python3 scripts/generate_video.py --all --dir episodes
         """
     )
 
@@ -187,8 +204,8 @@ Examples:
 
     parser.add_argument(
         '--dir',
-        default='output_latest',
-        help='Directory containing MP3 files (default: output_latest)'
+        default='episodes',
+        help='Directory containing episode subdirectories (default: episodes)'
     )
 
     parser.add_argument(

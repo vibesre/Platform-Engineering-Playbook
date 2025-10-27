@@ -17,6 +17,37 @@ Use this skill when:
 
 **Prerequisites**: Script must be validated first (use podcast-validate skill).
 
+## ⚠️ Validation Check (MANDATORY - ENFORCED)
+
+**CRITICAL**: Do NOT proceed with formatting until validation is complete and passing.
+
+Before formatting, verify the script has been validated and has no blocking issues:
+
+**Step 1 - Check for validation report**:
+```bash
+ls podcast-generator/validation-reports/[episode-number]-*-validation.md
+```
+
+If validation report **does not exist**:
+- **STOP** - Do not proceed
+- Run `podcast-validate` skill first
+- Validation is MANDATORY, not optional
+
+**Step 2 - Read validation status**:
+Open the validation report and check the "Status" line near the top.
+
+If status says **"NEEDS FIXES BEFORE FORMATTING"** or similar:
+- **STOP** - Do not proceed
+- List the HIGH priority issues for the user
+- Alert: "Validation report shows [X] issues that must be fixed before formatting"
+- Only proceed after issues are fixed and validation report is updated
+
+**Step 3 - Proceed only if validated**:
+Only proceed with formatting if validation report shows clean status or "VALIDATED - READY FOR FORMATTING".
+
+**Why This Matters**:
+One inaccurate statistic destroys trust. Formatting unvalidated content risks publishing misinformation. This enforcement protects the Platform Engineering Playbook's reputation.
+
 ## Formatting Overview
 
 ### Two Outputs Required

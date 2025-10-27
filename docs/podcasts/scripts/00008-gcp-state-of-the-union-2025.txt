@@ -14,9 +14,9 @@ Jordan: But <phoneme alphabet="ipa" ph="ˈæʒɚ">Azure</phoneme> is growing eve
 
 Alex: True, but here's the difference. <phoneme alphabet="ipa" ph="ˈæʒɚ">Azure</phoneme>'s growth is partly enterprise bundling—if you're already deep in Microsoft, Azure makes sense. <say-as interpret-as="characters">GCP</say-as>'s growth is companies choosing it specifically for technical advantages. Data-heavy companies, AI-native startups, teams building on <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>.
 
-Jordan: So what makes <say-as interpret-as="characters">GCP</say-as> technically different? [pause] Because <say-as interpret-as="characters">AWS</say-as> has what, two hundred plus services? [pause] GCP has around a hundred. Most people would look at that and say AWS wins on breadth.
+Jordan: So what makes <say-as interpret-as="characters">GCP</say-as> technically different? [pause] Because <say-as interpret-as="characters">AWS</say-as> has what, two hundred plus services? [pause] GCP has around one hundred fifty. Most people would look at that and say AWS wins on breadth.
 
-Alex: And that's the mental model we need to challenge. Most companies use fewer than twenty services deeply. The rest is just noise. <say-as interpret-as="characters">GCP</say-as> bet on depth over breadth. It's an opinionated platform—Google's engineering culture productized. They're not trying to be everything to everyone.
+Alex: And that's the mental model we need to challenge. Many companies use fewer than twenty services deeply. The rest is just noise. <say-as interpret-as="characters">GCP</say-as> bet on depth over breadth. It's an opinionated platform—Google's engineering culture productized. They're not trying to be everything to everyone.
 
 Jordan: Give me a concrete example of where that depth matters.
 

@@ -1,0 +1,89 @@
+# Gitleaks configuration for Platform Engineering Playbook
+# https://github.com/gitleaks/gitleaks
+
+title = "Platform Engineering Playbook Secrets Detection"
+
+[extend]
+# Use default gitleaks rules as base
+useDefault = true
+
+[allowlist]
+description = "Allowlist for known safe patterns"
+
+# Paths to ignore
+paths = [
+  '''node_modules''',
+  '''build''',
+  '''.docusaurus''',
+  '''package-lock.json''',
+  '''.husky/_''',
+  '''.claude/settings.local.json''',  # Local Claude Code settings (gitignored)
+  '''podcast-generator/.env''',       # Local environment variables (gitignored)
+  '''docs/coding-challenges/index.md''',  # Educational examples with fake credentials
+]
+
+# Regexes to ignore (false positives)
+regexes = [
+  # Example API keys in documentation (clearly fake/placeholder)
+  '''example_api_key_12345''',
+  '''YOUR_API_KEY_HERE''',
+  '''REPLACE_WITH_YOUR_KEY''',
+
+  # GitHub buttons component (not a real secret)
+  '''<GitHubButtons />''',
+
+  # Coding challenge examples (fake credentials for educational purposes)
+  '''AKIAIOSFODNN7EXAMPLE''',  # AWS example key
+  '''wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY''',  # AWS secret example
+  '''ghp_1234567890abcdef1234567890abcdef1234''',  # GitHub token example
+]
+
+# Commits to ignore (if you need to allowlist specific commits)
+commits = []
+
+# Stopwords that indicate the match is not a real secret
+stopwords = [
+  "example",
+  "sample",
+  "test",
+  "placeholder",
+  "fake",
+  "dummy",
+]
+
+[[rules]]
+id = "google-api-key"
+description = "Google API Key"
+regex = '''(?i)AIza[0-9A-Za-z\\-_]{35}'''
+tags = ["key", "Google"]
+
+[[rules]]
+id = "aws-access-key"
+description = "AWS Access Key"
+regex = '''(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}'''
+tags = ["key", "AWS"]
+
+[[rules]]
+id = "github-pat"
+description = "GitHub Personal Access Token"
+regex = '''ghp_[0-9a-zA-Z]{36}'''
+tags = ["key", "GitHub"]
+
+[[rules]]
+id = "generic-api-key"
+description = "Generic API Key"
+regex = '''(?i)(?:key|api[_-]?key|apikey|api[_-]?secret)(?:['\"]?[:=]['\"]?|[ ]*[:=][ ]*)['\"]?[0-9a-zA-Z\-_]{32,}['\"]?'''
+tags = ["key", "API", "generic"]
+entropy = 3.5  # Require higher entropy to reduce false positives
+
+[[rules]]
+id = "slack-token"
+description = "Slack Token"
+regex = '''xox[baprs]-([0-9a-zA-Z]{10,48})'''
+tags = ["key", "Slack"]
+
+[[rules]]
+id = "private-key"
+description = "Private Key"
+regex = '''-----BEGIN ((EC|PGP|DSA|RSA|OPENSSH) )?PRIVATE KEY( BLOCK)?-----'''
+tags = ["key", "private"]

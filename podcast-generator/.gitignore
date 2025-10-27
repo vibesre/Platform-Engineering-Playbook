@@ -4,10 +4,9 @@
 cache/
 *.cache
 
-# Output files
+# Output files (episode-based structure)
 output/
-output_latest/
-output_history/
+episodes/
 *.mp3
 *.mp4
 *.wav

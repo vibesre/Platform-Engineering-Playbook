@@ -1,0 +1,241 @@
+Autonoe: Welcome to <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Production Mastery, a 10-part series designed for senior engineers who already have a firm grasp of the fundamentals. [pause] Throughout this course, we'll review the essential <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> concepts and explore advanced topics that matter in your day-to-day production operations.
+
+[pause]
+
+Autonoe: Here's what we'll cover. [pause short] Episode 1: Production Mindset. [pause short] Episode 2: Resource Management. [pause short] Episode 3: Security and Secrets. [pause short] Episode 4: Debugging Workflows. [pause short] Episode 5: Stateful Workloads. [pause short] Episode 6: Networking Deep Dive. [pause short] Episode 7: Observability. [pause short] Episode 8: Cost Optimization. [pause short] Episode 9: GitOps. [pause short] Episode 10: Multi-Cluster.
+
+[pause long]
+
+Autonoe: Let's begin with Episode 1: Production Mindset.
+
+[pause]
+
+Autonoe: This lesson will prepare you to think like a production engineer, not a tutorial follower. [pause short] You'll recognize the five critical failure patterns before they hit your clusters. [pause short] And you'll use a production readiness framework to evaluate any workload.
+
+[pause]
+
+Autonoe: Let's activate what you already know with a quick refresher. [pause] If you're nodding along, good. We're not here to re-teach basics. We're here to show you what breaks when this scales to production.
+
+[pause]
+
+Autonoe: <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> is a control loop system. [pause] You declare desired state in <phoneme alphabet="ipa" ph="ˈjæməl">YAML</phoneme>, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> reconciles actual state to match it. [pause] That's it. That's the entire mental model. [pause] Declarative, not imperative. Reconciliation, not execution.
+
+[pause]
+
+Autonoe: Think of it like a thermostat. [pause] You set the desired temperature to 70 degrees. [pause] The thermostat continuously checks the actual temperature and adjusts heating or cooling to match. [pause] <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> does this for your containers.
+
+[pause]
+
+Autonoe: Now, the core objects. Lightning round.
+
+[pause]
+
+Autonoe: Pods. [pause short] Smallest deployable unit. [pause short] One or more containers sharing network and storage. [pause short] Every container runs in a pod. [pause short] Pods are ephemeral - they die, new ones replace them.
+
+[pause]
+
+Autonoe: Deployments. [pause short] They manage ReplicaSets. [pause short] Handle rolling updates. [pause short] Maintain desired pod count. [pause short] If you want 5 replicas, the Deployment ensures 5 pods are always running.
+
+[pause]
+
+Autonoe: Services. [pause short] Stable network endpoint for pods. [pause short] Three types you care about: ClusterIP for internal only, that's the default. [pause short] NodePort exposes on every node. [pause short] LoadBalancer provisions a cloud load balancer. [pause short] Services route traffic to healthy pods.
+
+[pause]
+
+Autonoe: ConfigMaps and Secrets. [pause short] Configuration data and sensitive data. [pause short] Mounted as volumes or environment variables.
+
+[pause]
+
+Autonoe: Namespaces. [pause short] Logical cluster subdivision. [pause short] Isolation boundary.
+
+[pause]
+
+Autonoe: The <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> basics. [pause] Four commands handle 80% of troubleshooting. [pause short] <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">Kubectl</phoneme> get pods shows what's running. [pause short] <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">Kubectl</phoneme> describe pod shows why it's failing. [pause short] <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">Kubectl</phoneme> logs shows what it said. [pause short] <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">Kubectl</phoneme> apply deploys it.
+
+[pause]
+
+Autonoe: But here's the biggest misconception. [pause] If I understand these objects, I understand <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>. [pause] No. [pause] You understand development <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>. [pause] Production <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> is a different beast entirely. [pause] Let me show you why.
+
+[pause long]
+
+Autonoe: Development <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> is like driving a car in an empty parking lot. [pause] Production <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> is like driving on a Los Angeles freeway at rush hour in the rain. [pause] The vehicle is the same, but the stakes, complexity, and failure modes are entirely different.
+
+[pause]
+
+Autonoe: In a dev cluster, you're running a single cluster, maybe minikube on your laptop. [pause short] Resources feel infinite. [pause short] You're the only user. [pause short] When something breaks, you restart it. [pause short] Security? It's just local. [pause short] You have one namespace, maybe two. [pause short] Monitoring? <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">Kubectl</phoneme> describe is fine.
+
+[pause]
+
+Autonoe: In production? [pause] Organizations commonly run dozens of clusters. [pause short] Resources are constrained and cost real money. [pause short] You have thousands of pods, dozens of teams. [pause short] When something breaks, customers notice and revenue stops. [pause short] Security breaches make headlines. [pause short] You've got namespace sprawl with complex <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme>. [pause short] Monitoring is mission-critical. [pause short] Alerts wake you at 2 <say-as interpret-as="characters">AM</say-as>.
+
+[pause]
+
+Autonoe: Here's the core principle. [pause] In development, you optimize for speed of iteration. [pause] In production, you optimize for reliability, security, and cost. [pause] These goals are often in tension. [pause] Production engineering is the art of balancing these trade-offs.
+
+[pause long]
+
+Autonoe: When I review a cluster configuration, here's what I'm thinking. [pause] First: What happens WHEN this fails? Not if, when. [pause short] Second: Can this survive a node dying? A zone outage? [pause short] Third: Will this cost spiral when traffic spikes? [pause short] Fourth: If compromised, what's the blast radius? [pause short] Fifth: Can I debug this at 2 <say-as interpret-as="characters">AM</say-as> with limited context?
+
+[pause]
+
+Autonoe: That's the production mindset. [pause] Always asking what breaks, and how do I handle it.
+
+[pause long]
+
+Autonoe: Now let's talk about the five things that consistently break at scale. [pause] I'm giving you names and quick previews. [pause] The next 6 episodes will dive deep into each one.
+
+[pause]
+
+Autonoe: Pattern 1: The OOMKilled Surprise.
+
+[pause]
+
+Autonoe: Your pods work fine in dev. [pause] In production under load: exit code 137, OOMKilled, CrashLoopBackOff, service degrades. [pause] Why do tutorials miss this? Dev traffic is toy traffic. You never hit memory limits. [pause] The reality? No resource limits means nodes can be overcommitted. Memory pressure leads to <say-as interpret-as="characters">OOM</say-as> kills. [pause] You need both requests AND limits, properly sized. [pause] Episode 2 fixes this completely.
+
+[pause]
+
+Autonoe: Pattern 2: The <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme> Blindspot.
+
+[pause]
+
+Autonoe: Everything has cluster-admin access. [pause] An intern's script deletes production namespaces. [pause] Or worse, an attacker gets service account tokens and pivots across your entire infrastructure. [pause] Why do tutorials miss this? <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme> seems unnecessary when you're the only user. [pause] The reality? <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme> misconfigurations are among the most common <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> security issues. [pause] Least privilege isn't optional. [pause] Episode 3 covers <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme> and secrets management.
+
+[pause]
+
+Autonoe: Pattern 3: Health Checks That Lie.
+
+[pause]
+
+Autonoe: Your app is deadlocked, not serving requests, but the pod shows Running. [pause] Load balancer keeps sending traffic. Users get timeouts. [pause] Why do tutorials miss this? Simple apps just start and work. [pause] The reality? Liveness probes prevent zombies. Readiness probes prevent traffic to unready pods. [pause] Get these wrong, service degrades silently. [pause] Episode 4 teaches troubleshooting and health checks.
+
+[pause]
+
+Autonoe: Pattern 4: Storage and State.
+
+[pause]
+
+Autonoe: Your database pod gets rescheduled. All data is gone. [pause] Or your <say-as interpret-as="characters">PVC</say-as> is stuck Pending and pods won't start. [pause] Why do tutorials miss this? Stateless apps don't need storage. [pause] The reality? Every real production system needs persistence. [pause] StatefulSets, <say-as interpret-as="characters">PVs</say-as>, <say-as interpret-as="characters">PVCs</say-as>, Storage Classes - you need to understand all of it. [pause] Episode 5 covers stateful workloads.
+
+[pause]
+
+Autonoe: Pattern 5: The Networking Mystery.
+
+[pause]
+
+Autonoe: Pods can't reach services. [pause] Or they can, but shouldn't for security. Network policies? What are those? [pause] Service mesh adding 200 milliseconds of latency? [pause] Why do tutorials miss this? Default networking is flat and permissive. [pause] The reality? Multi-tenancy requires network policies. Ingress controllers need <say-as interpret-as="characters">TLS</say-as>. Service mesh is powerful but complex. [pause] Episodes 6 and 7 cover networking and observability.
+
+[pause]
+
+Autonoe: Notice a pattern? [pause] Tutorials optimize for hello world. [pause] Production optimizes for survives Friday afternoon deploys. [pause] That's what we're learning here.
+
+[pause long]
+
+Autonoe: Here's your production readiness checklist. [pause] Memorize these six items. [pause] They're your guardrails.
+
+[pause]
+
+Autonoe: One. [pause short] Resource Limits and Requests. [pause] Every container must have both. [pause short] Requests are what you need for scheduling. [pause short] Limits are the maximum allowed to prevent noisy neighbors. [pause] Missing these? OOMKilled is in your future.
+
+[pause]
+
+Autonoe: Two. [pause short] Health Checks Configured. [pause] Liveness and readiness probes. [pause short] Liveness restarts if unhealthy. [pause short] Readiness removes from the load balancer if not ready. [pause] Missing these? Silent failures.
+
+[pause]
+
+Autonoe: Three. [pause short] <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme> Least Privilege. [pause] No cluster-admin for workloads. [pause short] Service accounts per application. [pause short] Namespace-scoped roles, not cluster-wide. [pause] Missing this? Security incident waiting.
+
+[pause]
+
+Autonoe: Four. [pause short] Multi-Replica Deployments. [pause] Never single replicas in production. [pause short] Minimum 2 to 3 replicas for availability. [pause short] Pod disruption budgets. [pause] Missing this? Downtime during deploys.
+
+[pause]
+
+Autonoe: Five. [pause short] Observability Enabled. [pause] Metrics, logs, alerts. [pause short] <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme> or equivalent. [pause short] Log aggregation. [pause short] Actionable alerts. [pause] Missing this? Debugging nightmare.
+
+[pause]
+
+Autonoe: Six. [pause short] Security Baseline. [pause] Don't run as root. Scan images. [pause short] Non-root containers. [pause short] Image vulnerability scanning. [pause short] Network policies. [pause] Missing this? Compliance failures.
+
+[pause]
+
+Autonoe: For every workload, ask: Does this pass all 6 checks? [pause] If no, it's not production-ready. [pause] Period.
+
+[pause]
+
+Autonoe: In other words, this checklist is your definition of done. [pause] Not deployed, done. [pause] Not running, production-ready.
+
+[pause]
+
+Autonoe: Two common pitfalls to avoid.
+
+[pause]
+
+Autonoe: Mistake 1: It works in dev equals production ready. [pause] Why this fails? Dev doesn't replicate scale, load, or failure modes. [pause] The fix? Load test, chaos engineering, assume everything breaks. [pause] Reality check: If you haven't tested failures, they'll test you.
+
+[pause]
+
+Autonoe: Mistake 2: Copy-paste from tutorials. [pause] Why this fails? Tutorials optimize for demo, not production. [pause] The fix? Understand every line of your manifests. [pause] Reality check: That GitHub example probably lacks resource limits.
+
+[pause long]
+
+Autonoe: Before we wrap up, pause and test yourself. [pause] Don't look back. Answer from memory.
+
+[pause]
+
+Autonoe: What are the five production failure patterns we covered? [pause] Name three items from the production readiness checklist. [pause] What's the key difference between development and production mindset?
+
+[pause]
+
+Autonoe: Give yourself a few seconds.
+
+[pause long]
+
+Autonoe: Here are the answers. [pause] The five patterns: OOMKilled, <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme> misconfig, health checks, storage and state, networking. [pause] Three checklist items - any three work: Resource limits and requests, health checks, <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme>, multi-replica, observability, security baseline. [pause] The key difference? Dev optimizes for speed. Production optimizes for reliability, security, and cost.
+
+[pause]
+
+Autonoe: Let's recap what we covered.
+
+[pause]
+
+Autonoe: One. [pause short] Dev does not equal production. [pause] Different stakes, scale, and failure modes require different thinking.
+
+[pause]
+
+Autonoe: Two. [pause short] Five failure patterns. [pause] OOMKilled, <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme>, health checks, storage, networking. [pause] Know them.
+
+[pause]
+
+Autonoe: Three. [pause short] Six-item checklist. [pause] Resources, health checks, <phoneme alphabet="ipa" ph="ɑr bæk">RBAC</phoneme>, replicas, observability, security. [pause] Memorize it.
+
+[pause]
+
+Autonoe: Four. [pause short] Production mindset. [pause] Always ask: What happens WHEN this fails?
+
+[pause]
+
+Autonoe: This is your foundation. [pause] Every episode builds on this.
+
+[pause]
+
+Autonoe: This 10-episode course is your production survival guide. [pause] Each episode tackles one of these patterns in depth with debugging workflows and decision frameworks. [pause] We're building you into a production <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> engineer.
+
+[pause]
+
+Autonoe: Here's why this matters. [pause] Senior engineers aren't judged by whether they can deploy a pod. [pause] They're judged by whether their systems stay up under pressure, scale efficiently, and fail gracefully. [pause] That's what we're building toward.
+
+[pause long]
+
+Autonoe: Next time: Episode 2, Resource Management: Preventing OOMKilled.
+
+[pause]
+
+Autonoe: You'll learn the difference between requests and limits, and why both matter. [pause short] How to debug OOMKilled errors from symptoms to root cause. [pause short] Load testing and right-sizing strategies for production workloads.
+
+[pause]
+
+Autonoe: We're taking the number one production failure pattern and giving you a complete debugging and prevention playbook. [pause] You'll never see OOMKilled the same way again.
+
+[pause]
+
+Autonoe: I'll see you in Episode 2.

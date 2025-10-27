@@ -50,7 +50,7 @@ python3 scripts/generate_lesson.py ../docs/podcasts/courses/[course-slug]/script
    - Synchronized with audio
    - Suitable for YouTube, social media
 
-4. **Outputs Created** (`podcast-generator/output_latest/courses/[course-slug]/`):
+4. **Outputs Created** (`podcast-generator/episodes/courses/[course-slug]/lesson-XX/`):
    - `lesson-XX.mp3` (audio)
    - `lesson-XX.mp4` (video)
    - `lesson-XX.txt` (metadata)
@@ -239,7 +239,7 @@ Learn about:
 
 ### Phase 5: Verify Metadata File
 
-**Location**: `podcast-generator/output_latest/courses/[course-slug]/lesson-XX.txt`
+**Location**: `podcast-generator/episodes/courses/[course-slug]/lesson-XX/lesson-XX.txt`
 
 **Auto-Generated During Audio Creation**
 
@@ -321,9 +321,9 @@ Check:
 Complete this checklist before considering lesson published:
 
 **Files Created**:
-- [ ] Audio: `podcast-generator/output_latest/courses/[course-slug]/lesson-XX.mp3`
-- [ ] Video: `podcast-generator/output_latest/courses/[course-slug]/lesson-XX.mp4`
-- [ ] Metadata: `podcast-generator/output_latest/courses/[course-slug]/lesson-XX.txt`
+- [ ] Audio: `podcast-generator/episodes/courses/[course-slug]/lesson-XX/lesson-XX.mp3`
+- [ ] Video: `podcast-generator/episodes/courses/[course-slug]/lesson-XX/lesson-XX.mp4`
+- [ ] Metadata: `podcast-generator/episodes/courses/[course-slug]/lesson-XX/lesson-XX.txt`
 - [ ] Episode page: `docs/podcasts/courses/[course-slug]/lesson-XX.md`
 - [ ] Script: `docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt` (with tags)
 
@@ -436,8 +436,8 @@ python3 scripts/generate_lesson.py ../docs/podcasts/courses/[course-slug]/script
 ```
 
 **After Regeneration**:
-- Audio/video/metadata updated in `output_latest/courses/[course-slug]/`
-- Previous version archived in `output_history/courses/[course-slug]/`
+- Audio/video/metadata updated in `episodes/courses/[course-slug]/lesson-XX/`
+- Previous version archived in `episodes/00XXX-name/history/courses/[course-slug]/`
 - Episode page only needs updating if narration changed
 
 ## Workflow Summary
@@ -504,7 +504,7 @@ When this skill is invoked:
    - Chronological order
 
 7. **Verify metadata file**:
-   - Check `output_latest/courses/[course-slug]/lesson-XX.txt`
+   - Check `episodes/courses/[course-slug]/lesson-XX/lesson-XX.txt`
    - Title matches episode page
    - URLs correct
 

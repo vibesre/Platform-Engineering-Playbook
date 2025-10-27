@@ -6,17 +6,33 @@
 echo "🔍 Running pre-commit checks..."
 echo ""
 
-# 1. Validate MDX/Markdown files
+# 1. Check for secrets/credentials
+echo "🔐 Scanning for secrets and credentials..."
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --verbose --redact --config .gitleaks.toml || {
+    echo "❌ Secret detection failed! Found potential secrets in staged files."
+    echo "   Review the output above and remove any secrets before committing."
+    echo "   If this is a false positive, update .gitleaks.toml allowlist."
+    exit 1
+  }
+  echo "✓ No secrets detected"
+else
+  echo "⚠️  WARNING: gitleaks not installed - skipping secrets check"
+  echo "   Install with: brew install gitleaks"
+fi
+echo ""
+
+# 2. Validate MDX/Markdown files
 echo "📝 Validating MDX/Markdown files..."
 npm run test:mdx || exit 1
 echo ""
 
-# 2. Run TypeScript type checking
+# 3. Run TypeScript type checking
 echo "🔧 Checking TypeScript types..."
 npm run typecheck || exit 1
 echo ""
 
-# 3. Quick build test (faster than full build)
+# 4. Quick build test (faster than full build)
 echo "🏗️  Testing Docusaurus build..."
 npm run build || exit 1
 echo ""

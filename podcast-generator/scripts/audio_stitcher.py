@@ -160,17 +160,16 @@ class AudioStitcher:
 
         # Build filter chain
         if intro_path and outro_path:
-            # Crossfade intro -> main (smooth start)
-            # Add silence, then concat main + silence + outro (clean finish)
+            # Concat intro + main, then add silence + outro (clean transitions)
             filter_complex = [
-                f"[0:a][{main_index}:a]acrossfade=d=1[main];",
+                f"[0:a][{main_index}:a]concat=n=2:v=0:a=1[main];",
                 f"aevalsrc=0:d={pause_before_outro}[silence];",
                 f"[main][silence][{outro_index}:a]concat=n=3:v=0:a=1[out]"
             ]
             output_label = "[out]"
         elif intro_path:
-            # Only intro: crossfade intro -> main
-            filter_complex = [f"[0:a][{main_index}:a]acrossfade=d=1[out]"]
+            # Only intro: simple concat intro -> main
+            filter_complex = [f"[0:a][{main_index}:a]concat=n=2:v=0:a=1[out]"]
             output_label = "[out]"
         else:  # Only outro
             # Add silence, then concat main + silence + outro (no crossfade)

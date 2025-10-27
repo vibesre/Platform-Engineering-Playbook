@@ -458,7 +458,7 @@ When this skill is invoked:
      - **Title**: Extract from outline or episode page H1 (exact match)
      - **Description**: 2-3 engaging sentences with hook and call-to-action
      - **Summary**: 3-5 concrete, specific takeaways (NOT generic bullets)
-   - Save to: `podcast-generator/output_latest/00XXX-topic-name.txt`
+   - Save to: `podcast-generator/episodes/00XXX-name/00XXX-topic-name.txt`
    - Use format from CLAUDE.md (see "Metadata File Format" section)
 
 9. **Report to user**:

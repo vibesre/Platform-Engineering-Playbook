@@ -161,7 +161,7 @@ class DialogueChunker:
         primary_speaker = self._normalize_speaker_name(primary_speaker)
 
         # Validate speaker is known
-        known_speakers = ["jordan", "alex"]
+        known_speakers = ["jordan", "alex", "autonoe"]
         if primary_speaker not in known_speakers:
             raise ValueError(
                 f"Unknown speaker detected: '{primary_speaker}'. "

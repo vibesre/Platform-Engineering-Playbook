@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate metadata .txt files for all existing episodes in output_latest/.
+Generate metadata .txt files for all existing episodes in episodes/*/ directories.
 """
 
 import re
@@ -39,12 +39,9 @@ def generate_metadata_content(episode_id: str, duration_minutes: Optional[float]
 
     title = extract_episode_title(episode_id)
 
-    # Generate episode slug for URL
-    parts = episode_id.split('-')
-    if parts[0].isdigit():
-        episode_slug = '-'.join(parts[1:])
-    else:
-        episode_slug = episode_id
+    # Use full episode ID for URL (including episode number)
+    # This matches the numbered URL format: /podcasts/00005-topic-name
+    episode_slug = episode_id
 
     duration_str = f"{duration_minutes} minutes" if duration_minutes else "[Duration unknown]"
 
@@ -71,30 +68,43 @@ Target Audience: Senior platform engineers, SREs, DevOps engineers with 5+ years
 """
 
 def generate_all_metadata():
-    """Generate metadata files for all episodes in output_latest/."""
+    """Generate metadata files for all episodes in episodes/*/ directories."""
 
     base_dir = Path(__file__).parent.parent
-    output_latest_dir = base_dir / "output_latest"
+    episodes_dir = base_dir / "episodes"
 
-    if not output_latest_dir.exists():
-        print(f"❌ Error: {output_latest_dir} does not exist")
+    if not episodes_dir.exists():
+        print(f"❌ Error: {episodes_dir} does not exist")
         return
 
-    # Find all mp3 files
-    mp3_files = list(output_latest_dir.glob("*.mp3"))
+    # Find all episode directories
+    episode_dirs = sorted([d for d in episodes_dir.iterdir() if d.is_dir()])
+
+    if not episode_dirs:
+        print("No episode directories found in episodes/")
+        return
+
+    # Collect all MP3 files from episode directories (not from history/)
+    mp3_files = []
+    for episode_dir in episode_dirs:
+        for mp3 in episode_dir.glob('*.mp3'):
+            # Skip files in history subdirectories
+            if 'history' not in mp3.parts:
+                mp3_files.append(mp3)
 
     if not mp3_files:
-        print("No mp3 files found in output_latest/")
+        print("No mp3 files found in episode directories")
         return
 
-    print(f"Found {len(mp3_files)} episodes in output_latest/\n")
+    print(f"Found {len(mp3_files)} episodes in episodes/*/\n")
 
     generated = 0
     skipped = 0
 
     for mp3_path in sorted(mp3_files):
         episode_id = mp3_path.stem
-        txt_path = output_latest_dir / f"{episode_id}.txt"
+        # Place metadata in the same directory as the MP3
+        txt_path = mp3_path.parent / f"{episode_id}.txt"
 
         # Check if metadata file already exists
         if txt_path.exists():

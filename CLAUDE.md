@@ -631,10 +631,32 @@ For podcast production, use the dedicated Claude Code skills in `.claude/skills/
 4. **podcast-validate** - Fact-check statistics, verify sources, ensure accuracy
 5. **podcast-format** - Add SSML pause tags and pronunciation guidance
 6. **podcast-publish** - Generate audio/video, create episode page, update index
+7. **reel-script** - Extract 3-5 short-form educational videos (30-60s) from episode for social media
 
 Each skill contains detailed instructions, storytelling templates, quality checklists, and examples. This enforces the workflow (e.g., can't write script without outline) and ensures consistent quality.
 
 **Quick Start**: `"Use the podcast-research skill to find trending platform engineering topics"`
+
+### Short-Form Content (Reels)
+
+After creating a podcast episode, use the **reel-script** skill to extract 3-5 engaging short-form videos optimized for YouTube Shorts, Instagram Reels, and TikTok.
+
+**Purpose**: Create discovery content that teaches ONE core concept in 30-60 seconds with maximum attention and retention.
+
+**Workflow**:
+1. Identify 3-5 core concepts from the main episode
+2. Create outlines with Hook-Setup-Insight-Payoff structure
+3. Write 45-second scripts optimized for engagement
+4. Validate using educational best practices
+
+**Key Principles**:
+- **3-Second Hook**: Grab attention with surprising stat or bold claim
+- **Single Concept**: Teach ONE thing exceptionally well
+- **Pattern Interrupts**: Change pacing/visual every 10-15 seconds
+- **Concrete Examples**: Specific numbers, not abstractions
+- **Clear CTA**: Drive to full episode for depth
+
+**Quick Start**: `"Use the reel-script skill to extract concepts from episode 00004"`
 
 ---
 
@@ -1205,3 +1227,20 @@ I think through this..."
 ---
 
 *For detailed course production workflows, curriculum templates, teaching techniques, and validation checklists, use the Claude Code skills in `.claude/skills/lesson-*`*
+
+---
+
+## Audiobook Production
+
+**Note**: Audiobook generation has been moved to a separate repository for better modularity and reusability.
+
+**Repository**: [github.com/yourusername/audiobooker](https://github.com/yourusername/audiobooker) (or local: `/Users/ericking/projects/audiobooker`)
+
+**What's included**:
+- Full-cast audiobook production using Google Gemini 2.5 Pro TTS
+- Multi-speaker support with natural language voice direction
+- Complete production workflow and Claude Code skill
+- Comprehensive documentation and troubleshooting guides
+- Example project: "The Orchestrator's Codex"
+
+**Quick Start**: Clone the audiobooker repository and follow the README for setup and usage instructions.
