@@ -452,6 +452,12 @@ provides a way to manage groups of containers as a single unit."
 - Include edge cases and gotchas
 - Provide decision frameworks
 
+**CRITICAL - Avoid Junior-Level Assumptions**:
+❌ **BAD**: "Because your minikube cluster on your laptop with zero load doesn't replicate production."
+✅ **GOOD**: "Your staging cluster passed load testing with twenty thousand requests per minute. But production traffic has a different profile. Longer-lived connections. Slower garbage collection cycles. A memory leak that only manifests after six hours of sustained load. Staging tests ran for thirty minutes."
+
+**Why**: Senior engineers (5+ years) aren't running minikube on laptops. They have staging environments, CI/CD pipelines, and sophisticated testing. Use scenarios that reflect their reality: staging vs production differences, traffic profile mismatches, duration-dependent bugs, scale-dependent behaviors.
+
 **Example**:
 ```
 "You already know what resource limits do - they prevent a container
@@ -483,6 +489,51 @@ Here's how I think about it in production..."
 - "In production, you'll find..."
 - "Let's be honest..."
 - "The docs don't mention this, but..."
+
+### Episode References - Add Variation
+
+**CRITICAL - Vary How You Reference Other Episodes**:
+
+❌ **BAD** (Repetitive, rote):
+```
+Episode two teaches you to prevent this entirely.
+Episode three fixes your RBAC forever.
+Episode four covers troubleshooting and health checks.
+Episode five masters stateful workloads.
+Episodes six and seven cover networking and observability.
+```
+
+✅ **GOOD** (Varied, natural):
+```
+In the next episode, we'll dive deep into preventing this entirely—
+requests versus limits, Quality of Service classes, and the five-step
+debugging workflow.
+
+Then in Episode 3, we'll fix your RBAC—least privilege roles, service
+account security, and secrets management with Sealed Secrets.
+
+Episode 4 gives you the complete troubleshooting playbook—CrashLoopBackOff,
+ImagePullBackOff, exit codes, and how to configure health checks that
+actually work.
+
+We'll tackle this in Episode 5—StatefulSets versus Deployments, persistent
+volume claims, storage classes, and backup strategies with Velero.
+
+Episodes 6 and 7 round out the fundamentals—networking, CNI plugins,
+Ingress controllers, and building your observability stack with Prometheus,
+logging, and actionable alerts.
+```
+
+**Variation Patterns**:
+- "In the next episode, we'll..."
+- "Then in Episode X, we'll..."
+- "Episode X gives you..."
+- "We'll tackle this in Episode X..."
+- "Episodes X and Y round out..."
+- "Coming up in Episode X..."
+- "Next time, we're exploring..."
+
+**Why**: Repetitive patterns ("Episode X teaches...", "Episode Y covers...") sound robotic and disengaging. Variation maintains listener interest and sounds more conversational. Don't overdo it—subtle variety is enough.
 
 ## Quality Checklist
 

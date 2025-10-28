@@ -16,13 +16,13 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience seeking strategic insights on technology choices, market dynamics, and skill optimization.
 
-## 🎥 Latest Episode: Kubernetes Production Mastery - Lesson 01
+## 🎥 Latest Episode: Kubernetes Production Mastery - Lesson 02
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe
     style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-    src="https://www.youtube.com/embed/PNQX1iw2qK8"
-    title="Kubernetes Production Mastery - Lesson 01: Production Mindset"
+    src="https://www.youtube.com/embed/o7PMifh-Khk"
+    title="Kubernetes Production Mastery - Lesson 02: Resource Management"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
@@ -43,7 +43,7 @@ Structured, multi-episode educational series designed for deep learning and skil
 
 Transform from a Kubernetes user into a production Kubernetes engineer. Learn how to run Kubernetes at scale with confidence through real-world failure patterns, systematic debugging, and battle-tested best practices.
 
-- **Episodes**: 10 lessons (1 published, 9 coming soon)
+- **Episodes**: 10 lessons (2 published, 8 coming soon)
 - **Duration**: ~3 hours total
 - **Level**: Intermediate to Advanced
 - **Prerequisites**: Basic Kubernetes knowledge (pods, deployments, services)
@@ -58,13 +58,14 @@ Transform from a Kubernetes user into a production Kubernetes engineer. Learn ho
 
 **Published Lessons**:
 - 📖 [Lesson 01: Production Mindset](/podcasts/00009-kubernetes-production-mastery-lesson-01) (17 min) - Learn the 5 failure patterns that break systems at scale and the 6-item production readiness checklist
+- 📖 [Lesson 02: Resource Management](/podcasts/00010-kubernetes-production-mastery-lesson-02) (19 min) - Master requests vs limits, QoS classes, and the 5-step debugging workflow for OOMKilled pods
 
 **🎥 Watch on YouTube**:
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe
     style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-    src="https://www.youtube.com/embed/videoseries?list=PLIjf2e3L8dZxzE2XWsUvbd7pxmS9BaUqr"
+    src="https://www.youtube.com/embed/videoseries?list=PLIjf2e3L8dZz3m5Qc5OFRUDSqeSsZHdcD"
     title="Kubernetes Production Mastery Course Playlist"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -96,6 +97,7 @@ Transform from a Kubernetes user into a production Kubernetes engineer. Learn ho
 
 Mix of podcast episodes (🎙️ conversational discussions) and course lessons (📖 structured learning):
 
+- 📖 **[#010: Kubernetes Production Mastery - Lesson 02](/podcasts/00010-kubernetes-production-mastery-lesson-02)** (19 min) - Master requests vs limits, QoS classes, and the 5-step debugging workflow for OOMKilled pods
 - 📖 **[#009: Kubernetes Production Mastery - Lesson 01](/podcasts/00009-kubernetes-production-mastery-lesson-01)** (17 min) - Learn the 5 failure patterns that break systems at scale and the 6-item production readiness checklist
 - 🎙️ **[#008: GCP State of the Union 2025](/podcasts/00008-gcp-state-of-the-union-2025)** (17 min) - When depth beats breadth: GCP's 32% growth vs AWS's 17%
 - 🎙️ **[#007: AWS Outage October 2025](/podcasts/00007-aws-outage-october-2025)** (16 min) - The $75M/hour lesson: DNS race condition in DynamoDB

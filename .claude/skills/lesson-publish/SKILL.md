@@ -23,20 +23,41 @@ Use this skill when:
 
 ## Publishing Workflow
 
-### Phase 1: Generate Audio & Video
+### Phase 1: Determine Episode Number
+
+**CRITICAL**: Course lessons must use globally unique 5-digit episode IDs in the podcast feed.
+
+**How to Determine Episode Number**:
+1. Check the **main podcast index** at `docs/podcasts/index.md` to find the latest episode number
+2. Lessons get sequential episode IDs just like regular podcast episodes
+3. Example: If last podcast is 00008, first lesson is 00009, second lesson is 00010
+
+**Episode ID Format**: `00009-[course-slug]-lesson-01`
+- 5-digit prefix (00009, 00010, 00011, etc.)
+- Course slug (e.g., `kubernetes-production-mastery`)
+- Lesson number with two digits (lesson-01, lesson-02, etc.)
+
+**Why**: Lessons appear in the main podcast feed chronologically alongside regular episodes. The 5-digit prefix ensures proper sorting and uniqueness across all content types.
+
+### Phase 2: Generate Audio & Video
 
 **Command**:
 ```bash
 cd podcast-generator
-python3 scripts/generate_lesson.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt --voice autonoe
+python3 scripts/generate_podcast.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt --lesson --episode-id 00009-[course-slug]-lesson-XX
 ```
+
+**CRITICAL**: The `--lesson` flag is required for educational content. It enables:
+- Lesson-specific chunking (150-300 words vs 80-150 for podcasts)
+- Longer chunks avoid breaking mid-concept for single-speaker content
+- Autonoe voice settings optimized for educational delivery
 
 **What Happens**:
 1. **Text-to-Speech Generation**:
-   - Script chunked at natural boundaries
+   - Script chunked at natural pedagogical boundaries (longer chunks)
    - SSML tags converted to proper format
    - Pronunciation tags applied
-   - Autonoe voice: `en-US-Chirp3-HD-Autonoe` (0.95x speed for clarity)
+   - Autonoe voice: `en-US-Chirp3-HD-Autonoe` (1.0x speed for conversational teaching)
 
 2. **Audio Assembly**:
    - Intro MP3 prepended (course-specific or generic)
@@ -50,20 +71,34 @@ python3 scripts/generate_lesson.py ../docs/podcasts/courses/[course-slug]/script
    - Synchronized with audio
    - Suitable for YouTube, social media
 
-4. **Outputs Created** (`podcast-generator/episodes/courses/[course-slug]/lesson-XX/`):
-   - `lesson-XX.mp3` (audio)
-   - `lesson-XX.mp4` (video)
-   - `lesson-XX.txt` (metadata)
+4. **Outputs Created** (`podcast-generator/episodes/00009-[course-slug]-lesson-XX/`):
+   - `00009-[course-slug]-lesson-XX.mp3` (audio)
+   - `00009-[course-slug]-lesson-XX.mp4` (video)
+   - `00009-[course-slug]-lesson-XX.txt` (metadata)
+
+**Directory Structure**:
+```
+podcast-generator/episodes/
+├── 00008-gcp-state-of-the-union-2025/       # Regular podcast
+├── 00009-kubernetes-production-mastery-lesson-01/  # Course lesson
+├── 00010-kubernetes-production-mastery-lesson-02/  # Course lesson
+└── 00011-some-future-content/
+```
+
+All files use the full episode ID as their filename for consistency.
 
 **Estimated Time**:
 - 12-15 min lesson: ~8 minutes generation
 - Larger lessons: proportionally longer
 
-### Phase 2: Create Episode Page
+### Phase 3: Create Episode Page
 
 **Location**: `docs/podcasts/courses/[course-slug]/lesson-XX.md`
 
-**CRITICAL**: Episode number must match script filename and curriculum plan.
+**CRITICAL**:
+- Episode page uses lesson number (lesson-01, lesson-02) within course directory
+- Episode ID for generation uses global number (00009, 00010) for podcast feed
+- These are different! Don't confuse them.
 
 **Required Frontmatter**:
 ```yaml
@@ -426,13 +461,13 @@ podcast-generator/backgrounds/courses/[course-slug]/background.mp4
 **For Small Edits** (pronunciation fixes, single lines):
 ```bash
 # Selective regeneration (only changed chunks)
-python3 scripts/generate_lesson.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt --voice autonoe
+python3 scripts/generate_podcast.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt --lesson --episode-id [course-slug]-lesson-XX
 ```
 
 **For Major Changes** (complete rewrite):
 ```bash
 # Force regeneration (all chunks)
-python3 scripts/generate_lesson.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt --voice autonoe --force
+python3 scripts/generate_podcast.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt --lesson --episode-id [course-slug]-lesson-XX --force
 ```
 
 **After Regeneration**:
@@ -478,12 +513,12 @@ When this skill is invoked:
    ls -la docs/podcasts/courses/[course-slug]/scripts/
    ```
 
-3. **Generate audio and video with Autonoe voice**:
+3. **Generate audio and video with Autonoe voice** (using --lesson flag):
    ```bash
    cd podcast-generator
-   python3 scripts/generate_lesson.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt --voice autonoe
+   python3 scripts/generate_podcast.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt --lesson --episode-id [course-slug]-lesson-XX
    ```
-   Monitor output for errors.
+   Monitor output for errors. The `--lesson` flag enables lesson-specific chunking and settings.
 
 4. **Create episode page**:
    - Filename: `docs/podcasts/courses/[course-slug]/lesson-XX.md`

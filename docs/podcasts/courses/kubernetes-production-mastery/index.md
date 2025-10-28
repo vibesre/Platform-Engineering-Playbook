@@ -11,6 +11,10 @@ slug: /podcasts/courses/kubernetes-production-mastery
 
 <GitHubButtons />
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLIjf2e3L8dZz3m5Qc5OFRUDSqeSsZHdcD" title="Kubernetes Production Mastery Course Playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 **Presenter**: Production Engineering Instructor
 **Total Duration**: 10 episodes, ~2.5 hours total
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience

@@ -1,0 +1,149 @@
+Autonoe: In Episode 1, we covered the production readiness checklist. [pause] Remember the number one item? [pause] Resource limits and requests set. [pause short] Every container must have both.
+
+Autonoe: But here's the thing—most engineers I talk to set them because it's best practice, but can't explain WHY you need both. [pause] They know you're supposed to set them. They've seen the examples. But they don't understand the actual mechanism—the scheduler versus runtime distinction.
+
+Autonoe: Before we dive in, pause and recall from Episode 1: [pause] What was the cost of that Black Friday OOMKilled incident? [pause long] Ninety-four thousand dollars in forty-seven minutes. [pause] All because resource limits weren't configured.
+
+Autonoe: Today, we're making sure you never have that problem.
+
+Autonoe: This lesson builds directly on that checklist item. [pause short] We're going deep. [pause] By the end, you'll understand requests vs limits at a level where you can debug OOMKilled errors in production, architect resource allocation for entire clusters, and make intelligent trade-off decisions.
+
+Autonoe: Here's the reality. [pause] Exit code 137—OOMKilled—is the single most common production failure in <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme>. [pause] Sixty-seven percent of teams have experienced it. [pause] If you don't master resource management today, you WILL get paged at three <say-as interpret-as="characters">AM</say-as>.
+
+Autonoe: By the end of this fifteen-minute lesson, you'll be able to: [pause] Explain the difference between requests and limits, and why <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> needs both. [pause short] Debug an OOMKilled pod from exit code 137 to root cause using a systematic workflow. [pause short] And right-size your containers using load testing and Quality of Service principles.
+
+Autonoe: Let's go.
+
+Autonoe: Most engineers think requests and limits do the same thing. [pause] They don't.
+
+Autonoe: Requests are for the scheduler. [pause] Limits are for the runtime.
+
+Autonoe: Two completely different systems. [pause] Two completely different purposes.
+
+Autonoe: Think of resource requests like booking a hotel room.
+
+Autonoe: You request a room with one king bed. [pause short] The hotel guarantees that room exists and is available for you. [pause] That's your request—it's a guarantee from the system that these resources will be available.
+
+Autonoe: But here's the key: Just because you requested a king bed doesn't mean you'll USE the whole room. [pause short] Maybe you only sleep on half the bed. Maybe you don't use the mini-bar. [pause] The hotel still reserves the room for you—that's scheduling.
+
+Autonoe: Resource limits? [pause] That's the fire marshal saying this room can hold a maximum of four people. [pause short] Try to cram in a fifth? [pause short] Fire code violation. System says no.
+
+Autonoe: In <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme>: [pause] Requests ensure your pod gets scheduled on a node with sufficient resources. [pause] Limits prevent your pod from consuming unlimited resources and crashing other workloads.
+
+Autonoe: Let's get specific. [pause] Your <say-as interpret-as="characters">API</say-as> pod.
+
+Autonoe: What this means: [pause] The scheduler—<phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> finds a node with at least 512 megabytes available memory and 250 millicores available <say-as interpret-as="characters">CPU</say-as>. [pause short] That's the scheduling guarantee. [pause] The runtime—your pod can USE up to 1 gigabyte of memory and 500 millicores of <say-as interpret-as="characters">CPU</say-as>. [pause] If it tries to exceed 1 gigabyte? [pause] OOMKilled. Exit code 137.
+
+Autonoe: The production reality. [pause] Under normal load: uses 400 megabytes. [pause short] Well within request and limit.
+
+Autonoe: Traffic spike: climbs to 800 megabytes. [pause] Still fine—between request at 512 and limit at 1024.
+
+Autonoe: Memory leak or actual spike to 1.1 gigabytes? [pause] <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> kills it. [pause short] Instantly. [pause short] No negotiation.
+
+Autonoe: So why not just set limits really high and avoid OOMKills? [pause] Because you'll overcommit nodes, waste money, and create the noisy neighbor problem. [pause] We'll get to that.
+
+Autonoe: When you deploy a pod with resource requests, here's what happens:
+
+Autonoe: Step 1: [pause short] <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> scheduler looks at all nodes. [pause short] Step 2: [pause short] For each node, calculates: Total capacity minus already-requested resources equals available. [pause short] Step 3: [pause short] Finds a node where available is greater than or equal to your request. [pause short] Step 4: [pause short] Schedules pod on that node.
+
+Autonoe: Concrete example. [pause] Node has 8 gigabytes total memory. [pause short] Existing pods requested: 5 gigabytes. [pause short] Your pod requests: 2 gigabytes. [pause short] Math: 8 minus 5 equals 3 gigabytes available. [pause] Your 2 gigabyte request fits. [pause] Scheduled.
+
+Autonoe: But here's the gotcha: [pause] The node might only have 1 gigabyte ACTUALLY FREE right now. [pause] Because requests are guarantees, not actual usage. [pause] This is overcommitment—and it's intentional.
+
+Autonoe: Limits are enforced by the container runtime—containerd, <say-as interpret-as="characters">CRI</say-as>-O, whatever you're using.
+
+Autonoe: Every container gets a Linux cgroup. [pause] The cgroup has memory limits configured. [pause] When your process tries to allocate memory beyond the limit, the OOMKiller steps in.
+
+Autonoe: Let's walk through an OOMKill. [pause] Your pod is running, using 800 megabytes. [pause short] Application gets a burst of traffic. [pause short] Tries to allocate another 300 megabytes. [pause short] Total: 800 plus 300 equals 1.1 gigabytes. [pause short] Limit: 1 gigabyte. [pause] Kernel checks: Attempted 1.1 gigabytes exceeds limit 1.0 gigabytes. [pause] Kernel invokes OOMKiller. [pause short] Sends SIGKILL—signal 9. [pause short] Exit code: 128 plus 9 equals 137. [pause short] Pod status: OOMKilled.
+
+Autonoe: <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> sees the failure. [pause short] Restart policy: Always. [pause short] Starts a new pod. [pause] If the problem persists? [pause] CrashLoopBackOff.
+
+Autonoe: Here's what trips people up. [pause] Nodes can be overcommitted on requests but NOT on limits.
+
+Autonoe: Concrete scenario: [pause] Node has 8 gigabytes memory. [pause short] Three pods, each requesting 2 gigabytes, limiting 4 gigabytes. [pause short] Total requests: 6 gigabytes. [pause short] Fits on node. [pause] Total limits: 12 gigabytes. [pause] Doesn't fit.
+
+Autonoe: This is fine. [pause] Most pods don't hit their limits. [pause] But if ALL THREE pods spike to their limits simultaneously? [pause] Node runs out of memory. [pause short] Kernel starts killing pods. [pause] Production outage.
+
+Autonoe: This is why right-sizing matters. [pause] This is why monitoring matters. [pause] This is why Quality of Service classes exist.
+
+Autonoe: Real incident, twenty twenty-four. [pause] Black Friday. [pause short] E-commerce company. [pause short] Traffic spiking.
+
+Autonoe: Three <say-as interpret-as="characters">AM</say-as>: [pause] Pager goes off. [pause] <say-as interpret-as="characters">API</say-as> pods OOMKilling in a cascade. [pause] One dies, others get more traffic, they spike, they die. [pause] Repeat.
+
+Autonoe: Engineer SSH's in. [pause] Panicking. [pause] Let's walk through the systematic workflow I wish they'd followed.
+
+Autonoe: Step 1: Identify the symptom. [pause] <phoneme alphabet="ipa" ph="ˈkjubˌkʌtəl">kubectl</phoneme> get pods namespace production. [pause] Output shows: api-deployment with restart count 3, status OOMKilled, 5 minutes old. [pause] Exit code 137. [pause] Memory issue confirmed.
+
+Autonoe: Step 2: Check the events. [pause] <phoneme alphabet="ipa" ph="ˈkjubˌkʌtəl">kubectl</phoneme> describe pod api-deployment namespace production. [pause] Events show: OOMKilled—Container exceeded memory limit 1073741824 bytes. [pause] Translation: Hit 1 gigabyte limit. [pause] But was the limit too low or is there a memory leak?
+
+Autonoe: Step 3: Check actual usage patterns. [pause] <phoneme alphabet="ipa" ph="ˈkjubˌkʌtəl">kubectl</phoneme> top pod shows current usage if the pod is still running. [pause] But we need historical data. [pause] Check <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme> or your monitoring system. [pause] Query: container memory usage bytes for that pod. [pause] Graph shows: Normal 600 megabytes. [pause] Spikes to 1.2 gigabytes under load.
+
+Autonoe: Step 4: Analyze the configuration. [pause] <phoneme alphabet="ipa" ph="ˈkjubˌkʌtəl">kubectl</phoneme> get pod with output yaml, grep for resources. [pause] Shows requests: 256 megabytes. [pause short] Limits: 1 gigabyte. [pause] Problem identified: Limit is 1 gigabyte. [pause] Normal usage 600 megabytes leaves only 400 megabyte headroom. [pause] Traffic spike exceeds that.
+
+Autonoe: Step 5: Determine root cause and fix. [pause] Two possibilities: [pause short] Limit too low for legitimate traffic spikes, increase limit. [pause short] Or memory leak in application, fix application code. [pause] In this case: Legitimate traffic spike. [pause] Fix: Increase requests to 512 megabytes for better scheduling. [pause short] Increase limits to 2 gigabytes for headroom. [pause short] Deploy. [pause short] Monitor. [pause] Problem solved.
+
+Autonoe: Pause here. [pause long] Before I show you Quality of Service classes, how would YOU debug a pod that's in OOMKilled status right now?
+
+Autonoe: Remember: [pause] get pods, describe pod, check events, check monitoring for usage patterns, check <say-as interpret-as="characters">YAML</say-as> for configuration, determine if limit is too low or if there's a leak.
+
+Autonoe: When a node runs out of memory, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> has to decide which pods to kill. [pause] It uses Quality of Service classes.
+
+Autonoe: Three classes: [pause] Guaranteed, Burstable, BestEffort.
+
+Autonoe: Class 1: Guaranteed. [pause] When: Requests equal limits for BOTH memory and <say-as interpret-as="characters">CPU</say-as>. [pause] Behavior: Last to be killed during node memory pressure. [pause] These are your critical workloads. [pause] Use for: Databases, payment processing, anything that absolutely cannot tolerate OOMKills.
+
+Autonoe: Class 2: Burstable. [pause] When: Requests are less than limits. [pause] Behavior: Killed before Guaranteed but after BestEffort. [pause] Most common class. [pause] Use for: Most application workloads. [pause short] They can burst when needed but have a safety limit.
+
+Autonoe: Class 3: BestEffort. [pause] When: No requests or limits set at all. [pause] Behavior: First to be killed during node memory pressure. [pause] <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> makes no promises. [pause] Use for: Batch jobs, non-critical background tasks, things that can tolerate interruption. [pause] Pro tip: Almost never use this in production. [pause] It's asking for trouble.
+
+Autonoe: The eviction priority. [pause] Node runs out of memory. [pause] <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> kills pods in this order: [pause] First, BestEffort pods—no guarantees, first to go. [pause short] Second, Burstable pods exceeding requests—using more than guaranteed. [pause short] Third, Burstable pods within requests. [pause short] Finally, Guaranteed pods—last resort.
+
+Autonoe: This is why setting requests and limits matters. [pause] It's not just resource allocation—it's survival priority during outages.
+
+Autonoe: Set requests and limits too low? [pause] OOMKills. [pause] Set them too high? [pause] Wasted resources, higher costs, poor node utilization.
+
+Autonoe: We need to right-size.
+
+Autonoe: Step 1: Measure current usage. [pause] Run in production for a week. [pause] Monitor actual memory and <say-as interpret-as="characters">CPU</say-as> usage. [pause] P50, that's median, shows typical load. [pause short] P95 shows high load, not peak. [pause short] P99 shows peak load, rare spikes. [pause] Example metrics: P50 at 400 megabytes. [pause short] P95 at 800 megabytes. [pause short] P99 at 1.2 gigabytes.
+
+Autonoe: Step 2: Set requests at P50 to P75, limits at P95 to P99. [pause] Requests: Set at typical load, P50 to P75. [pause short] This ensures good scheduling without over-requesting. [pause] Limits: Set at high load with headroom, P95 to P99 plus 20 to 30 percent. [pause] From our example: Request 512 megabytes, around P75. [pause short] Limit 1.5 gigabytes, P99 plus headroom. [pause] This allows normal bursting while preventing runaway memory consumption.
+
+Autonoe: Step 3: Load test and validate. [pause] Before deploying to production, load test. [pause] Simulate three times expected traffic. [pause] Monitor memory usage during test. [pause] Does it stay within limits? [pause short] Good. [pause] Does it OOMKill? [pause] Increase limits and retest. [pause] Critical: Test with REALISTIC traffic patterns. [pause] Bursts, not constant load.
+
+Autonoe: Real story. [pause] Startup, twenty pods, each requesting 4 gigabytes. [pause] Actual usage? [pause] 800 megabytes average. [pause] They're paying for 80 gigabytes requested. [pause short] Actually using 16 gigabytes. [pause] Wasting $2,400 per month on unused capacity. [pause] Right-sizing to 1 gigabyte requests, 2 gigabyte limits? [pause] Same performance, $1,800 per month savings. [pause] At scale, this adds up.
+
+Autonoe: Mistake 1: Setting requests equal to limits for everything. [pause] Why it fails: You lose burstability. [pause short] Everything is Guaranteed <say-as interpret-as="characters">QoS</say-as>. [pause short] Wastes resources because most workloads don't need their limits constantly. [pause] Fix: Use Burstable for most workloads. [pause short] Requests at typical usage, limits at peak plus headroom.
+
+Autonoe: Mistake 2: No limits at all. [pause] Why it fails: One memory leak brings down the entire node. [pause] Concrete example: Background worker has a bug. [pause] Memory climbs: 1 gigabyte, 2 gigabytes, 4 gigabytes, 8 gigabytes. [pause] Consumes entire node. [pause] Fourteen other pods on that node start failing. [pause] Fix: Always set limits. [pause short] Even if generous, they're a safety net.
+
+Autonoe: Mistake 3: Not monitoring actual usage before setting values. [pause] Why it fails: You're guessing. [pause] Either too low, OOMKills, or too high, wasted money. [pause] Fix: Deploy with conservative estimates, monitor for a week, adjust based on actual P95, P99 data.
+
+Autonoe: Pause and answer these without looking back: [pause long] What's the difference between requests and limits? [pause short] One sentence each. [pause] A pod has requests 512 megabytes, limits 1 gigabyte. [pause short] It's using 750 megabytes. [pause short] What <say-as interpret-as="characters">QoS</say-as> class? [pause] A node runs out of memory. [pause short] What order are pods killed?
+
+Autonoe: Answers: [pause] Requests—scheduler uses them to decide which node has capacity. [pause] Limits—runtime enforces them to prevent runaway resource consumption. [pause] <say-as interpret-as="characters">QoS</say-as> class is Burstable—requests are less than limits. [pause] Eviction order: BestEffort first, then Burstable exceeding requests, then Burstable within requests, finally Guaranteed.
+
+Autonoe: Let's recap what we covered:
+
+Autonoe: One. [pause] Requests vs limits: [pause] Requests are for scheduling, limits are for enforcement. [pause] Two different systems, two different jobs.
+
+Autonoe: Two. [pause] The hotel analogy: [pause] Requests reserve the room, limits enforce the fire code.
+
+Autonoe: Three. [pause] OOMKilled debugging workflow: [pause] Five steps—get pods, describe pod, check events, check monitoring, analyze config, determine root cause.
+
+Autonoe: Four. [pause] <say-as interpret-as="characters">QoS</say-as> classes: [pause] Guaranteed when requests equal limits. [pause short] Burstable when requests less than limits. [pause short] BestEffort when none set. [pause] Determines eviction priority.
+
+Autonoe: Five. [pause] Right-sizing formula: [pause] Requests at P50 to P75, limits at P95 to P99 plus twenty to thirty percent headroom. [pause] Validate with load testing.
+
+Autonoe: Six. [pause] War stories: [pause] Ninety-four thousand dollars from missing limits. [pause] Twenty-four hundred dollars per month wasted from over-provisioning.
+
+Autonoe: Remember the production readiness checklist from Episode 1? [pause] Resource limits and requests—item number one. [pause] Now you understand WHY. [pause] It's not just a checkbox. [pause] It's the difference between stable production and three <say-as interpret-as="characters">AM</say-as> pages.
+
+Autonoe: We'll circle back to these concepts later in the course when we tackle cost optimization in Episode 8. [pause] Right-sizing isn't just about stability—it's about money. [pause] And coming up in Episode 4, we'll use this exact debugging workflow to troubleshoot CrashLoopBackOff issues.
+
+Autonoe: Next up: [pause] Security Foundations—<say-as interpret-as="characters">RBAC</say-as> and Secrets.
+
+Autonoe: In Episode 3, you'll learn why <say-as interpret-as="characters">RBAC</say-as> misconfigurations are still the number one <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> security issue in twenty twenty-five, [pause] how to implement least privilege roles that actually work in production, [pause] and secrets management patterns using Sealed Secrets and External Secrets Operator.
+
+Autonoe: Remember that crypto miner attack from Episode 1? [pause] Forty-three thousand dollar <say-as interpret-as="characters">AWS</say-as> bill from over-privileged service accounts? [pause] That's what we're preventing next time.
+
+Autonoe: See you then.

@@ -35,7 +35,7 @@ speakers:
       - "en-US-Chirp3-HD-Charon"
   autonoe:
     voice: "en-US-Chirp3-HD-Autonoe"  # Clear, professional voice for educational lessons
-    speed: 0.95  # Slightly slower for technical content clarity
+    speed: 1.0  # Normal speed for natural conversational teaching (was 0.95, too slow/formal)
     pitch: 0  # Chirp3-HD doesn't support pitch adjustment
     volume_gain_db: 0.0
     alternatives:  # Fallback voices in case of errors
@@ -49,13 +49,27 @@ audio:
   format: "mp3"
   chunk_overlap_ms: 50  # Crossfade duration
 
-# Chunking configuration
+# Chunking configuration (for two-person podcasts)
 chunking:
   min_words: 80
   max_words: 150
   target_words: 100  # Ideal chunk size for dialogue
   target_duration_seconds: 45
   max_duration_seconds: 90
+
+# Lesson chunking configuration (for single-speaker educational content)
+# Lessons need longer chunks to avoid breaking mid-concept
+lesson_chunking:
+  min_words: 150  # Longer to keep complete thoughts together
+  max_words: 300  # Allow full explanations without artificial breaks
+  target_words: 200  # ~60-75 seconds of natural speech
+  target_duration_seconds: 60
+  max_duration_seconds: 120
+  # Prefer breaking on natural boundaries:
+  # - After [pause long] tags (major transitions)
+  # - After complete explanations
+  # - Between teaching sections
+  # Avoid breaking mid-analogy, mid-example, or mid-list
 
 # Paths
 paths:

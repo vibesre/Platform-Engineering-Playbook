@@ -34,16 +34,27 @@ from validate_chunks import validate_chunks
 
 class PodcastGenerator:
     """Main orchestrator for podcast generation."""
-    
-    def __init__(self, config_path: str = "config.yaml"):
+
+    def __init__(self, config_path: str = "config.yaml", is_lesson: bool = False):
         # Load environment variables from .env file
         load_dotenv()
         self.config = self._load_config(config_path)
-        
+        self.is_lesson = is_lesson
+
+        # Choose chunking config based on content type
+        # Lessons need longer chunks to avoid breaking mid-concept
+        # Podcasts use shorter chunks for natural dialogue flow
+        if is_lesson and "lesson_chunking" in self.config:
+            chunking_config = self.config["lesson_chunking"]
+            print("📖 Using lesson chunking configuration (longer chunks for single-speaker content)")
+        else:
+            chunking_config = self.config["chunking"]
+            print("🎙️  Using podcast chunking configuration (shorter chunks for dialogue)")
+
         # Initialize components
         self.chunker = PodcastChunker(
-            min_words=self.config["chunking"]["min_words"],
-            max_words=self.config["chunking"]["max_words"]
+            min_words=chunking_config["min_words"],
+            max_words=chunking_config["max_words"]
         )
         
         self.cache_manager = CacheManager(
@@ -626,6 +637,12 @@ def main():
         action="store_true",
         help="Process all txt files in the directory"
     )
+
+    parser.add_argument(
+        "--lesson",
+        action="store_true",
+        help="Use lesson chunking configuration (longer chunks for single-speaker educational content)"
+    )
     
     args = parser.parse_args()
     
@@ -642,7 +659,7 @@ def main():
         sys.exit(1)
     
     # Initialize generator
-    generator = PodcastGenerator(config_path=args.config)
+    generator = PodcastGenerator(config_path=args.config, is_lesson=args.lesson)
     
     # Generate podcast(s)
     if args.batch:

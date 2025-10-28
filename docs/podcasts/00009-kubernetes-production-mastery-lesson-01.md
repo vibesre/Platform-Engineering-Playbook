@@ -11,6 +11,10 @@ slug: 00009-kubernetes-production-mastery-lesson-01
 
 <GitHubButtons />
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g76QQdvDhcM" title="Lesson 1: Production Mindset - Kubernetes Production Mastery" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 **Duration:** 17 minutes
 **Presenter:** Autonoe
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
