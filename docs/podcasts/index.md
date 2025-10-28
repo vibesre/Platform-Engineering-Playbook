@@ -97,6 +97,7 @@ Transform from a Kubernetes user into a production Kubernetes engineer. Learn ho
 
 Mix of podcast episodes (🎙️ conversational discussions) and course lessons (📖 structured learning):
 
+- 🎙️ **[#011: Why 70% of Platform Engineering Teams Fail](/podcasts/00011-platform-failures)** (12 min) - The critical PM gap, metrics blindness, and the 5 predictive metrics that separate success from $3.75M failures
 - 📖 **[#010: Kubernetes Production Mastery - Lesson 02](/podcasts/00010-kubernetes-production-mastery-lesson-02)** (19 min) - Master requests vs limits, QoS classes, and the 5-step debugging workflow for OOMKilled pods
 - 📖 **[#009: Kubernetes Production Mastery - Lesson 01](/podcasts/00009-kubernetes-production-mastery-lesson-01)** (17 min) - Learn the 5 failure patterns that break systems at scale and the 6-item production readiness checklist
 - 🎙️ **[#008: GCP State of the Union 2025](/podcasts/00008-gcp-state-of-the-union-2025)** (17 min) - When depth beats breadth: GCP's 32% growth vs AWS's 17%

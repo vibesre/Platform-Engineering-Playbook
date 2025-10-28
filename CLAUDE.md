@@ -619,6 +619,50 @@ schema:
 
 ---
 
+## Blog Content Production
+
+### Using Claude Code Skills
+
+For blog post production, use the dedicated Claude Code skills in `.claude/skills/blog-*`:
+
+1. **blog-research** - Topic validation, source gathering, keyword research, FAQ identification
+2. **blog-outline** - Structure planning with SEO/AEO elements and engagement frameworks (MANDATORY before writing)
+3. **blog-write** - Content creation following tone/voice standards and engagement best practices
+4. **blog-validate** - Fact-checking statistics, verifying sources, ensuring technical accuracy
+5. **blog-optimize** - SEO/AEO compliance checking with 12-point checklist
+
+Each skill contains detailed workflows, quality standards, checklists, and examples from actual Platform Engineering Playbook blog posts.
+
+**Quick Start**: `"Use the blog-research skill to research [topic]"`
+
+**Complete Workflow**: Research → Outline → Write → Validate → Optimize → Publish
+
+**Quality Standards** (enforced by skills):
+- Every statistic must have primary source link
+- 10+ high-quality sources minimum
+- 12-point SEO/AEO compliance (aim for 10/12)
+- 3500-5000 word comprehensive analysis
+- Target audience: Senior engineers (5+ years)
+- Tone: Authoritative but humble, data-driven, skeptical of hype
+
+**SEO/AEO 12-Point Checklist** (from blog-optimize skill):
+1. Quick Answer/TL;DR section (AI-friendly)
+2. FAQ schema in frontmatter (5-10 questions)
+3. Statistics with source links (2+ minimum)
+4. Comparison table (if applicable)
+5. Date/year signals (frontmatter + content)
+6. Key Takeaway boxes (2-7 with 💡 emoji)
+7. Direct answer format (no pronouns)
+8. Expert quotes or authoritative refs
+9. Numbered how-to steps or decision framework
+10. Standalone sentences (AI citation ready)
+11. Decision framework ("Use X when...")
+12. Internal links (5+ minimum)
+
+*For complete blog production guidelines including research standards, writing techniques, validation processes, and optimization strategies, see the skills in `.claude/skills/blog-*`*
+
+---
+
 ## Podcast Production
 
 ### Using Claude Code Skills
