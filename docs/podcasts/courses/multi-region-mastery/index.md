@@ -1,3 +1,10 @@
+---
+displayed_sidebar: tutorialSidebar
+hide_table_of_contents: false
+sidebar_label: "📖 Multi-Region Mastery"
+slug: /podcasts/courses/multi-region-mastery
+---
+
 # Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale
 
 <GitHubButtons />
