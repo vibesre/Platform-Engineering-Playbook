@@ -9,9 +9,24 @@ const sidebars: SidebarsConfig = {
       label: 'Welcome'
     },
     {
+      type: 'link',
+      label: 'Blog',
+      href: '/blog',
+    },
+    {
+      type: 'link',
+      label: 'Podcast',
+      href: '/podcasts',
+    },
+    {
+      type: 'link',
+      label: 'Courses',
+      href: '/podcasts/courses/kubernetes-production-mastery',
+    },
+    {
       type: 'category',
-      label: 'Technical Skills',
-      collapsed: true,
+      label: 'Technical Skills List',
+      collapsed: false,
       collapsible: true,
       items: [
         {
