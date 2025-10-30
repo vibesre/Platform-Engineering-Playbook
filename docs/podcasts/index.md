@@ -154,6 +154,54 @@ Latest content includes course lessons and standalone podcast episodes. Course l
 
 ## Podcast Episodes
 
+### Episode 12: Platform Engineering ROI Calculator
+
+[🎙️ Platform Engineering ROI Calculator: Prove Value to Executives](/podcasts/00012-platform-roi-calculator)
+
+45% of platform teams measure nothing and get disbanded when they can't prove ROI. Learn the exact ROI calculation framework that saved three platform teams from disbandment—with real numbers from startups (233% ROI) to enterprises (380% ROI). Discover how to translate DORA metrics into dollars executives understand, from deployment frequency to revenue impact, MTTR to SLA penalties. Includes CFO, CTO, and VP Eng stakeholder templates that speak their language.
+
+**Duration:** 15 minutes
+
+[📝 Read the full blog post](/blog/2025/10/28/platform-engineering-roi-calculator) with detailed spreadsheets, stakeholder templates, and real-world case studies.
+
+---
+
+### Episode 11: Why 70% of Platform Engineering Teams Fail
+
+[🎙️ Why 70% of Platform Engineering Teams Fail (And the 5 Metrics That Predict Success)](/podcasts/00011-platform-failures)
+
+60-70% of platform engineering teams fail to deliver impact, with 45% disbanded within 18 months. We investigate why technically excellent teams with senior engineers and big budgets consistently fail—and uncover the shocking truth: it's not about technology. Learn the 5 predictive metrics that separate successful platforms from expensive failures, including the critical PM gap that explains Spotify's 99% adoption vs the industry's 10% average.
+
+**Duration:** 12 minutes
+
+[📝 Read the full blog post](/blog/2025/10/28/why-platform-engineering-teams-fail) with the 90-day playbook and comprehensive decision framework.
+
+---
+
+### Episode 10: Kubernetes Production Mastery - Lesson 02
+
+[📖 Kubernetes Production Mastery - Lesson 02: Resource Management](/podcasts/00010-kubernetes-production-mastery-lesson-02)
+
+Exit code 137 (OOMKilled) is the #1 production failure in Kubernetes—67% of teams have experienced it. Master the critical difference between resource requests and limits, learn the 5-step debugging workflow for OOMKilled errors, and discover how to right-size containers using P95/P99 metrics and Quality of Service principles. Real incidents: $94K lost in 47 minutes from missing limits, $2,400/month wasted from over-provisioning.
+
+**Duration:** 19 minutes
+
+**Part of**: [Kubernetes Production Mastery Course](/podcasts/courses/kubernetes-production-mastery) - Episode 2 of 10
+
+---
+
+### Episode 9: Kubernetes Production Mastery - Lesson 01
+
+[📖 Kubernetes Production Mastery - Lesson 01: Production Mindset](/podcasts/00009-kubernetes-production-mastery-lesson-01)
+
+Learn the mental shift from development to production Kubernetes. Understand the 5 critical failure patterns that break systems at scale (OOMKilled, RBAC, health checks, storage, networking) and the 6-item production readiness checklist you must apply before any deployment. Stop following tutorials—start thinking like a production engineer who anticipates failure and designs for reliability.
+
+**Duration:** 17 minutes
+
+**Part of**: [Kubernetes Production Mastery Course](/podcasts/courses/kubernetes-production-mastery) - Episode 1 of 10
+
+---
+
 ### Episode 8: GCP State of the Union 2025
 
 [🎙️ GCP State of the Union 2025: When Depth Beats Breadth](/podcasts/00008-gcp-state-of-the-union-2025)
