@@ -1,0 +1,16 @@
+Original text:
+Speaker 1: This is a test. [pause] Here's another sentence. [pause short] And one more. [pause long] Final sentence.
+
+Stripped text:
+Speaker 1: This is a test. Here's another sentence. And one more. Final sentence.
+
+================================================================================
+
+Testing with: 00005-platform-tools-tier-list.txt
+
+Validation results:
+  Total pauses: 135
+  [pause]: 88
+  [pause short]: 47
+  [pause long]: 0
+  Valid: True

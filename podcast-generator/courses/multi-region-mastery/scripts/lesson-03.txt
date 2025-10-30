@@ -1,0 +1,219 @@
+Before we dive in, let's do a quick recall from Episode 2.
+
+Try to remember - what was the typical RTO for hot-warm pattern? Take a second.
+
+It was five minutes. Five minutes from detection to recovery. One minute for Aurora promotion, four minutes for everything else.
+
+And what about RPO? Recovery Point Objective - how much data loss you can tolerate?
+
+Remember the e-commerce example? Aurora had one-second replication lag under normal load. But during the actual failure, replication lag had climbed to forty-five seconds. That became the RPO - forty-five seconds of lost transactions.
+
+Those numbers aren't magic. They come from how Aurora actually works under the hood. The six-way storage replication that nobody explains. The quorum-based writes that make sub-second lag possible. And the edge cases where everything breaks down.
+
+Today you're going to understand exactly what's happening during that replication. More importantly, you'll know where Aurora Global Database breaks and how to design around it.
+
+By the end of this lesson, you'll be able to explain how Aurora's six-way replication works - the quorum model, the storage layer separation, why this matters for multi-region.
+
+You'll calculate expected replication lag and determine if your application can tolerate it. We're talking forty-five to eighty-five milliseconds under normal load, one to thirty seconds under stress.
+
+You'll know when to use Aurora Global Database versus native Postgres replication. They're not interchangeable.
+
+And you'll handle split-brain scenarios - what happens when regions diverge and how to prevent data loss.
+
+Let's start with why Aurora exists in the first place.
+
+Traditional RDS Postgres has a fundamental problem with multi-region. Your primary database writes to local storage. Every transaction hits disk. To replicate to another region, Postgres ships the write-ahead log - the WAL - across the network. Then the replica applies those changes.
+
+Problem one: You're sending entire log records across regions. High bandwidth. High latency.
+
+Problem two: The replica has to replay those writes. CPU-intensive. Falls behind under load.
+
+Problem three: Failover takes minutes. The replica needs to finish applying all pending WAL records before it can accept writes.
+
+I've watched this happen in production. Primary region fails during peak traffic. Replica is thirty seconds behind. You promote it. But first it has to catch up - apply those thirty seconds of pending changes. Your RTO just went from "immediate" to "three minutes."
+
+Aurora rethought the entire architecture. Here's the key insight: separate compute from storage.
+
+Your database engine - the compute layer - doesn't write to local disks. It writes to a distributed storage layer. That storage layer handles all replication automatically across six storage nodes in three availability zones.
+
+The database engine just sends redo log records to storage. Not full data pages. Just the minimal change log. Storage applies those changes and replicates them.
+
+This separation is what makes multi-region possible.
+
+With Aurora Global Database, you're not replicating database to database. You're replicating storage to storage. Physical block-level replication, not logical transaction replay.
+
+Primary region writes to its six-node storage cluster. Those redo logs ship to the secondary region's storage cluster. Storage applies them. Secondary region's database engine reads from its local storage.
+
+Result? Sub-second replication lag. Fast failover. No CPU overhead on the secondary.
+
+Now let's talk about what's actually happening with that six-way replication, because this is where the magic happens.
+
+Each Aurora database writes to six storage nodes. Not servers - storage nodes. These are distributed across three availability zones in a region.
+
+Two nodes in AZ-A. Two nodes in AZ-B. Two nodes in AZ-C.
+
+When your application commits a transaction, Aurora writes to storage. But here's what most engineers don't realize - it doesn't wait for all six nodes. It uses a quorum.
+
+Four out of six storage nodes must acknowledge the write. That's it. Four acknowledgments, and the transaction is considered committed.
+
+Why four? Let's think through the math.
+
+If you lose an entire availability zone - two nodes - you still have four nodes up. Your database keeps writing. No interruption. That's the availability part.
+
+But why not three? Why not make writes succeed with just three acknowledgments?
+
+Because you also need to handle reads during partial failures. Aurora requires three nodes to acknowledge reads. If writes required only three, and you lost two nodes, you might read stale data that doesn't include recent writes.
+
+Four for writes, three for reads. This is called quorum consistency.
+
+Here's the critical part: write quorum plus read quorum must be greater than total nodes. In Aurora, four plus three equals seven, which is greater than six. That guarantees consistency - any successful read will see all previously committed writes.
+
+Let's walk through what actually happens during a transaction.
+
+Your application executes INSERT INTO orders VALUES and commits.
+
+Step one: Aurora's database engine generates a redo log record. This is minimal - just the change, not the entire data page. Maybe a few kilobytes.
+
+Step two: Database engine sends this redo log record to all six storage nodes in parallel. Not sequentially - all at once.
+
+Step three: Storage nodes write the record to persistent storage. They're using SSDs, so this is fast. Single-digit milliseconds.
+
+Step four: Four nodes acknowledge the write. As soon as Aurora receives four acknowledgments, the transaction is considered committed. Your application gets success. The other two nodes? Aurora doesn't wait for them.
+
+Step five: Those two slower nodes eventually catch up. Aurora doesn't block on them. They're part of the durability layer, but not the latency path.
+
+This is physical replication. Aurora ships redo logs - byte-level changes to data blocks. Not SQL statements. Not logical transaction records.
+
+Compare to Postgres native replication, which is logical. Primary ships SQL-level changes. Replica parses them, executes them, updates its tables. Every write costs CPU on the replica.
+
+Aurora's physical replication? Storage applies block-level changes directly. Much faster. Much less CPU overhead.
+
+Trade-off: Physical replication requires identical storage format. You can't replicate Aurora to non-Aurora databases. Logical replication is more flexible but slower.
+
+For Aurora Global Database, the primary region's storage cluster ships redo logs to the secondary region's storage cluster. This happens asynchronously - doesn't block commits in the primary.
+
+Secondary region's storage receives redo logs, applies them to its six-node cluster using the same quorum model. Four-of-six writes. Secondary region's database engine reads from this replicated storage.
+
+Typical lag? Forty-five to eighty-five milliseconds.
+
+Let's break that down. US-EAST-1 to US-WEST-2 network latency: about fifteen milliseconds. Storage apply time: thirty to seventy milliseconds depending on write volume.
+
+For most applications, eighty-five milliseconds is invisible. User creates an order in the primary region. Secondary region sees it a tenth of a second later. No one notices.
+
+But under heavy write load, replication lag can spike. Here's why this happens.
+
+High transaction volume means the secondary storage cluster is applying redo logs as fast as it can. If writes come in faster than storage can apply them, a backlog builds.
+
+I've seen replication lag hit ten to thirty seconds during Black Friday-level traffic. The secondary is always catching up, never caught up. The redo log queue keeps growing.
+
+What this means: If the primary region fails during this lag, you lose the uncommitted data in transit. That's your RPO - the replication lag at the moment of failure.
+
+Remember Episode 2? The e-commerce company with forty-five seconds of replication lag during their outage? This is why it happened. They were under heavy write load when the primary failed.
+
+Here's a common failure pattern that trips up even experienced engineers.
+
+User updates their profile in the primary region. Application redirects them to a page that reads from the secondary region for load balancing.
+
+If replication lag is two hundred milliseconds, the user sees their old profile. They think the update failed. They update again. Race conditions. Data consistency bugs. Support tickets.
+
+Solution: sticky sessions. After a write, route that user's reads to the primary region for the next few seconds. Let replication catch up. Then you can send reads to the secondary.
+
+This is called the read-your-own-writes pattern. It's not automatic. You have to design for it.
+
+Now let's talk about when Aurora Global Database breaks down, because it's not a silver bullet.
+
+Scenario one: High write throughput. Aurora Global Database can handle about two hundred thousand writes per second in the primary region. But cross-region replication bandwidth is limited.
+
+If you're pushing one hundred thousand-plus writes per second, replication lag will consistently be multiple seconds. At that scale, consider sharding across multiple Aurora clusters. Or switch to DynamoDB Global Tables, which we'll cover in Episode 6.
+
+Scenario two: Large transactions. Aurora limits transaction size. If a single transaction modifies hundreds of megabytes of data, replication lag spikes. The secondary storage cluster takes time to apply that massive redo log batch.
+
+Solution: Break large transactions into smaller ones. Or accept longer lag for batch operations. But understand the trade-off.
+
+Scenario three: Split-brain during failover. What if there's a network partition between regions during failover?
+
+Primary region thinks it's still primary. Keeps accepting writes. You've promoted secondary to primary. It accepts writes. Now you have two primaries. Both accepting writes. Different data in each region.
+
+Aurora prevents this with safeguards. When you promote secondary, it force-demotes the primary. But if the network is completely partitioned and you force a manual failover, you can create split-brain.
+
+Prevention: Always use Aurora's managed failover. Don't manually promote unless you're absolutely certain the primary is dead. And even then, be careful.
+
+And let's talk about cost reality.
+
+Aurora Global Database isn't cheap. Primary region: standard Aurora costs. Secondary region: storage replication costs plus read replica costs.
+
+For a one-terabyte database with moderate write load, you're looking at approximately eight hundred dollars per month primary, six hundred dollars per month secondary.
+
+Plus cross-region data transfer: two cents per gigabyte.
+
+Writing ten gigabytes per day across regions? That's an extra six dollars per month data transfer. Not huge.
+
+But at one hundred gigabytes per day, you're at sixty dollars per month just for data transfer. This adds up fast at scale.
+
+Now let's talk about common mistakes, because I've seen these repeatedly.
+
+Mistake one: Assuming zero lag. You architect for immediate consistency, assuming Aurora replication is instant. It's not.
+
+Typical lag is fifty to one hundred milliseconds. Under load, multiple seconds.
+
+Fix: Design for eventual consistency. Use read-your-own-writes patterns. Show users "Your changes are being replicated" messages if necessary.
+
+Mistake two: Not testing failover under load. You test failover with zero traffic. Works perfectly. Ninety seconds, just like AWS promised.
+
+Then production fails during peak load with ten seconds of replication lag. You lose those ten seconds of transactions.
+
+Fix: Test failover under realistic load. Measure actual RPO. Communicate this to business stakeholders. Don't promise zero data loss if you can't deliver it.
+
+Mistake three: Confusing Aurora Global Database with multi-master. Aurora Global Database is NOT active-active. It's active-passive.
+
+Only the primary region accepts writes. Secondary is read-only until promoted.
+
+If you try to write to the secondary, it errors. Your application needs to know which region is primary and route writes there.
+
+Fix: Use Route53 CNAME for your write endpoint. Update it during failover. Applications always connect to the current primary. No hardcoded region names in your code.
+
+Before we wrap up, let's test your understanding. Pause and answer these questions.
+
+Question one: Why does Aurora use four-of-six quorum for writes instead of three-of-six?
+
+Question two: What's typical replication lag for Aurora Global Database under normal load? Under heavy load?
+
+Question three: You have a photo-sharing app. Users upload a photo, then immediately see their gallery. Can you safely read the gallery from the secondary region right after upload? Why or why not?
+
+Take a moment to think through these.
+
+Answers.
+
+Question one: Four-of-six ensures that even if you lose an entire availability zone - two nodes - you still have four nodes for writes. And with three-of-six read quorum, write quorum plus read quorum equals seven, which is greater than total nodes. This ensures consistency.
+
+Question two: Normal load, forty-five to eighty-five milliseconds. Heavy write load, one to thirty seconds. This is network latency plus storage apply time.
+
+Question three: No, not safely. With forty-five to eighty-five millisecond lag, the photo might not be replicated yet. User sees old gallery without their new photo. Solution: Read from the primary region for that user's session after they upload. Or implement sticky sessions that keep writes and subsequent reads in the same region.
+
+Let's recap what we covered.
+
+First, Aurora separates compute from storage. Database engine sends redo logs to six-node distributed storage. Storage handles replication using four-of-six write quorum. This separation is what makes sub-second replication possible.
+
+Second, physical replication beats logical for multi-region. Aurora ships block-level changes, not SQL transactions. Faster, lower CPU overhead. But locks you into Aurora format - you can't replicate to non-Aurora databases.
+
+Third, replication lag is forty-five to eighty-five milliseconds normally, one to thirty seconds under load. Design for eventual consistency. Use read-your-own-writes patterns. Test failover under realistic load to measure actual RPO.
+
+Fourth, Aurora Global Database is active-passive, not active-active. Only primary accepts writes. Secondary is read-only. Failover promotes secondary to primary and demotes old primary. Your application needs to route writes correctly.
+
+Fifth, it breaks down at extreme scale or with large transactions. Above one hundred thousand writes per second, consider sharding or DynamoDB. Huge transactions cause lag spikes - break them up.
+
+Remember the hot-warm pattern from Episode 2? Aurora Global Database is how you implement the data layer for hot-warm. Primary region handles writes, secondary ready to promote in ninety seconds.
+
+The five-minute RTO we calculated? One minute was Aurora promotion. The rest was DNS failover and application scaling. Now you know what's happening during that Aurora promotion - quorum shift, storage cluster coordination, write endpoint switch.
+
+Episode 2 showed you hot-warm patterns. Episode 3 gave you the Aurora foundation.
+
+Next up: the compute layer.
+
+Episode 4 covers Kubernetes multi-cluster architecture - EKS patterns, control plane considerations, cross-cluster networking.
+
+You'll learn how the EKS control plane actually works and why it depends on multiple availability zones. Multi-cluster patterns - independent clusters versus federated clusters. Cross-cluster service discovery and why Kubernetes federation mostly failed. And the service mesh approach that actually works in production.
+
+Aurora gave you multi-region data. Kubernetes gives you multi-region compute. You need both to build real hot-warm architectures.
+
+See you in the next lesson.

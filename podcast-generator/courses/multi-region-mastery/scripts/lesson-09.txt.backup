@@ -1,0 +1,129 @@
+You've built multi-region architecture. Aurora Global Database, DynamoDB Global Tables, EKS clusters across regions, Transit Gateway connecting everything, observability, DNS failover. It works beautifully in staging.
+
+Then you get the AWS bill. Fifteen thousand dollars per month becomes one hundred twelve thousand per month. Your manager asks why multi-region costs seven-point-five times more. You explain it's for reliability. They ask if seven-point-five times is normal or if you over-engineered.
+
+Today you're learning the real cost structure of multi-region and how to optimize without breaking reliability. Not the vendor promises. The actual math with all the hidden multipliers.
+
+By the end of this lesson, you'll understand why multi-region costs seven-point-five times single-region, not the two times vendors claim. The four categories of costs - compute redundancy, data transfer, replication overhead, operational complexity. Optimization strategies that cut costs by forty percent without sacrificing RTO. Reserved capacity versus on-demand trade-offs. And the make-or-break ROI calculation for your specific revenue and risk profile.
+
+Let's start with the cost breakdown nobody explains honestly.
+
+Vendors say multi-region doubles your costs. Two regions, two times the infrastructure. Sounds logical. Reality: Seven-point-five times for hot-warm, ten times for hot-hot.
+
+Here's why. Category one: Compute redundancy. You're not just paying for two regions. You're paying for capacity to handle full load in secondary during failover. Hot-warm means secondary runs at twenty to thirty percent capacity idle. You're paying for compute you're not fully using.
+
+Example: US-EAST-1 primary needs ten r6g.4xlarge instances to handle production load. US-WEST-2 secondary needs three r6g.4xlarge instances at minimum to maintain warm state. That's thirteen instances total versus ten for single-region. One-point-three times compute cost just from hot-warm architecture.
+
+But it gets worse. During failover, secondary needs to scale to ten instances immediately. EKS auto-scaling takes two to three minutes. So you keep secondary at fifty percent capacity - five instances - not thirty percent. Now you're paying for fifteen instances total. One-point-five times compute cost.
+
+Category two: Data transfer. This is where costs explode. Cross-region data transfer costs two cents per gigabyte. Aurora replicating one terabyte per day equals twenty dollars per day, six hundred per month. DynamoDB replicating five hundred gigabytes per day, three hundred per month. Application logs shipping to centralized observability, another two hundred per month. Total: Eleven hundred monthly just for data transfer.
+
+Single-region has zero cross-region transfer costs. Multi-region adds eleven hundred just for moving data between regions.
+
+Category three: Replication overhead. Aurora Global Database costs the same as regular Aurora plus cross-region data transfer. But DynamoDB Global Tables? You're paying Write Capacity Units for every write in every region plus replication WCUs. Three regions means you're paying for writes three times plus replication to two other regions. Five times WCU cost compared to single-region.
+
+Episode 6 example: One thousand writes per second, three regions. Three thousand WCUs for application writes plus two thousand WCUs per region for replication. Nine thousand WCUs total versus one thousand for single-region. Nine times cost.
+
+Category four: Operational complexity. Multi-region requires more sophisticated monitoring, more complex deployment pipelines, more testing. Eng engineer time costs too. One senior engineer spending twenty percent time on multi-region operations equals thirty thousand per year in opportunity cost.
+
+Add it all up. Single-region infrastructure: Fifteen thousand monthly. Multi-region hot-warm: Compute one-point-five times, twenty-two thousand five hundred. Data transfer, plus eleven hundred. DynamoDB if applicable, plus thirty thousand. Operational overhead, plus two thousand five hundred monthly amortized. Total: Sixty-six thousand one hundred monthly.
+
+Sixty-six thousand divided by fifteen thousand equals four-point-four times. And we haven't counted redundant monitoring tools, additional CloudWatch dashboards, X-Ray tracing costs, or DR testing. Real multiplier: Seven to seven-point-five times.
+
+Hot-hot active-active pushes this to ten times because both regions run at full capacity all the time.
+
+Now optimization strategies that actually work.
+
+Strategy one: Right-size secondary capacity. Don't run secondary at fifty percent if you can scale fast. EKS Cluster Autoscaler can go from twenty to eighty percent capacity in ninety seconds. Run secondary at twenty-five percent. Cut compute redundancy from one-point-five times to one-point-two-five times. Save twenty-five percent on compute.
+
+Strategy two: Use provisioned capacity for DynamoDB where traffic is predictable. On-demand costs five times more than provisioned. For steady workloads, provisioned saves eighty percent. Sixty-three thousand per month on-demand becomes twelve thousand on provisioned. Fifty-one thousand annual savings.
+
+Strategy three: Minimize cross-region data transfer. Keep reads local. Episode 4's service mesh with locality-aware routing keeps ninety percent of traffic within region. Ten percent cross-region for failover only. Cut data transfer costs by ninety percent. Eleven hundred becomes one hundred ten monthly.
+
+Strategy four: Selective Global Tables. Not every DynamoDB table needs multi-region. User sessions, shopping carts - yes. Static reference data, marketing content - no. Replicate only tables that require active-active writes. Cut DynamoDB Global Tables costs by sixty percent.
+
+Strategy five: Tiered observability. Don't ship all logs cross-region. Keep debug and info logs local, ship only errors and warnings to central aggregation. Cut CloudWatch costs by seventy percent. Four thousand becomes twelve hundred monthly.
+
+Strategy six: Reserved Instances and Savings Plans. Commit to one-year or three-year term for baseline capacity. RDS Reserved Instances save forty percent. EC2 Savings Plans save thirty-five percent. For multi-region architecture you'll run continuously, this is obvious. Twelve thousand monthly becomes seven thousand eight hundred with reservations. Four thousand two hundred annual savings per instance.
+
+Strategy seven: S3 Intelligent Tiering for logs and backups. Logs older than thirty days move to infrequent access automatically. Saves fifty percent on storage. Three hundred monthly becomes one hundred fifty.
+
+Real optimization example. SaaS company, hot-warm with Aurora, DynamoDB, EKS. Initial monthly cost: One hundred twelve thousand. After optimization: Right-sized secondary from fifty to twenty-five percent capacity, saved eight thousand. Provisioned DynamoDB, saved forty thousand. Locality-aware routing cut data transfer ninety percent, saved ten thousand. Reserved Instances for baseline compute, saved fifteen thousand. Selective log shipping, saved two thousand eight hundred.
+
+New monthly cost: Thirty-six thousand two hundred. Savings: Sixty-seven percent. Still multi-region, still five-minute RTO, but financially sustainable.
+
+The ROI calculation you need to run.
+
+Multi-region costs more. Is it worth it? Depends on your revenue at risk and outage probability.
+
+Calculate revenue per hour. One million per year equals one hundred fourteen per hour. Ten million per year equals one thousand one hundred forty per hour. One hundred million per year equals eleven thousand four hundred per hour.
+
+Calculate outage probability without multi-region. AWS single-region SLA is ninety-nine-point-nine-nine percent annually. That's fifty-two minutes downtime per year. For most workloads, actual downtime is higher - call it four hours annually from AZ failures, service outages, DDoS attacks.
+
+Calculate cost of those four hours. One million annual revenue equals four hundred fifty-six dollars. Not worth multi-region. Ten million equals forty-five hundred dollars. Still probably not worth it unless downtime has regulatory implications. One hundred million equals forty-five thousand six hundred dollars. Now we're talking.
+
+Multi-region incremental cost: Optimized architecture costs twenty-one thousand extra monthly, two hundred fifty-two thousand annually. Payback: You need to prevent five-point-five hours of downtime per year to break even at one hundred million revenue. With typical four-hour exposure, you're at seventy-two percent of breakeven.
+
+But add business impact beyond revenue. Regulatory fines for downtime. Customer churn after outages. Competitive damage. Brand reputation. For many enterprises, these intangibles justify multi-region even when pure revenue math doesn't.
+
+Reserved capacity versus on-demand trade-offs.
+
+Reserved Instances save forty percent but lock you in. One-year commitment, you're paying whether you use it or not. For baseline capacity you'll run continuously, this is a no-brainer. Primary region compute, primary RDS instances, minimum secondary capacity - reserve it all.
+
+But don't reserve burst capacity. Auto-scaling in secondary during failover should use on-demand. You're only paying for those instances during actual failover events, maybe two hours per year. On-demand costs more per hour but you use them so rarely it doesn't matter.
+
+DynamoDB provisioned versus on-demand: Provisioned requires accurate capacity planning. Get it wrong and you're throttled. On-demand scales automatically but costs five times more. For tables with unpredictable traffic, on-demand is safer. For tables with steady traffic patterns, provisioned saves massive amounts. Analyze your CloudWatch metrics, make decisions per table.
+
+Common cost optimization mistakes.
+
+Mistake one: Over-provisioning secondary region. Teams run secondary at seventy percent capacity "just in case." You're paying for compute you don't need. If your primary fails, you have time to scale secondary. Five minutes of reduced capacity during rare failovers is acceptable. Fix: Run secondary at twenty-five to thirty percent, scale on demand.
+
+Mistake two: Replicating everything. Teams enable Global Tables on every DynamoDB table, ship all logs cross-region, replicate all S3 buckets. Most of this data doesn't need multi-region. Fix: Be selective. Only replicate what's critical for RTO/RPO.
+
+Mistake three: No cost monitoring. Teams build multi-region, don't track costs per region or per service. AWS bill doubles or triples and they're surprised. Fix: Tag all resources with region and service name. Use Cost Explorer to break down spending. Set up billing alerts.
+
+Mistake four: Ignoring FinOps culture. Engineers don't think about costs, they just provision. No accountability for spend. Fix: Make cost a quality metric. Review multi-region costs monthly. Set targets. Incentivize optimization.
+
+Before we wrap up, pause and answer these questions.
+
+Question one: Why does hot-warm cost seven-point-five times single-region instead of two times?
+
+Question two: Your application generates ten million per year revenue. Multi-region adds twenty thousand per month cost. Is it worth it?
+
+Question three: Should you use Reserved Instances for primary compute and secondary burst capacity?
+
+Take a moment.
+
+Answers.
+
+Question one: Four cost categories. Compute redundancy: one-point-three to one-point-five times from running secondary capacity. Data transfer: eleven hundred plus monthly for cross-region replication. Replication overhead: DynamoDB Global Tables costs five to nine times WCUs. Operational complexity: two thousand five hundred plus monthly. Total multiplier: seven to seven-point-five times.
+
+Question two: Probably not from pure revenue math. Ten million equals one thousand one hundred forty per hour. Four hours downtime per year without multi-region equals forty-five hundred cost. Multi-region adds two hundred forty thousand annually. You'd need to prevent two hundred ten hours of downtime to break even - unrealistic. Unless you have regulatory requirements, customer retention issues, or brand damage concerns that justify it.
+
+Question three: Yes for primary, no for secondary burst. Primary compute runs continuously - reserve it and save forty percent. Secondary burst capacity only runs during rare failover events. On-demand is more expensive per hour but you use it so rarely that total cost is lower than reserving capacity you don't use ninety-nine-point-nine percent of the time.
+
+Let's recap what we covered.
+
+First: Multi-region costs seven-point-five times single-region for hot-warm, not two times. Compute redundancy, cross-region data transfer, replication overhead, operational complexity all contribute.
+
+Second: Optimization strategies cut costs forty to sixty percent without sacrificing reliability. Right-size secondary capacity, use provisioned DynamoDB, minimize data transfer with locality-aware routing, selective replication, Reserved Instances for baseline.
+
+Third: ROI calculation requires revenue per hour, outage probability, and business impact beyond revenue. For most workloads under ten million annual revenue, multi-region math doesn't work. Above one hundred million, it usually does.
+
+Fourth: Reserved capacity for baseline, on-demand for burst. Don't over-reserve capacity you won't use. Analyze actual usage patterns and reserve accordingly.
+
+Fifth: FinOps culture matters. Track costs per region and service, set targets, review monthly, make engineers accountable for spend.
+
+Remember Episode 1's CCC Triangle? Cost, Complexity, Capability. Multi-region maximizes capability at the expense of cost and complexity. Today you learned how to optimize that trade-off - reducing cost from seven-point-five times to four times while maintaining the same capability.
+
+We'll revisit cost optimization in Episode 12 during disaster recovery planning. You'll calculate the actual cost of a DR test, how to minimize it, and how to justify multi-region spend to finance when they question the bill.
+
+Next time: Data Consistency Models - CAP theorem in production.
+
+Episodes 3 and 6 taught you about Aurora and DynamoDB replication. But we glossed over consistency. Strong consistency, eventual consistency, read-after-write consistency - what do these actually mean in multi-region?
+
+You'll learn the CAP theorem - why you can't have Consistency, Availability, and Partition tolerance simultaneously. How Aurora chooses CP and DynamoDB chooses AP. Consistency models: strong, eventual, causal, read-your-writes. Real examples of consistency bugs that caused data corruption. And how to design applications for eventual consistency without losing user trust.
+
+Because multi-region forces you to choose. Perfect consistency across regions or high availability. You can't have both. Let's make sure you choose correctly for your use case.
+
+See you in Episode 10.

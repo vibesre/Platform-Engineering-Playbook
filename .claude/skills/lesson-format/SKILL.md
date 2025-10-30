@@ -19,10 +19,31 @@ Use this skill when:
 
 ## Formatting Overview
 
+### NEW: Gemini 2.5 Pro Enhancement (Default)
+
+**IMPORTANT**: As of the latest workflow, lesson scripts are enhanced using **Gemini 2.5 Pro** before SSML formatting:
+
+1. **Enhancement Phase** (NEW - MANDATORY):
+   - Use `generate_lesson_with_gemini_pro.py` script
+   - Gemini 2.5 Pro adds teaching cadence markers:
+     - `(dramatic pause)` before critical information
+     - `(pause for reflection)` after rhetorical questions
+     - `(pause - let it sink in)` before major concepts
+     - `**Bold**` for key technical terms
+     - `*Italics*` for conceptual explanations
+   - AI-driven placement based on teaching best practices
+   - Converts markdown markers → SSML pause tags automatically
+
+2. **SSML Formatting Phase**:
+   - Enhancement script auto-converts markers to SSML
+   - Adds pronunciation tags for technical terms
+   - Outputs production-ready script
+
 ### Two Outputs Required
 
 1. **Production Script** (`docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt`):
-   - With `[pause]` tags for natural pacing
+   - Enhanced with Gemini 2.5 Pro teaching cadence
+   - With `[pause]` tags for natural pacing (AI-placed)
    - With `<phoneme>` IPA pronunciation tags
    - With `<say-as>` tags for acronyms
    - Used for TTS generation with Autonoe voice
@@ -156,32 +177,71 @@ Consult `podcast-generator/PRONUNCIATION_GUIDE.md` for complete reference.
 
 ## Formatting Workflow
 
-### Step 1: Backup Original Script
+### Step 1: Gemini 2.5 Pro Enhancement (MANDATORY)
+
+**Enhance the script with AI-driven teaching cadence:**
+
+```bash
+cd podcast-generator
+python3 scripts/generate_lesson_with_gemini_pro.py \
+  ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt \
+  /tmp/lesson-XX
+```
+
+**What this does**:
+- Strips existing SSML tags and speaker labels from script
+- Sends clean text to Gemini 2.5 Pro in chunks (2000 words each)
+- AI adds teaching cadence markers based on instructor persona:
+  - `(dramatic pause)` → before critical information
+  - `(pause for reflection)` → after rhetorical questions
+  - `(pause - let it sink in)` → before major concepts
+  - `(pause)` → after key statements
+  - `**Bold**` → key technical terms
+  - `*Italics*` → conceptual explanations
+- Automatically converts markdown markers to SSML:
+  - `(dramatic pause)` → `[pause long]`
+  - `(pause for reflection)` → `[pause]`
+  - `(pause - let it sink in)` → `[pause]`
+  - `(pause)` → `[pause short]`
+  - Strips `**bold**` and `*italics*` (Chirp 3 uses natural intonation)
+- Adds back `Autonoe:` speaker labels
+- Saves enhanced script: `/tmp/lesson-XX-gemini-enhanced.txt`
+
+**Instructor Persona** (guides AI placement):
+- 15+ years production systems experience
+- Measured pacing with strategic pauses
+- Emphasizes "why" before "how"
+- Uses specific numbers and scenarios
+- Pragmatic, honest, patient, systematic
+
+**Review the enhanced script**:
+```bash
+cat /tmp/lesson-XX-gemini-enhanced.txt
+```
+
+**Expected output**:
+- Original: ~2000 words
+- Enhanced: ~2050 words (5-10% longer with pause markers)
+- 20-30 `[pause]` tags strategically placed
+- Natural teaching flow with dramatic moments
+
+**Next steps**: Add pronunciation tags and generate audio
+
+### Step 2: Backup Original Script
 
 ```bash
 cp docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt.backup
 ```
 
-### Step 2: Add SSML Pause Tags
+### Step 3: Add Pronunciation Tags (to enhanced script)
 
-**Option A: Automated** (recommended starting point):
+**Work with the Gemini-enhanced script from Step 1** (`/tmp/lesson-XX-gemini-enhanced.txt`):
+
+**Apply pronunciation tags directly to the enhanced script file:**
+
 ```bash
 cd podcast-generator
-python3 scripts/add_ssml_tags.py ../docs/podcasts/courses/[course-slug]/scripts --file lesson-XX.txt
-```
-
-**Option B: Manual**:
-- Read through script
-- Add `[pause]`, `[pause short]`, `[pause long]` strategically
-- Follow placement guidelines above
-- Extra attention to teaching moments (questions, analogies, transitions)
-
-### Step 3: Add Pronunciation Tags
-
-**Option A: Automated** (handles common terms):
-```bash
-cd podcast-generator
-python3 scripts/add_pronunciation_tags.py ../docs/podcasts/courses/[course-slug]/scripts --file lesson-XX.txt
+python3 scripts/add_pronunciation_tags.py /tmp --file lesson-XX-gemini-enhanced.txt
 ```
 
 The script automatically tags:
@@ -190,32 +250,68 @@ The script automatically tags:
 - Database names (Postgres, MySQL, Redis)
 - Platform names (Kubernetes, Azure, Vercel)
 
-**Option B: Manual** (for edge cases):
-- Check PRONUNCIATION_GUIDE.md
-- Add `<phoneme>` tags with IPA
-- Add `<say-as>` tags for acronyms
+**Manual additions** (for edge cases not in PRONUNCIATION_GUIDE.md):
+- Check PRONUNCIATION_GUIDE.md for reference
+- Add `<phoneme>` tags with IPA for custom terms
+- Add `<say-as>` tags for new acronyms
 
-### Step 4: Review and Adjust
+**Result**: Enhanced script with pause tags AND pronunciation tags ready for TTS generation.
 
-**Manual Review Checklist**:
-- [ ] Pause placement sounds natural (read aloud)
-- [ ] All technical terms from PRONUNCIATION_GUIDE tagged
-- [ ] Numbers spelled out ("three ninety-seven" not "397")
-- [ ] Years pronounced correctly ("twenty twenty-five" not "2025")
-- [ ] Teaching moments have appropriate pauses
-- [ ] Active recall prompts have longer pauses
+### Step 4: Generate Audio with Chirp 3 HD
 
-**Common Adjustments**:
-- Add pauses before/after analogies
-- Longer pauses for "pause and think" moments
-- Fix numbers: "$397" → "three hundred ninety-seven dollars"
-- Fix years: "2025" → "twenty twenty-five"
-
-### Step 5: Validate Formatting
+**Use the fully-tagged enhanced script to generate audio:**
 
 ```bash
 cd podcast-generator
-python3 scripts/ssml_utils.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt
+python3 scripts/generate_podcast.py /tmp/lesson-XX-gemini-enhanced.txt \
+  --lesson --episode-id [course-slug]-lesson-XX
+```
+
+**What this does**:
+- Reads the Gemini-enhanced script with pronunciation tags
+- Generates audio using Chirp 3 HD (Autonoe voice, 0.95x speed)
+- Saves MP3 and MP4 in `episodes/[episode-id]/`
+- Typical duration: 15-20 minutes for lesson content
+- Cost: ~$0.20-0.30 per lesson
+
+**Monitor generation**:
+```bash
+tail -f /tmp/lesson-generation.log
+```
+
+**Verify output**:
+```bash
+ls -lh podcast-generator/episodes/[episode-id]/
+ffprobe episodes/[episode-id]/[episode-id].mp3
+```
+
+### Step 5: Review Generated Audio
+
+**Listen to the first few minutes**:
+```bash
+# Play in default audio player
+open podcast-generator/episodes/[episode-id]/[episode-id].mp3
+```
+
+**Check for**:
+- Natural teaching cadence (AI-placed pauses effective?)
+- Correct pronunciations (SIGKILL = "sig-kill", Kubernetes = "coo-ber-NET-iss")
+- Teaching moments clear (dramatic pauses before critical info)
+- Overall flow (authoritative yet approachable)
+
+**If issues found**:
+1. Review enhanced script: `cat /tmp/lesson-XX-gemini-enhanced.txt`
+2. Identify problems (wrong pause placement, missing pronunciation tag)
+3. Manually edit `/tmp/lesson-XX-gemini-enhanced.txt`
+4. Regenerate: `python3 scripts/generate_podcast.py /tmp/lesson-XX-gemini-enhanced.txt --lesson --episode-id [id] --force`
+
+### Step 6: Create Clean Episode Page Version
+
+**Strip ALL tags from the enhanced script for the episode page:**
+
+```bash
+cd podcast-generator
+python3 scripts/ssml_utils.py --strip /tmp/lesson-XX-gemini-enhanced.txt
 ```
 
 This validates:
@@ -380,38 +476,59 @@ When this skill is invoked:
    cp docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt.backup
    ```
 
-3. **Add pause tags**:
-   - Run automated script: `add_ssml_tags.py`
-   - Review and adjust manually
-   - Pay attention to teaching moments
-   - Aim for 20-30 total pauses
+3. **Run Gemini 2.5 Pro Enhancement** (MANDATORY):
+   ```bash
+   cd podcast-generator
+   python3 scripts/generate_lesson_with_gemini_pro.py \
+     ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt \
+     /tmp/lesson-XX
+   ```
+   - This creates `/tmp/lesson-XX-gemini-enhanced.txt` with AI-placed pause tags
+   - Expected output: Original + 5-10% words, 20-30 pause tags
 
-4. **Add pronunciation tags**:
-   - Run automated script: `add_pronunciation_tags.py`
+4. **Add pronunciation tags** to enhanced script:
+   ```bash
+   cd podcast-generator
+   python3 scripts/add_pronunciation_tags.py /tmp --file lesson-XX-gemini-enhanced.txt
+   ```
    - Check PRONUNCIATION_GUIDE.md for any missed terms
-   - Verify all MANDATORY terms tagged
+   - Verify all MANDATORY terms tagged (Kubernetes, SIGKILL, etc.)
 
-5. **Validate formatting**:
+5. **Generate audio** with Chirp 3 HD:
    ```bash
-   python3 scripts/ssml_utils.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt
+   cd podcast-generator
+   python3 scripts/generate_podcast.py /tmp/lesson-XX-gemini-enhanced.txt \
+     --lesson --episode-id [course-slug]-lesson-XX
    ```
+   - Monitor with: `tail -f /tmp/lesson-generation.log`
+   - Typical duration: 15-20 minutes
+   - Cost: ~$0.20-0.30 per lesson
 
-6. **Test TTS generation** (first 5 chunks with Autonoe):
+6. **Review generated audio**:
    ```bash
-   python3 scripts/generate_lesson.py ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt --max-chunks 5 --voice autonoe
+   open podcast-generator/episodes/[episode-id]/[episode-id].mp3
    ```
+   - Listen to first few minutes
+   - Check: Natural cadence, correct pronunciations, teaching moments clear
+   - If issues: Edit `/tmp/lesson-XX-gemini-enhanced.txt` and regenerate with `--force`
 
 7. **Create clean version** for episode page:
    ```bash
-   python3 scripts/ssml_utils.py --strip ../docs/podcasts/courses/[course-slug]/scripts/lesson-XX.txt
+   python3 scripts/ssml_utils.py --strip /tmp/lesson-XX-gemini-enhanced.txt > /tmp/clean-lesson.txt
    ```
 
 8. **Report to user**:
-   - Formatting complete
-   - Number of pauses added
-   - Pronunciation tags added
-   - Test TTS results (first 5 chunks)
+   - Gemini enhancement complete (X words → Y words, Z pause tags)
+   - Pronunciation tags added (list critical terms)
+   - Audio generation complete (duration, file size)
+   - Quality check results (cadence, pronunciations)
    - Clean version ready for episode page
    - Next step: Use lesson-publish skill
 
-**Remember**: Tags serve the TTS (Autonoe voice), not the reader. Episode pages must be clean and readable. Teaching content benefits from more generous pause usage than conversational podcasts.
+**Key Changes from Previous Workflow**:
+- **NEW Step 3**: Gemini 2.5 Pro enhancement is now MANDATORY before pronunciation tagging
+- Pause tags are AI-placed, not manually added
+- Work with `/tmp/lesson-XX-gemini-enhanced.txt` instead of original script
+- Audio generation happens in Step 5 (not separate tool)
+
+**Remember**: The Gemini-enhanced workflow produces superior teaching cadence with AI-driven pause placement based on instructor persona. Tags serve the TTS (Autonoe voice), not the reader. Episode pages must be clean and readable.

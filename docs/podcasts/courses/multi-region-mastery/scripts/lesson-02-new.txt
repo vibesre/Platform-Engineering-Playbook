@@ -1,4 +1,4 @@
-Welcome to Lesson 2 of Kubernetes Production Mastery.
+Welcome to Lesson 2 of <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Production Mastery.
 
 Remember that production readiness checklist from last time? Item number one?
 
@@ -6,7 +6,7 @@ Resource limits and requests.
 
 Set on every single container. Every one.
 
-But here's what I've noticed talking to engineers over the years - and honestly, this was me too when I started - most people can't explain WHY you need both. They know you're supposed to set them. They've copied YAML from Stack Overflow. But they don't understand the actual mechanism.
+But here's what I've noticed talking to engineers over the years - and honestly, this was me too when I started - most people can't explain WHY you need both. They know you're supposed to set them. They've copied <phoneme alphabet="ipa" ph="ˈjæməl">YAML</phoneme> from Stack Overflow. But they don't understand the actual mechanism.
 
 That changes today.
 
@@ -14,7 +14,7 @@ Let me ask you something. That Black Friday incident from Episode 1 - ninety-fou
 
 OOMKilled pods. Exit code 137. Resource limits missing.
 
-Here's the brutal truth about Kubernetes production. Exit code 137 - OOMKilled - is the single most common failure. Sixty-seven percent of teams running Kubernetes have hit this. That's not some edge case. That's the norm.
+Here's the brutal truth about <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> production. Exit code 137 - OOMKilled - is the single most common failure. Sixty-seven percent of teams running <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> have hit this. That's not some edge case. That's the norm.
 
 If you don't master resource management, you WILL get paged at three AM. Not might. Will.
 
@@ -38,11 +38,11 @@ Now, just because you requested a king bed doesn't mean you'll USE the whole roo
 
 Resource limits? That's the fire marshal walking through and saying "This room has a maximum occupancy of four people. Period." Try to cram in a fifth person? Fire code violation. System says no. Doesn't matter what you want. The rules enforce.
 
-In Kubernetes, requests ensure your pod gets scheduled on a node with sufficient resources available. Limits prevent your pod from consuming unlimited resources and taking down other workloads.
+In <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>, requests ensure your pod gets scheduled on a node with sufficient resources available. Limits prevent your pod from consuming unlimited resources and taking down other workloads.
 
 Let me show you what this looks like with real numbers from an actual production system.
 
-You've got an API pod. Here's the configuration:
+You've got an <say-as interpret-as="characters">API</say-as> pod. Here's the configuration:
 
 ```yaml
 resources:
@@ -56,9 +56,9 @@ resources:
 
 What does this actually mean in practice?
 
-The scheduler - that's the Kubernetes component deciding which node gets your pod - looks at this and thinks: "I need a node with at least 512 megabytes of available memory and 250 millicores of available CPU." That's the scheduling guarantee. The scheduler won't place this pod on a node that doesn't have that much capacity available.
+The scheduler - that's the <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> component deciding which node gets your pod - looks at this and thinks: "I need a node with at least 512 megabytes of available memory and 250 millicores of available <say-as interpret-as="characters">CPU</say-as>." That's the scheduling guarantee. The scheduler won't place this pod on a node that doesn't have that much capacity available.
 
-Once your pod is running, the container runtime takes over. That's containerd, CRI-O, whatever you're using. It enforces the limits. Your pod can USE up to 1 gigabyte of memory and 500 millicores of CPU.
+Once your pod is running, the container runtime takes over. That's containerd, CRI-O, whatever you're using. It enforces the limits. Your pod can USE up to 1 gigabyte of memory and 500 millicores of <say-as interpret-as="characters">CPU</say-as>.
 
 What happens if it tries to exceed 1 gigabyte?
 
@@ -72,7 +72,7 @@ Traffic spike hits. Memory climbs to 800 megabytes. Still fine. You're between y
 
 But then something happens. Maybe it's Black Friday and traffic just exploded. Maybe there's a memory leak you haven't caught yet. Memory hits 1.1 gigabytes.
 
-Kubernetes kills your pod. Immediately.
+<phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> kills your pod. Immediately.
 
 Now you're probably thinking - okay, just set limits really high. Problem solved, right?
 
@@ -80,7 +80,7 @@ Wrong. Because then you overcommit nodes, waste massive amounts of money, and cr
 
 We'll get to that. But first, let me show you how this actually works under the hood.
 
-When you deploy a pod with resource requests, the Kubernetes scheduler kicks in.
+When you deploy a pod with resource requests, the <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> scheduler kicks in.
 
 It looks at all your nodes. For each node, it does math: total capacity minus already-requested resources equals available capacity.
 
@@ -96,13 +96,13 @@ Here's the gotcha that confuses people.
 
 That node might only have 1 gigabyte of memory ACTUALLY FREE right now. Because requests are guarantees, not actual usage. Those existing pods might only be using 3 gigabytes even though they requested 5.
 
-This is called overcommitment. And it's intentional. Kubernetes is designed for this. Otherwise you'd waste huge amounts of capacity.
+This is called overcommitment. And it's intentional. <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> is designed for this. Otherwise you'd waste huge amounts of capacity.
 
 Now let's talk about how limits get enforced. Because this is where OOMKills actually happen.
 
-Limits are enforced by the container runtime using Linux control groups - cgroups. Every container gets its own cgroup. That cgroup has memory limits configured directly in the kernel.
+Limits are enforced by the container runtime using <phoneme alphabet="ipa" ph="ˈlɪnəks">Linux</phoneme> control groups - cgroups. Every container gets its own cgroup. That cgroup has memory limits configured directly in the kernel.
 
-When your process tries to allocate memory beyond that limit, the Linux OOMKiller steps in. Not Kubernetes. The kernel.
+When your process tries to allocate memory beyond that limit, the <phoneme alphabet="ipa" ph="ˈlɪnəks">Linux</phoneme> OOMKiller steps in. Not <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>. The kernel.
 
 Let me walk you through exactly what happens when a pod gets OOMKilled. Because understanding this will save you hours of debugging.
 
@@ -120,9 +120,9 @@ Exit code becomes 128 plus 9 equals 137.
 
 Pod status: OOMKilled.
 
-Kubernetes sees the failure. Your restart policy is set to Always. So it starts a new pod.
+<phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> sees the failure. Your restart policy is set to Always. So it starts a new pod.
 
-If the problem persists? That new pod tries, uses too much memory, gets killed. Tries again, killed again. Now you're in CrashLoopBackOff. Pod keeps dying, Kubernetes keeps restarting it with increasing backoff delays.
+If the problem persists? That new pod tries, uses too much memory, gets killed. Tries again, killed again. Now you're in CrashLoopBackOff. Pod keeps dying, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> keeps restarting it with increasing backoff delays.
 
 This is production at three AM.
 
@@ -152,15 +152,15 @@ First, let me show you the systematic five-step debugging workflow that will sav
 
 Real incident. Twenty twenty-four. Black Friday. E-commerce company. Traffic spiking hard.
 
-Three AM, engineer's pager goes off. API pods OOMKilling in a cascade. One pod dies, others get more traffic, their memory spikes, they die too. Cascading failure.
+Three AM, engineer's pager goes off. <say-as interpret-as="characters">API</say-as> pods OOMKilling in a cascade. One pod dies, others get more traffic, their memory spikes, they die too. Cascading failure.
 
-The on-call engineer SSH's into a node. Panicking. Runs random kubectl commands. Makes it worse.
+The on-call engineer <say-as interpret-as="characters">SSH</say-as>'s into a node. Panicking. Runs random <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> commands. Makes it worse.
 
 Here's the workflow I wish they'd followed.
 
 Step one: Identify the symptom.
 
-Run: `kubectl get pods -n production`
+Run: `<phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> get pods -n production`
 
 You see: `api-deployment-7f6b8c9d4-x7k2m   0/1   OOMKilled   3   5m`
 
@@ -168,7 +168,7 @@ Exit code 137. Memory issue confirmed. Not a crash. Not a config problem. Memory
 
 Step two: Check the events.
 
-Run: `kubectl describe pod api-deployment-7f6b8c9d4-x7k2m -n production`
+Run: `<phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> describe pod api-deployment-7f6b8c9d4-x7k2m -n production`
 
 Scroll to events. You see: `OOMKilled: Container exceeded memory limit (1073741824 bytes)`
 
@@ -176,9 +176,9 @@ Translation: hit 1 gigabyte limit. But we don't know yet if the limit is too low
 
 Step three: Check actual usage patterns.
 
-Run: `kubectl top pod` for current usage if the pod is still running. But you need historical data.
+Run: `<phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> top pod` for current usage if the pod is still running. But you need historical data.
 
-Pull up Prometheus. Or Datadog. Or whatever monitoring you have. Query: `container_memory_usage_bytes` for that pod name.
+Pull up <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme>. Or Datadog. Or whatever monitoring you have. Query: `container_memory_usage_bytes` for that pod name.
 
 The graph tells the story. Normal usage: 600 megabytes. Under load: spikes to 1.2 gigabytes.
 
@@ -186,7 +186,7 @@ Now we're getting somewhere.
 
 Step four: Analyze the configuration.
 
-Run: `kubectl get pod api-deployment-7f6b8c9d4-x7k2m -o yaml | grep -A 10 resources`
+Run: `<phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> get pod api-deployment-7f6b8c9d4-x7k2m -o yaml | grep -A 10 resources`
 
 Shows:
 ```yaml
@@ -216,15 +216,15 @@ Deploy the change. Monitor. Problem solved.
 
 Before we move on, pause and think through this. If you were debugging an OOMKilled pod right now, what would your workflow be?
 
-That's right: get pods to identify, describe pod for events, check monitoring for historical usage, get the YAML to see configuration, determine if limit is too low or if there's a leak.
+That's right: get pods to identify, describe pod for events, check monitoring for historical usage, get the <phoneme alphabet="ipa" ph="ˈjæməl">YAML</phoneme> to see configuration, determine if limit is too low or if there's a leak.
 
 Internalize that workflow. Write it down if you need to. You'll use it.
 
-Now let's talk about Quality of Service classes. Because when a node runs out of memory, Kubernetes has to decide which pods to kill. QoS classes determine that priority.
+Now let's talk about Quality of Service classes. Because when a node runs out of memory, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> has to decide which pods to kill. QoS classes determine that priority.
 
 Three classes exist: Guaranteed, Burstable, and BestEffort.
 
-Guaranteed happens when your requests equal your limits for BOTH memory and CPU.
+Guaranteed happens when your requests equal your limits for BOTH memory and <say-as interpret-as="characters">CPU</say-as>.
 
 ```yaml
 requests:
@@ -250,11 +250,11 @@ These get killed before Guaranteed but after BestEffort. This is the most common
 
 BestEffort is when you don't set any requests or limits at all.
 
-These are first to be killed during node memory pressure. Kubernetes makes zero promises. Use this for batch jobs, non-critical background tasks, things that can tolerate interruption.
+These are first to be killed during node memory pressure. <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> makes zero promises. Use this for batch jobs, non-critical background tasks, things that can tolerate interruption.
 
 Pro tip: almost never use BestEffort in production. You're asking for trouble.
 
-When a node runs out of memory, Kubernetes kills pods in this order:
+When a node runs out of memory, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> kills pods in this order:
 
 BestEffort first. No guarantees, they're gone.
 
@@ -272,11 +272,11 @@ Set them too low? OOMKills. Set them too high? Wasted resources, higher costs, p
 
 Here's my three-step process.
 
-Step one: Measure current usage in production for at least a week. Monitor actual memory and CPU consumption. Look at percentiles.
+Step one: Measure current usage in production for at least a week. Monitor actual memory and <say-as interpret-as="characters">CPU</say-as> consumption. Look at percentiles.
 
 P50 - that's median - shows your typical load. P95 shows high load, not peak. P99 shows peak load, those rare spikes.
 
-Example from a real API service: P50 at 400 megabytes. P95 at 800 megabytes. P99 at 1.2 gigabytes.
+Example from a real <say-as interpret-as="characters">API</say-as> service: P50 at 400 megabytes. P95 at 800 megabytes. P99 at 1.2 gigabytes.
 
 Step two: Set requests at P50 to P75. Set limits at P95 to P99 plus twenty to thirty percent headroom.
 
@@ -355,9 +355,9 @@ We'll come back to these concepts in Episode 8 when we tackle cost optimization.
 
 Next: Security Foundations. RBAC and Secrets.
 
-You'll learn why RBAC misconfigurations are still the number one Kubernetes security issue in twenty twenty-five. How to implement least privilege roles that actually work in production. Secrets management patterns using Sealed Secrets and External Secrets Operator.
+You'll learn why RBAC misconfigurations are still the number one <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> security issue in twenty twenty-five. How to implement least privilege roles that actually work in production. Secrets management patterns using Sealed Secrets and External Secrets Operator.
 
-Remember that crypto miner attack from Episode 1? Forty-three thousand dollar AWS bill from over-privileged service accounts?
+Remember that crypto miner attack from Episode 1? Forty-three thousand dollar <say-as interpret-as="characters">AWS</say-as> bill from over-privileged service accounts?
 
 That's what we're preventing in Episode 3.
 

@@ -1,0 +1,165 @@
+Autonoe: You've completed fifteen episodes. Aurora Global Database, DynamoDB Global Tables, EKS multi-cluster, network architecture, observability, DNS failover, cost management, CAP theorem, service mesh, disaster recovery, compliance, security, and anti-patterns. [pause short] You understand the theory. You know the building blocks.
+
+Autonoe: Now the critical question: How do you actually execute this? [pause] How do you go from single-region production today to multi-region production in ninety days without causing outages? [pause]
+
+Autonoe: Today you're learning the implementation roadmap. Not vague guidance. A concrete phase-by-phase plan with weekly tasks, go-no-go decision criteria, and rollback procedures. By the end of this lesson, you'll have the complete 90-day timeline.
+
+Autonoe: [pause]
+
+Autonoe: Phase one: Assessment and foundation.
+Autonoe: Phase two: Data layer migration.
+Autonoe: Phase three: Compute layer deployment.
+Autonoe: Phase four: Validation and cutover.
+
+Autonoe: Dependencies between tasks. Risk mitigation strategies. [pause long] When to abort if reality doesn't match plan. Because knowledge without execution is theoretical. Let's turn fifteen episodes into production reality.
+
+Autonoe: The 90-day timeline has four phases of roughly three weeks each. Each phase has deliverables, validation criteria, and go-no-go gates. If phase validation fails, you don't proceed. You fix issues or abort.
+
+Autonoe: [pause]
+
+Autonoe: Phase One: Days 1-21, Assessment and Business Foundation.
+
+Autonoe: Week one, days 1-7: Business case development. Use Episode 9's ROI framework. Calculate revenue per hour. Estimate annual outage hours without multi-region. Calculate multi-region incremental cost. Present analysis to business stakeholders. Get written approval or kill the project here.
+
+Autonoe: Example calculation for a fifty million revenue company: Fifty million equals five thousand seven hundred per hour. [pause short] Expected outage without multi-region: Eight hours annually equals forty-five thousand six hundred cost. [pause short] Multi-region incremental cost: Three hundred thousand annually. Breakeven requires sixty-five hours outage. [pause short] If realistic, proceed. If not, consider alternatives like improved backups or faster recovery procedures.
+Autonoe: Deliverable: Approved business case with signatures. Budget allocated. Timeline agreed.
+
+Autonoe: Week two, days 8-14: Architecture design and team planning. Choose a pattern from Episode 2. Hot-warm for most cases. Hot-hot only if justified by RTO under one minute. Document the architecture diagram. Identify which services replicate, which stay regional. Assign team roles - who owns the data layer, compute layer, networking, observability. Critical decision: Choose the secondary region. Episode 5 guidance - same geography for lower latency, different geography for disaster isolation. US-EAST-1 primary? US-WEST-2 secondary for latency or EU-WEST-1 for diversity. Document the rationale.
+Autonoe: Deliverable: Architecture diagram approved. Team assigned with clear ownership. Secondary region selected.
+
+Autonoe: Week three, days 15-21: Network foundation. Implement cross-region connectivity from Episode 5. VPC Peering for simple architectures, Transit Gateway for complex. Test connectivity with basic EC2 instances in each region. Verify latency matches expectations. Set up VPC endpoints for AWS services in the secondary region. Configure security groups for cross-region traffic.
+Autonoe: Validation test: Deploy a test application in US-EAST-1, test application in US-WEST-2. Verify connectivity. Measure latency. Should match Episode 5 numbers - under 80ms for US cross-region, under 150ms for US-EU. [pause short]
+Autonoe: Deliverable: Network connectivity working. Latency validated. Security groups configured.
+
+Autonoe: Go-no-go gate one: Do you have business approval, architecture design, and a working network? If yes, proceed to phase two. [pause long] If no, do not proceed. You'll waste engineering time and money.
+
+Autonoe: [pause]
+
+Autonoe: Phase Two: Days 22-49, Data Layer Migration.
+
+Autonoe: Week four, days 22-28: Aurora Global Database setup. Create an Aurora cluster in the secondary region following Episode 3. Add the secondary region to the existing primary cluster. Monitor replication lag. Should stabilize under 100ms. [pause short] If lag exceeds 200ms consistently, investigate before proceeding. Configure read replicas in the secondary. Test read queries against the secondary. Critical configuration: Encryption at rest. From Episode 14, choose per-region KMS keys for security or multi-region keys for faster DR. Document the decision.
+Autonoe: Validation test: Write to primary Aurora. Verify replication to secondary within 100ms. Query secondary read replica. Verify data matches.
+Autonoe: Deliverable: Aurora replicating with acceptable lag. Read replicas functional.
+
+Autonoe: Week five, days 29-35: DynamoDB Global Tables if applicable. From Episode 6, identify which tables need active-active writes. Not all tables. User sessions stay regional. Transaction tables, product catalogs, user profiles - these replicate. Enable Global Tables selectively. Monitor replication lag and WCU consumption. From Episode 15 anti-pattern five, watch costs carefully.
+Autonoe: Cost checkpoint: Compare actual DynamoDB spend to projected. [pause long] If actual exceeds projected by 20%, investigate before proceeding. You may have replicated the wrong tables.
+Autonoe: Deliverable: Selected DynamoDB tables replicating. Costs within projections.
+
+Autonoe: Week six, days 36-42: Backup validation and failover testing for the data layer. Take an Aurora snapshot in the primary. Restore to the secondary region. Verify KMS permissions allow decryption. Time the restore process. From Episode 12, this is critical for RTO calculation. Test Aurora promotion without affecting production. Demote immediately after testing.
+Autonoe: Validation test: Snapshot restore completes in under 15 minutes. Promotion works. Demotion returns to primary without data loss.
+Autonoe: Deliverable: Proven data layer failover procedure. Documented timing. Runbooks written.
+
+Autonoe: Week seven, days 43-49: Data consistency validation. From Episode 10, test eventual consistency patterns. Write to US-EAST-1 DynamoDB. Immediately read from US-WEST-2. Observe replication lag. Design application logic to handle stale reads. Implement version numbers or sticky routing if needed. Verify Aurora read-after-write consistency from primary, eventual consistency from replicas.
+Autonoe: Deliverable: Applications designed for eventual consistency. Testing confirms behavior matches expectations.
+
+Autonoe: Go-no-go gate two: Is data replicating reliably with acceptable lag? Can you failover the data layer successfully? If yes, proceed. [pause long] If no, fix data issues before adding compute complexity.
+
+Autonoe: [pause]
+
+Autonoe: Phase Three: Days 50-70, Compute Layer Deployment.
+
+Autonoe: Week eight, days 50-56: EKS cluster setup in the secondary region. From Episode 4, create a cluster matching the primary configuration. Same instance types, same Kubernetes version, same add-ons. Deploy observability agents from Episode 7. Configure CloudWatch logs shipping, X-Ray daemon. Deploy core infrastructure - ingress controller, service mesh if applicable. Don't deploy applications yet.
+Autonoe: Validation test: Deploy a simple test pod. Verify logs reach CloudWatch. Verify traces reach X-Ray. Verify the pod can query the Aurora secondary and DynamoDB.
+Autonoe: Deliverable: EKS cluster operational. Observability working. Connectivity to data layer validated.
+
+Autonoe: Week nine, days 57-63: Application deployment to secondary at reduced capacity. Deploy applications using the same manifests as primary. Scale to 25% of primary capacity for hot-warm. Monitor pod health, database connections, external API calls. From Episode 4, configure service discovery to resolve to regional endpoints. Critical: Applications in the secondary should NOT receive production traffic yet. Deploy and run healthy, but DNS doesn't route to them.
+Autonoe: Validation test: Call application endpoints directly via the secondary load balancer. Verify responses. Confirm database queries work. Check error rates match the primary region baseline.
+Autonoe: Deliverable: Applications running in secondary. Health checks passing. No production traffic.
+
+Autonoe: Week ten, days 64-70: Secrets and configuration replication. From Episode 14, enable Secrets Manager replication for application secrets. Verify secondary region applications can retrieve credentials. Test credential rotation - rotate in primary, verify the update propagates to secondary within 60 seconds. [pause short] Update application health checks to validate secret availability.
+Autonoe: Deliverable: Secrets available in both regions. Rotation working.
+
+Autonoe: Go-no-go gate three: Are applications deployed and healthy in the secondary? Can they access data and secrets? If yes, proceed to the validation phase. [pause long] If no, troubleshoot before attempting traffic migration.
+
+Autonoe: [pause]
+
+Autonoe: Phase Four: Days 71-90, Validation and Cutover.
+
+Autonoe: Week eleven, days 71-77: DNS configuration and gradual traffic introduction. Configure Route53 from Episode 8. Set up health checks on primary endpoints. Create a failover routing policy with primary and secondary records. Don't enable failover yet. Instead, create a weighted routing sending 1% of traffic to the secondary. Monitor error rates, latency, database load. From Episode 8, set the TTL to 60 seconds. Monitor secondary scaling. Auto-scaling should handle 1% smoothly. [pause short] Increase to 5% if no issues. Monitor for 24 hours. Increase to 10% if stable. Critical: Watch for issues from Episode 15 anti-pattern six. [pause long] Are you seeing excessive cross-region database calls? High latency? Data transfer costs spiking?
+Autonoe: Deliverable: Secondary handling 10% production traffic successfully. Error rates normal. Latency acceptable.
+
+Autonoe: Week twelve, days 78-84: Failover testing with production-like load. Use Route53 weighted routing to send 50% traffic to the secondary. Temporarily reduce primary capacity to force secondary auto-scaling. Verify the secondary scales from 25% to 100% capacity within RTO. From Episode 12, execute a manual failover. Promote Aurora. Update Route53 to point to the secondary as primary. Monitor error rates during failover.
+Autonoe: Validation test: Failover completes within RTO. Error rates remain below 1%. Aurora promotion works. Applications remain healthy. Rollback to primary after testing.
+Autonoe: Deliverable: Proven full failover procedure. RTO validated. Team trained on execution.
+
+Autonoe: Week thirteen, days 85-90: Production cutover and documentation. Enable Route53 failover routing. Primary becomes active with health checks. Secondary becomes standby with automatic failover on health check failure. Document runbooks from Episode 12. Train on-call engineers. Set up a chaos engineering schedule from Episode 12. Plan the first quarterly DR drill.
+Autonoe: Final validation: Trigger a health check failure in the primary. Verify automatic failover to the secondary. Verify RTO meets requirements. Rollback after testing.
+Autonoe: Deliverable: Multi-region production live. Automatic failover configured. Team trained. Runbooks complete.
+
+Autonoe: [pause]
+
+Autonoe: Post-cutover checklist: Days 91-120, operational maturity.
+
+Autonoe: Month four, cost optimization. Review actual costs against Episode 9 projections. Identify optimization opportunities. Right-size secondary capacity. Review DynamoDB table selection. Implement savings plans and reserved instances. Target a forty percent cost reduction via Episode 9 strategies. [pause short]
+
+Autonoe: Month four, observability refinement. Build unified dashboards from Episode 7. Cross-region error rate tracking. Replication lag alerts. Cost anomaly detection. Set appropriate alert thresholds based on three months of data.
+
+Autonoe: Quarterly DR drills. Schedule the first GameDay exercise from Episode 12. Test complete failover end-to-end. Document what works, what breaks. Update runbooks. Repeat quarterly forever.
+
+Autonoe: Real-world example of a successful 90-day migration: E-commerce company, seventy-five million revenue. Followed this roadmap precisely. Week eight discovered Aurora replication lag exceeded 200ms due to large transaction volume. [pause short] Spent an extra week optimizing write patterns before proceeding. Day eighty-five discovered a VPC endpoint misconfiguration breaking Secrets Manager. [pause short] Fixed before cutover. Day ninety went live successfully. First DR drill on day one hundred twenty revealed an outdated runbook step. Fixed immediately. One year later: Zero unplanned outages to the secondary region, three successful failovers during primary region issues, RTO averaging four minutes. [pause short]
+
+Autonoe: [pause long]
+
+Autonoe: When to abort the migration.
+
+Autonoe: Abort criterion one: Business case invalidated. During the assessment phase, the ROI calculation shows multi-region costs exceed the benefit by 5x or more. From Episode 15 anti-pattern one, don't proceed out of pride. Abort and optimize single-region reliability instead.
+
+Autonoe: Abort criterion two: Data layer validation fails. Aurora replication lag consistently exceeds 500ms. Promotions fail during testing. From Episode 3, this indicates underlying architectural issues. Fix before proceeding or choose a different database strategy.
+
+Autonoe: Abort criterion three: Cost exceeds projections by 100%. At day forty-nine, if actual costs are double projections, you've miscalculated. From Episode 15 anti-pattern five, investigate and re-baseline before proceeding to the compute layer.
+
+Autonoe: Abort criterion four: Team capacity insufficient. By day sixty, the team is overwhelmed maintaining multi-region. Engineering velocity has dropped below fifty percent. From Episode 15 anti-pattern four, complexity exceeds team maturity. Either hire platform specialists or simplify the architecture.
+
+Autonoe: [pause short]
+
+Autonoe: Before we wrap up, pause and answer these questions.
+
+Autonoe: Question one: At day forty-nine, your Aurora replication lag averages 180ms but spikes to 400ms during peak hours. Do you proceed to phase three? [pause]
+
+Autonoe: Question two: You've reached day eighty-five. Failover testing works but takes nine minutes instead of the five-minute target. Do you go live or delay? [pause]
+
+Autonoe: Question three: A day thirty business review shows an expected annual outage cost of five thousand but multi-region will cost sixty thousand annually. Do you continue? [pause]
+
+Autonoe: Take a moment.
+
+Autonoe: [pause short]
+
+Autonoe: Answers.
+
+Autonoe: Question one: [pause long] Investigate before proceeding. Average 180ms is acceptable from Episode 3. But 400ms spikes during peak indicate capacity issues. Peak hours are when you're most likely to need failover. Determine the root cause - write throughput, instance size, network congestion. Resolve before adding compute complexity. Go-no-go gate two: If you can't maintain sub-200ms lag during peak, you can't guarantee RPO during an actual failover.
+
+Autonoe: Question two: [pause long] Delay and fix. Nine minutes versus a five-minute target is an eighty percent variance. From Episode 12, this indicates procedure issues. Likely culprits: Aurora promotion taking longer than expected, DNS propagation, auto-scaling latency. Identify which step exceeds the target. Optimize before going live. Going live with a known RTO miss will fail the business SLA.
+
+Autonoe: Question three: [pause long] Abort. From Episode 15 anti-pattern one, this is a twelve times over-investment. Multi-region won't pay for itself unless outage risk dramatically increases. Better alternatives: Improve single-region resilience, multi-AZ deployments, better incident response, faster backup restores. Present alternatives to the business. Don't proceed with multi-region.
+
+Autonoe: Let's recap what we covered. First: The 90-day roadmap...
+
+Autonoe: in four phases. [pause short] Days 1-21 assessment and foundation. [pause short] Days 22-49 data layer migration. [pause short] Days 50-70 compute deployment. [pause short] Days 71-90 validation and cutover. Each phase has deliverables and go-no-go gates.
+
+Autonoe: Second: [pause] Phase one establishes the business case, architecture design, and network foundation. [pause long] Don't proceed without business approval. From Episode 15, building without justification wastes money and team morale.
+
+Autonoe: Third: [pause] Phase two migrates the data layer. [pause short] Aurora Global Database first, DynamoDB Global Tables selectively. Validate failover procedures before proceeding. [pause long] The data layer must be reliable before adding compute.
+
+Autonoe: Fourth: [pause] Phase three deploys the compute layer. [pause short] EKS clusters, applications at reduced capacity, secrets replication. Deploy but don't serve traffic. [pause short] Validate health checks and connectivity.
+
+Autonoe: Fifth: [pause] Phase four introduces traffic gradually. One percent, [pause short] five percent, [pause short] ten percent. [pause short] Test failover under production-like load. [pause long] Only go live when failover meets RTO. Automate DNS failover. Train the team.
+
+Autonoe: Sixth: [pause] Post-cutover operational maturity. [pause short] Cost optimization, observability refinement, quarterly DR drills. Multi-region isn't one-and-done. [pause short] It requires ongoing discipline.
+
+Autonoe: Seventh: [pause long] Abort criteria. If ROI doesn't make sense, [pause short] if the data layer won't stabilize, [pause short] if costs explode, [pause short] if the team is overwhelmed - abort and reassess. [pause long] Don't proceed blindly.
+
+Autonoe: Remember the course journey? [pause] Episode 1 introduced the CCC Triangle - cost, complexity, capability. [pause short] Every episode since then taught you how to navigate these trade-offs. Aurora versus DynamoDB - cost and consistency trade-offs. [pause short] VPC Peering versus Transit Gateway - complexity and scale trade-offs. [pause short] Hot-warm versus hot-hot - cost and RTO trade-offs. [pause short] This 90-day roadmap is the synthesis.
+
+Autonoe: You start with business justification. [pause short] You build incrementally. [pause short] You validate at every phase. [pause short] You test before going live. [pause short] You maintain discipline post-cutover.
+
+Autonoe: You've completed Multi-Region Mastery. [pause short] You understand Aurora replication mechanics, [pause short] DynamoDB consistency models, [pause short] EKS multi-cluster patterns, [pause short] network architectures, [pause short] observability strategies, [pause short] DNS failover, [pause short] cost optimization, [pause short] the CAP theorem, [pause short] service mesh, [pause short] disaster recovery, [pause short] compliance requirements, [pause short] security controls, [pause short] common anti-patterns, [pause short] and implementation roadmaps.
+
+Autonoe: You can calculate real costs including the seven-point-five times multiplier [pause short] and optimize to four times. [pause short] You know when to choose CP versus AP consistency. [pause short] You can design for eventual consistency. [pause short] You understand split-brain scenarios. [pause short] You can implement proper encryption, least-privilege IAM, and zero-trust networking.
+
+Autonoe: Most importantly: [pause long] You know multi-region is a tool, not a goal. [pause short] From Episode 9, run the ROI calculation. If it makes sense, build it following this roadmap. [pause short] If it doesn't, optimize single-region reliability and be honest about the trade-offs.
+
+Autonoe: The Platform Engineering Playbook is open source. [pause short] If you found errors, have insights to add, or want to contribute additional examples, visit platformengineeringplaybook.com. [pause short] Open a pull request. Join the community improving these resources.
+
+Autonoe: Thank you for completing this sixteen-episode course. [pause short] Build thoughtfully. [pause short] Test thoroughly. [pause short] Run the numbers honestly. [pause short] And remember: [pause long] The best architecture is the one that solves your actual business problem, not the one that looks impressive on architecture diagrams.
+
+Autonoe: The fundamentals remain constant. [pause short] Understand your requirements. Calculate your trade-offs. Build incrementally. Test extensively. Document everything. Train your team. [pause short] And when in doubt, start simple and add complexity only when justified. [pause short] You're now equipped to build multi-region architectures that actually work in production. [pause short] Use this knowledge wisely.

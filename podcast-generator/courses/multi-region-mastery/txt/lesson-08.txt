@@ -1,0 +1,19 @@
+Title: Multi Region Mastery Lesson 08
+
+Description:
+[Episode description - edit this to add a compelling hook and explain what listeners will learn]
+
+🔗 Full episode page: https://platformengineeringplaybook.com/podcasts/00020-multi-region-mastery-lesson-08
+
+📝 See a mistake or have insights to add? This podcast is community-driven - open a PR on GitHub!
+
+Summary:
+• [Key takeaway 1]
+• [Key takeaway 2]
+• [Key takeaway 3]
+• [Key takeaway 4]
+• [Key takeaway 5]
+
+Duration: 00:19:45
+Speakers: Alex and Jordan
+Target Audience: Senior platform engineers, SREs, DevOps engineers with 5+ years experience

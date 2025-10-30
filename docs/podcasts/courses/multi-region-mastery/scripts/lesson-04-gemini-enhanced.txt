@@ -1,0 +1,173 @@
+Autonoe: Let's connect to what we covered. Pause and try to remember: In Episode 2, what was the five-minute RTO for hot-warm? [pause] And in Episode 3, what was Aurora's typical replication lag? [pause] Take a second.
+
+Autonoe: Five minutes RTO: one minute Aurora promotion, four minutes everything else. [pause short] That 'everything else'? That's your <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> layer. Aurora lag: forty-five to eighty-five milliseconds normal, one to thirty seconds under load. [pause short]
+
+Autonoe: Today you're learning how to implement that compute layer. Aurora gave you multi-region data. <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> gives you multi-region compute. You need both for hot-warm. By the end of this lesson, you'll understand how to architect <say-as interpret-as="characters">EKS</say-as> clusters across regions without the operational nightmare most teams create.
+
+Autonoe: [pause]
+
+Autonoe: What you'll master today:
+Autonoe: Why the <say-as interpret-as="characters">EKS</say-as> control plane is your regional boundary and what that means for design.
+Autonoe: Independent clusters versus federated clusters - when to use each.
+Autonoe: Cross-cluster service discovery that actually works - hint, not <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> federation.
+Autonoe: And the service mesh approach that Netflix and Spotify use in production.
+
+Autonoe: Let's start with something most engineers miss: the <say-as interpret-as="characters">EKS</say-as> control plane is a regional service that depends on multiple availability zones. Not multi-region. Regional. What does that mean? [pause]
+
+Autonoe: Your control plane - the brains of <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> - lives in ONE region. US-EAST-1 or US-WEST-2. Not both.
+
+Autonoe: Here's how it actually works. The <say-as interpret-as="characters">EKS</say-as> control plane is managed by <say-as interpret-as="characters">AWS</say-as>. It runs across three or more availability zones in a single region. The <phoneme alphabet="ipa" ph="ɛt si di">etcd</phoneme> cluster - that's your <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> database - is distributed across those AZs using Raft consensus. Needs a two-of-three quorum to function. The <say-as interpret-as="characters">API</say-as> server is load balanced across AZs in that region. Your worker nodes can be in the same region, different AZs.
+
+Autonoe: Why does this matter? [pause long] If your control plane is in US-EAST-1 and that region fails, you can't schedule new pods. You can't scale. You can't deploy. Your existing workloads keep running - the <phoneme alphabet="ipa" ph="ˈkublɪt">kubelet</phoneme> doesn't need the control plane for that. But you're in read-only mode.
+
+Autonoe: This is fundamentally different from Aurora. Remember Episode 3? Aurora can failover its primary across regions. Storage layer replicates. Control plane promotes. Ninety seconds and you're operational in the secondary region. [pause short] <say-as interpret-as="characters">EKS</say-as> cannot do this. The control plane stays in its home region. It's tied to that region's infrastructure - the <phoneme alphabet="ipa" ph="ɛt si di">etcd</phoneme> cluster, the <say-as interpret-as="characters">API</say-as> servers, the networking. You cannot failover an <say-as interpret-as="characters">EKS</say-as> control plane across regions.
+
+Autonoe: Picture this: two separate <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> clusters. One control plane in US-EAST-1 managing worker nodes in US-EAST-1. Another control plane in US-WEST-2 managing worker nodes in US-WEST-2. They're independent. Not talking to each other. This is by design.
+
+Autonoe: Here's the misconception engineers make: they think "multi-region <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>" means one cluster spanning regions. Wrong. That's not how <say-as interpret-as="characters">EKS</say-as> works. You get multiple independent clusters, one per region. The control plane is your regional boundary. Accept this. Design around it.
+
+Autonoe: Now let's talk about how those clusters relate to each other. You've got two fundamental patterns: independent clusters and federated clusters.
+
+Autonoe: Independent clusters - this is what I recommend. Two completely separate <say-as interpret-as="characters">EKS</say-as> clusters. One in US-EAST-1, one in US-WEST-2. Each has its own control plane managed by <say-as interpret-as="characters">EKS</say-as>. Its own worker nodes. Its own Deployments, Services, ConfigMaps. Its own monitoring and logging.
+
+Autonoe: How do they coordinate? [pause] They don't coordinate at the <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> level. They coordinate at the infrastructure level. Aurora Global Database replicates data between regions - we covered that in Episode 3. <say-as interpret-as="characters">DNS</say-as> routes traffic using Route53 with health checks. Service mesh handles cross-cluster communication - we'll get to this. And your <say-as interpret-as="characters">CI</say-as>/<say-as interpret-as="characters">CD</say-as> deploys to both clusters. GitHub Actions, GitLab CI, whatever you use - it pushes the same manifests to both clusters.
+
+Autonoe: [pause]
+
+Autonoe: What are the advantages?
+Autonoe: Simplicity. Each cluster operates independently.
+Autonoe: Resilient. One cluster failure doesn't affect the other.
+Autonoe: Flexible. You can run different versions for blue-green deployments.
+Autonoe: No blast radius. A problem in one region stays contained.
+
+Autonoe: [pause long]
+
+Autonoe: Remember Episode 1? The hidden SPOFs in Route53 and IAM that took down both regions during the October twenty-twenty-five outage? This is why you want independent clusters. If they're too tightly coupled, a control plane failure affects both. Keep them independent.
+
+Autonoe: The alternative is federated clusters. And this mostly failed. <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Federation was the official approach years ago. One "host cluster" managing multiple "member clusters." Automatically replicate resources across clusters. You deploy a Deployment to the host, and it magically appears in all member clusters.
+
+Autonoe: It failed. [pause short] Badly.
+
+Autonoe: Here's why. [pause long] Complexity explosion. Debugging across federated clusters is a nightmare. I've watched engineers spend eight hours - literally eight hours - chasing why a pod runs fine in US-EAST-1 but crashes immediately in US-WEST-2. [pause short] Same Deployment manifest. Different node instance types? No. Different kernel versions? No. Different timing on secret propagation? Maybe. [pause long] Eventually they found a race condition in their application startup - it was reading a secret that hadn't replicated yet. Eight hours for a thirty-second fix.
+
+Autonoe: [pause long]
+
+Autonoe: Eventual consistency issues. You update a ConfigMap in the host cluster. It takes thirty seconds to propagate to the member clusters. [pause short] Your application in US-WEST-2 crashes because it's reading stale configuration. You're paged at two AM because production is on fire. You push a fix. Application recovers. But now you've got inconsistent state between clusters - nobody knows what configuration is actually running where. I've seen this cause cascading failures - one cluster's broken state affects monitoring, which affects alerts, which affects other clusters. It's distributed system chaos.
+
+Autonoe: Limited adoption. <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Federation v1 was deprecated. [pause short] Federation v2, called KubeFed, never reached maturity. The <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Special Interest Group couldn't solve the fundamental complexity problem. And nobody uses it. Even Google - the creators of <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> - doesn't recommend federation anymore. That should tell you something. [pause]
+
+Autonoe: What replaced it? Modern approaches: Multi-cluster service mesh like Istio or Linkerd. GitOps with Argo CD or Flux deploying to multiple clusters. Traffic management at the <say-as interpret-as="characters">DNS</say-as> or load balancer level. Service discovery via External <say-as interpret-as="characters">DNS</say-as>.
+
+Autonoe: So when do you use what? [pause]
+
+Autonoe: [pause]
+
+Autonoe: Use independent clusters when:
+Autonoe: You want operational simplicity.
+Autonoe: You can handle eventual consistency - and most applications can.
+Autonoe: You're implementing hot-warm or hot-cold patterns.
+Autonoe: You want blast radius isolation.
+
+Autonoe: [pause]
+
+Autonoe: Consider federation alternatives - specifically service mesh - when:
+Autonoe: You need automatic failover at the service level.
+Autonoe: You have active-active traffic requirements.
+Autonoe: You're Netflix-scale with dedicated platform teams.
+Autonoe: And you can handle the operational complexity.
+
+Autonoe: For most teams? Independent clusters with GitOps. Deploy the same manifests to both regions. Use <say-as interpret-as="characters">DNS</say-as> for traffic routing. Keep it simple.
+
+Autonoe: Now here's the problem that trips up everyone: service discovery. [pause short] Your frontend pods in US-EAST-1 need to call your <say-as interpret-as="characters">API</say-as> service. Where is that <say-as interpret-as="characters">API</say-as>? [pause] In normal load, US-EAST-1. During failover, US-WEST-2. How do pods discover this?
+
+Autonoe: In a single cluster, you'd use <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> service discovery. The <say-as interpret-as="characters">API</say-as> service has a <say-as interpret-as="characters">DNS</say-as> name like `api.default.svc.cluster.local`. Pods resolve that, connect to the service, it load-balances to pods. Simple. But that's cluster-local. It doesn't work across clusters. `api.default.svc.cluster.local` in US-EAST-1 only knows about pods in US-EAST-1. It has no idea about US-WEST-2.
+
+Autonoe: Solution one: External <say-as interpret-as="characters">DNS</say-as>. This is the simplest approach. Use <say-as interpret-as="characters">DNS</say-as>, not <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> service discovery. Your <say-as interpret-as="characters">API</say-as> service is `api.yourapp.com`, not `api.default.svc.cluster.local`. Route53 health checks monitor US-EAST-1 <say-as interpret-as="characters">API</say-as> endpoints. On failure, Route53 updates <say-as interpret-as="characters">DNS</say-as> to point to US-WEST-2. Your pods resolve `api.yourapp.com` and get the current region.
+
+Autonoe: [pause]
+
+Autonoe: How to implement:
+Autonoe: Each cluster exposes services via LoadBalancer or Ingress.
+Autonoe: The External <say-as interpret-as="characters">DNS</say-as> controller watches <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> services and creates Route53 records automatically.
+Autonoe: Health checks monitor each region's endpoints.
+Autonoe: <say-as interpret-as="characters">DNS</say-as> TTL is sixty seconds - that's the trade-off between failover speed and caching.
+Autonoe: Pods use <say-as interpret-as="characters">DNS</say-as> names, not cluster-local service names. Your frontend doesn't connect to `api.default.svc.cluster.local`. It connects to `api.yourapp.com`.
+
+Autonoe: Advantages? Simple. Works with any <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> distribution. No special setup. Standard <say-as interpret-as="characters">DNS</say-as> resolution. You already know how <say-as interpret-as="characters">DNS</say-as> works.
+
+Autonoe: Limitations? [pause long] <say-as interpret-as="characters">DNS</say-as> caching. Sixty-second TTL means up to sixty seconds to detect failover. [pause short] Pods might have longer cached values depending on their <say-as interpret-as="characters">DNS</say-as> client. No automatic retry logic - your application must handle <say-as interpret-as="characters">DNS</say-as> resolution. And Route53 failure affects all regions - remember Episode 1's hidden SPOFs?
+
+Autonoe: Solution two: Service mesh. This is production grade but operationally heavier. Istio, Linkerd, or Consul Connect. You install sidecar proxies on every pod. A service mesh control plane runs in each cluster. Multi-cluster mesh configuration connects the control planes. Services in US-EAST-1 can discover services in US-WEST-2 automatically.
+
+Autonoe: Here's how it works.
+Autonoe: [pause]
+Autonoe: Install Istio in both clusters. Configure multi-cluster mesh with a shared root certificate - this is for mTLS security. Services in US-EAST-1 can now discover services in US-WEST-2 through the mesh. Envoy proxies - those sidecars - handle intelligent routing. They prefer local endpoints. If your frontend in US-EAST-1 calls the <say-as interpret-as="characters">API</say-as>, Envoy routes to <say-as interpret-as="characters">API</say-as> pods in US-EAST-1 first. Lower latency, same cluster.
+
+Autonoe: [pause long]
+
+Autonoe: But if the <say-as interpret-as="characters">API</say-as> pods in US-EAST-1 start failing, Envoy detects this. Circuit breaker trips. It automatically fails over to <say-as interpret-as="characters">API</say-as> pods in US-WEST-2. No <say-as interpret-as="characters">DNS</say-as> wait. No application-level retry logic needed. The mesh handles it. You get automatic retries, circuit breaking, timeout handling. And telemetry - you can see cross-cluster traffic flows in your observability tools.
+
+Autonoe: Advantages? Automatic failover with no <say-as interpret-as="characters">DNS</say-as> delays. Intelligent routing that's latency-aware and locality-weighted. Observability with distributed tracing across clusters. Security with mTLS between all services.
+
+Autonoe: Limitations? [pause long] Complexity. Service mesh is operationally heavy. You're managing the mesh control plane, sidecar injections, certificate rotation, version upgrades. Performance overhead. Sidecar proxies add latency - typically two to five milliseconds per hop. [pause short] Learning curve. Istio is notoriously complex. And resource cost. Every pod gets a sidecar proxy, that's more memory and <say-as interpret-as="characters">CPU</say-as>.
+
+Autonoe: Let me show you a real production example. E-commerce company running hot-warm. Primary cluster in US-EAST-1 serves ninety-five percent of traffic. [pause short] Secondary cluster in US-WEST-2 at twenty percent capacity, ready to scale. They use Istio service mesh with multi-cluster configuration. Frontend to <say-as interpret-as="characters">API</say-as> calls: prefer local, fail over to remote.
+
+Autonoe: [pause long]
+
+Autonoe: During a US-EAST-1 failure - let's say the entire region goes down at 2 PM on Black Friday. Envoy sidecars detect <say-as interpret-as="characters">API</say-as> failures in US-EAST-1. Health checks fail. Circuit breakers trip. Envoy automatically routes to US-WEST-2 <say-as interpret-as="characters">API</say-as>. No <say-as interpret-as="characters">DNS</say-as> wait. Traffic shifts immediately. <say-as interpret-as="characters">EKS</say-as> auto-scaling in US-WEST-2 brings the cluster from twenty percent to full capacity. Pods schedule, scale up, ready in about two minutes. Total failover time: two minutes. [pause short] That's way faster than the five-minute <say-as interpret-as="characters">DNS</say-as> approach.
+
+Autonoe: But they're paying for it - operational complexity of running Istio, sidecar resource overhead, dedicated engineer just for mesh operations. Is it worth it? [pause] For them, yes. They're processing two hundred thousand dollars per hour during peak. [pause short] Two minutes versus five minutes saves them ten thousand dollars per outage. The Istio complexity cost is justified. For a smaller company doing ten thousand per hour? Probably not worth it. <say-as interpret-as="characters">DNS</say-as>-based failover is fine.
+
+Autonoe: Now let's talk about why <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Federation failed, because the lessons matter. Federation promised automatic resource replication. Deploy once, runs everywhere. Reality was different.
+
+Autonoe: [pause long]
+
+Autonoe: Debugging hell. A pod fails in one cluster but not another. Why? [pause] Different node instance types? Different kernel versions? Different timing on secret propagation? You'd spend hours tracking down why the same manifest worked in one cluster and failed in another.
+
+Autonoe: Eventual consistency nightmares. You update a ConfigMap in cluster A. It takes thirty seconds to propagate to cluster B. [pause short] Your app crashes in cluster B because it's reading stale config. Then the update arrives. App recovers. But you've got thirty seconds of downtime and no clear indication of what went wrong.
+
+Autonoe: Limited resource support. Federation v1 only supported basic resources - Deployments, Services. No CRDs. No StatefulSets initially. Your modern <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> usage? Doesn't work with federation.
+
+Autonoe: Community abandonment. The <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> SIG Multi-Cluster gave up. [pause short] They deprecated Federation v1. Federation v2 - KubeFed - never reached stable. The community couldn't solve the fundamental problem: managing multiple clusters as one is too complex.
+
+Autonoe: What actually works? [pause] GitOps. Argo CD or Flux. You have one Git repository with your <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> manifests. Argo CD watches that repo. When you commit a change, Argo CD deploys to both US-EAST-1 and US-WEST-2 clusters. You control what goes where.
+
+Autonoe: Not automatic replication - explicit, declarative configuration per cluster. If you need different configurations per cluster, you use Kustomize overlays or Helm values. Clear. Explicit. Debuggable. [pause short] Lesson learned: Don't try to make <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> do multi-region at the control plane level. Keep clusters independent. Coordinate at the infrastructure and application level.
+
+Autonoe: Let's talk about common mistakes, because I've seen these kill projects. [pause short]
+
+Autonoe: [pause]
+Autonoe: Mistake one: Trying to span regions with one cluster. Engineers say "let's just add worker nodes in US-WEST-2 to our US-EAST-1 control plane." It technically works in a lab. Pods schedule. Traffic flows. [pause long] But then it hits production. <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> <say-as interpret-as="characters">API</say-as> calls from US-WEST-2 pods take 150 milliseconds to reach the control plane in US-EAST-1. [pause short] Your pod startup times double. Your deployments crawl. And you're paying for cross-region bandwidth on every <say-as interpret-as="characters">API</say-as> call - that's thousands of dollars per month. [pause short] Then US-EAST-1 fails - [pause long] maybe a region outage, maybe just the Availability Zone with your <phoneme alphabet="ipa" ph="ɛt si di">etcd</phoneme> quorum goes down. Your US-WEST-2 nodes are instantly orphaned. They can't talk to the control plane. Existing pods keep running, but you can't deploy anything. You can't scale. You're stuck for hours because failover to the actual secondary region takes time. Fix: Accept the <say-as interpret-as="characters">EKS</say-as> boundary. Use independent clusters. One per region. Yes, it's more to manage. But it works.
+
+Autonoe: [pause]
+Autonoe: Mistake two: Over-coupling clusters. I've seen teams implement "real-time" synchronization between clusters. Every ConfigMap, every Secret, every Service syncs instantly. Great idea in theory. In practice? [pause long] One cluster has a bug that crashes its control plane. That controller is constantly syncing to the other region. It propagates the corruption. Both regions go down. Your RPO and RTO improve from "hours" to "catastrophic cascading failure across all regions." Fix: Embrace eventual consistency. Coordinate only what's necessary. Most applications can handle configuration changes taking five to thirty seconds to propagate between regions. Use GitOps and declarative sync, not real-time replication.
+
+Autonoe: [pause]
+Autonoe: Mistake three: Forgetting the control plane dependency creates a false sense of security. "We have multi-region <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>, we're resilient." Here's the reality: During a region failure, yes, existing pods keep running in the secondary region. But you can't scale. Can't redeploy. Can't heal. [pause long] A pod crashes in US-WEST-2 - the <phoneme alphabet="ipa" ph="ˈkublɪt">kubelet</phoneme> can't reach the control plane in US-EAST-1. There's no central orchestration. You're running orphaned containers. I've been on calls where teams believed they were resilient, then a region failed, and their "multi-region" setup was actually just machines running containers with nobody orchestrating. Not quite "multi-region" anymore. Fix: Design for this reality. Use immutable, long-lived pods with proper health checks and resource limits. Or accept that during a control plane failure, you're degraded until you can failover to the secondary region.
+
+Autonoe: Before we wrap up, pause and answer these questions. [pause short]
+Autonoe: Question one: Why can't you failover an <say-as interpret-as="characters">EKS</say-as> control plane across regions like you can with Aurora? [pause]
+Autonoe: Question two: What's the main reason <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Federation failed? [pause]
+Autonoe: Question three: You're implementing hot-warm. Do you use external <say-as interpret-as="characters">DNS</say-as> or service mesh for cross-cluster discovery? Think about the trade-offs. Take a moment. [pause]
+
+Autonoe: Answers. [pause short]
+Autonoe: Question one: The <say-as interpret-as="characters">EKS</say-as> control plane is a regional service running in three AZs within one region. It depends on that region's infrastructure - <phoneme alphabet="ipa" ph="ɛt si di">etcd</phoneme>, <say-as interpret-as="characters">API</say-as> servers, networking. Aurora separates compute from storage. The storage layer can replicate across regions and promote. But <say-as interpret-as="characters">EKS</say-as> can't separate the control plane from its region. It's fundamentally tied to that region's availability zones.
+Autonoe: Question two: Federation was too complex operationally. Debugging failures across clusters was impossible. You'd have the same manifest working in one cluster and failing in another with no clear reason why. Eventual consistency caused subtle bugs - ConfigMaps propagating late, applications crashing. The community couldn't solve the fundamental complexity problem. Even Google stopped recommending it.
+Autonoe: Question three: Hot-warm with a five-minute RTO? External <say-as interpret-as="characters">DNS</say-as> is simpler. A sixty-second <say-as interpret-as="characters">DNS</say-as> TTL is acceptable. Hot-warm with a subsecond failover requirement? Service mesh, but only if you have the operational maturity to run Istio or Linkerd. Don't add service mesh complexity unless you need it.
+
+Autonoe: Let's recap what we covered. [pause short]
+Autonoe: [pause]
+Autonoe: First: The <say-as interpret-as="characters">EKS</say-as> control plane is regional, not multi-region. It runs in three availability zones within one region. This is your boundary. You cannot move it. Design around it.
+Autonoe: Second: Independent clusters are the right pattern for most teams. One cluster per region. Coordinate at the infrastructure level - Aurora for data, <say-as interpret-as="characters">DNS</say-as> for traffic, <say-as interpret-as="characters">CI</say-as>/<say-as interpret-as="characters">CD</say-as> for deployments.
+Autonoe: Third: <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Federation failed. Don't use it. Use GitOps with Argo CD or Flux. Or use service mesh for advanced use cases. But not federation.
+Autonoe: Fourth: Cross-cluster service discovery has two approaches. External <say-as interpret-as="characters">DNS</say-as> for simplicity. Service mesh for automatic failover and intelligent routing. Choose based on your operational maturity and RTO requirements.
+Autonoe: Fifth: Service mesh like Istio or Linkerd provides automatic failover, but adds operational complexity. Every pod gets a sidecar proxy. More memory, more <say-as interpret-as="characters">CPU</say-as>, more management overhead. Only use if you need the capabilities.
+
+Autonoe: Remember Episode 2? The hot-warm pattern with a five-minute RTO? [pause short] Now you know how to implement the compute layer. Aurora Global Database from Episode 3: data layer, one-minute failover. <say-as interpret-as="characters">EKS</say-as> clusters from today: compute layer, two to four minutes to scale and route. [pause short] Together: your five-minute RTO hot-warm architecture.
+
+Autonoe: This independent cluster pattern is what we'll build on in Episode 11 when we cover advanced multi-region <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> patterns. And in Episode 12, we'll walk through the actual failover procedure using these clusters.
+
+Autonoe: Next time: Network Architecture. [pause short] Transit Gateway, VPC Peering, PrivateLink. You've got Aurora replicating data. You've got <say-as interpret-as="characters">EKS</say-as> clusters in multiple regions. How do they communicate? [pause] You'll learn: When to use Transit Gateway versus VPC Peering, and why Transit Gateway scales. PrivateLink for secure cross-region service access. How to design network topology that doesn't create hidden bottlenecks. And the network layer mistakes that killed multi-region projects. [pause long] Because clusters don't talk to each other via magic. They talk via VPCs, subnets, and routing tables. Get this wrong, and your whole architecture breaks.
+
+Autonoe: See you in Episode 5.

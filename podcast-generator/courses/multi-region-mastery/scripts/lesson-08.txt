@@ -1,0 +1,135 @@
+You've built multi-region infrastructure. Aurora replicating. DynamoDB active-active. EKS clusters running. Network layer connecting them. Observability showing what's happening.
+
+But here's the critical question: When US-EAST-1 fails, how do users actually reach US-WEST-2?
+
+Your Aurora secondary gets promoted. Your EKS pods are running in the secondary region. Everything is ready. But users are still hitting US-EAST-1 endpoints. Their requests are timing out. Revenue is dropping.
+
+The missing piece is DNS. Route53 health checks, failover policies, TTL configuration. This is your control plane for multi-region traffic. Get it right and failover is transparent. Get it wrong and your hot-warm becomes no-warm during actual failures.
+
+Today you're learning how DNS and traffic management actually work in multi-region architectures. Not the marketing promises. The production reality with all the gotchas.
+
+By the end of this lesson, you'll know how to configure Route53 health checks that detect failures in under sixty seconds. How failover routing policies work when health checks fail. When to use weighted routing versus latency-based routing versus geolocation. Global Accelerator for subsecond failover with anycast IPs. And the DNS pitfalls that caused production outages - TTL caching nightmares, health check false positives, split-brain scenarios.
+
+Let's start with Route53 fundamentals, because most engineers misunderstand how DNS failover actually works.
+
+You create an A record pointing to your US-EAST-1 load balancer. Users resolve your domain, get the US-EAST-1 IP, connect. Simple. But what happens when US-EAST-1 fails?
+
+With basic DNS, nothing. The A record still points to US-EAST-1. Users keep getting that IP. They try to connect, it times out. DNS doesn't know the endpoint is down. It just returns the configured IP.
+
+Route53 health checks solve this. You configure a health check that monitors your US-EAST-1 endpoint. HTTP request every thirty seconds. If three consecutive checks fail, Route53 marks it unhealthy. Ninety seconds to detect failure.
+
+When the primary is marked unhealthy, Route53 starts returning the secondary IP. Users resolve your domain, get US-WEST-2 IP instead. They connect to the secondary region. Failover complete.
+
+But there's latency. Ninety seconds to detect failure. Plus DNS TTL. If your TTL is sixty seconds, existing DNS caches don't update for another sixty seconds. Total failover time: two and a half minutes from detection.
+
+This matches the hot-warm five-minute RTO from Episode 2. One minute Aurora promotion, ninety seconds health check detection, sixty seconds DNS propagation, remaining time for connection establishment and cache warming.
+
+Health check configuration matters. Route53 offers HTTP, HTTPS, TCP health checks. For web applications, use HTTPS checks against a dedicated health endpoint. Don't check your homepage. Check a lightweight endpoint that verifies critical dependencies.
+
+Example health endpoint: slash health. Returns 200 OK if Aurora is reachable, if the application can connect, if critical services respond. Returns 500 error if anything is broken. This gives you actual application health, not just "is the server responding."
+
+Health check frequency: Every ten seconds costs more than every thirty seconds. For most applications, thirty-second checks are sufficient. Faster checks reduce detection time but increase costs and can cause false positives from transient network issues.
+
+Failure threshold: How many consecutive failures before marking unhealthy. Three failures at thirty-second intervals equals ninety seconds. Two failures equals sixty seconds but increases false positive risk. Balance detection speed against stability.
+
+Now routing policies, because this is where teams make mistakes.
+
+Route53 offers six routing policies. Failover, weighted, latency-based, geolocation, geoproximity, multivalue. Each solves different problems.
+
+Failover routing: Primary and secondary records. Health check on primary. When primary fails, return secondary. This is hot-warm pattern. Use when you have one active region and one standby region.
+
+Configuration: Create two A records with the same name. One marked primary with US-EAST-1 IP and health check. One marked secondary with US-WEST-2 IP, no health check. When primary health check fails, Route53 returns secondary.
+
+Weighted routing: Split traffic across multiple regions by percentage. Seventy percent to US-EAST-1, thirty percent to US-WEST-2. Use for gradual migration or load distribution in hot-hot patterns.
+
+Latency-based routing: Route users to lowest-latency region. Route53 measures latency from different AWS regions to users globally. User in California gets routed to US-WEST-2. User in Virginia gets US-EAST-1. Use when you want performance optimization but all regions are active.
+
+Geolocation routing: Route based on user's physical location. All European users to EU-WEST-1 regardless of latency. All US users to US-EAST-1. Use for data residency requirements or regional content.
+
+Common mistake: Using latency-based routing for hot-warm. Teams think "latency-based will send traffic to the healthy region." Wrong. Latency-based routes to lowest-latency region. If US-EAST-1 fails but is still responding to DNS queries, users still get routed there based on latency. They then fail to connect. Use failover routing for hot-warm, not latency-based.
+
+TTL configuration is critical. Time To Live tells DNS resolvers how long to cache your answer. Sixty-second TTL means users' DNS caches refresh every sixty seconds. Five-minute TTL means caches don't refresh for five minutes.
+
+Lower TTL means faster failover propagation but higher query volume. Sixty-second TTL with a million users means frequent re-queries. Higher cost, more load on Route53. Three-hundred-second TTL means slower failover but lower cost.
+
+For hot-warm architectures, sixty to one-hundred-twenty-second TTL balances failover speed and cost. For hot-hot with health checks on all regions, you can use longer TTL since all regions are always healthy.
+
+Real production example. E-commerce site, hot-warm with Route53 failover routing. Primary US-EAST-1, secondary US-WEST-2. Health check every thirty seconds against slash health endpoint. Sixty-second TTL.
+
+Black Friday morning. Database issue in US-EAST-1. Application starts returning 500 errors. Route53 health check fails once, twice, three times. Ninety seconds elapsed. Route53 marks US-EAST-1 unhealthy.
+
+New DNS queries return US-WEST-2 IP. Existing caches expire over the next sixty seconds. Total failover time: two and a half minutes. Revenue loss during those minutes: eighty thousand dollars. But the alternative - extended outage while manually updating DNS - would have cost millions.
+
+Now Global Accelerator, because DNS-based failover has limitations that Global Accelerator solves.
+
+DNS failover depends on TTL. Users cache DNS responses. Even with sixty-second TTL, some resolvers ignore it and cache longer. Mobile networks, corporate DNS servers, they cache aggressively. This extends failover time unpredictably.
+
+Global Accelerator uses anycast IPs. You get two static IPs that announce from all AWS edge locations globally. Users connect to the nearest edge location. Edge location maintains persistent connections to your healthy endpoints.
+
+When US-EAST-1 fails, Global Accelerator detects it via health checks. Edge locations stop routing to US-EAST-1. They route to US-WEST-2 instead. No DNS involved. No TTL wait. Subsecond failover.
+
+How it works: You create a Global Accelerator accelerator. You add two endpoint groups - US-EAST-1 and US-WEST-2. You configure health checks. Global Accelerator assigns you two anycast IPs. Users connect to those IPs. Traffic routes through AWS edge network to your healthy endpoints.
+
+When US-EAST-1 health check fails, the edge locations immediately stop sending traffic there. They send everything to US-WEST-2. Existing TCP connections might drop, but new connections go to the healthy region. Failover time: under ten seconds.
+
+Cost: Global Accelerator charges per accelerator and per gigabyte of data transfer. About twenty-five dollars per month per accelerator, plus eight cents per gigabyte. For high-traffic sites where subsecond failover matters, this is worth it. For lower-traffic sites where two-minute DNS failover is acceptable, stick with Route53.
+
+When to use Global Accelerator over Route53: You need subsecond failover. You have users with aggressive DNS caching that breaks TTL. You want consistent IPs that don't change during failover. You're serving TCP/UDP protocols where DNS-based failover is clunky.
+
+When to stick with Route53: Cost-sensitive. Two-minute failover is acceptable for your RTO. HTTP/HTTPS traffic where DNS failover works well.
+
+Common DNS mistakes that break multi-region.
+
+Mistake one: No health checks on failover records. Teams create primary and secondary records but forget to add health checks. When primary fails, Route53 keeps returning it because it doesn't know it's down. Fix: Always attach health checks to failover primary records.
+
+Mistake two: Health checks that don't test real application health. Teams check TCP port 80 is open. Server is up, but application is broken. Route53 thinks it's healthy. Users get errors. Fix: Use health endpoints that verify critical dependencies - database connectivity, external API availability, authentication service.
+
+Mistake three: Single health check location. Route53 health checks run from multiple locations by default, but you can configure them to check from specific regions. If you only check from one location, network issues in that location cause false positives. Fix: Use default multi-location health checks unless you have specific regional requirements.
+
+Mistake four: Ignoring DNS resolver caching. Teams set sixty-second TTL but expect instant failover. They don't account for resolvers that ignore TTL or have minimum cache times. Mobile networks often cache for five to fifteen minutes regardless of TTL. Fix: Set expectations correctly. DNS failover is minutes, not seconds. Use Global Accelerator if you need faster.
+
+Mistake five: Split-brain during failover. Primary region is partially failed. Some services work, others don't. Health check happens to hit working services, returns healthy. But most user requests hit broken services. Chaos. Fix: Health checks must verify end-to-end flow, not just individual components.
+
+Before we wrap up, pause and answer these questions.
+
+Question one: Your hot-warm architecture needs to failover when US-EAST-1 fails. Should you use failover routing, weighted routing, or latency-based routing?
+
+Question two: You set TTL to sixty seconds. Route53 health check takes ninety seconds to detect failure. How long until all users are fully failed over to secondary region?
+
+Question three: When would you use Global Accelerator instead of Route53 for failover?
+
+Take a moment.
+
+Answers.
+
+Question one: Failover routing. This is the exact use case for failover routing - primary region with health check, secondary region without. Weighted routing doesn't consider health, it just splits traffic by percentage. Latency-based routing routes to lowest latency, not to healthy region. For hot-warm, always use failover routing.
+
+Question two: About two and a half to three minutes for most users. Ninety seconds for health check detection. Sixty seconds for DNS cache expiration. Plus connection establishment time. Some users with aggressive caching might take longer. This aligns with the five-minute RTO for hot-warm from Episode 2.
+
+Question three: When you need subsecond failover and can't tolerate DNS TTL delays. When you have users behind resolvers with aggressive caching. When you want static IPs that don't change. When cost isn't the primary concern - Global Accelerator costs more than Route53 but delivers faster failover.
+
+Let's recap what we covered.
+
+First: Route53 health checks detect failures by polling endpoints every ten to thirty seconds. Three consecutive failures marks unhealthy, typically ninety seconds detection time. Health checks should verify real application health, not just server uptime.
+
+Second: Failover routing policy is correct for hot-warm architectures. Primary record with health check, secondary without. When primary fails, Route53 returns secondary IP. Don't use latency-based routing for this - it routes by latency, not health.
+
+Third: TTL controls DNS cache duration. Sixty-second TTL balances failover speed and query cost. Lower TTL means faster propagation but more queries. Total failover time is health check detection plus TTL expiration.
+
+Fourth: Global Accelerator provides subsecond failover using anycast IPs and edge network routing. Costs more than Route53 but eliminates DNS TTL delays. Use when subsecond failover is required.
+
+Fifth: Common mistakes - no health checks, health checks that don't test real application health, ignoring DNS caching behavior, single-location checks, split-brain scenarios during partial failures.
+
+Remember Episode 2's hot-warm pattern with five-minute RTO? The breakdown was one minute Aurora promotion, ninety seconds health check detection, sixty seconds DNS propagation, remaining time for connection warming. Now you understand exactly how those ninety seconds and sixty seconds work in Route53.
+
+We'll use this DNS configuration in Episode 12 when we walk through actual disaster recovery procedures. You'll see how to test failover without affecting production, how to monitor health check status during incidents, and what to do when DNS failover doesn't work as expected.
+
+Next time: Cost Management - optimizing the seven-point-five times multiplier.
+
+Episodes 1 through 8 gave you the building blocks. Aurora, DynamoDB, EKS, networking, observability, DNS. You know how to build multi-region. But what does it actually cost?
+
+You'll learn why multi-region costs seven-point-five times more than single-region, not the two times vendors claim. The hidden cost multipliers - data transfer, replication, redundant compute, higher operational overhead. Cost optimization strategies that cut the multiplier from seven-point-five to four without sacrificing reliability. When to use reserved capacity versus on-demand. And the make-or-break calculation: Is multi-region worth it for your revenue and risk tolerance?
+
+Because you can build technically perfect multi-region architecture that's financially unsustainable. Engineering succeeded but the business failed. Let's make sure you avoid that.
+
+See you in Episode 9.

@@ -1,0 +1,90 @@
+Autonoe: Episodes 3 and 6 taught you Aurora Global Database and DynamoDB Global Tables. Aurora replicates with 45-85ms lag. [pause short] DynamoDB replicates in 1-3 seconds. [pause short] Both work great in demos. [pause long] Then production happens.
+
+Autonoe: User updates their email in US-EAST-1. Immediately refreshes the page, gets routed to US-WEST-2. Sees their old email. Bug report: "I updated my email but the change didn't save."
+
+Autonoe: What happened? [pause] Eventual consistency. The update hit US-EAST-1 DynamoDB. It hasn't replicated to US-WEST-2 yet. The user's read hit US-WEST-2 before replication finished. They saw stale data.
+
+Autonoe: Today you're learning data consistency models in multi-region architectures. Not the theory. The production reality with user-facing consequences. By the end of this lesson, you'll understand the CAP theorem - why you cannot have Consistency, Availability, and Partition tolerance all three. How Aurora chooses CP and DynamoDB chooses AP. The consistency models: strong, eventual, causal, read-your-writes. Real examples where eventual consistency caused bugs and how to fix them. And how to design applications for eventual consistency without breaking user trust.
+
+Autonoe: Let's start with CAP theorem, the fundamental trade-off that governs all distributed systems. CAP stands for Consistency, Availability, Partition tolerance. Pick two. You cannot have all three.
+
+Autonoe: - Consistency: All nodes see the same data at the same time. When you write to US-EAST-1, you immediately read that value from US-WEST-2.
+Autonoe: - Availability: Every request receives a response, even if some nodes are down.
+Autonoe: - Partition tolerance: The system continues operating despite network failures between nodes.
+
+Autonoe: In single-region single-AZ, you can have CA. All nodes on the same network, no partitions. But that's not fault-tolerant. In multi-region, network partitions are inevitable. Internet connections fail. Cross-region links have issues. You must handle partitions. So partition tolerance is mandatory. You're choosing between CP and AP.
+
+Autonoe: - CP: Consistency plus partition tolerance. During partition, reject writes to maintain consistency. Aurora Global Database is CP.
+Autonoe: - AP: Availability plus partition tolerance. During partition, accept writes in all regions, resolve conflicts later. DynamoDB Global Tables is AP.
+
+Autonoe: Aurora's CP model works like this. Primary region accepts writes. Secondary regions read-only. [pause long] During a partition between regions, the secondary cannot reach the primary, so it refuses to accept writes. Consistency is guaranteed - all reads see the same data. But availability suffers - you can't write to the secondary during a partition. During normal operation, reads to a secondary might see slightly stale data due to 45-85ms replication lag. [pause short] But Aurora provides "read your writes" consistency if you read from the primary.
+
+Autonoe: DynamoDB's AP model is different. All regions accept writes. During a partition between US-EAST-1 and US-WEST-2, both keep accepting writes. Later when the partition heals, conflicts are resolved via last-writer-wins. Availability is maintained - writes always succeed. But consistency is eventual - reads might see stale data until replication catches up.
+
+Autonoe: Which is better? [pause] Depends on your use case. Financial transactions, inventory management, order processing - you need consistency. Use Aurora with CP. User preferences, shopping carts, session data - you can tolerate eventual consistency. Use DynamoDB with AP.
+
+Autonoe: Now, consistency models from strongest to weakest.
+Autonoe: [pause]
+Autonoe: - Linearizability or strong consistency: Most strict. Reads always see the latest write. Acts like a single copy. Aurora primary provides this. But only within one region. Cross-region is eventually consistent.
+Autonoe: - Sequential consistency: All operations appear in some sequential order. Different nodes might see operations in different orders, but each node's view is consistent. Rarely implemented in production systems.
+Autonoe: - Causal consistency: If operation A causes operation B, all nodes see A before B. But unrelated operations might appear in different orders. DynamoDB doesn't provide this by default.
+Autonoe: - Eventual consistency: All nodes will eventually see the same data, given enough time without new writes. No guarantees on when. DynamoDB Global Tables provides this.
+Autonoe: - Read-your-writes consistency: After you write, your subsequent reads see your write. But other users might not see it yet. DynamoDB provides this if you read from the same region you wrote to.
+Autonoe: - Monotonic reads: If you've seen a particular value, you never see older values in future reads. DynamoDB doesn't guarantee this across regions. [pause long] User reads from US-EAST-1, sees updated email. Next read from US-WEST-2, sees old email. Not monotonic.
+
+Autonoe: The email update problem from the opening. User writes to US-EAST-1. DynamoDB accepts, replication starts. User refreshes immediately, gets routed to US-WEST-2 by Route53 latency-based routing. US-WEST-2 hasn't received the replication yet. User sees the old value. This is not a bug in DynamoDB. [pause short] This is eventual consistency working as designed. The bug is in your application assuming strong consistency.
+
+Autonoe: Fixes: Make writes sticky to a region. After a user writes to US-EAST-1, keep them on US-EAST-1 for the next few requests. Use session cookies to track the write region. Or show a "Your changes are being saved" message during the replication period.
+
+Autonoe: Real production example: Social media app, DynamoDB Global Tables. User posts a comment in US-WEST-2. Post succeeds. They refresh immediately, Route53 sends them to US-EAST-1 for lower latency. [pause long] The comment isn't visible yet. User thinks it failed, posts again. Now there are duplicate comments. Support tickets pile up.
+
+Autonoe: Fix: After a post, redirect the user to a permalink that specifies the region. Use a route like `/posts/123?region=us-west-2`. The application reads from that region for the next thirty seconds. By then replication has caught up. The user sees their post immediately. After thirty seconds, switch back to latency-based routing.
+
+Autonoe: Another pattern: Version numbers. Every item has a version field. When a user writes, increment the version. Show a UI loading state until the version propagates to all regions. Query all regions, wait until the version matches everywhere. Then show success. This trades latency for perceived consistency. The user waits three seconds after clicking save. But they see immediate feedback that the save is processing. Better than appearing successful then showing stale data.
+
+Autonoe: Aurora consistency patterns are different because Aurora is CP. Primary accepts writes. Secondary read-only. If you route writes to the primary and reads to a secondary, you get read-after-write consistency problems. User writes to the primary in US-EAST-1. Immediately reads from a secondary in the same region. [pause long] The secondary is 45-85ms behind. The user sees stale data even though both requests hit the same region.
+
+Autonoe: Fix: Read from the primary for critical reads where stale data causes user confusion. Read from the secondary for less critical reads where eventual consistency is fine. Or use Aurora's reader endpoint with session-level read consistency. But don't read everything from the primary. That defeats the purpose of having read replicas. Be selective. Account settings page - read from primary. Product catalog - read from secondary, eventual consistency is fine.
+
+Autonoe: Conflict resolution in DynamoDB, revisiting Episode 6. When two regions write to the same item simultaneously, last-writer-wins based on timestamp. But clocks drift. <say-as interpret-as="characters">AWS</say-as> NTP keeps clocks synchronized within 1ms usually, but outliers happen. [pause long] If the US-EAST-1 clock is 2 seconds fast, its writes always win even if they're older. This causes lost updates. User A updates their email in US-WEST-2. User A updates their phone in US-EAST-1 simultaneously. Both writes succeed locally. Replication kicks in. Last-writer-wins says US-EAST-1 wins due to clock skew. The email update is lost. The phone update persists. User A's email shows the old value.
+
+Autonoe: Better conflict resolution: Application-level versioning. Every item has a version counter. Read the version, increment it, write with the expected version. If the version changed between the read and write, retry. This detects conflicts regardless of clock skew. Or use DynamoDB Streams to capture all writes, detect conflicts in application logic, and merge values. More complex but gives you full control.
+
+Autonoe: Testing consistency problems is hard. [pause short] In development, everything is single-region. Consistency problems don't surface. In staging, traffic is low, replication is fast, consistency windows are small. Problems are rare. In production with global traffic, problems appear. A user in Australia writes, gets routed to AP-SOUTHEAST-2. Immediately another request goes to US-WEST-2 for static content. They see an inconsistent state.
+
+Autonoe: How to test: Introduce artificial replication delay. Configure DynamoDB Global Tables with a 5-second lag in a test environment. Or simulate by reading from a trailing replica intentionally. This surfaces consistency bugs before production.
+
+Autonoe: Common consistency anti-patterns.
+Autonoe: [pause]
+Autonoe: - Anti-pattern one: Assuming DynamoDB is strongly consistent across regions. It's not. It's eventually consistent. Design UI and application logic for this. Show loading states. Use version numbers. Make writes sticky.
+Autonoe: - Anti-pattern two: Reading from an Aurora secondary immediately after a write to the primary. You'll see stale data 45-85ms old. Either read from the primary or accept eventual consistency and design for it.
+Autonoe: - Anti-pattern three: Not testing with replication lag. Development is fast, production is real. Introduce artificial lag in tests to surface bugs.
+Autonoe: - Anti-pattern four: Trusting last-writer-wins without understanding clock skew implications. Use application-level versioning for critical data.
+
+Autonoe: Before we wrap up, pause and answer these questions.
+Autonoe: Question one: Aurora is CP. DynamoDB is AP. What does this mean for write behavior during a network partition between regions? [pause]
+Autonoe: Question two: A user updates their profile in US-EAST-1 DynamoDB. Immediately refreshes and gets routed to US-WEST-2. They see old data. Is this a bug? [pause]
+Autonoe: Question three: You need strong consistency for order processing. Should you use Aurora or DynamoDB Global Tables? [pause]
+
+Autonoe: Take a moment.
+
+Autonoe: Answers.
+Autonoe: Question one: Aurora CP: During a partition, secondary regions refuse writes to maintain consistency. The primary continues accepting writes. Availability suffers but consistency is guaranteed. DynamoDB AP: During a partition, both regions continue accepting writes. Availability is maintained but conflicts may occur. These are resolved after the partition heals via last-writer-wins.
+Autonoe: Question two: Not a bug. This is eventual consistency working as designed. DynamoDB Global Tables is AP - availability over consistency. Replication takes 1-3 seconds. [pause short] If a user reads before replication completes, they see old data. Fix by making writes sticky to the region or showing a "synchronizing" message.
+Autonoe: Question three: Aurora. Strong consistency requires a CP model. Aurora provides this via its primary-secondary architecture. All order writes go to the primary, transactions are ACID-compliant, and reads from the primary see the latest data. DynamoDB's eventual consistency would cause order corruption - inventory counts wrong, double charges, race conditions.
+
+Autonoe: Let's recap what we covered.
+Autonoe: [pause]
+Autonoe: - First: CAP theorem forces a choice. Consistency, Availability, Partition tolerance - pick two. Multi-region requires partition tolerance, so you choose CP or AP. Aurora is CP. DynamoDB is AP.
+Autonoe: - Second: Consistency models from strong to eventual. Aurora primary provides strong consistency within a region, eventual across regions. DynamoDB provides eventual consistency globally, read-your-writes if sticky to a region.
+Autonoe: - Third: Eventual consistency causes user-visible bugs if not handled. Stale reads after writes, lost updates from conflicts, inconsistent UI state. Fix with sticky writes, version numbers, "saving" UI indicators.
+Autonoe: - Fourth: Aurora CP means secondary regions refuse writes during partitions. DynamoDB AP means all regions accept writes, conflicts resolved later. Choose based on the use case - financial needs CP, user preferences can use AP.
+Autonoe: - Fifth: Test with artificial replication lag. Development doesn't surface consistency problems. Production does. Simulate lag in testing.
+
+Autonoe: Remember Episodes 3 and 6 where we discussed Aurora and DynamoDB replication? Now you understand the consistency trade-offs. Aurora's 45-85ms lag with CP guarantees. [pause short] DynamoDB's 1-3 second lag with AP trade-offs. [pause short] Both are correct architectures for different use cases.
+
+Autonoe: We'll revisit consistency in Episode 12 during disaster recovery. When you failover Aurora from US-EAST-1 to US-WEST-2, what happens to in-flight transactions? What consistency guarantees exist during failover? Understanding CAP helps you design failover procedures correctly.
+
+Autonoe: Next time: Multi-Region <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Patterns with service mesh. Episode 4 covered <say-as interpret-as="characters">EKS</say-as> multi-cluster basics. Independent clusters, no federation. But how do you actually implement cross-cluster service discovery at scale? How does Istio multi-cluster mesh work in production? You'll learn Istio multi-primary configuration for hot-hot <say-as interpret-as="characters">EKS</say-as>. How Envoy sidecars route between clusters intelligently. Virtual services for traffic splitting across regions. Circuit breakers and retries for cross-region reliability. And the operational complexity cost - is a service mesh worth it for your team's maturity? Because a service mesh adds capability but also complexity. Let's make sure the trade-off makes sense for your architecture.
+
+Autonoe: See you in Episode 11.

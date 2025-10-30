@@ -1,0 +1,145 @@
+Autonoe: You've built multi-region architecture. Aurora, DynamoDB, <say-as interpret-as="characters">EKS</say-as>, networking, observability, <say-as interpret-as="characters">DNS</say-as> failover. It works perfectly in staging. Now comes the moment of truth: [pause long] Actually failing over during a real outage at 2 AM without making things worse.
+
+Autonoe: Here's what typically happens. Primary region fails. You wake up to pages. Half-asleep, you start executing failover. [pause long] Skip a step in the runbook. Promote Aurora but forget to update <say-as interpret-as="characters">DNS</say-as>. Or update <say-as interpret-as="characters">DNS</say-as> but Aurora promotion fails. Or both work but the secondary region doesn't have enough capacity. [pause short] The outage extends from twenty minutes to four hours. Revenue loss multiplies. The post-mortem reveals basic mistakes.
+
+Autonoe: Today you're learning disaster recovery procedures that actually work in production. Not the DR plan that sits in a Confluence document nobody reads. The actual runbooks engineers execute successfully at 2 AM under pressure.
+
+Autonoe: By the end of this lesson, you'll understand how to test failover without affecting production. The step-by-step Aurora promotion procedure with validation at each stage. <say-as interpret-as="characters">EKS</say-as> traffic shifting with rollback safety. Rollback procedures when failover makes things worse. And chaos engineering to validate your DR actually works before you need it.
+
+Autonoe: Let's start with testing DR without causing downtime, because your first failover shouldn't be during a real incident. Most teams build multi-region, deploy it, [pause long] and never test it. Then the primary region fails. They attempt failover for the first time ever. Discover health checks are misconfigured. Secondary Aurora doesn't have write permissions configured. Route53 failover policy has a typo. The DR "solution" doesn't actually work.
+
+Autonoe: [pause]
+
+Autonoe: Testing strategy one: Weighted routing for traffic sampling. Before attempting full failover, use Route53 weighted routing to send one percent of traffic to the secondary region. [pause short] Episode 8's routing policies. Monitor error rates, latency, database write success. If the secondary handles one percent perfectly, gradually increase to five percent, then ten percent. If errors spike, you found issues before a full failover.
+
+Autonoe: Real example: An E-commerce site tested its secondary region with one percent of traffic. [pause long] They discovered DynamoDB Global Tables hadn't fully replicated yet. Some items were missing in the secondary region. Users in that one percent saw "product not found" errors. They fixed the replication issue before attempting failover. This test prevented what would have been a disastrous full cutover.
+
+Autonoe: Testing strategy two: GameDay exercises in staging. Schedule quarterly DR drills. Simulate a primary region failure by blocking traffic at the network level. Execute the full failover procedure in a staging environment with production-like data. Time how long it takes. Document what breaks. Update runbooks based on findings. [pause short] Netflix does GameDay exercises monthly. They randomly terminate instances, kill services, simulate AZ failures, simulate region failures. Engineers practice recovery procedures regularly. When real failures happen, muscle memory kicks in. No panic, just execution.
+
+Autonoe: Testing strategy three: <say-as interpret-as="characters">AWS</say-as> Fault Injection Simulator. Inject faults into production safely. Throttle Aurora to simulate performance degradation. Packet loss on cross-region connections. Terminate random <say-as interpret-as="characters">EKS</say-as> pods. Observe how systems handle failures. Validate monitoring alerts fire correctly. Confirm auto-scaling responds appropriately. [pause short] Start small. One pod termination. Then multiple pods. Then simulate database slow queries. Then a network partition between regions. Gradually increase the blast radius as confidence builds. This surfaces issues in a controlled manner before real failures happen.
+
+Autonoe: Now, the Aurora failover procedure step by step with validation gates.
+
+Autonoe: [pause]
+
+Autonoe: Step one: Verify replication lag. Before promoting the secondary, check that Aurora replication lag is under five seconds. [pause short] Episode 3 explained why this matters - lag above ten seconds means promoting will lose recent writes beyond your RPO. The CloudWatch metric ApproximateReplicationLag shows this. If the lag is thirty seconds, wait for it to drop or accept the data loss.
+
+Autonoe: Step two: Stop writes to primary. Put the application in read-only mode or route writes to a maintenance page. This prevents new writes during promotion that would be lost. Drain in-flight transactions, which typically takes ten to twenty seconds. [pause short] The application health endpoint returns a degraded status, so Route53 stops sending new traffic.
+
+Autonoe: Step three: Promote secondary to primary. <say-as interpret-as="characters">AWS</say-as> Console or <say-as interpret-as="characters">CLI</say-as> command: `aws rds promote-read-replica`. This takes sixty to ninety seconds. [pause short] Aurora reconfigures the secondary from a read-replica to a standalone read-write instance. During this time, no writes are possible to either region. This is the service interruption window.
+
+Autonoe: Step four: Verify promotion succeeded. Check the Aurora instance status shows "available". Attempt a test write to verify write capability. Don't enable application writes yet. Verify replication if you have additional read replicas.
+
+Autonoe: Step five: Update Route53 to point to new primary. If you're using failover routing with health checks, this happens automatically when the old primary health check fails. If it's manual, update the A record to the new primary endpoint. Wait sixty seconds for <say-as interpret-as="characters">DNS</say-as> propagation based on the TTL from Episode 8. [pause short]
+
+Autonoe: Step six: Enable application writes. Change the application from read-only mode to full operation. Monitor error rates carefully. Slowly ramp up write traffic to avoid overwhelming the newly promoted instance. Watch for replication lag if you have other regions.
+
+Autonoe: Step seven: Validate end-to-end. Execute test transactions. User signup, checkout flow, database writes. Confirm everything works. Check the observability dashboards from Episode 7 showing a healthy state.
+
+Autonoe: Total time for a planned failover: Two to five minutes. [pause short] Ninety seconds for Aurora promotion, sixty seconds for <say-as interpret-as="characters">DNS</say-as> propagation, and the remaining time for validation and traffic ramp-up.
+
+Autonoe: Unplanned failover is messier. [pause long] Primary region is completely offline. You can't gracefully drain traffic. You can't verify replication lag because the primary is unreachable. You must accept potential data loss within your RPO.
+
+Autonoe: Unplanned procedure: Immediately promote the secondary Aurora. Don't wait to check lag - the primary is dead, you have no choice. Promotion takes ninety seconds. [pause short] Update Route53 health checks if needed or they may auto-failover. Enable application writes immediately. Scale secondary <say-as interpret-as="characters">EKS</say-as> compute from twenty-five percent to one hundred percent capacity. This takes two to three minutes for auto-scaling. [pause short] Monitor observability dashboards to verify the secondary is handling the full load. Accept that some recent writes may be lost - and inform business stakeholders.
+
+Autonoe: Real unplanned scenario: US-EAST-1 complete region failure at 6 AM. Primary Aurora was unreachable. The team promoted the US-WEST-2 Aurora immediately. They updated Route53 manually because health checks failed slowly. They scaled <say-as interpret-as="characters">EKS</say-as> from fifteen pods to sixty pods. Total recovery time: Four minutes. [pause short] Data loss: Eight seconds of writes before the failure. The business accepted this was within the RPO. Users experienced a four-minute outage instead of hours.
+
+Autonoe: The <say-as interpret-as="characters">EKS</say-as> traffic shifting procedure is separate from the database failover.
+
+Autonoe: For hot-warm with <say-as interpret-as="characters">DNS</say-as> failover: Route53 health checks mark the primary as unhealthy. Traffic automatically routes to the secondary via the failover policy. <say-as interpret-as="characters">EKS</say-as> pods in the secondary region receive traffic. Auto-scaling triggers to handle the increased load. Monitor pod health and scaling events. This typically takes two to three minutes for a full traffic shift. [pause short]
+
+Autonoe: For hot-hot with a service mesh from Episode 11: Envoy circuit breakers detect primary region failures. They automatically route to the secondary region at the request level. No <say-as interpret-as="characters">DNS</say-as> wait. Sub-second traffic shift. [pause short] But you still need to scale the secondary compute to handle the full load.
+
+Autonoe: Validation during <say-as interpret-as="characters">EKS</say-as> failover: Check pod health in the secondary cluster. Verify services are responding. Test application endpoints. Monitor error rates for spikes indicating issues. If error rates are above five percent, investigate before completing the failover.
+
+Autonoe: The rollback procedure when failover goes wrong is critical.
+
+Autonoe: [pause long]
+
+Autonoe: Scenario: You promote Aurora to the secondary region. You discover a critical application bug only present in the secondary. Error rates spike to thirty percent. Users are flooding support. Continuing on the secondary is worse than the original outage.
+
+Autonoe: [pause]
+
+Autonoe: Rollback steps: Demote the new primary back to a replica role if possible. Or promote the original primary again if it's healthy. Update Route53 to point back to the original region. Re-enable writes to the original region. This can take another two to five minutes. [pause short] Meanwhile, users experience errors.
+
+Autonoe: Prevention: Always test with weighted routing first before a full cutover. One percent, five percent, ten percent traffic to the secondary. Catch application bugs before going all-in.
+
+Autonoe: Rollback decision tree: If the secondary has a higher error rate but the primary is completely offline, stay on the secondary and fix the bugs. If the primary is recoverable and secondary errors are severe, roll back. If both regions have issues, choose the one with fewer errors and fix both.
+
+Autonoe: Real rollback example: A financial services company failed over to their secondary during primary database performance issues. [pause long] They discovered the secondary region's network configuration was wrong, causing intermittent timeouts. The error rate was fifteen percent. [pause short] The primary was slow but functional at two percent errors. They rolled back to the primary, accepted the slow performance while fixing the network config in the secondary. They later failed over successfully after the fix.
+
+Autonoe: Chaos engineering to validate your DR actually works.
+
+Autonoe: The Chaos Monkey principle: Inject random failures continuously. Don't wait for real failures to discover your DR doesn't work. Proactively break things in a controlled manner to validate resilience.
+
+Autonoe: For multi-region: Randomly terminate the primary Aurora replica. Force a failover to the secondary. Validate the promotion works. Do this monthly. Eventually, it becomes routine. Engineers aren't surprised when real failures happen.
+
+Autonoe: Chaos Kong for regional failures: Simulate an entire region going offline. Block all traffic from the primary region. Force a full failover to the secondary. Run through the complete procedure. Time it. Identify bottlenecks. Update runbooks. Do this quarterly. [pause short] Netflix runs Chaos Kong exercises where they take down entire <say-as interpret-as="characters">AWS</say-as> regions intentionally. Engineers practice full regional failover. They discovered issues with cross-region service dependencies, <say-as interpret-as="characters">DNS</say-as> propagation delays, and insufficient capacity in secondary regions. They fixed these issues before real regional failures occurred.
+
+Autonoe: Litmus test for DR readiness: Can you execute a full regional failover in under ten minutes without the incident commander having a panic attack? [pause] If yes, your DR works. If no, more practice is needed.
+
+Autonoe: Common DR mistakes that extend outages.
+
+Autonoe: [pause]
+
+Autonoe: Mistake one: No documented runbooks. The team has a DR architecture but no written procedures. During an outage, engineers are Googling "how to promote Aurora read replica". Making it up as they go. Mistakes multiply. Fix: Write detailed runbooks with screenshots, exact commands, and validation steps. Store them in an accessible location. Practice them quarterly.
+
+Autonoe: Mistake two: Runbooks are outdated. Wrote runbooks two years ago. The infrastructure has changed. The runbooks reference old <say-as interpret-as="characters">DNS</say-as> names, deleted resources, incorrect commands. Following them breaks things further. Fix: Update runbooks after every infrastructure change. Test them quarterly to validate accuracy.
+
+Autonoe: Mistake three: Insufficient practice. Built DR, tested it once during initial setup, never again. A real failure happens a year later, and nobody remembers how to execute it. New engineers have never practiced. Fix: Quarterly GameDay exercises. All engineers participate. No exceptions.
+
+Autonoe: Mistake four: No rollback plan. The team has a failover procedure but no rollback procedure. The failover goes wrong, and they panic because they don't know how to undo it. Fix: Document rollback steps alongside failover steps. Test the rollback procedures.
+
+Autonoe: Mistake five: Insufficient secondary capacity. The secondary region runs at ten percent capacity to save costs. During failover, auto-scaling should bring it to one hundred percent. [pause long] But you're hitting EC2 instance limits, and it takes ten minutes instead of two. Fix: From Episode 9, run the secondary at twenty-five to thirty percent capacity. Request limit increases proactively.
+
+Autonoe: Mistake six: No monitoring during failover. You execute procedures blind without checking if they worked. Promote Aurora but don't verify it's writable. Update <say-as interpret-as="characters">DNS</say-as> but don't confirm propagation. You assume success, but it actually failed. Fix: Have a validation step after every action. Use the observability from Episode 7 to verify each step.
+
+Autonoe: Before we wrap up, pause and answer these questions.
+
+Autonoe: Question one: Why should you test failover with one percent weighted routing before attempting a full cutover? [pause]
+
+Autonoe: Question two: During Aurora promotion, how do you prevent data loss from in-flight writes? [pause]
+
+Autonoe: Question three: If a failover to the secondary causes worse errors than the original primary issue, what do you do? [pause]
+
+Autonoe: Take a moment.
+
+Autonoe: [pause short]
+
+Autonoe: Answers.
+
+Autonoe: Question one: To discover configuration issues and application bugs without affecting all users. One percent of traffic to the secondary validates it works. If errors spike in that one percent, you fix the issues before exposing all users. This prevents turning a partial outage into a total outage.
+
+Autonoe: Question two: Stop writes to the primary before promotion. Put the application in read-only mode. Drain in-flight transactions, typically for ten to twenty seconds. [pause short] Then promote. This ensures no writes are in progress that would be lost during the sixty to ninety-second promotion window.
+
+Autonoe: Question three: Roll back. If the secondary errors are worse than the primary issues, demote the secondary and promote the original primary again. Update <say-as interpret-as="characters">DNS</say-as> back. Accept that the original issue was better than the new issues. Meanwhile, fix the secondary issues, then attempt the failover again later.
+
+Autonoe: Let's recap what we covered.
+
+Autonoe: First: Test DR before you need it. [pause short] Weighted routing with one percent of traffic. GameDay exercises quarterly. Chaos engineering with fault injection. Your first failover shouldn't be during a real incident.
+
+Autonoe: Second: The Aurora failover procedure has seven steps with...
+
+Autonoe: validation gates. Check lag, stop writes, promote, verify, update <say-as interpret-as="characters">DNS</say-as>, enable writes, validate end-to-end. [pause short] Takes two to five minutes for a planned failover. [pause short]
+
+Autonoe: Third: Unplanned failover. [pause long] When the primary region is completely offline, it means promoting immediately without checking lag. You have to accept potential data loss within your RPO. The focus is on speed over perfection.
+
+Autonoe: Fourth: Rollback procedures are mandatory. [pause short] Document them alongside your failover procedures. Test them. Have decision criteria for when to roll back versus when to push forward.
+
+Autonoe: Fifth: Chaos engineering. This is how you validate that your DR actually works. [pause short] Monthly Chaos Monkey exercises. Quarterly Chaos Kong regional failures. You practice until it's muscle memory.
+
+Autonoe: Sixth: The common mistakes. [pause long] No runbooks, outdated runbooks, insufficient practice, no rollback plan, insufficient secondary capacity, no monitoring during the failover. [pause short] All of these are preventable with discipline.
+
+Autonoe: [pause]
+
+Autonoe: Remember Episode 2's hot-warm five-minute RTO? [pause] That's one minute for Aurora promotion, ninety seconds for health check detection, sixty seconds for <say-as interpret-as="characters">DNS</say-as> propagation, and the remaining time for validation. [pause short] Episode 7's observability shows you what's happening during the failover. Episode 8's Route53 health checks trigger the automatic failover. All the pieces come together during the actual DR execution.
+
+Autonoe: We'll revisit DR costs in the Episode 9 context - how much does a DR test cost? How do you minimize it? [pause] And in Episode 15 on anti-patterns, we'll see what happens when teams skip DR testing... [pause long] the disasters that could have been prevented.
+
+Autonoe: Next time: Financial Services Compliance. [pause short] SEC SCI, MiFID II, crypto regulations. Everything we've covered so far assumes you can architect for your business needs. But regulated industries... they don't have that luxury. [pause short] Compliance mandates specific RTO, RPO, data residency, and audit logging.
+
+Autonoe: You'll learn SEC Regulation SCI requirements for stock exchanges and how they drive multi-region architecture. [pause short] MiFID II data residency for EU financial firms. [pause short] Crypto regulations like the NY BitLicense and the EU's MiCA. You'll see how compliance becomes the primary architecture driver, overriding cost considerations. And audit logging that satisfies regulators.
+
+Autonoe: [pause]
+
+Autonoe: Because in financial services, multi-region isn't optional. It's mandatory. And the requirements are specific. [pause short] See you in Episode 13.

@@ -73,6 +73,25 @@ Transform from a Kubernetes user into a production Kubernetes engineer. Learn ho
   </iframe>
 </div>
 
+### 📖 [Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale](/podcasts/courses/multi-region-mastery)
+
+Master the LEGO architecture approach to multi-region systems. Learn the real 2.5-7.5x cost multiplier, compose building blocks (Aurora Global Database, EKS, Transit Gateway, DynamoDB Global Tables), and build production-grade architectures that match your actual needs—not aspirational ones.
+
+- **Episodes**: 16 lessons (ALL PUBLISHED ✅)
+- **Duration**: ~4 hours total
+- **Level**: Advanced
+- **Prerequisites**: 5+ years production AWS/Kubernetes experience, distributed systems knowledge
+
+**What You'll Learn**:
+- Cost reality: True multi-region costs and when single-region wins
+- Architecture patterns: Hot-hot, hot-warm, hot-cold—what actually works
+- AWS building blocks: Aurora, EKS, Transit Gateway, DynamoDB as composable pieces
+- Data strategies: Consistency models, replication, conflict resolution
+- Compliance: SEC SCI, MiFID II, crypto regulations (NY BitLicense, EU MiCA)
+- Decision frameworks: Calculate your actual requirements vs marketing hype
+
+**Complete course available** with video lectures and detailed transcripts. All scripts validated, enhanced, and ready for learning!
+
 <!-- Example course entry format:
 ### 📖 [Course Name](/podcasts/courses/course-slug)
 
@@ -95,8 +114,30 @@ Transform from a Kubernetes user into a production Kubernetes engineer. Learn ho
 
 ## Latest Episodes
 
-Mix of podcast episodes (🎙️ conversational discussions) and course lessons (📖 structured learning):
+Latest content includes course lessons and standalone podcast episodes. Course lessons are organized in the Courses section above.
 
+**Multi-Region Platform Engineering Course - Complete Series**:
+
+- 📖 **[#028: Lesson 16 - 90-Day Implementation Roadmap](/podcasts/courses/multi-region-mastery/lesson-16)** (18 min) - 4-phase rollout with go-no-go gates, abort criteria, and risk mitigation strategies
+- 📖 **[#027: Lesson 15 - Anti-Patterns: What Breaks Multi-Region](/podcasts/courses/multi-region-mastery/lesson-15)** (15 min) - Six anti-patterns, real cost impact, and recovery strategies
+- 📖 **[#026: Lesson 14 - Security Architecture](/podcasts/courses/multi-region-mastery/lesson-14)** (18 min) - Encryption at-rest/in-transit/in-use, key management trade-offs, zero-trust networking
+- 📖 **[#025: Lesson 13 - Compliance-Driven Architecture](/podcasts/courses/multi-region-mastery/lesson-13)** (16 min) - SEC SCI, MiFID II, BitLicense, MiCA regulatory requirements
+- 📖 **[#024: Lesson 12 - Disaster Recovery & Chaos Engineering](/podcasts/courses/multi-region-mastery/lesson-12)** (17 min) - 6-phase runbook, failover procedures, chaos testing strategies
+- 📖 **[#023: Lesson 11 - Advanced Kubernetes Patterns](/podcasts/courses/multi-region-mastery/lesson-11)** (15 min) - Service mesh subsecond failover vs DNS's 2+ minutes, operational complexity trade-offs
+- 📖 **[#022: Lesson 10 - Data Consistency Models](/podcasts/courses/multi-region-mastery/lesson-10)** (13 min) - CAP theorem, Aurora vs DynamoDB consistency, split-brain prevention
+- 📖 **[#021: Lesson 09 - Cost Management](/podcasts/courses/multi-region-mastery/lesson-09)** (16 min) - Seven optimization strategies, locality-aware routing saves 90%, $112K→$36K real example
+- 📖 **[#020: Lesson 08 - DNS & Traffic Management](/podcasts/courses/multi-region-mastery/lesson-08)** (14 min) - Route53 health checks, Global Accelerator, failover detection
+- 📖 **[#019: Lesson 07 - Observability at Scale](/podcasts/courses/multi-region-mastery/lesson-07)** (16 min) - Centralized logging, distributed tracing, cross-region metrics
+- 📖 **[#018: Lesson 06 - DynamoDB Global Tables](/podcasts/courses/multi-region-mastery/lesson-06)** (15 min) - Active-active replication, conflict resolution, cost comparison with Aurora
+- 📖 **[#017: Lesson 05 - Network Architecture](/podcasts/courses/multi-region-mastery/lesson-05)** (17 min) - Transit Gateway, VPC peering, PrivateLink, Global Accelerator
+- 📖 **[#016: Lesson 04 - Kubernetes Multi-Cluster](/podcasts/courses/multi-region-mastery/lesson-04)** (18 min) - EKS as regional boundary, independent clusters, cross-cluster discovery
+- 📖 **[#015: Lesson 03 - Aurora Global Database](/podcasts/courses/multi-region-mastery/lesson-03)** (14 min) - Active-passive replication, promotion procedures, 45-85ms lag
+- 📖 **[#014: Lesson 02 - Production Patterns](/podcasts/courses/multi-region-mastery/lesson-02)** (16 min) - Hot-hot, hot-warm, hot-cold, cold-standby patterns and RTO/RPO trade-offs
+- 📖 **[#013: Lesson 01 - Multi-Region Mental Model](/podcasts/courses/multi-region-mastery/lesson-01)** (15 min) - Cost, Complexity, Capability triangle and when single-region actually wins
+
+**Latest Standalone Episodes**:
+
+- 🎙️ **[#012: Platform Engineering ROI Calculator](/podcasts/00012-platform-roi-calculator)** (15 min) - Prove platform value to executives: ROI formula, DORA→business translation, and stakeholder templates that saved teams from disbandment
 - 🎙️ **[#011: Why 70% of Platform Engineering Teams Fail](/podcasts/00011-platform-failures)** (12 min) - The critical PM gap, metrics blindness, and the 5 predictive metrics that separate success from $3.75M failures
 - 📖 **[#010: Kubernetes Production Mastery - Lesson 02](/podcasts/00010-kubernetes-production-mastery-lesson-02)** (19 min) - Master requests vs limits, QoS classes, and the 5-step debugging workflow for OOMKilled pods
 - 📖 **[#009: Kubernetes Production Mastery - Lesson 01](/podcasts/00009-kubernetes-production-mastery-lesson-01)** (17 min) - Learn the 5 failure patterns that break systems at scale and the 6-item production readiness checklist

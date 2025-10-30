@@ -1,0 +1,207 @@
+Autonoe: You've built multi-region architecture across thirteen episodes. Aurora replicating data. DynamoDB active-active. EKS clusters running workloads. Observability showing what's happening. Compliance documented for regulators. [pause short]
+
+Autonoe: But here's the uncomfortable question: What if an attacker gains access to US-EAST-1? [pause] Can they automatically access US-WEST-2? Can they decrypt replicated data? Can they steal secrets from Secrets Manager? [pause]
+
+Autonoe: Multi-region increases attack surface. Every region is a potential entry point. Every cross-region connection is a potential interception point. Every replicated key is additional exposure. [pause short]
+
+Autonoe: Today you're learning security architecture that protects multi-region without compromising functionality. Not security theater. Real protection that survives sophisticated attacks. By the end of this lesson, you'll understand encryption at rest and in transit across regions. AWS KMS multi-region keys versus per-region keys and the security trade-offs. Secrets Manager replication with least-privilege access. IAM policies that prevent lateral movement between regions. Zero-trust networking with VPC endpoints and PrivateLink. And security mistakes that turned multi-region into multi-vulnerability.
+
+Autonoe: Because security isn't optional. It's the foundation everything else depends on.
+
+Autonoe: Let's start with encryption in transit, protecting data as it moves between regions.
+
+Autonoe: Aurora Global Database replicates transaction logs from primary to secondary regions. This happens over the AWS internal backbone network, not the public internet. But “internal” doesn’t mean “secure by default.” Aurora automatically encrypts replication traffic using TLS one-point-three. You don't configure this. It's built-in. Primary region encrypts transaction log before sending. Secondary region decrypts on receipt. Even AWS employees with physical access to the backbone network cannot read your data in transit. [pause short]
+
+Autonoe: DynamoDB Global Tables works similarly. Replication between regions uses the AWS internal network with automatic encryption. Again, TLS one-point-three. No configuration required.
+
+Autonoe: But application traffic between regions? [pause long] That's on you.
+
+Autonoe: EKS pods in US-EAST-1 calling services in US-WEST-2 need TLS. Episode 11's service mesh with Istio provides this automatically. Envoy sidecars establish mutual TLS connections between pods. Even if an attacker compromises the network, they see encrypted traffic. Without a service mesh, you configure application-level TLS. Your API servers use HTTPS with TLS one-point-three minimum. No TLS one-point-two due to known vulnerabilities. Absolutely no TLS one-point-zero or one-point-one. [pause short]
+
+Autonoe: [pause long]
+
+Autonoe: Real security incident: Financial services company, multi-region architecture. Used internal service-to-service communication over HTTP not HTTPS. Assumed the AWS internal network was safe. An attacker gained access via a compromised EC2 instance, sniffed internal traffic, captured API tokens, and escalated to full account compromise. Post-mortem: All internal traffic must use TLS regardless of network location.
+
+Autonoe: Now encryption at rest with KMS, protecting data stored in Aurora and DynamoDB.
+
+Autonoe: Aurora and DynamoDB both support encryption at rest using AWS KMS keys. When you create an encrypted Aurora cluster, you specify a KMS key. Aurora encrypts data files, backups, snapshots, and transaction logs using that key. Same for DynamoDB tables.
+
+Autonoe: The question for multi-region: Single KMS key or multiple keys per region? [pause]
+
+Autonoe: [pause]
+
+Autonoe: Option one: Per-region KMS keys. Create a separate KMS key in each region. The US-EAST-1 Aurora cluster uses a US-EAST-1 KMS key. The US-WEST-2 Aurora cluster uses a US-WEST-2 KMS key. Data replicates encrypted, but each region's data is encrypted with a different key.
+Autonoe: Advantage: Regional isolation. Compromising the US-EAST-1 KMS key doesn't expose US-WEST-2 data. An attacker needs to compromise both keys separately. Defense in depth.
+Autonoe: Disadvantage: Complex key management. When you restore a snapshot from US-EAST-1 to US-WEST-2, you must re-encrypt with the US-WEST-2 key. This adds time to disaster recovery. During Episode 12's Aurora promotion, you're waiting for re-encryption.
+
+Autonoe: Option two: Multi-region KMS keys. AWS supports multi-region keys that replicate automatically. Create a multi-region primary key in US-EAST-1. Create replica keys in US-WEST-2, EU-WEST-1. All regions can decrypt data encrypted by any replica. The key material is the same across regions.
+Autonoe: Advantage: Simplified DR. A snapshot encrypted in US-EAST-1 can be restored directly in US-WEST-2 without re-encryption. Faster failover. Lower RTO.
+Autonoe: Disadvantage: Single point of compromise. If an attacker steals key material from any region, they can decrypt data in all regions. Reduced isolation.
+
+Autonoe: Which to choose? [pause] Depends on your threat model and RTO requirements. Financial services with strict security: Per-region keys despite slower DR. E-commerce optimizing for speed: Multi-region keys for fast failover.
+
+Autonoe: [pause long]
+
+Autonoe: Real implementation: Healthcare company, HIPAA compliance. Uses per-region KMS keys for maximum isolation. DR testing showed a fifteen-minute delay for Aurora snapshot restore due to re-encryption. [pause short] They accepted this. The alternative was an unacceptable risk of a single key compromise exposing all patient data across regions.
+
+Autonoe: Now KMS key policies that actually secure your keys.
+
+Autonoe: The default KMS key policy allows full access to the account root user. [pause long] This is too permissive. Root compromise equals total key compromise. You need least-privilege key policies.
+
+Autonoe: Example key policy for an Aurora encryption key in US-EAST-1:
+Autonoe: Allow the RDS service to use the key for encrypt/decrypt operations. Specify a condition: Only for RDS resources in the US-EAST-1 region. This prevents an attacker from using a stolen key to decrypt data in EU-WEST-1.
+Autonoe: Allow specific IAM roles to use the key. Not all roles. Only the RDS service role, disaster recovery role, and backup role.
+Autonoe: Deny all other principals explicitly.
+Autonoe: Enable key rotation. AWS rotates the key material automatically every year. Old ciphertext is still decryptable with the new key. This limits the exposure window if a key is compromised.
+
+Autonoe: [pause long]
+
+Autonoe: Example bad key policy seen in production: `Allow principal  to perform kms: on resource `. [pause short] Translation: Anyone with any AWS credentials can do anything with this key. Including an attacker who steals a developer laptop with expired but still-valid credentials.
+
+Autonoe: Secrets Manager replication for application secrets across regions.
+
+Autonoe: Your applications need database passwords, API keys, and third-party credentials. Hardcoding these is a security failure. Secrets Manager stores them encrypted at rest with KMS keys. For multi-region, secrets must be available in all regions. Secrets Manager supports automatic replication. Create a secret in the primary region. Enable replication to secondary regions. Secrets Manager creates replica secrets, encrypted with regional KMS keys.
+
+Autonoe: Example: Database master password stored in Secrets Manager in US-EAST-1. Replicate to US-WEST-2. Applications in both regions retrieve the secret using the Secrets Manager API. During a failover to US-WEST-2, applications continue accessing secrets without reconfiguration.
+
+Autonoe: Replication lag: Usually under one minute. [pause short] Update a secret in the primary region, and replica regions see the update within sixty seconds. [pause short] For credential rotation, this means a brief window where primary and secondary have different credentials. Design applications to retry failed authentication once during the rotation window.
+
+Autonoe: Key security control: Secrets Manager retrieval requires IAM permissions. Don't grant blanket `secretsmanager:GetSecretValue` to all roles. Scope to specific secrets by ARN. The application role for the checkout service can retrieve the `checkout-db-password` secret. It cannot retrieve the `admin-credentials` secret.
+
+Autonoe: Example IAM policy for least-privilege secret access: Allow `secretsmanager:GetSecretValue` on resource `arn:aws:secretsmanager:us-east-1:account:secret:app/checkout/db-password`. Deny all other secrets. Condition: Only from specific VPC endpoints to prevent exfiltration via compromised instances with internet access.
+
+Autonoe: [pause long]
+
+Autonoe: Real breach scenario: Startup with multi-region, all application pods had an IAM role with `secretsmanager:` on ``. An attacker compromised a pod via an application vulnerability. They used the pod's IAM credentials to retrieve all secrets from Secrets Manager, including root database passwords and AWS access keys. Lateral movement to full account takeover. Fix: Least-privilege IAM with secret-specific permissions.
+
+Autonoe: IAM policies for cross-region access without creating security holes.
+
+Autonoe: Your applications in US-EAST-1 sometimes need to access resources in US-WEST-2. S3 buckets with replicated data. DynamoDB tables. SQS queues. This requires cross-region IAM permissions.
+
+Autonoe: Naive approach: Grant `s3:` on `arn:aws:s3:::`. [pause short] Translation: Access all S3 buckets in all regions. An attacker compromises one application, gets access to everything. Lateral movement paradise.
+
+Autonoe: Correct approach: Scope the IAM policy to specific resources in specific regions. Grant `s3:GetObject` on `arn:aws:s3:::my-app-data-us-west-2/` with the condition `aws:RequestedRegion` equals `us-west-2`. The application can read from a specific bucket in a specific region only. An attacker compromise has a limited blast radius.
+
+Autonoe: Additional control: Resource-based policies on S3 buckets. The bucket policy in US-WEST-2 denies all requests except from VPC endpoints in US-EAST-1 and US-WEST-2. Even if an attacker steals IAM credentials, they cannot access the bucket from their laptop. They must be inside your VPC.
+
+Autonoe: [pause long]
+
+Autonoe: Example mistake: A development team needed cross-region access for testing. They created an IAM role with full admin permissions in all regions and left it attached to production pods. An attacker exploited an application vulnerability, inherited admin access, and deleted production databases across all regions. Incident cost: Four million in revenue, eight million in recovery, twenty million in customer compensation. [pause short] Fix: Separate IAM roles for dev and prod. Scope permissions to the minimum required.
+
+Autonoe: Zero-trust networking: Never trust network location, always verify.
+
+Autonoe: Traditional security model: The internal network is trusted. Once you're inside a VPC, you can access everything. This fails in multi-region. A compromised instance in US-EAST-1 shouldn't automatically trust traffic to US-WEST-2.
+
+Autonoe: [pause]
+
+Autonoe: Zero-trust principles for multi-region:
+Autonoe: One: Encrypt all traffic with mutual TLS. Episode 11's Istio service mesh implements this. Every pod has a certificate. Pods authenticate each other before communication. An attacker cannot impersonate a service without stealing a certificate.
+Autonoe: Two: Minimize network connectivity. Don't peer all VPCs to all VPCs from Episode 5. Only peer VPCs that need direct communication. Use PrivateLink for service access without VPC peering.
+Autonoe: Three: Segment workloads with security groups. Don't use the default security group allowing all traffic within a VPC. Create security groups per service. The checkout service security group allows inbound only from the API gateway security group. It denies all other traffic, even within the same VPC.
+Autonoe: Four: Restrict egress as much as ingress. Default deny outbound. Explicitly allow outbound to specific destinations. This prevents data exfiltration via compromised instances.
+
+Autonoe: Example zero-trust architecture: E-commerce multi-region. US-EAST-1 and US-WEST-2. VPCs are not peered. Services communicate via PrivateLink. Istio mutual TLS between all pods. Security groups deny everything by default. Only API gateway to frontend service is allowed. Only frontend to checkout is allowed. Only checkout to the database is allowed. An attacker compromises the frontend but cannot access the database directly. Lateral movement is blocked.
+
+Autonoe: VPC endpoints and PrivateLink for AWS service access.
+
+Autonoe: Your EKS pods need to call AWS services. S3, DynamoDB, Secrets Manager, KMS. Without VPC endpoints, traffic goes through an internet gateway. [pause long] The public internet. Even though it's to AWS-owned IPs, the traffic leaves your VPC.
+
+Autonoe: VPC endpoints keep traffic within the AWS network.
+
+Autonoe: Two types: Gateway endpoints for S3 and DynamoDB. Interface endpoints for everything else.
+Autonoe: Gateway endpoints: Free. No additional charges. [pause short] Route table entries direct S3 and DynamoDB traffic to the VPC endpoint instead of the internet gateway. Traffic never leaves the AWS network.
+Autonoe: Interface endpoints: Powered by PrivateLink. They cost money. Each endpoint costs seven cents per hour plus one cent per gigabyte processed. [pause short] For Secrets Manager across three AZs, that's about one hundred fifty dollars per month. [pause short]
+
+Autonoe: For multi-region, deploy VPC endpoints in every region. US-EAST-1 pods use US-EAST-1 VPC endpoints. US-WEST-2 pods use US-WEST-2 endpoints. This ensures your security posture is consistent across regions.
+
+Autonoe: Security benefit: Bucket policies and IAM policies can require a VPC endpoint source. S3 bucket policy: Deny all requests except from specific VPC endpoints. An attacker steals credentials, tries to download data from their laptop, and is denied. They must be inside your VPC.
+
+Autonoe: [pause long]
+
+Autonoe: Real security win: Media company, multi-region architecture. Implemented VPC endpoints for all AWS services. An attacker compromised an EC2 instance via a vulnerability. They tried to exfiltrate S3 data. The bucket policy required a VPC endpoint. The attacker was on the compromised instance with an internet route, not a VPC endpoint route. Exfiltration failed. GuardDuty detected the attempt, and the security team isolated the instance within minutes. [pause short] Impact: One compromised instance, not an entire data breach.
+
+Autonoe: Common security anti-patterns that create vulnerabilities.
+
+Autonoe: [pause long]
+
+Autonoe: Anti-pattern one: Disabling encryption for performance. Teams benchmark Aurora, find encryption adds five percent latency, and disable it to hit performance targets. This is an unacceptable security trade-off. Five percent slower is better than unencrypted data at rest. Fix: Optimize query patterns instead of disabling encryption. Or accept slightly slower performance for security.
+
+Autonoe: [pause long]
+
+Autonoe: Anti-pattern two: Shared admin credentials across regions. The same root password for all Aurora clusters. The same AWS root account credentials for all operations. A credential compromise in one region compromises all regions. Fix: Unique credentials per region. Rotate separately. Use IAM roles instead of long-lived credentials.
+
+Autonoe: [pause long]
+
+Autonoe: Anti-pattern three: Overly permissive security groups. Allow inbound `0.0.0.0/0` on all ports for "testing." Never change it. Production runs with all traffic allowed. Fix: Default deny. Explicitly allow only required traffic with source CIDR restrictions.
+
+Autonoe: [pause long]
+
+Autonoe: Anti-pattern four: No network segmentation. All workloads in a single VPC with full mesh connectivity. The database is accessible from every pod. Fix: Multiple VPCs or subnets with different security postures. Database in a private subnet with no internet access. Application tier in a separate subnet.
+
+Autonoe: [pause long]
+
+Autonoe: Anti-pattern five: Ignoring GuardDuty alerts. GuardDuty detects unusual API calls, compromised credentials, and command-and-control communication. Teams see alerts, dismiss them as false positives, and ignore them. A real breach happens that was flagged by GuardDuty days earlier. Fix: GuardDuty alerts trigger...
+
+Autonoe: investigations. Even false positives teach you about normal behavior. [pause short]
+
+Autonoe: Defense in depth: Multiple layers of security controls. Don't rely on a single security control. Assume each control can be bypassed. Layer them so an attacker must defeat multiple controls.
+
+Autonoe: [pause]
+
+Autonoe: Layer one: Network security. VPC isolation, security groups, network ACLs. An attacker must bypass network controls to reach your resources. [pause short]
+
+Autonoe: Layer two: Authentication and authorization. IAM policies, MFA for humans, pod IAM roles for services. An attacker must have valid credentials to call AWS APIs or access data. [pause short]
+
+Autonoe: Layer three: Encryption. TLS in transit, KMS at rest. An attacker must steal encryption keys to read data even if they bypass network and authentication. [pause short]
+
+Autonoe: Layer four: Monitoring and detection. CloudTrail, GuardDuty, VPC Flow Logs. An attacker's actions are logged even if successful. Detection enables response before full compromise. [pause short]
+
+Autonoe: Layer five: Incident response. Runbooks for containment, forensics, recovery. An attacker compromise is detected and contained before spreading to all regions.
+
+Autonoe: Example defense in depth success: Financial services, multi-region Aurora. [pause long] An attacker exploited an application vulnerability, gained access to a pod.
+Autonoe: Network layer: The pod could only access Aurora via a specific security group.
+Autonoe: Authentication layer: The pod IAM role could only read specific tables.
+Autonoe: Encryption layer: Data at rest was encrypted with KMS, so the attacker couldn't decrypt it.
+Autonoe: Monitoring layer: GuardDuty detected unusual database query patterns.
+Autonoe: Response layer: The security team isolated the pod, rotated credentials, and patched the vulnerability within thirty minutes. [pause short]
+Autonoe: The attacker accessed limited data, couldn't exfiltrate, and was contained before lateral movement.
+
+Autonoe: Before we wrap up, pause and answer these questions. [pause short]
+Autonoe: Question one: You're using multi-region KMS keys for Aurora encryption to enable faster DR. What security trade-off are you making? [pause]
+Autonoe: Question two: Your application in US-EAST-1 needs to read an S3 bucket in US-WEST-2. Should the IAM policy allow `s3:GetObject` on `` for convenience? [pause]
+Autonoe: Question three: Why should you deploy VPC endpoints in every region even though they cost money? [pause]
+Autonoe: Take a moment.
+
+Autonoe: Answers. [pause short]
+Autonoe: Question one: You're trading regional isolation for operational simplicity. Multi-region keys have identical key material across regions. [pause long] If an attacker steals a key from any region, they can decrypt data in all regions. Per-region keys provide better isolation - compromising one key doesn't expose other regions' data. The trade-off depends on whether you prioritize RTO speed or defense in depth.
+
+Autonoe: Question two: [pause long] No. Scope the policy to a specific bucket and region: `s3:GetObject` on `arn:aws:s3:::specific-bucket-us-west-2/`. Add a condition `aws:RequestedRegion` equals `us-west-2`. This limits the blast radius if credentials are compromised. [pause short] An attacker gets limited access to one bucket in one region, not all S3 data globally.
+
+Autonoe: Question three: VPC endpoints keep traffic within the AWS network, preventing internet exposure. They enable bucket policies requiring a VPC endpoint source, blocking exfiltration attempts from outside your VPC. They provide a consistent security posture across regions. [pause short] The cost - around one hundred fifty dollars monthly per region for interface endpoints - is insurance against data breaches that cost millions. [pause short]
+
+Autonoe: Let's recap what we covered.
+Autonoe: [pause]
+
+Autonoe: First: Encryption in transit protects data moving between regions. Aurora and DynamoDB use TLS 1.3 automatically. Application traffic needs explicit TLS configuration or a service mesh with mutual TLS. Never assume internal networks are safe. [pause short]
+
+Autonoe: Second: KMS encryption at rest with a choice between per-region keys or multi-region keys. Per-region keys provide better isolation, but slower DR. Multi-region keys enable faster failover, but are a single point of compromise. Choose based on your threat model. [pause short]
+
+Autonoe: Third: Secrets Manager replication distributes application secrets across regions with automatic encryption. Least-privilege IAM policies scope secret access to specific secrets and VPC endpoints. Never grant blanket secret permissions. [pause short]
+
+Autonoe: Fourth: IAM policies for cross-region access must be scoped to specific resources and regions. Resource-based policies add an additional layer requiring a VPC endpoint source. Zero-trust networking means never trust network location. [pause short]
+
+Autonoe: Fifth: VPC endpoints for AWS services keep traffic within the AWS network, enable bucket policies requiring a VPC endpoint source, and prevent exfiltration. Deploy in every region for consistent security. [pause short]
+
+Autonoe: Sixth: Common anti-patterns - disabling encryption for performance, shared credentials, overly permissive security groups, no segmentation, ignoring GuardDuty. All are preventable with a security-first mindset. [pause short]
+
+Autonoe: Seventh: Defense in depth layers multiple controls - network, authentication, encryption, monitoring, and response. An attacker must defeat multiple layers to succeed. This contains breaches and limits damage.
+
+Autonoe: Remember Episode 13's compliance requirements? [pause short] Security implements the controls that compliance mandates. SEC requires immutable audit logs - security implements CloudTrail and S3 Object Lock. MiFID II requires data residency - security implements bucket policies enforcing regional restrictions. [pause short] Compliance defines what. Security defines how.
+
+Autonoe: We'll see anti-patterns in Episode 15 - real failure case studies, what went wrong, how much it cost, and the lessons learned. [pause long] Multi-region architecture mistakes that turned small issues into catastrophic failures. [pause short]
+
+Autonoe: Next time: Anti-Patterns - Learning from production failures. You've learned the correct way to build multi-region across fourteen episodes. [pause short] Now it's time for the cautionary tales. The companies that tried multi-region, made mistakes, and suffered the consequences. [pause long] You'll learn about split-brain scenarios where both regions thought they were primary, causing data corruption. [pause long] Cost disasters where bills exploded to ten times projections. [pause long] Over-engineered solutions that collapsed under operational complexity. [pause long] And the most expensive mistake: Building multi-region without practicing failover, then discovering it doesn't work during real outages. [pause short]
+
+Autonoe: Because learning from others' failures is cheaper than experiencing them yourself.
+
+Autonoe: See you in Episode 15.

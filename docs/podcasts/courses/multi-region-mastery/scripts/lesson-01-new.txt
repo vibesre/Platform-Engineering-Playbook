@@ -1,16 +1,16 @@
 Eighty-nine percent.
 
-That's how many organizations running Kubernetes experienced at least one security incident in the past year. Not development. Not staging. Production.
+That's how many organizations running <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> experienced at least one security incident in the past year. Not development. Not staging. Production.
 
 Your pod works perfectly on your laptop. Five hundred requests per second in staging, no issues. You deploy Friday afternoon. Three hours later—war room. Payment processing is down. Exit code one thirty-seven. OOMKilled. Customers can't check out. You're losing twelve thousand dollars per minute while your VP of Engineering asks one question: Why didn't we catch this?
 
 Here's the answer nobody wants to hear. Your staging tests ran for thirty minutes. Production has been running for six hours under sustained load with a different traffic profile. Longer-lived connections. Slower garbage collection. A memory leak that only shows up after four hours. Your load test never saw it.
 
-This is Kubernetes Production Mastery, Episode 1. By the end of the next twelve minutes, you'll understand why "works on my laptop" might be the most dangerous phrase in platform engineering. You'll know the five failure patterns that kill production systems at three AM. And you'll have a six-item checklist that could've prevented that seven-hundred-twenty-thousand-dollar incident.
+This is <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Production Mastery, Episode 1. By the end of the next twelve minutes, you'll understand why "works on my laptop" might be the most dangerous phrase in platform engineering. You'll know the five failure patterns that kill production systems at three AM. And you'll have a six-item checklist that could've prevented that seven-hundred-twenty-thousand-dollar incident.
 
 This is a ten-episode series for engineers who know Pods and Deployments but want to stop getting paged at ungodly hours.
 
-Let's start with where you are right now. You understand Kubernetes basics. You've deployed workloads. You know what kubectl does. But if you're like most engineers, you learned from tutorials that skip the hard parts. The parts where things break at scale. Where memory leaks hide in production traffic patterns. Where RBAC misconfigurations let attackers pivot across twenty-three clusters.
+Let's start with where you are right now. You understand <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> basics. You've deployed workloads. You know what <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> does. But if you're like most engineers, you learned from tutorials that skip the hard parts. The parts where things break at scale. Where memory leaks hide in production traffic patterns. Where RBAC misconfigurations let attackers pivot across twenty-three clusters.
 
 That's what we're fixing.
 
@@ -18,13 +18,13 @@ By the time we're done today, you'll think like a production engineer who's surv
 
 Now, quick four-minute refresher. Not re-teaching basics—just activating what you know. If you're nodding along, perfect. We're establishing baseline before showing you what breaks when this scales.
 
-Here's the entire Kubernetes mental model in thirty seconds.
+Here's the entire <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> mental model in thirty seconds.
 
-Control loop. That's it. You declare desired state, Kubernetes reconciles actual to match. Declarative, not imperative. Reconciliation, not execution.
+Control loop. That's it. You declare desired state, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> reconciles actual to match. Declarative, not imperative. Reconciliation, not execution.
 
 Think thermostat. You set seventy degrees. Thermostat continuously checks actual temperature. Too cold? Heat kicks on. Too hot? AC runs. Continuous reconciliation to match desired state.
 
-Kubernetes does the exact same thing for your containers. You declare five replicas. Kubernetes sees three running. Starts two more. Pod crashes? Replacement spawns. That's the whole system.
+<phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> does the exact same thing for your containers. You declare five replicas. <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> sees three running. Starts two more. Pod crashes? Replacement spawns. That's the whole system.
 
 Lightning round on core objects.
 
@@ -38,7 +38,7 @@ ConfigMaps and Secrets—configuration and sensitive data. Mounted as volumes or
 
 Namespaces—logical subdivision. Isolation boundary. Resource quota enforcement. You've used default, probably created a few others.
 
-Four kubectl commands handle eighty percent of troubleshooting. kubectl get pods, what's running. kubectl describe pod X, why is it failing. kubectl logs X, what did it say. kubectl apply -f X, deploy it.
+Four <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> commands handle eighty percent of troubleshooting. <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> get pods, what's running. <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> describe pod X, why is it failing. <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> logs X, what did it say. <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> apply -f X, deploy it.
 
 If you're thinking "yes, I know this"—good. That's the point. We're not here to re-teach fundamentals. We're here to show you what these fundamentals don't protect you from.
 
@@ -48,13 +48,13 @@ Production? Different beast.
 
 Let me show you why.
 
-Development Kubernetes is like learning to drive in an empty parking lot. Lots of space. Forgiving. No consequences. Room to experiment.
+Development <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> is like learning to drive in an empty parking lot. Lots of space. Forgiving. No consequences. Room to experiment.
 
-Production Kubernetes? Los Angeles freeway at rush hour in the rain. Semi-trucks. Motorcycles. Cars merging at seventy miles per hour. One mistake—ten-car pileup. Same vehicle, completely different stakes.
+Production <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>? Los Angeles freeway at rush hour in the rain. Semi-trucks. Motorcycles. Cars merging at seventy miles per hour. One mistake—ten-car pileup. Same vehicle, completely different stakes.
 
 Let me give you real numbers from a production environment I managed.
 
-Twenty-three clusters across five AWS regions. Four thousand two hundred pods running at any moment. Two hundred eighty deployments managed by seventeen engineering teams. Monthly AWS bill: forty-seven thousand dollars, just for compute. Normal traffic: three hundred twenty requests per second. Black Friday spike: one thousand eight hundred fifty requests per second.
+Twenty-three clusters across five <say-as interpret-as="characters">AWS</say-as> regions. Four thousand two hundred pods running at any moment. Two hundred eighty deployments managed by seventeen engineering teams. Monthly <say-as interpret-as="characters">AWS</say-as> bill: forty-seven thousand dollars, just for compute. Normal traffic: three hundred twenty requests per second. Black Friday spike: one thousand eight hundred fifty requests per second.
 
 That memory leak you have in dev using an extra hundred megabytes? Scale that to two hundred replicas. That's twenty gigabytes of unexpected memory consumption. At four cents per gigabyte-hour, you're burning seven hundred dollars per month. Multiply by ten mispriced workloads? Seven thousand dollars vanishing into the cloud every month.
 
@@ -64,11 +64,11 @@ Traffic spiked from four hundred to two thousand two hundred requests per second
 
 Pod restarts. Joins the service. Gets hammered with traffic. Climbs to sixteen gigs again. Killed again. CrashLoopBackOff.
 
-Now every request hits the database directly. Database pods spike. They hit their limits. Slow queries cascade. Timeouts spread. API gateway starts returning five-oh-three errors.
+Now every request hits the database directly. Database pods spike. They hit their limits. Slow queries cascade. Timeouts spread. <say-as interpret-as="characters">API</say-as> gateway starts returning five-oh-three errors.
 
 Checkout fails. Revenue stops. Lasted forty-seven minutes. Cost: ninety-four thousand dollars in lost sales.
 
-The fix? Four lines of YAML. Resources, requests, memory two gigs. Limits, memory four gigs.
+The fix? Four lines of <phoneme alphabet="ipa" ph="ˈjæməl">YAML</phoneme>. Resources, requests, memory two gigs. Limits, memory four gigs.
 
 Four lines. Ninety-four thousand dollars.
 
@@ -94,7 +94,7 @@ Your service handles ten test users perfectly. Production with ten thousand real
 
 Concrete example. Image processing service. Dev environment processes ten images, uses five hundred megabytes. Production processes one thousand images concurrently. Memory balloons to thirty-two gigs. Gets killed instantly.
 
-The statistic: sixty-seven percent of Kubernetes users have experienced OOMKilled in production.
+The statistic: sixty-seven percent of <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> users have experienced OOMKilled in production.
 
 We're fixing this completely in Episode 2. Requests versus limits, Quality of Service classes, the five-step debugging workflow.
 
@@ -102,9 +102,9 @@ Pattern two: The RBAC Blindspot.
 
 Everything runs as cluster-admin. Intern's debugging script accidentally deletes production namespace. Forty-seven services offline. Or worse—attacker gets a service account token, escalates privileges, pivots across your entire infrastructure.
 
-Concrete example. Financial services company, twenty twenty-four. Compromised CI/CD pipeline. Attacker used over-privileged service account to deploy crypto miners on three hundred forty nodes. Ran for eleven days before detection. AWS bill: forty-three thousand dollars in unexpected compute charges.
+Concrete example. Financial services company, twenty twenty-four. Compromised <say-as interpret-as="characters">CI</say-as>/<say-as interpret-as="characters">CD</say-as> pipeline. Attacker used over-privileged service account to deploy crypto miners on three hundred forty nodes. Ran for eleven days before detection. <say-as interpret-as="characters">AWS</say-as> bill: forty-three thousand dollars in unexpected compute charges.
 
-The statistic: RBAC misconfiguration is the number one Kubernetes security issue in twenty twenty-five.
+The statistic: RBAC misconfiguration is the number one <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> security issue in twenty twenty-five.
 
 Episode 3 fixes your RBAC. Least privilege roles, service account security, secrets management with Sealed Secrets.
 
@@ -112,7 +112,7 @@ Pattern three: Health Checks That Lie.
 
 Application is deadlocked. Not responding to requests. But Pod status shows Running. Service keeps sending traffic. One hundred percent timeout rate. Users rage-quitting.
 
-Concrete example. API gateway. Database connection pool exhausted. Application hangs on every request. Liveness probe? Just checks if HTTP port is open. Passes every time. Pod never restarts. Incident lasted two hours before someone manually killed it.
+Concrete example. <say-as interpret-as="characters">API</say-as> gateway. Database connection pool exhausted. Application hangs on every request. Liveness probe? Just checks if <say-as interpret-as="characters">HTTP</say-as> port is open. Passes every time. Pod never restarts. Incident lasted two hours before someone manually killed it.
 
 The fix: proper liveness and readiness probes that check actual application health, not just TCP connectivity.
 
@@ -136,7 +136,7 @@ Concrete example. Multi-tenant cluster. No network policies configured. Compromi
 
 The learning: network policies aren't optional. Ingress TLS termination isn't optional. Service mesh trade-offs must be understood before adoption.
 
-Episodes 6 and 7 round out fundamentals. Networking patterns, CNI plugins, Ingress controllers, and building observability with Prometheus, logging aggregation, and alerts that actually wake you up for the right reasons.
+Episodes 6 and 7 round out fundamentals. Networking patterns, CNI plugins, Ingress controllers, and building observability with <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme>, logging aggregation, and alerts that actually wake you up for the right reasons.
 
 See the pattern emerging? Tutorials optimize for "hello world works." Production optimizes for "survives Friday afternoon deployment when everyone's checking out early."
 
@@ -146,7 +146,7 @@ Your production readiness checklist. Six items. Memorize these. They're your gua
 
 One: Resource Limits and Requests Set.
 
-Every container must have both. Requests define minimum needed for scheduling. Limits define maximum allowed to prevent noisy neighbors. Missing these? OOMKilled is in your future. Test it: kubectl get pods -A -o json, pipe to jq, filter for containers where resources.limits is null. Should return nothing.
+Every container must have both. Requests define minimum needed for scheduling. Limits define maximum allowed to prevent noisy neighbors. Missing these? OOMKilled is in your future. Test it: <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> get pods -A -o json, pipe to jq, filter for containers where resources.limits is null. Should return nothing.
 
 Two: Health Checks Configured.
 
@@ -154,7 +154,7 @@ Liveness restarts if the application is dead. Readiness removes from load balanc
 
 Three: RBAC Least Privilege.
 
-No cluster-admin for application workloads. Service account per application. Namespace-scoped roles, not cluster-wide. Missing this? Security incident waiting to happen. Test it: exec into your pod, try kubectl commands. Should be denied.
+No cluster-admin for application workloads. Service account per application. Namespace-scoped roles, not cluster-wide. Missing this? Security incident waiting to happen. Test it: exec into your pod, try <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> commands. Should be denied.
 
 Four: Multi-Replica Deployments.
 
@@ -162,11 +162,11 @@ Minimum two to three replicas for availability. Pod Disruption Budgets to preven
 
 Five: Observability Instrumented.
 
-Prometheus metrics exposed. Logs aggregated to ELK, Loki, wherever. Alerts configured on golden signals: latency, errors, traffic, saturation. Missing this? Debugging nightmare. Production is down and you have no data. Test it: can you answer "why is this slow" in under two minutes?
+<phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme> metrics exposed. Logs aggregated to ELK, Loki, wherever. Alerts configured on golden signals: latency, errors, traffic, saturation. Missing this? Debugging nightmare. Production is down and you have no data. Test it: can you answer "why is this slow" in under two minutes?
 
 Six: Security Baseline Applied.
 
-Non-root containers. Image vulnerability scanning in CI/CD. Network policies configured. Missing this? Compliance audit failures. Regulatory fines. Test it: can you pass a basic security audit?
+Non-root containers. Image vulnerability scanning in <say-as interpret-as="characters">CI</say-as>/<say-as interpret-as="characters">CD</say-as>. Network policies configured. Missing this? Compliance audit failures. Regulatory fines. Test it: can you pass a basic security audit?
 
 For every workload, ask one question: does this pass all six checks?
 
@@ -190,7 +190,7 @@ The fix: load test at three times expected peak. Run chaos engineering experimen
 
 Mistake two: Copy-paste from GitHub without understanding.
 
-Why it fails: that example was optimized for tutorial, not production. Concrete example: copied Deployment manifest from official Kubernetes docs. Worked great. But the example didn't include resource limits—because it's a teaching example. Production result: OOMKilled within six hours.
+Why it fails: that example was optimized for tutorial, not production. Concrete example: copied Deployment manifest from official <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> docs. Worked great. But the example didn't include resource limits—because it's a teaching example. Production result: OOMKilled within six hours.
 
 The fix: understand every single line in your manifests. If you can't explain why something is there, you don't know enough to run it in production.
 
@@ -222,7 +222,7 @@ Ready to stop being the engineer who gets paged at three AM? Keep listening.
 
 Next up: Episode 2, Resource Management: Preventing OOMKilled.
 
-You'll learn how requests and limits actually work under the hood and why you need both. The exact kubectl commands and Prometheus queries to debug OOMKilled from first symptom to root cause. Load testing strategies to right-size resources before they hit production.
+You'll learn how requests and limits actually work under the hood and why you need both. The exact <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> commands and <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme> queries to debug OOMKilled from first symptom to root cause. Load testing strategies to right-size resources before they hit production.
 
 We're taking failure pattern number one and giving you a complete prevention playbook. After Episode 2, you'll never look at exit code one thirty-seven the same way again.
 

@@ -82,7 +82,7 @@ When writing or editing podcast scripts, always wrap these terms with the specif
 
 | Term | Pronunciation | SSML Tag | Notes |
 |------|--------------|----------|-------|
-| Kubernetes | /ˌkuːbərˈnɛtiːz/ | `<phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>` | "coo-ber-NET-ees" (Source: Kubernetes.io) |
+| Kubernetes | /ˌkuːbərˈnɛtɪs/ | `<phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme>` | "coo-ber-NET-iss" (Source: Kubernetes.io) |
 | K8s | "Kubernetes" | `K8s` | Pronounce as full "Kubernetes", NOT "K eights" |
 | kubectl | /ˈkuːbkənˌtroʊl/ | `<phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme>` | "coob-control" (NOT "coob-cuttle") |
 | etcd | /ɛt siː diː/ | `<phoneme alphabet="ipa" ph="ɛt si di">etcd</phoneme>` | "et see dee" (NOT "etsy-D") |
@@ -211,6 +211,18 @@ When writing or editing podcast scripts, always wrap these terms with the specif
 |------|--------------|----------|-------|
 | Linux | /ˈlɪnəks/ | `<phoneme alphabet="ipa" ph="ˈlɪnəks">Linux</phoneme>` | "LIN-uks" NOT "LIE-nux" |
 | Unix | /ˈjuːnɪks/ | `<phoneme alphabet="ipa" ph="ˈjunɪks">Unix</phoneme>` | "YOU-nix" |
+
+### Linux Signals
+
+| Term | Pronunciation | SSML Tag | Notes |
+|------|--------------|----------|-------|
+| SIGKILL | "sig-kill" | `<phoneme alphabet="ipa" ph="sɪɡ kɪl">SIGKILL</phoneme>` | "sig-kill" NOT "S-I-G-K-I-L-L" |
+| SIGTERM | "sig-term" | `<phoneme alphabet="ipa" ph="sɪɡ tɝm">SIGTERM</phoneme>` | "sig-term" NOT "S-I-G-T-E-R-M" |
+| SIGINT | "sig-int" | `<phoneme alphabet="ipa" ph="sɪɡ ɪnt">SIGINT</phoneme>` | "sig-int" (keyboard interrupt) |
+| SIGHUP | "sig-hup" | `<phoneme alphabet="ipa" ph="sɪɡ hʌp">SIGHUP</phoneme>` | "sig-hup" (hangup) |
+| SIGQUIT | "sig-quit" | `<phoneme alphabet="ipa" ph="sɪɡ kwɪt">SIGQUIT</phoneme>` | "sig-quit" |
+| SIGSTOP | "sig-stop" | `<phoneme alphabet="ipa" ph="sɪɡ stɑp">SIGSTOP</phoneme>` | "sig-stop" |
+| SIGCONT | "sig-cont" | `<phoneme alphabet="ipa" ph="sɪɡ kɑnt">SIGCONT</phoneme>` | "sig-cont" (continue) |
 
 ## Usage Examples
 

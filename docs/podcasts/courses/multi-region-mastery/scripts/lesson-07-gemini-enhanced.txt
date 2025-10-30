@@ -1,0 +1,129 @@
+Autonoe: Think back to the architectures we've built. You've got Aurora replicating data across regions. DynamoDB Global Tables handling active-active writes. <say-as interpret-as="characters">EKS</say-as> clusters running workloads. Network layer connecting everything. All of this is distributed. All of this can fail.
+
+Autonoe: [pause long]
+
+Autonoe: Two AM. You get paged. Users reporting errors. Revenue dropping. Every minute costs fifty thousand dollars. [pause short] Which region is failing? Which service? Is it Aurora lag? DynamoDB throttling? <say-as interpret-as="characters">EKS</say-as> pod crashes? Network issues? You have ten minutes to figure it out before the incident escalates to executive leadership. Where do you even start? [pause]
+
+Autonoe: Today you're learning how to build observability that actually helps during incidents. Not dashboards that look pretty in demos. Not logging that costs fifteen thousand per month and tells you nothing. Observability that gets you from "something's broken" to "here's the fix" in under five minutes.
+
+Autonoe: By the end of this lesson, you'll know how to design centralized logging that aggregates from multiple regions without drowning you in noise. [pause short] How to implement distributed tracing with X-Ray to follow requests across regions and services. [pause short] How to build cross-region dashboards and alerts that wake you up for the right reasons. [pause short] And the observability anti-patterns that cost teams hours during incidents.
+
+Autonoe: Let's start with the problem nobody wants to talk about.
+
+Autonoe: [pause long]
+
+Autonoe: You've built multi-region. Production is running in US-EAST-1 and US-WEST-2. Aurora, DynamoDB, <say-as interpret-as="characters">EKS</say-as>, the whole stack. Users start reporting five-hundred errors. Checkout is failing. You pull up CloudWatch in US-EAST-1. Scroll through logs. Nothing obvious. Check US-WEST-2 logs. Also nothing obvious. Check <say-as interpret-as="characters">EKS</say-as> pod logs. Hundreds of pods across two regions. Which one has the error? Ten minutes have passed. You still don't know which service is failing. [pause long] Revenue loss: five hundred thousand dollars and climbing.
+
+Autonoe: This is the multi-region observability problem. Your logs are scattered. Your metrics are per-region. Your traces don't cross regional boundaries. You've built a distributed system but you're trying to observe it with single-region tools.
+
+Autonoe: Here's the reality. The median time to identify which service caused a multi-region outage is forty-five minutes. [pause short] Not resolve. Just identify. For a hot-warm architecture handling a million dollars per hour, forty-five minutes is seven hundred fifty thousand dollars in lost revenue. [pause short] Centralized observability cuts that to five minutes. That's a seven hundred thousand dollar difference.
+
+Autonoe: Let's talk about how to build it.
+
+Autonoe: [pause]
+
+Autonoe: First: Centralized logging. You need all logs in one place, queryable in real-time, without costing more than your compute infrastructure. CloudWatch Logs is the starting point. Each region has CloudWatch Logs. Your <say-as interpret-as="characters">EKS</say-as> pods ship logs there. Aurora ships query logs there. Application logs go there. But you've got separate log groups per region. Querying requires opening multiple CloudWatch consoles. Correlation is manual.
+
+Autonoe: CloudWatch Logs Insights gives you cross-region queries. You write one query, it runs across all regions, aggregates results. This is your first layer. Here's a real query pattern. User reports checkout failing. You search for their user ID across all regions, all services, last five minutes. CloudWatch Logs Insights pulls matching log lines from US-EAST-1 <say-as interpret-as="characters">EKS</say-as>, US-WEST-2 <say-as interpret-as="characters">EKS</say-as>, Aurora in both regions, DynamoDB in both regions. Shows you the exact error. Two minutes to root cause instead of forty-five.
+
+Autonoe: But CloudWatch Logs gets expensive fast. Five hundred gigabytes per day ingestion costs thirty dollars per day. [pause short] That's nine hundred dollars per month. Three regions, fifteen hundred gigabytes per day total, twenty-seven hundred dollars per month just for ingestion. Add retention and queries, you're at four thousand monthly.
+
+Autonoe: Cost control strategy: Don't log everything. Log what matters. Application errors, database slow queries, authentication failures, <say-as interpret-as="characters">API</say-as> four-hundreds and five-hundreds. Don't log successful health checks. Don't log debug-level noise. Don't log every single request. Sample.
+
+Autonoe: For long-term storage and analysis, ship logs to S3. CloudWatch Logs to S3 export costs one cent per gigabyte. [pause short] Five hundred gigabytes per day equals fifteen dollars per month. S3 storage is two cents per gigabyte per month. Fifteen terabytes equals three hundred dollars monthly for storage. You've cut costs from four thousand to three hundred for long-term retention.
+
+Autonoe: Query S3 logs with Athena. Write <phoneme alphabet="ipa" ph="ˌɛskjuː ˈɛl">SQL</phoneme> queries against log files. Costs five dollars per terabyte scanned. For incident analysis, you're typically querying one day of logs, maybe fifteen gigabytes. Seven cents per query. [pause short] Cheap.
+
+Autonoe: Log structure matters. Use <phoneme alphabet="ipa" ph="ˈdʒeɪsən">JSON</phoneme>. Include trace ID, user ID, region, service name, timestamp, log level, message in every log line. This lets you correlate across services. Example log line: Timestamp, level error, service checkout-api, region US-EAST-1, trace ID abc123, user ID user456, message "DynamoDB throttling exception on orders table". With that structure, you can query: Show me all errors for trace ID abc123. You get the full request path across all services, all regions. Root cause in thirty seconds.
+
+Autonoe: Now let's talk about distributed tracing, because logs only tell you what happened in individual services. Tracing shows you the flow.
+
+Autonoe: <say-as interpret-as="characters">AWS</say-as> X-Ray gives you distributed tracing across regions. Here's how it works. Every request gets a unique trace ID. When your frontend makes an <say-as interpret-as="characters">API</say-as> call, it passes the trace ID in headers. The <say-as interpret-as="characters">API</say-as> service includes that trace ID in logs and sends trace data to X-Ray. <say-as interpret-as="characters">API</say-as> calls Aurora, passes trace ID. Aurora query logs include trace ID. <say-as interpret-as="characters">API</say-as> calls another service in US-WEST-2, passes trace ID across regions.
+
+Autonoe: X-Ray builds a service map showing the full request flow. Frontend to <say-as interpret-as="characters">API</say-as> in US-EAST-1, twenty milliseconds. <say-as interpret-as="characters">API</say-as> to Aurora in US-EAST-1, eighty milliseconds. <say-as interpret-as="characters">API</say-as> to another service in US-WEST-2, one hundred fifty milliseconds cross-region. That service to DynamoDB in US-WEST-2, thirty milliseconds. Total request time: two hundred eighty milliseconds. You can see exactly where time was spent. You can see where failures occurred.
+
+Autonoe: Real production example. E-commerce checkout failing for some users. Trace ID shows: Frontend calls checkout-api, success. Checkout-api calls inventory-service, success. Inventory-service calls DynamoDB in US-WEST-2... [pause long] timeout after five seconds. That's your failure. Without tracing, you'd check frontend logs, nothing. Check checkout-api logs, nothing obvious. Eventually dig into inventory-service logs, maybe find DynamoDB timeouts if you knew to look there. Thirty minutes of troubleshooting. With tracing, you pull up X-Ray service map, filter by error traces, see DynamoDB timeout immediately. Two minutes to root cause.
+
+Autonoe: X-Ray costs per trace. One million traces per month costs five dollars. [pause short] Ten million traces, fifty dollars. [pause short] For most applications, this is negligible compared to the incident cost savings.
+
+Autonoe: But you need to instrument your code. <say-as interpret-as="characters">AWS</say-as> SDKs have X-Ray support built-in. Python, Node, Java, Go. You add the X-Ray SDK, wrap your <say-as interpret-as="characters">HTTP</say-as> client, traces get sent automatically. For <say-as interpret-as="characters">EKS</say-as>, you run X-Ray daemon as a DaemonSet. Pods send traces to the daemon, daemon forwards to X-Ray service.
+
+Autonoe: Cross-region tracing works automatically. Trace IDs propagate across regional boundaries. Your service in US-EAST-1 calls a service in US-WEST-2, the trace shows both regions in the same flow. This is critical for hot-warm architectures where requests might failover mid-flight.
+
+Autonoe: Now dashboards and alerting, because this is where most teams fail.
+
+Autonoe: [pause long]
+
+Autonoe: Don't build per-region dashboards. You'll have US-EAST-1 dashboard, US-WEST-2 dashboard, EU-WEST-1 dashboard. During an outage, you're flipping between three dashboards trying to figure out which region is broken. Cognitive overload.
+
+Autonoe: Build unified dashboards. One dashboard showing all regions. Aurora replication lag: US-EAST-1 to US-WEST-2 showing forty-five milliseconds. US-EAST-1 to EU-WEST-1 showing one hundred twenty milliseconds. All on one graph. When lag spikes, you see which region immediately. <say-as interpret-as="characters">EKS</say-as> pod health: Total pods across all regions, pods running, pods failing. If US-WEST-2 has fifty failed pods and other regions are green, that's your problem. Application error rate: Requests per second and error rate per region. When US-EAST-1 error rate jumps to thirty percent, you know immediately.
+
+Autonoe: What not to show: Don't show individual pod <say-as interpret-as="characters">CPU</say-as> metrics. Not useful during incidents. Don't show every single metric. Focus on signals that indicate failures: error rates, latency ninety-nine percentile, replication lag, failed requests.
+
+Autonoe: Alerting strategy: Alert on impact, not symptoms. Don't alert on pod restart. Pods restart all the time. Alert on sustained high error rate across many pods. Don't alert on single slow query. Alert on overall database latency ninety-nine percentile above threshold.
+
+Autonoe: Example alert: Aurora replication lag above ten seconds for five minutes. That indicates a real problem, not a transient spike. The alert includes a runbook: Check Aurora CloudWatch metrics for <say-as interpret-as="characters">CPU</say-as> and IO. Check network connectivity between regions. Check if there's a large transaction blocking replication. Here's the command to manually promote secondary if needed.
+
+Autonoe: Alerts without runbooks are noise. You get woken up, you don't know what to do, you spend twenty minutes Googling. Write runbooks first, then write alerts.
+
+Autonoe: [pause]
+
+Autonoe: Common observability mistakes that cost teams during incidents.
+
+Autonoe: Mistake one: Logging everything. Teams enable debug logging in production, ship everything to CloudWatch. Five hundred gigabytes per day becomes two terabytes per day. Costs explode from nine hundred to thirty-six hundred dollars monthly. [pause short] And you still can't find relevant errors because they're buried in debug noise. Fix: Log at appropriate levels. Error and warn in production. Info for important transactions. Debug only during active troubleshooting.
+
+Autonoe: Mistake two: Per-region dashboards with no unified view. During hot-warm failover, you need to see both regions simultaneously. Are requests actually moving to secondary? Is Aurora lag increasing? Per-region dashboards force you to context switch. Fix: Build unified dashboards showing all regions on the same graphs.
+
+Autonoe: Mistake three: Alerts without actions. Alert fires, says "DynamoDB throttling in US-WEST-2". Okay, what do I do? Increase provisioned capacity? Switch to on-demand? Is this expected traffic or an attack? No runbook means thirty minutes figuring out next steps. Fix: Every alert includes runbook with specific remediation actions.
+
+Autonoe: Mistake four: No sampling strategy. Teams try to trace every single request. Ten thousand requests per second equals ten million traces per hour. That's fifty dollars per hour just for tracing, twelve hundred daily, thirty-six thousand monthly. [pause long] Fix: Sample. Trace all errors. Trace one percent of successful requests. You'll catch issues without the cost explosion.
+
+Autonoe: Before we wrap up, pause and answer these questions.
+
+Autonoe: Question one: Your application generates five hundred gigabytes of logs per day. You need to query last seven days during incidents. Should you keep everything in CloudWatch Logs or export to S3? [pause]
+
+Autonoe: Question two: A user reports checkout failing. What's the fastest way to find the root cause across multiple regions and services? [pause]
+
+Autonoe: Question three: You're getting paged for pod restarts in US-EAST-1. Should this be an alert? [pause]
+
+Autonoe: Take a moment.
+
+Autonoe: [pause short]
+
+Autonoe: Answers.
+
+Autonoe: Question one: Export to S3 after twenty-four hours. Keep last day in CloudWatch Logs for real-time queries during active incidents. Older logs in S3 with Athena queries. CloudWatch cost for seven days of five hundred gigabytes daily: over two thousand dollars monthly. S3 plus Athena: under four hundred monthly. You save sixteen hundred dollars monthly. [pause short]
+
+Autonoe: Question two: Distributed tracing with X-Ray. Search for the user's trace ID. See the full request path across all regions and services. Identify exactly where the failure occurred. Two minutes to root cause versus thirty minutes checking logs region by region.
+
+Autonoe: Question three: No. Pods restart all the time. Deployments, node maintenance, resource limits, transient failures. Alerting on individual pod restarts creates noise. Alert on sustained high pod failure rate affecting user experience. Focus on impact, not symptoms.
+
+Autonoe: Let's recap what we covered.
+
+Autonoe: [pause]
+
+Autonoe: First: Centralized logging with CloudWatch Logs Insights aggregates logs from all regions. Cost control requires sampling - log what matters, skip noise. S3 export for long-term storage cuts costs by eighty percent. [pause short]
+
+Autonoe: Second: Distributed tracing with X-Ray shows request flow across regions and services. Trace IDs propagate automatically. Service maps visualize the entire path. Critical for troubleshooting multi-region architectures. [pause short]
+
+Autonoe: Third: Unified dashboards show all regions on the same view. Alert on impact, not symptoms. Every alert needs a runbook with specific remediation steps. [pause short]
+
+Autonoe: Fourth: Common mistakes - logging everything, per-region dashboards, alerts without runbooks, no sampling. All cost time and money during incidents. [pause short]
+
+Autonoe: Fifth: The goal is five minutes from alert to root cause. Centralized observability makes this possible. Without it, you're averaging forty-five minutes. [pause long] That's seven hundred thousand dollars difference for high-revenue applications.
+
+Autonoe: Remember Episodes 3
+
+Autonoe: through 6? [pause] You built the data layer, the compute layer, the network layer. [pause short] Observability is how you see what's actually happening in production.
+
+Autonoe: When Aurora lag spikes in Episode 3's architecture, you need metrics showing it. When DynamoDB conflicts from Episode 6 happen, you need logs capturing them. When network issues from Episode 5 cause timeouts, you need traces showing where. [pause short]
+
+Autonoe: We'll revisit observability in Episode 12 when we cover disaster recovery and failover procedures. You'll use these dashboards and alerts during an actual failover. And in Episode 15, Anti-Patterns, we'll see what happens when teams skip observability... [pause long] the blind failovers, the extended outages, the lessons learned the hard way.
+
+Autonoe: Next time: <say-as interpret-as="characters">DNS</say-as> and Traffic Management with Route53 and Global Accelerator. You've got observability showing what's happening. But how do you actually route traffic between regions? [pause] How does Route53 health checking work? [pause] What's Global Accelerator and when do you use it versus plain <say-as interpret-as="characters">DNS</say-as>? [pause]
+
+Autonoe: You'll learn Route53 health check configuration that detects failures in under sixty seconds. [pause short] How failover routing policies actually work in practice. When to use weighted routing versus latency-based routing. Global Accelerator for sub-second failover with anycast IPs. [pause short] And the <say-as interpret-as="characters">DNS</say-as> gotchas that caused outages... [pause long] TTL caching, health check false positives, the works.
+
+Autonoe: Because having two regions means nothing if you can't route traffic to the healthy one. [pause short] <say-as interpret-as="characters">DNS</say-as> is your control plane for multi-region architectures. Get it wrong... [pause long] and your hot-warm becomes no-warm during failures.
+
+Autonoe: See you in Episode 8.

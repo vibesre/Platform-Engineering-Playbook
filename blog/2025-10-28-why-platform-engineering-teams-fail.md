@@ -198,6 +198,8 @@ Platform teams get disbanded when they can't justify budget during economic down
 
 **Success Metric**: Pre-platform baseline exists (Y/N), Can prove ROI with numbers
 
+> 📊 **Need help calculating ROI?** Check out the [Platform Engineering ROI Calculator](/blog/2025/10/28/platform-engineering-roi-calculator) with proven frameworks, templates, and real data from 5 company sizes to prove value to executives.
+
 ---
 
 ### 3. Forced Adoption ("Build It and They Will Come")

@@ -1,0 +1,215 @@
+Autonoe: Eighty-nine percent. That's how many organizations running <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> experienced at least one security incident in the past year. Not development environments. Not test clusters. Production.
+
+Autonoe: Here's what that looks like. Three AM, Tuesday morning. Your pager goes off. The payment processing service is down. Five hundred requests per second timing out. Customers can't check out. You're losing twelve thousand dollars per minute.
+
+Autonoe: You <say-as interpret-as="characters">SSH</say-as> into the cluster. Pods are in CrashLoopBackOff. Memory usage spiked from two gigabytes to sixteen gigabytes. The OOMKiller started executing containers.
+
+Autonoe: Now you're in a war room with the VP of Engineering asking one question: why didn't we catch this before production?
+
+Autonoe: The answer? Your staging cluster passed load testing with twenty thousand requests per minute. But production traffic has a different profile. Longer-lived connections. Slower garbage collection cycles. A memory leak that only manifests after six hours of sustained load. Staging tests ran for thirty minutes.
+
+Autonoe: This is Lesson 1 of <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Production Mastery: Production Mindset - From Dev to Production.
+
+Autonoe: By the end of this twelve-minute lesson, you'll understand why "works on my laptop" is the most dangerous phrase in platform engineering, the five failure patterns that kill five-hundred-request-per-second services at three AM, and a six-item production readiness checklist that could've prevented that seven-hundred-twenty-thousand-dollar midnight incident.
+
+Autonoe: This is episode one of a ten-part series for engineers who know Pods and Deployments but want to stop getting paged at three AM.
+
+Autonoe: Let's go.
+
+Autonoe: This lesson will prepare you to think like a production engineer who's survived three midnight outages, recognize the five critical failure patterns before they page you, and use a battle-tested checklist to audit any workload for production readiness.
+
+Autonoe: Now, quick four-minute refresher. Not re-teaching—just activating what you know. If you're nodding along, perfect. We're establishing baseline before showing you what breaks at scale.
+
+Autonoe: <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> is a control loop. Declarative, not imperative. You declare desired state, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> continuously reconciles actual state to match. That's it.
+
+Autonoe: Think thermostat. You set seventy degrees. Thermostat checks current temp. Too cold? Heat. Too hot? Cool. Continuous reconciliation loop.
+
+Autonoe: <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>? Same thing. You declare: I want five replicas. <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> checks: I see three. Action: Start two more. Pod crashes? Start replacement. That's the entire mental model.
+
+Autonoe: Core objects - lightning round.
+
+Autonoe: Pods. Smallest unit. One or more containers. Shared network namespace, shared storage volumes. Ephemeral—they die, replacements spawn. You know this.
+
+Autonoe: Deployments. Manage ReplicaSets. Handle updates. You want five replicas? Deployment maintains five. One crashes at two AM? New one starts before you wake up.
+
+Autonoe: Services. Stable network endpoint. Three types: ClusterIP, internal, default. NodePort, exposes on node. LoadBalancer, cloud LB. Services route to healthy pods only. You've configured these.
+
+Autonoe: ConfigMaps and Secrets. Config data and sensitive data. Mounted as volumes or env vars. You've used both.
+
+Autonoe: The <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> essentials. Four commands own eighty percent of troubleshooting.
+
+Autonoe: <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> get pods. Status?
+
+Autonoe: <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> describe pod X. Why failing?
+
+Autonoe: <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> logs X. What happened?
+
+Autonoe: <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> apply -f X. Deploy.
+
+Autonoe: If you're nodding—good. Now let me show you what these commands won't save you from.
+
+Autonoe: Ready for the truth? Everything you just reviewed works perfectly in development. Production? Different beast entirely.
+
+Autonoe: Here's why.
+
+Autonoe: Dev <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>: empty parking lot. Learning to drive. Forgiving. Room for error.
+
+Autonoe: Production <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme>: Los Angeles freeway. Rush hour. Rain. Semi-trucks. Motorcycles. Cars merging at seventy miles per hour. One mistake—pileup. Same vehicle, different stakes.
+
+Autonoe: Let's get specific. Here's my previous production environment. Twenty-three clusters across five <say-as interpret-as="characters">AWS</say-as> regions. Four thousand two hundred pods running at any moment. Two hundred eighty deployments managed by seventeen engineering teams. Forty-seven thousand dollars monthly <say-as interpret-as="characters">AWS</say-as> bill just for compute. Three hundred twenty requests per second during normal traffic. One thousand eight hundred fifty requests per second during Black Friday spike.
+
+Autonoe: Now, that memory leak in your dev pod using one hundred megabytes extra? In production with two hundred replicas? That's twenty gigabytes of unexpected memory consumption. At four cents per gigabyte-hour? Seven hundred dollars per month waste. Multiply that by ten mispriced workloads? Seven thousand dollars per month vanishing into the cloud.
+
+Autonoe: Real scenario from twenty twenty-three. E-commerce company. Black Friday. Traffic spiked from four hundred to two thousand two hundred requests per second.
+
+Autonoe: Their caching layer—no resource limits configured. Memory usage climbed: two gigabytes, four gigabytes, eight gigabytes, sixteen gigabytes. Then: OOMKilled. Exit code one thirty-seven.
+
+Autonoe: Pod restarts. Joins service. Gets hammered by traffic. Climbs to sixteen gigabytes again. Killed again. CrashLoopBackOff.
+
+Autonoe: Now the database gets every request directly. Database pods spike. They hit their limits. Slow queries. Timeouts cascade. <say-as interpret-as="characters">API</say-as> gateway returns five-oh-three errors.
+
+Autonoe: Customers see checkout failures. Revenue stops. Lasted forty-seven minutes. Cost: ninety-four thousand dollars in lost sales.
+
+Autonoe: Fix? Adding four lines to their <phoneme alphabet="ipa" ph="ˈjæməl">YAML</phoneme>. Resources, requests, memory: two gigabytes. Limits, memory: four gigabytes.
+
+Autonoe: Four lines. Ninety-four thousand dollars.
+
+Autonoe: When I review any cluster config, I'm asking five questions.
+
+Autonoe: First: What happens when—not if—this fails? Failure is the default.
+
+Autonoe: Second: Can this survive a node dying? An availability zone going offline?
+
+Autonoe: Third: What's the blast radius if compromised? One namespace? Whole cluster?
+
+Autonoe: Fourth: Will this bankrupt us when traffic doubles?
+
+Autonoe: Fifth: Can the on-call engineer debug this at two AM with brain fog and limited context?
+
+Autonoe: That's production thinking. Always worst-case planning.
+
+Autonoe: Now—the five patterns that kill production clusters. Quick preview now, deep dives coming in Episodes two through seven.
+
+Autonoe: Pattern one: The OOMKilled Surprise.
+
+Autonoe: Your service runs fine with ten test users. Production with ten thousand real users? Exit code one thirty-seven. OOMKilled. CrashLoopBackOff. Service degraded.
+
+Autonoe: Concrete example: image processing service. Dev: processes ten images, uses five hundred megabytes. Production: processes one thousand images concurrently, balloons to thirty-two gigabytes, gets killed.
+
+Autonoe: The stat: sixty-seven percent of <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> users have experienced OOMKilled issues in production.
+
+Autonoe: In the next episode, we'll dive deep into preventing this entirely—requests versus limits, Quality of Service classes, and the five-step debugging workflow.
+
+Autonoe: Pattern two: The RBAC Blindspot.
+
+Autonoe: Everything runs as cluster-admin. Intern's debugging script accidentally deletes production namespace. Forty-seven services offline. Or—worse—attacker gets service account token, escalates privileges, pivots to twenty-three clusters.
+
+Autonoe: Concrete example: financial services company, twenty twenty-four. Compromised <say-as interpret-as="characters">CI</say-as>/<say-as interpret-as="characters">CD</say-as> pipeline. Attacker used over-privileged service account to deploy crypto miner to three hundred forty nodes. Ran for eleven days. <say-as interpret-as="characters">AWS</say-as> bill: forty-three thousand dollars in unexpected compute.
+
+Autonoe: The stat: RBAC misconfiguration is the number one <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> security issue.
+
+Autonoe: Then in Episode 3, we'll fix your RBAC—least privilege roles, service account security, and secrets management with Sealed Secrets.
+
+Autonoe: Pattern three: Health Checks That Lie.
+
+Autonoe: Application deadlocked. Not responding. But Pod status: Running. Service keeps sending traffic. One hundred percent timeout rate. Users rage-quitting.
+
+Autonoe: Concrete example: <say-as interpret-as="characters">API</say-as> gateway. Database connection pool exhausted. App hangs on every request. Liveness probe? Just checks <say-as interpret-as="characters">HTTP</say-as> port open—passes. Pod never restarts. Incident lasted two hours before manual intervention.
+
+Autonoe: The fix: proper liveness and readiness probes. Check actual application health, not just TCP port.
+
+Autonoe: Episode 4 gives you the complete troubleshooting playbook—CrashLoopBackOff, ImagePullBackOff, exit codes, and how to configure health checks that actually work.
+
+Autonoe: Pattern four: Storage Nightmares.
+
+Autonoe: Database pod restarts. All data: gone. Or: PVC stuck Pending, pod can't start, queue backs up, system grinding to halt.
+
+Autonoe: Concrete example: MongoDB StatefulSet. Engineer misunderstood persistence. Used emptyDir volume—ephemeral. Node rebooted. Fourteen gigabytes of customer data vanished. No backups.
+
+Autonoe: Reality check: stateful workloads need StatefulSets, PVCs, proper storage classes, backup strategies.
+
+Autonoe: We'll tackle this in Episode 5—StatefulSets versus Deployments, persistent volume claims, storage classes, and backup strategies with Velero.
+
+Autonoe: Pattern five: Networking Black Holes.
+
+Autonoe: Pods can't reach services. Or they can, but shouldn't—no network policies, flat network, blast radius infinite. Service mesh adds two hundred milliseconds latency nobody expected.
+
+Autonoe: Concrete example: multi-tenant cluster. No network policies. Compromised tenant A pod scanned cluster, accessed tenant B database, exfiltrated PII. Compliance nightmare.
+
+Autonoe: The learning: network policies aren't optional. Ingress TLS isn't optional. Service mesh trade-offs must be understood.
+
+Autonoe: Episodes 6 and 7 round out the fundamentals—networking, CNI plugins, Ingress controllers, and building your observability stack with <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme>, logging, and actionable alerts.
+
+Autonoe: See the pattern? Tutorials optimize for hello-world works. Production optimizes for survives Friday afternoon deployment.
+
+Autonoe: Which matters more in your career—making a demo work, or keeping production stable when your CTO is watching revenue dashboards?
+
+Autonoe: Your production readiness checklist. Six items. Memorize these. They're your guardrails between deployed and production-ready.
+
+Autonoe: One. Resource Limits and Requests Set. Every container must have both. Requests: minimum needed for scheduling. Limits: maximum allowed to prevent runaway. Test: <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> get pods -A -o json, pipe to jq, select items where spec containers resources limits equals null, should return nothing.
+
+Autonoe: Two. Health Checks Configured. Liveness: restart if dead. Readiness: remove from service if not ready. Test: both should fail intentionally during load testing.
+
+Autonoe: Three. RBAC Least Privilege. No cluster-admin for workloads. Service account per app. Namespace-scoped roles. Test: try <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> from inside pod—should be denied.
+
+Autonoe: Four. Multi-Replica Deployments. Minimum two to three replicas for availability. Pod Disruption Budgets prevent total outage during maintenance. Test: kill one replica—service should stay up.
+
+Autonoe: Five. Observability Instrumented. <phoneme alphabet="ipa" ph="prəˈmiθiəs">Prometheus</phoneme> metrics exposed. Logs aggregated, ELK, Loki, et cetera. Alerts on golden signals: latency, errors, saturation. Test: can you answer why is this slow in under two minutes?
+
+Autonoe: Six. Security Baseline Applied. Non-root containers. Image vulnerability scanning. Network policies configured. Test: can pass basic compliance audit.
+
+Autonoe: For every workload: does it pass all six? No? Not production-ready. Period.
+
+Autonoe: This isn't gatekeeping—it's survival. These six items prevent the three AM pages.
+
+Autonoe: Real story. New team joined our platform. Deployed their service. I ran the checklist. Failed items: one, two, three, five. No limits, no health checks, cluster-admin service account, no metrics.
+
+Autonoe: We caught it before production traffic. Fixed in two hours. Two weeks later, similar service at another company without this checklist? Front page of Hacker News for leaking forty thousand customer records via RBAC misconfiguration.
+
+Autonoe: Checklist. Use it.
+
+Autonoe: Common pitfalls. Mistake one: works in dev equals production ready.
+
+Autonoe: Why it fails: dev has ten users, production has ten thousand.
+
+Autonoe: Concrete example: chat app. Dev: five messages per second. Production: five hundred messages per second. Database connections exhausted. Service offline.
+
+Autonoe: Fix: load test at three times expected peak. Chaos engineering. Assume everything breaks.
+
+Autonoe: Mistake two: copy-paste from GitHub without understanding.
+
+Autonoe: Why it fails: that example was optimized for tutorial, not production.
+
+Autonoe: Concrete example: copied Deployment from official <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> docs. Worked great. No resource limits—not in example. Production: OOMKilled within six hours.
+
+Autonoe: Fix: understand every line. If you can't explain why it's there, you don't know enough to use it.
+
+Autonoe: Before we wrap up, let's test your understanding. Pause the audio. Test yourself—no looking back.
+
+Autonoe: One. Name all five production failure patterns.
+
+Autonoe: Two. List three items from the production readiness checklist.
+
+Autonoe: Three. What's the core difference between dev and production thinking?
+
+Autonoe: Answers. One: OOMKilled surprises, RBAC blindspots, health checks that lie, storage nightmares, networking black holes.
+
+Autonoe: Two: any three - resource limits and requests, health checks, RBAC least privilege, multi-replica, observability, security baseline.
+
+Autonoe: Three: dev optimizes for iteration speed. Production optimizes for reliability, security, and cost—even when they conflict with speed.
+
+Autonoe: Let's recap with concrete stakes. Eighty-nine percent of organizations hit production incidents—this is the norm, not the exception. Twenty-three clusters, four thousand two hundred pods, forty-seven thousand dollars per month—that's real production scale. Five failure patterns: OOMKilled, RBAC, health checks, storage, networking. Six-item checklist: resources, health, RBAC, replicas, observability, security. Ninety-four thousand dollars lost in forty-seven minutes—real cost of skipping the checklist.
+
+Autonoe: This is your foundation. Everything else in this course builds from here.
+
+Autonoe: Ten episodes. Each one tackles a failure pattern with debugging playbooks and decision frameworks. By episode ten, you'll architect multi-cluster production systems with confidence.
+
+Autonoe: Ready to stop being the engineer who gets paged at three AM? Keep listening.
+
+Autonoe: Next up: Episode 2 - Resource Management: Preventing OOMKilled.
+
+Autonoe: You'll learn how requests and limits actually work and why you need both, the exact <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> commands to debug OOMKilled from symptoms to root cause, and load testing strategies to right-size resources before production.
+
+Autonoe: We're taking the number one failure pattern and giving you a complete prevention playbook. After Episode 2, you'll never see exit code one thirty-seven the same way.
+
+Autonoe: See you in Episode 2.
