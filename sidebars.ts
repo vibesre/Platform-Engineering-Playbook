@@ -21,7 +21,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: 'Courses',
-      href: '/podcasts/courses/kubernetes-production-mastery',
+      href: '/courses',
     },
     {
       type: 'category',

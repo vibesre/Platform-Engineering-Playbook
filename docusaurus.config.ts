@@ -168,7 +168,7 @@ const config: Config = {
           label: 'Podcast',
         },
         {
-          to: '/podcasts/courses/kubernetes-production-mastery',
+          to: '/courses',
           position: 'left',
           label: 'Courses',
         },
@@ -199,7 +199,7 @@ const config: Config = {
             },
             {
               label: 'Courses',
-              to: '/podcasts/courses/kubernetes-production-mastery',
+              to: '/courses',
             },
           ],
         },
