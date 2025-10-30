@@ -20,4 +20,8 @@ tmp/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-EOF < /dev/null
+
+# Podcast Generator
+# NOTE: Podcast generation code has been moved to platform-engineering-playbook-PRIVATE repo
+# Media files are stored on NAS at /mnt/platform-engineering-playbook
+podcast-generator/
