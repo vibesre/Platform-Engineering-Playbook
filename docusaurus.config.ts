@@ -155,7 +155,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Documentation',
+          label: 'Technical Skills List',
         },
         {
           to: '/blog',
@@ -168,6 +168,11 @@ const config: Config = {
           label: 'Podcast',
         },
         {
+          to: '/podcasts/courses/kubernetes-production-mastery',
+          position: 'left',
+          label: 'Courses',
+        },
+        {
           href: 'https://github.com/vibesre/Platform-Engineering-Playbook',
           label: 'GitHub',
           position: 'right',
@@ -178,32 +183,23 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Learn',
+          title: 'Content',
           items: [
             {
-              label: 'Welcome',
-              to: '/',
+              label: 'Technical Skills List',
+              to: '/technical',
             },
             {
-              label: 'Technical Skills',
-              to: '/technical-skills',
-            },
-          ],
-        },
-        {
-          title: 'Prepare',
-          items: [
-            {
-              label: 'Interview Prep',
-              to: '/interview-prep',
+              label: 'Blog',
+              to: '/blog',
             },
             {
-              label: 'Career Guide',
-              to: '/career-guide',
+              label: 'Podcast',
+              to: '/podcasts',
             },
             {
-              label: 'Practice Labs',
-              to: '/practice-resources',
+              label: 'Courses',
+              to: '/podcasts/courses/kubernetes-production-mastery',
             },
           ],
         },
