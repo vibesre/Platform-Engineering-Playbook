@@ -73,7 +73,7 @@ Transform from a Kubernetes user into a production Kubernetes engineer. Learn ho
   </iframe>
 </div>
 
-### 📖 [Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale](/podcasts/courses/multi-region-mastery)
+### 📖 [Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale](/courses/multi-region-mastery)
 
 Master the LEGO architecture approach to multi-region systems. Learn the real 2.5-7.5x cost multiplier, compose building blocks (Aurora Global Database, EKS, Transit Gateway, DynamoDB Global Tables), and build production-grade architectures that match your actual needs—not aspirational ones.
 

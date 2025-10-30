@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Kubernetes Production Mastery"
-slug: /podcasts/courses/kubernetes-production-mastery
+slug: /courses/kubernetes-production-mastery
 ---
 
 # Kubernetes Production Mastery

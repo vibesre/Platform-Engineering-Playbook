@@ -22,7 +22,7 @@ Master production-grade multi-region architectures through 16 hands-on lessons. 
 - **Level**: Advanced
 - **For**: Senior platform engineers, SREs, DevOps engineers with 5+ years AWS/K8s experience
 
-**[Start Course →](/podcasts/courses/multi-region-mastery)**
+**[Start Course →](/courses/multi-region-mastery)**
 
 ---
 
@@ -39,7 +39,7 @@ Transform from a Kubernetes user into a production Kubernetes engineer. Learn ho
 - [Lesson 01: Production Mindset](/podcasts/00009-kubernetes-production-mastery-lesson-01) (17 min)
 - [Lesson 02: Resource Management](/podcasts/00010-kubernetes-production-mastery-lesson-02) (19 min)
 
-**[Start Course →](/podcasts/courses/kubernetes-production-mastery)**
+**[Start Course →](/courses/kubernetes-production-mastery)**
 
 ---
 
