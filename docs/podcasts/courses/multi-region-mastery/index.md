@@ -21,13 +21,15 @@ Master production-grade multi-region architectures through 16 hands-on lessons. 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '2rem 0'}}>
   <iframe
     style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-    src="https://www.youtube.com/embed/videoseries?list=PLIjf2e3L8dZxgOr4Equjl_YwMKXTQKCM"
-    title="Multi-Region Platform Engineering Course Playlist"
+    src="https://www.youtube.com/embed/LsUXhND86Rw?list=PLIjf2e3L8dZxgOr4Equjl_YwMKXTQKCM"
+    title="Multi-Region Platform Engineering Course - Lesson 1"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
 </div>
+
+**[View Full Playlist on YouTube →](https://www.youtube.com/playlist?list=PLIjf2e3L8dZxgOr4Equjl_YwMKXTQKCM)**
 
 <PodcastSubscribeButtons />
 
