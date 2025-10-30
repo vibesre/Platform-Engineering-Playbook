@@ -5,36 +5,41 @@ sidebar_label: "📖 Lesson 11"
 slug: courses/multi-region-mastery/lesson-11
 ---
 
-# Lesson 11: Multi-Region Architecture
+# Lesson 11: Advanced Kubernetes: Service Mesh & Federation
 
-## Multi-Region Mastery Course
+## Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale
+
+**Episode 11 of 16** | **Duration:** 15 minutes
 
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers (5+ years experience)
 
 ---
 
-## Transcript
+## 🎥 Watch This Lesson
 
-Original text:
-Speaker 1: This is a test. [pause] Here's another sentence. [pause short] And one more. [pause long] Final sentence.
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/dNxz_cUhpNc"
+    title="Lesson 11: Advanced Kubernetes: Service Mesh & Federation"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
-Stripped text:
-Speaker 1: This is a test. Here's another sentence. And one more. Final sentence.
+---
 
-================================================================================
+## What You'll Learn
 
-Testing with: 00000-pronunciation-test.txt
-
-Validation results:
-  Total pauses: 61
-  [pause]: 61
-  [pause short]: 0
-  [pause long]: 0
-  Valid: True
+- **Istio multi-cluster architecture**: Shared control plane vs replicated control plane
+- **Subsecond failover mechanics**: Active health checking, immediate rerouting, no DNS TTL delays
+- **Operational complexity**: Certificate management (mTLS), mesh upgrades, debugging service mesh config
+- **Performance overhead**: Sidecar proxy latency, CPU/memory per pod
+- **When service mesh makes sense**: Hot-hot with subsecond RTO requirements, complex traffic management needs
 
 ---
 
 ## Navigation
 
-[← Back to Course Overview](/podcasts/courses/multi-region-mastery)
-
+[← Previous: Data Consistency Models](/podcasts/courses/multi-region-mastery/lesson-10) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Disaster Recovery →](/podcasts/courses/multi-region-mastery/lesson-12)

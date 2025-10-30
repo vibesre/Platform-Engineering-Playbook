@@ -8,6 +8,21 @@ A comprehensive 16-episode course on building production-grade multi-region arch
 
 **Course Philosophy**: Brutal honesty over marketing hype. We'll show you the real costs, the hidden complexity, and when single-region is actually the better choice. By the end, you'll think of multi-region components as composable building blocks you can assemble to meet your organization's specific needs.
 
+## 🎥 Watch the Full Course
+
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/videoseries?list=PLIjf2e3L8dZxgOr4Equjl_YwMKXTQKCM"
+    title="Multi-Region Platform Engineering Course Playlist"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<PodcastSubscribeButtons />
+
 ## What You'll Learn
 
 - **Cost Reality**: The true 2.5-7.5x cost multiplier (not the 2x vendors claim)

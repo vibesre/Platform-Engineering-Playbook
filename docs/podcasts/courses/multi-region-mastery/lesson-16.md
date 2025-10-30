@@ -5,36 +5,42 @@ sidebar_label: "📖 Lesson 16"
 slug: courses/multi-region-mastery/lesson-16
 ---
 
-# Lesson 16: Multi-Region Architecture
+# Lesson 16: Implementation Roadmap: Your 90-Day Multi-Region Plan
 
-## Multi-Region Mastery Course
+## Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale
+
+**Episode 16 of 16** | **Duration:** 18 minutes
 
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers (5+ years experience)
 
 ---
 
-## Transcript
+## 🎥 Watch This Lesson
 
-Original text:
-Speaker 1: This is a test. [pause] Here's another sentence. [pause short] And one more. [pause long] Final sentence.
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/AjfuXyT1h7U"
+    title="Lesson 16: Implementation Roadmap: Your 90-Day Multi-Region Plan"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
-Stripped text:
-Speaker 1: This is a test. Here's another sentence. And one more. Final sentence.
+---
 
-================================================================================
+## What You'll Learn
 
-Testing with: 00000-pronunciation-test.txt
-
-Validation results:
-  Total pauses: 61
-  [pause]: 61
-  [pause short]: 0
-  [pause long]: 0
-  Valid: True
+- **Phase 1 (Days 1-21)**: Foundation - Transit Gateway, VPC setup, IAM structure, observability infrastructure
+- **Phase 2 (Days 22-45)**: Data layer - Aurora Global Database or DynamoDB Global Tables, replication validation
+- **Phase 3 (Days 46-75)**: Compute layer - EKS clusters, application deployment, cross-region service discovery
+- **Phase 4 (Days 76-90)**: Validation - Chaos engineering, failover testing, performance benchmarking, cost analysis
+- **Go-no-go gates**: Technical milestones, cost validation, team readiness assessment at each phase
+- **Abort criteria**: ROI falls below 5x, costs exceed projections by 20%, technical blockers can't be resolved
 
 ---
 
 ## Navigation
 
-[← Back to Course Overview](/podcasts/courses/multi-region-mastery)
-
+[← Previous: Anti-Patterns](/podcasts/courses/multi-region-mastery/lesson-15) | [Back to Course](/podcasts/courses/multi-region-mastery)

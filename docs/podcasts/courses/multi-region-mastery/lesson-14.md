@@ -5,36 +5,41 @@ sidebar_label: "📖 Lesson 14"
 slug: courses/multi-region-mastery/lesson-14
 ---
 
-# Lesson 14: Multi-Region Architecture
+# Lesson 14: Security Architecture: Encryption & Key Management
 
-## Multi-Region Mastery Course
+## Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale
+
+**Episode 14 of 16** | **Duration:** 18 minutes
 
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers (5+ years experience)
 
 ---
 
-## Transcript
+## 🎥 Watch This Lesson
 
-Original text:
-Speaker 1: This is a test. [pause] Here's another sentence. [pause short] And one more. [pause long] Final sentence.
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/1rx9VNsPBcA"
+    title="Lesson 14: Security Architecture: Encryption & Key Management"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
-Stripped text:
-Speaker 1: This is a test. Here's another sentence. And one more. Final sentence.
+---
 
-================================================================================
+## What You'll Learn
 
-Testing with: 00000-pronunciation-test.txt
-
-Validation results:
-  Total pauses: 61
-  [pause]: 61
-  [pause short]: 0
-  [pause long]: 0
-  Valid: True
+- **Encryption at-rest**: KMS per-region keys vs multi-region keys, envelope encryption, key rotation
+- **Encryption in-transit**: TLS 1.3 for external, mTLS for service-to-service, certificate management at scale
+- **Multi-region key management**: Per-region isolation (secure, complex failover) vs replicated keys (simple, wider blast radius)
+- **Zero-trust networking**: VPC endpoints eliminate internet exposure, PrivateLink for service access
+- **Security monitoring**: CloudTrail multi-region aggregation, GuardDuty findings, Security Hub centralization
 
 ---
 
 ## Navigation
 
-[← Back to Course Overview](/podcasts/courses/multi-region-mastery)
-
+[← Previous: Compliance-Driven Architecture](/podcasts/courses/multi-region-mastery/lesson-13) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Anti-Patterns →](/podcasts/courses/multi-region-mastery/lesson-15)

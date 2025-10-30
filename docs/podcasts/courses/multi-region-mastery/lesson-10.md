@@ -5,36 +5,41 @@ sidebar_label: "📖 Lesson 10"
 slug: courses/multi-region-mastery/lesson-10
 ---
 
-# Lesson 10: Multi-Region Architecture
+# Lesson 10: Data Consistency Models: CAP Theorem in Production
 
-## Multi-Region Mastery Course
+## Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale
+
+**Episode 10 of 16** | **Duration:** 13 minutes
 
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers (5+ years experience)
 
 ---
 
-## Transcript
+## 🎥 Watch This Lesson
 
-Original text:
-Speaker 1: This is a test. [pause] Here's another sentence. [pause short] And one more. [pause long] Final sentence.
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/q1ofuJ5nKRI"
+    title="Lesson 10: Data Consistency Models: CAP Theorem in Production"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
-Stripped text:
-Speaker 1: This is a test. Here's another sentence. And one more. Final sentence.
+---
 
-================================================================================
+## What You'll Learn
 
-Testing with: 00000-pronunciation-test.txt
-
-Validation results:
-  Total pauses: 61
-  [pause]: 61
-  [pause short]: 0
-  [pause long]: 0
-  Valid: True
+- **CAP theorem reality**: You choose two of Consistency, Availability, Partition tolerance
+- **Aurora's CP model**: Strong consistency, read-only during partition, acceptable for most transactional workloads
+- **DynamoDB's AP model**: High availability, eventual consistency, last-writer-wins conflict resolution
+- **Split-brain scenarios**: Two regions think they're primary, data divergence, reconciliation nightmare
+- **Prevention strategies**: Quorum consensus, human approval gates, resource fencing
 
 ---
 
 ## Navigation
 
-[← Back to Course Overview](/podcasts/courses/multi-region-mastery)
-
+[← Previous: Cost Management](/podcasts/courses/multi-region-mastery/lesson-09) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Service Mesh & Federation →](/podcasts/courses/multi-region-mastery/lesson-11)

@@ -5,36 +5,41 @@ sidebar_label: "📖 Lesson 08"
 slug: courses/multi-region-mastery/lesson-08
 ---
 
-# Lesson 08: Multi-Region Architecture
+# Lesson 08: DNS & Traffic Management: Route53 & Global Accelerator
 
-## Multi-Region Mastery Course
+## Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale
+
+**Episode 08 of 16** | **Duration:** 14 minutes
 
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers (5+ years experience)
 
 ---
 
-## Transcript
+## 🎥 Watch This Lesson
 
-Original text:
-Speaker 1: This is a test. [pause] Here's another sentence. [pause short] And one more. [pause long] Final sentence.
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/fAoyNwMj1ZY"
+    title="Lesson 08: DNS & Traffic Management: Route53 & Global Accelerator"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
-Stripped text:
-Speaker 1: This is a test. Here's another sentence. And one more. Final sentence.
+---
 
-================================================================================
+## What You'll Learn
 
-Testing with: 00000-pronunciation-test.txt
-
-Validation results:
-  Total pauses: 61
-  [pause]: 61
-  [pause short]: 0
-  [pause long]: 0
-  Valid: True
+- **Route53 health check mechanics**: 30-second intervals, failover detection, DNS propagation delays
+- **DNS TTL trade-offs**: Low TTL (60s) = faster failover but more DNS queries, high TTL (300s) = lower cost but slower
+- **Global Accelerator architecture**: Anycast IP addresses, AWS edge locations, TCP/UDP optimization
+- **Subsecond routing with anycast**: Traffic routed to nearest healthy endpoint automatically
+- **Cost comparison**: Route53 ($0.50/health check) vs Global Accelerator ($18/month/endpoint)
 
 ---
 
 ## Navigation
 
-[← Back to Course Overview](/podcasts/courses/multi-region-mastery)
-
+[← Previous: Observability at Scale](/podcasts/courses/multi-region-mastery/lesson-07) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Cost Management →](/podcasts/courses/multi-region-mastery/lesson-09)
