@@ -794,7 +794,7 @@ Your platform's survival depends on it.
 
 ### ROI Calculation & Business Cases
 
-- [Platform Engineering Economics](/blog/platform-engineering-economics-hidden-costs-roi) - Deep dive into cost structure and hidden expenses
+- [Platform Engineering Economics](/blog/2025/01/10/platform-engineering-economics-hidden-costs-roi) - Deep dive into cost structure and hidden expenses
 - [FinOps Foundation](https://www.finops.org/) - Cloud cost optimization best practices
 - "Team Topologies" by Matthew Skelton and Manuel Pais - [Purchase on Amazon](https://www.amazon.com/Team-Topologies-Organizing-Business-Technology/dp/1942788819)
 
@@ -816,8 +816,8 @@ Your platform's survival depends on it.
 ## Related Content
 
 - [Why 70% of Platform Engineering Teams Fail](/blog/2025/10/28/why-platform-engineering-teams-fail) - The PM gap and metrics blindness problem
-- [Platform Engineering Economics: Hidden Costs](/blog/platform-engineering-economics-hidden-costs-roi) - Comprehensive cost structure analysis
-- [PaaS Showdown 2025](/blog/paas-showdown-flightcontrol-vercel-railway-render-fly) - Managed platform alternatives for smaller teams
+- [Platform Engineering Economics: Hidden Costs](/blog/2025/01/10/platform-engineering-economics-hidden-costs-roi) - Comprehensive cost structure analysis
+- [PaaS Showdown 2025](/blog/2025/10/06/paas-showdown-flightcontrol-vercel-railway-render-fly) - Managed platform alternatives for smaller teams
 - [Kubernetes Production Guide](/technical/kubernetes) - When complexity exceeds value
 - [Platform Engineering Tools](/technical-skills) - Tool selection and evaluation
 

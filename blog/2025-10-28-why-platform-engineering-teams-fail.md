@@ -686,11 +686,11 @@ The question is: **Will you hire a product manager before leadership asks for RO
 
 ## Related Content
 
-- [Platform Engineering Economics: Hidden Costs and ROI](/blog/platform-engineering-economics-hidden-costs-roi) - Cost structure deep dive
+- [Platform Engineering Economics: Hidden Costs and ROI](/blog/2025/01/10/platform-engineering-economics-hidden-costs-roi) - Cost structure deep dive
 - [Kubernetes Production Guide](/technical/kubernetes) - When over-engineering goes wrong
-- [Cloud Providers Comparison](/blog/cloud-providers) - Multi-cloud complexity discussion
-- [PaaS Showdown 2025](/blog/paas-showdown-flightcontrol-vercel-railway-render-fly) - Alternatives to building your own platform
-- [AI-Powered Platform Engineering](/blog/ai-powered-platform-engineering-beyond-the-hype) - The future of platform teams
+- [Cloud Providers Comparison](/00002-cloud-providers) - Multi-cloud complexity discussion
+- [PaaS Showdown 2025](/blog/2025/10/06/paas-showdown-flightcontrol-vercel-railway-render-fly) - Alternatives to building your own platform
+- [AI-Powered Platform Engineering](/blog/2025/01/10/ai-powered-platform-engineering-beyond-the-hype) - The future of platform teams
 
 ---
 

@@ -89,7 +89,7 @@ Learn about:
 ---
 
 #### 📖 Episode 3: Security Foundations - RBAC & Secrets
-**Duration**: 18 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-03)
+**Duration**: 18 min • 📝 Transcript: Coming Soon
 
 Learn about:
 - Why RBAC is the #1 Kubernetes security misconfiguration

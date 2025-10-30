@@ -36,5 +36,5 @@ Validation results:
 
 ## Navigation
 
-[← Back to Course Overview](./index)
+[← Back to Course Overview](/podcasts/courses/multi-region-mastery)
 

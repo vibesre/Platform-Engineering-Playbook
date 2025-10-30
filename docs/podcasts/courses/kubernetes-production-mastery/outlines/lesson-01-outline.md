@@ -434,7 +434,7 @@ This should be addressed in script writing phase.
 
 ## Sources & Validation
 
-**Statistics Verified** (see [lesson-01-validation-report.md](../lesson-01-validation-report.md) for full details):
+**Statistics Verified**:
 
 1. **"89% experienced security incidents"**
    - Source: Red Hat State of Kubernetes Security Report 2024

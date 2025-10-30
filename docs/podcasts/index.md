@@ -93,7 +93,7 @@ Master the LEGO architecture approach to multi-region systems. Learn the real 2.
 **Complete course available** with video lectures and detailed transcripts. All scripts validated, enhanced, and ready for learning!
 
 <!-- Example course entry format:
-### 📖 [Course Name](/podcasts/courses/course-slug)
+### 📖 [Course Name](/podcasts/courses/kubernetes-production-mastery/lesson-01)
 
 [Brief 1-2 sentence description of what the course teaches]
 
