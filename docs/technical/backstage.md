@@ -19,6 +19,22 @@ keywords:
 # Backstage
 
 <GitHubButtons />
+
+> 🎙️ **Episode**: [Backstage in Production: The 10% Adoption Problem](/podcasts/00013-backstage-adoption) - Why adoption stalls at 10%, real $1M+ costs, and decision frameworks for choosing Backstage vs alternatives
+>
+> 📝 **Blog**: [Backstage Production Reality Check](/blog/backstage-production-10-percent-adoption-problem) - Comprehensive analysis with comparison tables and ROI calculators
+
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/psby7csy8Wg"
+    title="Backstage in Production: The 10% Adoption Problem"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ## 📚 Learning Resources
 
 ### 📖 Essential Documentation

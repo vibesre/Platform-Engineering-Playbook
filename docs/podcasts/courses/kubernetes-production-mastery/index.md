@@ -101,7 +101,7 @@ Learn about:
 ---
 
 #### 📖 Episode 4: Troubleshooting Crashes - CrashLoopBackOff & Beyond
-**Duration**: 15 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-04)
+**Duration**: 15 min • 📝 Transcript: Coming Soon
 
 Learn about:
 - Systematic troubleshooting workflow: describe → logs → events
@@ -113,7 +113,7 @@ Learn about:
 ---
 
 #### 📖 Episode 5: StatefulSets & Persistent Storage
-**Duration**: 15 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-05)
+**Duration**: 15 min • 📝 Transcript: Coming Soon
 
 Learn about:
 - When to use StatefulSets vs Deployments (decision framework)
@@ -125,7 +125,7 @@ Learn about:
 ---
 
 #### 📖 Episode 6: Networking & Ingress
-**Duration**: 18 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-06)
+**Duration**: 18 min • 📝 Transcript: Coming Soon
 
 Learn about:
 - Kubernetes networking model (flat namespace, L4 vs L7)
@@ -138,7 +138,7 @@ Learn about:
 ---
 
 #### 📖 Episode 7: Observability - Metrics, Logging, Tracing
-**Duration**: 15 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-07)
+**Duration**: 15 min • 📝 Transcript: Coming Soon
 
 Learn about:
 - Deploying production-ready Prometheus (persistent storage, federation, security)
@@ -154,7 +154,7 @@ Learn about:
 Synthesize operations foundations and scale to multi-cluster production environments with cost optimization, GitOps automation, and fleet management.
 
 #### 📖 Episode 8: Cost Optimization at Scale
-**Duration**: 12 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-08)
+**Duration**: 12 min • 📝 Transcript: Coming Soon
 
 Learn about:
 - Why Kubernetes costs spiral (the 20+ cluster problem)
@@ -167,7 +167,7 @@ Learn about:
 ---
 
 #### 📖 Episode 9: GitOps & Deployment Automation
-**Duration**: 15 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-09)
+**Duration**: 15 min • 📝 Transcript: Coming Soon
 
 Learn about:
 - GitOps principles: Git as source of truth, declarative config, automated sync
@@ -179,7 +179,7 @@ Learn about:
 ---
 
 #### 📖 Episode 10: Multi-Cluster Management & Course Synthesis
-**Duration**: 15 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-10)
+**Duration**: 15 min • 📝 Transcript: Coming Soon
 
 Learn about:
 - Operating 20+ clusters: fleet management with GitOps

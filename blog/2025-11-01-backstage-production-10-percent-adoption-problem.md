@@ -1,7 +1,7 @@
 ---
 slug: backstage-production-10-percent-adoption-problem
 title: "Backstage in Production: The 10% Adoption Problem (2025 Reality Check)"
-authors: [eric]
+authors: [vibesre]
 tags: [backstage, developer-portal, platform-engineering, idp, adoption, enterprise]
 date: 2025-11-01
 description: "Honest analysis of Backstage's adoption crisis: why 90% of your organization won't use your portal, the 7-15 FTE maintenance burden, and the decision framework for choosing Backstage vs Port/Cortex/custom alternatives in 2025."
@@ -12,6 +12,19 @@ image: /img/blog/2025-11-backstage-adoption.jpg
 Your team spent nine months implementing Backstage. The portal looks beautiful. You have 47 services cataloged. Internal adoption? **Eight percent**. Three developers use it regularly. The rest go directly to AWS console, kubectl, and GitHub.
 
 Sound familiar? You're not alone. Backstage's own community acknowledges the **10% adoption problem**—average adoption stalls at 10% within organizations, and teams require 7-15 FTE to maintain it. Here's why it happens, and the decision framework I wish we'd had before investing 2 person-years of engineering time.
+
+> 🎙️ **Listen to the podcast episode**: [Backstage in Production: The 10% Adoption Problem](/podcasts/00013-backstage-adoption) - Jordan and Alex discuss the real costs, alternatives, and decision frameworks for choosing Backstage vs Port, Cortex, and custom portals.
+
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/psby7csy8Wg"
+    title="Backstage in Production: The 10% Adoption Problem"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
 
 <!--truncate-->
 
@@ -122,7 +135,7 @@ Here's the honest comparison based on real implementations:
 | **Data Model** | Fixed entities, extensible | Fully flexible ("bring your own") | Semi-rigid (some fixed) | Fully flexible |
 | **K8s Integration** | Plugin-based | Native with live data | Service-level only | Build your own |
 | **Catalog Updates** | Custom integrations | Real-time for most sources | Hourly/weekly for some | Real-time (your choice) |
-| **Best For** | 500+ eng, high customization | <500 eng, fast time-to-value | 200-1000 eng, service focus | Unique needs, existing tools |
+| **Best For** | 500+ eng, high customization | under 500 eng, fast time-to-value | 200-1000 eng, service focus | Unique needs, existing tools |
 | **Adoption Rate** | 10% average (problem!) | 40-60% typical | 30-50% typical | Varies (30-70%) |
 | **Breaking Changes** | Major version every 6-12mo | Rare (managed service) | Rare (managed service) | Your control |
 
@@ -339,7 +352,7 @@ Before committing to Backstage, answer these questions honestly:
    - Service catalog → Cortex may be better
    - Full portal → Backstage or Port
 
-10. **Do we need this to succeed in <6 months?**
+10. **Do we need this to succeed in under 6 months?**
     - If yes → Backstage is wrong choice
 
 ## What to Do Instead
