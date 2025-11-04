@@ -86,17 +86,6 @@ nav.pagination-nav,
   display: none !important;
 }
 
-/* Hide docs sidebar on blog pages - only show blog sidebar */
-[class*="blog"] aside[class*="sidebar"]:not([class*="blog"]) {
-  display: none !important;
-}
-
-/* Adjust blog layout when docs sidebar is hidden */
-[class*="blog"] .container {
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
 /* Mobile navbar fixes - ensure navbar is visible and functional on mobile */
 @media (max-width: 996px) {
   /* Ensure navbar is visible and has proper z-index */
