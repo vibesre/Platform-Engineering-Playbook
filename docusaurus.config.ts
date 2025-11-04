@@ -122,7 +122,7 @@ const config: Config = {
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
           blogSidebarTitle: 'Recent Posts',
-          blogSidebarCount: 0, // Disable blog sidebar, use docs sidebar everywhere
+          blogSidebarCount: 10, // Show 10 recent posts on right sidebar
         },
         theme: {
           customCss: './src/css/custom.css',

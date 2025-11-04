@@ -86,6 +86,36 @@ nav.pagination-nav,
   display: none !important;
 }
 
+/* Blog page layout: Recent Posts on right side like TOC */
+@media (min-width: 997px) {
+  /* Blog layout container */
+  [class*="blogPostPage"] .container,
+  [class*="blogListPage"] .container {
+    display: flex;
+    max-width: 100%;
+  }
+
+  /* Position blog sidebar (Recent Posts) on the right */
+  aside[class*="blogSidebar"] {
+    order: 3 !important;
+    width: 300px !important;
+    flex-shrink: 0 !important;
+    position: sticky !important;
+    top: calc(var(--ifm-navbar-height) + 1rem) !important;
+    height: calc(100vh - var(--ifm-navbar-height) - 2rem) !important;
+    overflow-y: auto !important;
+    padding-left: 1rem !important;
+  }
+
+  /* Main blog content in the middle */
+  [class*="blogPostPage"] main,
+  [class*="blogListPage"] main {
+    flex: 1 1 auto;
+    order: 2;
+    max-width: calc(100% - 300px) !important;
+  }
+}
+
 /* Mobile navbar fixes - ensure navbar is visible and functional on mobile */
 @media (max-width: 996px) {
   /* Ensure navbar is visible and has proper z-index */
