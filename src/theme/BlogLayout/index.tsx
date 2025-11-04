@@ -12,77 +12,61 @@ export default function BlogLayout(props: Props): React.ReactElement {
   const {sidebar, toc, children, ...layoutProps} = props;
   const hasBlogSidebar = sidebar && sidebar.items.length > 0;
 
-  // Get docs sidebar items from sidebars configuration
+  // Get docs sidebar items from sidebars configuration and cast to correct type
   const docsSidebar = tutorialSidebar.tutorialSidebar as PropSidebarItem[];
 
   return (
-    <Layout {...layoutProps} wrapperClassName={ThemeClassNames.wrapper.blogPages}>
+    <Layout {...layoutProps} wrapperClassName={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}>
       <div className="container margin-vert--lg">
         <div className="row">
           {/* Left Column: Docs Sidebar (Technical Skills List) */}
-          <aside className="col col--3 theme-doc-sidebar-container">
-            <nav
-              className="menu thin-scrollbar menu_node_modules-@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-Content-styles-module"
+          <aside className="col col--3">
+            <div
+              className={clsx(
+                'theme-doc-sidebar-container',
+                'docSidebarContainer_node_modules-@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-styles-module'
+              )}
               style={{
                 position: 'sticky',
                 top: 'calc(var(--ifm-navbar-height) + 1rem)',
-                height: 'calc(100vh - var(--ifm-navbar-height) - 2rem)',
-                overflowY: 'auto',
-                padding: '1rem 0'
+                maxHeight: 'calc(100vh - var(--ifm-navbar-height) - 2rem)',
+                overflow: 'hidden auto',
               }}
             >
-              <ul className="menu__list">
+              <nav className="menu thin-scrollbar menu__list">
                 <DocSidebarItems
                   items={docsSidebar}
                   activePath="/blog"
                   level={1}
                 />
-              </ul>
-            </nav>
+              </nav>
+            </div>
           </aside>
 
           {/* Middle Column: Blog Content */}
           <main
             className={clsx(
               'col',
-              hasBlogSidebar ? 'col--6' : 'col--7',
-              'blog-main-content'
+              hasBlogSidebar ? 'col--6' : 'col--9'
             )}
-            style={{
-              padding: '0 2rem'
-            }}
           >
             {children}
           </main>
 
           {/* Right Column: Blog Sidebar (Recent Posts) - Conditional */}
           {hasBlogSidebar && (
-            <aside
-              className="col col--3 blog-sidebar-container"
-              style={{
-                position: 'sticky',
-                top: 'calc(var(--ifm-navbar-height) + 1rem)',
-                height: 'calc(100vh - var(--ifm-navbar-height) - 2rem)',
-                overflowY: 'auto'
-              }}
-            >
-              <BlogSidebar sidebar={sidebar} />
+            <aside className="col col--3">
+              <div
+                style={{
+                  position: 'sticky',
+                  top: 'calc(var(--ifm-navbar-height) + 1rem)',
+                  maxHeight: 'calc(100vh - var(--ifm-navbar-height) - 2rem)',
+                  overflowY: 'auto',
+                }}
+              >
+                <BlogSidebar sidebar={sidebar} />
+              </div>
             </aside>
-          )}
-
-          {/* If there's a Table of Contents but no blog sidebar, render TOC on right */}
-          {!hasBlogSidebar && toc && (
-            <div
-              className="col col--2"
-              style={{
-                position: 'sticky',
-                top: 'calc(var(--ifm-navbar-height) + 1rem)',
-                height: 'calc(100vh - var(--ifm-navbar-height) - 2rem)',
-                overflowY: 'auto'
-              }}
-            >
-              {toc}
-            </div>
           )}
         </div>
       </div>
