@@ -16,13 +16,13 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience seeking strategic insights on technology choices, market dynamics, and skill optimization.
 
-## 🎥 Latest Episode: Backstage in Production - The 10% Adoption Problem
+## 🎥 Latest Episode: Kubernetes in 2025 - The Maturity Paradox
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe
     style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-    src="https://www.youtube.com/embed/psby7csy8Wg"
-    title="Backstage in Production: The 10% Adoption Problem"
+    src="https://www.youtube.com/embed/6R1Ox9mzQjc"
+    title="Kubernetes in 2025: The Maturity Paradox"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
@@ -137,6 +137,7 @@ Latest content includes course lessons and standalone podcast episodes. Course l
 
 **Latest Standalone Episodes**:
 
+- 🎙️ **[#014: Kubernetes in 2025: The Maturity Paradox](/podcasts/00014-kubernetes-overview-2025)** (15 min) - 92% market share meets "do we need this?" backlash. Service mesh revolution, AI/ML integration, when to skip K8s for simpler alternatives
 - 🎙️ **[#013: Backstage in Production: The 10% Adoption Problem](/podcasts/00013-backstage-adoption)** (16 min) - The real $1M+ cost, why adoption stalls at 10%, and honest comparison with Port, Cortex, and custom portals
 - 🎙️ **[#012: Platform Engineering ROI Calculator](/podcasts/00012-platform-roi-calculator)** (15 min) - Prove platform value to executives: ROI formula, DORA→business translation, and stakeholder templates that saved teams from disbandment
 - 🎙️ **[#011: Why 70% of Platform Engineering Teams Fail](/podcasts/00011-platform-failures)** (12 min) - The critical PM gap, metrics blindness, and the 5 predictive metrics that separate success from $3.75M failures

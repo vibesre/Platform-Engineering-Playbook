@@ -38,6 +38,8 @@ schema:
 
 <GitHubButtons />
 
+> 🎙️ **Listen to the podcast episode**: [Kubernetes in 2025: The Maturity Paradox](/podcasts/00014-kubernetes-overview-2025) - Strategic overview of when K8s makes sense in 2025, ecosystem maturity (service mesh revolution, AI/ML integration), and decision frameworks for choosing Kubernetes vs simpler alternatives.
+
 ## Quick Answer
 
 **What is Kubernetes?**
