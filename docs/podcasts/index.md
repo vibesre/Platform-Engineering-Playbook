@@ -137,6 +137,7 @@ Latest content includes course lessons and standalone podcast episodes. Course l
 
 **Latest Standalone Episodes**:
 
+- 🎙️ **[#015: The Cloud Repatriation Debate](/podcasts/00015-cloud-repatriation-debate)** (13 min) - AWS charges 10-100x more than it should? Real companies saving millions by leaving the cloud, hidden costs exposed, decision frameworks for when cloud makes sense
 - 🎙️ **[#014: Kubernetes in 2025: The Maturity Paradox](/podcasts/00014-kubernetes-overview-2025)** (15 min) - 92% market share meets "do we need this?" backlash. Service mesh revolution, AI/ML integration, when to skip K8s for simpler alternatives
 - 🎙️ **[#013: Backstage in Production: The 10% Adoption Problem](/podcasts/00013-backstage-adoption)** (16 min) - The real $1M+ cost, why adoption stalls at 10%, and honest comparison with Port, Cortex, and custom portals
 - 🎙️ **[#012: Platform Engineering ROI Calculator](/podcasts/00012-platform-roi-calculator)** (15 min) - Prove platform value to executives: ROI formula, DORA→business translation, and stakeholder templates that saved teams from disbandment
