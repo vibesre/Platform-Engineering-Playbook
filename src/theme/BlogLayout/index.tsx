@@ -129,6 +129,10 @@ function transformSidebarItems(items: any[]): PropSidebarItem[] {
     }
 
     if (item.type === 'doc') {
+      // Skip the technical/index item as it's redundant in the blog sidebar
+      if (item.id === 'technical/index') {
+        return null;
+      }
       // Convert doc to link with proper label
       const label = item.label || docTitles[item.id] || item.id.split('/').pop()?.replace(/-/g, ' ')
         .split(' ')
@@ -142,10 +146,10 @@ function transformSidebarItems(items: any[]): PropSidebarItem[] {
     }
 
     if (item.type === 'category' && item.items) {
-      // Recursively transform category items
+      // Recursively transform category items and filter out nulls
       const transformedCategory = {
         ...item,
-        items: transformSidebarItems(item.items),
+        items: transformSidebarItems(item.items).filter(Boolean),
       };
 
       // If category has a link, convert it to href
@@ -160,7 +164,7 @@ function transformSidebarItems(items: any[]): PropSidebarItem[] {
     }
 
     return item;
-  });
+  }).filter(Boolean);
 }
 
 export default function BlogLayout(props: Props): React.ReactElement {
