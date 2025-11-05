@@ -9,12 +9,64 @@ import type {PropSidebarItem} from '@docusaurus/plugin-content-docs';
 // Correct import path for sidebars
 import sidebars from '../../../sidebars';
 
+// Transform string items to have explicit labels
+function transformSidebarItems(items: any[]): PropSidebarItem[] {
+  return items.map(item => {
+    if (typeof item === 'string') {
+      // Convert string to object with label
+      const label = item.split('/').pop()?.replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ') || item;
+      return {
+        type: 'link',
+        label: label,
+        href: `/${item}`,
+      } as PropSidebarItem;
+    }
+
+    if (item.type === 'doc') {
+      // Convert doc to link with proper label
+      const label = item.label || item.id.split('/').pop()?.replace(/-/g, ' ')
+        .split(' ')
+        .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ') || item.id;
+      return {
+        type: 'link',
+        label: label,
+        href: `/${item.id}`,
+      } as PropSidebarItem;
+    }
+
+    if (item.type === 'category' && item.items) {
+      // Recursively transform category items
+      const transformedCategory = {
+        ...item,
+        items: transformSidebarItems(item.items),
+      };
+
+      // If category has a link, convert it to href
+      if (item.link && item.link.type === 'doc') {
+        transformedCategory.link = {
+          type: 'generated-index' as const,
+          slug: item.link.id,
+        };
+      }
+
+      return transformedCategory;
+    }
+
+    return item;
+  });
+}
+
 export default function BlogLayout(props: Props): React.ReactElement {
   const {sidebar, toc, children, ...layoutProps} = props;
   const hasBlogSidebar = sidebar && sidebar.items.length > 0;
 
-  // Get the sidebar items from sidebars.ts and cast to correct type
-  const sidebarItems = sidebars.tutorialSidebar as PropSidebarItem[];
+  // Get the sidebar items from sidebars.ts and transform them
+  const rawSidebarItems = sidebars.tutorialSidebar as any[];
+  const sidebarItems = transformSidebarItems(rawSidebarItems);
 
   return (
     <Layout {...layoutProps} wrapperClassName={clsx(ThemeClassNames.wrapper.blogPages, 'blog-wrapper')}>
