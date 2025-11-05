@@ -93,9 +93,28 @@ nav.pagination-nav,
     max-width: 100%;
   }
 
-  /* Fine-tune blog sidebar positioning */
-  .blog-sidebar-container {
-    padding-left: 1rem;
+  /* Force BlogSidebar to fill its column width */
+  .blog-wrapper .blogSidebarContainer,
+  .blog-wrapper .blogSidebarContainer > div,
+  .blog-wrapper aside .sidebar {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  /* Ensure sidebar items use full width */
+  .blog-wrapper .sidebarItemLink,
+  .blog-wrapper .sidebarItemTitle {
+    width: 100%;
+    display: block;
+    padding: 0.25rem 1rem;
+    word-wrap: break-word;
+  }
+
+  /* Style the year headings in blog sidebar */
+  .blog-wrapper .yearGroupHeading {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
   }
 
   /* Ensure proper spacing for blog content */
