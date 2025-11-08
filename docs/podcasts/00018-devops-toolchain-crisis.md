@@ -11,11 +11,22 @@ slug: 00018-devops-toolchain-crisis
 
 <GitHubButtons />
 
-**Duration:** 13 minutes
+**Duration:** 11 minutes
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
 > 📝 **Read the [full blog post](/blog/2025-11-07-devops-toolchain-crisis-tool-sprawl-productivity-waste)**: Comprehensive analysis with 25+ sourced statistics, decision frameworks, and implementation guides for escaping tool sprawl with Internal Developer Portals.
+
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%', marginTop: '2rem', marginBottom: '2rem'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/o7_eMy9dfRg"
+    title="The DevOps Toolchain Crisis: Why Adding Tools Makes Teams Slower"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen>
+  </iframe>
+</div>
 
 ---
 

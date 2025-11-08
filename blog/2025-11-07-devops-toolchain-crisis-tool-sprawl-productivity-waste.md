@@ -73,6 +73,17 @@ Each tool promised to solve a problem. Together, they created a bigger one. And 
 
 **When NOT to consolidate**: Teams under 10 developers, stable toolchains with greater than 80% satisfaction, or organizations without platform engineering expertise to maintain an IDP.
 
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%', marginTop: '2rem', marginBottom: '2rem'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/o7_eMy9dfRg"
+    title="The DevOps Toolchain Crisis: Why Adding Tools Makes Teams Slower"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen>
+  </iframe>
+</div>
+
 ## Key Statistics (2024-2025 Data)
 
 | Metric | Value | Source | Context |

@@ -1,4 +1,4 @@
-Jordan: Today we're diving into the DevOps toolchain crisis. [pause] Picture this: your team has adopted Jira, GitHub, Jenkins, Datadog, PagerDuty, Slack, and now, because it's twenty twenty-five, eight different AI coding assistants. [pause] You've spent five hundred thousand dollars on productivity tools. [pause] So why does it take your engineers three clicks just to check build status? And why are they slower than last year?
+Jordan: Today we're diving into the <phoneme alphabet="ipa" ph="dɛv ɑps">DevOps</phoneme> toolchain crisis. [pause] Picture this: your team has adopted Jira, GitHub, Jenkins, Datadog, PagerDuty, Slack, and now, because it's twenty twenty-five, eight different AI coding assistants. [pause] You've spent five hundred thousand dollars on productivity tools. [pause] So why does it take your engineers three clicks just to check build status? And why are they slower than last year?
 
 Alex: Right, and the numbers are wild. [pause] Seventy-five percent of IT professionals lose six to fifteen hours per week just to tool sprawl. [pause] That's fifty thousand dollars per developer annually in context switching costs alone.
 
@@ -8,11 +8,11 @@ Alex: It is. Think about it. [pause] For a two-hundred-person engineering team, 
 
 Jordan: Ninety-four percent? [pause] So we're all just collectively miserable with the tools we're using?
 
-Alex: Pretty much. [pause] And what makes this urgent is that it's accelerating. [pause] Five years ago, three to four tools was normal. Now teams navigate seven to eight DevOps tools on average just to build applications. [pause] But here's where it gets weird.
+Alex: Pretty much. [pause] And what makes this urgent is that it's accelerating. [pause] Five years ago, three to four tools was normal. Now teams navigate seven to eight <phoneme alphabet="ipa" ph="dɛv ɑps">DevOps</phoneme> tools on average just to build applications. [pause] But here's where it gets weird.
 
 Jordan: How does it get weirder than this already is?
 
-Alex: AI was supposed to solve this problem. [pause] Instead, organizations are adding eight to ten AI tools on top of their existing seven to eight DevOps tools. [pause long] We're not replacing tools, we're multiplying them.
+Alex: AI was supposed to solve this problem. [pause] Instead, organizations are adding eight to ten AI tools on top of their existing seven to eight <phoneme alphabet="ipa" ph="dɛv ɑps">DevOps</phoneme> tools. [pause long] We're not replacing tools, we're multiplying them.
 
 Jordan: Hold on. [pause] So the AI tools we adopted to boost productivity are actually making the problem worse?
 
@@ -64,11 +64,11 @@ Alex: I know it sounds like that. But this is different. [pause] This is what In
 
 Jordan: Give me a concrete example. [pause] What does this actually look like?
 
-Alex: Take Backstage, Spotify's open-source IDP. It has nine point six thousand GitHub stars. [pause] You log in once. You see all your services, their health, their dependencies, who owns them, how to deploy them, all in one place. [pause] Under the hood, it's aggregating data from GitHub, Kubernetes, Datadog, PagerDuty, whatever. [pause] But you never see those tools directly.
+Alex: Take Backstage, Spotify's open-source IDP. It has over thirty-one thousand GitHub stars. [pause] You log in once. You see all your services, their health, their dependencies, who owns them, how to deploy them, all in one place. [pause] Under the hood, it's aggregating data from GitHub, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme>, Datadog, PagerDuty, whatever. [pause] But you never see those tools directly.
 
 Jordan: So instead of seven tabs open, I have one dashboard that shows me everything?
 
-Alex: Exactly. [pause] And the workflows are orchestrated. [pause] Instead of clicking through Jira to create a ticket, GitHub to create a branch, Jenkins to trigger a build, Kubernetes to deploy, you click a button that says "Deploy to staging" and it handles all of that.
+Alex: Exactly. [pause] And the workflows are orchestrated. [pause] Instead of clicking through Jira to create a ticket, GitHub to create a branch, Jenkins to trigger a build, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> to deploy, you click a button that says "Deploy to staging" and it handles all of that.
 
 Jordan: That's starting to make sense. But let's talk about the trade-offs. What are you giving up?
 
