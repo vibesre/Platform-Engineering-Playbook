@@ -88,20 +88,20 @@ Learn about:
 
 ---
 
-#### 📖 Episode 3: Security Foundations - RBAC & Secrets
-**Duration**: 18 min • 📝 Transcript: Coming Soon
+#### 📖 Episode 3: Security Foundations - RBAC & Secrets Management
+**Duration**: 43 min • [📝 Transcript](/podcasts/00016-kubernetes-production-mastery-lesson-03)
 
 Learn about:
-- Why RBAC is the #1 Kubernetes security misconfiguration
-- Implementing namespace-scoped roles with least privilege
-- Service account security (avoiding token abuse and wildcards)
-- Secrets management with Sealed Secrets and External Secrets Operator
-- Common RBAC attack patterns and how to prevent them
+- Implementing namespace-scoped RBAC roles that follow least privilege principles
+- Understanding RBAC's 4 components: Subjects, Resources, Verbs, and Scope
+- Securing secrets with Sealed Secrets or External Secrets Operator
+- Preventing token theft, privilege escalation, and secrets enumeration attacks
+- Identifying and remediating the 5 most common RBAC misconfigurations
 
 ---
 
 #### 📖 Episode 4: Troubleshooting Crashes - CrashLoopBackOff & Beyond
-**Duration**: 15 min • 📝 Transcript: Coming Soon
+**Duration**: 15 min • [🎥 Video Lesson](/podcasts/00017-kubernetes-production-mastery-lesson-04) • [Watch on YouTube](https://youtu.be/5iVIU6dpc5QY)
 
 Learn about:
 - Systematic troubleshooting workflow: describe → logs → events

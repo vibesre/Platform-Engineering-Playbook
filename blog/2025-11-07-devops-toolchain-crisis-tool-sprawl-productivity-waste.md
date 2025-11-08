@@ -53,6 +53,8 @@ Here's the kicker: your organization probably spent millions assembling this "be
 
 Each tool promised to solve a problem. Together, they created a bigger one. And now teams are adding 8-10 AI coding assistants on top of the existing 7-tool average, making everything worse.
 
+> 🎙️ **Listen to the podcast episode**: [The DevOps Toolchain Crisis: Why Adding Tools Makes Teams Slower](/podcasts/00018-devops-toolchain-crisis) - Jordan and Alex discuss the paradox of tool sprawl, why AI is making it worse, and how 53% of organizations escaped using IDPs.
+
 ## Quick Answer (TL;DR)
 
 **Problem**: 75% of IT professionals lose 6-15 hours per week navigating between an average of 7.4 DevOps tools, with 94% dissatisfied with their current toolsets ([Port/Global Surveyz Survey, Feb 2025](https://devops.com/survey-increased-tool-sprawl-saps-developer-productivity/)).
@@ -69,7 +71,7 @@ Each tool promised to solve a problem. Together, they created a bigger one. And 
 
 **Implementation Timeline**: Small teams (10-50 devs) implement IDPs in 2-3 months. Medium organizations (100-500 devs) need 6-9 months. Enterprises (1000+ devs) require 12-18 months for full adoption.
 
-**When NOT to consolidate**: Teams under 10 developers, stable toolchains with >80% satisfaction, or organizations without platform engineering expertise to maintain an IDP.
+**When NOT to consolidate**: Teams under 10 developers, stable toolchains with greater than 80% satisfaction, or organizations without platform engineering expertise to maintain an IDP.
 
 ## Key Statistics (2024-2025 Data)
 
@@ -334,7 +336,7 @@ Product-minded engineers, not pure DevOps. Treat your internal platform as a pro
 **2. Choose IDP Approach**
 
 Decision framework:
-- **Team size >100, strong OSS culture** → Backstage
+- **Team size greater than 100, strong OSS culture** → Backstage
 - **Want fast time-to-value, smaller team** → Commercial IDP
 - **Extremely unique requirements** → Build (but seriously reconsider)
 
@@ -420,7 +422,7 @@ The industry standard for DevOps performance:
 - **Change Failure Rate**: What % of changes break production?
 - **Mean Time to Restore (MTTR)**: How quickly do you recover from incidents?
 
-Measure before IDP adoption, track monthly after. High-performing teams deploy multiple times per day with <15% change failure rates and <1 hour MTTR.
+Measure before IDP adoption, track monthly after. High-performing teams deploy multiple times per day with less than 15% change failure rates and less than 1 hour MTTR.
 
 #### Framework 2: ThoughtWorks Platform Value Model
 
@@ -482,26 +484,26 @@ Connect platform engineering to business outcomes:
 ✅ Team size: 20+ developers
 ✅ Tool count: 6+ DevOps tools in regular use
 ✅ Pain signals:
-  - >30% of developer time on toil
-  - <30% can self-serve common tasks
-  - >10 hours/week lost to context switching
-  - <70% developer satisfaction
+  - Greater than 30% of developer time on toil
+  - Less than 30% can self-serve common tasks
+  - Greater than 10 hours/week lost to context switching
+  - Less than 70% developer satisfaction
 ✅ Platform engineering capacity: 1+ dedicated engineers
 ✅ Leadership buy-in: Platform team has budget and authority
 
 **When NOT to Consolidate**:
 
-❌ Team size: <10 developers (overhead not worth it)
-❌ Tool satisfaction: >80% developers satisfied with current tools
+❌ Team size: Less than 10 developers (overhead not worth it)
+❌ Tool satisfaction: Greater than 80% developers satisfied with current tools
 ❌ Recent consolidation: Toolchain changed in last 12 months
 ❌ No platform capacity: Can't dedicate 1+ engineers to maintain IDP
 ❌ Unstable requirements: Org structure/strategy in flux
 
 **Decision Tree**:
 ```
-Team size >20 devs?
-├─ Yes → Tool count >6?
-│  ├─ Yes → Developer satisfaction <70%?
+Team size greater than 20 devs?
+├─ Yes → Tool count greater than 6?
+│  ├─ Yes → Developer satisfaction less than 70%?
 │  │  ├─ Yes → Platform capacity available?
 │  │  │  ├─ Yes → ✅ Consolidate with IDP
 │  │  │  └─ No → Build platform team first
@@ -575,20 +577,20 @@ Team size >20 devs?
 
 **Migration Red Flags**:
 - 🚩 Platform team building features developers don't want (ego-driven, not user-driven)
-- 🚩 Adoption <20% after 6 months (something is broken)
+- 🚩 Adoption less than 20% after 6 months (something is broken)
 - 🚩 Developers bypass IDP to use tools directly (IDP adds friction instead of removing it)
 - 🚩 Platform team can't keep up with support requests (understaffed or over-complicated)
 - 🚩 IDP adds more steps than it removes (bureaucracy theater)
 
 **When to Stop/Pivot**:
 - Developer satisfaction decreases after IDP introduction
-- Costs exceed savings for >12 months (bad ROI)
-- Platform team spending >50% time on maintenance vs new capabilities (technical debt spiral)
+- Costs exceed savings for greater than 12 months (bad ROI)
+- Platform team spending greater than 50% time on maintenance vs new capabilities (technical debt spiral)
 - Alternative: Lightweight consolidation (unified dashboard) instead of full IDP
 
 > **💡 Key Takeaway**
 >
-> Start IDP implementation with quick wins (software catalog in 4-6 weeks), beta test with friendly teams before org-wide rollout, and monitor adoption metrics obsessively. Red flags include <20% adoption after 6 months, developers bypassing IDP to use tools directly, or the platform team spending >50% of time on maintenance rather than new capabilities.
+> Start IDP implementation with quick wins (software catalog in 4-6 weeks), beta test with friendly teams before org-wide rollout, and monitor adoption metrics obsessively. Red flags include less than 20% adoption after 6 months, developers bypassing IDP to use tools directly, or the platform team spending greater than 50% of time on maintenance rather than new capabilities.
 
 ## 📚 Learning Resources
 
@@ -669,6 +671,5 @@ Team size >20 devs?
 ---
 
 **Related Content**:
-- [Why Platform Engineering Teams Fail](/blog/2025-10-28-why-platform-engineering-teams-fail-avoid-mistakes)
-- [Backstage Production 10% Adoption Problem](/blog/2025-11-01-backstage-production-adoption-problem-developer-portals)
+<!-- Coming soon: Related blog posts on platform engineering teams and Backstage adoption -->
 - [Platform Engineering](/technical/platform-engineering) (technical overview)

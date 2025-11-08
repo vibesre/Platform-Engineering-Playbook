@@ -43,7 +43,7 @@ Structured, multi-episode educational series designed for deep learning and skil
 
 Transform from a Kubernetes user into a production Kubernetes engineer. Learn how to run Kubernetes at scale with confidence through real-world failure patterns, systematic debugging, and battle-tested best practices.
 
-- **Episodes**: 10 lessons (2 published, 8 coming soon)
+- **Episodes**: 10 lessons (3 published, 7 coming soon)
 - **Duration**: ~3 hours total
 - **Level**: Intermediate to Advanced
 - **Prerequisites**: Basic Kubernetes knowledge (pods, deployments, services)
@@ -59,6 +59,7 @@ Transform from a Kubernetes user into a production Kubernetes engineer. Learn ho
 **Published Lessons**:
 - 📖 [Lesson 01: Production Mindset](/podcasts/00009-kubernetes-production-mastery-lesson-01) (17 min) - Learn the 5 failure patterns that break systems at scale and the 6-item production readiness checklist
 - 📖 [Lesson 02: Resource Management](/podcasts/00010-kubernetes-production-mastery-lesson-02) (19 min) - Master requests vs limits, QoS classes, and the 5-step debugging workflow for OOMKilled pods
+- 📖 [Lesson 03: Security Foundations](/podcasts/00016-kubernetes-production-mastery-lesson-03) (43 min) - Implement namespace-scoped RBAC roles, secure secrets management with Sealed Secrets/External Secrets, and remediate the 5 most common RBAC misconfigurations
 
 **🎥 Watch on YouTube**:
 

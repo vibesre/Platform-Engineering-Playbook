@@ -1,0 +1,129 @@
+Autonoe: Welcome to Episode 3 of <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> Production Mastery. In the last episode, we mastered resource management - requests, limits, and Quality of Service classes. Before we continue, try to recall: what happens when a pod exceeds its memory limit? [pause] That's right - it gets OOMKilled with exit code 137.
+
+Autonoe: But here's what we didn't discuss: how does <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> decide when to restart that pod? Or more importantly, how does it know if your application is actually healthy after it restarts? That's where today's topic comes in - health checks and probes. By the end of this lesson, you'll be able to configure the three types of <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> probes with production-appropriate thresholds, diagnose why pods are stuck in CrashLoopBackOff or marked NotReady, and design health endpoints that actually validate application health - not just process existence.
+
+Autonoe: Let me tell you about last week at a major fintech company. They had a 47-minute outage that cost them 2.3 million dollars in SLA penalties. [pause short]
+
+Autonoe: [pause long]
+
+Autonoe: The root cause? A misconfigured liveness probe. The probe was checking if the process existed, not if it could actually process transactions. The application was completely deadlocked, threads frozen, unable to handle a single request. But <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> thought everything was fine because the process was still running. This is the kind of mistake that seems obvious in hindsight but happens all the time in production.
+
+Autonoe: Here's the thing about probes - they're <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> asking your application three fundamentally different questions. And if you give the wrong answer to any of them, you're going to have a bad time.
+
+Autonoe: [pause]
+
+Autonoe: The startup probe asks: "Are you done initializing?" This protects slow-starting containers. Think about that Java application with a two-minute boot time while it loads Spring context, warms up connection pools, and builds its cache.
+
+Autonoe: The readiness probe asks: "Can you handle traffic right now?" This controls whether your pod receives requests from the service. It's your circuit breaker.
+
+Autonoe: The liveness probe asks: "Are you still alive or do you need a restart?" This is the nuclear option. When this fails, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> kills your container and starts fresh.
+
+Autonoe: Now you might be thinking - why three different probes? Can't we just have one health check? [pause]
+
+Autonoe: Here's why that doesn't work. Imagine your application starts up. It needs to connect to a database, warm up its cache, maybe download some configuration. That takes time. If your liveness probe kicks in after 30 seconds but your app needs 90 seconds to start, you've created a restart loop. The app never gets a chance to become healthy. That's what the startup probe prevents. It gives your application time to initialize before the other probes even begin checking.
+
+Autonoe: Once your app is running, you need to know two different things. First, is it healthy enough to handle traffic? That's readiness. Second, is it so broken it needs to be restarted? That's liveness. And here's the critical distinction that trips up even experienced engineers: these are NOT the same question.
+
+Autonoe: Your database might be down. Should that fail your liveness probe? [pause]
+
+Autonoe: [pause long]
+
+Autonoe: Absolutely not. Your application is healthy - it's the database that's having problems. Restarting your app won't fix the database. In fact, it'll make things worse when the database comes back and suddenly has a thundering herd of restarting applications all trying to reconnect at once.
+
+Autonoe: But should the database being down fail your readiness probe? [pause] Yes! You can't handle traffic if you can't reach your database. You want <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> to stop routing traffic to you until the database recovers. See the difference? Readiness is about capability. Liveness is about the application itself.
+
+Autonoe: Let's talk about how these probes actually work under the hood. You've got three mechanisms to choose from.
+
+Autonoe: [pause]
+
+Autonoe: <say-as interpret-as="characters">HTTP</say-as> GET is the most common. <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> calls your endpoint and expects a 200 to 399 status code. Anything else is a failure. Simple, right? But here's what people miss - this isn't just about returning 200 OK. This is your chance to actually validate that your application works.
+
+Autonoe: TCP Socket is simpler - <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> just tries to open a TCP connection to your specified port. If it connects, you're healthy. This is useful for databases or other TCP services that don't speak <say-as interpret-as="characters">HTTP</say-as>.
+
+Autonoe: Exec runs a command inside your container. If it exits with code 0, you're healthy. This is powerful but be careful - you're running this command frequently, so it needs to be lightweight.
+
+Autonoe: Now let's talk about timing, because this is where things get really interesting. You've got five timing parameters to work with.
+
+Autonoe: [pause]
+
+Autonoe: initialDelaySeconds tells <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> when to start checking after the container starts.
+Autonoe: periodSeconds is how often to check.
+Autonoe: timeoutSeconds is how long to wait for a response.
+Autonoe: successThreshold is how many successes before you're considered healthy.
+Autonoe: And failureThreshold is how many failures before <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> takes action.
+
+Autonoe: Here's what actually happens when a readiness probe fails. [pause long] After failureThreshold consecutive failures, your pod gets marked NotReady. The endpoints controller sees this and removes your pod from the service endpoints. The ingress controller updates its backend pool. No new traffic routes to your pod. Existing connections might persist depending on your setup, but you're effectively out of the load balancer.
+
+Autonoe: For a liveness probe failure, it's more dramatic. [pause long] After failureThreshold failures, the <phoneme alphabet="ipa" ph="ˈkublɪt">kubelet</phoneme> initiates a pod restart. Your container gets a SIGTERM signal. If it doesn't exit gracefully within the terminationGracePeriodSeconds, it gets SIGKILL. Then <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> starts a new container. If you have a startup probe, that runs first. Only after the startup probe succeeds do the readiness and liveness probes begin.
+
+Autonoe: Let me show you what this looks like in practice with a real-world example - an e-commerce <say-as interpret-as="characters">API</say-as> with a database dependency.
+
+Autonoe: For your startup probe, you want to check that everything's initialized. Application context loaded? Database migrations completed? Cache warmed if that's required? External service clients initialized? Here's what that looks like: startupProbe, httpGet path /health/startup on port 8080. No initial delay - we want to start checking immediately. Period of 10 seconds - check every 10 seconds. Timeout of 3 seconds - if it takes longer than 3 seconds, something's wrong. Failure threshold of 30 - that gives us 5 minutes maximum for startup. [pause short] That's generous, but production applications with large caches or complex initialization might need it.
+
+Autonoe: Your readiness probe is different. This checks if you can handle traffic RIGHT NOW. Database connection pool has available connections? Required external services reachable? No circuit breakers open? Not in maintenance mode? readinessProbe, httpGet path /health/ready on port 8080. Again, no initial delay - as soon as the startup probe passes, we want to check readiness. Period of 5 seconds - more frequent because readiness can change quickly. Timeout of 2 seconds. Success threshold of 1 - as soon as you're ready once, you can handle traffic. Failure threshold of 3 - but three failures in a row means stop sending traffic.
+
+Autonoe: And here's the critical one - your liveness probe. This should be shallow. I can't emphasize this enough. Your liveness probe should ONLY check if the application itself is healthy. Not dependencies. Not external services. Just the app. livenessProbe, httpGet path /health/live on port 8080. Initial delay of 60 seconds - let the startup and readiness probes stabilize first. Period of 10 seconds. Timeout of 5 seconds - give it a bit more time since restart is disruptive. Failure threshold of 3.
+
+Autonoe: What should this liveness endpoint actually check? Application threads not deadlocked. Event loop responsive. Memory not critically exhausted. Can perform a basic operation like returning the health status. That's it. Nothing more.
+
+Autonoe: Now let me tell you about the five most common mistakes I see in production. These are the ones that cause outages.
+
+Autonoe: [pause]
+
+Autonoe: Mistake number one: your liveness probe checks external dependencies. [pause long] Your app is healthy but the database is down. Liveness probe fails, triggers a restart. App restarts, database is still down, probe fails again. Congratulations, you've created a restart loop that makes recovery impossible. When the database finally recovers, your app is mid-restart and can't serve traffic. The fix? Liveness should ONLY check the application itself. Use readiness for dependencies.
+
+Autonoe: Mistake number two: identical readiness and liveness probes. If they're the same, why have both? This usually means you're not thinking about their different purposes. Readiness answers "Can I serve traffic?" Liveness answers "Am I frozen?"
+
+Autonoe: Mistake number three: aggressive liveness probe timing. [pause long] FailureThreshold of 1, period of 5 seconds, timeout of 1 second. This killed production last Tuesday at a client's site. One slow garbage collection, one network hiccup, and boom - unnecessary restart. Your liveness probe just caused more problems than it solved. The fix? Be generous with liveness timing. Restarts are disruptive. You want to be really sure the application is broken before you pull that trigger.
+
+Autonoe: Mistake number four: no startup probe for slow-starting applications. [pause long] Your Java app takes 90 seconds to start. The liveness probe kicks in after 30 seconds and kills it. The app restarts, takes 90 seconds again, gets killed after 30. Restart loop. The fix? Always use a startup probe for applications with initialization over 30 seconds. Give them time to actually start.
+
+Autonoe: Mistake number five: your health check does expensive computation. [pause long] The health endpoint queries the entire database, aggregates metrics, validates every connection. Takes 5 seconds to respond. Gets called every 5 seconds by three different probes. You've just DOSed yourself with your own health checks. The fix? Health checks must be lightweight - milliseconds, not seconds.
+
+Autonoe: Let's talk about patterns for production. The key pattern you need to understand is shallow versus deep health checks. [pause short] Shallow checks are for liveness - is the process responsive? Basic memory check. Can I return a simple response? That's it. Deep checks are for readiness - can I actually do my job? Validate functionality. Check dependencies. Ensure I can handle real requests. Never, and I mean never, use deep checks for liveness unless you want cascading failures across your entire system.
+
+Autonoe: Now, when you're debugging a CrashLoopBackOff, here's your workflow.
+Autonoe: [pause]
+Autonoe: First, check the probe configuration with <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> describe pod. Look for probe failure events - they'll say something like "Liveness probe failed: Get http://..."
+Autonoe: Test the endpoint manually from inside the pod with <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> exec. Sometimes the endpoint works, but not on the port or path you configured.
+Autonoe: Check probe timing versus actual startup time. Your app might need 45 seconds but your startup probe only gives it 30.
+Autonoe: Review the container logs. Sometimes the container is crashing before the probe even runs. Exit code 1 means your app errored. Exit code 137 means OOMKilled. Exit code 143 means SIGTERM.
+
+Autonoe: For NotReady pods, it's a different investigation.
+Autonoe: Check readiness probe events in the pod description. These will tell you exactly what's failing.
+Autonoe: Verify the endpoint is actually accessible from within the pod. Sometimes it's a networking issue, not a health issue.
+Autonoe: Check if dependencies are available. Is your database up? Can you reach external services?
+Autonoe: Review service endpoint registration with <phoneme alphabet="ipa" ph="ˈkubkənˌtroʊl">kubectl</phoneme> get endpoints. You should see your pod IP there if it's ready.
+
+Autonoe: Alright, pause the audio and answer these questions: [pause short]
+Autonoe: [pause]
+Autonoe: First, your pod keeps restarting every 2 minutes. Which probe is most likely misconfigured? [pause]
+Autonoe: Second, your application takes 3 minutes to warm its cache on startup. Which probe type should you use to protect it? [pause]
+Autonoe: Third, the database is down. Should this fail your liveness probe, readiness probe, or both? [pause]
+
+Autonoe: Here are the answers. [pause short]
+Autonoe: First question - if your pod keeps restarting, it's the liveness probe. That's the only probe that triggers restarts. Readiness just stops traffic. Startup just delays the other probes.
+Autonoe: Second question - for an app that takes 3 minutes to warm cache, you need a startup probe. It protects slow initialization from the other probes. Set the failure threshold high enough to give it time.
+Autonoe: Third question - database down should fail ONLY your readiness probe. Never liveness. Liveness checking external dependencies causes cascading failures. Your app is healthy even if the database isn't.
+
+Autonoe: Let's bring this all
+
+Autonoe: together. You've learned three types of probes with three distinct purposes. [pause short] Startup for initialization, readiness for traffic control, liveness for restart decisions. [pause short]
+
+Autonoe: Remember that liveness probes are nuclear options. Be conservative with timing and checks. An unnecessary restart is worse than delayed detection. Never check external dependencies in liveness probes. That's what readiness is for.
+
+Autonoe: [pause long]
+
+Autonoe: This is probably the most important lesson today. Health endpoints must be lightweight. They're called frequently - every few seconds by multiple probes. If your health check takes a second to respond, you're doing it wrong.
+
+Autonoe: [pause long]
+
+Autonoe: Failed probes are the number three cause of production <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> outages, right after resource limits and network policies. [pause short] This connects directly to the production mindset we discussed in Episode 1. Health checks are your first line of defense. They work with the resource limits from Episode 2 - a pod that's OOMKilled needs proper health checks to recover correctly.
+
+Autonoe: Remember those five failure patterns from Episode 1? [pause] Improper health checks contribute to three of them: cascade failures, thundering herd, and cold start problems.
+
+Autonoe: [pause]
+
+Autonoe: Next time, we're exploring <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> networking and service discovery. You'll learn why pods can't reach each other and how to fix it. The difference between ClusterIP, NodePort, and LoadBalancer services. And how <say-as interpret-as="characters">DNS</say-as> actually works in <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtiz">Kubernetes</phoneme> - spoiler alert, it's not magic, but it can feel like dark magic when it breaks. This builds directly on today's health checks. After all, what good is a healthy pod if traffic can't reach it? [pause]
+
+Autonoe: See you in the next lesson

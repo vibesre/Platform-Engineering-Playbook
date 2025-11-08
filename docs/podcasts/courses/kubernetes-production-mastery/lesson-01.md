@@ -1,7 +1,7 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "📖 Lesson 1: Production Mindset"
+sidebar_label: "📖 #01: Production Mindset"
 slug: /podcasts/courses/kubernetes-production-mastery/lesson-01
 ---
 

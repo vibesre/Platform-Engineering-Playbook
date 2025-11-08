@@ -34,7 +34,7 @@ schema:
     - question: "How do AWS egress fees impact total cost of ownership?"
       answer: "AWS charges $0.09/GB egress after 100GB free tier (increased from 1GB in 2025). For data-heavy workloads transferring 10TB/month, egress alone costs $900/month. Hetzner includes 20TB free traffic with entry-level plans. Egress fees often account for 20-40% of total AWS bills for content delivery and data analytics workloads."
     - question: "Should platform engineering teams recommend cloud repatriation?"
-      answer: "Platform teams should evaluate repatriation for: workloads with consistent baseline utilization >70%, high egress costs (>$5K/month), limited use of managed services, and teams with infrastructure expertise. Don't repatriate if: under 100 engineers, lacking 3+ dedicated infra staff, relying heavily on managed services, or workload requires true elastic scaling."
+      answer: "Platform teams should evaluate repatriation for: workloads with consistent baseline utilization greater than 70%, high egress costs (greater than $5K/month), limited use of managed services, and teams with infrastructure expertise. Don't repatriate if: under 100 engineers, lacking 3+ dedicated infra staff, relying heavily on managed services, or workload requires true elastic scaling."
 ---
 
 # The Cloud Repatriation Debate: When AWS Costs 10-100x More Than It Should [2025 Platform Engineering Guide]
@@ -53,7 +53,7 @@ schema:
 - Typical enterprises: 15-30% infrastructure cost reduction
 
 **Key Trade-offs**:
-- **Bare Metal Wins**: Predictable workloads at scale (>50 servers, >12 months stable), high bandwidth needs, limited managed service usage
+- **Bare Metal Wins**: Predictable workloads at scale (greater than 50 servers, greater than 12 months stable), high bandwidth needs, limited managed service usage
 - **Cloud Wins**: True burst scaling requirements, pre-PMF startups, global multi-region presence, heavy managed service reliance, compliance constraints
 
 **Timeline**: Break-even at 50-100 sustained servers or 12-24 months of stable usage patterns.
@@ -330,12 +330,12 @@ Platform engineering teams need frameworks to answer this question without ideol
 
 | Factor | Stay in Cloud | Consider Bare Metal/VPS | Weight |
 |--------|---------------|-------------------------|---------|
-| **Workload Elasticity** | Traffic spikes 10x+ within hours | Predictable baseline with &lt;2x variation | ⭐⭐⭐ Critical |
-| **Scale** | &lt;50 sustained servers | >100 sustained servers, stable 12+ months | ⭐⭐⭐ Critical |
+| **Workload Elasticity** | Traffic spikes 10x+ within hours | Predictable baseline with less than 2x variation | ⭐⭐⭐ Critical |
+| **Scale** | fewer than 50 sustained servers | >100 sustained servers, stable 12+ months | ⭐⭐⭐ Critical |
 | **Managed Service Dependency** | Heavy use of RDS, Lambda, managed k8s | Primarily compute/storage, self-managed services | ⭐⭐⭐ Critical |
 | **Geographic Distribution** | Multi-region presence required | Single region or 2-3 strategic locations | ⭐⭐ High |
 | **Team Expertise** | No infrastructure specialists on staff | 3+ engineers with datacenter/bare metal experience | ⭐⭐ High |
-| **Egress Requirements** | Low data transfer (&lt;1TB/month) | High bandwidth (>10TB/month outbound) | ⭐⭐ High |
+| **Egress Requirements** | Low data transfer (less than 1TB/month) | High bandwidth (>10TB/month outbound) | ⭐⭐ High |
 | **Compliance Needs** | Require SOC2/HIPAA/FedRAMP certifications | Standard security, no specialized compliance | ⭐ Medium |
 | **Growth Stage** | Pre-PMF, unpredictable growth trajectory | Post-PMF, predictable growth patterns | ⭐ Medium |
 | **Capital Availability** | Cannot commit $100K+ upfront for hardware | Can invest 6-12 months OpEx upfront for CAPEX | ⭐ Medium |
@@ -368,7 +368,7 @@ Platform engineering teams need frameworks to answer this question without ideol
    - Customers demand cloud-native architectures
    - Multi-cloud strategy for risk management
 
-5. **Small Engineering Teams (&lt;100 total engineers)**
+5. **Small Engineering Teams (fewer than 100 total engineers)**
    - No dedicated infrastructure specialists
    - Platform team smaller than 3 FTE
    - Limited ops expertise in-house
@@ -392,7 +392,7 @@ Platform engineering teams need frameworks to answer this question without ideol
    - Capacity planning is feasible
 
 2. **High Bandwidth Requirements**
-   - Egress costs >$5K/month
+   - Egress costs greater than $5K/month
    - Video streaming, file transfer, CDN origin
    - Data analytics with frequent large exports
    - Backup/DR with multi-TB daily transfers
@@ -682,7 +682,7 @@ Before committing to cloud repatriation, platform engineering teams should exhau
    - Kubernetes portable across infrastructure
 
 4. **Predictable workload eliminates elasticity value**
-   - 12+ months data shows &lt;2x traffic variation
+   - 12+ months data shows less than 2x traffic variation
    - Capacity planning is feasible and accurate
    - Don't need cloud's burst scaling capabilities
 
@@ -698,7 +698,7 @@ If you've optimized cloud spend by 30-50% and **still** meet criteria above, rep
 
 ## Platform Engineering Team Recommendations
 
-### For Startups (&lt;100 Engineers, Pre-PMF)
+### For Startups (fewer than 100 Engineers, Pre-PMF)
 
 **Recommendation**: **Stay in cloud**
 
@@ -805,7 +805,7 @@ If you've optimized cloud spend by 30-50% and **still** meet criteria above, rep
    - **Alternative**: Negotiate volume discounts, optimize within cloud
 
 4. **Small Team Without Infrastructure Expertise**
-   - No dedicated platform team (&lt;3 FTE)
+   - No dedicated platform team (fewer than 3 FTE)
    - No infrastructure specialists on staff
    - **Alternative**: Aggressive cloud cost optimization, consider managed Kubernetes
 
@@ -898,12 +898,12 @@ The cloud repatriation debate is polarizing, but the **data is clear**:
 - Startup pre-PMF with unpredictable growth
 - True burst scaling requirements (10x+ spikes)
 - Heavy managed service dependency
-- Small team (&lt;100 engineers, &lt;3 infrastructure FTE)
+- Small team (fewer than 100 engineers, fewer than 3 infrastructure FTE)
 - Global multi-region compliance requirements
 
 **Consider Repatriation If**:
-- Predictable workload (>50 servers sustained 12+ months)
-- High egress costs (>$5K/month)
+- Predictable workload (greater than 50 servers sustained 12+ months)
+- High egress costs (greater than $5K/month)
 - Minimal managed service lock-in
 - Mature engineering org (100+ engineers, 3+ infrastructure FTE)
 - Post-optimization cloud bill still 3-5x bare metal equivalent
