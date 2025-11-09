@@ -150,5 +150,20 @@ nav.pagination-nav,
     position: fixed !important;
     z-index: 101 !important;
   }
+
+  /* Hide blog left sidebar on mobile, make content full width */
+  .blogSidebarHidden {
+    display: none !important;
+  }
+
+  .blogMainContent {
+    max-width: 100% !important;
+  }
 }
 
+/* Show blog left sidebar on desktop */
+@media (min-width: 997px) {
+  .blogSidebarHidden {
+    display: block !important;
+  }
+}

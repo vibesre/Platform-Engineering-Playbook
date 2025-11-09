@@ -127,10 +127,11 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-        gtag: {
-          trackingID: 'G-JYN3ZYTSNR',
-          anonymizeIP: true,
-        },
+        // Commented out to prevent errors when ad blockers are present
+        // gtag: {
+        //   trackingID: 'G-JYN3ZYTSNR',
+        //   anonymizeIP: true,
+        // },
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,

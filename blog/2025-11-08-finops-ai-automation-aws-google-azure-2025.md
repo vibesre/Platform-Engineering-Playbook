@@ -49,6 +49,19 @@ Three vendors. Three AI-powered platforms. One promise: your FinOps team can fin
 
 But here's the reality that marketing materials don't emphasize: the majority of organizations report that AI cost tools identify savings opportunities they struggle to implement. The technology works. The automation is real. So why isn't everyone actually saving money?
 
+> 🎙️ **Listen to the podcast episode**: [The FinOps AI Paradox](/podcasts/00019-finops-ai-paradox) - Jordan and Alex investigate why sophisticated AI that works perfectly still fails to reduce cloud waste, and reveal the organizational changes that the 6% who succeed actually implement.
+
+<div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
+  <iframe
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+    src="https://www.youtube.com/embed/UgJWgpa1RVI"
+    title="The FinOps AI Paradox: Why Smart Tools Don't Cut Costs"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ## Quick Answer (TL;DR)
 
 **Problem**: FinOps teams spend 60-70% of their time on manual tasks (data collection, reporting, anomaly detection) instead of strategic optimization.
