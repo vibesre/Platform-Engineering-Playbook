@@ -138,6 +138,7 @@ Latest content includes course lessons and standalone podcast episodes. Course l
 
 **Latest Standalone Episodes**:
 
+- 🎙️ **[#021: Time Series Language Models](/podcasts/00021-time-series-language-models)** (20 min) - AI that reads your infrastructure metrics like language, explains anomalies in plain English, and predicts failures without training on your data—this technology exists right now. But even the companies who built it won't deploy it to production yet. Why?
 - 🎙️ **[#020: Kubernetes IaC & GitOps - The Workflow Paradox](/podcasts/00020-kubernetes-iac-gitops)** (20 min) - 77% GitOps adoption yet deployments still take days. Why workflow design beats tool selection—ArgoCD vs Flux is a false choice, successful teams run both
 - 🎙️ **[#019: The FinOps AI Paradox](/podcasts/00019-finops-ai-paradox)** (12 min) - Companies invest $500K in AI FinOps tools, identify $3M in savings, but implement only 6%. Why sophisticated AI fails to reduce cloud waste and what the successful 6% actually do differently
 - 🎙️ **[#015: The Cloud Repatriation Debate](/podcasts/00015-cloud-repatriation-debate)** (13 min) - AWS charges 10-100x more than it should? Real companies saving millions by leaving the cloud, hidden costs exposed, decision frameworks for when cloud makes sense
