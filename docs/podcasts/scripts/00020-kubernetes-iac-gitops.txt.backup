@@ -1,0 +1,167 @@
+Jordan: Today we're diving into the GitOps paradox. Sixty percent of Kubernetes clusters run ArgoCD. Seventy-seven percent of organizations have adopted GitOps. Yet platform teams are still bottlenecks, and developers are still waiting days for deployments. What's going on?
+
+Alex: It's wild, right? The tools are mature, adoption is massive, but the promised outcomes—faster deployments, reduced mean time to recovery, developer self-service—they're not materializing for most teams.
+
+Jordan: Exactly. I've talked to platform teams who adopted ArgoCD six months ago, and they're like, "Yeah, it's running, but our deployment process hasn't really changed. We're still manually clicking around, and engineers are still waiting on us." Where's the disconnect?
+
+Alex: Here's the thing—we've been solving the wrong problem. Everyone's focused on ArgoCD versus Flux, Helm versus Kustomize, which tool is better. But the tools are commoditized at this point. The real differentiator is workflow design.
+
+Jordan: Give me an example of what that looks like when it's done right.
+
+Alex: Qonto, the fintech company. They reduced deployment time from thirty minutes to three minutes. Ten-x improvement. Same Kubernetes, same cloud provider. What changed? They designed workflows around their tools instead of just adopting the tools.
+
+Jordan: So we're talking about the ten percent who succeed versus the ninety percent who struggle, and it's not about better technology.
+
+Alex: Exactly. Let's unpack why. Because here's what's crazy—seventy-seven percent GitOps adoption according to the twenty twenty-four CNCF survey, but only thirty-eight percent have fully automated releases. That gap is massive.
+
+Jordan: Alright, so let's investigate. Where should we start? Everyone's still debating ArgoCD versus Flux like it's some kind of existential choice. Is that even the right question?
+
+Alex: No, and that's discovery number one—the tool wars are over, but we're still fighting them. ArgoCD has about sixty percent market share. It's got the web UI, tight integration with Argo Rollouts, ApplicationSets for managing multi-environment deployments. It's a beast.
+
+Jordan: Right, and I'll admit, I love the UI. When something breaks at two AM, being able to visualize the sync status, drill into pod logs, see exactly what ArgoCD is trying to do—that's invaluable for debugging.
+
+Alex: Totally fair. But here's the thing—Flux is CNCF graduated, which is the highest maturity level. It's got the largest ecosystem. Native integrations with GitLab, Azure AKS, AWS EKS. If you're on Azure or using GitLab, Flux might already be baked into your platform.
+
+Jordan: So which one should teams pick?
+
+Alex: Here's the surprise—many successful teams run both. ArgoCD for application delivery because developers appreciate the UI, and Flux for cluster bootstrapping and infrastructure management because platform teams prefer the CLI-driven, pure GitOps approach.
+
+Jordan: Wait, you're saying use both? That seems like it would add complexity, not reduce it.
+
+Alex: It can, if you don't have clear separation of concerns. But think about it—your platform team manages the foundational infrastructure. Networking, observability, security tooling. Flux handles that beautifully with its component-based architecture. Then your app teams deploy their services with ArgoCD where they can see what's happening. Different use cases, different tools.
+
+Jordan: Okay, that actually makes sense. The choice matters less than how you design the workflow around whichever tool you pick.
+
+Alex: Exactly. And that leads to discovery two—Helm versus Kustomize is also a false choice. Seventy-five percent Helm adoption according to CNCF. Everyone uses it for third-party apps. Databases, monitoring stacks, ingress controllers. The Artifact Hub has over ten thousand charts.
+
+Jordan: I mean, Helm's great for that. Templating, version management, rollback capabilities. But when I'm working with in-house applications, I've found Kustomize way simpler. No templating language to learn, just pure YAML with overlays.
+
+Alex: Right, and here's the production pattern—use both together. Helm for packaging, Kustomize for environment-specific customizations. Deploy your microservices with a Helm chart, then use Kustomize overlays to add security policies for production, different resource limits for dev and staging, specific ingress rules per environment.
+
+Jordan: And both ArgoCD and Flux support this?
+
+Alex: Yep. Both support Helm template plus kubectl kustomize as a post-rendering step. It's a well-established pattern. You're not choosing one or the other. You're using the right tool for each part of the workflow.
+
+Jordan: This is starting to make sense. We've been framing these as either-or decisions when they're actually complementary. What about repository structure? Because I've seen teams struggle hard with how to organize their manifests.
+
+Alex: Oh yeah, that's discovery three—repository structure determines team velocity. And there's a clear inflection point. Start with a monorepo—everything in one place. Apps, infrastructure, cluster definitions. Simple, single source of truth, atomic commits across applications.
+
+Jordan: But that doesn't scale, right? I've heard horror stories about monorepos.
+
+Alex: At scale, no. The killer is cache invalidation. Every commit triggers ArgoCD or Flux to sync all applications, even if you only changed one. When you've got twenty, thirty services, that becomes a bottleneck. GitHub discussions show teams hitting this around twenty to thirty services.
+
+Jordan: So when do you split?
+
+Alex: Around fifty people or twenty services. At that point, move to repo-per-team. Each team owns their application repositories. Platform team owns the infrastructure repo. Clear ownership, independent lifecycles, better RBAC. The coordination overhead increases, but you've got the team size to handle it.
+
+Jordan: And multi-tenancy? How do you give teams autonomy without giving them the keys to the kingdom?
+
+Alex: Great question. With Flux, the platform team creates a namespace for each dev team with a scoped service account. The Flux Kustomization resource uses that service account to reconcile the team's Git repo. That service account only has permissions in specific namespaces. Team's manifests can't touch anything outside their scope.
+
+Jordan: What about ArgoCD?
+
+Alex: App of Apps pattern. You create one root Application that deploys other Applications. Each team gets their own Application, scoped to their namespaces. Platform team manages the root, teams manage their own apps. Same principle—separation of concerns with proper RBAC.
+
+Jordan: Okay, so we've covered tools and repository structure. But I feel like we're still missing something. What are the components that actually make this work in production?
+
+Alex: Discovery four—the workflow components nobody talks about. First up, secrets management. You cannot store secrets in Git. Period.
+
+Jordan: Even encrypted?
+
+Alex: Even encrypted. External Secrets Operator is the way to go. It fetches secrets from Vault, AWS Secrets Manager, Azure Key Vault, Google Secret Manager, whatever you're using. The secret values never touch Git. You store a reference in Git, and the operator pulls the actual secret at runtime.
+
+Jordan: Why is that critical for ArgoCD specifically?
+
+Alex: Because ArgoCD stores rendered manifests in its Redis cache. In plaintext. If you inject secrets through ArgoCD, they're sitting in Redis unencrypted. That's a security audit finding waiting to happen. With External Secrets, ArgoCD never sees the secret values. The operator creates the Kubernetes secret after ArgoCD syncs.
+
+Jordan: That's a gotcha that could bite you hard. What else?
+
+Alex: Policy as code. Kyverno or Open Policy Agent. Kyverno's my preference for Kubernetes-specific stuff because it's just YAML. No new language to learn. You can validate resources, mutate them automatically, generate companion resources, even clean up after a time-to-live.
+
+Jordan: Give me a concrete example.
+
+Alex: Sure. Policy that requires every Deployment to have a team label. Kyverno validates on admission. If the label's missing, the deployment is rejected. You can also use it to auto-inject sidecar containers, add default security contexts, generate NetworkPolicies automatically. It's powerful.
+
+Jordan: And this works with GitOps because the policies themselves are Kubernetes resources managed through ArgoCD or Flux?
+
+Alex: Exactly. Your policies live in Git alongside everything else. When you update a policy, it syncs to the cluster, and enforcement happens automatically. Full audit trail, declarative policy management.
+
+Jordan: What about preview environments? I keep hearing that's table stakes now.
+
+Alex: It is. If you're not doing PR-based preview environments in twenty twenty-five, you're leaving productivity on the table. ArgoCD ApplicationSet with the Pull Request Generator, or Flux ResourceSet. Developer opens a PR with a preview label, the system automatically creates an environment in a pr-one-two-three namespace, deploys the code from that branch. Developer reviews, tests, merges, and the environment gets destroyed automatically.
+
+Jordan: Qonto does this?
+
+Alex: Yep. They use feature branch environments as on-demand QA platforms. It's a huge part of why they went from thirty minutes to three minutes. Developers don't wait for the platform team to provision environments. It's self-service.
+
+Jordan: And progressive delivery? Canary deployments?
+
+Alex: Argo Rollouts if you're in the ArgoCD ecosystem. Flagger if you're using a service mesh like Istio or Linkerd. Both do canary deployments—five percent traffic to new version, pause, check metrics, fifty percent, pause, check again, full rollout. If error rates spike, automatic rollback.
+
+Jordan: Okay, so we've identified the problem—tools are adopted but workflows aren't designed. We've explored the components. How does this actually come together? What does a well-designed workflow look like?
+
+Alex: Let's talk platform engineering workflow versus developer workflow. Platform team creates golden paths. These are opinionated templates for common use cases. Deploy a web service, deploy a background worker, deploy a cron job. Templates include all the policy requirements, security defaults, observability hooks. Developers don't start from a blank manifest.
+
+Jordan: So the platform team is encoding best practices into templates.
+
+Alex: Right. And the developer workflow becomes—open PR, update the manifest in Git, preview environment spins up automatically, review the changes, merge, ArgoCD or Flux auto-syncs to staging, then production. The key difference from the old way—developer never touches kubectl. Never has cluster credentials. Everything flows through Git.
+
+Jordan: And you get full audit trail, automatic drift correction, Git as your source of truth.
+
+Alex: Exactly. Let's contrast this with the old way. Traditional was manual kubectl apply, hero culture where only a few people know how production works, no audit trail, constant drift between what's in Git and what's running. GitOps flips that—declarative config, self-service, Git log is your deployment log.
+
+Jordan: And this is where we see DORA metrics improve?
+
+Alex: Massively. Deployment frequency goes up—elite teams are deploying multiple times per day. Lead time drops—commit to production in minutes instead of hours or days. Mean time to recovery plummets because git revert gives you instant rollback. And change failure rate decreases because preview environments catch issues before they hit production.
+
+Jordan: Alright, so let's get practical. Decision framework. When should I use ArgoCD, when should I use Flux, when should I use both?
+
+Alex: Use ArgoCD when you want UI-driven debugging, you're managing ten-plus clusters, you're using Argo Rollouts for progressive delivery, and your team prefers visual tools. Use Flux when you're on Azure, AWS, or GitLab where it's already integrated, multi-tenancy is a core requirement, you prefer CLI-only workflows, or you want a component-based architecture where you only install what you need.
+
+Jordan: And using both?
+
+Alex: ArgoCD for applications so developers get the UI, Flux for infrastructure so your platform team has the pure GitOps workflow. Clear separation of concerns.
+
+Jordan: What about Helm versus Kustomize?
+
+Alex: Helm for third-party applications, complex parameterization, and distributing packages across teams. Kustomize for in-house applications, simple environment variations, and post-rendering Helm charts when you need to tweak third-party packages.
+
+Jordan: Must-haves for success? What are the non-negotiables?
+
+Alex: Four things. External Secrets Operator—never put secrets in Git. Preview environments—PR-based ephemeral environments are table stakes. Policy as code—Kyverno or OPA to enforce compliance automatically. Progressive delivery—canary deployments to reduce change failure rate.
+
+Jordan: Let's talk migration. Team's been doing manual kubectl for years. How do they get from here to GitOps without breaking production?
+
+Alex: Four-week phased rollout. Week one—install ArgoCD or Flux, create Application definitions, but keep sync on manual mode. Let it adopt your existing resources without recreating them. You're just adding ArgoCD's annotations, not changing anything. Week two—enable auto-sync for non-production environments. Test that it works as expected.
+
+Jordan: So you're building confidence gradually.
+
+Alex: Exactly. Week three—enable auto-sync plus pruning. Now ArgoCD or Flux will delete resources that aren't in Git. This is where you discover if you had any manual resources you forgot about. Week four—enable self-healing. If someone manually changes something in the cluster, it automatically reverts to what's in Git.
+
+Jordan: That's a big cultural shift. Some teams won't be ready for that.
+
+Alex: You're right. And that's why you start with manual sync. You can't force GitOps practices on a team that's not ready. But here's the thing—once they see the value, the audit trail, the easy rollbacks, they usually come around.
+
+Jordan: Quick wins someone could implement Monday morning?
+
+Alex: Three things. One—enable preview environments for one team. Pick your most forward-thinking team, set up ArgoCD ApplicationSet or Flux ResourceSet for their repo, let them experience PR-based environments. Two—install External Secrets Operator and migrate one application's secrets out of Git. Prove the pattern works. Three—add one simple Kyverno policy. Require the team label on all deployments. Start enforcing policy as code.
+
+Jordan: And reality check—what's the limitation here?
+
+Alex: GitOps only restores Kubernetes objects. If you have stateful applications—databases, message queues—GitOps doesn't back up your data. You need Velero or native database backups for that. Git revert gets you back to a known-good configuration, but it doesn't restore the data inside your database.
+
+Jordan: That's critical. I've seen teams assume GitOps is their backup strategy and get burned.
+
+Alex: Yeah, that's a hard lesson. GitOps is your configuration source of truth, not your data backup.
+
+Jordan: So coming back to our opening paradox. Seventy-seven percent adoption, but teams are still struggling. What's the core insight?
+
+Alex: Tools are solved. ArgoCD, Flux, Helm, Kustomize—they're all production-grade, widely adopted, going to be around for years. The differentiator is workflow design. Do you have golden paths? Preview environments? Policy as code? Are your developers self-service, or are they still filing tickets to the platform team?
+
+Jordan: And the false choices—ArgoCD versus Flux, Helm versus Kustomize—they're distractions from the real work of designing effective workflows.
+
+Alex: Exactly. Use the tools that fit your ecosystem and team preferences. Then focus on building workflows that enable velocity. Because Qonto's ten-x improvement didn't come from picking the right tool. It came from designing the right workflow around the tools they had.
+
+Jordan: GitOps isn't about the technology. It's about the process. And process design is harder than tool selection, which is why most teams get stuck.
+
+Alex: That's it. Start with the workflow you want developers to experience—PR, preview environment, review, merge, auto-deploy. Then pick the tools that enable that workflow. Not the other way around.

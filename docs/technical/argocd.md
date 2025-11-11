@@ -24,6 +24,7 @@ keywords: ["argocd", "argocd tutorial", "gitops", "continuous delivery", "kubern
 - [ArgoCD Examples](https://github.com/argoproj/argocd-example-apps) - Official example applications
 
 ### 🎥 Video Tutorials
+- [Kubernetes IaC & GitOps - The Workflow Paradox](https://youtu.be/Yy4_m5DoTV4) - Platform Engineering Playbook Podcast (20 min) - Why GitOps adoption doesn't guarantee success
 - [ArgoCD Tutorial for Beginners](https://www.youtube.com/watch?v=MeU5_k9ssrs) - TechWorld with Nana (1 hour)
 - [Complete GitOps Course](https://www.youtube.com/watch?v=2WSJF7d8dws) - DevOps Journey (2 hours)
 - [ArgoCD Deep Dive](https://www.youtube.com/watch?v=aWDIQMbp1cc) - CNCF (45 minutes)

@@ -24,6 +24,7 @@ keywords: [flux, gitops, kubernetes, continuous delivery, fluxcd, kubernetes aut
 - [Flux vs ArgoCD Comparison](https://blog.container-solutions.com/flux-vs-argo-cd) - Understanding GitOps tool differences
 
 ### 🎥 Video Tutorials
+- [Kubernetes IaC & GitOps - The Workflow Paradox](https://youtu.be/Yy4_m5DoTV4) - Platform Engineering Playbook Podcast (20 min) - Why GitOps adoption doesn't guarantee success
 - [Flux Tutorial for Beginners](https://www.youtube.com/watch?v=R6OeIgb7lUI) - TechWorld with Nana (1 hour)
 - [GitOps with Flux v2](https://www.youtube.com/watch?v=nGLpUCQh7RE) - CNCF (45 minutes)
 - [Flux Deep Dive](https://www.youtube.com/watch?v=7E_DeaFLXBA) - KubeCon presentation (1 hour)
