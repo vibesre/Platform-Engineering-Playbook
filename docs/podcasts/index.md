@@ -35,7 +35,7 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-A forty-year-old protocol keeps taking down billion-dollar infrastructure. We dissect the October 2024 AWS outage that lasted 15+ hours due to a DNS race condition in DynamoDB's automation system. Explore CoreDNS plugin architecture, discover why Kubernetes' ndots:5 default creates 5x query amplification for external domains, and learn the five-layer defensive playbook: optimization (reduce query volume), failover (GSLB with health checks), security (DNSSEC + DoH), monitoring (latency and error rates), and chaos testing.
+A forty-year-old protocol keeps taking down billion-dollar infrastructure. We dissect the October 2025 AWS outage that lasted 15+ hours due to a DNS race condition in DynamoDB's automation system. Explore CoreDNS plugin architecture, discover why Kubernetes' ndots:5 default creates 5x query amplification for external domains, and learn the five-layer defensive playbook: optimization (reduce query volume), failover (GSLB with health checks), security (DNSSEC + DoH), monitoring (latency and error rates), and chaos testing.
 
 **Key Topics**: DNS mechanics, CoreDNS, ExternalDNS, ndots trap, TTL strategies, GSLB failover, AWS outage analysis
 
@@ -90,7 +90,7 @@ Master the LEGO architecture approach to multi-region systems. Learn the real 2.
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
 
-- 🎙️ **[#023: DNS for Platform Engineering](/podcasts/00023-dns-platform-engineering)** (23 min) - A forty-year-old protocol keeps taking down billion-dollar infrastructure. October 2024 AWS outage: 15 hours from a DNS race condition. CoreDNS, ndots:5 trap, and the five-layer defensive playbook
+- 🎙️ **[#023: DNS for Platform Engineering](/podcasts/00023-dns-platform-engineering)** (23 min) - A forty-year-old protocol keeps taking down billion-dollar infrastructure. October 2025 AWS outage: 15 hours from a DNS race condition. CoreDNS, ndots:5 trap, and the five-layer defensive playbook
 
 - 🎙️ **[#022: eBPF in Kubernetes](/podcasts/00022-ebpf-kubernetes)** (25 min) - Your Kubernetes cluster is a black box—Prometheus shows symptoms, not causes. eBPF turns the Linux kernel into a programmable platform for observability, networking, and security
 

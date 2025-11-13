@@ -30,7 +30,7 @@ slug: 00023-dns-platform-engineering
 
 ---
 
-**Jordan**: Today we're diving into DNS for platform engineering—and why this forty-year-old protocol remains the silent killer of production systems. October nineteenth, twenty twenty-four, eleven forty-eight PM. AWS US-EAST-1 goes down. Fifteen hours later, services are still failing.
+**Jordan**: Today we're diving into DNS for platform engineering—and why this forty-year-old protocol remains the silent killer of production systems. October nineteenth, twenty twenty-five, eleven forty-eight PM. AWS US-EAST-1 goes down. Fifteen hours later, services are still failing.
 
 **Alex**: And the root cause? A DNS automation race condition. Two DNS Enactors in DynamoDB's management system racing each other, one deletes all the IP addresses for the regional endpoint.
 
@@ -116,7 +116,7 @@ slug: 00023-dns-platform-engineering
 
 **Jordan**: Okay, let's talk about the AWS outage, because that's a masterclass in how DNS automation can cascade globally.
 
-**Alex**: October nineteenth to twentieth, twenty twenty-four. DynamoDB's DNS management system has two components for availability: a DNS Planner that monitors load balancer health and creates DNS plans, and a DNS Enactor that applies changes via Route 53.
+**Alex**: October nineteenth to twentieth, twenty twenty-five. DynamoDB's DNS management system has two components for availability: a DNS Planner that monitors load balancer health and creates DNS plans, and a DNS Enactor that applies changes via Route 53.
 
 **Jordan**: Separation of concerns. Planner decides what to do, Enactor executes it.
 
@@ -134,7 +134,7 @@ slug: 00023-dns-platform-engineering
 
 **Alex**: No, the lesson is DNS automation needs coordination locks, generation tracking, and safeguards against empty records. Race conditions in DNS cascade globally because DNS is the foundation. You can't treat DNS changes like normal automation.
 
-**Jordan**: And it's not just AWS. Salesforce in May twenty twenty-four—engineer's "quick fix" to DNS configuration bypassed review, cascaded across infrastructure.
+**Jordan**: And it's not just AWS. Salesforce in May twenty twenty-five—engineer's "quick fix" to DNS configuration bypassed review, cascaded across infrastructure.
 
 **Alex**: Right. There's no such thing as a quick DNS fix. DNS changes require thorough testing, staged rollouts, automated rollback. And then AdGuard in September—traffic rerouting redirected Asian users to Frankfurt, Frankfurt capacity couldn't handle the three-times load spike.
 
