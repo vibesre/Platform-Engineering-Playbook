@@ -138,6 +138,8 @@ Latest content includes course lessons and standalone podcast episodes. Course l
 
 **Latest Standalone Episodes**:
 
+- 🎙️ **[#023: DNS for Platform Engineering](/podcasts/00023-dns-platform-engineering)** (23 min) - A forty-year-old protocol keeps taking down billion-dollar infrastructure. October 2024 AWS outage: 15 hours from a DNS race condition. CoreDNS, ndots:5 trap, and the five-layer defensive playbook
+- 🎙️ **[#022: eBPF in Kubernetes](/podcasts/00022-ebpf-kubernetes)** (25 min) - Your Kubernetes cluster is a black box—Prometheus shows symptoms, not causes. eBPF turns the Linux kernel into a programmable platform for observability, networking, and security
 - 🎙️ **[#021: Time Series Language Models](/podcasts/00021-time-series-language-models)** (20 min) - AI that reads your infrastructure metrics like language, explains anomalies in plain English, and predicts failures without training on your data—this technology exists right now. But even the companies who built it won't deploy it to production yet. Why?
 - 🎙️ **[#020: Kubernetes IaC & GitOps - The Workflow Paradox](/podcasts/00020-kubernetes-iac-gitops)** (20 min) - 77% GitOps adoption yet deployments still take days. Why workflow design beats tool selection—ArgoCD vs Flux is a false choice, successful teams run both
 - 🎙️ **[#019: The FinOps AI Paradox](/podcasts/00019-finops-ai-paradox)** (12 min) - Companies invest $500K in AI FinOps tools, identify $3M in savings, but implement only 6%. Why sophisticated AI fails to reduce cloud waste and what the successful 6% actually do differently

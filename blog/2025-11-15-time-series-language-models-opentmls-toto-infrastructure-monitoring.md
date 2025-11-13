@@ -45,7 +45,7 @@ schema:
 
 <GitHubButtons />
 
-Your [Prometheus](/docs/technical/prometheus) metrics detected a latency spike at 3 AM. Your traditional monitoring tool sent an alert. But what if your observability platform could read that spike like a language, understand what the pattern means in context of your entire infrastructure history, explain the root cause in plain English, and predict when it'll happen again—without being trained on your specific metrics?
+Your [Prometheus](/technical/prometheus) metrics detected a latency spike at 3 AM. Your traditional monitoring tool sent an alert. But what if your observability platform could read that spike like a language, understand what the pattern means in context of your entire infrastructure history, explain the root cause in plain English, and predict when it'll happen again—without being trained on your specific metrics?
 
 That's the promise of Time-Series Language Models—a new class of AI that treats metrics and logs as a native language, not just numbers. Released in October 2025, OpenTSLM and Datadog's Toto represent a fundamental shift in how AI understands temporal data.
 
@@ -88,7 +88,7 @@ Here's what platform engineers need to know before this technology hits producti
 - Timeline: 2026-2027 for initial vendor production releases
 
 **What to Do Instead**:
-- Monitor vendor announcements ([Datadog](/docs/technical/datadog) Watchdog, observability platforms)
+- Monitor vendor announcements ([Datadog](/technical/datadog) Watchdog, observability platforms)
 - Develop skills: time series fundamentals, transformer architectures, prompt engineering
 - Experiment with TimeGPT API for forecasting (most mature option)
 - Test Toto open-weights in non-critical environments
@@ -117,7 +117,7 @@ Here's what platform engineers need to know before this technology hits producti
 
 The multimodal AI revolution has conquered text (GPT-3, 2020), images (CLIP, DALL-E, 2021), audio (Whisper, 2022), and video (Sora, Gemini 2.0, 2024-2025). But temporal numerical data—the heartbeat of infrastructure monitoring—remains a second-class citizen.
 
-Your [Prometheus](/docs/technical/prometheus) instance scrapes metrics every 15 seconds. [Grafana](/docs/technical/grafana) visualizes dashboards. Alerts fire based on static thresholds. Engineers investigate manually, reading logs and correlating metrics. The AI can't natively understand what it's seeing.
+Your [Prometheus](/technical/prometheus) instance scrapes metrics every 15 seconds. [Grafana](/technical/grafana) visualizes dashboards. Alerts fire based on static thresholds. Engineers investigate manually, reading logs and correlating metrics. The AI can't natively understand what it's seeing.
 
 ### Why Existing Approaches Fall Short
 
@@ -436,7 +436,7 @@ Direct quote from Datadog: "Toto is still early in development and not currently
 
 **Infrastructure Metrics**: CPU, memory, latency, error rates, saturation
 
-**Observability Tools**: [Prometheus](/docs/technical/prometheus), [Grafana](/docs/technical/grafana), OpenTelemetry
+**Observability Tools**: [Prometheus](/technical/prometheus), [Grafana](/technical/grafana), OpenTelemetry
 
 **SRE Practices**: SLIs, SLOs, error budgets, DORA metrics
 
@@ -649,10 +649,10 @@ Infrastructure monitoring is strategic. The same foundation model paradigm that 
 ## Related Content
 
 **Observability & Monitoring**:
-- [Prometheus](/docs/technical/prometheus) - Time series metrics collection
-- [Grafana](/docs/technical/grafana) - Visualization and dashboards
-- [Datadog](/docs/technical/datadog) - Full-stack observability platform
-- [New Relic](/docs/technical/new-relic) - Application performance monitoring
+- [Prometheus](/technical/prometheus) - Time series metrics collection
+- [Grafana](/technical/grafana) - Visualization and dashboards
+- [Datadog](/technical/datadog) - Full-stack observability platform
+- [New Relic](/technical/new-relic) - Application performance monitoring
 
 **Related Blog Posts**:
 - [DevOps Toolchain Crisis: Tool Sprawl and Productivity Waste](/blog/2025-11-07-devops-toolchain-crisis-tool-sprawl-productivity-waste)
