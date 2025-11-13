@@ -11,7 +11,7 @@ slug: 00023-dns-platform-engineering
 
 <GitHubButtons />
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qcDPewcDW6g" title="DNS for Platform Engineering: The Silent Killer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pOY0M5PX-7c" title="DNS for Platform Engineering: The Silent Killer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 

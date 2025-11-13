@@ -26,7 +26,7 @@ Every episode is open source. If you've got something to add, correct, or challe
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/qcDPewcDW6g"
+      src="https://www.youtube.com/embed/pOY0M5PX-7c"
       title="DNS for Platform Engineering: The Silent Killer"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
