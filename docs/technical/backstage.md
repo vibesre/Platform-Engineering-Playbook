@@ -22,13 +22,15 @@ keywords:
 
 > 🎙️ **Episode**: [Backstage in Production: The 10% Adoption Problem](/podcasts/00013-backstage-adoption) - Why adoption stalls at 10%, real $1M+ costs, and decision frameworks for choosing Backstage vs alternatives
 >
+> 🎙️ **Latest Episode**: [Internal Developer Portal Showdown 2025](/podcasts/00024-internal-developer-portals-showdown) - Backstage vs Port vs Cortex vs OpsLevel with transparent pricing, implementation timelines, and decision framework by team size
+>
 > 📝 **Blog**: [Backstage Production Reality Check](/blog/backstage-production-10-percent-adoption-problem) - Comprehensive analysis with comparison tables and ROI calculators
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe
     style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-    src="https://www.youtube.com/embed/psby7csy8Wg"
-    title="Backstage in Production: The 10% Adoption Problem"
+    src="https://www.youtube.com/embed/p-pTklc0JRM"
+    title="Internal Developer Portal Showdown 2025: Backstage vs Port vs Cortex vs OpsLevel"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
