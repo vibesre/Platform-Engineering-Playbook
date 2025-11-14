@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #023 - DNS for Platform Engineering
+## 🎥 Latest Episode: #024 - Internal Developer Portal Showdown 2025
 
-**23 minutes** • Nov 9, 2025 • Alex and Jordan
+**15 minutes** • Nov 14, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/pOY0M5PX-7c"
-      title="DNS for Platform Engineering: The Silent Killer"
+      src="https://www.youtube.com/embed/PLACEHOLDER"
+      title="Internal Developer Portal Showdown 2025: Backstage vs Port vs Cortex vs OpsLevel"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,11 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-A forty-year-old protocol keeps taking down billion-dollar infrastructure. We dissect the October 2025 AWS outage that lasted 15+ hours due to a DNS race condition in DynamoDB's automation system. Explore CoreDNS plugin architecture, discover why Kubernetes' ndots:5 default creates 5x query amplification for external domains, and learn the five-layer defensive playbook: optimization (reduce query volume), failover (GSLB with health checks), security (DNSSEC + DoH), monitoring (latency and error rates), and chaos testing.
+Your team spent 6 months implementing Backstage. Adoption? 8%. The CFO asks: "Why didn't we buy a solution?" Here's the counterintuitive truth: commercial platforms are 8-16x cheaper than "free" Backstage for most teams. OpsLevel $39/user/month delivers in 30-45 days. Port $78/month offers flexibility without coding. Cortex $65-69/month enforces standards. We break down the decision framework by team size—under 200? OpsLevel. 200-500? Port or OpsLevel. 500+? Backstage viable with dedicated platform team.
 
-**Key Topics**: DNS mechanics, CoreDNS, ExternalDNS, ndots trap, TTL strategies, GSLB failover, AWS outage analysis
+**Key Topics**: Backstage vs Port vs Cortex vs OpsLevel, pricing comparison, hidden costs, implementation timelines, decision framework by team size
 
-[📝 Full episode page →](/podcasts/00023-dns-platform-engineering)
+[📝 Full episode page →](/podcasts/00024-internal-developer-portals-showdown) • [📝 Read the full blog post →](/blog/internal-developer-portals-beyond-backstage)
 
 <PodcastSubscribeButtons />
 
@@ -89,6 +89,8 @@ Master the LEGO architecture approach to multi-region systems. Learn the real 2.
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#024: Internal Developer Portal Showdown 2025](/podcasts/00024-internal-developer-portals-showdown)** (15 min) - Backstage costs $150K per 20 developers in hidden engineering time. Commercial platforms are 8-16x cheaper for most teams. Real pricing, timelines, and decision framework by team size
 
 - 🎙️ **[#023: DNS for Platform Engineering](/podcasts/00023-dns-platform-engineering)** (23 min) - A forty-year-old protocol keeps taking down billion-dollar infrastructure. October 2025 AWS outage: 15 hours from a DNS race condition. CoreDNS, ndots:5 trap, and the five-layer defensive playbook
 

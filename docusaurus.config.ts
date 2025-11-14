@@ -109,6 +109,7 @@ const config: Config = {
           showLastUpdateTime: false,
           showLastUpdateAuthor: false,
           breadcrumbs: true,
+          exclude: ['**/outlines/**', '**/scripts/**'], // Exclude working files
         },
         blog: {
           showReadingTime: true,

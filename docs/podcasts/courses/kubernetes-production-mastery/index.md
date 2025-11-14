@@ -100,15 +100,15 @@ Learn about:
 
 ---
 
-#### 📖 Episode 4: Troubleshooting Crashes - CrashLoopBackOff & Beyond
-**Duration**: 15 min • [🎥 Video Lesson](/podcasts/00017-kubernetes-production-mastery-lesson-04) • [Watch on YouTube](https://youtu.be/5iVIU6dpc5QY)
+#### 📖 Episode 4: Health Checks & Probes
+**Duration**: 18 min • [🎥 Video Lesson](/podcasts/00017-kubernetes-production-mastery-lesson-04) • [Watch on YouTube](https://youtu.be/5iVIU6dpc5QY)
 
 Learn about:
-- Systematic troubleshooting workflow: describe → logs → events
-- Debugging CrashLoopBackOff, ImagePullBackOff, Pending pods
-- Configuring effective health checks (liveness, readiness, startup probes)
-- Understanding exit codes and backoff patterns
-- Building team runbooks for common failure scenarios
+- Configuring liveness, readiness, and startup probes with production thresholds
+- Diagnosing CrashLoopBackOff and NotReady pod states systematically
+- Designing health endpoints that validate actual application health
+- Understanding the critical differences between probe types
+- Avoiding the five most common health check mistakes
 
 ---
 
