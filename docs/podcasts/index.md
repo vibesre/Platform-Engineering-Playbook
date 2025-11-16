@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #024 - Internal Developer Portal Showdown 2025
+## 🎥 Latest Episode: #026 - The Kubernetes Complexity Backlash
 
-**15 minutes** • Nov 14, 2025 • Alex and Jordan
+**13 minutes** • Nov 16, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/PLACEHOLDER"
-      title="Internal Developer Portal Showdown 2025: Backstage vs Port vs Cortex vs OpsLevel"
+      src="https://www.youtube.com/embed/pjLP1hmIcC0"
+      title="The Kubernetes Complexity Backlash: When Simpler Infrastructure Wins"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,11 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-Your team spent 6 months implementing Backstage. Adoption? 8%. The CFO asks: "Why didn't we buy a solution?" Here's the counterintuitive truth: commercial platforms are 8-16x cheaper than "free" Backstage for most teams. OpsLevel $39/user/month delivers in 30-45 days. Port $78/month offers flexibility without coding. Cortex $65-69/month enforces standards. We break down the decision framework by team size—under 200? OpsLevel. 200-500? Port or OpsLevel. 500+? Backstage viable with dedicated platform team.
+Kubernetes commands 92% market share, yet 88% report year-over-year cost increases and 25% plan to shrink deployments. We unpack the 3-5x cost underestimation problem, the cargo cult adoption pattern, and when alternatives like Docker Swarm, Nomad, ECS, or PaaS platforms deliver better ROI. From the 200-node rule to 37signals' $10M+ five-year savings leaving AWS, this is your data-driven framework for right-sizing infrastructure decisions in 2025.
 
-**Key Topics**: Backstage vs Port vs Cortex vs OpsLevel, pricing comparison, hidden costs, implementation timelines, decision framework by team size
+**Key Topics**: Kubernetes TCO and hidden costs, the 200-node rule, Docker Swarm vs Nomad vs ECS vs Cloud Run vs PaaS, 37signals cloud repatriation, CNCF landscape complexity, decision frameworks
 
-[📝 Full episode page →](/podcasts/00024-internal-developer-portals-showdown) • [📝 Read the full blog post →](/blog/internal-developer-portals-beyond-backstage)
+[📝 Full episode page →](/podcasts/00026-kubernetes-complexity-backlash) • [📝 Read the full blog post →](/blog/2025-01-16-kubernetes-complexity-backlash-simpler-infrastructure)
 
 <PodcastSubscribeButtons />
 
@@ -89,6 +89,8 @@ Master the LEGO architecture approach to multi-region systems. Learn the real 2.
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#026: The Kubernetes Complexity Backlash](/podcasts/00026-kubernetes-complexity-backlash)** (13 min) - 92% market share meets 88% cost increases and 25% shrinking deployments. The 3-5x cost underestimation problem, 200-node rule, and when Docker Swarm/Nomad/ECS/PaaS beat Kubernetes. 37signals saved $10M+ leaving AWS, teams finally did the math
 
 - 🎙️ **[#025: SRE Reliability Principles - The 26% Problem](/podcasts/00025-sre-reliability-principles)** (15 min) - Only 26% of organizations use SLOs despite 49% saying they're more relevant. Error budgets remain timeless, Platform Engineering and SRE are complementary, and AI/ML needs adapted reliability principles. Practical playbook for starting from zero or fixing ignored SLOs
 

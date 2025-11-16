@@ -43,7 +43,20 @@ schema:
 
 Kubernetes commands 92% of the container orchestration market—a dominance so complete it's become the default choice for cloud-native infrastructure. Yet in 2024, something shifted. 88% of organizations report year-over-year increases in Kubernetes total cost of ownership. 75% cite complexity as a barrier to adoption. 25% plan to shrink their deployments in the next year. Docker Swarm, once declared dead, maintains steady enterprise adoption through Mirantis support. Companies are migrating *from* Kubernetes to AWS ECS and reporting cost savings on their first invoice. The paradox reveals a fundamental truth: market dominance doesn't equal universal applicability. The Kubernetes complexity backlash isn't about rejecting containers—it's about right-sizing infrastructure to actual needs.
 
-> 🎙️ **Listen to the podcast episode**: [Kubernetes in 2025: The Maturity Paradox](/podcasts/00014-kubernetes-overview-2025) - 15-minute deep dive on when Kubernetes makes sense versus when simpler alternatives win, with decision frameworks and real-world examples.
+> 🎙️ **Listen to the podcast episode**: [The Kubernetes Complexity Backlash](/podcasts/00026-kubernetes-complexity-backlash) - 13-minute deep dive on the 92% market share vs 88% cost increase paradox, the 200-node rule, and when Docker Swarm, Nomad, ECS, or PaaS beat Kubernetes.
+
+<div style={{maxWidth: '640px', margin: '1.5rem auto'}}>
+  <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
+    <iframe
+      style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+      src="https://www.youtube.com/embed/pjLP1hmIcC0"
+      title="The Kubernetes Complexity Backlash: When Simpler Infrastructure Wins"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
 ## Quick Answer (TL;DR)
 
@@ -218,23 +231,23 @@ But nodes aren't the only factor. The framework requires considering multiple di
 
 | Factor | Use Kubernetes | Use Alternatives |
 |--------|----------------|------------------|
-| **Scale** | >200 nodes | <200 nodes |
-| **Services** | 100+ microservices | <50 services |
+| **Scale** | &gt;200 nodes | &lt;200 nodes |
+| **Services** | 100+ microservices | &lt;50 services |
 | **Workload Type** | Diverse (containers, batch, stateful, GPU) | Homogeneous (web apps, APIs) |
-| **Team Size** | 200+ engineers | <100 engineers |
-| **Platform Team** | 3-15 dedicated FTEs | <3 FTEs available |
+| **Team Size** | 200+ engineers | &lt;100 engineers |
+| **Platform Team** | 3-15 dedicated FTEs | &lt;3 FTEs available |
 | **Expertise Level** | K8s-skilled engineers on team | Learning from scratch |
 | **Multi-Cloud** | Actual requirement (compliance, redundancy) | Single cloud provider |
-| **Elasticity Needs** | Unpredictable traffic (10x variance) | Predictable workloads (<2x variance) |
-| **Time to Production** | >3 months acceptable | Need production <3 months |
-| **Budget** | $500K+ annual infrastructure | <$250K annual infrastructure |
+| **Elasticity Needs** | Unpredictable traffic (10x variance) | Predictable workloads (&lt;2x variance) |
+| **Time to Production** | &gt;3 months acceptable | Need production &lt;3 months |
+| **Budget** | $500K+ annual infrastructure | &lt;$250K annual infrastructure |
 | **AI/ML Workloads** | Production GPU workloads (Kubeflow) | No ML/AI requirements |
 
 ### Alternative Platforms Deep-Dive
 
 **1. Docker Swarm: The Simplicity Champion**
 
-**Best for**: <200 nodes, <50 services, teams wanting container orchestration without Kubernetes complexity
+**Best for**: &lt;200 nodes, &lt;50 services, teams wanting container orchestration without Kubernetes complexity
 
 **Pros**:
 - **10-minute setup** vs 2-week Kubernetes learning curve
@@ -252,7 +265,7 @@ But nodes aren't the only factor. The framework requires considering multiple di
 
 **2. HashiCorp Nomad: Multi-Workload Maestro**
 
-**Best for**: <200 nodes with diverse workload types (containers, VMs, batch jobs, binaries)
+**Best for**: &lt;200 nodes with diverse workload types (containers, VMs, batch jobs, binaries)
 
 **Pros**:
 - **Scales to 10,000+ nodes** in production (proven at scale)
@@ -272,7 +285,7 @@ But nodes aren't the only factor. The framework requires considering multiple di
 
 **3. AWS ECS: The AWS-Native Choice**
 
-**Best for**: AWS-committed organizations, <200 nodes, straightforward containerized apps
+**Best for**: AWS-committed organizations, &lt;200 nodes, straightforward containerized apps
 
 **Pros**:
 - **Tight AWS integration** (ALB, RDS, Secrets Manager, CloudWatch, X-Ray)
@@ -312,7 +325,7 @@ But nodes aren't the only factor. The framework requires considering multiple di
 
 **Options**: [Fly.io](https://fly.io/pricing/), [Railway](https://blog.railway.com/p/paas-comparison-guide), [Render](https://nixsanctuary.com/best-paas-backend-hosting-heroku-vs-render-vs-flyio-vs-railwayapp/)
 
-**Best for**: Startups, small teams (<50 engineers), <100 concurrent users, fast iteration
+**Best for**: Startups, small teams (&lt;50 engineers), &lt;100 concurrent users, fast iteration
 
 **Pros**:
 - **$400/month** vs $150K/year Kubernetes platform team
@@ -335,7 +348,7 @@ According to multiple [pricing comparisons](https://blog.boltops.com/2025/05/01/
 
 > **💡 Key Takeaway**
 >
-> The 200-node rule provides a starting heuristic, but the decision matrix considers scale, team size, expertise, workload type, and budget. Docker Swarm offers 10-minute setup for <200 nodes; Nomad handles multi-workload orchestration to 10K+ nodes; ECS provides AWS-native simplicity; Cloud Run delivers serverless containers in 15 minutes; PaaS platforms cost $400/month vs $150K/year Kubernetes teams. Match the tool to actual requirements, not aspirational scale.
+> The 200-node rule provides a starting heuristic, but the decision matrix considers scale, team size, expertise, workload type, and budget. Docker Swarm offers 10-minute setup for &lt;200 nodes; Nomad handles multi-workload orchestration to 10K+ nodes; ECS provides AWS-native simplicity; Cloud Run delivers serverless containers in 15 minutes; PaaS platforms cost $400/month vs $150K/year Kubernetes teams. Match the tool to actual requirements, not aspirational scale.
 
 ### The Hybrid Strategy: Kubernetes for What Matters
 
@@ -385,7 +398,7 @@ This hybrid model optimizes for:
 **Already Running Kubernetes—Considering Alternatives**
 
 **Days 1-30: Honest Assessment**
-1. **Measure actual utilization**: Are you using <50% of requested resources? (Over-provisioning)
+1. **Measure actual utilization**: Are you using &lt;50% of requested resources? (Over-provisioning)
 2. **Calculate true costs**: FTEs, training, tools, opportunity cost, compute
 3. **Identify low-value clusters**: Dev/staging on Kubernetes? Internal tools? Could they run simpler?
 4. **Developer satisfaction**: Do engineers hate the platform? Complexity blocking velocity?
@@ -409,7 +422,7 @@ This hybrid model optimizes for:
 
 1. **"We'll learn Kubernetes as we go"** → 6-month ramp-up minimum, production incidents during learning
 2. **"Everyone uses it"** → Cargo cult adoption, not requirements-driven
-3. **<3 dedicated platform engineers** → Can't operate effectively, becomes burden on product teams
+3. **&lt;3 dedicated platform engineers** → Can't operate effectively, becomes burden on product teams
 4. **3+ months to first production deployment** → Complexity is killing velocity
 5. **Tool evaluation paralysis** → Spending weeks choosing between Istio vs Linkerd for 30 services
 6. **Developers regularly SSH into nodes** → Platform adoption failure, complexity escape hatch
