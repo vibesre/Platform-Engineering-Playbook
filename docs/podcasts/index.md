@@ -90,6 +90,8 @@ Master the LEGO architecture approach to multi-region systems. Learn the real 2.
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
 
+- 🎙️ **[#025: SRE Reliability Principles - The 26% Problem](/podcasts/00025-sre-reliability-principles)** (15 min) - Only 26% of organizations use SLOs despite 49% saying they're more relevant. Error budgets remain timeless, Platform Engineering and SRE are complementary, and AI/ML needs adapted reliability principles. Practical playbook for starting from zero or fixing ignored SLOs
+
 - 🎙️ **[#024: Internal Developer Portal Showdown 2025](/podcasts/00024-internal-developer-portals-showdown)** (15 min) - Backstage costs $150K per 20 developers in hidden engineering time. Commercial platforms are 8-16x cheaper for most teams. Real pricing, timelines, and decision framework by team size
 
 - 🎙️ **[#023: DNS for Platform Engineering](/podcasts/00023-dns-platform-engineering)** (23 min) - A forty-year-old protocol keeps taking down billion-dollar infrastructure. October 2025 AWS outage: 15 hours from a DNS race condition. CoreDNS, ndots:5 trap, and the five-layer defensive playbook
