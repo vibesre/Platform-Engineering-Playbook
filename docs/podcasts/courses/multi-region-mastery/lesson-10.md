@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 10"
-slug: courses/multi-region-mastery/lesson-10
+slug: /courses/multi-region-mastery/lesson-10
 ---
 
 # Lesson 10: Data Consistency Models: CAP Theorem in Production
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-10
 
 ## Navigation
 
-[← Previous: Cost Management](/podcasts/courses/multi-region-mastery/lesson-09) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Service Mesh & Federation →](/podcasts/courses/multi-region-mastery/lesson-11)
+[← Previous: Cost Management](/courses/multi-region-mastery/lesson-09) | [Back to Course](/courses/multi-region-mastery) | [Next: Service Mesh & Federation →](/courses/multi-region-mastery/lesson-11)

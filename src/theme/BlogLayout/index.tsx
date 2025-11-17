@@ -30,10 +30,19 @@ function transformSidebarItems(items: any[]): PropSidebarItem[] {
         .split(' ')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ') || item;
+
+      // Map special paths to their correct URLs
+      let href = `/${item}`;
+      if (item === 'intro') {
+        href = '/';
+      } else if (item === 'technical/index') {
+        href = '/technical-skills';
+      }
+
       return {
         type: 'link',
         label: label,
-        href: `/${item}`,
+        href: href,
       } as PropSidebarItem;
     }
 
@@ -45,10 +54,19 @@ function transformSidebarItems(items: any[]): PropSidebarItem[] {
         .split(' ')
         .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ') || item.id;
+
+      // Map special paths to their correct URLs
+      let href = `/${item.id}`;
+      if (item.id === 'intro') {
+        href = '/';
+      } else if (item.id === 'technical/index') {
+        href = '/technical-skills';
+      }
+
       return {
         type: 'link',
         label: label,
-        href: `/${item.id}`,
+        href: href,
       } as PropSidebarItem;
     }
 

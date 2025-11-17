@@ -1,5 +1,5 @@
 ---
-slug: backstage-production-10-percent-adoption-problem
+slug: 2025-11-01-backstage-production-10-percent-adoption-problem
 title: "Backstage in Production: The 10% Adoption Problem (2025 Reality Check)"
 authors: [vibesre]
 tags: [backstage, developer-portal, platform-engineering, idp, adoption, enterprise]
@@ -34,7 +34,7 @@ Spotify's VP of Engineering has publicly acknowledged it: while Backstage adopti
 
 ### Why This Matters Now
 
-The 2025 market now favors IDPs that deliver immediate value and faster ROI (Gartner's 2025 Market Guide for Internal Developer Portals). Backstage implementations that can't prove value quickly face existential threats—just like the [60-70% of platform teams that get disbanded](/blog/why-platform-engineering-teams-fail) for failing to prove business impact.
+The 2025 market now favors IDPs that deliver immediate value and faster ROI (Gartner's 2025 Market Guide for Internal Developer Portals). Backstage implementations that can't prove value quickly face existential threats—just like the [60-70% of platform teams that get disbanded](/blog/2025-10-28-why-platform-engineering-teams-fail) for failing to prove business impact.
 
 ## The Real Numbers: What Backstage Actually Costs
 
@@ -396,9 +396,9 @@ Before committing to Backstage, answer these questions honestly:
 
 ### Recommended Reading
 
-- [Platform Engineering ROI Calculator](/blog/platform-engineering-roi-calculator) - Calculate if Backstage investment makes sense
-- [Why Platform Engineering Teams Fail](/blog/why-platform-engineering-teams-fail) - Learn the 5 metrics that predict success
-- [Platform Economics](/blog/platform-engineering-economics-hidden-costs-roi) - Understand the $261B tool sprawl problem
+- [Platform Engineering ROI Calculator](/blog/2025-10-28-platform-engineering-roi-calculator) - Calculate if Backstage investment makes sense
+- [Why Platform Engineering Teams Fail](/blog/2025-10-28-why-platform-engineering-teams-fail) - Learn the 5 metrics that predict success
+- [Platform Economics](/blog/2025-01-platform-engineering-economics-hidden-costs-roi) - Understand the $261B tool sprawl problem
 - [Backstage Official Docs](https://backstage.io/docs/overview/adopting/) - Adoption strategies from Spotify
 - [The Hidden Costs of 'Free' IDPs](https://thenewstack.io/the-hidden-costs-of-free-internal-developer-portals/) - New Stack analysis
 
@@ -442,4 +442,4 @@ Sometimes that's Backstage. Often it's not.
 
 **What's your experience with Backstage?** Share your adoption stories (success or failure) in the [Platform Engineering community](https://platformengineering.org/slack-community). Let's learn from each other's real-world implementations—not vendor marketing.
 
-**Need help deciding?** Use our [Platform Engineering ROI Calculator](/blog/platform-engineering-roi-calculator) to model your costs and timeline for different options.
+**Need help deciding?** Use our [Platform Engineering ROI Calculator](/blog/2025-10-28-platform-engineering-roi-calculator) to model your costs and timeline for different options.

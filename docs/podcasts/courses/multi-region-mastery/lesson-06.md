@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 06"
-slug: courses/multi-region-mastery/lesson-06
+slug: /courses/multi-region-mastery/lesson-06
 ---
 
 # Lesson 06: DynamoDB Global Tables: Active-Active Replication
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-06
 
 ## Navigation
 
-[← Previous: Network Architecture](/podcasts/courses/multi-region-mastery/lesson-05) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Observability at Scale →](/podcasts/courses/multi-region-mastery/lesson-07)
+[← Previous: Network Architecture](/courses/multi-region-mastery/lesson-05) | [Back to Course](/courses/multi-region-mastery) | [Next: Observability at Scale →](/courses/multi-region-mastery/lesson-07)

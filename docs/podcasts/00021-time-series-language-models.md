@@ -15,7 +15,7 @@ slug: 00021-time-series-language-models
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
-> 📝 **Read the [full blog post](/blog/time-series-language-models-opentmls-toto-infrastructure-monitoring)**: Comprehensive written analysis of TSLMs with technical deep-dive, research citations, and actionable recommendations for platform teams.
+> 📝 **Read the [full blog post](/blog/2025-11-15-time-series-language-models-opentmls-toto-infrastructure-monitoring)**: Comprehensive written analysis of TSLMs with technical deep-dive, research citations, and actionable recommendations for platform teams.
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe

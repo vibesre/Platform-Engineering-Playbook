@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 #03: Security Foundations"
-slug: /podcasts/00016-kubernetes-production-mastery-lesson-03
+slug: /courses/kubernetes-production-mastery/lesson-03
 ---
 
 # Lesson 03: Security Foundations - RBAC & Secrets Management
@@ -15,7 +15,7 @@ slug: /podcasts/00016-kubernetes-production-mastery-lesson-03
 
 ---
 
-**Course**: [Kubernetes Production Mastery](/podcasts/courses/kubernetes-production-mastery)
+**Course**: [Kubernetes Production Mastery](/courses/kubernetes-production-mastery)
 **Episode**: 03 of 10
 **Duration**: 43 minutes
 **Presenter**: Production Engineering Instructor
@@ -30,8 +30,8 @@ By the end of this lesson, you'll be able to:
 
 ## Prerequisites
 
-- [Lesson 01: Production Mindset](./lesson-01) - Covers the production readiness checklist (RBAC Least Privilege is item #3)
-- [Lesson 02: Resource Management](./lesson-02) - Foundational concepts for security isolation
+- [Lesson 01: Production Mindset](/courses/kubernetes-production-mastery/lesson-01) - Covers the production readiness checklist (RBAC Least Privilege is item #3)
+- [Lesson 02: Resource Management](/courses/kubernetes-production-mastery/lesson-02) - Foundational concepts for security isolation
 - Basic understanding of Kubernetes RBAC concepts (Roles, ServiceAccounts)
 
 ---
@@ -236,6 +236,6 @@ I'll see you in Episode 4.
 
 ## Navigation
 
-⬅️ **Previous**: [Lesson 02: Resource Management](./lesson-02) | **Next**: [Lesson 04: Troubleshooting](./lesson-04) ➡️
+⬅️ **Previous**: [Lesson 02: Resource Management](/courses/kubernetes-production-mastery/lesson-02) | **Next**: [Lesson 04: Troubleshooting](/courses/kubernetes-production-mastery/lesson-04) ➡️
 
-📚 **[Back to Course Overview](/podcasts/courses/kubernetes-production-mastery)**
+📚 **[Back to Course Overview](/courses/kubernetes-production-mastery)**

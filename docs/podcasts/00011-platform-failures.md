@@ -15,7 +15,7 @@ slug: 00011-platform-failures
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
-> 📝 **Read the [full blog post](/blog/2025/10/28/why-platform-engineering-teams-fail)**: Deep dive into the data, 90-day playbook, and comprehensive decision framework.
+> 📝 **Read the [full blog post](/blog/2025-10-28-why-platform-engineering-teams-fail)**: Deep dive into the data, 90-day playbook, and comprehensive decision framework.
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe

@@ -16,6 +16,7 @@ keywords:
   - distributed systems failure
 datePublished: "2025-10-24"
 dateModified: "2025-10-24"
+slug: 2025-10-24-aws-us-east-1-outage-october-2025-postmortem-analysis
 schema:
   type: TechArticle
   questions:
@@ -427,7 +428,7 @@ The $75 million per hour lesson makes the business case obvious.
 
 **Related Content**:
 - [AWS: Strategic Cloud Platform Guide](/technical/aws)
-- [Platform Engineering Economics: Hidden Costs & ROI](/blog/2025/01/10/platform-engineering-economics-hidden-costs-roi)
+- [Platform Engineering Economics: Hidden Costs & ROI](/blog/2025-01-platform-engineering-economics-hidden-costs-roi)
 - [Podcast Episode: AWS State of the Union 2025](/podcasts/00006-aws-state-of-the-union-2025)
 
 ---

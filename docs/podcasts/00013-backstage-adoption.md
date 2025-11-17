@@ -17,7 +17,7 @@ slug: 00013-backstage-adoption
 
 > 🎙️ **Follow-up Episode**: [Internal Developer Portal Showdown 2025](/podcasts/00024-internal-developer-portals-showdown) - Updated 2025 comparison with transparent pricing, OpsLevel ($39/user), Port ($78/user), Cortex ($65-69/user), and decision framework by team size
 >
-> 📝 **Read the [full blog post](/blog/backstage-production-10-percent-adoption-problem)**: Comprehensive analysis with cost calculators, comparison tables, and complete decision frameworks for choosing Backstage vs alternatives.
+> 📝 **Read the [full blog post](/blog/2025-11-01-backstage-production-10-percent-adoption-problem)**: Comprehensive analysis with cost calculators, comparison tables, and complete decision frameworks for choosing Backstage vs alternatives.
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe

@@ -25,8 +25,8 @@ const config: Config = {
   organizationName: 'vibesre', // Usually your GitHub org/user name.
   projectName: 'Platform-Engineering-Playbook', // Usually your repo name.
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -109,7 +109,7 @@ const config: Config = {
           showLastUpdateTime: false,
           showLastUpdateAuthor: false,
           breadcrumbs: true,
-          exclude: ['**/outlines/**', '**/scripts/**'], // Exclude working files
+          exclude: ['**/outlines/**', '**/scripts/**', '**/*-validation-report.md'], // Exclude working files
         },
         blog: {
           showReadingTime: true,
@@ -128,11 +128,10 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-        // Commented out to prevent errors when ad blockers are present
-        // gtag: {
-        //   trackingID: 'G-JYN3ZYTSNR',
-        //   anonymizeIP: true,
-        // },
+        gtag: {
+          trackingID: 'G-JYN3ZYTSNR',
+          anonymizeIP: true,
+        },
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
@@ -189,7 +188,7 @@ const config: Config = {
           items: [
             {
               label: 'Technical Skills List',
-              to: '/technical',
+              to: '/technical-skills',
             },
             {
               label: 'Blog',

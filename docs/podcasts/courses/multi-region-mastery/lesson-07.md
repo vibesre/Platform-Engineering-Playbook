@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 07"
-slug: courses/multi-region-mastery/lesson-07
+slug: /courses/multi-region-mastery/lesson-07
 ---
 
 # Lesson 07: Observability at Scale: Cross-Region Monitoring
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-07
 
 ## Navigation
 
-[← Previous: DynamoDB Global Tables](/podcasts/courses/multi-region-mastery/lesson-06) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: DNS & Traffic Management →](/podcasts/courses/multi-region-mastery/lesson-08)
+[← Previous: DynamoDB Global Tables](/courses/multi-region-mastery/lesson-06) | [Back to Course](/courses/multi-region-mastery) | [Next: DNS & Traffic Management →](/courses/multi-region-mastery/lesson-08)

@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 04"
-slug: courses/multi-region-mastery/lesson-04
+slug: /courses/multi-region-mastery/lesson-04
 ---
 
 # Lesson 04: Kubernetes Multi-Cluster Architecture
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-04
 
 ## Navigation
 
-[← Previous: Aurora Global Database](/podcasts/courses/multi-region-mastery/lesson-03) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Network Architecture →](/podcasts/courses/multi-region-mastery/lesson-05)
+[← Previous: Aurora Global Database](/courses/multi-region-mastery/lesson-03) | [Back to Course](/courses/multi-region-mastery) | [Next: Network Architecture →](/courses/multi-region-mastery/lesson-05)

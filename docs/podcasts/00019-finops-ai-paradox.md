@@ -15,7 +15,7 @@ slug: 00019-finops-ai-paradox
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers, FinOps practitioners with 5+ years experience
 
-> 📝 **Read the [full blog post](/blog/finops-ai-automation-aws-google-azure-2025)**: Comprehensive analysis of AI-powered FinOps tools from AWS, Google, and Azure with detailed decision frameworks, cost breakdowns, and real-world implementation strategies.
+> 📝 **Read the [full blog post](/blog/2025-11-08-finops-ai-automation-aws-google-azure-2025)**: Comprehensive analysis of AI-powered FinOps tools from AWS, Google, and Azure with detailed decision frameworks, cost breakdowns, and real-world implementation strategies.
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe

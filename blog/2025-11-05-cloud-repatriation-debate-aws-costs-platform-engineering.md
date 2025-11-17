@@ -16,6 +16,7 @@ keywords:
   - platform engineering infrastructure
 datePublished: "2025-11-05"
 dateModified: "2025-11-05"
+slug: 2025-11-05-cloud-repatriation-debate-aws-costs-platform-engineering
 schema:
   type: FAQPage
   questions:

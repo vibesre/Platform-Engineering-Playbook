@@ -15,7 +15,7 @@ slug: 00007-aws-outage-october-2025
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
-> 📝 **Read the [full blog post](/blog/2025/10/24/aws-us-east-1-outage-october-2025-postmortem-analysis)**: Deep technical analysis with timeline, cost breakdown, and decision frameworks for platform teams.
+> 📝 **Read the [full blog post](/blog/2025-10-24-aws-us-east-1-outage-october-2025-postmortem-analysis)**: Deep technical analysis with timeline, cost breakdown, and decision frameworks for platform teams.
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe

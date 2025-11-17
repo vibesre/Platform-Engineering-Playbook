@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 16"
-slug: courses/multi-region-mastery/lesson-16
+slug: /courses/multi-region-mastery/lesson-16
 ---
 
 # Lesson 16: Implementation Roadmap: Your 90-Day Multi-Region Plan
@@ -43,4 +43,4 @@ slug: courses/multi-region-mastery/lesson-16
 
 ## Navigation
 
-[← Previous: Anti-Patterns](/podcasts/courses/multi-region-mastery/lesson-15) | [Back to Course](/podcasts/courses/multi-region-mastery)
+[← Previous: Anti-Patterns](/courses/multi-region-mastery/lesson-15) | [Back to Course](/courses/multi-region-mastery)

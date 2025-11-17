@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 09"
-slug: courses/multi-region-mastery/lesson-09
+slug: /courses/multi-region-mastery/lesson-09
 ---
 
 # Lesson 09: Cost Management: Optimizing the 7.5x Multiplier
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-09
 
 ## Navigation
 
-[← Previous: DNS & Traffic Management](/podcasts/courses/multi-region-mastery/lesson-08) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Data Consistency Models →](/podcasts/courses/multi-region-mastery/lesson-10)
+[← Previous: DNS & Traffic Management](/courses/multi-region-mastery/lesson-08) | [Back to Course](/courses/multi-region-mastery) | [Next: Data Consistency Models →](/courses/multi-region-mastery/lesson-10)

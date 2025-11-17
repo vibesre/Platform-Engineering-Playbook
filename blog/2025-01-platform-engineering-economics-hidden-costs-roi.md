@@ -17,6 +17,7 @@ tags: [platform-engineering, infrastructure, career, salary, cloud]
 date: 2025-01-10
 datePublished: "2025-01-10"
 dateModified: "2025-01-10"
+slug: 2025-01-platform-engineering-economics-hidden-costs-roi
 schema:
   type: FAQPage
   questions:

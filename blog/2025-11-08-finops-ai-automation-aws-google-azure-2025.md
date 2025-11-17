@@ -16,6 +16,7 @@ keywords:
   - platform engineering finops
 datePublished: "2025-11-08"
 dateModified: "2025-11-08"
+slug: 2025-11-08-finops-ai-automation-aws-google-azure-2025
 schema:
   type: TechArticle
   questions:
@@ -520,7 +521,7 @@ If you're a FinOps practitioner, FinOps engineer, or platform engineer with cost
 - **What it is**: Designing repeatable processes for cost optimization that scale across teams
 - **Example**: "Every service must have cost budgets with auto-shutoff for non-prod environments. Every team reviews cost monthly with accountability. Every architecture decision includes cost modeling."
 - **Why it matters**: One-off optimizations save money once. Systematic processes save money forever.
-- **Learn more**: See our [Platform Engineering Technical Guides](/technical) for frameworks and best practices
+- **Learn more**: See our [Platform Engineering Technical Guides](/technical-skills) for frameworks and best practices
 
 ### The FinOps Career Path in 2025-2027
 
@@ -563,7 +564,7 @@ Here's what you can do Monday morning to start leveraging FinOps AI automation.
    - AWS: Turn on Cost Anomaly Detection in Cost Explorer
    - GCP: Enable Active Assist recommendations in Cloud Console
    - Azure: Review Azure Advisor cost recommendations
-   - See [technical documentation](/technical) for setup guides
+   - See [technical documentation](/technical-skills) for setup guides
 
 2. **Set up natural language cost queries** (30 minutes)
    - AWS: Ask Amazon Q: "What are my top 5 cost trends this month?"
@@ -669,4 +670,4 @@ Here's what you can do Monday morning to start leveraging FinOps AI automation.
 
 **Related Content**:
 - [The DevOps Toolchain Crisis: Why Adding Tools Makes Teams Slower](/blog/2025-11-07-devops-toolchain-crisis-tool-sprawl-productivity-waste)
-- [Platform Engineering Technical Guides](/technical)
+- [Platform Engineering Technical Guides](/technical-skills)

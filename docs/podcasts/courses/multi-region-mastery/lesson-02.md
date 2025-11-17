@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 02"
-slug: courses/multi-region-mastery/lesson-02
+slug: /courses/multi-region-mastery/lesson-02
 ---
 
 # Lesson 2: Production Patterns - Hot-Hot, Hot-Warm, Hot-Cold
@@ -51,4 +51,4 @@ slug: courses/multi-region-mastery/lesson-02
 
 ## Navigation
 
-[← Previous: Multi-Region Mental Model](/podcasts/courses/multi-region-mastery/lesson-01) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Aurora Global Database →](/podcasts/courses/multi-region-mastery/lesson-03)
+[← Previous: Multi-Region Mental Model](/courses/multi-region-mastery/lesson-01) | [Back to Course](/courses/multi-region-mastery) | [Next: Aurora Global Database →](/courses/multi-region-mastery/lesson-03)

@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 05"
-slug: courses/multi-region-mastery/lesson-05
+slug: /courses/multi-region-mastery/lesson-05
 ---
 
 # Lesson 05: Network Architecture: Transit Gateway & PrivateLink
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-05
 
 ## Navigation
 
-[← Previous: Kubernetes Multi-Cluster](/podcasts/courses/multi-region-mastery/lesson-04) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: DynamoDB Global Tables →](/podcasts/courses/multi-region-mastery/lesson-06)
+[← Previous: Kubernetes Multi-Cluster](/courses/multi-region-mastery/lesson-04) | [Back to Course](/courses/multi-region-mastery) | [Next: DynamoDB Global Tables →](/courses/multi-region-mastery/lesson-06)

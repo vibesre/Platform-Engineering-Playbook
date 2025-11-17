@@ -16,6 +16,7 @@ keywords:
   - kubernetes migration
 datePublished: "2025-01-16"
 dateModified: "2025-01-16"
+slug: 2025-01-16-kubernetes-complexity-backlash-simpler-infrastructure
 schema:
   type: FAQPage
   questions:

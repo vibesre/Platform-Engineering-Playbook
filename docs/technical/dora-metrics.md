@@ -386,8 +386,8 @@ While DORA metrics are foundational, platform teams should also track:
 
 ## Related Content
 
-- [Why 70% of Platform Engineering Teams Fail](/blog/2025/10/28/why-platform-engineering-teams-fail) - The importance of metrics in proving platform ROI
-- [Platform Engineering ROI Calculator](/blog/2025/10/28/platform-engineering-roi-calculator) - Calculate the business value of DORA improvements
+- [Why 70% of Platform Engineering Teams Fail](/blog/2025-10-28-why-platform-engineering-teams-fail) - The importance of metrics in proving platform ROI
+- [Platform Engineering ROI Calculator](/blog/2025-10-28-platform-engineering-roi-calculator) - Calculate the business value of DORA improvements
 - [Prometheus Monitoring](/technical/prometheus) - How to instrument systems for DORA metric collection
 
 ---

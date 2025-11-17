@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 13"
-slug: courses/multi-region-mastery/lesson-13
+slug: /courses/multi-region-mastery/lesson-13
 ---
 
 # Lesson 13: Compliance-Driven Architecture: SEC SCI, MiFID II, BitLicense
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-13
 
 ## Navigation
 
-[← Previous: Disaster Recovery](/podcasts/courses/multi-region-mastery/lesson-12) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Security Architecture →](/podcasts/courses/multi-region-mastery/lesson-14)
+[← Previous: Disaster Recovery](/courses/multi-region-mastery/lesson-12) | [Back to Course](/courses/multi-region-mastery) | [Next: Security Architecture →](/courses/multi-region-mastery/lesson-14)

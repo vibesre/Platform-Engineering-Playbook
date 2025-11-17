@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 01"
-slug: courses/multi-region-mastery/lesson-01
+slug: /courses/multi-region-mastery/lesson-01
 ---
 
 # Lesson 1: The Multi-Region Mental Model
@@ -51,4 +51,4 @@ slug: courses/multi-region-mastery/lesson-01
 
 ## Navigation
 
-[← Back to Course Overview](/podcasts/courses/multi-region-mastery) | [Next Lesson: Production Patterns →](/podcasts/courses/multi-region-mastery/lesson-02)
+[← Back to Course Overview](/courses/multi-region-mastery) | [Next Lesson: Production Patterns →](/courses/multi-region-mastery/lesson-02)

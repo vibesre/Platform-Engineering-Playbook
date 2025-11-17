@@ -14,6 +14,7 @@ keywords:
   - educational fiction
 datePublished: "2024-11-26"
 dateModified: "2024-11-26"
+slug: 2024-11-orchestrators-codex-chapter-1
 ---
 
 # Chapter 1: The Last Restart

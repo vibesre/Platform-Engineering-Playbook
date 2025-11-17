@@ -15,7 +15,7 @@ slug: 00004-paas-showdown
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
-> 📝 **Read the [full blog post](/blog/2025/10/06/paas-showdown-flightcontrol-vercel-railway-render-fly)**: Deep dive into pricing, technical trade-offs, and decision frameworks for choosing the right PaaS platform.
+> 📝 **Read the [full blog post](/blog/2025-10-paas-showdown-flightcontrol-vercel-railway-render-fly)**: Deep dive into pricing, technical trade-offs, and decision frameworks for choosing the right PaaS platform.
 
 <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, margin: '1.5rem 0'}}>
   <iframe

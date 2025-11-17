@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #026 - The Kubernetes Complexity Backlash
+## 🎥 Latest Episode: #027 - The Open Source Observability Showdown
 
-**13 minutes** • Nov 16, 2025 • Alex and Jordan
+**20 minutes** • Nov 17, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/pjLP1hmIcC0"
-      title="The Kubernetes Complexity Backlash: When Simpler Infrastructure Wins"
+      src="https://www.youtube.com/embed/LYDumT3xmrM"
+      title="The Open Source Observability Showdown: When Free Costs $12K/Month"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,11 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-Kubernetes commands 92% market share, yet 88% report year-over-year cost increases and 25% plan to shrink deployments. We unpack the 3-5x cost underestimation problem, the cargo cult adoption pattern, and when alternatives like Docker Swarm, Nomad, ECS, or PaaS platforms deliver better ROI. From the 200-node rule to 37signals' $10M+ five-year savings leaving AWS, this is your data-driven framework for right-sizing infrastructure decisions in 2025.
+Prometheus is free, yet Datadog posted $2B+ in revenue. Shopify runs a dedicated observability team for their "free" Prometheus federation. We decode when open source observability (Prometheus, Grafana, Loki, Tempo) actually delivers on its promises versus when the "free" stack costs $6-12K/month in engineer time. From VictoriaMetrics' 40-60% storage wins to Loki's 10x cheaper storage with 3-5x slower queries, this is your operational maturity framework for build vs buy decisions.
 
-**Key Topics**: Kubernetes TCO and hidden costs, the 200-node rule, Docker Swarm vs Nomad vs ECS vs Cloud Run vs PaaS, 37signals cloud repatriation, CNCF landscape complexity, decision frameworks
+**Key Topics**: Prometheus federation costs, VictoriaMetrics vs Prometheus benchmarks, Loki vs OpenSearch trade-offs, Jaeger vs Tempo at scale, OpenTelemetry integration tax, three-tier decision framework
 
-[📝 Full episode page →](/podcasts/00026-kubernetes-complexity-backlash) • [📝 Read the full blog post →](/blog/2025-01-16-kubernetes-complexity-backlash-simpler-infrastructure)
+[📝 Full episode page →](/podcasts/00027-observability-tools-showdown)
 
 <PodcastSubscribeButtons />
 
@@ -57,7 +57,7 @@ Transform from a Kubernetes user into a production Kubernetes engineer. Learn ho
 - **Prerequisites**: Basic Kubernetes knowledge (pods, deployments, services)
 - **You'll Learn**: Production mindset and failure patterns • Resource management and QoS • RBAC and secrets security • Systematic debugging workflows • Stateful workloads and networking
 
-[→ View Kubernetes Production Mastery Course](/podcasts/courses/kubernetes-production-mastery)
+[→ View Kubernetes Production Mastery Course](/courses/kubernetes-production-mastery)
 
 **🎥 YouTube Playlist**:
 
@@ -90,6 +90,8 @@ Master the LEGO architecture approach to multi-region systems. Learn the real 2.
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
 
+- 🎙️ **[#027: The Open Source Observability Showdown](/podcasts/00027-observability-tools-showdown)** (20 min) - When "free" Prometheus costs $6-12K/month in engineer time. Shopify's dedicated observability team, VictoriaMetrics' 40-60% storage wins, Loki's 10x cheaper storage with 3-5x slower queries, and the three-tier operational maturity framework for Prometheus/Grafana/Loki/Tempo build vs buy decisions. $2B+ Datadog revenue explained.
+
 - 🎙️ **[#026: The Kubernetes Complexity Backlash](/podcasts/00026-kubernetes-complexity-backlash)** (13 min) - 92% market share meets 88% cost increases and 25% shrinking deployments. The 3-5x cost underestimation problem, 200-node rule, and when Docker Swarm/Nomad/ECS/PaaS beat Kubernetes. 37signals saved $10M+ leaving AWS, teams finally did the math
 
 - 🎙️ **[#025: SRE Reliability Principles - The 26% Problem](/podcasts/00025-sre-reliability-principles)** (15 min) - Only 26% of organizations use SLOs despite 49% saying they're more relevant. Error budgets remain timeless, Platform Engineering and SRE are complementary, and AI/ML needs adapted reliability principles. Practical playbook for starting from zero or fixing ignored SLOs
@@ -106,7 +108,7 @@ Pure chronological list of all podcast episodes and published course lessons. Ep
 
 - 🎙️ **[#019: The FinOps AI Paradox](/podcasts/00019-finops-ai-paradox)** (12 min) - Companies invest $500K in AI FinOps tools, identify $3M in savings, but implement only 6%. Why sophisticated AI fails to reduce cloud waste and what the successful 6% actually do differently
 
-- 📖 **[#016: Kubernetes Production Mastery - Lesson 03](/podcasts/00016-kubernetes-production-mastery-lesson-03)** (43 min) - Implement namespace-scoped RBAC roles, secure secrets management with Sealed Secrets/External Secrets, and remediate the 5 most common RBAC misconfigurations
+- 📖 **[#016: Kubernetes Production Mastery - Lesson 03](/courses/kubernetes-production-mastery/lesson-03)** (43 min) - Implement namespace-scoped RBAC roles, secure secrets management with Sealed Secrets/External Secrets, and remediate the 5 most common RBAC misconfigurations
 
 - 🎙️ **[#015: The Cloud Repatriation Debate](/podcasts/00015-cloud-repatriation-debate)** (13 min) - AWS charges 10-100x more than it should? Real companies saving millions by leaving the cloud, hidden costs exposed, decision frameworks for when cloud makes sense
 

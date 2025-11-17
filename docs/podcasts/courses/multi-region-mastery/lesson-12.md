@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 12"
-slug: courses/multi-region-mastery/lesson-12
+slug: /courses/multi-region-mastery/lesson-12
 ---
 
 # Lesson 12: Disaster Recovery: Failover Procedures & Chaos Engineering
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-12
 
 ## Navigation
 
-[← Previous: Service Mesh & Federation](/podcasts/courses/multi-region-mastery/lesson-11) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Compliance-Driven Architecture →](/podcasts/courses/multi-region-mastery/lesson-13)
+[← Previous: Service Mesh & Federation](/courses/multi-region-mastery/lesson-11) | [Back to Course](/courses/multi-region-mastery) | [Next: Compliance-Driven Architecture →](/courses/multi-region-mastery/lesson-13)

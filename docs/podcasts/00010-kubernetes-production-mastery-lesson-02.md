@@ -206,4 +206,4 @@ See you in Episode 3.
 
 ⬅️ **Previous**: [Lesson 01: Production Mindset](./00009-kubernetes-production-mastery-lesson-01) | **Next**: Lesson 03: Security Foundations (Coming Soon) ➡️
 
-📚 **[Back to Course](./courses/kubernetes-production-mastery)**
+📚 **[Back to Course](/courses/kubernetes-production-mastery)**

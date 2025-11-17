@@ -41,42 +41,42 @@ Master production-grade multi-region architectures through 16 hands-on lessons. 
 
 | Episode | Title | Duration |
 |---------|-------|----------|
-| [01](/podcasts/courses/multi-region-mastery/lesson-01) | The Multi-Region Mental Model | 15 min |
-| [02](/podcasts/courses/multi-region-mastery/lesson-02) | Production Patterns: Hot-Hot, Hot-Warm, Hot-Cold | 16 min |
-| [03](/podcasts/courses/multi-region-mastery/lesson-03) | Aurora Global Database Deep Dive | 14 min |
+| [01](/courses/multi-region-mastery/lesson-01) | The Multi-Region Mental Model | 15 min |
+| [02](/courses/multi-region-mastery/lesson-02) | Production Patterns: Hot-Hot, Hot-Warm, Hot-Cold | 16 min |
+| [03](/courses/multi-region-mastery/lesson-03) | Aurora Global Database Deep Dive | 14 min |
 
 ### Module 2: Core Building Blocks
 
 | Episode | Title | Duration |
 |---------|-------|----------|
-| [04](/podcasts/courses/multi-region-mastery/lesson-04) | Kubernetes Multi-Cluster Architecture | 18 min |
-| [05](/podcasts/courses/multi-region-mastery/lesson-05) | Network Architecture: Transit Gateway & PrivateLink | 17 min |
-| [06](/podcasts/courses/multi-region-mastery/lesson-06) | DynamoDB Global Tables: Active-Active Replication | 15 min |
-| [07](/podcasts/courses/multi-region-mastery/lesson-07) | Observability at Scale | 16 min |
-| [08](/podcasts/courses/multi-region-mastery/lesson-08) | DNS & Traffic Management: Route53 & Global Accelerator | 14 min |
+| [04](/courses/multi-region-mastery/lesson-04) | Kubernetes Multi-Cluster Architecture | 18 min |
+| [05](/courses/multi-region-mastery/lesson-05) | Network Architecture: Transit Gateway & PrivateLink | 17 min |
+| [06](/courses/multi-region-mastery/lesson-06) | DynamoDB Global Tables: Active-Active Replication | 15 min |
+| [07](/courses/multi-region-mastery/lesson-07) | Observability at Scale | 16 min |
+| [08](/courses/multi-region-mastery/lesson-08) | DNS & Traffic Management: Route53 & Global Accelerator | 14 min |
 
 ### Module 3: Integration Patterns
 
 | Episode | Title | Duration |
 |---------|-------|----------|
-| [09](/podcasts/courses/multi-region-mastery/lesson-09) | Cost Management: Optimizing the 7.5x Multiplier | 16 min |
-| [10](/podcasts/courses/multi-region-mastery/lesson-10) | Data Consistency Models: CAP Theorem in Production | 13 min |
-| [11](/podcasts/courses/multi-region-mastery/lesson-11) | Advanced Kubernetes Patterns: Service Mesh & Federation | 15 min |
+| [09](/courses/multi-region-mastery/lesson-09) | Cost Management: Optimizing the 7.5x Multiplier | 16 min |
+| [10](/courses/multi-region-mastery/lesson-10) | Data Consistency Models: CAP Theorem in Production | 13 min |
+| [11](/courses/multi-region-mastery/lesson-11) | Advanced Kubernetes Patterns: Service Mesh & Federation | 15 min |
 
 ### Module 4: Specialized Topics
 
 | Episode | Title | Duration |
 |---------|-------|----------|
-| [12](/podcasts/courses/multi-region-mastery/lesson-12) | Disaster Recovery: Failover Procedures & Chaos Engineering | 17 min |
-| [13](/podcasts/courses/multi-region-mastery/lesson-13) | Compliance-Driven Architecture | 16 min |
-| [14](/podcasts/courses/multi-region-mastery/lesson-14) | Security Architecture: Encryption & Key Management | 18 min |
+| [12](/courses/multi-region-mastery/lesson-12) | Disaster Recovery: Failover Procedures & Chaos Engineering | 17 min |
+| [13](/courses/multi-region-mastery/lesson-13) | Compliance-Driven Architecture | 16 min |
+| [14](/courses/multi-region-mastery/lesson-14) | Security Architecture: Encryption & Key Management | 18 min |
 
 ### Module 5: Mastery
 
 | Episode | Title | Duration |
 |---------|-------|----------|
-| [15](/podcasts/courses/multi-region-mastery/lesson-15) | Anti-Patterns: What Breaks Multi-Region | 15 min |
-| [16](/podcasts/courses/multi-region-mastery/lesson-16) | Implementation Roadmap: Your 90-Day Plan | 18 min |
+| [15](/courses/multi-region-mastery/lesson-15) | Anti-Patterns: What Breaks Multi-Region | 15 min |
+| [16](/courses/multi-region-mastery/lesson-16) | Implementation Roadmap: Your 90-Day Plan | 18 min |
 
 ---
 

@@ -15,7 +15,7 @@ slug: 00012-platform-roi-calculator
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
-> 📝 **Read the [full blog post](/blog/2025/10/28/platform-engineering-roi-calculator)**: Deep dive into ROI calculation frameworks, stakeholder templates, and real-world case studies with detailed spreadsheets.
+> 📝 **Read the [full blog post](/blog/2025-10-28-platform-engineering-roi-calculator)**: Deep dive into ROI calculation frameworks, stakeholder templates, and real-world case studies with detailed spreadsheets.
 
 ---
 

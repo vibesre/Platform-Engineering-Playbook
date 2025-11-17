@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 #01: Production Mindset"
-slug: /podcasts/courses/kubernetes-production-mastery/lesson-01
+slug: /courses/kubernetes-production-mastery/lesson-01
 ---
 
 # Lesson 1: Production Mindset
@@ -15,7 +15,7 @@ slug: /podcasts/courses/kubernetes-production-mastery/lesson-01
 
 ---
 
-**Course**: [Kubernetes Production Mastery](/podcasts/courses/kubernetes-production-mastery)
+**Course**: [Kubernetes Production Mastery](/courses/kubernetes-production-mastery)
 **Episode**: 1 of 10
 **Duration**: 17 minutes
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
@@ -205,4 +205,4 @@ I'll see you in Episode 2.
 
 **Next**: Lesson 2: Resource Management ➡️
 
-📚 **[Back to Course Overview](/podcasts/courses/kubernetes-production-mastery)**
+📚 **[Back to Course Overview](/courses/kubernetes-production-mastery)**

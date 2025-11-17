@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 03"
-slug: courses/multi-region-mastery/lesson-03
+slug: /courses/multi-region-mastery/lesson-03
 ---
 
 # Lesson 03: Aurora Global Database Deep Dive
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-03
 
 ## Navigation
 
-[← Previous: Production Patterns](/podcasts/courses/multi-region-mastery/lesson-02) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Kubernetes Multi-Cluster →](/podcasts/courses/multi-region-mastery/lesson-04)
+[← Previous: Production Patterns](/courses/multi-region-mastery/lesson-02) | [Back to Course](/courses/multi-region-mastery) | [Next: Kubernetes Multi-Cluster →](/courses/multi-region-mastery/lesson-04)

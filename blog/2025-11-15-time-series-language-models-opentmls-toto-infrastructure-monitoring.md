@@ -16,6 +16,7 @@ keywords:
   - TimeGPT
 datePublished: "2025-11-15"
 dateModified: "2025-11-15"
+slug: 2025-11-15-time-series-language-models-opentmls-toto-infrastructure-monitoring
 schema:
   type: TechArticle
   questions:

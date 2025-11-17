@@ -16,6 +16,7 @@ keywords:
   - incident management
 datePublished: "2025-01-10"
 dateModified: "2025-01-10"
+slug: 2025-02-ai-powered-platform-engineering-beyond-the-hype
 schema:
   type: FAQPage
   questions:

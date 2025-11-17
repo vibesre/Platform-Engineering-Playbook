@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 08"
-slug: courses/multi-region-mastery/lesson-08
+slug: /courses/multi-region-mastery/lesson-08
 ---
 
 # Lesson 08: DNS & Traffic Management: Route53 & Global Accelerator
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-08
 
 ## Navigation
 
-[← Previous: Observability at Scale](/podcasts/courses/multi-region-mastery/lesson-07) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Cost Management →](/podcasts/courses/multi-region-mastery/lesson-09)
+[← Previous: Observability at Scale](/courses/multi-region-mastery/lesson-07) | [Back to Course](/courses/multi-region-mastery) | [Next: Cost Management →](/courses/multi-region-mastery/lesson-09)

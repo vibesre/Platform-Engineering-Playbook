@@ -63,7 +63,7 @@ Before starting this course, you should have:
 Build the production engineering mindset that separates development from production operations.
 
 #### 📖 Episode 1: Production Mindset - From Dev to Production
-**Duration**: 12 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-01)
+**Duration**: 12 min • [📝 Transcript](/courses/kubernetes-production-mastery/lesson-01)
 
 Learn about:
 - The critical shift from development to production thinking
@@ -78,7 +78,7 @@ Learn about:
 Master production operations foundations through systematic approaches to resource management, security, troubleshooting, storage, networking, and observability.
 
 #### 📖 Episode 2: Resource Management - Preventing OOMKilled
-**Duration**: 15 min • [📝 Transcript](/podcasts/courses/kubernetes-production-mastery/lesson-02)
+**Duration**: 15 min • [📝 Transcript](/courses/kubernetes-production-mastery/lesson-02)
 
 Learn about:
 - Understanding resource requests vs limits (and why both matter)
@@ -89,7 +89,7 @@ Learn about:
 ---
 
 #### 📖 Episode 3: Security Foundations - RBAC & Secrets Management
-**Duration**: 43 min • [📝 Transcript](/podcasts/00016-kubernetes-production-mastery-lesson-03)
+**Duration**: 43 min • [📝 Transcript](/courses/kubernetes-production-mastery/lesson-03)
 
 Learn about:
 - Implementing namespace-scoped RBAC roles that follow least privilege principles

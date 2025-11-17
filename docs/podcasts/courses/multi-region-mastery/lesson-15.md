@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 15"
-slug: courses/multi-region-mastery/lesson-15
+slug: /courses/multi-region-mastery/lesson-15
 ---
 
 # Lesson 15: Anti-Patterns: What Breaks Multi-Region Architectures
@@ -43,4 +43,4 @@ slug: courses/multi-region-mastery/lesson-15
 
 ## Navigation
 
-[← Previous: Security Architecture](/podcasts/courses/multi-region-mastery/lesson-14) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Implementation Roadmap →](/podcasts/courses/multi-region-mastery/lesson-16)
+[← Previous: Security Architecture](/courses/multi-region-mastery/lesson-14) | [Back to Course](/courses/multi-region-mastery) | [Next: Implementation Roadmap →](/courses/multi-region-mastery/lesson-16)

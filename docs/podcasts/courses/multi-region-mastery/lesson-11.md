@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 11"
-slug: courses/multi-region-mastery/lesson-11
+slug: /courses/multi-region-mastery/lesson-11
 ---
 
 # Lesson 11: Advanced Kubernetes: Service Mesh & Federation
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-11
 
 ## Navigation
 
-[← Previous: Data Consistency Models](/podcasts/courses/multi-region-mastery/lesson-10) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Disaster Recovery →](/podcasts/courses/multi-region-mastery/lesson-12)
+[← Previous: Data Consistency Models](/courses/multi-region-mastery/lesson-10) | [Back to Course](/courses/multi-region-mastery) | [Next: Disaster Recovery →](/courses/multi-region-mastery/lesson-12)

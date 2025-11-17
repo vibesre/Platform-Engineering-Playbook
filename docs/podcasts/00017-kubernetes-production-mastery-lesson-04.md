@@ -11,7 +11,7 @@ slug: 00017-kubernetes-production-mastery-lesson-04
 
 <GitHubButtons />
 
-**Course**: [Kubernetes Production Mastery](/podcasts/courses/kubernetes-production-mastery)
+**Course**: [Kubernetes Production Mastery](/courses/kubernetes-production-mastery)
 **Episode**: 4 of 10
 **Duration**: 15 minutes
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
@@ -25,9 +25,9 @@ By the end of this lesson, you'll be able to:
 
 ## Prerequisites
 
-- [Lesson 1: Production Mindset](/podcasts/courses/kubernetes-production-mastery/lesson-01)
-- [Lesson 2: Resource Management](/podcasts/courses/kubernetes-production-mastery/lesson-02)
-- [Lesson 3: Security Foundations](/podcasts/courses/kubernetes-production-mastery/lesson-03)
+- [Lesson 1: Production Mindset](/courses/kubernetes-production-mastery/lesson-01)
+- [Lesson 2: Resource Management](/courses/kubernetes-production-mastery/lesson-02)
+- [Lesson 3: Security Foundations](/courses/kubernetes-production-mastery/lesson-03)
 
 ---
 
@@ -70,6 +70,6 @@ By the end of this lesson, you'll be able to:
 
 ## Navigation
 
-⬅️ **Previous**: [Lesson 3: Security Foundations](./lesson-03) | **Next**: Lesson 5 (Coming Soon) ➡️
+⬅️ **Previous**: [Lesson 3: Security Foundations](/courses/kubernetes-production-mastery/lesson-03) | **Next**: Lesson 5 (Coming Soon) ➡️
 
-📚 **[Back to Course Overview](/podcasts/courses/kubernetes-production-mastery)**
+📚 **[Back to Course Overview](/courses/kubernetes-production-mastery)**

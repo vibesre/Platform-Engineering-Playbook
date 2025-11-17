@@ -16,6 +16,7 @@ keywords:
   - developer portal ROI
 datePublished: "2025-11-14"
 dateModified: "2025-11-14"
+slug: 2025-11-14-internal-developer-portals-beyond-backstage
 schema:
   type: FAQPage
   questions:

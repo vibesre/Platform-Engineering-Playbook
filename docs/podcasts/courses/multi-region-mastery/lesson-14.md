@@ -2,7 +2,7 @@
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
 sidebar_label: "📖 Lesson 14"
-slug: courses/multi-region-mastery/lesson-14
+slug: /courses/multi-region-mastery/lesson-14
 ---
 
 # Lesson 14: Security Architecture: Encryption & Key Management
@@ -42,4 +42,4 @@ slug: courses/multi-region-mastery/lesson-14
 
 ## Navigation
 
-[← Previous: Compliance-Driven Architecture](/podcasts/courses/multi-region-mastery/lesson-13) | [Back to Course](/podcasts/courses/multi-region-mastery) | [Next: Anti-Patterns →](/podcasts/courses/multi-region-mastery/lesson-15)
+[← Previous: Compliance-Driven Architecture](/courses/multi-region-mastery/lesson-13) | [Back to Course](/courses/multi-region-mastery) | [Next: Anti-Patterns →](/courses/multi-region-mastery/lesson-15)

@@ -2,7 +2,7 @@
 
 **Course**: Kubernetes Production Mastery
 **Date**: 2025-01-12
-**Script**: docs/podcasts/courses/kubernetes-production-mastery/scripts/lesson-07.txt
+**Script**: docs/courses/kubernetes-production-mastery/scripts/lesson-07.txt
 **Validator**: Claude Code
 
 ## Summary

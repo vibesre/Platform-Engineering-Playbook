@@ -228,7 +228,7 @@
 1. **🔴 REQUIRED**: Replace "98%" statistic
    - **Preferred replacement**: "89% experienced at least one security incident" (Red Hat 2024)
    - **Alternative**: Focus on 20+ cluster scale complexity without specific failure percentage
-   - **File**: `docs/podcasts/courses/kubernetes-production-mastery/outlines/lesson-01-outline.md`
+   - **File**: `docs/courses/kubernetes-production-mastery/outlines/lesson-01-outline.md`
    - **Line**: 43-52 (Hook section)
 
 2. **✅ OPTIONAL**: Consider adding source links to outline

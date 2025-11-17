@@ -19,7 +19,7 @@ slug: 00024-internal-developer-portals-showdown
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
-> 📝 **Read the [full blog post](/blog/internal-developer-portals-beyond-backstage)**: Deep dive into the complete comparison with pricing tables, implementation strategies, and the decision framework for choosing the right IDP for your team size.
+> 📝 **Read the [full blog post](/blog/2025-11-14-internal-developer-portals-beyond-backstage)**: Deep dive into the complete comparison with pricing tables, implementation strategies, and the decision framework for choosing the right IDP for your team size.
 
 ## Listen to the Episode
 

@@ -16,6 +16,7 @@ keywords:
   - cognitive overload developers
 datePublished: "2025-11-07"
 dateModified: "2025-11-07"
+slug: 2025-11-07-devops-toolchain-crisis-tool-sprawl-productivity-waste
 schema:
   type: FAQPage
   questions:
