@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #027 - The Open Source Observability Showdown
+## 🎥 Latest Episode: #028 - OpenTelemetry eBPF Instrumentation
 
-**20 minutes** • Nov 17, 2025 • Alex and Jordan
+**14 minutes** • Nov 17, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/LYDumT3xmrM"
-      title="The Open Source Observability Showdown: When Free Costs $12K/Month"
+      src="https://www.youtube.com/embed/4Fdq-TYwQ2s"
+      title="OpenTelemetry eBPF Instrumentation: Zero-Code Observability Under 2% Overhead"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,11 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-Prometheus is free, yet Datadog posted $2B+ in revenue. Shopify runs a dedicated observability team for their "free" Prometheus federation. We decode when open source observability (Prometheus, Grafana, Loki, Tempo) actually delivers on its promises versus when the "free" stack costs $6-12K/month in engineer time. From VictoriaMetrics' 40-60% storage wins to Loki's 10x cheaper storage with 3-5x slower queries, this is your operational maturity framework for build vs buy decisions.
+Complete observability coverage without touching application code sounds too good to be true—but eBPF delivers on the promise with under 2% CPU overhead. Jordan and Alex investigate how kernel-level instrumentation captures every HTTP, gRPC, and SQL call across all languages, why Grafana's May 2025 Beyla donation to OpenTelemetry makes this mainstream, and the TLS encryption catch that means "zero configuration" has asterisks. Includes decision framework for when to use eBPF vs SDK instrumentation.
 
-**Key Topics**: Prometheus federation costs, VictoriaMetrics vs Prometheus benchmarks, Loki vs OpenSearch trade-offs, Jaeger vs Tempo at scale, OpenTelemetry integration tax, three-tier decision framework
+**Key Topics**: eBPF kernel instrumentation, OpenTelemetry Beyla donation, under 2% CPU overhead, TLS encryption limitations, protocol-level vs library-level, SDK vs eBPF decision framework
 
-[📝 Full episode page →](/podcasts/00027-observability-tools-showdown)
+[📝 Full episode page →](/podcasts/00028-opentelemetry-ebpf-instrumentation)
 
 <PodcastSubscribeButtons />
 
@@ -89,6 +89,8 @@ Master the LEGO architecture approach to multi-region systems. Learn the real 2.
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#028: OpenTelemetry eBPF Instrumentation](/podcasts/00028-opentelemetry-ebpf-instrumentation)** (14 min) - Complete observability without code changes sounds too good to be true—but kernel-level eBPF delivers under 2% CPU overhead. How Grafana's May 2025 Beyla donation to OpenTelemetry makes this mainstream, the TLS encryption catch nobody talks about, and decision framework for eBPF vs SDK instrumentation.
 
 - 🎙️ **[#027: The Open Source Observability Showdown](/podcasts/00027-observability-tools-showdown)** (20 min) - When "free" Prometheus costs $6-12K/month in engineer time. Shopify's dedicated observability team, VictoriaMetrics' 40-60% storage wins, Loki's 10x cheaper storage with 3-5x slower queries, and the three-tier operational maturity framework for Prometheus/Grafana/Loki/Tempo build vs buy decisions. $2B+ Datadog revenue explained.
 
