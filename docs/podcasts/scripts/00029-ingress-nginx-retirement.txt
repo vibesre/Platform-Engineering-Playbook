@@ -1,0 +1,183 @@
+Jordan: Today we need to talk about something urgent. On November eleventh, <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> <phoneme alphabet="ipa" ph="sɪɡ">SIG</phoneme> Network dropped a bombshell that affects nearly every production cluster out there. [pause]
+
+Alex: Ingress <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> is being retired. March twenty twenty-six. [pause] After that date—no releases, no bugfixes, no security patches.
+
+Jordan: And this isn't some obscure component. This is the de facto standard ingress controller. If you're running <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> with internet-facing services, you're probably running Ingress <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme>.
+
+Alex: So we've got about four months to migrate. [pause] That's not a lot of time for something handling all your external traffic routing.
+
+Jordan: Let's unpack what's actually happening here, because the story behind this retirement is almost as important as the migration itself.
+
+Alex: Yeah, this didn't come out of nowhere. The announcement from <phoneme alphabet="ipa" ph="sɪɡ">SIG</phoneme> Network and the Security Response Committee reveals something systemic.
+
+Jordan: Wait, the Security Response Committee is involved? [pause] That's not a good sign.
+
+Alex: It's not. And here's the part that surprised me—for years, Ingress <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> has had only one or two people doing development work. On their own time. After work hours. Weekends. [pause]
+
+Jordan: One or two maintainers for what's arguably the most critical traffic component in most <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> deployments? [pause]
+
+Alex: That's the unsustainable open source reality. The announcement says <phoneme alphabet="ipa" ph="sɪɡ">SIG</phoneme> Network and the Security Response Committee exhausted their efforts to find additional support. They couldn't find people to help maintain it.
+
+Jordan: Didn't they announce a replacement project last year? InGate or something?
+
+Alex: They did. The maintainers announced plans to wind down Ingress <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> and develop InGate as a replacement, together with the Gateway <say-as interpret-as="characters">API</say-as> community. But even that announcement failed to generate help.
+
+Jordan: So InGate never got off the ground?
+
+Alex: Never progressed far enough to be a viable replacement. It's also being retired. [pause] The whole thing just... didn't work.
+
+Jordan: That's genuinely concerning. So what happens after March twenty twenty-six? [pause]
+
+Alex: Your existing deployments keep running. The installation artifacts stay available. But no new releases. No bugfixes. And critically—no security patches.
+
+Jordan: And <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme>, the underlying proxy, gets <say-as interpret-as="characters">CVE</say-as>s fairly regularly.
+
+Alex: Exactly. So if a vulnerability is discovered after March twenty twenty-six, it stays unpatched. Forever. [pause] And we're talking about your internet-facing edge router here. That's a prime attack target.
+
+Jordan: <say-as interpret-as="characters">CVE</say-as> twenty twenty-five dash one nine seven four was already a wake-up call on that front.
+
+Alex: Right, it demonstrated the pattern. And here's the thing—even your dev and staging environments become risk vectors. They often contain sensitive data or provide paths into production.
+
+Jordan: So "we'll just keep running it" isn't really an option for any serious production environment.
+
+Alex: Not if you care about security posture. The announcement explicitly recommends migrating to Gateway <say-as interpret-as="characters">API</say-as> or another ingress controller immediately.
+
+Jordan: Okay, let's talk options. What are platform teams actually choosing? [pause]
+
+Alex: The main paths are Gateway <say-as interpret-as="characters">API</say-as>, which is the recommended strategic choice, or alternative ingress controllers if you want something more familiar.
+
+Jordan: Let's start with Gateway <say-as interpret-as="characters">API</say-as> since that's the official recommendation.
+
+Alex: So Gateway <say-as interpret-as="characters">API</say-as> isn't just "Ingress version two." It's a complete redesign of how <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> handles traffic routing. Different philosophy, different resource model. [pause]
+
+Jordan: What's actually different about it?
+
+Alex: A few fundamental things. First, it's protocol-agnostic. Ingress only really handled <say-as interpret-as="characters">HTTP</say-as> and <say-as interpret-as="characters">HTTPS</say-as> well. Everything else—<phoneme alphabet="ipa" ph="dʒi ɑr pi si">gRPC</phoneme>, <say-as interpret-as="characters">TCP</say-as>, <say-as interpret-as="characters">UDP</say-as>—required vendor-specific annotations or workarounds.
+
+Jordan: The annotation sprawl problem.
+
+Alex: Exactly. Gateway <say-as interpret-as="characters">API</say-as> has native support for <say-as interpret-as="characters">HTTP</say-as>, <phoneme alphabet="ipa" ph="dʒi ɑr pi si">gRPC</phoneme>, <say-as interpret-as="characters">TCP</say-as>, <say-as interpret-as="characters">UDP</say-as>. No annotations needed for basic traffic types.
+
+Jordan: What else?
+
+Alex: Role-based resource model. Instead of one Ingress resource doing everything, you have Gateway resources that infrastructure teams manage, and Route resources—<say-as interpret-as="characters">HTTP</say-as>Route, <phoneme alphabet="ipa" ph="dʒi ɑr pi si">gRPC</phoneme>Route, <say-as interpret-as="characters">TCP</say-as>Route—that application teams manage. [pause]
+
+Jordan: So there's a cleaner separation of concerns.
+
+Alex: Right. And it has built-in support for things like traffic splitting, canary deployments, blue-green deployments. Stuff that required controller-specific annotations in Ingress.
+
+Jordan: Who's actually implementing Gateway <say-as interpret-as="characters">API</say-as>? Which controllers support it?
+
+Alex: Multiple mature implementations now. <phoneme alphabet="ipa" ph="ˈɛnvɔɪ">Envoy</phoneme> Gateway, which is the reference implementation. <phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme>'s Gateway <say-as interpret-as="characters">API</say-as> support. Kong Gateway. <phoneme alphabet="ipa" ph="ˈtræfɪk">Traefik</phoneme>. And interestingly, <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> Gateway Fabric—that's <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme>'s own Gateway <say-as interpret-as="characters">API</say-as> implementation.
+
+Jordan: So you could stay in the <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> ecosystem but move to Gateway <say-as interpret-as="characters">API</say-as>.
+
+Alex: You could. Though if you're migrating anyway, the question becomes—do you want to go to a strategic destination, or just a halfway point? [pause]
+
+Jordan: What do you mean?
+
+Alex: Gateway <say-as interpret-as="characters">API</say-as>'s big advantage is portability. The spec is standardized. If you're using <say-as interpret-as="characters">HTTP</say-as>Route resources with <phoneme alphabet="ipa" ph="ˈɛnvɔɪ">Envoy</phoneme> Gateway today, you can switch to <phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme>'s implementation tomorrow without rewriting your configs.
+
+Jordan: Unlike Ingress where you'd have controller-specific annotations everywhere.
+
+Alex: Exactly. The annotation sprawl meant you were locked to your controller. Gateway <say-as interpret-as="characters">API</say-as> solves that by putting capabilities in the spec instead of annotations.
+
+Jordan: Okay, so what about teams that don't want to make the Gateway <say-as interpret-as="characters">API</say-as> leap? What are the alternatives?
+
+Alex: <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> Gateway Fabric is the closest to what people know. Similar mental model. Kong Gateway if you need enterprise support and a lot of features. <phoneme alphabet="ipa" ph="ˈtræfɪk">Traefik</phoneme> is popular, good <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">Kubernetes</phoneme> integration. <phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme> if you want the <phoneme alphabet="ipa" ph="i bi pi ɛf">eBPF</phoneme>-based approach.
+
+Jordan: Let's be real though—what makes migration actually hard? Because I'm guessing it's not as simple as running a conversion tool. [pause]
+
+Alex: It's not. There's a tool called ingress2gateway that helps scaffold the migration. But it's a scaffold, not a complete solution.
+
+Jordan: What breaks?
+
+Alex: Annotations. Ingress <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> allowed massive customization through annotations and snippets. Custom header manipulation, rate limiting, specific <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> directives. Gateway <say-as interpret-as="characters">API</say-as> is stricter by design. [pause]
+
+Jordan: So all those custom snippets teams have accumulated over the years...
+
+Alex: Need to be translated. And they don't map one-to-one. Some capabilities require different approaches in Gateway <say-as interpret-as="characters">API</say-as>. Some might need custom policies or filters depending on your controller.
+
+Jordan: What about regex behavior?
+
+Alex: Different. <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> regex versus Gateway <say-as interpret-as="characters">API</say-as>'s stricter matching. You need to validate that your routing rules actually match the same traffic.
+
+Jordan: <say-as interpret-as="characters">SSL</say-as> termination?
+
+Alex: Needs explicit validation. Same with header propagation. The semantics are similar but not identical, so you have to test.
+
+Jordan: And presumably there's a <say-as interpret-as="characters">DNS</say-as> cutover at some point.
+
+Alex: Which can cause disruption if not planned carefully. You want a parallel running period where both Ingress and Gateway are active, gradually shifting traffic.
+
+Jordan: Alright, let's give people a framework. How should teams actually approach this? [pause]
+
+Alex: I'd break it into four phases over roughly four months, with some buffer before March.
+
+Jordan: Phase one?
+
+Alex: Assessment. Weeks one and two. Inventory all your Ingress resources across all clusters. Document every custom annotation and snippet. Identify your highest-risk services—internet-facing, business-critical. And choose your target controller. [pause short]
+
+Jordan: What factors for choosing the controller?
+
+Alex: If you want maximum strategic investment and portability—<phoneme alphabet="ipa" ph="ˈɛnvɔɪ">Envoy</phoneme> Gateway or <phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme> Gateway <say-as interpret-as="characters">API</say-as>. If you want minimal mental model change—<phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> Gateway Fabric. If you need enterprise support contracts—Kong or <phoneme alphabet="ipa" ph="ˈtræfɪk">Traefik</phoneme> Enterprise. [pause short]
+
+Jordan: Phase two?
+
+Alex: Pilot. Weeks three and four. Deploy your chosen Gateway <say-as interpret-as="characters">API</say-as> controller on non-production. Migrate one simple service using ingress2gateway as a starting point. Then manually translate your complex annotations. Validate <say-as interpret-as="characters">SSL</say-as>, headers, routing behavior. [pause short]
+
+Jordan: Simple service first makes sense. Don't start with your most complex routing.
+
+Alex: Right. Get comfortable with the resource model, understand the gaps, then tackle the hard stuff.
+
+Jordan: Phase three?
+
+Alex: Staging migration. Month two. Migrate your entire staging environment. Run parallel Ingress and Gateway for validation. Performance and load testing. And critically—develop your runbooks for production. [pause short]
+
+Jordan: Because you want the team comfortable with troubleshooting before it matters.
+
+Alex: Exactly. You want people who've seen the failure modes before they're handling them at two AM.
+
+Jordan: And phase four is production.
+
+Alex: Month three. Start with lowest-risk production services. Gradual traffic shift—ten percent, then fifty, then one hundred. Keep Ingress as a fallback during the transition. Monitor for routing anomalies. Then once you're confident, month four—cleanup. Remove the old Ingress controllers, archive the manifests, update documentation. [pause]
+
+Jordan: That puts you done before March with some buffer.
+
+Alex: Which you need, because something will take longer than expected. It always does.
+
+Jordan: What should people do this week? Like, immediately? [pause]
+
+Alex: Three things. First, read the official announcement. It's at <phoneme alphabet="ipa" ph="ˌkubɚˈnɛtɪs">kubernetes</phoneme> dot io slash blog, November eleventh. Understand what's actually happening and the timeline. [pause short]
+
+Jordan: Second?
+
+Alex: Run kubectl get ingress dash capital A. See how many Ingress resources you actually have across all namespaces. That's your scope. [pause short]
+
+Jordan: And third?
+
+Alex: Document your most complex Ingress resources. The ones with lots of annotations, custom snippets, regex routing. Those are your migration risks.
+
+Jordan: I want to reframe this a bit. Because yes, this is urgent and yes, it's work. But there's an upside here. [pause]
+
+Alex: Gateway <say-as interpret-as="characters">API</say-as> is genuinely better. This isn't replacing something good with something equivalent. The resource model is cleaner. The portability is real. The built-in capabilities for traffic management are more sophisticated.
+
+Jordan: So you're not just replacing a deprecated controller.
+
+Alex: You're upgrading your entire traffic management story. The annotation sprawl problem goes away. The controller lock-in goes away. You get a more sustainable model backed by a real community and multiple implementations.
+
+Jordan: The irony being that Ingress <phoneme alphabet="ipa" ph="ˈɛndʒɪn ˈɛks">NGINX</phoneme> failed partly because the ecosystem couldn't sustain one controller, and Gateway <say-as interpret-as="characters">API</say-as> succeeds because it supports many.
+
+Alex: Right. Instead of one project needing maintainers, you have multiple implementations competing and innovating on a standard spec.
+
+Jordan: Practical takeaway? [pause]
+
+Alex: Start your assessment this week. Four months isn't a lot of time for something this foundational. Get your inventory, pick your controller, start your pilot. Don't wait for January to realize you have two hundred complex Ingress resources to migrate.
+
+Jordan: And the March deadline is real. No security patches after that means any <say-as interpret-as="characters">CVE</say-as> stays open forever.
+
+Alex: Which for internet-facing infrastructure is an unacceptable risk profile. This isn't optional modernization—it's required security hygiene.
+
+Jordan: Migration now, not later.
+
+Alex: Exactly. The clock is ticking. [pause long]

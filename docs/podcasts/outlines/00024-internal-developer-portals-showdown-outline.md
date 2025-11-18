@@ -24,14 +24,14 @@
 
 **Hook**: Team spent 6 months implementing Backstage. Portal looks beautiful. 47 services cataloged. Adoption? 8%. Three developers use it. CFO asks: "Why didn't we just buy a solution that works?" (Relatable pain point)
 
-**Stakes**: Companies losing $1M annually to tool sprawl (7.4 tools per dev, 6-15 hours/week lost). Internal developer portals promise 60% efficiency gains, 20-55% productivity improvements. But only if teams can successfully implement them. Most Backstage attempts fail with <10% adoption.
+**Stakes**: Companies losing $1M annually to tool sprawl (7.4 tools per dev, 6-15 hours/week lost). Internal developer portals promise 60% efficiency gains, 20-55% productivity improvements. But only if teams can successfully implement them. Most Backstage attempts fail with under 10% adoption.
 
 **Promise**: Today we're comparing what's actually available in 2025—the real costs, real timelines, real trade-offs. By the end, you'll know exactly which platform fits your team size, technical capability, and timeline.
 
 **Callback Setup**: Reference Episode #013 ("In episode 13 we covered WHY Backstage adoption fails. Today we're talking about what to use INSTEAD.")
 
 **Key Points**:
-- Backstage adoption stalls at <10% outside Spotify (Cortex, Gartner 2025)
+- Backstage adoption stalls at under 10% outside Spotify (Cortex, Gartner 2025)
 - Hidden cost: $150K per 20 developers in engineering time (internaldeveloperplatform.org)
 - 2-5 FTE minimum for ongoing maintenance (Gartner 2025)
 - Commercial platforms: OpsLevel $39/user/month, Cortex $65-69, Port $78
@@ -95,7 +95,7 @@
 
 **Critical Limitation**: "You'll encounter many of the same problems as open-source Backstage, such as the rigid data model" (Port analysis)
 
-**Reality Check**: Removes operational burden (hosting, updates) but NOT adoption problems (rigid catalog, stale data, <10% adoption)
+**Reality Check**: Removes operational burden (hosting, updates) but NOT adoption problems (rigid catalog, stale data, under 10% adoption)
 
 **Key Data**:
 - ~$22/user/month (Roadie)
@@ -145,7 +145,7 @@
 
 - **Frontend team exists (React + TypeScript)**: Backstage viable
 - **Backend-only team**: Avoid Backstage, choose Port or OpsLevel
-- **Platform team size**: <2 FTE → commercial only; 2-5 FTE → commercial recommended; 5+ FTE → Backstage viable
+- **Platform team size**: under 2 FTE → commercial only; 2-5 FTE → commercial recommended; 5+ FTE → Backstage viable
 
 **Decision Dimension 3: Timeline**
 
@@ -178,7 +178,7 @@
 3. Define timeline → Need value in 6-8 weeks? → Only OpsLevel works
 
 **If You're Stuck with Low-Adoption Backstage**:
-1. Honest assessment: <15% adoption after 6+ months? → Time to migrate
+1. Honest assessment: under 15% adoption after 6+ months? → Time to migrate
 2. Calculate TCO: 2+ FTE on maintenance = $300K+ annually → Compare to $93K-$187K commercial
 3. Run parallel: 30-day pilot with OpsLevel or Port, migrate if adoption exceeds Backstage
 
@@ -193,11 +193,11 @@
 
 **NARRATIVE TECHNIQUES**:
 - **Economic Detective**: Apparent cost ($0 Backstage) → Hidden costs ($150K per 20 devs) → Real calculation (16x cheaper commercial) → Decision framework
-- **Anchoring Statistic**: <10% Backstage adoption - return to this throughout as "the metric that matters"
+- **Anchoring Statistic**: under 10% Backstage adoption - return to this throughout as "the metric that matters"
 - **Thought Experiment**: Walk through 3 common scenarios with concrete team sizes and recommendations
 
 **SUPPORTING DATA (with sources)**:
-- Backstage adoption <10% (Cortex, Gartner 2025)
+- Backstage adoption under 10% (Cortex, Gartner 2025)
 - Hidden cost $150K per 20 devs (internaldeveloperplatform.org)
 - 2-5 FTE maintenance (Gartner 2025)
 - OpsLevel $39/user/month, 30-45 days (OpsLevel)
@@ -253,7 +253,7 @@
 - Full decision framework with 5 dimensions
 
 **Related Episode #013**: `00013-backstage-adoption.md`
-- Covers WHY Backstage fails (<10% adoption problem)
+- Covers WHY Backstage fails (under 10% adoption problem)
 - This episode (#024) covers WHAT to use instead
 - Natural progression: Problem → Solution
 
