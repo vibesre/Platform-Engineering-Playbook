@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #029 - Ingress NGINX Retirement
+## 🎥 Latest Episode: #030 - Cloudflare Outage November 2025
 
-**13 minutes** • Nov 18, 2025 • Alex and Jordan
+**13 minutes** • Nov 19, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/naedxjY5uvs"
-      title="Ingress NGINX Retirement: The March 2026 Migration Deadline"
+      src="https://www.youtube.com/embed/Oz5XMA-mYT0"
+      title="Cloudflare Outage November 2025: When a Rust Panic Took Down 20% of the Internet"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,11 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-The de facto standard Kubernetes ingress controller will stop receiving security patches in March 2026—and only 1-2 people have been maintaining it for years. Jordan and Alex unpack why this happened, examine the security implications of unpatched CVEs on internet-facing infrastructure, and provide a four-phase migration framework to Gateway API. Includes controller comparison (Envoy Gateway, Cilium, Kong, Traefik, NGINX Gateway Fabric) and immediate actions for this week.
+A routine database permissions change triggered Cloudflare's worst outage since 2019—taking down ChatGPT, X, Shopify, Discord, and 20% of the internet for nearly 6 hours. Jordan and Alex dissect the technical chain reaction from ClickHouse metadata exposure to a Rust panic in the FL2 proxy, examining how ~60 features became >200 and exceeded a hardcoded memory limit.
 
-**Key Topics**: Ingress NGINX retirement, Gateway API migration, March 2026 deadline, CVE-2025-1974, HTTPRoute/GRPCRoute/TCPRoute, ingress2gateway tool, controller portability
+**Key Topics**: Cloudflare outage, ClickHouse, FL2 Rust proxy, Bot Management, hardcoded limits, infrastructure concentration risk, defensive programming, graceful degradation
 
-[📝 Full episode page →](/podcasts/00029-ingress-nginx-retirement)
+[📝 Full episode page →](/podcasts/00030-cloudflare-outage-november-2025)
 
 <PodcastSubscribeButtons />
 
@@ -89,6 +89,8 @@ Master the LEGO architecture approach to multi-region systems. Learn the real 2.
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#030: Cloudflare Outage November 2025](/podcasts/00030-cloudflare-outage-november-2025)** (13 min) - A routine database permissions change triggered Cloudflare's worst outage since 2019—taking down ChatGPT, X, Shopify, Discord, and 20% of the internet for 6 hours. Technical chain reaction from ClickHouse metadata exposure to FL2 Rust proxy panic when ~60 features became >200 and exceeded hardcoded limit. Third major cloud outage in 30 days raises infrastructure concentration risk questions.
 
 - 🎙️ **[#029: Ingress NGINX Retirement](/podcasts/00029-ingress-nginx-retirement)** (13 min) - The de facto standard Kubernetes ingress controller is being retired in March 2026 with no security patches after. Only 1-2 maintainers for years, InGate replacement failed, and platform teams have four months to migrate. Four-phase migration framework to Gateway API with controller comparison and immediate actions.
 
