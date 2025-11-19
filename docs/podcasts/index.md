@@ -45,47 +45,6 @@ A routine database permissions change triggered Cloudflare's worst outage since 
 
 ---
 
-## 📖 Courses
-
-Structured, multi-episode educational series designed for deep learning and skill mastery. Each course uses single-presenter lecture format optimized for retention with learning science principles (spaced repetition, active recall, progressive complexity).
-
-### Kubernetes Production Mastery
-
-Transform from a Kubernetes user into a production Kubernetes engineer. Learn how to run Kubernetes at scale with confidence through real-world failure patterns, systematic debugging, and battle-tested best practices.
-
-- **10 lessons** • ~3 hours • Intermediate to Advanced
-- **Prerequisites**: Basic Kubernetes knowledge (pods, deployments, services)
-- **You'll Learn**: Production mindset and failure patterns • Resource management and QoS • RBAC and secrets security • Systematic debugging workflows • Stateful workloads and networking
-
-[→ View Kubernetes Production Mastery Course](/courses/kubernetes-production-mastery)
-
-**🎥 YouTube Playlist**:
-
-<div style={{maxWidth: '640px', margin: '1rem auto'}}>
-  <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
-    <iframe
-      style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/videoseries?list=PLIjf2e3L8dZz3m5Qc5OFRUDSqeSsZHdcD"
-      title="Kubernetes Production Mastery Course Playlist"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
-
-### Multi-Region Platform Engineering: AWS, Kubernetes, and Aurora at Scale
-
-Master the LEGO architecture approach to multi-region systems. Learn the real 2.5-7.5x cost multiplier, compose building blocks (Aurora Global Database, EKS, Transit Gateway, DynamoDB Global Tables), and build production-grade architectures that match your actual needs—not aspirational ones.
-
-- **16 lessons** (ALL PUBLISHED ✅) • ~4 hours • Advanced
-- **Prerequisites**: 5+ years production AWS/Kubernetes experience, distributed systems knowledge
-- **You'll Learn**: Real multi-region costs and trade-offs • Hot-hot/hot-warm/hot-cold patterns • AWS building blocks as composable pieces • Data consistency and replication strategies • Compliance and regulatory requirements
-
-[→ View Multi-Region Mastery Course](/courses/multi-region-mastery)
-
----
-
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
