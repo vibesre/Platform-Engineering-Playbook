@@ -1,0 +1,210 @@
+---
+displayed_sidebar: tutorialSidebar
+hide_table_of_contents: false
+sidebar_label: "📖 #08: CI/CD Integration"
+slug: /courses/kubernetes-production-mastery/lesson-08
+---
+
+# Lesson 8: CI/CD Integration
+
+## Kubernetes Production Mastery Course
+
+<GitHubButtons />
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T2sf07LxwiI" title="Lesson 8: CI/CD Integration - Kubernetes Production Mastery" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+**Course**: [Kubernetes Production Mastery](/courses/kubernetes-production-mastery)
+**Episode**: 8 of 10
+**Duration**: ~18 minutes
+**Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
+
+## Learning Objectives
+
+By the end of this lesson, you'll be able to:
+- Identify the five sources of Kubernetes cost waste and their relative impact
+- Right-size resources using Prometheus metrics and Vertical Pod Autoscaler recommendations
+- Implement cost controls with ResourceQuotas, LimitRanges, Cluster Autoscaler, and spot instances
+
+## Prerequisites
+
+- [Lesson 1: Production Mindset](./lesson-01)
+- [Lesson 2: Resource Management](./lesson-02)
+- [Lesson 3: Security Foundations](./lesson-03)
+- [Lesson 4: Health Checks & Probes](./lesson-04)
+- [Lesson 5: Stateful Workloads](./lesson-05)
+- [Lesson 6: Networking & Services](./lesson-06)
+- [Lesson 7: Observability](./lesson-07)
+
+---
+
+## Transcript
+
+Welcome to Episode 8 of Kubernetes Production Mastery. Last episode, we built observability. Prometheus metrics, four golden signals, logging with Loki. You can finally see what's happening in production. But here's what those metrics also reveal: waste.
+
+Your Prometheus dashboard shows pods requesting four CPU cores. Actual usage? Point three cores. Dev clusters running twenty-four seven. Nobody logged in after six PM or on weekends. Twenty different clusters, each with its own load balancer, monitoring stack, networking overhead. Then your CFO walks in with a question: "Why did our Kubernetes costs triple this year?"
+
+Here's the uncomfortable truth. Kubernetes costs grow year over year for most organizations. Not because workloads actually grow. Because waste compounds. Every over-provisioned pod. Every idle development cluster. Every "we might need five replicas just in case." It all adds up.
+
+Today we're fixing that. By the end, you'll identify the five sources of Kubernetes cost waste ranked by impact. You'll right-size resources using actual utilization data from Episode Seven's Prometheus and tools like Vertical Pod Autoscaler. And you'll implement cost controls—resource quotas, cluster autoscaling, spot instances—that prevent waste before it happens.
+
+### How Cost Spirals
+
+Let me show you how this spirals. You start with one production cluster. Makes sense. Then you add staging for testing. Then dev for development. Then per-team clusters because teams want isolation. Then a disaster recovery cluster. Twenty clusters later, your bill is out of control. Why? Because each cluster has baseline costs. Control plane nodes. Monitoring infrastructure. Load balancers. Networking. And these clusters don't share resources. No multi-tenancy. Dev clusters are provisioned like production. Over-provisioned for "just in case." Nobody's explicitly responsible for cost optimization because feature work takes priority.
+
+Here's the typical breakdown. Jobs and CronJobs waste sixty to eighty percent of resources. StatefulSets waste forty to sixty percent. Overall, most organizations waste thirty to fifty percent of their Kubernetes spend on over-provisioned resources, idle clusters, and missing autoscaling. Over-provisioned resource requests are the biggest culprit at forty to sixty percent of total waste. Idle resources—dev clusters nobody's using—another twenty to thirty percent. And lack of visibility means you can't optimize what you can't measure.
+
+Think of it like this. Kubernetes is a fleet of trucks. You ordered ten-ton trucks for every single delivery. But most of your deliveries are fifty pounds. You're paying for ten tons of capacity, using fifty pounds. That's over-provisioning in a nutshell.
+
+### The Over-Engineering Problem
+
+Now here's where it gets interesting. This isn't malicious. Engineers aren't trying to waste money. You're optimizing for the right thing—resilience and performance. That's your job. But unchecked, it leads to over-engineering. Examples I see constantly: "We might need five replicas." Currently you need two, but you're planning for growth that hasn't happened yet. "Let's add a service mesh." Great for complex architectures. But now you have two hundred sidecars times fifty megabytes each equals ten gigabytes of overhead. "Run dev twenty-four seven in case someone needs it at night." Paying for one hundred sixty-eight hours per week, actually using forty.
+
+Remember Episode Two? Resource requests reserve capacity. You pay for reservations, not actual usage. Over-request equals overpay. That's the core problem.
+
+### The Five Cost Waste Sources
+
+Let's break down the five cost waste sources. Source number one is the biggest: over-provisioned resource requests. Pods request four CPU cores, use point three. Request eight gigabytes of memory, use one point two. Why does this happen? Developers guess at requirements. "Four cores should be safe." They copy-paste manifests from tutorials. Those are examples, not recommendations. There's no feedback loop. Nobody checks actual usage after deployment. And there's fear of out-of-memory kills, so everyone requests ten times what they actually need.
+
+The impact is massive. This is forty to sixty percent of total waste. One hundred pods times four CPU requested times three point seven CPU wasted per pod equals three hundred seventy wasted cores. At five cents per core-hour, that's sixteen thousand two hundred dollars per month of waste. From a single application.
+
+Remember Episode Two's quality of service classes? Guaranteed versus Burstable? Over-requesting puts you in Guaranteed. You pay for that guarantee whether you use it or not.
+
+**Missing Resource Limits**
+
+Source number two: missing resource limits. When pods don't have limits, they can consume unlimited CPU and memory. Eventually the node runs out of resources. You get evictions. Noisy neighbor problems. Why is this a cost issue? Because you can't pack pods efficiently when their resource usage is unpredictable. You must leave large buffers on nodes. That's wasted capacity. And you can't use node autoscaling safely because pods might unexpectedly consume resources and trigger unnecessary scaling.
+
+The fix is setting limits at the namespace level with LimitRanges. This prevents anyone from deploying pods without limits.
+
+**Idle Resources**
+
+Source number three: idle resources. Your development cluster has twenty nodes. Runs twenty-four seven. But developers actually use it nine AM to six PM, Monday through Friday. That's forty-five hours per week of usage. You're paying for one hundred sixty-eight hours. The waste is seventy-three percent idle time at full cost.
+
+Real example: development cluster costs five thousand dollars per month. Used twenty-seven percent of the time. Waste: three thousand six hundred fifty dollars per month. Just sitting there.
+
+The fix is cluster autoscaling to zero when nobody's using it, scheduled scale-down after hours, or ephemeral clusters per pull request that get destroyed when the PR closes.
+
+**No Autoscaling**
+
+Source number four: no autoscaling means paying for peak capacity always. You provision for Black Friday. For end-of-month report generation. For that two-week spike every year. Then you run that same capacity year-round. Twelve months of bills for two weeks of need.
+
+The fix is Horizontal Pod Autoscaler for pods and Cluster Autoscaler for nodes. Scale up when you need it. Scale down to baseline when you don't. Example: baseline ten pods, peak fifty pods. Without autoscaling, you pay for fifty pods always. With autoscaling, you pay for ten baseline plus forty pods only during peaks.
+
+**Lack of Visibility**
+
+Source number five: lack of visibility. No cost metrics means no optimization. You don't know which namespace costs the most. Which team is over-provisioning. Whether your cost trend is going up or down. Where to focus your optimization efforts.
+
+This is where tools help. Kubecost shows per-namespace, per-deployment, per-pod costs with specific savings recommendations. Cloud provider cost explorers—AWS Cost Explorer, Google Cloud Billing, Azure Cost Management—break down spending by resource type. And remember Episode Seven's Prometheus? It's not just for alerting. It's for cost optimization. Compare container CPU usage to pod resource requests. The difference is waste.
+
+The formula is simple: waste equals requested minus used. Prometheus gives you both sides of that equation.
+
+### Right-Sizing Process
+
+Now let's talk about right-sizing. Here's the process. First, query Prometheus for actual usage over seven to thirty days. You need a realistic baseline that includes peaks. Second, compare actual usage to resource requests. Third, identify candidates—pods with more than fifty percent waste. For example, requesting four CPU but using less than two consistently.
+
+Here's the PromQL query. Average resource requests over seven days minus average actual usage over seven days, divided by average requests. This gives you waste percentage.
+
+What should you look for? Consistent low usage—request four, use point three always—means you should reduce requests. Occasional spikes—use point three baseline but spike to two point five during peaks—means reduce requests but increase limits to allow bursting. High variance with unpredictable usage means keep current settings or use Vertical Pod Autoscaler for dynamic adjustment.
+
+### Vertical Pod Autoscaler
+
+Speaking of VPA, it watches pod resource usage and recommends requests and limits. It can even automatically apply changes, though that requires restarting pods. VPA has three modes. Off mode gives recommendations only with no changes. This is the safest place to start. Initial mode sets requests when pods are created but doesn't change running pods. Auto mode updates requests dynamically by restarting pods.
+
+For use cases, run VPA in Off mode first. Get recommendations, manually review them, apply selectively. For hands-off automation, use Auto mode but only for stateless workloads that handle restarts gracefully.
+
+Example output: "Pod X requests four CPU. VPA recommends one point five CPU because p ninety-five usage is one point two CPU."
+
+The caveat is that VPA restarts pods. For stateful workloads or high-traffic services, use the recommendations but apply them manually during maintenance windows. Don't let VPA restart your database in the middle of the day.
+
+### Validating Performance
+
+But you can't just cut resources blindly. You must validate performance under load. Here's the process. Apply reduced resource requests in staging first. Run a load test simulating production traffic plus a twenty percent buffer. Monitor latency p ninety-five and p ninety-nine, error rate, pod restarts, CPU throttling. If metrics stay healthy, apply to production. If performance degrades, increase the requests.
+
+Let me walk through my thought process on a real change. Reduced API service requests from two CPU to one CPU based on VPA recommendation. Ran load test. P ninety-five latency increased from fifty milliseconds to seventy-five milliseconds. Still under our one hundred millisecond SLO. Deployed to production. Monitored for a week. No issues. Success. That's one CPU per pod times twenty pods times twenty-four hours times thirty days times five cents per core-hour. Savings: seven hundred twenty dollars per month.
+
+### Iterative Approach
+
+The key is being iterative. Don't cut all resources by fifty percent across the board. That's a recipe for outages. Pick three to five highest-waste workloads. Right-size them one at a time. Monitor each for a week before moving to the next.
+
+Priority order matters. Start with development and staging environments. Low risk, high impact. Then batch jobs and cron jobs—they're restartable and forgiving. Then stateless production services that can scale and handle restarts. Finally, stateful production services. These need the most care.
+
+### Cost Controls: ResourceQuotas and LimitRanges
+
+Now let's talk about cost controls that prevent waste before it happens. ResourceQuotas operate at the namespace level. They cap total resources a namespace can request. Example: development namespace limited to fifty CPU and one hundred gigabytes of memory. This prevents runaway resource requests and forces teams to stay within budget.
+
+LimitRanges operate at the per-pod level. They enforce minimum and maximum requests and limits per container. Example: containers must request point one to four CPU and have limits between point one and eight CPU. This prevents missing requests and limits. It also sets sane defaults for pods that don't explicitly specify values.
+
+Use these together. LimitRanges ensure every pod has requests and limits. ResourceQuotas ensure the namespace doesn't exceed its budget. Concrete example: LimitRange sets default five hundred millicores CPU with max four CPU per container. ResourceQuota caps namespace at twenty CPU total. Result: each pod gets five hundred millicores by default, can't exceed four CPU, and the namespace maxes out at twenty CPU total. That's a maximum of forty containers.
+
+### Cluster Autoscaler
+
+Cluster Autoscaler adds and removes nodes based on pod scheduling needs. Pods pending because they can't schedule? Add nodes. Node underutilized and you can reschedule pods elsewhere? Remove the node. The cost impact is significant. Pay only for the nodes you actually need. Baseline five nodes. Peak twenty nodes. Average over the month eight nodes. You pay for eight, not twenty.
+
+You configure it with minimum and maximum node counts, scale-down delay for how long a node must be underutilized before removal, and resource thresholds for triggering scale decisions.
+
+Remember Episode Two's node pressure eviction? Cluster Autoscaler prevents that by adding capacity before you hit limits.
+
+### Spot Instances
+
+Spot instances are spare cloud capacity. Sixty to ninety percent cheaper than on-demand pricing. The catch? They can be reclaimed with two minutes notice. Use cases: batch jobs that can retry if interrupted. CI/CD builds that are stateless and retryable. Data processing that's checkpointed and resumable.
+
+Don't use spot instances for stateful databases. Interruption equals data risk. Don't use them for user-facing APIs. Interruption equals downtime. Don't use them for critical long-running processes.
+
+The pattern is a mix. On-demand instances for critical workloads. Spot instances for batch and retryable workloads. Real example: data pipeline costs two thousand dollars per month on-demand. Switch to spot instances: four hundred dollars per month. That's eighty percent savings. Interrupt rate is five percent. Jobs retry automatically. Well worth it.
+
+### Balancing Resilience and Cost
+
+Now here's the dilemma every senior engineer faces. Your instinct says "what if we need it?" Design for the worst case. Plan for growth. Add redundancy. That's good engineering. But the cost-conscious perspective says "do we need it now?" Pay for what you use. Scale when necessary. Both viewpoints are right. The question is: where's the balance?
+
+Let me give you a decision framework. Service mesh example. Question: do we need a service mesh? Cost: two hundred pods times fifty megabytes per sidecar equals ten gigabytes of overhead, plus operational complexity. Value: mTLS for security, observability for distributed tracing, traffic management for canary deployments. Decision: do you have compliance requirements mandating mTLS? Fifty-plus microservices with complex routing needs? If yes, value exceeds cost. Deploy it. If no, defer until you actually need it.
+
+Replica count example. Question: three replicas or five? Current load handles easily with two replicas. Cost: three replicas equals three hundred dollars per month, five replicas equals five hundred dollars per month. Decision: start with three. Add Horizontal Pod Autoscaler to scale to five during peaks. Average monthly cost: three hundred fifty dollars instead of five hundred dollars flat.
+
+The pattern is: start conservative with lower cost. Add autoscaling as your safety net. Scale when data shows you need it, not "just in case."
+
+Remember Episode One's production readiness? It requires resilience. Episode Six covered service mesh for complex architectures. The question isn't "is this valuable?" The question is "is this valuable NOW, or can we defer until we have data showing we need it?"
+
+### Common Mistakes
+
+Let me walk through common mistakes. Mistake one: optimizing production first. What happens? High risk of outages. Team resistance. Potential customer impact. The fix: start with dev and staging. Low risk, builds confidence, proves your process works.
+
+Mistake two: cutting resources without monitoring. What happens? Silent performance degradation. Eventual outages. Rollback and loss of trust. The fix: monitor during and after changes. Watch latency, error rate, CPU throttling.
+
+Mistake three: no ResourceQuotas in dev and staging. What happens? Developers over-request in dev because there's no cost pressure. Then they promote to production with the same over-provisioned values. Waste continues. The fix: quotas everywhere. This forces right-sizing early in the development cycle.
+
+Mistake four: ignoring idle times. What happens? Dev clusters run twenty-four seven. Paying for one hundred sixty-eight hours per week, using forty. The fix: Cluster Autoscaler to zero, or scheduled scale-down after business hours.
+
+Mistake five: optimizing once and forgetting about it. What happens? Workloads change. Requests no longer match actual usage. Waste creeps back in. The fix: monthly review using Kubecost or Prometheus. Continuous right-sizing.
+
+### Active Recall Quiz
+
+Let's pause for active recall. First question: what are the five sources of Kubernetes cost waste, and which is typically the biggest? Second question: your dev cluster costs as much as production—what are three things you'd investigate first? Third question: name three cost optimization techniques you could implement tomorrow with low risk.
+
+**Answers:**
+
+The five waste sources: over-provisioned requests is the biggest at forty to sixty percent of waste. Missing limits. Idle resources. No autoscaling. Lack of visibility.
+
+For the dev cluster investigation: is it running twenty-four seven versus actual usage hours? Are resource requests copy-pasted from production and therefore over-provisioned? Does it have ResourceQuotas, or are teams allowed to request unlimited resources?
+
+For low-risk optimizations starting tomorrow: install Kubecost or enable cloud cost visibility. This is zero risk and gives you pure insight. Set ResourceQuotas on dev and staging namespaces. Low risk, immediate cap on waste. Right-size three to five highest-waste non-production workloads using VPA recommendations. Low risk, measurable savings.
+
+### Key Takeaways
+
+Let's recap. Five cost waste sources ranked by impact: over-provisioned requests at forty to sixty percent, idle resources at twenty to thirty percent, no autoscaling, missing limits, and lack of visibility. Right-sizing process: analyze Prometheus metrics showing actual versus requested resources. Use VPA recommendations. Validate with load testing. Roll out iteratively starting with lowest-risk environments.
+
+Cost controls: ResourceQuotas cap namespace budgets. LimitRanges set per-pod defaults and maximums. Cluster Autoscaler scales nodes based on actual demand. Spot instances cut costs sixty to ninety percent for batch workloads.
+
+The over-engineering balance: start conservative. Add autoscaling for safety. Scale when data shows you need it, not "just in case." And this is a continuous process, not one-time optimization. Monthly reviews. Adjust as workloads change.
+
+This connects to previous episodes. Episode Two's resource requests and limits now have cost implications. Over-request means overpay. Episode Seven's Prometheus metrics enable cost analysis. Usage versus requests equals waste. Episode One's production readiness checklist includes cost optimization as a requirement.
+
+You can now build infrastructure, observe it, and optimize costs. Next episode: GitOps and Deployment Automation. Manual kubectl apply doesn't scale to twenty clusters. We're covering ArgoCD versus Flux for GitOps. Helm versus Kustomize for configuration management. And deployment strategies beyond rolling updates—canary releases, blue-green deployments. Git becomes your source of truth. Deployments become automated, auditable, and rollbackable. See you then.
+
+---
+
+## Navigation
+
+⬅️ **Previous**: [Lesson 7: Observability](./lesson-07) | **Next**: [Lesson 9: Troubleshooting](./lesson-09) ➡️
+
+📚 **[Back to Course Overview](/courses/kubernetes-production-mastery)**

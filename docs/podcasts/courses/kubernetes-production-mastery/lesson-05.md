@@ -1,0 +1,221 @@
+---
+displayed_sidebar: tutorialSidebar
+hide_table_of_contents: false
+sidebar_label: "📖 #05: Stateful Workloads"
+slug: /courses/kubernetes-production-mastery/lesson-05
+---
+
+# Lesson 5: Stateful Workloads
+
+## Kubernetes Production Mastery Course
+
+<GitHubButtons />
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dADFjW1lGcQ" title="Lesson 5: Stateful Workloads - Kubernetes Production Mastery" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+**Course**: [Kubernetes Production Mastery](/courses/kubernetes-production-mastery)
+**Episode**: 5 of 10
+**Duration**: ~18 minutes
+**Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
+
+## Learning Objectives
+
+By the end of this lesson, you'll be able to:
+- Decide when to use StatefulSets versus regular Deployments based on application requirements
+- Understand how Kubernetes storage works (StorageClass, PVC, PV, CSI drivers) and configure persistent volumes
+- Debug the most common storage failures including PVC stuck in Pending and volume mount issues
+
+## Prerequisites
+
+- [Lesson 1: Production Mindset](./lesson-01)
+- [Lesson 2: Resource Management](./lesson-02)
+- [Lesson 3: Security Foundations](./lesson-03)
+- [Lesson 4: Health Checks & Probes](./lesson-04)
+
+---
+
+## Transcript
+
+Welcome to Episode 5 of Kubernetes Production Mastery. In the last episode, we mastered health checks - startup, readiness, and liveness probes. We learned that stateful applications need careful probe configuration because they have state to protect. But here's the question we didn't answer: where does that state actually live? And what happens when a pod restarts?
+
+Before we continue, try to recall: What happens to a pod's filesystem when it restarts? That's right - it's completely wiped. Containers are ephemeral by design. Every restart, you get a fresh filesystem. So here's the puzzle: how do we run databases in Kubernetes? How does PostgreSQL keep your data when pods restart? That's exactly what we're exploring today.
+
+By the end of this episode, you'll know when to use StatefulSets versus regular Deployments, how Kubernetes storage actually works behind the scenes, and how to debug the most common storage failures. You'll understand when Kubernetes-hosted databases make sense and when to just use a managed service. Let's dive in.
+
+### Stateless vs Stateful Applications
+
+Most applications fall into two categories, and the distinction matters more than you might think. There are stateless applications and stateful applications. Let me be crystal clear about what this means in production.
+
+Your typical web server, API gateway, or background worker? Stateless. They don't maintain local state. Pod abc-123 is completely interchangeable with pod abc-456. You can kill them and recreate them instantly. Scale them up or down in any order. Nobody cares. Your React frontend, your REST API, your job processors - all stateless. This is what Deployments are designed for.
+
+But then you have databases, caches, message queues. These are stateful. They maintain local state that matters. And here's where identity becomes critical. In a PostgreSQL cluster, postgres-0 is the leader. Postgres-1 is a replica. These aren't interchangeable. The leader accepts writes. Replicas follow the leader. You need stable network addresses so replicas can always find the leader at postgres-0.postgres.default.svc.cluster.local. You need ordered startup - leader before replicas. And each instance needs its own persistent storage. You can't have postgres-0 and postgres-1 sharing the same database files. That's chaos.
+
+### Why Deployments Don't Work for Stateful Apps
+
+Here's what trips people up, and I've seen this mistake dozens of times. You can technically run a database in a regular Deployment with a PersistentVolumeClaim. It'll work. For a while. Until it doesn't. When the pod moves to another node, the PVC might not follow. When you scale up to multiple replicas, they all try to use the same PVC. Multiple processes writing to the same database files. Corruption. When you need ordered startup - leader before replicas - you have no control over the order. Deployments start all replicas in parallel. StatefulSets solve all of this.
+
+### The Three StatefulSet Guarantees
+
+So what exactly does a StatefulSet give you? Three concrete guarantees. Let me walk through each one because understanding these is critical.
+
+**Stable Network Identity**
+
+The first guarantee is stable network identity. Instead of random pod names like postgres-7f8b9c-xk2pm, you get predictable names. Postgres-0. Postgres-1. Postgres-2. And these come with stable DNS names that never change. Postgres-0.postgres.default.svc.cluster.local. Even if the pod restarts, even if it moves to a different node, that DNS name stays the same. Think of it like your home address. Even if you redecorate, even if you renovate the entire interior, your address stays the same so mail reaches you. Same concept here. Your primary database is always postgres-0. Replicas can always find the leader at that same address.
+
+**Ordered Deployment and Scaling**
+
+The second guarantee is ordered deployment and scaling. Pods are created sequentially. Zero, then one, then two. Pod N must be Running and Ready before pod N plus one even starts. When you scale down, reverse order. Two, one, zero. Why does this matter? Because your database leader must be up and ready before replicas try to connect. When you shut down, you want replicas to stop first, then the leader last. Otherwise you create split-brain scenarios.
+
+Let me walk through why this order is so important. Imagine you're starting a PostgreSQL cluster. If postgres-1 starts before postgres-0, the replica tries to connect to a leader that doesn't exist yet. Connection fails. The replica either crashes or enters a weird state. By the time postgres-0 finally starts, postgres-1 might have given up or made wrong assumptions. This is the kind of race condition that's hard to debug at three AM. StatefulSets eliminate this entire class of problems by enforcing strict ordering.
+
+**Persistent Storage Per Pod**
+
+The third guarantee is persistent storage per pod. Each pod gets its own PersistentVolumeClaim from something called a volumeClaimTemplate. This is key. The PVC persists even if you delete the pod. If the pod gets rescheduled to a different node, it reattaches to the same PVC. Postgres-0 always gets postgres-0's data. Never postgres-1's data. Never a fresh, empty volume.
+
+Here's a useful mental model. Imagine three filing cabinets - those are your PVCs. And three employees - those are your pods. Each employee has their own cabinet with their own files. If an employee leaves the company and a new person takes their role, that new person gets the exact same filing cabinet with all the same files. They don't get someone else's cabinet. They don't get an empty cabinet. They get the same one. That's how StatefulSets work.
+
+### How Kubernetes Storage Works
+
+Now, how does Kubernetes storage actually work under the hood? This confused me for weeks when I first started with Kubernetes. There are three layers: StorageClass, PersistentVolumeClaim, and PersistentVolume. Let me explain with an analogy that made this click for me.
+
+Think of Kubernetes storage like a vending machine. The StorageClass is the vending machine configuration. It defines: which cloud provider are we using? SSD or spinning disk? What about replication? Encryption? You might have StorageClasses named fast-ssd, slow-hdd, replicated-storage. Each one defines different characteristics. Like different types of vending machines - one for snacks, one for drinks, one for hot food. Each type knows how to dispense different items.
+
+The PersistentVolumeClaim is your request. Your application says: I need 100 gigabytes of fast-ssd storage. That's your PVC. It's namespace-scoped, owned by your application. In the vending machine analogy, this is you inserting money and pressing B3 for chips. This is your claim for chips.
+
+The PersistentVolume is the actual storage. The cloud provider creates a real EBS volume, or a GCP persistent disk, or an Azure disk. This is cluster-scoped, typically managed by administrators or provisioned dynamically. In the vending machine analogy, this is the actual bag of chips that drops down. The real, physical item you can hold.
+
+And connecting all of this is the CSI driver - Container Storage Interface. This is a standardized plugin that each cloud provider implements. AWS has the EBS CSI driver. GCP has the persistent disk CSI driver. Azure has their disk CSI driver. Before CSI, every storage vendor had to write custom Kubernetes integration. It was a mess. Now it's standardized. Like how USB-C replaced dozens of proprietary chargers.
+
+### Storage Provisioning Flow
+
+Here's how the flow works when you create a PVC. You create a PersistentVolumeClaim that says: I need 100 gigabytes of StorageClass fast-ssd. Kubernetes checks: is there a StorageClass named fast-ssd? Yes, there is. That StorageClass invokes the CSI driver with instructions: create an EBS gp3 volume, 100 gigabytes, encrypted. The cloud provider creates the volume. That becomes a PersistentVolume. The PV binds to your PVC. Now your pod can mount it. Total time? Usually 30 to 60 seconds for dynamic provisioning.
+
+### Access Modes
+
+There's one more concept you need to understand: access modes. There are three, but really only one matters for databases. ReadWriteOnce means a single node can mount the volume for reading and writing. This is what you use for databases. It's required for data integrity. ReadOnlyMany means multiple nodes can mount read-only. Rare, mostly for config files. ReadWriteMany means multiple nodes can mount read-write simultaneously. Also rare. This requires special storage like NFS or EFS, and it's slower.
+
+Here's a common source of confusion. ReadWriteOnce doesn't mean one pod. It means one node. Multiple pods running on the same node can all share a ReadWriteOnce volume. But if your pods are on different nodes, ReadWriteOnce won't work. This trips people up constantly.
+
+### Real Production Example: PostgreSQL
+
+Let's make this concrete with a real production scenario. You're deploying PostgreSQL for your e-commerce platform. You need a three-node cluster. Primary database plus two replicas for read scaling. Each instance needs 200 gigabytes of storage. SSDs for performance. Ordered startup so the primary comes up first. And all of this needs to survive pod restarts and node failures.
+
+Here's how you'd implement this. You need three pieces. A StorageClass that defines how to provision storage. A headless Service for stable DNS. And the StatefulSet itself.
+
+The StorageClass might look like this: name fast-ssd, provisioner ebs.csi.aws.com for AWS, parameters specify type gp3, encrypted true, and volumeBindingMode WaitForFirstConsumer. That last parameter is important. It tells Kubernetes to wait until a pod is scheduled before provisioning storage. This ensures the volume gets created in the same availability zone as the node. Otherwise you might provision a volume in zone A and schedule the pod to a node in zone B. RWO volumes are zone-specific. The pod can't reach the volume. WaitForFirstConsumer prevents this.
+
+The headless Service provides the stable DNS. You set clusterIP to None. That makes it headless. Point it at your StatefulSet pods with a selector. This gives each pod a predictable DNS name.
+
+The StatefulSet brings it all together. You specify serviceName pointing to your headless service. Replicas set to three. And here's the critical part - volumeClaimTemplates. Notice that's plural. This creates a separate PVC for each pod. Not a shared volume. Each pod gets its own.
+
+In the volumeClaimTemplate, you specify: accessModes ReadWriteOnce, storageClassName fast-ssd, and request 200 gigabytes. When the StatefulSet creates postgres-0, it also creates a PVC named data-postgres-0. When it creates postgres-1, you get data-postgres-1. Separate storage for each instance.
+
+### Failure Scenarios
+
+What happens during failures? This is where the design really shines. If a pod restarts, Kubernetes deletes the old pod and creates a new one with the same name. The new postgres-0 pod reattaches to the existing data-postgres-0 PVC. Your data is intact. If a node fails completely, Kubernetes reschedules the pod to a different node. The PVC follows. Data intact. If you delete the entire StatefulSet, the pods are deleted but the PVCs persist. This is a safety feature. You have to manually delete PVCs to actually destroy data.
+
+### Common Storage Failures
+
+Now let's talk about what goes wrong. Because storage failures are among the most common issues in production Kubernetes.
+
+**PVC Stuck in Pending**
+
+The most common problem: PVC stuck in Pending status. You create a PVC, wait five minutes, and it's still Pending. No volume provisioned. Three common causes.
+
+The first cause is no matching StorageClass. Your PVC requests a StorageClass named fast-ssd, but no StorageClass with that name exists in your cluster. Kubernetes is waiting for a match that will never come. The fix is simple: kubectl get storageclass to list what's available. Then update your PVC to use an existing class.
+
+The second cause is quota exceeded. Your namespace has a storage quota, and your request exceeds the limit. Maybe you've already provisioned 800 gigabytes and the quota is one terabyte. You request another 300 gigabytes. Denied. Check with kubectl describe namespace to see ResourceQuotas.
+
+The third cause is no available PersistentVolumes when using static provisioning. Your PVC asks for 100 gigabytes, but all available PVs are only 50 gigabytes. Nothing matches. The solution is to use dynamic provisioning or create a matching PV.
+
+How do you debug this? kubectl describe pvc followed by the PVC name. Look at the Events section. It tells you exactly what's wrong. ProvisioningFailed? Check your StorageClass. ExceededQuota? Check your namespace limits.
+
+**Volume Not Mounting**
+
+The second major failure is volume not mounting. Your pod is stuck in ContainerCreating status. The events show FailedMount errors. Three common causes here too.
+
+First cause: CSI driver not installed. Modern Kubernetes requires explicit CSI driver installation. If you're on AWS and the EBS CSI driver isn't installed, volumes can't provision. The fix is to install the driver. This is a one-time cluster setup task.
+
+Second cause: zone mismatch. Your EBS volume was created in us-east-1a, but your pod got scheduled to a node in us-east-1b. RWO volumes like EBS are zone-specific. They can't cross zones. This is why WaitForFirstConsumer is so important in your StorageClass. It prevents this exact problem.
+
+Third cause: volume already mounted elsewhere. RWO means one node at a time. If the old pod hasn't fully terminated and released the volume, the new pod can't mount it. This often happens during node drains. The fix is to wait for the node drain to complete, or in emergencies, force delete the old pod.
+
+Debug commands: kubectl describe pod shows you the mount errors in Events. kubectl get pv with the PV name and output yaml shows you nodeAffinity constraints. kubectl get csinodes verifies the CSI driver is installed on your nodes.
+
+**Immutable volumeClaimTemplates**
+
+Here's a failure that catches even experienced teams. You create a StatefulSet with 100 gigabyte volumes. Six months later, you're running out of space. You need 200 gigabytes per pod. So you update the volumeClaimTemplate in your StatefulSet YAML. Change 100 gigabytes to 200. Apply the change. Nothing happens. The volumes don't resize. Why?
+
+Because volumeClaimTemplates are immutable. This is a Kubernetes design limitation. You can't update them. You have two options. Either manually expand each PVC - if your StorageClass supports it - by editing the PVC directly. kubectl edit pvc data-postgres-0, change the storage size from 100 to 200 gigabytes, save. Or you delete the StatefulSet - keeping the PVCs - and recreate it with a new template. That's an advanced move that requires careful orchestration to avoid downtime.
+
+The lesson here? Plan your storage sizes carefully upfront. Expansion is possible but manual. Shrinking is not possible at all.
+
+**Using Deployment Instead of StatefulSet**
+
+Another common mistake: using a Deployment when you should use a StatefulSet. You create a Deployment with a single PVC. Then you scale to three replicas. All three pods try to mount the same PVC. If it's RWO, two pods will fail. If you somehow got RWX working, now you have three database instances writing to the same files. Corruption guaranteed. The fix is obvious in hindsight: use a StatefulSet with volumeClaimTemplates.
+
+**No Backup Strategy**
+
+The fifth mistake: no backup strategy. Persistent storage doesn't mean backed up. If a node fails, your data survives. But if someone runs DROP DATABASE by accident, that data is gone. Persistent volumes protect against infrastructure failure, not human error or application bugs.
+
+The solution is Velero. It's a backup tool designed for Kubernetes. You can back up entire namespaces, including PVCs. You can schedule daily backups. And critically, you should test restores monthly. Untested backups might as well not exist.
+
+### Decision Framework: StatefulSet vs Deployment vs Managed Service
+
+So how do you decide? StatefulSet versus Deployment versus just using a managed cloud database? Here's my decision framework.
+
+Use a StatefulSet when you need stable network identity - databases, distributed systems like Kafka or Zookeeper. When you need ordered deployment and scaling. When each instance needs separate persistent storage. This gives you full control but also full responsibility.
+
+Use a Deployment with a PVC when you have a single instance that needs persistence - maybe a single Redis cache, a log aggregator, or a file server. Also when you have ReadOnly shared storage. The application doesn't need identity or ordering.
+
+Use a cloud-managed database when you want automated backups, patching, high availability handled for you. When you don't want to manage database operations. When the cost is acceptable - and managed databases typically cost two to three times more than self-hosted. Examples: RDS, Cloud SQL, Azure Database. You're trading money for reduced operational burden.
+
+Here's my personal thought process. Can I afford a managed service? Yes? Then I use RDS. I don't want to be on-call for database issues. If I can't afford managed, do I need high availability? If yes, I use a database operator. Operators handle the complexity of leader election, failover, backup automation. If I just need a simple database without HA requirements, then a StatefulSet with Velero backups is sufficient.
+
+### Active Recall Quiz
+
+Let's pause for some active recall. Answer these questions.
+
+Your PVC is stuck in Pending for five minutes. What are the three most common causes?
+
+You're deploying Redis as a single instance for caching. Do you need a StatefulSet or a Deployment?
+
+You're deploying a five-node Kafka cluster. StatefulSet or Deployment? Why?
+
+**Answers:**
+
+For a PVC stuck Pending: no matching StorageClass, namespace quota exceeded, or no available PersistentVolumes. Check with kubectl describe pvc to see the exact error.
+
+For single-instance Redis: Deployment is fine. You don't have replicas. You don't need stable identity. Just attach a PVC for persistence. If you later add replicas for high availability, then you'd switch to a StatefulSet.
+
+For Kafka: definitely StatefulSet. Kafka needs stable network identity for broker discovery. It needs ordered startup. And each broker needs separate storage. This is a classic StatefulSet use case.
+
+### Key Takeaways
+
+Let's recap what we've covered. StatefulSets provide three guarantees. Stable network identity with predictable pod names and DNS. Ordered deployment and scaling - pods start sequentially and stop in reverse order. And persistent storage per pod through volumeClaimTemplates.
+
+The storage architecture has three layers. StorageClass defines how to provision storage. PVC is your application's request for storage. PV is the actual storage created by the cloud provider. All connected through CSI drivers.
+
+The most common failures: PVC stuck in Pending usually means no StorageClass, exceeded quota, or zone mismatch. Volume not mounting means CSI driver missing, zone mismatch, or volume still attached elsewhere.
+
+And your decision framework: StatefulSets for distributed systems needing identity and ordering. Deployments for single instances. Managed services when you want to pay for simplicity and reduced operational burden.
+
+Remember Episode 4's health checks? They're even more critical with StatefulSets. Databases take time to initialize. Your startup probes need longer timeouts. Liveness probes should be conservative because database restarts are expensive. And this ties back to Episode 2's resource management. Set proper storage requests in your PVCs. Monitor disk usage. Running out of space can't be fixed with a pod restart.
+
+In Episode 1, we talked about the production readiness checklist. Item number five was backup and disaster recovery strategy. Today you learned Velero. That's how you implement that checklist item for Kubernetes workloads.
+
+### Next Episode
+
+Next time, we're tackling Kubernetes networking and ingress. You'll learn why pods sometimes can't reach each other and how to debug it. The difference between ClusterIP, NodePort, and LoadBalancer services. How to configure ingress controllers with TLS termination. And when you actually need a service mesh like Istio or Linkerd.
+
+This builds directly on today's lesson. Those stable DNS names we talked about - like postgres-0.postgres.default.svc.cluster.local? Next episode, you'll understand exactly how that DNS resolution works. How services route traffic to pods. And what happens when it all breaks. See you then.
+
+---
+
+## Navigation
+
+⬅️ **Previous**: [Lesson 4: Health Checks & Probes](./lesson-04) | **Next**: [Lesson 6: Networking & Services](./lesson-06) ➡️
+
+📚 **[Back to Course Overview](/courses/kubernetes-production-mastery)**

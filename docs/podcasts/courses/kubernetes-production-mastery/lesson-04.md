@@ -11,7 +11,7 @@ slug: /courses/kubernetes-production-mastery/lesson-04
 
 <GitHubButtons />
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5iVIU6dpc5QY" title="Lesson 4: Health Checks & Probes - Kubernetes Production Mastery" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Sko4YBSL7qY" title="Lesson 4: Health Checks & Probes - Kubernetes Production Mastery" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
@@ -233,6 +233,6 @@ See you in the next lesson.
 
 ## Navigation
 
-⬅️ **Previous**: [Lesson 3: Security Foundations](./lesson-03) | **Next**: Lesson 5 (Coming Soon) ➡️
+⬅️ **Previous**: [Lesson 3: Security Foundations](./lesson-03) | **Next**: [Lesson 5: Stateful Workloads](./lesson-05) ➡️
 
 📚 **[Back to Course Overview](/courses/kubernetes-production-mastery)**
