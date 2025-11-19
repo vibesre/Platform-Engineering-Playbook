@@ -17,6 +17,8 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
+> 📝 **Read the [full blog post](/blog/ingress-nginx-retirement-gateway-api-migration-2026)**: Complete Gateway API migration guide with controller comparison tables, step-by-step implementation, and 3-month migration timeline.
+
 ---
 
 **Jordan:** Today we need to talk about something urgent. On November eleventh, Kubernetes SIG Network dropped a bombshell that affects nearly every production cluster out there.
