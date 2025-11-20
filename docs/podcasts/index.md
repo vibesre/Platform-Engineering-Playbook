@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #030 - Cloudflare Outage November 2025
+## 🎥 Latest Episode: #031 - Agentic DevOps: GitHub Agent HQ
 
-**13 minutes** • Nov 19, 2025 • Alex and Jordan
+**18 minutes** • Nov 19, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/Oz5XMA-mYT0"
-      title="Cloudflare Outage November 2025: When a Rust Panic Took Down 20% of the Internet"
+      src="https://www.youtube.com/embed/KeV2xuyB0q4"
+      title="Agentic DevOps: GitHub Agent HQ and the Autonomous Pipeline Revolution"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,11 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-A routine database permissions change triggered Cloudflare's worst outage since 2019—taking down ChatGPT, X, Shopify, Discord, and 20% of the internet for nearly 6 hours. Jordan and Alex dissect the technical chain reaction from ClickHouse metadata exposure to a Rust panic in the FL2 proxy, examining how ~60 features became >200 and exceeded a hardcoded memory limit.
+GitHub Universe 2025 announced Agent HQ—mission control for orchestrating AI agents from OpenAI, Anthropic, Google, and more. Azure SRE Agent saved Microsoft 20,000+ engineering hours. But 80% of companies report agents executing unintended actions, and only 44% have agent-specific security policies. Jordan and Alex break down what agentic DevOps actually means, the threat model for autonomous systems, and the tiered adoption framework for deploying agents without creating catastrophic risk.
 
-**Key Topics**: Cloudflare outage, ClickHouse, FL2 Rust proxy, Bot Management, hardcoded limits, infrastructure concentration risk, defensive programming, graceful degradation
+**Key Topics**: GitHub Agent HQ, Copilot coding agent, Azure SRE Agent, AGENTS.md, prompt injection, privilege escalation, shadow agents, OWASP GenAI threats, tiered adoption framework
 
-[📝 Full episode page →](/podcasts/00030-cloudflare-outage-november-2025)
+[📝 Full episode page →](/podcasts/00031-agentic-devops-github-agent-hq)
 
 <PodcastSubscribeButtons />
 
@@ -48,6 +48,8 @@ A routine database permissions change triggered Cloudflare's worst outage since 
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#031: Agentic DevOps - GitHub Agent HQ](/podcasts/00031-agentic-devops-github-agent-hq)** (18 min) - GitHub Universe 2025 announced Agent HQ—mission control for orchestrating AI agents from OpenAI, Anthropic, Google, and more. Azure SRE Agent saved Microsoft 20,000+ engineering hours. But 80% of companies report agents executing unintended actions, and only 44% have agent-specific security policies. Tiered adoption framework for deploying agents without creating catastrophic risk.
 
 - 🎙️ **[#030: Cloudflare Outage November 2025](/podcasts/00030-cloudflare-outage-november-2025)** (13 min) - A routine database permissions change triggered Cloudflare's worst outage since 2019—taking down ChatGPT, X, Shopify, Discord, and 20% of the internet for 6 hours. Technical chain reaction from ClickHouse metadata exposure to FL2 Rust proxy panic when ~60 features became >200 and exceeded hardcoded limit. Third major cloud outage in 30 days raises infrastructure concentration risk questions.
 
