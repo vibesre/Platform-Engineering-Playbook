@@ -1,6 +1,7 @@
 ---
 title: "Service Mesh Showdown 2025: Cilium vs Istio Ambient Performance, Architecture & Production Guide"
 description: "Cilium vs Istio Ambient comparison with benchmarks: 8% vs 99% mTLS overhead, architecture analysis, and decision framework for production deployments in 2025."
+slug: service-mesh-showdown-cilium-istio-ambient-comparison
 keywords:
   - service mesh comparison 2025
   - Cilium vs Istio Ambient

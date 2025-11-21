@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #032 - The Terraform vs OpenTofu Debate
+## 🎥 Latest Episode: #033 - Service Mesh Showdown
 
-**17 minutes** • Nov 20, 2025 • Jordan and Alex
+**20 minutes** • Nov 21, 2025 • Jordan and Alex
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/uHPI1EkeRH8"
-      title="The Terraform vs OpenTofu Debate - Why Just Switch Is Bad Advice"
+      src="https://www.youtube.com/embed/VIDEO_ID_PLACEHOLDER"
+      title="Service Mesh Showdown: Why User-Space Beat eBPF"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,11 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-HashiCorp's license change and IBM's $6.4B acquisition created the "you must migrate" narrative—but 70% of teams using Terraform in-house aren't legally affected. Jordan and Alex challenge the binary thinking with Fidelity's 50,000 state file migration case study, a three-factor decision framework, and the truth nobody talks about: migration is 90% organizational change management, not technology.
+Kernel-level eBPF should beat user-space proxies—but Istio Ambient delivers 8% mTLS overhead while Cilium shows 99%. Academic benchmarks reveal why architecture boundaries matter more than execution location, and 50,000-pod stability testing shows Cilium's distributed control plane crashed the API server under churn while Istio's centralized architecture handled it. Decision framework for choosing based on cluster size, traffic patterns (L4 vs L7), and migration timelines.
 
-**Key Topics**: Terraform BSL license, OpenTofu migration, IBM acquisition, Fidelity case study (50K state files), state encryption, Terraform Cloud lock-in, vendor control vs open governance, 90-day migration playbook
+**Key Topics**: Istio Ambient vs Cilium, eBPF performance, service mesh architecture, mTLS overhead benchmarks, 50K-pod stability testing, L4/L7 processing boundaries, distributed vs centralized control plane, migration framework
 
-[📝 Full episode page →](/podcasts/00032-terraform-opentofu-debate) • [📄 Read the full blog post](/blog/2025-11-20-terraform-vs-opentofu-2025-when-to-switch-when-to-stay)
+[📝 Full episode page →](/podcasts/00033-service-mesh-showdown-cilium-istio-ambient) • [📄 Read the full blog post](/blog/service-mesh-showdown-cilium-istio-ambient-comparison)
 
 <PodcastSubscribeButtons />
 
@@ -48,6 +48,8 @@ HashiCorp's license change and IBM's $6.4B acquisition created the "you must mig
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#033: Service Mesh Showdown: Why User-Space Beat eBPF](/podcasts/00033-service-mesh-showdown-cilium-istio-ambient)** (20 min) - Kernel-level eBPF should beat user-space proxies—but Istio Ambient delivers 8% mTLS overhead while Cilium shows 99%. Academic benchmarks reveal why architecture boundaries matter more than execution location. 50,000-pod stability testing shows Cilium's distributed control plane crashed the API server under churn while Istio's centralized architecture handled it. Decision framework for choosing based on cluster size, traffic patterns (L4 vs L7), and cost analysis ($186K/year savings for 2,000-pod clusters).
 
 - 🎙️ **[#032: The Terraform vs OpenTofu Debate](/podcasts/00032-terraform-opentofu-debate)** (17 min) - HashiCorp's license change and IBM's $6.4B acquisition created the "you must migrate" narrative—but 70% of teams using Terraform in-house aren't legally affected. Fidelity's 50,000 state file migration case study, three-factor decision framework (Cloud lock-in, compliance, vendor tolerance), and why migration is 90% organizational change management. OpenTofu 1.7+ delivers state encryption after 5+ years of Terraform community requests.
 
