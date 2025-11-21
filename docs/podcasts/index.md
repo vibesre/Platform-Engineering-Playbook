@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #031 - Agentic DevOps: GitHub Agent HQ
+## 🎥 Latest Episode: #032 - The Terraform vs OpenTofu Debate
 
-**18 minutes** • Nov 19, 2025 • Alex and Jordan
+**17 minutes** • Nov 20, 2025 • Jordan and Alex
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/KeV2xuyB0q4"
-      title="Agentic DevOps: GitHub Agent HQ and the Autonomous Pipeline Revolution"
+      src="https://www.youtube.com/embed/uHPI1EkeRH8"
+      title="The Terraform vs OpenTofu Debate - Why Just Switch Is Bad Advice"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,11 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-GitHub Universe 2025 announced Agent HQ—mission control for orchestrating AI agents from OpenAI, Anthropic, Google, and more. Azure SRE Agent saved Microsoft 20,000+ engineering hours. But 80% of companies report agents executing unintended actions, and only 44% have agent-specific security policies. Jordan and Alex break down what agentic DevOps actually means, the threat model for autonomous systems, and the tiered adoption framework for deploying agents without creating catastrophic risk.
+HashiCorp's license change and IBM's $6.4B acquisition created the "you must migrate" narrative—but 70% of teams using Terraform in-house aren't legally affected. Jordan and Alex challenge the binary thinking with Fidelity's 50,000 state file migration case study, a three-factor decision framework, and the truth nobody talks about: migration is 90% organizational change management, not technology.
 
-**Key Topics**: GitHub Agent HQ, Copilot coding agent, Azure SRE Agent, AGENTS.md, prompt injection, privilege escalation, shadow agents, OWASP GenAI threats, tiered adoption framework
+**Key Topics**: Terraform BSL license, OpenTofu migration, IBM acquisition, Fidelity case study (50K state files), state encryption, Terraform Cloud lock-in, vendor control vs open governance, 90-day migration playbook
 
-[📝 Full episode page →](/podcasts/00031-agentic-devops-github-agent-hq)
+[📝 Full episode page →](/podcasts/00032-terraform-opentofu-debate) • [📄 Read the full blog post](/blog/2025-11-20-terraform-vs-opentofu-2025-when-to-switch-when-to-stay)
 
 <PodcastSubscribeButtons />
 
@@ -48,6 +48,8 @@ GitHub Universe 2025 announced Agent HQ—mission control for orchestrating AI a
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#032: The Terraform vs OpenTofu Debate](/podcasts/00032-terraform-opentofu-debate)** (17 min) - HashiCorp's license change and IBM's $6.4B acquisition created the "you must migrate" narrative—but 70% of teams using Terraform in-house aren't legally affected. Fidelity's 50,000 state file migration case study, three-factor decision framework (Cloud lock-in, compliance, vendor tolerance), and why migration is 90% organizational change management. OpenTofu 1.7+ delivers state encryption after 5+ years of Terraform community requests.
 
 - 🎙️ **[#031: Agentic DevOps - GitHub Agent HQ](/podcasts/00031-agentic-devops-github-agent-hq)** (18 min) - GitHub Universe 2025 announced Agent HQ—mission control for orchestrating AI agents from OpenAI, Anthropic, Google, and more. Azure SRE Agent saved Microsoft 20,000+ engineering hours. But 80% of companies report agents executing unintended actions, and only 44% have agent-specific security policies. Tiered adoption framework for deploying agents without creating catastrophic risk.
 
