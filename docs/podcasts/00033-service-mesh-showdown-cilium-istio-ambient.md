@@ -17,6 +17,8 @@ slug: 00033-service-mesh-showdown-cilium-istio-ambient
 
 > 📝 **Read the [full blog post](/blog/service-mesh-showdown-cilium-istio-ambient-comparison)**: Comprehensive analysis of Istio Ambient vs Cilium service mesh architectures with academic benchmarks, 50,000-pod stability testing, and decision frameworks for choosing the right approach based on cluster size and traffic patterns.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7FNEMtf5NsE" title="Service Mesh Showdown: Why User-Space Beat eBPF" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ---
 
 **Jordan**: Today we're diving into a service mesh mystery that's challenging everything we thought we knew about performance. Istio Ambient reached GA in November twenty twenty-four with eight percent mTLS overhead compared to sidecar's hundred sixty-six percent. Impressive, right? But Cilium promised even better with kernel-level eBPF—theoretically, processing packets directly in the kernel should beat user-space proxies every time.

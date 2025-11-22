@@ -46,7 +46,7 @@ schema:
 
 The sidecar proxy—Istio's foundation for 7 years—is being replaced. Istio Ambient reached GA in November 2024 with 8% mTLS overhead compared to sidecar's 166%. Cilium promises even better with kernel-level eBPF. But academic benchmarks from October 2025 tell a different story: Istio Ambient delivered 56% more queries per core than Cilium at enterprise scale (50,000 pods). The sidecarless revolution is here, but which architecture actually works in production? We analyzed 18 sources including Istio's official benchmarks, academic research from arxiv.org, and Linkerd's independent testing to answer the question platform teams are asking: Cilium vs Istio Ambient—which service mesh wins in 2025?
 
-> 🎙️ **Listen to the podcast episode**: [#022: eBPF in Kubernetes](/podcasts/00022-ebpf-kubernetes) - eBPF fundamentals and kernel-level observability that powers Cilium's architecture.
+> 🎙️ **Listen to the podcast episode**: [#033: Service Mesh Showdown](/podcasts/00033-service-mesh-showdown-cilium-istio-ambient) - Why user-space proxies beat eBPF, architecture deep-dive, and decision frameworks for choosing Istio Ambient vs Cilium in production.
 
 ## Quick Answer (TL;DR)
 
@@ -60,6 +60,8 @@ The sidecar proxy—Istio's foundation for 7 years—is being replaced. Istio Am
   - Linkerd maintains 11.2ms p99 advantage over Istio Ambient at 2,000 RPS
 - **Decision Framework**: Use Istio Ambient for L4-only or simple L7 at scale in single clusters; use Cilium for cost-sensitive small clusters with pure L3/L4; use sidecars for multi-cluster, mission-critical workloads.
 - **When NOT to Use Sidecarless**: Multi-cluster production environments, high-compliance scenarios requiring maximum isolation, mature sidecar deployments with heavy L7 traffic (sidecars win for pod-level scaling).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7FNEMtf5NsE" title="Service Mesh Showdown: Why User-Space Beat eBPF" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Key Statistics (2024-2025 Data)
 
