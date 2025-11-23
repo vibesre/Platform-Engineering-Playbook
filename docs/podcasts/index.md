@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #033 - Service Mesh Showdown
+## 🎥 Latest Episode: #034 - The GPU Waste Problem
 
-**20 minutes** • Nov 21, 2025 • Jordan and Alex
+**28 minutes** • Nov 24, 2025 • Jordan and Alex
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/VIDEO_ID_PLACEHOLDER"
-      title="Service Mesh Showdown: Why User-Space Beat eBPF"
+      src="https://www.youtube.com/embed/LJBT-a9CuXw"
+      title="The $4,350/Month GPU Waste Problem: How Kubernetes Architecture Creates Massive Cost Inefficiency"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,11 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-Kernel-level eBPF should beat user-space proxies—but Istio Ambient delivers 8% mTLS overhead while Cilium shows 99%. Academic benchmarks reveal why architecture boundaries matter more than execution location, and 50,000-pod stability testing shows Cilium's distributed control plane crashed the API server under churn while Istio's centralized architecture handled it. Decision framework for choosing based on cluster size, traffic patterns (L4 vs L7), and migration timelines.
+Your H100 costs $5,000/month but runs at 13% utilization—wasting $4,350 monthly per GPU. Analysis of 4,000+ Kubernetes clusters reveals why Kubernetes treats GPUs as atomic, non-shareable resources, and the five-layer optimization framework (MIG, time-slicing, VPA, Spot, regional arbitrage) that recovers 75-93% of lost capacity in 90 days. Real case study: 20 H100s → 7 H100s, $100K → $35K/month (65% cost reduction). Multi-Instance GPU enables 84% savings for multi-tenant workloads. Complete 90-day implementation playbook with technical YAMLs.
 
-**Key Topics**: Istio Ambient vs Cilium, eBPF performance, service mesh architecture, mTLS overhead benchmarks, 50K-pod stability testing, L4/L7 processing boundaries, distributed vs centralized control plane, migration framework
+**Key Topics**: Kubernetes GPU management, Multi-Instance GPU (MIG), GPU cost optimization, Vertical Pod Autoscaler, Spot instances, AWS EKS Split Cost Allocation, FinOps for AI, model quantization, time-slicing, regional arbitrage
 
-[📝 Full episode page →](/podcasts/00033-service-mesh-showdown-cilium-istio-ambient) • [📄 Read the full blog post](/blog/service-mesh-showdown-cilium-istio-ambient-comparison)
+[📝 Full episode page →](/podcasts/00034-kubernetes-gpu-cost-waste-finops) • [📄 Read the full blog post](/blog/kubernetes-gpu-resource-management-finops-ai-workloads-2025)
 
 <PodcastSubscribeButtons />
 
@@ -48,6 +48,8 @@ Kernel-level eBPF should beat user-space proxies—but Istio Ambient delivers 8%
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#034: The $4,350/Month GPU Waste Problem](/podcasts/00034-kubernetes-gpu-cost-waste-finops)** (28 min) - Your H100 costs $5,000/month but runs at 13% utilization—wasting $4,350 monthly per GPU. Analysis of 4,000+ Kubernetes clusters reveals why Kubernetes treats GPUs as atomic resources, and the five-layer optimization framework (MIG, time-slicing, VPA, Spot, regional arbitrage) that recovers 75-93% of lost capacity in 90 days. Real case study: 20 H100s → 7 H100s ($100K → $35K/month, 65% reduction). Multi-Instance GPU enables 84% savings for multi-tenant SaaS workloads. AWS EKS Split Cost Allocation launched Sept 2025 for pod-level GPU tracking. Complete 90-day implementation playbook with $780K annual savings target for 20-GPU clusters.
 
 - 🎙️ **[#033: Service Mesh Showdown: Why User-Space Beat eBPF](/podcasts/00033-service-mesh-showdown-cilium-istio-ambient)** (20 min) - Kernel-level eBPF should beat user-space proxies—but Istio Ambient delivers 8% mTLS overhead while Cilium shows 99%. Academic benchmarks reveal why architecture boundaries matter more than execution location. 50,000-pod stability testing shows Cilium's distributed control plane crashed the API server under churn while Istio's centralized architecture handled it. Decision framework for choosing based on cluster size, traffic patterns (L4 vs L7), and cost analysis ($186K/year savings for 2,000-pod clusters).
 
