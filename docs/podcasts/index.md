@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #034 - The GPU Waste Problem
+## 🎥 Latest Episode: #035 - KubeCon 2025 Part 1: AI Goes Native and the 30K Core Lesson
 
-**28 minutes** • Nov 24, 2025 • Jordan and Alex
+**Part 1 of 3** • **19 minutes** • November 24, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/LJBT-a9CuXw"
-      title="The $4,350/Month GPU Waste Problem: How Kubernetes Architecture Creates Massive Cost Inefficiency"
+      src="https://www.youtube.com/embed/ZNIyuQIVBI8"
+      title="KubeCon 2025 Part 1: AI Goes Native and the 30K Core Lesson"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,11 +35,17 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-Your H100 costs $5,000/month but runs at 13% utilization—wasting $4,350 monthly per GPU. Analysis of 4,000+ Kubernetes clusters reveals why Kubernetes treats GPUs as atomic, non-shareable resources, and the five-layer optimization framework (MIG, time-slicing, VPA, Spot, regional arbitrage) that recovers 75-93% of lost capacity in 90 days. Real case study: 20 H100s → 7 H100s, $100K → $35K/month (65% cost reduction). Multi-Instance GPU enables 84% savings for multi-tenant workloads. Complete 90-day implementation playbook with technical YAMLs.
+**Part 1 of our three-part KubeCon Atlanta 2025 deep dive** covering the CNCF's 10-year anniversary. Google donates a GPU driver live on stage. OpenAI saves $2.16M/month with one line of code. Kubernetes rollback finally works after 10 years. What changed at KubeCon Atlanta 2025 that proves Kubernetes isn't adapting to AI—it's being rebuilt for it.
 
-**Key Topics**: Kubernetes GPU management, Multi-Instance GPU (MIG), GPU cost optimization, Vertical Pod Autoscaler, Spot instances, AWS EKS Split Cost Allocation, FinOps for AI, model quantization, time-slicing, regional arbitrage
+Dynamic Resource Allocation reaches GA in Kubernetes 1.34, preventing 10-40% GPU performance loss from NUMA misalignment ($200K/day waste at 100-node scale). CPU DRA driver announced, enabling Kubernetes + Slurm integration for HPC workloads. Workload API arrives in alpha for gang-scheduling multi-pod AI training. OpenAI freed 30,000 CPU cores by disabling inotify in Fluent Bit after profiling revealed 35% CPU time on fstat64. Skip-version upgrades now supported with 99.99% success rate.
 
-[📝 Full episode page →](/podcasts/00034-kubernetes-gpu-cost-waste-finops) • [📄 Read the full blog post](/blog/kubernetes-gpu-resource-management-finops-ai-workloads-2025)
+**Tomorrow in Part 2**: Platform engineering reaches consensus on three principles, real-world case studies from Intuit/Bloomberg/ByteDance, and the "puppy for Christmas" anti-pattern.
+
+**Monday action plan**: Test DRA in development, profile your highest-CPU service, check for NUMA misalignment.
+
+**Key Topics**: KubeCon 2025, Dynamic Resource Allocation, CPU DRA, HPC convergence, Workload API, GPU scheduling, NUMA topology, OpenAI optimization, Kubernetes rollback, AI infrastructure, perf profiling, eBPF
+
+[📝 Full episode page →](/podcasts/00035-kubecon-2025-ai-native) • [📄 Read the full blog post](/blog/2025/11/24/kubecon-atlanta-2025-recap)
 
 <PodcastSubscribeButtons />
 
@@ -48,6 +54,8 @@ Your H100 costs $5,000/month but runs at 13% utilization—wasting $4,350 monthl
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#035: KubeCon 2025 Part 1: AI Goes Native and the 30K Core Lesson](/podcasts/00035-kubecon-2025-ai-native)** (18 min) - Google donates a GPU driver live on stage. OpenAI saves $2.16M/month with one line of code. Kubernetes rollback finally works after 10 years. What changed at KubeCon Atlanta 2025 that proves Kubernetes isn't adapting to AI—it's being rebuilt for it. Dynamic Resource Allocation reaches GA in Kubernetes 1.34, preventing 10-40% GPU performance loss from NUMA misalignment ($200K/day waste at 100-node scale). Workload API arrives in alpha for gang-scheduling multi-pod AI training. OpenAI freed 30,000 CPU cores by disabling inotify in Fluent Bit after profiling revealed 35% CPU time on fstat64. Skip-version upgrades now supported with 99.99% success rate. Monday action plan: test DRA in development, profile your highest-CPU service with perf or eBPF, check for NUMA misalignment in GPU workloads.
 
 - 🎙️ **[#034: The $4,350/Month GPU Waste Problem](/podcasts/00034-kubernetes-gpu-cost-waste-finops)** (28 min) - Your H100 costs $5,000/month but runs at 13% utilization—wasting $4,350 monthly per GPU. Analysis of 4,000+ Kubernetes clusters reveals why Kubernetes treats GPUs as atomic resources, and the five-layer optimization framework (MIG, time-slicing, VPA, Spot, regional arbitrage) that recovers 75-93% of lost capacity in 90 days. Real case study: 20 H100s → 7 H100s ($100K → $35K/month, 65% reduction). Multi-Instance GPU enables 84% savings for multi-tenant SaaS workloads. AWS EKS Split Cost Allocation launched Sept 2025 for pod-level GPU tracking. Complete 90-day implementation playbook with $780K annual savings target for 20-GPU clusters.
 
