@@ -15,7 +15,7 @@ slug: 00034-kubernetes-gpu-cost-waste-finops
 **Speakers:** Jordan and Alex
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience managing Kubernetes GPU workloads, FinOps practitioners optimizing AI/ML infrastructure costs
 
-> 📝 **Read the [full blog post](/blog/2025/11/24/kubernetes-gpu-resource-management-finops-ai-workloads-2025)**: Comprehensive guide to GPU cost optimization with YAML configurations, implementation checklists, and complete MIG setup examples for production Kubernetes clusters.
+> 📝 **Read the [full blog post](/blog/kubernetes-gpu-resource-management-finops-ai-workloads-2025)**: Comprehensive guide to GPU cost optimization with YAML configurations, implementation checklists, and complete MIG setup examples for production Kubernetes clusters.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LJBT-a9CuXw" title="The $4,350/Month GPU Waste Problem: How Kubernetes Architecture Creates Massive Cost Inefficiency" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

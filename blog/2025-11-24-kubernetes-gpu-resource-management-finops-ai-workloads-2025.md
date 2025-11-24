@@ -890,5 +890,5 @@ Expected outcomes:
 
 **Kubernetes Production Best Practices**:
 - [Kubernetes Production Mastery Lesson 02: Resource Management](/podcasts/00010-kubernetes-production-mastery-lesson-02) - Foundational requests/limits concepts, OOMKilled debugging, QoS classes
-- [Kubernetes Technical Page](/docs/technical/kubernetes) - Core Kubernetes concepts and production patterns
+- [Kubernetes Technical Page](/technical/kubernetes) - Core Kubernetes concepts and production patterns
 - [The Kubernetes Complexity Backlash](/blog/2025-01-16-kubernetes-complexity-backlash-simpler-infrastructure) - When Kubernetes costs outweigh benefits, including GPU cost considerations
