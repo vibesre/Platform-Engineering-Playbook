@@ -1,6 +1,7 @@
 ---
 title: "KubeCon Atlanta 2025: The Year Kubernetes Became an AI-Native Platform"
 description: "DRA goes GA, Workload API arrives, 30K cores freed with one line, and platform engineering reaches consensus. Complete KubeCon 2025 recap with 10 major announcements."
+slug: kubecon-atlanta-2025-recap
 keywords:
   - KubeCon 2025
   - Kubernetes AI workloads
@@ -68,7 +69,7 @@ Here's everything that matters from 49 sessions across 3 days in Atlanta.
 
 **Success Pattern**: AI workloads are first-class citizens, operational reliability is table stakes, platform engineering has clear principles, community health requires active investment.
 
-**When NOT to use Kubernetes for AI**: If you don't need multi-node training (single-GPU workloads), lack operational maturity for complex orchestration, or have workloads requiring `<10ms` scheduling latency.
+**When NOT to use Kubernetes for AI**: If you don't need multi-node training (single-GPU workloads), lack operational maturity for complex orchestration, or have workloads requiring sub-10ms scheduling latency.
 
 ## Key Statistics (KubeCon 2025 Data)
 

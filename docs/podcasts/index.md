@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #035 - KubeCon 2025 Part 1: AI Goes Native and the 30K Core Lesson
+## 🎥 Latest Episode: #036 - KubeCon Atlanta 2025 Part 2: Platform Engineering Consensus
 
-**Part 1 of 3** • **19 minutes** • November 24, 2025 • Alex and Jordan
+**Part 2 of 3** • **17 minutes** • November 24, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/ZNIyuQIVBI8"
-      title="KubeCon 2025 Part 1: AI Goes Native and the 30K Core Lesson"
+      src="https://www.youtube.com/embed/04MzUuNhuGY"
+      title="KubeCon Atlanta 2025 Part 2: Platform Engineering Consensus and Community Reality Check"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,17 +35,17 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-**Part 1 of our three-part KubeCon Atlanta 2025 deep dive** covering the CNCF's 10-year anniversary. Google donates a GPU driver live on stage. OpenAI saves $2.16M/month with one line of code. Kubernetes rollback finally works after 10 years. What changed at KubeCon Atlanta 2025 that proves Kubernetes isn't adapting to AI—it's being rebuilt for it.
+**Part 2 of our three-part KubeCon Atlanta 2025 series**. After years of definitional chaos, the industry reached consensus on platform engineering: three non-negotiable principles, real-world adoption at Intuit/Bloomberg/ByteDance scale, and honest conversations about the human cost. Cat Cosgrove, newly elected to Kubernetes Steering Committee, reveals she's "ready to abandon ship" from burnout—exposing the sustainability crisis behind the technical success.
 
-Dynamic Resource Allocation reaches GA in Kubernetes 1.34, preventing 10-40% GPU performance loss from NUMA misalignment ($200K/day waste at 100-node scale). CPU DRA driver announced, enabling Kubernetes + Slurm integration for HPC workloads. Workload API arrives in alpha for gang-scheduling multi-pod AI training. OpenAI freed 30,000 CPU cores by disabling inotify in Fluent Bit after profiling revealed 35% CPU time on fstat64. Skip-version upgrades now supported with 99.99% success rate.
+Three platform principles emerged: API-first self-service (not tickets), business relevance (not just tech metrics), and managed service approach. The "puppy for Christmas" anti-pattern explains 70% platform team failure—templates without operational support. Intuit migrated Mailchimp's 11M users so seamlessly developers didn't notice. Bloomberg ran K8s for 9 years, proving multi-year investment required. ByteDance open sourced AI Brix (80% external contributors). EU CRA clarified: individuals NOT liable, Dec 2027 deadline manageable. Kubernetes dependencies reduced 416→247 through "patient, pragmatic, persistent" approach. CNCF's 200+ projects raises "too much landscape" question. Framework for starting platforms: 3-5 year timeline, managed service commitment, business metrics, community health investment.
 
-**Tomorrow in Part 2**: Platform engineering reaches consensus on three principles, real-world case studies from Intuit/Bloomberg/ByteDance, and the "puppy for Christmas" anti-pattern.
+**Tomorrow in Part 3**: Maintainer burnout deep dive, CNCF at 10 years, community sustainability, the next decade.
 
-**Monday action plan**: Test DRA in development, profile your highest-CPU service, check for NUMA misalignment.
+**Action plan**: Audit platform against three principles, plan 3-5 year timeline, start SBOM generation for Dec 2027 CRA compliance.
 
-**Key Topics**: KubeCon 2025, Dynamic Resource Allocation, CPU DRA, HPC convergence, Workload API, GPU scheduling, NUMA topology, OpenAI optimization, Kubernetes rollback, AI infrastructure, perf profiling, eBPF
+**Key Topics**: Platform engineering principles, Intuit Mailchimp migration, Bloomberg Kubernetes, ByteDance AI Brix, Cat Cosgrove burnout, Kubernetes Steering Committee, EU Cyber Resilience Act, CNCF projects, maintainer sustainability, managed service approach, puppy for Christmas anti-pattern
 
-[📝 Full episode page →](/podcasts/00035-kubecon-2025-ai-native) • [📄 Read the full blog post](/blog/2025/11/24/kubecon-atlanta-2025-recap)
+[📝 Full episode page →](/podcasts/00036-kubecon-2025-platform-engineering) • [📄 Read the full blog post](/blog/kubecon-atlanta-2025-recap)
 
 <PodcastSubscribeButtons />
 
@@ -55,7 +55,9 @@ Dynamic Resource Allocation reaches GA in Kubernetes 1.34, preventing 10-40% GPU
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
 
-- 🎙️ **[#035: KubeCon 2025 Part 1: AI Goes Native and the 30K Core Lesson](/podcasts/00035-kubecon-2025-ai-native)** (18 min) - Google donates a GPU driver live on stage. OpenAI saves $2.16M/month with one line of code. Kubernetes rollback finally works after 10 years. What changed at KubeCon Atlanta 2025 that proves Kubernetes isn't adapting to AI—it's being rebuilt for it. Dynamic Resource Allocation reaches GA in Kubernetes 1.34, preventing 10-40% GPU performance loss from NUMA misalignment ($200K/day waste at 100-node scale). Workload API arrives in alpha for gang-scheduling multi-pod AI training. OpenAI freed 30,000 CPU cores by disabling inotify in Fluent Bit after profiling revealed 35% CPU time on fstat64. Skip-version upgrades now supported with 99.99% success rate. Monday action plan: test DRA in development, profile your highest-CPU service with perf or eBPF, check for NUMA misalignment in GPU workloads.
+- 🎙️ **[#036: KubeCon Atlanta 2025 Part 2: Platform Engineering Consensus and Community Reality Check](/podcasts/00036-kubecon-2025-platform-engineering)** (17 min) - After years of definitional chaos, platform engineering reached consensus at KubeCon 2025: three principles (API-first self-service, business relevance, managed service approach), real-world adoption at Intuit/Bloomberg/ByteDance scale, and honest burnout conversations. The "puppy for Christmas" anti-pattern explains 70% platform team failure. Intuit migrated Mailchimp's 11M users invisibly. Bloomberg ran K8s for 9 years. ByteDance's AI Brix is 80% external contributors. EU CRA clarified: individuals NOT liable, Dec 2027 deadline manageable. Cat Cosgrove (K8s Steering Committee) reveals "ready to abandon ship" from work overload. CNCF's 200+ projects raises sustainability questions. Kubernetes reduced dependencies 416→247 through discipline. Framework for platform teams: 3-5 year timeline, managed service commitment, business metrics, SBOM generation, community health investment.
+
+- 🎙️ **[#035: KubeCon Atlanta 2025 Part 1: AI Goes Native and the 30K Core Lesson](/podcasts/00035-kubecon-2025-ai-native)** (19 min) - Google donates a GPU driver live on stage. OpenAI saves $2.16M/month with one line of code. Kubernetes rollback finally works after 10 years. What changed at KubeCon Atlanta 2025 that proves Kubernetes isn't adapting to AI—it's being rebuilt for it. Dynamic Resource Allocation reaches GA in Kubernetes 1.34, preventing 10-40% GPU performance loss from NUMA misalignment ($200K/day waste at 100-node scale). Workload API arrives in alpha for gang-scheduling multi-pod AI training. OpenAI freed 30,000 CPU cores by disabling inotify in Fluent Bit after profiling revealed 35% CPU time on fstat64. Skip-version upgrades now supported with 99.99% success rate. Monday action plan: test DRA in development, profile your highest-CPU service with perf or eBPF, check for NUMA misalignment in GPU workloads.
 
 - 🎙️ **[#034: The $4,350/Month GPU Waste Problem](/podcasts/00034-kubernetes-gpu-cost-waste-finops)** (28 min) - Your H100 costs $5,000/month but runs at 13% utilization—wasting $4,350 monthly per GPU. Analysis of 4,000+ Kubernetes clusters reveals why Kubernetes treats GPUs as atomic resources, and the five-layer optimization framework (MIG, time-slicing, VPA, Spot, regional arbitrage) that recovers 75-93% of lost capacity in 90 days. Real case study: 20 H100s → 7 H100s ($100K → $35K/month, 65% reduction). Multi-Instance GPU enables 84% savings for multi-tenant SaaS workloads. AWS EKS Split Cost Allocation launched Sept 2025 for pod-level GPU tracking. Complete 90-day implementation playbook with $780K annual savings target for 20-GPU clusters.
 

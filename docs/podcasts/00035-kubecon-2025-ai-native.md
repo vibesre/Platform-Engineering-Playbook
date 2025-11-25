@@ -1,11 +1,11 @@
 ---
 displayed_sidebar: tutorialSidebar
 hide_table_of_contents: false
-sidebar_label: "🎙️ #035: KubeCon 2025 Part 1: AI Goes Native and the 30K Core Lesson"
+sidebar_label: "🎙️ #035: KubeCon Atlanta 2025 Part 1: AI Goes Native and the 30K Core Lesson"
 slug: 00035-kubecon-2025-ai-native
 ---
 
-# KubeCon 2025 Part 1: AI Goes Native and the 30K Core Lesson
+# KubeCon Atlanta 2025 Part 1: AI Goes Native and the 30K Core Lesson
 
 ## The Platform Engineering Playbook Podcast
 
@@ -15,14 +15,14 @@ slug: 00035-kubecon-2025-ai-native
 **Speakers:** Alex and Jordan
 **Target Audience:** Senior platform engineers, SREs, DevOps engineers with 5+ years experience running or considering AI/ML workloads
 
-> 📝 **Read the [full blog post](/blog/2025/11/24/kubecon-atlanta-2025-recap)**: Complete KubeCon Atlanta 2025 recap covering all 10 major announcements, including platform engineering consensus, community challenges, and the EU Cyber Resilience Act explained.
+> 📝 **Read the [full blog post](/blog/kubecon-atlanta-2025-recap)**: Complete KubeCon Atlanta 2025 recap covering all 10 major announcements, including platform engineering consensus, community challenges, and the EU Cyber Resilience Act explained.
 
 :::info KubeCon 2025 Series (Part 1 of 3)
 
 This is Part 1 of our three-part deep dive into KubeCon Atlanta 2025 (November 12-21), covering the CNCF's 10-year anniversary.
 
 - **Part 1** (this episode): AI-native Kubernetes - DRA GA, CPU DRA, Workload API, OpenAI's 30K core optimization, rollback after 10 years
-- **Part 2**: Platform engineering consensus - Three principles, real-world case studies, anti-patterns
+- **Part 2**: [Platform Engineering Consensus](/podcasts/00036-kubecon-2025-platform-engineering) - Three principles, real-world case studies, anti-patterns
 - **Part 3**: Community at 10 years - Maintainer sustainability, burnout, the next decade
 
 :::
@@ -32,7 +32,7 @@ This is Part 1 of our three-part deep dive into KubeCon Atlanta 2025 (November 1
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
       src="https://www.youtube.com/embed/ZNIyuQIVBI8"
-      title="KubeCon 2025 Part 1: AI Goes Native and the 30K Core Lesson"
+      title="KubeCon Atlanta 2025 Part 1: AI Goes Native and the 30K Core Lesson"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
