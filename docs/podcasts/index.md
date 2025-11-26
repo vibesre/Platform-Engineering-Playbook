@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #036 - KubeCon Atlanta 2025 Part 2: Platform Engineering Consensus
+## 🎥 Latest Episode: #037 - KubeCon Atlanta 2025 Part 3: Community at 10 Years
 
-**Part 2 of 3** • **17 minutes** • November 24, 2025 • Alex and Jordan
+**Part 3 of 3** • **14 minutes** • November 25, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/04MzUuNhuGY"
-      title="KubeCon Atlanta 2025 Part 2: Platform Engineering Consensus and Community Reality Check"
+      src="https://www.youtube.com/embed/w_PDgYRP4WU"
+      title="KubeCon Atlanta 2025 Part 3: Community at 10 Years - The Sustainability Question"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,17 +35,17 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-**Part 2 of our three-part KubeCon Atlanta 2025 series**. After years of definitional chaos, the industry reached consensus on platform engineering: three non-negotiable principles, real-world adoption at Intuit/Bloomberg/ByteDance scale, and honest conversations about the human cost. Cat Cosgrove, newly elected to Kubernetes Steering Committee, reveals she's "ready to abandon ship" from burnout—exposing the sustainability crisis behind the technical success.
+**The final part of our three-part KubeCon Atlanta 2025 series**. CNCF celebrates 10 years with 300,000 contributors and 230+ projects—but between the keynote celebrations, the hallway track told a different story. 60% of maintainers unpaid. 60% have left or considered leaving. The XZ Utils backdoor showed what happens when isolated maintainers burn out. Han Kang's passing reminds us of the human cost behind the code.
 
-Three platform principles emerged: API-first self-service (not tickets), business relevance (not just tech metrics), and managed service approach. The "puppy for Christmas" anti-pattern explains 70% platform team failure—templates without operational support. Intuit migrated Mailchimp's 11M users so seamlessly developers didn't notice. Bloomberg ran K8s for 9 years, proving multi-year investment required. ByteDance open sourced AI Brix (80% external contributors). EU CRA clarified: individuals NOT liable, Dec 2027 deadline manageable. Kubernetes dependencies reduced 416→247 through "patient, pragmatic, persistent" approach. CNCF's 200+ projects raises "too much landscape" question. Framework for starting platforms: 3-5 year timeline, managed service commitment, business metrics, community health investment.
+This episode covers what we learned in the technical breakout sessions: TikTok's IPv6-only migration at CiliumCon, in-toto graduating for supply chain attestation, Gateway API convergence with HAProxy and Kgateway AI inference extensions, and OpenTelemetry's eBPF instrumentation maturing with Nike's OpAMP implementation at scale.
 
-**Tomorrow in Part 3**: Maintainer burnout deep dive, CNCF at 10 years, community sustainability, the next decade.
+Signs of hope: Open Source Pledge with real numbers (Antithesis $110K, Convex $100K), Kubernetes release team streamlined from 6→4 subteams. Kat Cosgrove's survival strategies reveal what "crispy" maintainers do to avoid complete burnout.
 
-**Action plan**: Audit platform against three principles, plan 3-5 year timeline, start SBOM generation for Dec 2027 CRA compliance.
+**Action plan**: Check if your company is on the Open Source Pledge. Audit critical dependencies for maintainer health. Build contributor ladders. Remember: the code doesn't exist without the people who write it.
 
-**Key Topics**: Platform engineering principles, Intuit Mailchimp migration, Bloomberg Kubernetes, ByteDance AI Brix, Cat Cosgrove burnout, Kubernetes Steering Committee, EU Cyber Resilience Act, CNCF projects, maintainer sustainability, managed service approach, puppy for Christmas anti-pattern
+**Key Topics**: Open source sustainability, maintainer burnout, CNCF 10 years, Han Kang tribute, CiliumCon, in-toto graduation, Gateway API, OpenTelemetry eBPF, Open Source Pledge, XZ Utils backdoor, Kubernetes governance, contributor ladders
 
-[📝 Full episode page →](/podcasts/00036-kubecon-2025-platform-engineering) • [📄 Read the full blog post](/blog/kubecon-atlanta-2025-recap)
+[📝 Full episode page →](/podcasts/00037-kubecon-2025-community-sustainability) • [📄 Read the full blog post](/blog/kubecon-atlanta-2025-recap)
 
 <PodcastSubscribeButtons />
 
@@ -54,6 +54,8 @@ Three platform principles emerged: API-first self-service (not tickets), busines
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#037: KubeCon Atlanta 2025 Part 3: Community at 10 Years - The Sustainability Question](/podcasts/00037-kubecon-2025-community-sustainability)** (14 min) - CNCF celebrates 10 years with 300,000 contributors—but the sustainability crisis is real. 60% of maintainers unpaid. 60% have left or considered leaving. XZ Utils backdoor showed what happens when isolated maintainers burn out. Han Kang tribute reminds us of the human cost. Technical sessions revealed: CiliumCon (TikTok IPv6 migration, 60K node clusters), in-toto graduation for supply chain attestation, Gateway API convergence, OpenTelemetry eBPF maturity. Open Source Pledge ($2,000/developer/year minimum) and Kubernetes governance improvements (6→4 subteams) offer hope. Framework: audit dependencies for maintainer health, join Open Source Pledge, invest in the people who write the code.
 
 - 🎙️ **[#036: KubeCon Atlanta 2025 Part 2: Platform Engineering Consensus and Community Reality Check](/podcasts/00036-kubecon-2025-platform-engineering)** (17 min) - After years of definitional chaos, platform engineering reached consensus at KubeCon 2025: three principles (API-first self-service, business relevance, managed service approach), real-world adoption at Intuit/Bloomberg/ByteDance scale, and honest burnout conversations. The "puppy for Christmas" anti-pattern explains 70% platform team failure. Intuit migrated Mailchimp's 11M users invisibly. Bloomberg ran K8s for 9 years. ByteDance's AI Brix is 80% external contributors. EU CRA clarified: individuals NOT liable, Dec 2027 deadline manageable. Cat Cosgrove (K8s Steering Committee) reveals "ready to abandon ship" from work overload. CNCF's 200+ projects raises sustainability questions. Kubernetes reduced dependencies 416→247 through discipline. Framework for platform teams: 3-5 year timeline, managed service commitment, business metrics, SBOM generation, community health investment.
 

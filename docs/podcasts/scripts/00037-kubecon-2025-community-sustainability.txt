@@ -1,0 +1,125 @@
+Jordan: The Cloud Native Computing Foundation turns ten years old. [pause] Three hundred thousand contributors. Two hundred thirty plus projects. One hundred ninety countries represented. The second-largest open source project on Earth. [pause] But between the keynote celebrations and the expo hall demos, the hallway track told a different story. In the breakout sessions, in the Day Zero events, we heard something the headlines missed.
+
+Alex: That's the tension in this episode. Part 3 of our <phoneme alphabet="ipa" ph="ˌkuːbˈkɒn">KubeCon</phoneme> Atlanta series. We've covered the technical breakthroughs in Part 1—<phoneme alphabet="ipa" ph="diː ɑːr eɪ">DRA</phoneme> going <phoneme alphabet="ipa" ph="dʒiː eɪ">GA</phoneme>, rollback finally working. The organizational consensus in Part 2—platform engineering's three principles. Today, we're asking the question nobody wants to answer: Can the people building this actually sustain the pace? And what did we learn in the technical sessions that didn't make the keynote stage?
+
+Jordan: Let's start with the numbers that define sustainability. [pause] Sixty percent of open source maintainers are unpaid for their work. According to the twenty twenty-four Tidelift State of the Open Source Maintainer Report.
+
+Alex: Sixty percent unpaid. [pause] For software that ninety-six percent of companies depend on. That asymmetry is the heart of the sustainability crisis.
+
+Jordan: Another sixty percent of maintainers have either left or considered leaving a project. [pause] The reasons aren't about code. Competing life demands, fifty-four percent. Loss of interest, fifty-one percent. Burnout, forty-four percent.
+
+Alex: And then there's the <phoneme alphabet="ipa" ph="ɛks ziː">XZ</phoneme> Utils incident from twenty twenty-four.
+
+Jordan: A seemingly helpful contributor exploited a solo maintainer's isolation over years. [pause] Slowly gained trust. Eventually inserted a malicious backdoor into widely-used software that could have compromised millions of systems. The fallout? Sixty-six percent drop in maintainer trust toward new contributors.
+
+Alex: So now we have burned out maintainers who are also suspicious of new help. [pause] That's a death spiral.
+
+Jordan: Which is why at <phoneme alphabet="ipa" ph="ˌkuːbˈkɒn">KubeCon</phoneme>, we saw the human cost up close. [pause] Han Samuel Kang. Forty-two years old. Longtime contributor to <phoneme alphabet="ipa" ph="ˌkuːbərˈnɛtiːz">Kubernetes</phoneme> <phoneme alphabet="ipa" ph="sɪɡ">SIG</phoneme> Node and <phoneme alphabet="ipa" ph="ˈkuːblɛt">kubelet</phoneme>. He passed away unexpectedly in September twenty twenty-five.
+
+Alex: I saw the tribute. Self-taught engineer. Philosophy degree from <phoneme alphabet="ipa" ph="juː siː">UC</phoneme> Berkeley. Two daughters.
+
+Jordan: He graduated high school at sixteen. Enlisted in the Army at seventeen. Found his way into tech as a self-taught programmer. [pause] Colleagues described his energy and enthusiasm. One said quote, "He stood out even in a company of exceptional people."
+
+Alex: <phoneme alphabet="ipa" ph="dʒeɪ dʒiː">JG</phoneme> Macleod from Google mentioned him during the rollback announcement.
+
+Jordan: Said quote, "This has taken literally a decade of effort. Han Kang's passing really hurts. This is a lasting legacy." [pause] The rollback feature that finally works after ten years—the one we covered in Part 1—has his fingerprints on it.
+
+Alex: The technology doesn't exist without the people.
+
+Jordan: And the people showed up not just in keynotes, but in the breakout sessions. [pause] Let's talk about what we learned in the rooms.
+
+Alex: Starting with <phoneme alphabet="ipa" ph="ˈsɪliəmˌkɒn">CiliumCon</phoneme>, the Day Zero event.
+
+Jordan: TikTok presented their <phoneme alphabet="ipa" ph="aɪ piː viː sɪks">IPv6</phoneme>-only migration to <phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme>. [pause] They shared specific challenges around scale—running <phoneme alphabet="ipa" ph="iː biː piː ɛf">eBPF</phoneme>-based networking at TikTok's traffic volumes means debugging issues that nobody else has seen. They talked about rolling out <phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme> incrementally, cluster by cluster, with automated canary deployments to catch regressions before they propagate.
+
+Alex: And <phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme> itself hit its ten-year anniversary.
+
+Jordan: <phoneme alphabet="ipa" ph="aɪˈsoʊvəˌlɛnt">Isovalent</phoneme> engineers talked about clusters now exceeding sixty thousand nodes running <phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme>. [pause] The <phoneme alphabet="ipa" ph="iː biː piː ɛf">eBPF</phoneme> evolution from experimental to production default took a decade. Same timeline as <phoneme alphabet="ipa" ph="ˌkuːbərˈnɛtiːz">Kubernetes</phoneme> reaching maturity. Same lesson: infrastructure at this scale takes years, not months.
+
+Alex: What about security sessions?
+
+Jordan: Supply chain security had its own track. [pause] The "Supply Chain Reaction" presentation walked through attack vectors that go beyond just compromised dependencies. Build system compromises. <phoneme alphabet="ipa" ph="siː aɪ">CI</phoneme> pipeline injection. Artifact registry poisoning. The <phoneme alphabet="ipa" ph="ɛks ziː">XZ</phoneme> Utils pattern was explicitly referenced as the canonical example of social engineering meeting technical exploitation.
+
+Alex: And <phoneme alphabet="ipa" ph="ɪn ˈtoʊtoʊ">in-toto</phoneme> graduated.
+
+Jordan: <phoneme alphabet="ipa" ph="siː ɛn siː ɛf">CNCF</phoneme>'s supply chain provenance project hit graduated status. [pause] It's now production-ready for generating cryptographically signed attestations about your entire build pipeline. Who built what, when, with which tools, from which sources. Combined with <phoneme alphabet="ipa" ph="ɛs bɒm">SBOM</phoneme> generation, you can now trace a container image back to its original commit and build environment.
+
+Alex: That connects to the <phoneme alphabet="ipa" ph="iː juː">EU</phoneme> Cyber Resilience Act requirements we discussed in Part 2.
+
+Jordan: Exactly. [pause] <phoneme alphabet="ipa" ph="ɛs bɒm">SBOM</phoneme> plus <phoneme alphabet="ipa" ph="ɪn ˈtoʊtoʊ">in-toto</phoneme> attestations equals <phoneme alphabet="ipa" ph="siː ɑːr eɪ">CRA</phoneme> compliance by twenty twenty-seven. The tooling exists now.
+
+Alex: What about Gateway <phoneme alphabet="ipa" ph="eɪ piː aɪ">API</phoneme> sessions?
+
+Jordan: <phoneme alphabet="ipa" ph="eɪtʃ eɪ ˈprɒksi">HAProxy</phoneme> presented their Unified Gateway implementation. [pause] The pattern is converging—instead of separate ingress controllers and <phoneme alphabet="ipa" ph="eɪ piː aɪ">API</phoneme> gateways and service meshes, a single gateway handling north-south and east-west traffic with Gateway <phoneme alphabet="ipa" ph="eɪ piː aɪ">API</phoneme> as the common interface.
+
+Alex: And there was <phoneme alphabet="ipa" ph="eɪ aɪ">AI</phoneme>-specific Gateway work.
+
+Jordan: <phoneme alphabet="ipa" ph="keɪ ˈɡeɪtweɪ">Kgateway</phoneme> showed an <phoneme alphabet="ipa" ph="eɪ aɪ">AI</phoneme> Inference Extension that adds routing semantics specific to <phoneme alphabet="ipa" ph="ɛl ɛl ɛm">LLM</phoneme> workloads. [pause] Token-based rate limiting. Model version routing. Request queuing for batch inference. The Gateway <phoneme alphabet="ipa" ph="eɪ piː aɪ">API</phoneme> extensibility model lets you add these without forking the core specification.
+
+Alex: Observability Day had significant announcements too.
+
+Jordan: <phoneme alphabet="ipa" ph="ˈoʊpən tɛˈlɛmɪtri">OpenTelemetry</phoneme>'s <phoneme alphabet="ipa" ph="iː biː piː ɛf">eBPF</phoneme> instrumentation is maturing. [pause] We covered this in Episode twenty-eight. The <phoneme alphabet="ipa" ph="ˌkuːbˈkɒn">KubeCon</phoneme> sessions showed production deployments where teams get complete distributed tracing without changing a single line of application code. The catch we mentioned—<phoneme alphabet="ipa" ph="tiː ɛl ɛs">TLS</phoneme> encryption breaking <phoneme alphabet="ipa" ph="iː biː piː ɛf">eBPF</phoneme> visibility—has workarounds now using shared library interception.
+
+Alex: Nike presented their <phoneme alphabet="ipa" ph="oʊp æmp">OpAMP</phoneme> implementation.
+
+Jordan: <phoneme alphabet="ipa" ph="ˈoʊpən tɛˈlɛmɪtri">OpenTelemetry</phoneme>'s Agent Management Protocol. [pause] Nike is using it to manage thousands of collectors across their infrastructure. Central configuration. Remote updates. Health monitoring. The scale challenges are real—when you have that many agents, the management plane itself becomes a distributed systems problem.
+
+Alex: So the technical sessions showed real production implementations, not just demos.
+
+Jordan: Which is the difference between <phoneme alphabet="ipa" ph="ˌkuːbˈkɒn">KubeCon</phoneme> twenty twenty and <phoneme alphabet="ipa" ph="ˌkuːbˈkɒn">KubeCon</phoneme> twenty twenty-five. [pause] Five years ago, these sessions were "here's what we're trying." Now they're "here's what we learned running this for three years at scale."
+
+Alex: Let's shift back to sustainability. What signs of hope emerged?
+
+Jordan: The Open Source Pledge initiative. [pause] Companies commit to paying maintainers directly. Minimum two thousand dollars per year per developer at your company. Cash payments, not cloud credits. Not hiring developers to work on open source. Not gifts. Cash to the people doing the work.
+
+Alex: Who's actually participating?
+
+Jordan: Antithesis contributed one hundred ten thousand dollars. That's two thousand eight hundred ninety-five per developer on staff. [pause] Ninety-five thousand went to the Nix core team alone. Convex put one hundred thousand toward <phoneme alphabet="ipa" ph="tæn stæk">TanStack</phoneme> Start. That's seven thousand six hundred ninety-two per developer. These are real numbers. Not symbolic gestures.
+
+Alex: And <phoneme alphabet="ipa" ph="ˌkuːbərˈnɛtiːz">Kubernetes</phoneme> itself made governance improvements.
+
+Jordan: The release team went from six subteams to four. [pause] Bug Triage and <phoneme alphabet="ipa" ph="siː aɪ">CI</phoneme> Signal merged into Release Signal. Project boards for enhancement tracking. The change got unanimous applause from release team members because it reduced coordination overhead.
+
+Alex: So what's the survival strategy for maintainers?
+
+Jordan: Kat Cosgrove, newly elected to the <phoneme alphabet="ipa" ph="ˌkuːbərˈnɛtiːz">Kubernetes</phoneme> Steering Committee, was brutally honest about this. [pause] She described lying to coworkers and friends at long conferences to steal alone time at restaurants with a book. Not working at all in December. Spending time in the mountains without cell signal or electronics.
+
+Alex: Wait, she framed those as survival strategies?
+
+Jordan: Quote, "When you're an open source maintainer and developer advocate, you don't get to have a bad day in public." [pause] These aren't nice-to-haves. They're how you avoid complete burnout. And most maintainers are quote "crispy." Her word. They're all burned out. The trick is not letting people see it.
+
+Alex: Public persona always on, even when you're exhausted.
+
+Jordan: Which is why the advice for maintainers is: build contributor ladders. [pause] Promote contributors into leadership to share the workload. Take real time off. Be honest about burnout instead of hiding it. And build succession pipelines. The worst outcome is a critical project with no one ready to take over.
+
+Alex: Red flags to watch for?
+
+Jordan: Solo maintainer on a critical project. [pause] That's the <phoneme alphabet="ipa" ph="ɛks ziː">XZ</phoneme> Utils pattern waiting to happen. No corporate backing for dedicated time. Missing contributor ladder. All contributors from a single company. Maintainers visibly exhausted on social media. These are warning signs of unsustainable projects that could affect your infrastructure.
+
+Alex: Let's bring it back to the series. What's the complete picture of <phoneme alphabet="ipa" ph="ˌkuːbˈkɒn">KubeCon</phoneme> Atlanta twenty twenty-five?
+
+Jordan: Part 1 was technical capability. [pause] <phoneme alphabet="ipa" ph="diː ɑːr eɪ">DRA</phoneme> went <phoneme alphabet="ipa" ph="dʒiː eɪ">GA</phoneme>—ten to forty percent <phoneme alphabet="ipa" ph="dʒiː piː juː">GPU</phoneme> performance improvement by fixing <phoneme alphabet="ipa" ph="ˈnuːmə">NUMA</phoneme> alignment. <phoneme alphabet="ipa" ph="ˈoʊpən eɪ aɪ">OpenAI</phoneme> freed thirty thousand <phoneme alphabet="ipa" ph="siː piː juː">CPU</phoneme> cores with one line of code. <phoneme alphabet="ipa" ph="ˌkuːbərˈnɛtiːz">Kubernetes</phoneme> rollback finally works after ten years. The message: the technology is mature and still accelerating.
+
+Alex: Part 2 was organizational clarity.
+
+Jordan: Platform engineering consensus after years of definitional chaos. [pause] Three principles: <phoneme alphabet="ipa" ph="eɪ piː aɪ">API</phoneme>-first self-service, business relevance, managed service approach. Real adoption at Intuit, Bloomberg, ByteDance scale. The "puppy for Christmas" anti-pattern explains why templates without operational support fail. The message: we know what to build and how to measure success.
+
+Alex: And Part 3?
+
+Jordan: Is the sustainability question. [pause] Sixty percent maintainers unpaid. Sixty percent have left or considered leaving. Han Kang's passing reminds us of the human cost. The technical sessions showed what ten years of community effort looks like—<phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme> at sixty thousand nodes, <phoneme alphabet="ipa" ph="ɪn ˈtoʊtoʊ">in-toto</phoneme> graduated, Gateway <phoneme alphabet="ipa" ph="eɪ piː aɪ">API</phoneme> converging. Open Source Pledge provides a funding path. The message: now invest in the humans who make all of this possible.
+
+Alex: So what's the framework for listeners?
+
+Jordan: Three actions. [pause] First, check if your company is on the Open Source Pledge. Two thousand dollars per developer per year minimum. If not, start that conversation with leadership. Second, audit your critical dependencies for maintainer health. How many maintainers? Are they employed to do this work? When did they last take time off? Is there a succession plan?
+
+Alex: And third?
+
+Jordan: Remember the throughline of this series. [pause] Han Kang's legacy lives in <phoneme alphabet="ipa" ph="ˌkuːbərˈnɛtiːz">Kubernetes</phoneme> reliability. The <phoneme alphabet="ipa" ph="ˈsɪliəm">Cilium</phoneme> engineers spent ten years getting <phoneme alphabet="ipa" ph="iː biː piː ɛf">eBPF</phoneme> to production default. The <phoneme alphabet="ipa" ph="ɪn ˈtoʊtoʊ">in-toto</phoneme> maintainers got supply chain attestation to graduated status. These aren't anonymous contributors. They're people who chose to spend their lives on this. They deserve sustainability—predictable income, reasonable workloads, time off without guilt, succession plans so they can step back when needed.
+
+Alex: That's the real work for the next decade.
+
+Jordan: The code doesn't exist without the people who write it. [pause] The technical sessions showed what sustained community investment creates. The burnout statistics show what happens without it. Invest accordingly.
+
+Alex: This has been Part 3 of our three-part <phoneme alphabet="ipa" ph="ˌkuːbˈkɒn">KubeCon</phoneme> Atlanta twenty twenty-five series. Part 1 covered the technical breakthroughs. Part 2, platform engineering consensus. Part 3, the sustainability question and what we learned in the breakout rooms. Together, a complete picture of where cloud native is and where it's going.
+
+Jordan: Until next time.
