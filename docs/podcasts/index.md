@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #037 - KubeCon Atlanta 2025 Part 3: Community at 10 Years
+## 🎥 Latest Episode: #038 - Giving Thanks to Your Dependencies
 
-**Part 3 of 3** • **14 minutes** • November 25, 2025 • Alex and Jordan
+**Thanksgiving Special** • **10 minutes** • November 26, 2025 • Alex and Jordan
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/w_PDgYRP4WU"
-      title="KubeCon Atlanta 2025 Part 3: Community at 10 Years - The Sustainability Question"
+      src="https://www.youtube.com/embed/PLACEHOLDER"
+      title="Giving Thanks to Your Dependencies: A Platform Engineer's Gratitude Guide"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,17 +35,15 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-**The final part of our three-part KubeCon Atlanta 2025 series**. CNCF celebrates 10 years with 300,000 contributors and 230+ projects—but between the keynote celebrations, the hallway track told a different story. 60% of maintainers unpaid. 60% have left or considered leaving. The XZ Utils backdoor showed what happens when isolated maintainers burn out. Han Kang's passing reminds us of the human cost behind the code.
+**This Thanksgiving, discover the tools and practices for thanking open source maintainers.** 60% of maintainers are unpaid. 60% have left or considered leaving. Your infrastructure runs on their free time.
 
-This episode covers what we learned in the technical breakout sessions: TikTok's IPv6-only migration at CiliumCon, in-toto graduating for supply chain attestation, Gateway API convergence with HAProxy and Kgateway AI inference extensions, and OpenTelemetry's eBPF instrumentation maturing with Nike's OpAMP implementation at scale.
+Explore the gratitude ecosystem: `npx thanks`, `npm fund`, `cargo-thanks`, `thanks-stars`. Learn about Happiness Packets for sending anonymous thank-you notes. Understand why specific use case emails matter more than generic thanks. See company-level actions: Open Source Pledge ($2K/dev/year), GitHub Sponsors, Maintainer Month.
 
-Signs of hope: Open Source Pledge with real numbers (Antithesis $110K, Convex $100K), Kubernetes release team streamlined from 6→4 subteams. Kat Cosgrove's survival strategies reveal what "crispy" maintainers do to avoid complete burnout.
+**Your Thanksgiving challenge (5 minutes)**: Run `npx thanks` in your project. Pick one dependency you rely on. Send a thank-you email explaining HOW you use it. Consider a small donation. Star the repos.
 
-**Action plan**: Check if your company is on the Open Source Pledge. Audit critical dependencies for maintainer health. Build contributor ladders. Remember: the code doesn't exist without the people who write it.
+**Key Topics**: Open source gratitude, maintainer support, npm fund, cargo-thanks, Happiness Packets, Open Source Pledge, GitHub Sponsors, Thanksgiving, dependencies
 
-**Key Topics**: Open source sustainability, maintainer burnout, CNCF 10 years, Han Kang tribute, CiliumCon, in-toto graduation, Gateway API, OpenTelemetry eBPF, Open Source Pledge, XZ Utils backdoor, Kubernetes governance, contributor ladders
-
-[📝 Full episode page →](/podcasts/00037-kubecon-2025-community-sustainability) • [📄 Read the full blog post](/blog/kubecon-atlanta-2025-recap)
+[📝 Full episode page →](/podcasts/00038-thanksgiving-oss-gratitude) • [📄 Follow-up to Episode #037](/podcasts/00037-kubecon-2025-community-sustainability)
 
 <PodcastSubscribeButtons />
 
@@ -54,6 +52,8 @@ Signs of hope: Open Source Pledge with real numbers (Antithesis $110K, Convex $1
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#038: Giving Thanks to Your Dependencies: A Platform Engineer's Gratitude Guide](/podcasts/00038-thanksgiving-oss-gratitude)** (10 min) - Thanksgiving special on thanking open source maintainers. 60% of maintainers unpaid. 60% have left or considered leaving. Gratitude tools: npx thanks, npm fund, cargo-thanks, thanks-stars. Happiness Packets for anonymous thank-you notes. Beyond stars: why specific use case emails matter more. Company-level: Open Source Pledge ($2K/dev/year), GitHub Sponsors, Maintainer Month. Your 5-minute Thanksgiving challenge: run npx thanks, pick one dependency, send a thank-you email, donate $5-10, star the repos.
 
 - 🎙️ **[#037: KubeCon Atlanta 2025 Part 3: Community at 10 Years - The Sustainability Question](/podcasts/00037-kubecon-2025-community-sustainability)** (14 min) - CNCF celebrates 10 years with 300,000 contributors—but the sustainability crisis is real. 60% of maintainers unpaid. 60% have left or considered leaving. XZ Utils backdoor showed what happens when isolated maintainers burn out. Han Kang tribute reminds us of the human cost. Technical sessions revealed: CiliumCon (TikTok IPv6 migration, 60K node clusters), in-toto graduation for supply chain attestation, Gateway API convergence, OpenTelemetry eBPF maturity. Open Source Pledge ($2,000/developer/year minimum) and Kubernetes governance improvements (6→4 subteams) offer hope. Framework: audit dependencies for maintainer health, join Open Source Pledge, invest in the people who write the code.
 
