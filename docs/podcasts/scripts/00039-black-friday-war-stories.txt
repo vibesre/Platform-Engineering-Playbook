@@ -1,0 +1,69 @@
+Jordan: Today we're diving into the graveyard of Black Friday outages. <break time="0.3s"/> Every year, despite knowing exactly when Black Friday will happen, major retailers crash. Twenty eighteen saw Walmart, <phoneme alphabet="ipa" ph="dʒeɪ kruː">J Crew</phoneme>, Best Buy, <phoneme alphabet="ipa" ph="loʊz">Lowe's</phoneme>, and <phoneme alphabet="ipa" ph="ˈʌltə">Ulta</phoneme> all go down. Twenty twenty brought outages to forty-eight major brands. Twenty twenty-three cost Harvey Norman an estimated sixty percent of online sales. And just last year, a <phoneme alphabet="ipa" ph="ˈklaʊdˌflɛər">Cloudflare</phoneme> outage froze ninety-nine point three percent of <phoneme alphabet="ipa" ph="ˈʃɒpɪfaɪ">Shopify</phoneme> stores. <break time="0.4s"/> That's over six million domains.
+
+Alex: The question that haunts every platform engineer is this. <break time="0.4s"/> If you know the traffic is coming a year in advance, why can't you prepare? The answer reveals uncomfortable truths about distributed systems, human error, and why throwing money at the problem simply doesn't work.
+
+Jordan: Let's start with the Hall of Fame crashes. <break time="0.3s"/> <phoneme alphabet="ipa" ph="dʒeɪ kruː">J Crew</phoneme>, Black Friday twenty eighteen. Their site crashed periodically across five hours, showing customers a "Hang on a Sec" screen that became infamous on social media. Three hundred twenty-three thousand shoppers affected. Seven hundred seventy-five thousand dollars in lost sales. <break time="0.4s"/> In a single afternoon.
+
+Alex: But that wasn't even the biggest loss that weekend. Walmart's issues started on Wednesday, November twenty-first. The night before Thanksgiving. Various shoppers saw error pages when browsing Walmart dot com at around ten PM Eastern. Three point six million shoppers affected. Nine million dollars in lost sales. <break time="0.4s"/> And Black Friday hadn't even started yet.
+
+Jordan: Best Buy's twenty fourteen crash is a masterclass in assumption failure. They took their site offline for about an hour after what they called "a concentrated spike in mobile traffic triggered issues." The infrastructure was optimized for desktop traffic. <break time="0.3s"/> But mobile was seventy-eight percent of their actual traffic.
+
+Alex: That same pattern repeated at <phoneme alphabet="ipa" ph="ˈfæstli">Fastly</phoneme> in twenty twenty-three. They had a fifty-two minute global outage during Black Friday. Root cause? Infrastructure optimized for sixty percent mobile, but they got seventy-eight percent. Same mistake, nine years later. <break time="0.4s"/> Some lessons just don't stick.
+
+Jordan: Target's Cyber Monday twenty fifteen is a cautionary tale about success causing failure. They offered fifteen percent off virtually everything. Traffic and order volumes exceeded their Thursday Black Friday event, which had been their biggest day ever for online sales. The site fluctuated between error messages and normal operations. They had to plead for patience on social media.
+
+Alex: Now let's talk about two disasters that didn't happen on Black Friday but every platform engineer should know by heart. <break time="0.5s"/> February twenty-eighth, twenty seventeen. Nine thirty-seven AM Pacific. A single AWS engineer executed what seemed like a routine maintenance command.
+
+Jordan: Four hours and seventeen minutes later, half the internet came back online. <break time="0.3s"/> Netflix, Airbnb, Slack, Docker, <phoneme alphabet="ipa" ph="ɛkˈspiːdiə">Expedia</phoneme>, over one hundred thousand websites. <break time="0.4s"/> All down because of one typo.
+
+Alex: Here's what happened. An employee was investigating slow response times in the S3 billing system. Following internal procedures, they needed to remove some servers. They ran a console command. Unfortunately, one of the inputs was entered incorrectly. Instead of removing a few servers, they removed a critical subsystem entirely.
+
+Jordan: The Wall Street Journal reported that S and P 500 companies lost one hundred fifty million dollars. US financial services companies alone lost one hundred sixty million. And here's the kicker. <break time="0.3s"/> AWS's own status dashboard was down. It relied on S3 infrastructure hosted in a single region.
+
+Alex: Why did recovery take so long? Amazon explained that the subsystems hadn't been completely restarted for many years. The team wasn't accustomed to going through all the safety checks at full speed. <break time="0.4s"/> Skills atrophy when you don't practice.
+
+Jordan: The changes Amazon made afterward are instructive. Servers now get removed more slowly. Safeguards prevent reducing any subsystem below minimum required capacity. They audited other operational tools for similar risks. And they moved plans to break the network into smaller cells to the top of the priority queue.
+
+Alex: The <phoneme alphabet="ipa" ph="ˈɡɪtˌlæb">GitLab</phoneme> disaster happened just a month earlier. January thirty-first, twenty seventeen. <phoneme alphabet="ipa" ph="ˈɡɪtˌlæb">GitLab</phoneme> dot com went down hard. By the time the dust settled, they had lost five thousand projects, seven hundred user accounts, and countless issues and comments.
+
+Jordan: What happened? <phoneme alphabet="ipa" ph="ˈɡɪtˌlæb">GitLab</phoneme>'s secondary database couldn't sync changes fast enough due to increased load. An engineer decided to manually re-sync by deleting its contents. But they ran the command against the wrong server. <break time="0.4s"/> The primary. <break time="0.3s"/> Three hundred gigabytes of live production data. <break time="0.4s"/> Gone.
+
+Alex: Here's where it gets worse. They had five backup systems. <break time="0.3s"/> Five. <break time="0.3s"/> None of them were working. The standard backup procedure failed because it was using <phoneme alphabet="ipa" ph="ˌpoʊstˈɡrɛs">PostgreSQL</phoneme> nine point two, but <phoneme alphabet="ipa" ph="ˈɡɪtˌlæb">GitLab</phoneme> was running <phoneme alphabet="ipa" ph="ˌpoʊstˈɡrɛs">PostgreSQL</phoneme> nine point six. The backup failures were silent because notification emails weren't properly signed and got rejected.
+
+Jordan: The only thing that saved them? Six hours before the deletion, an engineer had taken a snapshot for testing. Completely by accident. That snapshot saved eighteen additional hours of data. <phoneme alphabet="ipa" ph="ˈɡɪtˌlæb">GitLab</phoneme> live-streamed their recovery to over five thousand viewers on YouTube. Radical transparency in their worst moment.
+
+Alex: The lessons from <phoneme alphabet="ipa" ph="ˈɡɪtˌlæb">GitLab</phoneme> are worth repeating. If you don't regularly restore from backups, they might not work when you need them. <phoneme alphabet="ipa" ph="ˈɡɪtˌlæb">GitLab</phoneme> assumed their backups worked. They didn't. Backups need explicit ownership. Before this incident, no single engineer was responsible for validating the backup system. Which meant no one did.
+
+Jordan: There's a community collection of <phoneme alphabet="ipa" ph="kuːbərˈnɛtiːz">Kubernetes</phoneme> failure stories at k8s dot af, maintained by <phoneme alphabet="ipa" ph="ˈhɛnɪŋ ˈjɑːkɒbs">Henning Jacobs</phoneme> from <phoneme alphabet="ipa" ph="zəˈlændoʊ">Zalando</phoneme>. It's a treasure trove of production incidents. CPU limits causing high latency. IP ceilings preventing autoscaling. Missing application logs. Killed pods. Five oh two errors. Slow deployments. Production outages.
+
+Alex: One of the most important observations from the <phoneme alphabet="ipa" ph="zəˈlændoʊ">Zalando</phoneme> team, who've been running <phoneme alphabet="ipa" ph="kuːbərˈnɛtiːz">Kubernetes</phoneme> since twenty sixteen. Quote, "A <phoneme alphabet="ipa" ph="kuːbərˈnɛtiːz">Kubernetes</phoneme> API server outage should not affect running workloads, but it did." <break time="0.4s"/> The theory of distributed systems and the practice often diverge dramatically.
+
+Jordan: So why does this keep happening? <break time="0.4s"/> Four fundamental problems. First, complexity growth. Retail sites have gotten more complex over time. More integrations, more third-party services, more potential points of failure. And mobile traffic exploded in ways no one predicted.
+
+Alex: Second, the load testing gap. Bob <phoneme alphabet="ipa" ph="buːˈfoʊn">Buffone</phoneme>, CTO at <phoneme alphabet="ipa" ph="joʊˈtɑː">Yottaa</phoneme>, puts it bluntly. Quote, "If you have not load tested your site at five times normal traffic volumes, your site will probably fail." Most companies test at two X. They get hit with ten X.
+
+Jordan: Third, dependency chains. The <phoneme alphabet="ipa" ph="ˈklaʊdˌflɛər">Cloudflare</phoneme> outage in twenty twenty-four took out ninety-nine point three percent of <phoneme alphabet="ipa" ph="ˈʃɒpɪfaɪ">Shopify</phoneme> stores because they all depend on the same CDN. <phoneme alphabet="ipa" ph="ˈpeɪpæl">PayPal</phoneme>'s twenty fifteen issues meant seventy percent of users couldn't complete payments. <break time="0.3s"/> Your resilience is limited by your least resilient dependency.
+
+Alex: And fourth, the rarity problem. AWS hadn't restarted those subsystems in years. <phoneme alphabet="ipa" ph="ˈɡɪtˌlæb">GitLab</phoneme> hadn't validated their backup restoration. Skills and systems that aren't exercised regularly fail when you need them most.
+
+Jordan: So here's the platform engineer's playbook for surviving high-traffic events. <break time="0.4s"/> Load test at five to ten X expected traffic. Not two X. Not expected peak. Test the failure modes, not just success paths.
+
+Alex: Implement multi-CDN and multi-cloud strategies. Never be at the mercy of a single provider. Cross-cloud failovers aren't optional anymore, they're table stakes.
+
+Jordan: Test your restores monthly. Explicit ownership of backup validation. Alerts on silent failures. <break time="0.4s"/> If you haven't restored from backup in the last thirty days, you don't have a backup. You have a hope.
+
+Alex: Practice chaos regularly. Restart systems that "never need restarting." Run game days before peak traffic, not after incidents. Know your recovery time under actual pressure, not theoretical pressure.
+
+Jordan: Design for mobile-first. Seventy-eight percent or more of your traffic is mobile now. If you're still optimizing for desktop and hoping mobile works, you're making the same mistake Best Buy made a decade ago.
+
+Alex: And finally, safeguards on dangerous commands. Minimum capacity checks. Slow rollout of server removals. Confirmation prompts for destructive operations. The AWS typo wouldn't have caused a four-hour outage if there had been a safeguard preventing reduction below minimum capacity.
+
+Jordan: The uncomfortable truth is this. <break time="0.4s"/> These outages aren't caused by lack of budget or lack of talent. They're caused by complexity, assumptions, and the gap between "should work" and "actually tested."
+
+Alex: Every one of these incidents could have been prevented by practices platform engineers know well. Test your restores. Load test beyond expectations. Own your dependencies. Practice failure before failure finds you.
+
+Jordan: As we head into another Black Friday season, ask yourself this. When was the last time your team actually restored from backup? When did you last restart that system that "never needs restarting"? When did you load test at ten X?
+
+Alex: The best time to find out your backups don't work is during a routine Tuesday drill. The worst time is when three hundred twenty-three thousand shoppers are seeing "Hang on a Sec."
+
+Jordan: Until next time.

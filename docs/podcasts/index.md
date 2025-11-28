@@ -18,16 +18,16 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #038 - Giving Thanks to Your Dependencies
+## 🎥 Latest Episode: #039 - Black Friday War Stories
 
-**Thanksgiving Special** • **10 minutes** • November 26, 2025 • Alex and Jordan
+**Black Friday Special** • **12 minutes** • November 27, 2025 • Jordan and Alex
 
 <div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/PLACEHOLDER"
-      title="Giving Thanks to Your Dependencies: A Platform Engineer's Gratitude Guide"
+      src="https://www.youtube.com/embed/1jJ10Uev9LY"
+      title="Black Friday War Stories: Lessons from E-Commerce's Worst Days"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -35,15 +35,15 @@ Every episode is open source. If you've got something to add, correct, or challe
   </div>
 </div>
 
-**This Thanksgiving, discover the tools and practices for thanking open source maintainers.** 60% of maintainers are unpaid. 60% have left or considered leaving. Your infrastructure runs on their free time.
+**Why do major retailers with unlimited budgets still crash on Black Friday year after year?** The answer reveals uncomfortable truths about distributed systems, human error, and why "throwing money at the problem" doesn't work.
 
-Explore the gratitude ecosystem: `npx thanks`, `npm fund`, `cargo-thanks`, `thanks-stars`. Learn about Happiness Packets for sending anonymous thank-you notes. Understand why specific use case emails matter more than generic thanks. See company-level actions: Open Source Pledge ($2K/dev/year), GitHub Sponsors, Maintainer Month.
+Hall of Fame crashes: J.Crew ($775K lost in 5 hours), Walmart ($9M before Black Friday started), Best Buy (78% mobile traffic surprise). Non-Black-Friday disasters: AWS S3 2017 ($150M typo), GitLab 2017 (5 backup systems, none working, 300GB deleted). k8s.af Kubernetes failure stories collection.
 
-**Your Thanksgiving challenge (5 minutes)**: Run `npx thanks` in your project. Pick one dependency you rely on. Send a thank-you email explaining HOW you use it. Consider a small donation. Star the repos.
+**The platform engineer's playbook**: Load test at 5-10x (not 2x). Multi-CDN/multi-cloud is table stakes. Test your restores monthly. Practice chaos regularly. Design mobile-first (78%+ of traffic). Safeguard dangerous commands.
 
-**Key Topics**: Open source gratitude, maintainer support, npm fund, cargo-thanks, Happiness Packets, Open Source Pledge, GitHub Sponsors, Thanksgiving, dependencies
+**Key Topics**: Black Friday, e-commerce outages, AWS S3 2017, GitLab 2017, load testing, chaos engineering, backup validation, multi-CDN, mobile-first infrastructure
 
-[📝 Full episode page →](/podcasts/00038-thanksgiving-oss-gratitude) • [📄 Follow-up to Episode #037](/podcasts/00037-kubecon-2025-community-sustainability)
+[📝 Full episode page →](/podcasts/00039-black-friday-war-stories) • [📄 Previous episode: #038](/podcasts/00038-thanksgiving-oss-gratitude)
 
 <PodcastSubscribeButtons />
 
@@ -52,6 +52,8 @@ Explore the gratitude ecosystem: `npx thanks`, `npm fund`, `cargo-thanks`, `than
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#039: Black Friday War Stories: Lessons from E-Commerce's Worst Days](/podcasts/00039-black-friday-war-stories)** (12 min) - Black Friday special diving into the graveyard of e-commerce outages. Hall of Fame crashes: J.Crew ($775K lost in 5 hours, 323,000 shoppers), Walmart ($9M before Black Friday started), Best Buy 2014 (78% mobile traffic surprise), Cloudflare 2024 (99.3% of Shopify stores frozen). Famous non-Black-Friday disasters: AWS S3 2017 ($150M typo, 4+ hours, 100,000+ sites), GitLab 2017 (5 backup systems none working, 300GB deleted). k8s.af Kubernetes failure stories. Platform engineer's playbook: load test at 5-10x (not 2x), multi-CDN/multi-cloud, monthly restore tests, chaos practice, mobile-first design, dangerous command safeguards.
 
 - 🎙️ **[#038: Giving Thanks to Your Dependencies: A Platform Engineer's Gratitude Guide](/podcasts/00038-thanksgiving-oss-gratitude)** (10 min) - Thanksgiving special on thanking open source maintainers. 60% of maintainers unpaid. 60% have left or considered leaving. Gratitude tools: npx thanks, npm fund, cargo-thanks, thanks-stars. Happiness Packets for anonymous thank-you notes. Beyond stars: why specific use case emails matter more. Company-level: Open Source Pledge ($2K/dev/year), GitHub Sponsors, Maintainer Month. Your 5-minute Thanksgiving challenge: run npx thanks, pick one dependency, send a thank-you email, donate $5-10, star the repos.
 
