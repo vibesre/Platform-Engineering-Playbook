@@ -18,32 +18,29 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #039 - Black Friday War Stories
+## 🎥 Latest Episode: #040 - Platform Engineering Anti-Patterns
 
-**Black Friday Special** • **12 minutes** • November 27, 2025 • Jordan and Alex
+**DORA 2024 Analysis** • **13 minutes** • November 28, 2025 • Jordan and Alex
 
-<div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
-  <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
-    <iframe
-      style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/1jJ10Uev9LY"
-      title="Black Friday War Stories: Lessons from E-Commerce's Worst Days"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
+<div class="video-container">
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/3b3ulsVvrk4" title="10 Platform Engineering Anti-Patterns That Kill Developer Productivity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-**Why do major retailers with unlimited budgets still crash on Black Friday year after year?** The answer reveals uncomfortable truths about distributed systems, human error, and why "throwing money at the problem" doesn't work.
+:::warning DORA 2024 Bombshell
 
-Hall of Fame crashes: J.Crew ($775K lost in 5 hours), Walmart ($9M before Black Friday started), Best Buy (78% mobile traffic surprise). Non-Black-Friday disasters: AWS S3 2017 ($150M typo), GitLab 2017 (5 backup systems, none working, 300GB deleted). k8s.af Kubernetes failure stories collection.
+Organizations with platform teams saw throughput **decrease by 8%** and stability **decrease by 14%**. Yet Gartner predicts 80% of large orgs will have platform teams by 2026. This episode unpacks why.
 
-**The platform engineer's playbook**: Load test at 5-10x (not 2x). Multi-CDN/multi-cloud is table stakes. Test your restores monthly. Practice chaos regularly. Design mobile-first (78%+ of traffic). Safeguard dangerous commands.
+:::
 
-**Key Topics**: Black Friday, e-commerce outages, AWS S3 2017, GitLab 2017, load testing, chaos engineering, backup validation, multi-CDN, mobile-first infrastructure
+**Why are so many platform investments making things worse?** We unpack 10 anti-patterns sabotaging platform engineering initiatives—from Ticket Ops and Ivory Tower platforms to the Golden Cage and Build It And They Will Come.
 
-[📝 Full episode page →](/podcasts/00039-black-friday-war-stories) • [📄 Previous episode: #038](/podcasts/00038-thanksgiving-oss-gratitude)
+**The 10 Anti-Patterns**: Ticket Ops (bottleneck factory), Ivory Tower Platform (disconnected from reality), Platform as Bucket (scope creep), Mandatory Adoption (forced usage), Golden Cage (over-standardization), Over-Engineered Monolith (complexity enemy), Front-End First (beautiful facade), Biggest Bang Trap (starting hard), Day 1 Obsession (under 1% of lifecycle), Build It And They Will Come (no marketing).
+
+**What successful teams do differently**: Spotify's Backstage users are 2.3x more active on GitHub. Zalando's first step was cultural, not technical. Teams with stable priorities face 40% less burnout. Firms with adoption strategies see 30% higher ROI.
+
+**Key Topics**: DORA 2024, platform engineering, developer experience, internal developer platform, Spotify Backstage, Zalando, Team Topologies, platform anti-patterns
+
+[📝 Full episode page →](/podcasts/00040-platform-engineering-anti-patterns) • [📄 Blog post →](/blog/platform-engineering-anti-patterns) • [📄 Previous episode: #039](/podcasts/00039-black-friday-war-stories)
 
 <PodcastSubscribeButtons />
 
@@ -52,6 +49,8 @@ Hall of Fame crashes: J.Crew ($775K lost in 5 hours), Walmart ($9M before Black 
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#040: 10 Platform Engineering Anti-Patterns That Kill Developer Productivity](/podcasts/00040-platform-engineering-anti-patterns)** (13 min) - DORA 2024 found organizations with platform teams saw throughput decrease by 8% and stability decrease by 14%. Why are so many platform investments backfiring? 10 anti-patterns: Ticket Ops (bottleneck factory), Ivory Tower Platform (disconnected from reality), Platform as Bucket (scope creep), Mandatory Adoption (forced usage), Golden Cage (over-standardization), Over-Engineered Monolith (complexity enemy), Front-End First (35% still use spreadsheets), Biggest Bang Trap (starting hard), Day 1 Obsession (under 1% of lifecycle), Build It And They Will Come (no marketing). What successful teams do: Spotify's Backstage users 2.3x more GitHub active, Zalando's first step was cultural, teams with stable priorities face 40% less burnout, adoption strategies yield 30% higher ROI. Audit checklist: devs waiting >1 day? platform team pair-programmed with devs? scope grown 3x? one-size-fits-all templates? beautiful portal but Slack for help?
 
 - 🎙️ **[#039: Black Friday War Stories: Lessons from E-Commerce's Worst Days](/podcasts/00039-black-friday-war-stories)** (12 min) - Black Friday special diving into the graveyard of e-commerce outages. Hall of Fame crashes: J.Crew ($775K lost in 5 hours, 323,000 shoppers), Walmart ($9M before Black Friday started), Best Buy 2014 (78% mobile traffic surprise), Cloudflare 2024 (99.3% of Shopify stores frozen). Famous non-Black-Friday disasters: AWS S3 2017 ($150M typo, 4+ hours, 100,000+ sites), GitLab 2017 (5 backup systems none working, 300GB deleted). k8s.af Kubernetes failure stories. Platform engineer's playbook: load test at 5-10x (not 2x), multi-CDN/multi-cloud, monthly restore tests, chaos practice, mobile-first design, dangerous command safeguards.
 

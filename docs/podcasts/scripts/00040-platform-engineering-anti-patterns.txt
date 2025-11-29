@@ -1,0 +1,131 @@
+Jordan: Today we're diving into some uncomfortable data. <break time="0.5s"/> The twenty twenty-four <phoneme alphabet="ipa" ph="ˈdɔrə">DORA</phoneme> report found that organizations with dedicated platform teams saw throughput decrease by eight percent and change stability decrease by fourteen percent.
+
+Alex: Wait, that's backwards. Platform engineering is supposed to accelerate development, not slow it down.
+
+Jordan: Exactly. And yet Gartner predicts that eighty percent of large software engineering organizations will have platform teams by twenty twenty-six. <break time="0.5s"/> So what's going on here?
+
+Alex: The Atlassian Developer Experience Report adds more context. Sixty-nine percent of developers lose eight or more hours per week to inefficiencies. That's twenty percent of their work week just gone.
+
+Jordan: For a thousand-developer organization, that translates to roughly seventeen million dollars annually in lost productivity. <break time="0.5s"/> These aren't small numbers.
+
+Alex: So the question becomes, why are so many platform investments actually making things worse? <break time="0.8s"/> And that's what we're going to unpack today. Ten anti-patterns that are sabotaging platform engineering initiatives.
+
+Jordan: <break time="0.8s"/> Let's start with the organizational anti-patterns. First up, what I call Ticket Ops. The bottleneck factory.
+
+Alex: This one is everywhere. Developers submit tickets for infrastructure provisioning. Need a new environment? Open a ticket. Update a dependency? Ticket. Change a configuration? You guessed it, another ticket.
+
+Jordan: And wait times can stretch to a week or more for tasks that should take minutes. <phoneme alphabet="ipa" ph="hjuːˈmænɪtɛk">Humanitec</phoneme> puts it bluntly. Ticket ops is draining your organization.
+
+Alex: The irony is that organizations implement this because they mistake process for governance. Tickets feel like control. They create audit trails and approval chains that satisfy compliance checklists.
+
+Jordan: But they destroy velocity. <break time="0.5s"/> The fix is self-service with guardrails, not gatekeepers. <phoneme alphabet="ipa" ph="tsəˈlɑndoʊ">Zalando's</phoneme> you build it, you run it philosophy transformed their platform from bottleneck to accelerator.
+
+Alex: <break time="0.8s"/> The second anti-pattern is the Ivory Tower Platform. Teams disconnected from developer reality.
+
+Jordan: Platform teams that operate in isolation, creating abstract guidelines and architectural standards that look elegant on paper but don't survive contact with production.
+
+Alex: One enterprise architecture critique I read described it as architects sitting in their ivory towers making pronouncements that most of the time no one listens to.
+
+Jordan: The fix is what I call the architect elevator model. Continuously moving between strategy and implementation. Hands-on pair programming with application teams. <break time="0.5s"/> If your platform team hasn't pair-programmed with an application developer in the last month, you're building in an ivory tower.
+
+Alex: <break time="0.8s"/> Third is Platform as Bucket. Manuel Pais from Team Topologies nails this one. He says it's an anti-pattern he sees very often, where the platform becomes a bucket for everything, and just becomes a huge mess with lack of ownership, lack of focus, and a lot of waste.
+
+Jordan: This happens when platform teams are measured by market share. How many teams use the platform. That incentivizes adding everything instead of consolidating around core value.
+
+Alex: Platform team burnout is real. When your platform roadmap has forty-seven P one items, you don't have priorities. You have a bucket. <break time="0.5s"/> The best platforms do a few things exceptionally well.
+
+Jordan: <break time="0.8s"/> Fourth is Mandatory Adoption. Making platforms mandatory to show adoption numbers to leadership.
+
+Alex: This is tempting because it looks like success. But it closes the feedback loops you need to actually succeed. Forced usage hides resistance and breeds resentment.
+
+Jordan: There's a case study of a mid-sized tech firm that implemented mandatory <say-as interpret-as="characters">IDP</say-as> adoption without developer input. The result? Confusion, reduced productivity, and eventually they had to roll back to legacy systems.
+
+Alex: Make adoption attractive, not mandatory. If you have to force developers onto your platform, that's a signal, not a strategy.
+
+Jordan: <break time="0.8s"/> Now let's move to the technical anti-patterns. Fifth is the Golden Cage. Excessive standardization that blocks productivity.
+
+Alex: Octopus Deploy captures this perfectly. Golden Cage results when platforms are designed with too many constraints, turning guidance into restrictions.
+
+Jordan: One-size-fits-all templates that accommodate no one. Rigid workflows that prevent teams from solving problems their way. <break time="0.5s"/> Developers spend more time bypassing the system than delivering value.
+
+Alex: The fix is designing golden paths to be optional, transparent, extensible, and customizable. Flexibility is the antidote to the golden cage.
+
+Jordan: <break time="0.8s"/> Sixth is the Over-Engineered Monolith. Platforms so complex that learning them becomes a project in itself.
+
+Alex: Jay Jenkins from <phoneme alphabet="ipa" ph="ˈɑkəmaɪ">Akamai</phoneme> says complexity is the enemy. If platform engineering is creating more toil than it's reducing, something is off.
+
+Jordan: Platforms with unfamiliar configuration languages, sparse documentation, inconsistent <say-as interpret-as="characters">API</say-as>s. <break time="0.5s"/> The best platforms are almost invisible. Developers use them without thinking about them.
+
+Alex: Start with a minimum viable platform. Expand based on measured developer pain, not anticipated needs. Optimize for developer time, not platform engineering elegance.
+
+Jordan: <break time="0.8s"/> Seventh is Front-End First, Back-End Never. Beautiful developer portals with manual processes underneath.
+
+Alex: This one's wild. Port dot io's twenty twenty-four research found that thirty-five percent of organizations still use spreadsheets with microservice data as their developer portal.
+
+Jordan: Teams ship a gorgeous portal with sleek UI, comprehensive documentation, impressive dashboards. Under the hood? Manual processes, spreadsheets, and Slack messages to get anything done.
+
+Alex: Build the backend before the frontend. Prove your self-service <say-as interpret-as="characters">API</say-as>s work. <break time="0.5s"/> Any backend automation is better than a beautiful facade over manual processes.
+
+Jordan: <break time="0.8s"/> Eighth is the Biggest Bang Trap. Starting with the largest, most complex application to maximize <say-as interpret-as="characters">ROI</say-as>.
+
+Alex: This fails because the platform team is learning on the hardest problem, the platform lacks capabilities you discover too late, and trust erodes when the flagship migration struggles.
+
+Jordan: Syntasso explains it well. Start small, build confidence, expand proven wins. Don't test your safety net with the highest trapeze.
+
+Alex: <break time="0.8s"/> Ninth is Day One Obsession. Platforms that excel at spinning up new applications but abandon developers after that.
+
+Jordan: Octopus Deploy provides a sobering reality check. Of the time your team will invest in an application, the creation process is below one percent.
+
+Alex: So optimizing Day One is optimizing for less than one percent of the lifecycle. <break time="0.5s"/> Day Two through Day Fifty, the ongoing operations, debugging, scaling, updates, incident response, that's where developers actually spend their time.
+
+Jordan: Build golden paths for the entire application lifecycle, not just scaffolding.
+
+Alex: <break time="0.8s"/> And tenth is Build It And They Will Come. No adoption strategy at all.
+
+Jordan: Erica Hughberg at <phoneme alphabet="ipa" ph="ˈkubkɑn">KubeCon</phoneme> twenty twenty-four said it directly. Even the best products don't sell themselves. Expecting engineers to drive adoption without a clear marketing approach is a recipe for disaster.
+
+Alex: Platform teams build elegant solutions, announce them in Slack, update the wiki, and wait for developers to flock to it. <break time="0.5s"/> Months later, adoption is in the single digits.
+
+Jordan: The fix is treating your platform like a product that needs marketing. Internal advocacy, storytelling, early-adopter success stories. <break time="0.5s"/> Firms monitoring adoption closely report thirty percent higher <say-as interpret-as="characters">ROI</say-as> on their platform initiatives.
+
+Alex: <break time="1s"/> So those are the ten anti-patterns. But here's the important part. <phoneme alphabet="ipa" ph="ˈdɔrə">DORA</phoneme> explains that productivity decrease as typical of transformational efforts. They call it the J-curve effect.
+
+Jordan: Initial productivity hit before long-term gains. But only if you avoid these anti-patterns.
+
+Alex: Right. The difference between platform success and failure isn't budget or talent. <break time="0.5s"/> It's avoiding these traps. And every anti-pattern has a counter-strategy.
+
+Jordan: <break time="0.8s"/> Let's talk about what successful teams do differently. <phoneme alphabet="ipa" ph="ˈspɑtɪfaɪ">Spotify</phoneme> and <phoneme alphabet="ipa" ph="tsəˈlɑndoʊ">Zalando</phoneme> are the canonical examples.
+
+Alex: <phoneme alphabet="ipa" ph="ˈspɑtɪfaɪ">Spotify</phoneme> built <phoneme alphabet="ipa" ph="ˈbæksteɪdʒ">Backstage</phoneme> starting with the areas that quote really hurt. Their data shows that more frequent <phoneme alphabet="ipa" ph="ˈbæksteɪdʒ">Backstage</phoneme> users are two point three times more active on GitHub. Clear correlation between platform engagement and productivity.
+
+Jordan: <phoneme alphabet="ipa" ph="tsəˈlɑndoʊ">Zalando's</phoneme> transformation is even more instructive. They say one of the first steps was cultural, not technical. They changed hiring, onboarding, and workflows before building the platform.
+
+Alex: The pattern is consistent. Treat platform as product, not project. Developer is the customer. Measure satisfaction, not just adoption.
+
+Jordan: Practice the architect elevator. Move between strategy and implementation. Stay hands-on.
+
+Alex: Self-service with guardrails. <phoneme alphabet="ipa" ph="tsəˈlɑndoʊ">Zalando's</phoneme> you build it, you run it. Not gatekeepers creating bottlenecks.
+
+Jordan: And stable priorities. <phoneme alphabet="ipa" ph="ˈdɔrə">DORA</phoneme> found that teams with stable priorities face forty percent less burnout. <break time="0.5s"/> In organizations with frequent priority shifts, ninety percent of teams experience productivity drops.
+
+Alex: Stop churning your platform roadmap. Stability enables velocity.
+
+Jordan: <break time="0.8s"/> Here's a quick audit checklist for listeners. Are your developers waiting more than one day for standard infrastructure requests? That's Ticket Ops.
+
+Alex: Has your platform team pair-programmed with application developers this quarter? If not, that's Ivory Tower risk.
+
+Jordan: Has your platform scope grown three-x in the last year without corresponding team growth? Platform as Bucket.
+
+Alex: Do you have one-size-fits-all templates with no extension points? Golden Cage.
+
+Jordan: Beautiful portal but developers still messaging in Slack for help? Front-End First.
+
+Alex: If you answer yes to three or more of these, your platform initiative is at serious risk.
+
+Jordan: <break time="0.5s"/> The eighty-four percent failure rate for digital transformation isn't inevitable. These anti-patterns are recognizable and fixable.
+
+Alex: <phoneme alphabet="ipa" ph="ˈspɑtɪfaɪ">Spotify</phoneme> and <phoneme alphabet="ipa" ph="tsəˈlɑndoʊ">Zalando</phoneme> didn't succeed because they had bigger budgets or better engineers. They succeeded because they avoided these traps and treated their platforms as products serving developer customers.
+
+Jordan: That's the fundamental insight from the <phoneme alphabet="ipa" ph="ˈdɔrə">DORA</phoneme> data. Platform engineering can absolutely deliver the productivity gains everyone expects. <break time="0.5s"/> But only if you build it right.
+
+Alex: Start with the audit checklist. Identify which anti-patterns are present in your organization. Address them systematically. <break time="0.5s"/> The eighty-four percent don't have to include you.
