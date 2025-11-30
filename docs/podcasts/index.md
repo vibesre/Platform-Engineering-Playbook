@@ -18,29 +18,29 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #040 - Platform Engineering Anti-Patterns
+## 🎥 Latest Episode: #041 - CNPE Certification Guide
 
-**DORA 2024 Analysis** • **13 minutes** • November 28, 2025 • Jordan and Alex
+**Career Development** • **15 minutes** • November 29, 2025 • Jordan and Alex
 
 <div class="video-container">
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/3b3ulsVvrk4" title="10 Platform Engineering Anti-Patterns That Kill Developer Productivity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fFUtYu8sk60" title="Episode #041: CNPE Certification Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
-:::warning DORA 2024 Bombshell
+:::tip First Official Platform Engineering Credential
 
-Organizations with platform teams saw throughput **decrease by 8%** and stability **decrease by 14%**. Yet Gartner predicts 80% of large orgs will have platform teams by 2026. This episode unpacks why.
+CNCF launched CNPE at KubeCon Atlanta 2025—the first hands-on platform engineering certification in 5 years. Beta testers report 29% scores. Platform engineers earn $219K average (20% more than DevOps). Is it worth pursuing now?
 
 :::
 
-**Why are so many platform investments making things worse?** We unpack 10 anti-patterns sabotaging platform engineering initiatives—from Ticket Ops and Ivory Tower platforms to the Golden Cage and Build It And They Will Come.
+**Complete guide to CNCF's new certification**: Five exam domains (GitOps 25%, Platform APIs 25%, Observability 20%, Architecture 15%, Security 15%), career impact, CNPA vs CNPE decision framework, and preparation strategies while waiting for Killer.sh simulator in Q1 2026.
 
-**The 10 Anti-Patterns**: Ticket Ops (bottleneck factory), Ivory Tower Platform (disconnected from reality), Platform as Bucket (scope creep), Mandatory Adoption (forced usage), Golden Cage (over-standardization), Over-Engineered Monolith (complexity enemy), Front-End First (beautiful facade), Biggest Bang Trap (starting hard), Day 1 Obsession (under 1% of lifecycle), Build It And They Will Come (no marketing).
+**Three Certification Paths**: Traditional (CKA→CKS→CNPA→CNPE), Fast-track (CNPA→CNPE), Full Coverage (Kubestronaut→CNPE→Golden Kubestronaut). CNPE required for Golden Kubestronaut after March 1, 2026.
 
-**What successful teams do differently**: Spotify's Backstage users are 2.3x more active on GitHub. Zalando's first step was cultural, not technical. Teams with stable priorities face 40% less burnout. Firms with adoption strategies see 30% higher ROI.
+**Tools to Know**: ArgoCD, Flux, Backstage, Crossplane, OpenTelemetry, Kyverno—hands-on experience required across the entire cloud-native stack.
 
-**Key Topics**: DORA 2024, platform engineering, developer experience, internal developer platform, Spotify Backstage, Zalando, Team Topologies, platform anti-patterns
+**Key Topics**: CNPE, CNPA, CNCF certification, platform engineering career, Kubestronaut, Golden Kubestronaut, KubeCon 2025
 
-[📝 Full episode page →](/podcasts/00040-platform-engineering-anti-patterns) • [📄 Blog post →](/blog/platform-engineering-anti-patterns) • [📄 Previous episode: #039](/podcasts/00039-black-friday-war-stories)
+[📝 Full episode page →](/podcasts/00041-cnpe-certification-guide) • [📄 Previous episode: #040](/podcasts/00040-platform-engineering-anti-patterns)
 
 <PodcastSubscribeButtons />
 
@@ -49,6 +49,8 @@ Organizations with platform teams saw throughput **decrease by 8%** and stabilit
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#041: CNPE Certification Guide - The First Platform Engineering Credential](/podcasts/00041-cnpe-certification-guide)** (15 min) - Complete guide to CNCF's new Certified Cloud Native Platform Engineer exam. Five domains: GitOps/CD (25%), Platform APIs (25%), Observability (20%), Architecture (15%), Security (15%). Beta testers report 29% scores—no Killer.sh simulator until Q1 2026. Platform engineers earn $219K average (20% more than DevOps). Three certification paths: Traditional (CKA→CKS→CNPA→CNPE), Fast-track (CNPA→CNPE), Full Coverage (Kubestronaut→CNPE). CNPE required for Golden Kubestronaut after March 1, 2026. Tools to know: ArgoCD, Flux, Backstage, Crossplane, OpenTelemetry, Kyverno.
 
 - 🎙️ **[#040: 10 Platform Engineering Anti-Patterns That Kill Developer Productivity](/podcasts/00040-platform-engineering-anti-patterns)** (13 min) - DORA 2024 found organizations with platform teams saw throughput decrease by 8% and stability decrease by 14%. Why are so many platform investments backfiring? 10 anti-patterns: Ticket Ops (bottleneck factory), Ivory Tower Platform (disconnected from reality), Platform as Bucket (scope creep), Mandatory Adoption (forced usage), Golden Cage (over-standardization), Over-Engineered Monolith (complexity enemy), Front-End First (35% still use spreadsheets), Biggest Bang Trap (starting hard), Day 1 Obsession (under 1% of lifecycle), Build It And They Will Come (no marketing). What successful teams do: Spotify's Backstage users 2.3x more GitHub active, Zalando's first step was cultural, teams with stable priorities face 40% less burnout, adoption strategies yield 30% higher ROI. Audit checklist: devs waiting >1 day? platform team pair-programmed with devs? scope grown 3x? one-size-fits-all templates? beautiful portal but Slack for help?
 
