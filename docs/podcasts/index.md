@@ -18,29 +18,29 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #041 - CNPE Certification Guide
+## 🎥 Latest Episode: #042 - Helm 4 Deep Dive
 
-**Career Development** • **15 minutes** • November 29, 2025 • Jordan and Alex
+**Kubernetes** • **24 minutes** • November 30, 2025 • Jordan and Alex
 
 <div class="video-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fFUtYu8sk60" title="Episode #041: CNPE Certification Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qYuDY3AWBOg" title="Episode #042: Helm 4 Deep Dive - The Complete Guide to the Biggest Update in 6 Years" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
-:::tip First Official Platform Engineering Credential
+:::tip The Biggest Helm Update in 6 Years
 
-CNCF launched CNPE at KubeCon Atlanta 2025—the first hands-on platform engineering certification in 5 years. Beta testers report 29% scores. Platform engineers earn $219K average (20% more than DevOps). Is it worth pursuing now?
+Helm 4.0 dropped at KubeCon Atlanta 2025—Server-Side Apply finally ends the GitOps ownership wars. WASM plugins bring sandboxed security. But what breaks? This is the definitive guide covering SSA deep-dive, migration timeline, and the full breaking changes analysis.
 
 :::
 
-**Complete guide to CNCF's new certification**: Five exam domains (GitOps 25%, Platform APIs 25%, Observability 20%, Architecture 15%, Security 15%), career impact, CNPA vs CNPE decision framework, and preparation strategies while waiting for Killer.sh simulator in Q1 2026.
+**Server-Side Apply by default**: SSA replaces three-way merge—field ownership tracked at API server level via managedFields. 40-60% faster deployments by reducing API calls (1 PATCH vs 2+ GET/PATCH per resource).
 
-**Three Certification Paths**: Traditional (CKA→CKS→CNPA→CNPE), Fast-track (CNPA→CNPE), Full Coverage (Kubestronaut→CNPE→Golden Kubestronaut). CNPE required for Golden Kubestronaut after March 1, 2026.
+**WebAssembly plugins**: WASM via Extism runtime are optional but recommended—existing Go binaries and shell scripts need migration.
 
-**Tools to Know**: ArgoCD, Flux, Backstage, Crossplane, OpenTelemetry, Kyverno—hands-on experience required across the entire cloud-native stack.
+**Migration timeline**: 12-month runway—Helm 3 supported until November 11, 2026. Test SSA now with Helm 3.16+ using --server-side flag before upgrading.
 
-**Key Topics**: CNPE, CNPA, CNCF certification, platform engineering career, Kubestronaut, Golden Kubestronaut, KubeCon 2025
+**Key Topics**: Helm 4, Server-Side Apply, WASM plugins, breaking changes, migration guide, GitOps, Kustomize comparison
 
-[📝 Full episode page →](/podcasts/00041-cnpe-certification-guide) • [📄 Previous episode: #040](/podcasts/00040-platform-engineering-anti-patterns)
+[📝 Full episode page →](/podcasts/00042-helm-4-comprehensive-guide) • [📄 Previous episode: #041](/podcasts/00041-cnpe-certification-guide)
 
 <PodcastSubscribeButtons />
 
@@ -49,6 +49,8 @@ CNCF launched CNPE at KubeCon Atlanta 2025—the first hands-on platform enginee
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#042: Helm 4 Deep Dive - The Complete Guide to the Biggest Update in 6 Years](/podcasts/00042-helm-4-comprehensive-guide)** (24 min) - Helm 4.0 dropped at KubeCon Atlanta 2025—the first major version in 6 years. Server-Side Apply replaces three-way merge, ending GitOps ownership conflicts. SSA delivers 40-60% faster deployments. WASM plugins via Extism bring sandboxed security but require post-renderer migration. 12-month runway with Helm 3 support until November 2026. Breaking changes: CLI flag renames (--dry-run=server, --force-replace), annotation changes. Complete migration guide with SSA testing, WASM plugin porting, and staged rollout strategy.
 
 - 🎙️ **[#041: CNPE Certification Guide - The First Platform Engineering Credential](/podcasts/00041-cnpe-certification-guide)** (15 min) - Complete guide to CNCF's new Certified Cloud Native Platform Engineer exam. Five domains: GitOps/CD (25%), Platform APIs (25%), Observability (20%), Architecture (15%), Security (15%). Beta testers report 29% scores—no Killer.sh simulator until Q1 2026. Platform engineers earn $219K average (20% more than DevOps). Three certification paths: Traditional (CKA→CKS→CNPA→CNPE), Fast-track (CNPA→CNPE), Full Coverage (Kubestronaut→CNPE). CNPE required for Golden Kubestronaut after March 1, 2026. Tools to know: ArgoCD, Flux, Backstage, Crossplane, OpenTelemetry, Kyverno.
 
