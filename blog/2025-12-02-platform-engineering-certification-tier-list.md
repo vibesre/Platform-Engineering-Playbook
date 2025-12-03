@@ -23,7 +23,11 @@ schema:
       answer: "Vendor certs (Datadog, Splunk, GitLab) are situational - valuable if you use those tools daily, but offer limited signal value outside that context. Prioritize vendor-neutral certs like CKA and Terraform Associate."
 ---
 
-> 🎙️ **Listen to the podcast episode**: [Episode #041: CNPE Deep Dive - The First Platform Engineering Certification](/podcasts/00041-cnpe-certification-guide) - Everything you need to know about the new CNPE certification, including exam format, study resources, and whether it's worth the $445 investment.
+> 🎙️ **Listen to the podcast episode**: [Episode #044: Platform Engineering Certification Tier List 2025](/podcasts/00044-platform-engineering-certification-tier-list) - Jordan and Alex rank 25+ certifications for platform engineers, discuss AWS Re:Invent 2025 announcements, and reveal which certs actually matter for your career.
+
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lM97D02KGFk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 ## TL;DR
 
