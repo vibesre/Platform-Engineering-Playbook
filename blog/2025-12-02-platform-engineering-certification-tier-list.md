@@ -143,7 +143,7 @@ The CNPE launched in November 2025 as the first certification specifically desig
 
 **The prediction**: By 2027, the CNPE will be S-Tier. Early adopters who get certified in 2025-2026 will have an advantage as the certification gains recognition. If you're explicitly in a platform engineering role (not DevOps, not SRE), this certification is worth prioritizing.
 
-> 📝 **Read the [full blog post](/blog/cnpe-certification-deep-dive)**: Everything you need to know about the CNPE certification, including exam domains, study resources, and career impact.
+> 🎙️ **Listen to [Episode #041: CNPE Deep Dive](/podcasts/00041-cnpe-certification-guide)**: Everything you need to know about the CNPE certification, including exam format, study resources, and whether it's worth the $445 investment.
 
 **HashiCorp Terraform Associate: Best Value for Money**
 
@@ -572,7 +572,7 @@ Platform engineers increasingly build infrastructure for AI workloads: GPU clust
 
 **What to watch**: Whether the CNCF or cloud providers launch AI infrastructure certifications. A "Certified AI Platform Engineer" certification testing Kubernetes GPU operations, model serving, and MLOps pipelines would fill a significant market gap.
 
-> 📝 **Read the [full blog post](/blog/kubernetes-gpu-cost-waste-finops)**: How platform engineers can optimize GPU infrastructure costs, reduce waste, and implement FinOps practices for AI workloads.
+> 📝 **Read the [full blog post](/blog/kubernetes-gpu-resource-management-finops-ai-workloads-2025)**: How platform engineers can optimize GPU infrastructure costs, reduce waste, and implement FinOps practices for AI workloads.
 
 ## Conclusion: Certifications Are Tools, Not Trophies
 
