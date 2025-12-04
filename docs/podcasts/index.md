@@ -18,29 +18,23 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #045 - Platform Engineering vs DevOps vs SRE
+## 🎥 Latest Episode: #046 - Cloud Cost Quick Wins for Year-End
 
-**Career Development** • **17 minutes** • December 3, 2025 • Jordan and Alex
+**FinOps** • **12 minutes** • December 4, 2025 • Jordan and Alex
 
-:::tip The Identity Crisis Nobody Talks About
+:::tip Six Quick Wins You Can Implement This Week
 
-Platform Engineer roles pay 20% more than DevOps Engineer roles, but the job descriptions are 90% identical. Is Platform Engineering just DevOps with better marketing? We cut through the confusion with origin stories, philosophy comparisons, and practical career advice.
+Global cloud spend hits $720 billion in 2025—and organizations waste 20-30% on unused resources. Year-end is the perfect time to show savings before budgets reset. Six actionable wins from scheduling (70% savings) to zombie hunting ($500-2K/month per account).
 
 :::
 
-**Key Insight**: DevOps (2009) was a movement, not a job title. SRE (2003/2016) added the 50% engineering time rule. Platform Engineering (2018-2020) brought product thinking to internal tools.
+**The Six Wins**: 1) Scheduling non-prod (70% savings), 2) Right-sizing (25-40% per instance), 3) Reserved Instances (up to 72% off), 4) Spot instances (60-90% savings), 5) Storage tiering, 6) Zombie resource hunt.
 
-**Decision Framework**: Start with DevOps culture → Add SRE when reliability is the pain point → Add Platform Engineering when cognitive load kills velocity.
+**Monday Checklist**: Run cost analyzer (30 min) → Find top 5 zombies (1 hr) → Schedule one non-prod env (2 hrs) → Present to manager (30 min).
 
-**Career Advice**: The 20% salary premium is for product thinking, not the title. Develop the skills across all three philosophies.
+**News Segment**: Envoy v1.36.3 CVEs (patch now), Loki Operator 0.9.0, AWS Graviton5 M9g preview, Uncloud for K8s-free deployments.
 
-**News Segment**: PgBouncer CVE-2025-12819 patch, MinIO Docker CVE controversy, GitHub CI/CD observability with OpenTelemetry guide.
-
-<div class="video-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xjF50cS9I5Y" title="Platform Engineering vs DevOps vs SRE - The Identity Crisis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-
-[📝 Full episode page →](/podcasts/00045-platform-engineering-vs-devops-vs-sre) • [📄 Previous episode: #044](/podcasts/00044-platform-engineering-certification-tier-list)
+[📝 Full episode page →](/podcasts/00046-cloud-cost-quick-wins-year-end) • [📄 Previous episode: #045](/podcasts/00045-platform-engineering-vs-devops-vs-sre)
 
 <PodcastSubscribeButtons />
 
@@ -49,6 +43,8 @@ Platform Engineer roles pay 20% more than DevOps Engineer roles, but the job des
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#046: Cloud Cost Quick Wins for Year-End](/podcasts/00046-cloud-cost-quick-wins-year-end)** (12 min) - Global cloud spend hits $720B in 2025, with 20-30% wasted on unused resources. Six quick wins you can implement this week: scheduling non-prod (70% savings), right-sizing (25-40% per instance), Reserved Instances (up to 72% off), Spot instances (60-90%), storage tiering, and zombie hunting ($500-2K/month per account). Monday checklist included. News: Envoy v1.36.3 CVEs, Loki Operator 0.9.0, AWS Graviton5 M9g preview.
 
 - 🎙️ **[#045: Platform Engineering vs DevOps vs SRE - The Identity Crisis](/podcasts/00045-platform-engineering-vs-devops-vs-sre)** (17 min) - Platform Engineer roles pay 20% more than DevOps roles, but job descriptions are 90% identical. Is this title inflation? We trace the origin stories: DevOps (2009) was a movement, not a job title. SRE (2003/2016) added Google's 50% engineering time rule. Platform Engineering (2018-2020) brought product thinking. Decision framework: DevOps culture first, then SRE for reliability pain, then Platform Engineering for cognitive load. The 20% premium pays for product thinking, not the title. Includes December 3, 2025 news: PgBouncer CVE-2025-12819, MinIO Docker CVE controversy, GitHub CI/CD OTel guide.
 
