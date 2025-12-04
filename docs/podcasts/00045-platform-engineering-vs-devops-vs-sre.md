@@ -19,6 +19,8 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 
 **Target Audience**: Platform engineers, SREs, and DevOps professionals navigating role definitions and career paths
 
+> 📝 **Read the [full blog post](/blog/platform-engineering-vs-devops-vs-sre)**: Deep dive into origin stories, salary data, organizational anti-patterns, and a decision framework for which approach to adopt.
+
 ---
 
 ## Watch the Episode
