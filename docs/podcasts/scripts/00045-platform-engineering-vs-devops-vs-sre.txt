@@ -1,0 +1,171 @@
+Jordan: Today we're diving into the identity crisis nobody wants to talk about, Platform Engineering versus DevOps versus SRE. But first, let's check the pulse of platform engineering.
+
+<break time="300ms"/>
+
+Jordan: Security patches are rolling in as we head toward the holidays. PgBouncer just released version one point twenty-five point one, fixing a critical CVE that could affect your PostgreSQL connection pooling. If you're running PgBouncer in production, and let's be honest, most of us are, put this on your patch list. The CVE is twenty twenty-five dash twelve eight one nine, and it's being patched before Christmas for a reason.
+
+<break time="200ms"/>
+
+Jordan: Meanwhile, there's some drama in the MinIO community. MinIO is declining to release Docker builds that resolve CVE twenty twenty-five dash six two five zero six. This is sparking debate about vendor responsibility for security patches in containerized environments. The GitHub issue is worth following if you're running MinIO for object storage.
+
+<break time="200ms"/>
+
+Jordan: On the observability front, there's an excellent new guide on GitHub CI/CD observability with OpenTelemetry. If you've been wanting to get better visibility into your CI/CD pipelines, this step-by-step walkthrough on SigNoz shows how to instrument GitHub Actions with OTel. Worth bookmarking for your next pipeline debugging session.
+
+<break time="300ms"/>
+
+Jordan: That's the news. And now, let's talk about Platform Engineering, DevOps, and SRE.
+
+<break time="500ms"/>
+
+Jordan: If you search for Platform Engineer on LinkedIn right now, you'll find job descriptions that are ninety percent identical to DevOps Engineer postings. But here's the thing. The Platform Engineer roles pay about twenty percent more.
+
+Alex: Which immediately makes you wonder: is this just title inflation? Is Platform Engineering just DevOps with a marketing rebrand? Or is there something genuinely different happening here?
+
+Jordan: And more importantly, what does this mean for your career? If you're a DevOps engineer right now, should you just change your LinkedIn title and ask for a raise?
+
+Alex: That's the cynical take, and honestly, I've seen people do exactly that. But I think the reality is more nuanced. These three terms, DevOps, SRE, Platform Engineering, they all emerged to solve the same fundamental problem, but they represent genuinely different philosophies about how to solve it.
+
+Jordan: Let's start with the numbers. Platform Engineer job postings grew about forty percent year over year in twenty twenty-four and twenty twenty-five, while traditional DevOps postings actually declined by about fifteen percent. Gartner predicts that eighty percent of organizations will have dedicated platform teams by twenty twenty-six.
+
+Alex: And yet, if you ask most engineering leaders to define what makes a Platform Engineer different from their existing DevOps team, you'll get a lot of confused looks and hand-waving.
+
+Jordan: So let's cut through the confusion. What's the actual origin story here?
+
+Alex: This is where it gets interesting. All three of these emerged from the same pain point. The two thousands era ops versus dev silos. You had developers who wrote code and threw it over the wall, and operations teams who were woken up at three AM when it broke.
+
+Jordan: The classic "it works on my machine" problem.
+
+Alex: Exactly. So DevOps emerged first. Patrick Debois coined the term in two thousand nine at a conference in Belgium. But here's what people forget: DevOps was never supposed to be a job title. It was a movement, a philosophy about breaking down silos and sharing responsibility for production systems.
+
+Jordan: Wait, so when did DevOps Engineer become an actual role?
+
+Alex: That's the irony. Companies started hiring DevOps Engineers in the early twenty tens, which kind of missed the whole point. DevOps was supposed to be about culture and practices, not about creating a new silo of people who handle the DevOps.
+
+Jordan: Meanwhile, Google was doing something completely different.
+
+Alex: Right. Google's Site Reliability Engineering started internally around two thousand three, but they didn't publish the SRE book until twenty sixteen. And their approach was fundamentally different. Instead of saying "everyone shares responsibility for production," they said "we're going to hire software engineers and have them spend at least fifty percent of their time on engineering work, not operations toil."
+
+Jordan: That fifty percent rule is really specific. Where did that come from?
+
+Alex: It's actually one of the most controversial aspects of SRE. The idea is that if you're spending more than fifty percent of your time on operational work, tickets, deployments, firefighting, you're not actually doing engineering anymore. You're just doing operations with a fancy title.
+
+Jordan: So SRE is essentially saying: we need dedicated reliability specialists, but they have to remain engineers, not become an ops team.
+
+Alex: Exactly. And they introduced concepts like error budgets. The idea that you have a specific amount of downtime you're willing to accept, and once you burn through that budget, you stop shipping features and focus on reliability.
+
+Jordan: I can see how that would be hard to implement at companies that aren't Google.
+
+Alex: It is. Most companies adopt SRE practices selectively. The error budget concept, SLOs, blameless postmortems. But that strict fifty percent engineering time cap? Very few organizations actually enforce that.
+
+Jordan: So where does Platform Engineering fit in this timeline?
+
+Alex: Platform Engineering as a distinct discipline really emerged around twenty eighteen to twenty twenty. And it came from a different angle entirely. It wasn't about reliability specifically, or about cultural transformation. It was about treating internal developer tools as products.
+
+Jordan: The internal platform as a product, not as infrastructure.
+
+Alex: Right. The insight was: we've spent a decade building all these DevOps capabilities, CI/CD pipelines, Kubernetes clusters, observability stacks. But developers still have to understand all of it. They're drowning in cognitive load, trying to learn fifty different tools just to deploy their application.
+
+Jordan: Spotify is often cited as one of the early examples of this, right?
+
+Alex: Yeah, Spotify is the canonical example. They built Backstage internally and open sourced it in twenty twenty. By then it was managing over two thousand backend services for more than two hundred eighty engineering teams. The whole idea was: instead of making every developer learn Kubernetes and Terraform and ten other tools, let's build golden paths that abstract that complexity away.
+
+Jordan: So if I'm understanding this correctly, DevOps says everyone is responsible for production. SRE says we need dedicated engineers with software focus and defined reliability targets. And Platform Engineering says let's build products that abstract away complexity so developers can focus on their actual work.
+
+Alex: That's a good summary. But here's where it gets interesting. In practice, these philosophies aren't mutually exclusive. The best platform teams I've seen use SRE practices like error budgets to manage their platform's reliability. They operate with DevOps culture around collaboration and shared responsibility. And they think about their internal developers as customers, which is the Platform Engineering product mindset.
+
+Jordan: So are you saying these are just three different lenses on the same underlying work?
+
+Alex: Kind of. Think of it this way. DevOps is a prerequisite. You can't really do SRE or Platform Engineering effectively if you haven't internalized the DevOps cultural values: automation, collaboration, treating infrastructure as code, sharing responsibility.
+
+Jordan: DevOps as the foundation layer.
+
+Alex: Exactly. Then SRE practices become valuable when reliability is a genuine differentiator for your business. If you're running financial systems, healthcare applications, anything where downtime has serious consequences, you need the rigor of error budgets and SLOs.
+
+Jordan: And Platform Engineering?
+
+Alex: Platform Engineering becomes essential when cognitive load is killing developer velocity. This typically happens around fifty plus developers, when you have microservices sprawl, when your engineers are spending more time figuring out infrastructure than building features.
+
+Jordan: So it's not about choosing one or the other. It's about knowing which philosophy to apply to which problem.
+
+Alex: Right. And honestly, when I look at job postings for Platform Engineers, the best ones explicitly mention all three. They want someone who understands DevOps culture, can implement SRE practices, and thinks about the platform as a product.
+
+Jordan: Let me push back on something. If these are all just different philosophies that competent teams blend together anyway, why does the title matter? Why are Platform Engineers paid more?
+
+Alex: That's a great question. I think there are two things happening. First, there's genuine market demand for people who can think about developer experience as a product problem. That's a rarer skill than pure infrastructure automation.
+
+Jordan: The product mindset is the premium.
+
+Alex: Exactly. Running surveys of your internal developers, understanding their pain points, prioritizing features based on impact, that's fundamentally different from writing Terraform modules.
+
+Jordan: What's the second factor?
+
+Alex: Signaling. Companies are using Platform Engineering as a signal that they're mature enough to invest in developer experience. It's a way of saying "we don't just want CI/CD pipelines, we want a holistic internal developer platform."
+
+Jordan: So if you're a DevOps engineer today, what's the practical career advice?
+
+Alex: First, don't just change your title and expect a raise. The twenty percent salary premium is real, but it's for the product thinking, not the title. If you're already thinking about developer experience, running internal surveys, building self-service tools with golden paths, then yes, update your title and make sure your resume reflects that work.
+
+Jordan: And if you want to move into SRE specifically?
+
+Alex: That's a different path. SRE is really about deep expertise in distributed systems, observability, and chaos engineering. The best SREs I know can reason about failure modes in complex systems. They think probabilistically about reliability. They're comfortable with the math behind SLOs and error budgets.
+
+Jordan: It sounds more specialized than Platform Engineering.
+
+Alex: In some ways, yes. Platform Engineering is broader. You're thinking about the entire developer experience from code to production. SRE is deeper. You're becoming an expert in one specific dimension: reliability.
+
+Jordan: Let's talk about organizational structure. I've seen companies create SRE teams, Platform teams, and DevOps teams all at once. That seems like organizational overhead.
+
+Alex: It often is. The anti-pattern I see most often is creating a Platform team without first having DevOps culture. You end up with a team building internal tools that nobody uses because they didn't solve real problems.
+
+Jordan: Because they didn't have the cultural foundation of collaboration.
+
+Alex: Right. Or you see companies creating SRE teams before they have meaningful reliability targets. They hire SREs, but they have no SLOs, no error budgets, no clear definition of what reliability means for their business. The SREs just become another ops team with a fancy title.
+
+Jordan: So what's the right order?
+
+Alex: Start with DevOps culture. That's non-negotiable. Make sure your teams own their services end-to-end, that you have solid CI/CD, that you're treating infrastructure as code.
+
+Jordan: Then what?
+
+Alex: Then look at your biggest pain point. If reliability incidents are killing you, if you're burning out your on-call engineers, if customers are leaving because of downtime, that's when you bring in SRE practices. Define SLOs, create error budgets, start measuring and managing reliability as a product characteristic.
+
+Jordan: And Platform Engineering?
+
+Alex: If cognitive load is your bottleneck, if your developers are spending thirty or forty percent of their time just figuring out how to deploy and operate their services, that's when you need a platform team. Build a thin layer of abstraction, create golden paths, treat your internal developers as customers.
+
+Jordan: Can one person do all three?
+
+Alex: Absolutely. In fact, at smaller companies, that's exactly what happens. You have someone who's advocating for DevOps culture, implementing SRE practices where they matter, and building internal tools that reduce cognitive load. They might be called a DevOps Engineer or a Platform Engineer or an SRE, but they're doing all of it.
+
+Jordan: So the title is kind of irrelevant?
+
+Alex: At the individual contributor level, yes. What matters is: can you ship reliable software that developers love to use? That's the real skill. DevOps got us collaborating. SRE got us measuring reliability. Platform Engineering got us thinking about developer experience. The future practitioner synthesizes all three.
+
+Jordan: Let's bring this back to that LinkedIn salary gap we mentioned at the beginning. If Platform Engineer roles pay twenty percent more but the job descriptions are ninety percent identical to DevOps roles, what's really going on?
+
+Alex: I think those identical job descriptions are actually evidence of my point. Companies need people who can do all of this. The title is almost accidental. They're paying more for Platform Engineers because that title signals someone who thinks about developer experience holistically, not just infrastructure automation in isolation.
+
+Jordan: So the practical advice for someone listening is: develop the skills, not the title.
+
+Alex: Exactly. Learn to think about your internal developers as customers. Get comfortable with reliability engineering concepts like SLOs and error budgets. Master the cultural aspects of DevOps. If you can do all three, you'll be valuable regardless of what your title says.
+
+Jordan: And if you're already doing all of this as a DevOps Engineer?
+
+Alex: Then update your resume to reflect that work, and don't be afraid to advocate for a title change. That twenty percent premium is real, and if you're already doing the work, you should be compensated for it.
+
+Jordan: Any final thoughts on where this is all heading?
+
+Alex: I think the role distinctions will continue to blur. We're already seeing job postings that combine all three. "Platform Engineer with SRE background" or "DevOps Engineer building internal developer platform." The companies that are doing this well aren't hung up on titles. They're focused on outcomes: deployment frequency, mean time to recovery, developer satisfaction scores.
+
+Jordan: Developer satisfaction scores. I don't hear that mentioned enough.
+
+Alex: It's the hidden metric that Platform Engineering brought to the table. SRE gave us reliability metrics. DevOps gave us deployment metrics. But Platform Engineering said: we should also measure whether developers actually enjoy using our tools. Are they productive? Are they frustrated? That's a fundamentally different question.
+
+Jordan: And arguably just as important as uptime.
+
+Alex: I'd argue more important in some contexts. If your platform is technically reliable but developers hate using it, you'll have trouble retaining talent. The best engineers want to work with great tooling. That's a competitive advantage that shows up in recruiting and retention, not just in your SLO dashboards.
+
+Jordan: Great point to end on. Platform Engineering, DevOps, SRE. Different philosophies, same underlying goal: shipping reliable software that developers love to use. Master the practices, not the titles, and you'll be valuable regardless of what your LinkedIn says.
+
+Alex: Couldn't have said it better.

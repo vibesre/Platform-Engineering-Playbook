@@ -18,31 +18,29 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #044 - Platform Engineering Certification Tier List 2025
+## 🎥 Latest Episode: #045 - Platform Engineering vs DevOps vs SRE
 
-**Career Development** • **30 minutes** • December 2, 2025 • Jordan and Alex
+**Career Development** • **17 minutes** • December 3, 2025 • Jordan and Alex
 
-<div class="video-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lM97D02KGFk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
+:::tip The Identity Crisis Nobody Talks About
 
-:::tip Which Certifications Actually Matter?
-
-Are certifications worth it? We rank 25+ certifications using a data-driven 60/40 framework (60% skill-building, 40% market signal). The CKA remains gold standard, AWS SA Associate is overrated, and the new CNPE will reshape the landscape.
+Platform Engineer roles pay 20% more than DevOps Engineer roles, but the job descriptions are 90% identical. Is Platform Engineering just DevOps with better marketing? We cut through the confusion with origin stories, philosophy comparisons, and practical career advice.
 
 :::
 
-**S-Tier Certifications**: CKA ($445, 66% pass rate, 45K+ job postings), AWS SA Professional, CKS for security-focused roles.
+**Key Insight**: DevOps (2009) was a movement, not a job title. SRE (2003/2016) added the 50% engineering time rule. Platform Engineering (2018-2020) brought product thinking to internal tools.
 
-**Key Insight**: Platform engineers earn $172K vs DevOps $152K (13% premium)—certifications accelerate this trajectory.
+**Decision Framework**: Start with DevOps culture → Add SRE when reliability is the pain point → Add Platform Engineering when cognitive load kills velocity.
 
-**Hot Takes**: AWS SA Associate overrated (500K+ holders = minimum credential), CNPE early adopters get 12-18 month advantage.
+**Career Advice**: The 20% salary premium is for product thinking, not the title. Develop the skills across all three philosophies.
 
-**Optimal Stack**: CKA + one cloud Professional + one specialty cert (~$1,200, 7-9 months).
+**News Segment**: PgBouncer CVE-2025-12819 patch, MinIO Docker CVE controversy, GitHub CI/CD observability with OpenTelemetry guide.
 
-**Key Topics**: CKA, CKS, CNPE, AWS certifications, career ROI, platform engineering skills, 60/40 framework
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xjF50cS9I5Y" title="Platform Engineering vs DevOps vs SRE - The Identity Crisis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-[📝 Full episode page →](/podcasts/00044-platform-engineering-certification-tier-list) • [📄 Previous episode: #043](/podcasts/00043-kubernetes-ai-conformance-program)
+[📝 Full episode page →](/podcasts/00045-platform-engineering-vs-devops-vs-sre) • [📄 Previous episode: #044](/podcasts/00044-platform-engineering-certification-tier-list)
 
 <PodcastSubscribeButtons />
 
@@ -51,6 +49,8 @@ Are certifications worth it? We rank 25+ certifications using a data-driven 60/4
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#045: Platform Engineering vs DevOps vs SRE - The Identity Crisis](/podcasts/00045-platform-engineering-vs-devops-vs-sre)** (17 min) - Platform Engineer roles pay 20% more than DevOps roles, but job descriptions are 90% identical. Is this title inflation? We trace the origin stories: DevOps (2009) was a movement, not a job title. SRE (2003/2016) added Google's 50% engineering time rule. Platform Engineering (2018-2020) brought product thinking. Decision framework: DevOps culture first, then SRE for reliability pain, then Platform Engineering for cognitive load. The 20% premium pays for product thinking, not the title. Includes December 3, 2025 news: PgBouncer CVE-2025-12819, MinIO Docker CVE controversy, GitHub CI/CD OTel guide.
 
 - 🎙️ **[#044: Platform Engineering Certification Tier List 2025](/podcasts/00044-platform-engineering-certification-tier-list)** (30 min) - Are certifications worth it? We rank 25+ certifications using a data-driven 60/40 framework (60% skill-building, 40% market signal). CKA ($445, 66% pass rate, 45K+ job postings) remains gold standard. Platform engineers earn $172K vs DevOps $152K (13% premium). AWS SA Associate overrated (500K+ holders). CNPE early adopters get 12-18 month advantage. Optimal stack: CKA + one cloud Professional + one specialty cert (~$1,200, 7-9 months). Includes AWS Re:Invent 2025 news segment.
 
