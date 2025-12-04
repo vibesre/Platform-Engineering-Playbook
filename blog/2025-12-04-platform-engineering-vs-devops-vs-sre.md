@@ -50,6 +50,10 @@ After a decade of watching these terms evolve—and helping teams navigate the c
 
 > 🎙️ **Listen to the podcast episode**: [Platform Engineering vs DevOps vs SRE - The Identity Crisis](/podcasts/00045-platform-engineering-vs-devops-vs-sre) - Full discussion with origin stories, philosophy comparisons, and career advice (17 min).
 
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xjF50cS9I5Y" title="Platform Engineering vs DevOps vs SRE - The Identity Crisis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 ## TL;DR
 
 - **Platform Engineers** earn $193K average vs **DevOps** $152K vs **SRE** $167K (2024 data)
