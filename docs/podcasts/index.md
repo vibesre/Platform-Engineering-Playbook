@@ -18,27 +18,25 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #046 - Cloud Cost Quick Wins for Year-End
+## 🎥 Latest Episode: #047 - Cloudflare's Trust Crisis
 
-**FinOps** • **12 minutes** • December 4, 2025 • Jordan and Alex
+**Infrastructure Reliability** • **12 minutes** • December 5, 2025 • Jordan and Alex
 
-:::tip Six Quick Wins You Can Implement This Week
+:::warning Three Weeks Between Major Outages
 
-Global cloud spend hits $720 billion in 2025—and organizations waste 20-30% on unused resources. Year-end is the perfect time to show savings before budgets reset. Six actionable wins from scheduling (70% savings) to zombie hunting ($500-2K/month per account).
+Cloudflare went down AGAIN on December 5, 2025—28% of HTTP traffic impacted for 25 minutes. This is their SIXTH major outage of 2025. Beyond the technical postmortem, we examine the pattern of repeated failures and the human cost to on-call engineers who get paged for things they can't fix.
 
 :::
 
-**The Six Wins**: 1) Scheduling non-prod (70% savings), 2) Right-sizing (25-40% per instance), 3) Reserved Instances (up to 72% off), 4) Spot instances (60-90% savings), 5) Storage tiering, 6) Zombie resource hunt.
+**The Pattern**: Six major outages in nine months for a company handling 20% of internet traffic. Community calculating "below 99.9% uptime."
 
-**Monday Checklist**: Run cost analyzer (30 min) → Find top 5 zombies (1 hr) → Schedule one non-prod env (2 hrs) → Present to manager (30 min).
+**The Human Cost**: 67% IT burnout rate. Getting paged at 3 AM for dependencies you can't control is a retention risk.
 
-**News Segment**: Envoy v1.36.3 CVEs (patch now), Loki Operator 0.9.0, AWS Graviton5 M9g preview, Uncloud for K8s-free deployments.
+**What To Do**: Multi-CDN strategies, external synthetic monitoring, runbooks for "major provider down", on-call wellness programs.
 
-<div class="video-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Slhn-U7EKlU" title="Cloud Cost Quick Wins for Year-End" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+*YouTube embed coming soon*
 
-[📝 Full episode page →](/podcasts/00046-cloud-cost-quick-wins-year-end) • [📄 Previous episode: #045](/podcasts/00045-platform-engineering-vs-devops-vs-sre)
+[📝 Full episode page →](/podcasts/00047-cloudflare-december-2025-outage-trust-crisis) • [📝 Full blog post →](/blog/cloudflare-december-2025-outage-trust-infrastructure-concentration-risk) • [📄 Previous episode: #046](/podcasts/00046-cloud-cost-quick-wins-year-end)
 
 <PodcastSubscribeButtons />
 
@@ -47,6 +45,8 @@ Global cloud spend hits $720 billion in 2025—and organizations waste 20-30% on
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#047: Cloudflare's Trust Crisis - December 2025 Outage and the Human Cost](/podcasts/00047-cloudflare-december-2025-outage-trust-crisis)** (12 min) - Three weeks after their November outage, Cloudflare went down AGAIN on December 5, 2025—28% of HTTP traffic impacted for 25 minutes. This is their SIXTH major outage of 2025. Beyond the technical postmortem (Lua killswitch bug), we examine the pattern of repeated failures, community reactions ("below 99.9% uptime"), and the human cost to on-call engineers. 67% IT burnout rate. Multi-CDN strategies, external monitoring, on-call wellness programs. [Full blog post →](/blog/cloudflare-december-2025-outage-trust-infrastructure-concentration-risk)
 
 - 🎙️ **[#046: Cloud Cost Quick Wins for Year-End](/podcasts/00046-cloud-cost-quick-wins-year-end)** (12 min) - Global cloud spend hits $720B in 2025, with 20-30% wasted on unused resources. Six quick wins you can implement this week: scheduling non-prod (70% savings), right-sizing (25-40% per instance), Reserved Instances (up to 72% off), Spot instances (60-90%), storage tiering, and zombie hunting ($500-2K/month per account). Monday checklist included. News: Envoy v1.36.3 CVEs, Loki Operator 0.9.0, AWS Graviton5 M9g preview.
 

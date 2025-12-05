@@ -28,6 +28,8 @@ slug: 00030-cloudflare-outage-november-2025
 **Speakers**: Alex and Jordan
 **Target Audience**: Senior platform engineers, SREs, DevOps engineers with 5+ years experience
 
+> 🎙️ **Update**: Just three weeks later, Cloudflare had ANOTHER major outage. See [Episode #047: Cloudflare's Trust Crisis](/podcasts/00047-cloudflare-december-2025-outage-trust-crisis) for the December 5 incident and the pattern of repeated failures.
+
 ---
 
 ## Dialogue
