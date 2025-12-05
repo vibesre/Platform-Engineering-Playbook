@@ -17,6 +17,14 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 
 ---
 
+## Watch the Episode
+
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Slhn-U7EKlU" title="Cloud Cost Quick Wins for Year-End" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+---
+
 ## Synopsis
 
 Global cloud spend hits $720 billion in 2025, with organizations wasting 20-30% on unused resources. This episode delivers six actionable quick wins you can implement this week to show immediate savings before the fiscal year closes - from scheduling non-prod environments (70% savings) to hunting zombie resources ($500-2,000/month per account).

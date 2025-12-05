@@ -34,6 +34,10 @@ Global cloud spend hits $720 billion in 2025—and organizations waste 20-30% on
 
 **News Segment**: Envoy v1.36.3 CVEs (patch now), Loki Operator 0.9.0, AWS Graviton5 M9g preview, Uncloud for K8s-free deployments.
 
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Slhn-U7EKlU" title="Cloud Cost Quick Wins for Year-End" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 [📝 Full episode page →](/podcasts/00046-cloud-cost-quick-wins-year-end) • [📄 Previous episode: #045](/podcasts/00045-platform-engineering-vs-devops-vs-sre)
 
 <PodcastSubscribeButtons />
