@@ -86,7 +86,7 @@ Reserved Instances/Savings Plans for steady workloads. 70% coverage is optimal. 
 Perfect for CI/CD runners, batch processing, dev environments. Example: $500/month → $75/month.
 
 ### 5. Storage Tiering (dramatic savings)
-60-70% of data accessed <once/month. Move to Glacier/Archive. Hot: $23/TB/month. Archive: <$1/TB/month.
+60-70% of data accessed less than once/month. Move to Glacier/Archive. Hot: $23/TB/month. Archive: under $1/TB/month.
 
 ### 6. Zombie Hunt ($500-2,000/month per account)
 Orphaned EBS volumes, unused IPs, forgotten snapshots, empty load balancers. Use Cost Explorer/Advisor/Recommender.

@@ -151,6 +151,14 @@ function buildValidRoutes(files) {
     if (customSlug) {
       validRoutes.add(customSlug);
       routeToFile.set(customSlug, relativePath);
+
+      // For blog posts, also add with /blog/ prefix since Docusaurus routes blog posts there
+      if (file.includes('/blog/')) {
+        // customSlug already has leading /, so we need /blog + customSlug
+        const blogPrefixedSlug = '/blog' + customSlug;
+        validRoutes.add(blogPrefixedSlug);
+        routeToFile.set(blogPrefixedSlug, relativePath);
+      }
     }
 
     // Add default routes based on file structure

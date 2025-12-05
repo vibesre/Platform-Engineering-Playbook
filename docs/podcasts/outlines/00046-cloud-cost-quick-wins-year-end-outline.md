@@ -38,7 +38,7 @@
 
 #### Discovery 2: Right-Sizing Reality Check
 - 40% of cloud instances are oversized for their workload
-- Most apps use <30% of provisioned CPU/memory
+- Most apps use less than 30% of provisioned CPU/memory
 - Quick win: Review top 10 costliest instances, downsize by one tier
 - Savings: 25-40% per right-sized instance
 
