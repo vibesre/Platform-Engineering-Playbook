@@ -174,6 +174,11 @@ const config: Config = {
           label: 'Courses',
         },
         {
+          to: '/audiodocs',
+          position: 'left',
+          label: 'AudioDocs',
+        },
+        {
           href: 'https://github.com/vibesre/Platform-Engineering-Playbook',
           label: 'GitHub',
           position: 'right',
@@ -201,6 +206,10 @@ const config: Config = {
             {
               label: 'Courses',
               to: '/courses',
+            },
+            {
+              label: 'AudioDocs',
+              to: '/audiodocs',
             },
           ],
         },

@@ -21,7 +21,18 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 
 ## Watch the Episode
 
-*YouTube embed coming soon*
+<div style={{maxWidth: '640px', margin: '0 auto 1.5rem'}}>
+  <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
+    <iframe
+      style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+      src="https://www.youtube.com/embed/FrwHh9Y2S7o"
+      title="Cloudflare's Trust Crisis - December 2025 Outage and the Human Cost"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
 ---
 

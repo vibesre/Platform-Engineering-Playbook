@@ -24,6 +24,11 @@ const sidebars: SidebarsConfig = {
       href: '/courses',
     },
     {
+      type: 'link',
+      label: 'AudioDocs',
+      href: '/audiodocs',
+    },
+    {
       type: 'category',
       label: 'Technical Skills List',
       collapsed: false,
