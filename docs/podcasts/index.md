@@ -18,28 +18,28 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #047 - Cloudflare's Trust Crisis
+## 🎥 Latest Episode: #048 - Developer Experience Metrics Beyond DORA
 
-**Infrastructure Reliability** • **12 minutes** • December 5, 2025 • Jordan and Alex
+**Engineering Productivity** • **13 minutes** • December 6, 2025 • Jordan and Alex
 
-:::warning Three Weeks Between Major Outages
+:::tip Measure What Matters
 
-Cloudflare went down AGAIN on December 5, 2025—28% of HTTP traffic impacted for 25 minutes. This is their SIXTH major outage of 2025. Beyond the technical postmortem, we examine the pattern of repeated failures and the human cost to on-call engineers who get paged for things they can't fix.
+DORA metrics revolutionized DevOps measurement, but they're not the complete picture. This episode explains DORA from the ground up, then explores what it misses: developer satisfaction, cognitive load, and flow state. From SPACE to DevEx to DX Core 4—frameworks changing how we measure productivity.
 
 :::
 
-**The Pattern**: Six major outages in nine months for a company handling 20% of internet traffic. Community calculating "below 99.9% uptime."
+**DORA Fundamentals**: The four key metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) and why elite teams deploy more AND fail less.
 
-**The Human Cost**: 67% IT burnout rate. Getting paged at 3 AM for dependencies you can't control is a retention risk.
+**What DORA Misses**: Developer satisfaction, cognitive load, burnout risk, collaboration quality, flow state, onboarding effectiveness.
 
-**What To Do**: Multi-CDN strategies, external synthetic monitoring, runbooks for "major provider down", on-call wellness programs.
+**Beyond DORA**: SPACE (2021), DevEx (2023), and DX Core 4—unified frameworks for holistic developer productivity measurement.
 
 <div style={{maxWidth: '640px', margin: '1rem auto'}}>
   <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
     <iframe
       style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/FrwHh9Y2S7o"
-      title="Cloudflare's Trust Crisis - December 2025 Outage and the Human Cost"
+      src="https://www.youtube.com/embed/zXgMpd9jlj8"
+      title="Developer Experience Metrics Beyond DORA"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
@@ -47,7 +47,7 @@ Cloudflare went down AGAIN on December 5, 2025—28% of HTTP traffic impacted fo
   </div>
 </div>
 
-[📝 Full episode page →](/podcasts/00047-cloudflare-december-2025-outage-trust-crisis) • [📝 Full blog post →](/blog/cloudflare-december-2025-outage-trust-infrastructure-concentration-risk) • [📄 Previous episode: #046](/podcasts/00046-cloud-cost-quick-wins-year-end)
+[📝 Full episode page →](/podcasts/00048-developer-experience-metrics-beyond-dora) • [📄 Previous episode: #047](/podcasts/00047-cloudflare-december-2025-outage-trust-crisis)
 
 <PodcastSubscribeButtons />
 
@@ -56,6 +56,8 @@ Cloudflare went down AGAIN on December 5, 2025—28% of HTTP traffic impacted fo
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#048: Developer Experience Metrics Beyond DORA](/podcasts/00048-developer-experience-metrics-beyond-dora)** (13 min) - DORA metrics revolutionized DevOps measurement, but they're not the complete picture. This episode explains DORA from the ground up—the four key metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR), benchmarks (elite vs low performers), and why throughput correlates with stability. Then we explore what DORA misses: developer satisfaction, cognitive load, flow state. Covers SPACE framework (2021), DevEx (2023), and DX Core 4. Practical guidance on which framework to use and mistakes to avoid. News: Iterate.ai AgentOne for AI code security, AWS Lambda Durable Functions, Capital One OpenTelemetry optimization.
 
 - 🎙️ **[#047: Cloudflare's Trust Crisis - December 2025 Outage and the Human Cost](/podcasts/00047-cloudflare-december-2025-outage-trust-crisis)** (12 min) - Three weeks after their November outage, Cloudflare went down AGAIN on December 5, 2025—28% of HTTP traffic impacted for 25 minutes. This is their SIXTH major outage of 2025. Beyond the technical postmortem (Lua killswitch bug), we examine the pattern of repeated failures, community reactions ("below 99.9% uptime"), and the human cost to on-call engineers. 67% IT burnout rate. Multi-CDN strategies, external monitoring, on-call wellness programs. [Full blog post →](/blog/cloudflare-december-2025-outage-trust-infrastructure-concentration-risk)
 
