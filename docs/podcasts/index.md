@@ -18,23 +18,25 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #049 - AWS re:Invent 2025: The Agentic AI Revolution
+## 🎥 Latest Episode: #050 - AWS re:Invent 2025: Infrastructure & Developer Experience
 
-**AWS re:Invent 2025 Series (Part 1 of 4)** • **17 minutes** • December 8, 2025 • Jordan and Alex
+**AWS re:Invent 2025 Series (Part 2 of 4)** • **12 minutes** • December 8, 2025 • Jordan and Alex
 
-:::tip The Rise of Autonomous AI Agents
+:::tip The Hardware Revolution and Renaissance Developer
 
-AWS announces frontier agents that can work for days without human intervention. DevOps Agent handles incident response. Security Agent understands your architecture. Kiro is used by hundreds of thousands of developers.
+AWS announces Graviton5 with 192 cores and 33% better price-performance. Trainium 3 delivers 4.4x performance at 50% lower cost. Lambda Durable Functions can run for an entire year. Werner Vogels introduces the "Renaissance Developer" framework.
 
 :::
 
-**AWS DevOps Agent**: Autonomous on-call engineer, integrates with CloudWatch, GitHub, ServiceNow. Identifies root causes in 86% of incidents. Humans approve before execution.
+**Graviton5**: 192 cores (3x previous), 45% compute improvement, 33% better price-performance. Memory bandwidth enables 250M+ operations/second on in-memory workloads.
 
-**AWS Security Agent**: Context-aware application security from design to deployment. AI-powered design reviews, code analysis, penetration testing.
+**Trainium 3**: 4.4x AI training performance, 50% cost reduction per token. 128-node UltraServer clusters with 30 petaflops. NeuronLink eliminates 50% network overhead.
 
-**Werner Vogels' Warning**: "Verification debt"—AI generates code faster than humans can comprehend. Code reviews are "the control point to restore balance."
+**Lambda Durable Functions**: Year-long workflows with at-most-once semantics. No Step Functions, no orchestration code. Automatic retry, checkpointing, time-based scheduling built in.
 
-[📝 Full episode page →](/podcasts/00049-aws-reinvent-2025-agentic-ai-revolution) • [📄 Full blog post](/blog/aws-reinvent-2025-agentic-ai-platform-engineering)
+**Werner Vogels' Renaissance Developer**: AI forces engineers to become generalists again. "The Wheel of Technology Generations" cycles from specialists back to full-stack. Deep expertise in one area, broad knowledge across the stack.
+
+[📝 Full episode page →](/podcasts/00050-aws-reinvent-2025-infrastructure-developer-experience)
 
 <PodcastSubscribeButtons />
 
@@ -43,6 +45,8 @@ AWS announces frontier agents that can work for days without human intervention.
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#050: AWS re:Invent 2025 - Infrastructure & Developer Experience](/podcasts/00050-aws-reinvent-2025-infrastructure-developer-experience)** (12 min) - Part 2 of 4 in our AWS re:Invent 2025 series. Graviton5 delivers 192 cores (3x previous) with 33% better price-performance. Trainium 3 offers 4.4x AI training performance at 50% lower cost. Lambda Durable Functions enable year-long workflows. S4 Express provides single-digit millisecond latency at near-archive pricing. Werner Vogels introduces the "Renaissance Developer" framework—AI forces engineers to become generalists again. News: CNCF Technology Radar rates Agent2Agent 94% recommendation, 15.6M AWS developers (77% backend, 41% AI/ML).
 
 - 🎙️ **[#049: AWS re:Invent 2025 - The Agentic AI Revolution](/podcasts/00049-aws-reinvent-2025-agentic-ai-revolution)** (17 min) - Part 1 of 4 in our AWS re:Invent 2025 series. AWS announces autonomous AI agents that can work for days without human intervention. DevOps Agent (86% root cause identification), Security Agent (context-aware from design to deployment), Kiro (250,000+ developers). All frontier agents stop at approval stage—humans review and decide. Werner Vogels introduces "verification debt" concept. 40% of agentic AI projects predicted to fail by 2027 (Gartner). Nova Act achieves 90% browser automation reliability. News: Model Context Protocol wins AI integration standard, Oxide publishes LLM code policy. [Full blog post →](/blog/aws-reinvent-2025-agentic-ai-platform-engineering)
 
