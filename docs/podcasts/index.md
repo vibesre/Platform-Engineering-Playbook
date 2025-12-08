@@ -18,36 +18,23 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #048 - Developer Experience Metrics Beyond DORA
+## 🎥 Latest Episode: #050 - AWS re:Invent 2025: Infrastructure & Developer Experience
 
-**Engineering Productivity** • **13 minutes** • December 6, 2025 • Jordan and Alex
+**AWS re:Invent 2025 Series (Part 2 of 4)** • **15 minutes** • December 8, 2025 • Jordan and Alex
 
-:::tip Measure What Matters
+:::tip AWS's Chip Empire
 
-DORA metrics revolutionized DevOps measurement, but they're not the complete picture. This episode explains DORA from the ground up, then explores what it misses: developer satisfaction, cognitive load, and flow state. From SPACE to DevEx to DX Core 4—frameworks changing how we measure productivity.
+AWS is building its own chip empire. Graviton5 delivers 192 cores with 25% better performance. Trainium3 UltraServers cut AI training costs by 50%. Lambda can now run workflows for an entire year.
 
 :::
 
-**DORA Fundamentals**: The four key metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) and why elite teams deploy more AND fail less.
+**Graviton5**: 192 cores, 25% faster, 33% lower inter-core latency. Customer results: SAP (35-60%), Atlassian (30%), Honeycomb (36%). 98% of top AWS customers already using Graviton.
 
-**What DORA Misses**: Developer satisfaction, cognitive load, burnout risk, collaboration quality, flow state, onboarding effectiveness.
+**Trainium3 UltraServers**: 4.4x performance vs Trainium2, 50% cost reduction. 362 FP8 PFLOPs per UltraServer. Used by Anthropic, Metagenomi, Ricoh, Decart.
 
-**Beyond DORA**: SPACE (2021), DevEx (2023), and DX Core 4—unified frameworks for holistic developer productivity measurement.
+**Werner Vogels' Final Keynote**: The Renaissance Developer framework—five qualities for thriving in the AI era. "Verification debt" concept: AI generates code faster than humans can comprehend.
 
-<div style={{maxWidth: '640px', margin: '1rem auto'}}>
-  <div style={{position: 'relative', paddingBottom: '56.25%', height: 0}}>
-    <iframe
-      style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
-      src="https://www.youtube.com/embed/zXgMpd9jlj8"
-      title="Developer Experience Metrics Beyond DORA"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
-
-[📝 Full episode page →](/podcasts/00048-developer-experience-metrics-beyond-dora) • [📄 Previous episode: #047](/podcasts/00047-cloudflare-december-2025-outage-trust-crisis)
+[📝 Full episode page →](/podcasts/00050-aws-reinvent-2025-infrastructure-developer-experience) • [📄 Previous episode: #049](/podcasts/00049-aws-reinvent-2025-agentic-ai-revolution)
 
 <PodcastSubscribeButtons />
 
@@ -56,6 +43,10 @@ DORA metrics revolutionized DevOps measurement, but they're not the complete pic
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#050: AWS re:Invent 2025 - Infrastructure & Developer Experience](/podcasts/00050-aws-reinvent-2025-infrastructure-developer-experience)** (15 min) - Part 2 of 4 in our AWS re:Invent 2025 series. Graviton5 (192 cores, 25% faster, 98% of top AWS customers using Graviton). Trainium3 UltraServers (4.4x performance, 50% cost reduction, 362 FP8 PFLOPs). Lambda Durable Functions (workflows from seconds to 1 year with context.step() and context.wait()). Database Savings Plans (up to 35% savings on serverless). Werner Vogels' final re:Invent keynote introduces the Renaissance Developer framework and "verification debt" concept. News: CNCF Q4 2025 Technology Radar (Agent2Agent 94% recommendation), 15.6M cloud native developers globally.
+
+- 🎙️ **[#049: AWS re:Invent 2025 - The Agentic AI Revolution](/podcasts/00049-aws-reinvent-2025-agentic-ai-revolution)** (11 min) - AWS announces autonomous AI agents that can work for days without human intervention. DevOps Agent (always-on incident responder), Security Agent (design-to-deployment security), Kiro (hundreds of thousands of developers globally). All frontier agents stop at approval stage—humans review and decide. Werner Vogels introduces "verification debt" concept. 40% of agentic AI projects predicted to fail before 2027 (Gartner). Nova Act achieves 90% browser automation reliability. News: OpenAI GPT-5.1-Codex-Max (77.9% SWE-Bench), Advent of Code 2025 bans AI.
 
 - 🎙️ **[#048: Developer Experience Metrics Beyond DORA](/podcasts/00048-developer-experience-metrics-beyond-dora)** (13 min) - DORA metrics revolutionized DevOps measurement, but they're not the complete picture. This episode explains DORA from the ground up—the four key metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR), benchmarks (elite vs low performers), and why throughput correlates with stability. Then we explore what DORA misses: developer satisfaction, cognitive load, flow state. Covers SPACE framework (2021), DevEx (2023), and DX Core 4. Practical guidance on which framework to use and mistakes to avoid. News: Iterate.ai AgentOne for AI code security, AWS Lambda Durable Functions, Capital One OpenTelemetry optimization.
 

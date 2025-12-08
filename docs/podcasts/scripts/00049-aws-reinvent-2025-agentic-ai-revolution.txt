@@ -1,0 +1,125 @@
+Jordan: Welcome to part one of our four-part AWS re:Invent twenty twenty-five series. <break time="0.4s"/> Over the next four episodes, we're breaking down the biggest announcements from Las Vegas. <break time="0.3s"/> Today, we're starting with what AWS called the defining theme of the conference: <break time="0.4s"/> the rise of agentic AI. <break time="0.3s"/> But first, let's check what else is happening in platform engineering.
+
+Jordan: <break time="0.5s"/> The Model Context Protocol has won. <break time="0.4s"/> If you've been wondering which standard would emerge for connecting AI models to external tools, the answer is now clear. <break time="0.3s"/> MCP, which Anthropic open-sourced back in November, has become the de facto standard for AI tool integrations. <break time="0.4s"/> The New Stack called it quote, <break time="0.3s"/> an open standard that standardizes how AI applications integrate with external data sources and tools. <break time="0.4s"/> What's interesting is how quickly the ecosystem consolidated around it. <break time="0.3s"/> Major IDE vendors, cloud providers, and AI companies are all implementing MCP support. <break time="0.4s"/> For platform teams, this means you can build tool integrations once and have them work across multiple AI systems.
+
+Alex: And speaking of AI and code, <break time="0.3s"/> Oxide Computer Company just published their internal policy on using LLMs for code generation. <break time="0.4s"/> It's one of the most thoughtful takes I've seen from a production engineering team. <break time="0.3s"/> Their core principle? <break time="0.4s"/> Wherever LLM-generated code is used, it becomes the responsibility of the engineer. <break time="0.4s"/> They documented this in their public RFD, or Request for Discussion, system. <break time="0.3s"/> Engineers must conduct personal review of all LLM-generated code before it even goes to peer review. <break time="0.4s"/> The reasoning is fascinating. <break time="0.4s"/> They note that LLMs are great at experimental or auxiliary code, but quote, <break time="0.3s"/> the closer code is to the system that we ship, the greater care needs to be shown. <break time="0.4s"/> It's about ownership and responsibility, not just approval checkboxes.
+
+Jordan: <break time="0.5s"/> Now let's dive into AWS re:Invent twenty twenty-five. <break time="0.4s"/> Alex, the theme this year was unmistakable.
+
+Alex: Agentic AI was everywhere. <break time="0.4s"/> CEO Matt Garman set the tone in his keynote: <break time="0.5s"/> AI assistants are starting to give way to AI agents that can perform tasks and automate on your behalf. <break time="0.4s"/> This wasn't just marketing. AWS announced three frontier agents, a major platform for building custom agents, and a browser automation service. <break time="0.3s"/> Let's unpack each one.
+
+Jordan: Let's start with some context. <break time="0.3s"/> What's the actual difference between an AI assistant and an AI agent?
+
+Alex: An assistant is reactive. <break time="0.4s"/> It waits for you to ask a question, then provides an answer. <break time="0.3s"/> It might help you write code or explain a concept, but you're driving the interaction. <break time="0.5s"/> An agent is proactive and autonomous. <break time="0.4s"/> It takes actions on its own. <break time="0.3s"/> It can observe a system, identify a problem, analyze root cause, and either fix it or propose a fix. <break time="0.4s"/> It can work for hours or days without constant human intervention. <break time="0.3s"/> It navigates complex, multi-step workflows across multiple systems.
+
+Jordan: And AWS announced three of these so-called frontier agents.
+
+Alex: Frontier agents because they represent the cutting edge of what autonomous AI can do today. <break time="0.4s"/> These aren't simple chatbots. <break time="0.3s"/> They're designed to handle enterprise-scale complexity. <break time="0.4s"/> The three are the AWS DevOps Agent, the AWS Security Agent, and Kiro, the autonomous developer agent.
+
+Jordan: <break time="0.5s"/> Let's start with the one that matters most to our audience. <break time="0.4s"/> The AWS DevOps Agent. <break time="0.3s"/> Walk us through exactly what it does.
+
+Alex: Think of it as an autonomous on-call engineer. <break time="0.4s"/> It's designed to accelerate incident response and improve system reliability. <break time="0.3s"/> And it works twenty-four seven. <break time="0.4s"/> No sleep, no coffee breaks, no context-switching. <break time="0.3s"/> It's always monitoring.
+
+Jordan: How does it actually work under the hood?
+
+Alex: It integrates with your existing observability stack. <break time="0.4s"/> CloudWatch for metrics and logs. <break time="0.3s"/> GitHub for code and deployment history. <break time="0.3s"/> ServiceNow for incident management. <break time="0.3s"/> And it can connect to other tools in your stack. <break time="0.5s"/> When an incident occurs, the agent pulls data from all these sources simultaneously. <break time="0.4s"/> It correlates signals that a human might take thirty minutes to gather. <break time="0.3s"/> Error rates spiking in CloudWatch. <break time="0.3s"/> A recent deployment in GitHub. <break time="0.3s"/> Similar incidents in ServiceNow history. <break time="0.4s"/> It connects the dots.
+
+Jordan: So it's doing the initial triage that usually consumes the first chunk of an incident.
+
+Alex: Exactly. <break time="0.4s"/> But here's the critical part. <break time="0.4s"/> It stops short of making fixes automatically. <break time="0.5s"/> Once it identifies the root cause, it generates a detailed mitigation plan. <break time="0.4s"/> This is the specific change to make. <break time="0.3s"/> These are the expected outcomes. <break time="0.3s"/> Here are the risks. <break time="0.4s"/> An engineer reviews that plan and approves it before anything gets executed.
+
+Jordan: So humans are still the gatekeepers.
+
+Alex: That's intentional and explicit. <break time="0.4s"/> Amazon's documentation states, <break time="0.4s"/> quote, <break time="0.3s"/> to keep frontier agents from breaking critical systems, humans remain the gatekeepers. <break time="0.5s"/> This is a trust-building phase. <break time="0.4s"/> The agent does the analysis, you make the decision. <break time="0.3s"/> Over time, as these agents prove their reliability, we might see that approval threshold shift. <break time="0.4s"/> But for now, human judgment stays in the loop.
+
+Jordan: And it's in public preview right now?
+
+Alex: Yes. <break time="0.4s"/> Which is actually the perfect time to start experimenting. <break time="0.3s"/> You can integrate it with your existing incident management workflow. <break time="0.3s"/> Figure out how it works alongside PagerDuty or OpsGenie. <break time="0.3s"/> Understand what the handoff looks like. <break time="0.4s"/> Train your team on reviewing AI-generated mitigation plans. <break time="0.3s"/> That's a different skill than writing runbooks yourself.
+
+Jordan: <break time="0.5s"/> What about the AWS Security Agent?
+
+Alex: The Security Agent is also in preview. <break time="0.4s"/> It's designed to secure applications from design all the way through deployment. <break time="0.3s"/> What makes it different from traditional security tools is that it's context-aware. <break time="0.4s"/> It actually understands your application architecture.
+
+Jordan: Explain what that means in practice.
+
+Alex: Traditional static analysis tools look for patterns. <break time="0.4s"/> This code uses eval, that's potentially dangerous. <break time="0.3s"/> This SQL query isn't parameterized, that's a risk. <break time="0.5s"/> The Security Agent goes deeper. <break time="0.4s"/> It understands what your application is trying to accomplish. <break time="0.3s"/> It can do AI-powered design reviews, catching security issues in architecture decisions before code is written. <break time="0.4s"/> It performs code analysis with understanding of data flow across your entire application. <break time="0.3s"/> And it can run contextual penetration testing, knowing which endpoints matter most.
+
+Jordan: So it's more like having a security engineer on the team than running a scanner.
+
+Alex: That's the goal. <break time="0.3s"/> And for platform teams, this could mean shifting security left in a much more practical way. <break time="0.4s"/> Instead of handing developers a list of CVEs to fix, the agent can participate earlier in the process.
+
+Jordan: <break time="0.5s"/> Now let's talk about Kiro.
+
+Alex: Kiro is the autonomous developer agent, and this one is already GA. <break time="0.4s"/> Not preview. <break time="0.3s"/> Generally available. <break time="0.4s"/> It navigates across multiple code repositories to fix bugs and submit pull requests. <break time="0.3s"/> AWS says hundreds of thousands of developers are already using it globally.
+
+Jordan: That's a significant number.
+
+Alex: And here's what makes it interesting. <break time="0.4s"/> Amazon has made Kiro the official development tool across the company. <break time="0.3s"/> They're using it internally at scale. <break time="0.4s"/> It learns from your team's specific processes and practices. <break time="0.3s"/> It understands your coding standards, your test patterns, your deployment workflows. <break time="0.4s"/> When it submits work, it comes as a proposed pull request. <break time="0.3s"/> A human reviews the code before it gets merged.
+
+Jordan: So again, the human review step.
+
+Alex: Always. <break time="0.4s"/> Amazon describes it as quote, <break time="0.3s"/> another member of your team. <break time="0.4s"/> But a team member whose work you always review before it ships. <break time="0.3s"/> Which, if you think about it, is how you'd treat any new developer.
+
+Jordan: Any incentives for teams to try it?
+
+Alex: Amazon is offering free Kiro Pro Plus credits to qualified startups. <break time="0.3s"/> You have to apply through the AWS startup program before the end of the month.
+
+Jordan: <break time="0.5s"/> So we've got these three frontier agents. <break time="0.4s"/> What about building your own custom agents? <break time="0.3s"/> What's the infrastructure story?
+
+Alex: Amazon Bedrock AgentCore. <break time="0.4s"/> This is the platform for building production-ready AI agents. <break time="0.3s"/> And they announced major enhancements at re:Invent that address the biggest challenges enterprises face.
+
+Jordan: Walk us through the key capabilities.
+
+Alex: There are four major announcements. <break time="0.5s"/> First, policy controls. <break time="0.4s"/> You can now set explicit boundaries for what agents can and cannot do. <break time="0.3s"/> This agent can read from this database but not write. <break time="0.3s"/> This agent can access production logs but not customer PII. <break time="0.4s"/> Guardrails that are actually enforceable. <break time="0.5s"/> Second, memory. <break time="0.4s"/> Agents can now log and remember user patterns across sessions. <break time="0.3s"/> They learn from interactions over time. <break time="0.4s"/> This is crucial for agents that work with the same users or systems repeatedly. <break time="0.5s"/> Third, evaluation systems. <break time="0.4s"/> AWS added thirteen prebuilt evaluation frameworks for monitoring agent quality. <break time="0.3s"/> Is the agent's output accurate? <break time="0.3s"/> Is it following the defined policies? <break time="0.3s"/> Is it degrading over time? <break time="0.5s"/> Fourth, natural conversation abilities. <break time="0.4s"/> Improvements to how agents handle multi-turn conversations with context retention.
+
+Jordan: And then there's Nova Act, which caught my attention.
+
+Alex: Nova Act is a new service specifically for building browser automation agents. <break time="0.4s"/> Think about the workflows that still require humans to click through web interfaces. <break time="0.3s"/> Form filling. <break time="0.3s"/> Search and extract. <break time="0.3s"/> Shopping and booking flows. <break time="0.3s"/> QA testing of web applications.
+
+Jordan: Browser automation has traditionally been fragile.
+
+Alex: Which is why the key stat is so impressive. <break time="0.4s"/> Ninety percent reliability on early customer workflows. <break time="0.4s"/> That's on real enterprise workflows, not just demos. <break time="0.3s"/> It's powered by a custom Nova two Lite model that's been optimized specifically for browser interactions.
+
+Jordan: <break time="0.5s"/> Now here's a sobering stat. <break time="0.4s"/> Gartner predicts forty percent of agentic AI projects will fail before twenty twenty-seven.
+
+Alex: And AWS addressed this head-on. <break time="0.4s"/> The primary cause of failure is inadequate data foundations. <break time="0.5s"/> They identified four specific barriers. <break time="0.4s"/> First, data silos. <break time="0.3s"/> Agents need to access information across systems, but most enterprises have data locked in disconnected silos. <break time="0.4s"/> Second, trust in data. <break time="0.3s"/> If the data an agent uses is stale, incomplete, or inaccurate, the agent's outputs will be too. <break time="0.4s"/> Third, cross-organizational governance. <break time="0.3s"/> Who's responsible when an agent accesses data from multiple teams? <break time="0.3s"/> What are the audit requirements? <break time="0.4s"/> Fourth, data consumption patterns. <break time="0.3s"/> Agents consume data differently than humans. <break time="0.3s"/> They need APIs, not dashboards.
+
+Jordan: So you can have the most sophisticated agents in the world...
+
+Alex: But if your data is a mess, they won't work. <break time="0.4s"/> Platform teams thinking about agentic AI should probably start with a data readiness assessment. <break time="0.3s"/> Are the systems these agents need to access actually accessible via API? <break time="0.3s"/> Is the data fresh and accurate? <break time="0.3s"/> Do you have the governance frameworks in place?
+
+Jordan: <break time="0.5s"/> Let's talk about what this all means for platform teams specifically. <break time="0.4s"/> Werner Vogels gave his final re:Invent keynote after fourteen years. <break time="0.3s"/> And he introduced a concept that every platform engineer should internalize.
+
+Alex: Verification debt.
+
+Jordan: Explain it.
+
+Alex: It's a new form of technical debt specific to the AI era. <break time="0.5s"/> AI generates code faster than humans can comprehend it. <break time="0.4s"/> That creates a dangerous gap between what gets written and what gets understood. <break time="0.3s"/> Every time you accept AI-generated code without fully understanding it, you're taking on verification debt. <break time="0.4s"/> That debt accumulates. <break time="0.3s"/> And at some point, something breaks in production that nobody on the team actually understands.
+
+Jordan: So code reviews become even more important, not less.
+
+Alex: Vogels was emphatic about this. <break time="0.4s"/> He called code reviews quote, <break time="0.4s"/> the control point to restore balance. <break time="0.5s"/> He said, <break time="0.4s"/> we all hate code reviews. <break time="0.3s"/> It's like being a twelve-year-old standing in front of the class. <break time="0.4s"/> But the review is where we bring human judgment back into the loop. <break time="0.4s"/> It's interesting because this aligns with what Oxide said in their LLM policy. <break time="0.3s"/> The organizations taking AI seriously are also the ones emphasizing engineer responsibility and ownership.
+
+Jordan: <break time="0.5s"/> So what should platform teams actually prepare for?
+
+Alex: Four practical things. <break time="0.6s"/> First, integration readiness. <break time="0.4s"/> How will the DevOps Agent fit with your existing incident management tools? <break time="0.3s"/> Map out your current alerting pipeline. <break time="0.3s"/> Where would an AI agent slot in? <break time="0.3s"/> What would change? <break time="0.3s"/> Start thinking about this now while the agent is in preview. <break time="0.6s"/> Second, trust protocols. <break time="0.4s"/> Establish clear processes for approving AI-generated fixes. <break time="0.3s"/> Who can approve? <break time="0.3s"/> Senior engineers only, or anyone on-call? <break time="0.3s"/> What's the review bar? <break time="0.3s"/> How do you handle disagreement with an agent's recommendation? <break time="0.6s"/> Third, skill evolution. <break time="0.4s"/> Your job shifts from writing runbooks to evaluating AI mitigation plans. <break time="0.4s"/> That's a different skill. <break time="0.3s"/> It requires understanding both the systems and the AI's reasoning. <break time="0.3s"/> Start building that capability now. <break time="0.6s"/> Fourth, embrace the hybrid model. <break time="0.4s"/> AI handles triage and analysis. <break time="0.3s"/> Humans handle judgment calls and approvals. <break time="0.3s"/> This isn't about replacement. <break time="0.3s"/> It's about augmentation.
+
+Jordan: So this isn't about AI replacing on-call engineers.
+
+Alex: It's about AI as the first responder. <break time="0.4s"/> The agent does the initial analysis. <break time="0.3s"/> It pulls the data. <break time="0.3s"/> It proposes a plan. <break time="0.4s"/> You make the decision with full context instead of spending thirty minutes gathering that context yourself. <break time="0.4s"/> The role evolves, but it doesn't disappear.
+
+Jordan: <break time="0.5s"/> Let's wrap up with key takeaways. <break time="0.4s"/> First, frontier agents are here and available now. <break time="0.3s"/> The DevOps Agent and Security Agent are in public preview. <break time="0.3s"/> Kiro is GA with hundreds of thousands of users.
+
+Alex: Second, humans remain in the loop. <break time="0.4s"/> All these agents stop at the approval stage. <break time="0.3s"/> You review, you decide. <break time="0.3s"/> This is intentional and probably won't change soon.
+
+Jordan: Third, integration is everything. <break time="0.4s"/> Success depends on fitting these agents into your existing workflows, not replacing them wholesale. <break time="0.3s"/> Start mapping that integration now.
+
+Alex: Fourth, verification debt is real and growing. <break time="0.4s"/> AI speed creates new risks. <break time="0.3s"/> Code reviews and human oversight are more important than ever. <break time="0.3s"/> Organizations like Oxide are already building this into policy.
+
+Jordan: Fifth, data readiness might be your biggest blocker. <break time="0.4s"/> Forty percent of agentic AI projects are predicted to fail because of data issues. <break time="0.3s"/> Assess your data foundations before investing heavily in agents.
+
+Alex: And sixth, start experimenting now. <break time="0.4s"/> Preview access means you have time to learn before these go GA. <break time="0.3s"/> Build the muscle memory. <break time="0.3s"/> Train your team.
+
+Jordan: <break time="0.5s"/> Next episode, we're continuing our re:Invent coverage with part two. <break time="0.4s"/> Graviton five with its one hundred ninety-two cores. <break time="0.3s"/> Trainium three with four point four x performance and fifty percent cost reduction. <break time="0.3s"/> Lambda Durable Functions that can run workflows for an entire year. <break time="0.3s"/> And Werner Vogels' Renaissance Developer framework.
+
+Alex: The autonomous DevOps future is being built right now. <break time="0.4s"/> The question isn't whether to engage with it. <break time="0.3s"/> It's how to shape it for your team.
