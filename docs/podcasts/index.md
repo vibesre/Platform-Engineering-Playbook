@@ -18,25 +18,25 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #050 - AWS re:Invent 2025: Infrastructure & Developer Experience
+## 🎥 Latest Episode: #052 - AWS re:Invent 2025: Data & AI Wrap-Up (Series Finale)
 
-**AWS re:Invent 2025 Series (Part 2 of 4)** • **14 minutes** • December 9, 2025 • Jordan and Alex
+**AWS re:Invent 2025 Series (Part 4 of 4 - Finale)** • **24 minutes** • December 10, 2025 • Jordan and Alex
 
-:::tip The Hardware Revolution and Renaissance Developer
+:::tip Make Infrastructure Boring
 
-AWS announces Graviton5 with 192 cores and 40% better price-performance. Trainium 3 delivers 4.4x performance at 50% lower cost. Lambda Durable Functions enable year-long workflows. Werner Vogels introduces the "Renaissance Developer" framework.
+The grand finale. S3 Tables with Iceberg, Aurora DSQL with GPS atomic clocks, S3 Vectors at 90% lower cost, Clean Rooms ML for privacy-enhanced AI. Plus a comprehensive wrap-up connecting 50+ announcements across all four episodes.
 
 :::
 
-**Graviton5**: 192 cores (3x previous gen), 40% price-performance vs x86, 250M+ ops/sec for in-memory workloads. 98% of top 1,000 AWS customers already on Graviton.
+**S3 Tables**: Intelligent-Tiering saves up to 80% on storage. Automatic cross-region replication for Iceberg tables. 400K+ tables created since launch.
 
-**Trainium 3**: 4.4x performance, 50% cost reduction for AI training. NeuronLink eliminates 50% network overhead. Anthropic using for Claude training.
+**Aurora DSQL**: GPS atomic clocks for global consistency. 4x faster than other distributed SQL. 99.999% multi-region availability. Built 100% in Rust.
 
-**Lambda Durable Functions**: Year-long workflows with context.step and context.wait primitives. No Step Functions for straightforward state management.
+**S3 Vectors**: 2B vectors per index (40x preview). 90% cheaper than Pinecone/Weaviate/Qdrant. First cloud object storage with native vector support.
 
-**Werner Vogels' Renaissance Developer**: Five qualities for AI era. "Verification debt"—AI generates faster than humans comprehend. Code reviews are the control point.
+**Series Wrap-Up**: Four episodes, 50+ announcements, one theme: AWS wants to make your infrastructure boring (in the best way).
 
-[📝 Full episode page →](/podcasts/00050-aws-reinvent-2025-infrastructure-developer-experience)
+[📝 Full episode page →](/podcasts/00052-aws-reinvent-2025-data-ai-wrap-up) | [📖 Complete re:Invent Guide →](/blog/aws-reinvent-2025-complete-platform-engineering-guide)
 
 <PodcastSubscribeButtons />
 
@@ -45,6 +45,10 @@ AWS announces Graviton5 with 192 cores and 40% better price-performance. Trainiu
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#052: AWS re:Invent 2025 - Data & AI Wrap-Up (Series Finale)](/podcasts/00052-aws-reinvent-2025-data-ai-wrap-up)** (24 min) - Part 4 of 4 in our AWS re:Invent 2025 series (finale). S3 Tables GA with Intelligent-Tiering (80% cost savings) and automatic cross-region replication for Iceberg tables. Aurora DSQL uses GPS atomic clocks for global consistency, 4x faster than other distributed SQL, built 100% in Rust. S3 Vectors supports 2B vectors per index (40x preview increase), 90% cheaper than Pinecone/Weaviate/Qdrant. Clean Rooms ML generates privacy-enhanced synthetic datasets for collaborative ML. Database Savings Plans: up to 35% savings, flexible across engines/regions. Comprehensive series wrap-up connecting 50+ announcements: agents, chips, Kubernetes at scale, data services. Theme: AWS wants to make infrastructure boring. News: Envoy CVE-2025-0913, Rust in Linux kernel permanent, Let's Encrypt 10 years.
+
+- 🎙️ **[#051: AWS re:Invent 2025 - EKS & Cloud Operations](/podcasts/00051-aws-reinvent-2025-eks-cloud-operations)** (18 min) - Part 3 of 4 in our AWS re:Invent 2025 series. EKS Ultra Scale supports 100,000 nodes per cluster (vs 15K GKE, 5K AKS)—enabling 1.6 million Trainium accelerators or 800K GPUs. AWS replaced etcd Raft with internal "journal" system and in-memory storage for 500 pods/second at 100K scale. Anthropic using for Claude training (35%→90%+ latency KPIs). EKS Capabilities brings managed Argo CD, ACK (200+ CRDs for 50+ services), KRO. EKS MCP Server enables natural language Kubernetes ("show me all pods not running"). Provisioned Control Plane with XL/2XL/4XL tiers ($1.65-$6.90/hr). CloudWatch gen AI observability for LangChain/CrewAI. DevOps Agent as autonomous on-call engineer (Kindle: 80% time savings). News: cert-manager CVE patches, Canonical K8s 15-year LTS, OpenTofu 1.11 ephemeral resources.
 
 - 🎙️ **[#050: AWS re:Invent 2025 - Infrastructure & Developer Experience](/podcasts/00050-aws-reinvent-2025-infrastructure-developer-experience)** (14 min) - Part 2 of 4 in our AWS re:Invent 2025 series. Graviton5 delivers 192 cores (3x previous) with 40% better price-performance vs x86. Trainium 3 offers 4.4x AI training performance at 50% lower cost with NeuronLink eliminating 50% network overhead. Lambda Durable Functions enable year-long workflows with context.step and context.wait primitives. Werner Vogels introduces the "Renaissance Developer" framework—five qualities for thriving in the AI era. News: BellSoft hardened Java images (95% fewer CVEs), GitHub Actions package manager security gaps (54% have weaknesses), Proxmox DCM 1.0 (VMware escape hatch).
 
