@@ -57,7 +57,7 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 > - [Episode #052: Data & AI Wrap-Up (Series Finale)](/podcasts/00052-aws-reinvent-2025-data-ai-wrap-up)
 
 <div class="video-container">
-<iframe width="100%" height="415" src="https://www.youtube.com/embed/_AYeo6WoGaI" title="Episode #052: AWS re:Invent 2025 - Data & AI Wrap-Up" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/ag2sqPKllHs" title="Episode #052: AWS re:Invent 2025 - Data & AI Wrap-Up" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 ## TL;DR

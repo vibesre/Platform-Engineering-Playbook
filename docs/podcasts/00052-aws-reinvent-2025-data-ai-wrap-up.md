@@ -19,7 +19,7 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 > 📝 **Read the [complete AWS re:Invent 2025 guide](/blog/aws-reinvent-2025-complete-platform-engineering-guide)**: Comprehensive coverage of all four episodes with actionable takeaways.
 
 <div class="video-container">
-<iframe width="100%" height="415" src="https://www.youtube.com/embed/_AYeo6WoGaI" title="Episode #052: AWS re:Invent 2025 - Data & AI Wrap-Up" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="100%" height="415" src="https://www.youtube.com/embed/ag2sqPKllHs" title="Episode #052: AWS re:Invent 2025 - Data & AI Wrap-Up" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 ## Episode Overview
