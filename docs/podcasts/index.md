@@ -18,25 +18,25 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #052 - AWS re:Invent 2025: Data & AI Wrap-Up (Series Finale)
+## 🎥 Latest Episode: #056 - CDKTF Deprecated: The End of HashiCorp's Programmatic IaC Experiment
 
-**AWS re:Invent 2025 Series (Part 4 of 4 - Finale)** • **24 minutes** • December 10, 2025 • Jordan and Alex
+**Breaking News** • **14 minutes** • December 11, 2025 • Jordan and Alex
 
-:::tip Make Infrastructure Boring
+:::warning Breaking Change
 
-The grand finale. S3 Tables with Iceberg, Aurora DSQL with GPS atomic clocks, S3 Vectors at 90% lower cost, Clean Rooms ML for privacy-enhanced AI. Plus a comprehensive wrap-up connecting 50+ announcements across all four episodes.
+Yesterday, HashiCorp (IBM) archived CDK for Terraform, ending a five-year experiment in programmatic infrastructure-as-code. If you're on CDKTF, start your migration analysis this week.
 
 :::
 
-**S3 Tables**: Intelligent-Tiering saves up to 80% on storage. Automatic cross-region replication for Iceberg tables. 400K+ tables created since launch.
+**What Happened**: CDKTF "did not find product-market fit at scale." Repository archived December 10, 2025—10 months after IBM's $6.4B acquisition.
 
-**Aurora DSQL**: GPS atomic clocks for global consistency. 4x faster than other distributed SQL. 99.999% multi-region availability. Built 100% in Rust.
+**Why It Failed**: Pulumi's 2-year head start, JSII complexity, HCL "good enough" for most teams, IBM portfolio rationalization.
 
-**S3 Vectors**: 2B vectors per index (40x preview). 90% cheaper than Pinecone/Weaviate/Qdrant. First cloud object storage with native vector support.
+**The Numbers**: 243K weekly NPM downloads (CDKTF) vs 1.1M (Pulumi)—a 4-5x gap that was visible for years.
 
-**Series Wrap-Up**: Four episodes, 50+ announcements, one theme: AWS wants to make your infrastructure boring (in the best way).
+**Migration Paths**: HCL (`cdktf synth --hcl`), Pulumi (native programmatic), OpenTofu (community fork potential), AWS CDK (if AWS-exclusive).
 
-[📝 Full episode page →](/podcasts/00052-aws-reinvent-2025-data-ai-wrap-up) | [📖 Complete re:Invent Guide →](/blog/aws-reinvent-2025-complete-platform-engineering-guide)
+[📝 Full episode page →](/podcasts/00056-cdktf-deprecated-iac-migration)
 
 <PodcastSubscribeButtons />
 
@@ -45,6 +45,14 @@ The grand finale. S3 Tables with Iceberg, Aurora DSQL with GPS atomic clocks, S3
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#056: CDKTF Deprecated - The End of HashiCorp's Programmatic IaC Experiment](/podcasts/00056-cdktf-deprecated-iac-migration)** (14 min) - HashiCorp (IBM) archived CDK for Terraform on December 10, 2025, ending a five-year experiment in programmatic infrastructure-as-code. CDKTF had 243K weekly NPM downloads vs Pulumi's 1.1M (4-5x gap). Four failure factors: Pulumi's head start, JSII complexity, HCL "good enough", IBM acquisition timing. Migration paths: HCL (cdktf synth --hcl), Pulumi, OpenTofu, AWS CDK. Key lesson: adoption metrics are leading indicators of tool risk. News: Envoy CVE-2025-0913 (CVSS 8.6), Google MCP servers, OpenTofu 1.11, pgAdmin 4 v9.11, Lima v2.0, Amazon ECS custom stop signals.
+
+- 📖 **[#055: AudioDocs - stern v1.32.0](/podcasts/00055-audiodocs-stern)** - AI-narrated documentation for stern, the multi-pod log tailing tool. Tail logs from multiple pods simultaneously with color-coded output.
+
+- 📖 **[#054: AudioDocs - CoreDNS v1.13.1](/podcasts/00054-audiodocs-coredns)** - AI-narrated documentation for CoreDNS, the flexible DNS server and CNCF graduated project that serves as Kubernetes cluster DNS.
+
+- 📖 **[#053: AudioDocs - kubectx v0.9.5](/podcasts/00053-audiodocs-kubectx)** - AI-narrated documentation for kubectx, the utility to manage and switch between kubectl contexts and namespaces.
 
 - 🎙️ **[#052: AWS re:Invent 2025 - Data & AI Wrap-Up (Series Finale)](/podcasts/00052-aws-reinvent-2025-data-ai-wrap-up)** (24 min) - Part 4 of 4 in our AWS re:Invent 2025 series (finale). S3 Tables GA with Intelligent-Tiering (80% cost savings) and automatic cross-region replication for Iceberg tables. Aurora DSQL uses GPS atomic clocks for global consistency, 4x faster than other distributed SQL, built 100% in Rust. S3 Vectors supports 2B vectors per index (40x preview increase), 90% cheaper than Pinecone/Weaviate/Qdrant. Clean Rooms ML generates privacy-enhanced synthetic datasets for collaborative ML. Database Savings Plans: up to 35% savings, flexible across engines/regions. Comprehensive series wrap-up connecting 50+ announcements: agents, chips, Kubernetes at scale, data services. Theme: AWS wants to make infrastructure boring. News: Envoy CVE-2025-0913, Rust in Linux kernel permanent, Let's Encrypt 10 years.
 
