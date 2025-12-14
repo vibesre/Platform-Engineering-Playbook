@@ -18,25 +18,25 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #058 - Okta's GitOps Journey - Scaling ArgoCD from 12 to 1,000 Clusters
+## 🎥 Latest Episode: #059 - Platform Engineering 2025 Year in Review
 
-**Real-World Scaling** • **15 minutes** • December 14, 2025 • Jordan and Alex
+**Year-End Special** • **25 minutes** • December 15, 2025 • Jordan and Alex
 
-:::tip Five-Year Journey
+:::tip The Year We Grew Up
 
-Okta scaled Auth0's private cloud from 12 to 1,000+ Kubernetes clusters using ArgoCD. At KubeCon 2025, engineers Jérémy Albuixech and Kahou Lei shared their hard-won lessons.
+2025 was the year platform engineering matured. AI infrastructure standardized on Kubernetes. Industry consensus emerged. And catastrophic outages proved concentration risk is real.
 
 :::
 
-**The Numbers**: 83x cluster growth (12→1,000) over 5 years. ArgoCD UI degrades beyond 1,000 apps. Sync times reach 10 minutes at scale. Controller sharding required at 100+ clusters.
+**10 Defining Stories**: AI-Native Kubernetes (DRA GA, Conformance v1.0), Platform Consensus (but 70% still fail), Concentration Risk (AWS/Cloudflare outages), IngressNightmare (CVE-2025-1974), Agentic AI, Open Source Sustainability, GPU Waste (13% utilization), Service Mesh Evolution, IaC Consolidation, Gateway API Standard.
 
-**Challenges at Scale**: Single-threaded controller operations, centralized bottlenecks, application/repository explosion, global network latency, observability gaps.
+**Key Statistics**: 90% orgs have platforms, 45-70% failure rate, $75M/hour AWS outage cost, 43% vulnerable to IngressNightmare, 60% maintainers unpaid.
 
-**Solutions**: Controller sharding, ArgoCD Agent hub-spoke model, Application Sets templating, progressive rollouts, purpose-built observability.
+**Critical Deadline**: Ingress NGINX retires March 2026. Start Gateway API migration now.
 
-**Six Lessons**: GitOps doesn't solve organizational problems. Start small, scale incrementally (12→50→200→1,000). Load testing non-negotiable. Observability unlocks confidence. ArgoCD isn't the only tool. Plan for Day 2 operations.
+**Plus News**: Meta's BPF Jailer (eBPF replacing SELinux), "Too Big to Fail" myth challenged, Sustainable Platform Design principles.
 
-[📝 Full episode page →](/podcasts/00058-okta-gitops-argocd-1000-clusters)
+[📝 Full episode page →](/podcasts/00059-platform-engineering-2025-year-in-review) | [📝 Blog post →](/blog/platform-engineering-2025-year-in-review)
 
 <PodcastSubscribeButtons />
 
@@ -45,6 +45,8 @@ Okta scaled Auth0's private cloud from 12 to 1,000+ Kubernetes clusters using Ar
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#059: Platform Engineering 2025 Year in Review](/podcasts/00059-platform-engineering-2025-year-in-review)** (25 min) - 2025 was the year platform engineering grew up—and got a reality check. This comprehensive year-in-review covers the 10 defining stories: AI-Native Kubernetes (DRA GA, AI Conformance v1.0), Platform Consensus (3 principles but 70% still fail), Infrastructure Concentration Risk (AWS $75M/hour outage, Cloudflare's 6 outages), IngressNightmare (CVE-2025-1974, 43% vulnerable), Agentic AI (80% unintended actions), Open Source Sustainability (60% maintainers unpaid), GPU Waste (13% utilization), Service Mesh Evolution (Istio Ambient GA), IaC Consolidation (IBM+HashiCorp, CDKTF deprecated), Gateway API Standard. Key takeaways: AI infrastructure standardized, platform engineering has a definition, concentration risk is real, fund open source ($2K/dev/year), GPU waste is the new cloud waste. Action items: Migrate to Gateway API before March 2026, implement DRA, audit agent policies. Plus news on Meta's BPF Jailer, "too big to fail" challenged, sustainable platform design. [Blog post →](/blog/platform-engineering-2025-year-in-review)
 
 - 🎙️ **[#058: Okta's GitOps Journey - Scaling ArgoCD from 12 to 1,000 Clusters](/podcasts/00058-okta-gitops-argocd-1000-clusters)** (15 min) - In five years, Okta scaled Auth0's private cloud from 12 to 1,000+ Kubernetes clusters using ArgoCD. At KubeCon 2025, engineers Jérémy Albuixech and Kahou Lei shared their hard-won lessons in "One Dozen To One Thousand Clusters." The journey: 83x cluster growth over 5 years. The challenges: controller performance degradation (10-minute sync times), centralized bottlenecks, application explosion, global latency, observability gaps. The solutions: controller sharding (horizontal scaling), ArgoCD Agent hub-spoke model, Application Sets templating, progressive rollouts. Six key lessons: GitOps doesn't solve organizational problems, start small and scale incrementally (12→50→200→1,000), load testing is non-negotiable, observability unlocks confidence, ArgoCD isn't the only tool (Helm/Kustomize/External Secrets/OPA), plan for Day 2 operations. Practical guidance by scale: 10-50 clusters (single instance), 100-500 clusters (warning zone - plan sharding), 500+ clusters (Okta territory - dedicated team required). News: Helm v4.0.4 and v3.19.4, Zero Trust in CI/CD Pipelines, 1B row database migration, Azure HorizonDB, Platform Engineering State 2026.
 
