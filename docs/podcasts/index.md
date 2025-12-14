@@ -18,25 +18,25 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #056 - CDKTF Deprecated: The End of HashiCorp's Programmatic IaC Experiment
+## 🎥 Latest Episode: #058 - Okta's GitOps Journey - Scaling ArgoCD from 12 to 1,000 Clusters
 
-**Breaking News** • **14 minutes** • December 11, 2025 • Jordan and Alex
+**Real-World Scaling** • **15 minutes** • December 14, 2025 • Jordan and Alex
 
-:::warning Breaking Change
+:::tip Five-Year Journey
 
-Yesterday, HashiCorp (IBM) archived CDK for Terraform, ending a five-year experiment in programmatic infrastructure-as-code. If you're on CDKTF, start your migration analysis this week.
+Okta scaled Auth0's private cloud from 12 to 1,000+ Kubernetes clusters using ArgoCD. At KubeCon 2025, engineers Jérémy Albuixech and Kahou Lei shared their hard-won lessons.
 
 :::
 
-**What Happened**: CDKTF "did not find product-market fit at scale." Repository archived December 10, 2025—10 months after IBM's $6.4B acquisition.
+**The Numbers**: 83x cluster growth (12→1,000) over 5 years. ArgoCD UI degrades beyond 1,000 apps. Sync times reach 10 minutes at scale. Controller sharding required at 100+ clusters.
 
-**Why It Failed**: Pulumi's 2-year head start, JSII complexity, HCL "good enough" for most teams, IBM portfolio rationalization.
+**Challenges at Scale**: Single-threaded controller operations, centralized bottlenecks, application/repository explosion, global network latency, observability gaps.
 
-**The Numbers**: 243K weekly NPM downloads (CDKTF) vs 1.1M (Pulumi)—a 4-5x gap that was visible for years.
+**Solutions**: Controller sharding, ArgoCD Agent hub-spoke model, Application Sets templating, progressive rollouts, purpose-built observability.
 
-**Migration Paths**: HCL (`cdktf synth --hcl`), Pulumi (native programmatic), OpenTofu (community fork potential), AWS CDK (if AWS-exclusive).
+**Six Lessons**: GitOps doesn't solve organizational problems. Start small, scale incrementally (12→50→200→1,000). Load testing non-negotiable. Observability unlocks confidence. ArgoCD isn't the only tool. Plan for Day 2 operations.
 
-[📝 Full episode page →](/podcasts/00056-cdktf-deprecated-iac-migration)
+[📝 Full episode page →](/podcasts/00058-okta-gitops-argocd-1000-clusters)
 
 <PodcastSubscribeButtons />
 
@@ -45,6 +45,10 @@ Yesterday, HashiCorp (IBM) archived CDK for Terraform, ending a five-year experi
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#058: Okta's GitOps Journey - Scaling ArgoCD from 12 to 1,000 Clusters](/podcasts/00058-okta-gitops-argocd-1000-clusters)** (15 min) - In five years, Okta scaled Auth0's private cloud from 12 to 1,000+ Kubernetes clusters using ArgoCD. At KubeCon 2025, engineers Jérémy Albuixech and Kahou Lei shared their hard-won lessons in "One Dozen To One Thousand Clusters." The journey: 83x cluster growth over 5 years. The challenges: controller performance degradation (10-minute sync times), centralized bottlenecks, application explosion, global latency, observability gaps. The solutions: controller sharding (horizontal scaling), ArgoCD Agent hub-spoke model, Application Sets templating, progressive rollouts. Six key lessons: GitOps doesn't solve organizational problems, start small and scale incrementally (12→50→200→1,000), load testing is non-negotiable, observability unlocks confidence, ArgoCD isn't the only tool (Helm/Kustomize/External Secrets/OPA), plan for Day 2 operations. Practical guidance by scale: 10-50 clusters (single instance), 100-500 clusters (warning zone - plan sharding), 500+ clusters (Okta territory - dedicated team required). News: Helm v4.0.4 and v3.19.4, Zero Trust in CI/CD Pipelines, 1B row database migration, Azure HorizonDB, Platform Engineering State 2026.
+
+- 🎙️ **[#057: Platform Engineering Team Structures That Work](/podcasts/00057-platform-engineering-team-structures)** (18 min) - DORA 2025 shows 90% of organizations have platform initiatives, but most just renamed their ops team. Optimal team size is 6-12 people (Spotify squads). Dedicated platform leader at 100+ engineers shields from competing priorities. Team Topologies interaction patterns: Collaboration→X-as-a-Service evolution. Success metrics: self-service rate >90%, developer happiness, DORA metrics for consuming teams. Anti-patterns: rebranding without role change, underinvestment after launch, skill concentration trap, Field of Dreams building. 8% individual and 10% team productivity boost when done right. News: Sim (Apache 2.0 n8n alternative), Docker Hub credential leak (10K+ images), Meta BPF-LSM replacing SELinux, Litestream VFS, GitHub login failures, GPT-5.2.
 
 - 🎙️ **[#056: CDKTF Deprecated - The End of HashiCorp's Programmatic IaC Experiment](/podcasts/00056-cdktf-deprecated-iac-migration)** (14 min) - HashiCorp (IBM) archived CDK for Terraform on December 10, 2025, ending a five-year experiment in programmatic infrastructure-as-code. CDKTF had 243K weekly NPM downloads vs Pulumi's 1.1M (4-5x gap). Four failure factors: Pulumi's head start, JSII complexity, HCL "good enough", IBM acquisition timing. Migration paths: HCL (cdktf synth --hcl), Pulumi, OpenTofu, AWS CDK. Key lesson: adoption metrics are leading indicators of tool risk. News: Envoy CVE-2025-0913 (CVSS 8.6), Google MCP servers, OpenTofu 1.11, pgAdmin 4 v9.11, Lima v2.0, Amazon ECS custom stop signals.
 
