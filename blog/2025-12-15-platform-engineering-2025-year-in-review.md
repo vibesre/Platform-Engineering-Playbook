@@ -50,6 +50,8 @@ This comprehensive analysis covers the 10 defining stories of platform engineeri
 
 > 🎙️ **Listen to the podcast episode**: [Episode #059: Platform Engineering 2025 Year in Review](/podcasts/00059-platform-engineering-2025-year-in-review) - A 25-minute deep dive into the year's most significant developments.
 
+<iframe width="100%" style={{aspectRatio: '16/9', marginBottom: '1rem'}} src="https://www.youtube.com/embed/Q_w1sOcviAU" title="Episode #059: Platform Engineering 2025 Year in Review" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
 ## TL;DR
 
 **The Year in One Sentence**: 2025 was when AI infrastructure standardized on Kubernetes, platform engineering found its definition, and catastrophic outages proved that concentration risk management is non-negotiable.

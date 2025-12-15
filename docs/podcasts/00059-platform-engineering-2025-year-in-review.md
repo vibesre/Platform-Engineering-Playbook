@@ -11,7 +11,7 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 
 <GitHubButtons />
 
-<iframe width="100%" style={{aspectRatio: '16/9', marginBottom: '1rem'}} src="https://www.youtube.com/embed/PLACEHOLDER" title="Episode #059: Platform Engineering 2025 Year in Review" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+<iframe width="100%" style={{aspectRatio: '16/9', marginBottom: '1rem'}} src="https://www.youtube.com/embed/Q_w1sOcviAU" title="Episode #059: Platform Engineering 2025 Year in Review" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
 **Duration**: ~25 minutes | **Speakers**: Jordan & Alex
 
