@@ -17,7 +17,7 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 
 **Target Audience**: Platform engineers, SREs, DevOps leads, engineering managers
 
-> 📝 **Read the [full blog post](/blog/platform-engineering-2025-year-in-review)**: A comprehensive written analysis with all statistics, sources, and action items for 2026.
+> 📝 **Read the [full blog post](/blog/2025/12/15/platform-engineering-2025-year-in-review)**: A comprehensive written analysis with all statistics, sources, and action items for 2026.
 
 ---
 
@@ -323,7 +323,7 @@ And sponsor an open source project. The CNCF, Apache, and Linux Foundation all a
 - [Episode #049-052: AWS re:Invent 2025 Series](/podcasts/00049-aws-reinvent-2025-agentic-ai-revolution)
 - [Episode #030: Cloudflare November Outage](/podcasts/00030-cloudflare-outage-november-2025)
 - [Episode #047: Cloudflare December Outage](/podcasts/00047-cloudflare-december-2025-outage-trust-crisis)
-- [Episode #007: AWS US-EAST-1 Outage](/podcasts/00007-aws-us-east-1-outage)
+- [Episode #007: AWS Outage October 2025](/podcasts/00007-aws-outage-october-2025)
 - [Episode #057: Platform Team Structures](/podcasts/00057-platform-engineering-team-structures)
 - [Episode #058: Okta GitOps Journey](/podcasts/00058-okta-gitops-argocd-1000-clusters)
 - [Episode #040: Platform Engineering Anti-Patterns](/podcasts/00040-platform-engineering-anti-patterns)

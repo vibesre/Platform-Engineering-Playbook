@@ -456,7 +456,7 @@ The fundamentals remain constant: reliability, security, cost efficiency. But th
 - [Episode #033: Service Mesh Showdown](/podcasts/00033-service-mesh-showdown-cilium-istio-ambient)
 
 ### Blog Posts
-- [Platform Engineering Team Structures That Work](/blog/platform-engineering-team-structures-that-work)
+- [Platform Engineering Team Structures That Work](/blog/2025/12/12/platform-engineering-team-structures-that-work)
 - [Platform Engineering vs DevOps vs SRE](/blog/platform-engineering-vs-devops-vs-sre)
 - [Cloudflare December 2025 Outage](/blog/cloudflare-december-2025-outage-trust-infrastructure-concentration-risk)
 - [AWS re:Invent 2025 Complete Guide](/blog/aws-reinvent-2025-complete-platform-engineering-guide)
