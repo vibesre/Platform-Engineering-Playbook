@@ -18,33 +18,39 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #059 - Platform Engineering 2025 Year in Review
+## 🎥 Latest Episode: #060 - Helm Is Too Simple. Crossplane Is Too Complex. Is kro Just Right?
 
-**Year-End Special** • **25 minutes** • December 15, 2025 • Jordan and Alex
+**The Goldilocks Guide** • **15 minutes** • December 16, 2025 • Jordan and Alex
 
-:::tip The Year We Grew Up
+:::tip 48% of K8s Users Struggle With Tool Choice
 
-2025 was the year platform engineering matured. AI infrastructure standardized on Kubernetes. Industry consensus emerged. And catastrophic outages proved concentration risk is real.
+Tool fatigue is crushing platform teams. This episode provides a decision framework for evaluating kro vs Crossplane vs Helm—and clears up the kro/krew confusion once and for all.
 
 :::
 
-**10 Defining Stories**: AI-Native Kubernetes (DRA GA, Conformance v1.0), Platform Consensus (but 70% still fail), Concentration Risk (AWS/Cloudflare outages), IngressNightmare (CVE-2025-1974), Agentic AI, Open Source Sustainability, GPU Waste (13% utilization), Service Mesh Evolution, IaC Consolidation, Gateway API Standard.
+**The Problem**: 48% of Kubernetes users struggle with tool choice (up from 29% in 2023). AWS, Google, and Microsoft co-developed kro—three cloud providers agreeing is rare. But is it actually useful?
 
-**Key Statistics**: 90% orgs have platforms, 45-70% failure rate, $75M/hour AWS outage cost, 43% vulnerable to IngressNightmare, 60% maintainers unpaid.
+**Key Insight**: Honest evaluation including Viktor Farcic's criticism: "kro serves the same function as other tools without compelling improvement." Our take: fair criticism, but kro fills a specific gap between Helm (too simple) and Crossplane (too complex).
 
-**Critical Deadline**: Ingress NGINX retires March 2026. Start Gateway API migration now.
+**News Segment**: Shai-Hulud npm supply chain attack postmortem (500+ packages, 25K repos), ingress-nginx retirement deadline (March 2026, 3 months away), Netflix Maestro 100x faster through full rewrite.
 
-**Plus News**: Meta's BPF Jailer (eBPF replacing SELinux), "Too Big to Fail" myth challenged, Sustainable Platform Design principles.
-
-[📝 Full episode page →](/podcasts/00059-platform-engineering-2025-year-in-review) | [📝 Blog post →](/blog/2025/12/15/platform-engineering-2025-year-in-review)
+[📝 Full episode page →](/podcasts/00060-kro-goldilocks-kubernetes-composition) | [🎬 YouTube →](https://youtu.be/HjeAlyl5_9U)
 
 <PodcastSubscribeButtons />
+
+---
+
+## Previous Episode: #059 - Platform Engineering 2025 Year in Review
+
+[📝 Full episode page →](/podcasts/00059-platform-engineering-2025-year-in-review) | [📝 Blog post →](/blog/2025/12/15/platform-engineering-2025-year-in-review)
 
 ---
 
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#060: Helm Is Too Simple. Crossplane Is Too Complex. Is kro Just Right?](/podcasts/00060-kro-goldilocks-kubernetes-composition)** (22 min) [🎬](https://youtu.be/HjeAlyl5_9U) - 48% of Kubernetes users struggle with tool choice (up from 29% in 2023). The Goldilocks problem of Kubernetes composition: Helm (too simple?), Crossplane (too complex?), kro (just right?). Decision framework included. kro vs krew confusion cleared (completely different tools!). Viktor Farcic's criticism addressed honestly: "no compelling improvement" - fair, but fills a gap. AWS/Google/Microsoft co-developed kro. News: Shai-Hulud npm attack (500+ packages), ingress-nginx retirement (March 2026), Netflix Maestro 100x rewrite.
 
 - 🎙️ **[#059: Platform Engineering 2025 Year in Review](/podcasts/00059-platform-engineering-2025-year-in-review)** (25 min) - 2025 was the year platform engineering grew up—and got a reality check. This comprehensive year-in-review covers the 10 defining stories: AI-Native Kubernetes (DRA GA, AI Conformance v1.0), Platform Consensus (3 principles but 70% still fail), Infrastructure Concentration Risk (AWS $75M/hour outage, Cloudflare's 6 outages), IngressNightmare (CVE-2025-1974, 43% vulnerable), Agentic AI (80% unintended actions), Open Source Sustainability (60% maintainers unpaid), GPU Waste (13% utilization), Service Mesh Evolution (Istio Ambient GA), IaC Consolidation (IBM+HashiCorp, CDKTF deprecated), Gateway API Standard. Key takeaways: AI infrastructure standardized, platform engineering has a definition, concentration risk is real, fund open source ($2K/dev/year), GPU waste is the new cloud waste. Action items: Migrate to Gateway API before March 2026, implement DRA, audit agent policies. Plus news on Meta's BPF Jailer, "too big to fail" challenged, sustainable platform design. [Blog post →](/blog/2025/12/15/platform-engineering-2025-year-in-review)
 

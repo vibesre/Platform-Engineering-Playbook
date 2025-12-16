@@ -1,0 +1,155 @@
+Jordan: Today we're tackling a question that 48 percent of Kubernetes users are struggling with right now. <break time="300ms"/> How do you choose the right composition tool when there are so many options? <break time="300ms"/> Helm, Crossplane, <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme>, Kratix, Kustomize. <break time="300ms"/> The tool fatigue is real, and it's crushing platform teams.
+
+Alex: And that 48 percent figure isn't hyperbole. It's from Spectro Cloud's 2024 survey, up from 29 percent just a year before. <break time="300ms"/> The problem is getting worse, not better. <break time="300ms"/> But before we dive into the Goldilocks problem of Kubernetes composition, let's cover this week's news.
+
+Jordan: Our first story is a sobering one. Trigger.dev published the complete postmortem of the Shai-Hulud 2.0 supply chain attack. <break time="300ms"/> Over 500 npm packages compromised, affecting more than 25,000 repositories.
+
+Alex: The timeline is what stands out. <break time="300ms"/> The attackers spent 17 hours doing reconnaissance before launching just 10 minutes of actual destruction. <break time="300ms"/> That reconnaissance-to-action ratio tells you how much planning goes into these attacks.
+
+Jordan: The defensive recommendations are practical. <break time="300ms"/> Set npm config to ignore scripts by default. <break time="300ms"/> Use pnpm 10's new minimum release age feature, which gives the community time to detect malicious packages before your build systems pull them. <break time="300ms"/> And implement OIDC publishing for your own packages.
+
+Alex: Next up, the ingress-nginx retirement discussion is intensifying. <break time="300ms"/> The March 2026 deadline is now just three months away, and teams are actively debating alternatives on Reddit.
+
+Jordan: Envoy Gateway, F5 NGINX Ingress Controller, and Traefik seem to be the top contenders. <break time="300ms"/> If you haven't started migration planning yet, now is the time. <break time="300ms"/> Three months goes fast when you're coordinating infrastructure changes across multiple teams.
+
+Alex: And finally, Netflix published a fascinating engineering post about making their Maestro workflow engine 100 times faster. <break time="300ms"/> Not 10 percent faster. <break time="300ms"/> One hundred times faster.
+
+Jordan: The key insight is that they achieved this through a full rewrite, removing complex internal databases that had accumulated over years. <break time="300ms"/> It's a reminder that sometimes the right answer is a clean slate rather than incremental optimization. <break time="400ms"/> Technical debt compounds.
+
+Alex: Alright, let's get into our main topic. <break time="300ms"/> Helm is too simple. Crossplane is too complex. <break time="300ms"/> Is <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> just right? <break time="300ms"/> It's the Goldilocks problem of Kubernetes composition.
+
+Jordan: Let's start with Helm, which some would say is too simple. <break time="400ms"/> Helm is a template engine. It's not a runtime controller. <break time="300ms"/> It renders your templates at install time and then walks away. <break time="300ms"/> There's no continuous reconciliation.
+
+Alex: That's fine for many use cases. <break time="300ms"/> Simple deployments, established patterns, teams that don't need runtime guarantees. <break time="300ms"/> But when you need dynamic configuration that responds to changes, or you need to ensure your resources stay in the desired state, <break time="300ms"/> Helm falls short.
+
+Jordan: The fundamental limitation is architectural. <break time="300ms"/> Helm uses Go templates processed at install time. <break time="300ms"/> Once those YAML files hit the cluster, Helm's job is done. <break time="300ms"/> If someone manually modifies a resource, Helm doesn't know or care. <break time="300ms"/> There's no controller watching for drift.
+
+Alex: On the other end of the spectrum is Crossplane. <break time="300ms"/> Full cloud resource provisioning. <break time="300ms"/> Over 50 providers covering AWS, GCP, Azure, databases, DNS, you name it. <break time="300ms"/> Multi-cloud strategies are where Crossplane shines.
+
+Jordan: But let's talk about what makes Crossplane complex. <break time="400ms"/> To create a platform API in Crossplane, you need to understand two distinct CRDs. <break time="300ms"/> First, CompositeResourceDefinitions, or XRDs. <break time="300ms"/> These define your API schema, what fields your developers will see.
+
+Alex: Then you need Compositions. <break time="300ms"/> These are the mapping layer, defining how your XRD fields translate into actual cloud resources. <break time="300ms"/> One XRD can have multiple Compositions for different environments or cloud providers. <break time="300ms"/> That's powerful, but it's also two abstractions to learn, debug, and maintain.
+
+Jordan: And when you need to patch values between resources, you're writing Composition patches. <break time="300ms"/> fromFieldPath, toFieldPath, transforms. <break time="300ms"/> The learning curve is steep. <break time="300ms"/> For teams that just need Kubernetes-native composition without cloud provisioning, <break time="300ms"/> Crossplane can feel like bringing a crane to hang a picture frame.
+
+Alex: Which brings us to <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme>. <break time="300ms"/> The Kube Resource Orchestrator. <break time="300ms"/> Let's dig into what makes it architecturally different.
+
+Jordan: <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> introduces a single abstraction: the ResourceGraphDefinition, or RGD. <break time="400ms"/> One CRD that defines both your API schema and the resources it creates. <break time="300ms"/> No separate composition layer. <break time="300ms"/> Everything in one place.
+
+Alex: Let me walk through the structure. <break time="300ms"/> An RGD has a spec section with schema and resources. <break time="300ms"/> The schema defines your custom API, what fields developers interact with. <break time="300ms"/> The resources section is a list of Kubernetes resources that get created.
+
+Jordan: Here's where it gets interesting. <break time="300ms"/> You can reference user inputs using CEL expressions directly in your resource templates. <break time="300ms"/> Say your schema has a field called replicas. <break time="300ms"/> In your Deployment resource, you'd write spec.replicas using the CEL expression that references the user's input.
+
+Alex: CEL, the Common Expression Language, is central to <phoneme alphabet="ipa" ph="kroʊz">kro's</phoneme> approach. <break time="300ms"/> It's the same expression language used in Kubernetes validation rules and Gateway API. <break time="300ms"/> If you've written CEL for admission policies, you already know the syntax.
+
+Jordan: Let's dig into CEL a bit more because understanding it is key to understanding <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme>. <break time="400ms"/> CEL supports standard operators: arithmetic, comparison, logical. <break time="300ms"/> But what makes it powerful for <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> is its object navigation and ternary expressions.
+
+Alex: For example, you can write expressions like <break time="200ms"/> spec.replicas greater than zero question mark spec.replicas colon 1. <break time="300ms"/> That gives you a default value of 1 if replicas isn't specified. <break time="300ms"/> Or use size(spec.volumes) to check if a list is empty before creating PVC resources.
+
+Jordan: CEL also has string manipulation functions. <break time="300ms"/> spec.name plus dash plus spec.environment concatenates strings for generating unique resource names. <break time="300ms"/> You can use matches() with regex patterns, has() to check if fields exist, and type() for runtime type checking.
+
+Alex: The limitation is that CEL is evaluated at reconciliation time, not dynamically watched. <break time="300ms"/> If you reference another resource's status in your CEL expression, <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> evaluates it once when reconciling. <break time="300ms"/> There's no reactive subscription model like you might expect from a more complex operator.
+
+Jordan: Let's look at a concrete example. <break time="400ms"/> Say you're building a platform API for web applications. <break time="300ms"/> You want developers to specify a name, image, replicas, and whether they need a public endpoint. <break time="300ms"/> In <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme>, you define those four fields in your schema section.
+
+Alex: Then in your resources section, you list a Deployment, a Service, and conditionally an Ingress. <break time="300ms"/> Each resource template uses CEL to pull values from the user's input. <break time="300ms"/> The Deployment's image comes from the user. <break time="300ms"/> The Service selector matches the app label. <break time="300ms"/> The Ingress only gets created if the public endpoint flag is true.
+
+Jordan: That conditional resource creation is where <phoneme alphabet="ipa" ph="kroʊz">kro's</phoneme> CEL integration shines. <break time="300ms"/> You can use CEL expressions in the includeWhen field to conditionally include resources. <break time="300ms"/> In Helm, you'd use if-else blocks in Go templates. <break time="300ms"/> In Crossplane, you'd need multiple Compositions or complex patches.
+
+Alex: Now let's talk about the reconciliation loop. <break time="400ms"/> When you apply an RGD to your cluster, <phoneme alphabet="ipa" ph="kroʊz">kro's</phoneme> controller generates a custom resource definition on the fly. <break time="300ms"/> That CRD represents your platform API. <break time="300ms"/> Developers can then create instances of it.
+
+Jordan: When a developer creates an instance, <phoneme alphabet="ipa" ph="kroʊz">kro's</phoneme> controller springs into action. <break time="300ms"/> It evaluates the resource graph, processes CEL expressions with the user's inputs, and creates the underlying resources. <break time="300ms"/> But here's the key: it keeps watching.
+
+Alex: If someone deletes one of the underlying resources, <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> recreates it. <break time="300ms"/> If someone modifies a field that should be controlled by the RGD, <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> reverts it. <break time="300ms"/> This is the runtime reconciliation that Helm lacks. <break time="300ms"/> Your resources stay in their desired state.
+
+Jordan: The resource graph is topologically sorted. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> figures out dependencies between resources and creates them in the right order. <break time="300ms"/> If your ConfigMap needs to exist before your Deployment references it, <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> handles that sequencing automatically.
+
+Alex: Let's talk about how <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> determines those dependencies. <break time="400ms"/> It analyzes your CEL expressions for cross-resource references. <break time="300ms"/> If your Deployment CEL expression references a ConfigMap's name or data, <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> infers the dependency. <break time="300ms"/> It builds a directed acyclic graph and processes resources in dependency order.
+
+Jordan: This is different from Crossplane's explicit dependency model. <break time="300ms"/> In Crossplane, you'd use references and selectors to wire resources together. <break time="300ms"/> In <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme>, dependencies are implicit based on your CEL usage. <break time="300ms"/> Less boilerplate, but also less explicit control when you need it.
+
+Alex: <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> also surfaces status information back through your custom resource. <break time="300ms"/> You can define status fields in your RGD that pull from underlying resources. <break time="300ms"/> For example, expose the Deployment's ready replicas or the Service's cluster IP in your platform API's status.
+
+Jordan: This status aggregation is useful for developer experience. <break time="300ms"/> Developers see one custom resource with a single status showing whether their web application is ready. <break time="300ms"/> They don't need to kubectl get across three different resource types.
+
+Alex: Let's compare this to how you'd do the same thing in Crossplane. <break time="400ms"/> You'd create an XRD defining your API schema. <break time="300ms"/> Then you'd create a Composition mapping those fields to a Deployment, Service, and Ingress. <break time="300ms"/> For conditional resources, you'd either create multiple Compositions or use patch transforms with conditional logic.
+
+Jordan: Both approaches work. <break time="300ms"/> But there's a cognitive load difference. <break time="300ms"/> In <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme>, your entire platform API is in one file. <break time="300ms"/> In Crossplane, you're managing at least two resources that need to stay in sync. <break time="300ms"/> When you rename a field in your XRD, you need to update patches in your Composition.
+
+Alex: Now here's where we need to be honest. <break time="300ms"/> Viktor Farcic, a well-known voice in the DevOps community, tested <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> and had criticisms. <break time="400ms"/> He called it, quote, "serving more or less the same function as other tools created a while ago without any compelling improvement."
+
+Jordan: He found specific issues. <break time="300ms"/> Missing default values and owner references. <break time="300ms"/> Changes from ResourceGroups not propagating properly to existing resources. <break time="300ms"/> YAML limitations leading to what he called "abominations" when expressing complex CEL logic.
+
+Alex: The YAML-embedded-CEL problem is real. <break time="300ms"/> When you're writing multiline CEL expressions inside YAML strings, things get ugly fast. <break time="300ms"/> Crossplane has similar issues with complex patch transforms. <break time="300ms"/> It's a limitation of using YAML as your configuration language.
+
+Jordan: Viktor's conclusion was that <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> currently provides only a fraction of Crossplane's features and isn't yet a viable replacement. <break time="400ms"/> And honestly? <break time="300ms"/> That's fair criticism. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> is alpha software, v1alpha1. <break time="300ms"/> It's not production-ready.
+
+Alex: But here's the context that matters. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> isn't trying to replace Crossplane. <break time="300ms"/> It's filling a different niche. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> is for teams that don't need cloud resource provisioning. <break time="300ms"/> They just need to bundle Kubernetes resources behind a clean API with runtime reconciliation.
+
+Jordan: Now here's what made news this month. <break time="300ms"/> AWS adopted <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> into EKS Capabilities alongside Argo CD and AWS Controllers for Kubernetes. <break time="300ms"/> That's significant because AWS, Google, and Microsoft all co-developed <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme>. <break time="300ms"/> Three competing cloud providers agreeing on a tool is rare.
+
+Alex: The EKS Capabilities model is interesting architecturally. <break time="300ms"/> These tools run in AWS service-owned accounts, not in your clusters. <break time="300ms"/> AWS manages scaling, patching, and updates. <break time="300ms"/> You pay for what you use with no minimum fees. <break time="300ms"/> It's the serverless model applied to cluster add-ons.
+
+Jordan: And the implied architecture here is telling. <break time="400ms"/> AWS, Google, and Microsoft seem to be converging on a layered approach. <break time="300ms"/> Use ACK, Crossplane, or cloud-native controllers for cloud resources. <break time="300ms"/> Use <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> for Kubernetes-native composition. <break time="300ms"/> Use Argo CD or Flux for GitOps delivery. <break time="300ms"/> Each tool stays in its lane.
+
+Alex: This is the Unix philosophy applied to platform engineering. <break time="300ms"/> Tools that do one thing well and compose together. <break time="300ms"/> Rather than one monolithic platform that does everything, you're building a stack of focused components.
+
+Jordan: Let's talk about how <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> integrates with GitOps. <break time="400ms"/> Since <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> generates CRDs and custom resources, they work naturally with Argo CD and Flux. <break time="300ms"/> You store your RGD definitions and instances in Git. <break time="300ms"/> Argo CD applies them to the cluster. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> reconciles the underlying resources.
+
+Alex: The synergy here is powerful. <break time="300ms"/> Argo CD tracks sync status for your custom resource. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> handles the multi-resource lifecycle underneath. <break time="300ms"/> You get GitOps observability at the platform API level, not just individual resources.
+
+Jordan: Testing <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> definitions is an open question though. <break time="300ms"/> There's no equivalent to helm template that shows you what would be created without applying. <break time="300ms"/> You can use kubectl dry-run, but that requires a running cluster with <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> installed. <break time="300ms"/> The feedback loop for development isn't as tight as Helm's offline templating.
+
+Alex: Debugging is another consideration. <break time="300ms"/> When something goes wrong, you need to check your custom resource's status, the <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> controller logs, and potentially the underlying resources. <break time="300ms"/> The controller logs are where you'll find CEL evaluation errors and dependency resolution issues.
+
+Jordan: Let's look at some real-world use cases where <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> makes sense. <break time="400ms"/> First: developer self-service portals. <break time="300ms"/> You want developers to request a "development environment" and get a namespace, resource quotas, network policies, and service accounts automatically.
+
+Alex: In <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme>, you'd create an RGD called DevelopmentEnvironment. <break time="300ms"/> Developers create instances with their team name and resource requirements. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> creates all the underlying resources and keeps them reconciled. <break time="300ms"/> If someone accidentally deletes the network policy, it comes back.
+
+Jordan: Second use case: encoding organizational standards. <break time="300ms"/> You want every Deployment in production to have liveness probes, resource limits, and pod disruption budgets. <break time="300ms"/> Instead of hoping developers remember, you create a "ProdDeployment" API that includes them by default.
+
+Alex: Third use case: multi-resource feature flags. <break time="300ms"/> You have a feature that requires a Deployment, a ConfigMap, and a Service Mesh virtual service. <break time="300ms"/> Enabling or disabling the feature means managing all three resources. <break time="300ms"/> With <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme>, you manage one custom resource, and the underlying pieces follow.
+
+Jordan: Let's talk about migration paths. <break time="400ms"/> If you're currently using Helm, moving to <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> isn't straightforward. <break time="300ms"/> Helm's templating logic needs to be rewritten in CEL. <break time="300ms"/> Helm helpers and library charts don't have <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> equivalents. <break time="300ms"/> Your CI/CD pipelines built around helm install and helm upgrade need rethinking.
+
+Alex: For Kustomize users, the story is similar. <break time="300ms"/> Kustomize's patching model is different from <phoneme alphabet="ipa" ph="kroʊz">kro's</phoneme> CEL expressions. <break time="300ms"/> But there's conceptual overlap: both focus on Kubernetes-native resources without cloud provisioning. <break time="300ms"/> The migration friction is lower than from Helm because you're already thinking in terms of base resources and overlays.
+
+Jordan: One migration pattern that works: start with new internal tools. <break time="300ms"/> Keep your production Helm charts. <break time="300ms"/> Use <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> for developer self-service where the stakes are lower. <break time="300ms"/> Build operational experience before considering broader adoption.
+
+Alex: But let's be clear about the limitations. <break time="400ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> cannot provision cloud resources. <break time="300ms"/> If you need an RDS database, an S3 bucket, or a Cloud SQL instance, <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> can't help. <break time="300ms"/> You need Crossplane, ACK, or Terraform for that.
+
+Alex: <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> is single-cluster only. <break time="300ms"/> If you need to orchestrate resources across multiple clusters, look at Kratix with its Promises model, or build a hub-and-spoke pattern with GitOps.
+
+Jordan: And <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> has no approval workflows. <break time="300ms"/> If you need ServiceNow integration, Slack approvals, or cost estimation before provisioning, <break time="300ms"/> that's not <phoneme alphabet="ipa" ph="kroʊz">kro's</phoneme> domain. <break time="300ms"/> You'd need Backstage, Humanitec, or custom solutions.
+
+Alex: So let's get practical with a decision framework. <break time="400ms"/> Ask yourself four questions. <break time="300ms"/> First: do you need to provision cloud resources? <break time="300ms"/> If yes, use Crossplane or ACK. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> won't help.
+
+Jordan: Second: do you need multi-cluster orchestration? <break time="300ms"/> If yes, look at Kratix. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> is single-cluster.
+
+Alex: Third: do you need approval workflows or external integrations? <break time="300ms"/> If yes, that's not <phoneme alphabet="ipa" ph="kroʊz">kro's</phoneme> domain. <break time="300ms"/> Look at platform orchestration tools.
+
+Jordan: Fourth: do you need continuous reconciliation, or is install-time templating enough? <break time="300ms"/> If install-time is fine, Helm works great and has massive ecosystem support. <break time="300ms"/> If you need runtime reconciliation of Kubernetes-native resources, now <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> becomes a good fit.
+
+Alex: Here's the maturity warning. <break time="400ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> is v1alpha1. <break time="300ms"/> That means breaking API changes are expected. <break time="300ms"/> Features are incomplete. <break time="300ms"/> Production use is risky. <break time="300ms"/> Wait for v1.0 before betting critical systems on it.
+
+Jordan: When should you experiment with <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> today? <break time="300ms"/> Non-production environments. <break time="300ms"/> Developer tooling and self-service. <break time="300ms"/> Learning and evaluation. <break time="300ms"/> Contributing feedback to shape the project.
+
+Alex: When should you stick with proven tools? <break time="300ms"/> Production workloads. <break time="300ms"/> Anything requiring cloud resource provisioning. <break time="300ms"/> Multi-cluster scenarios. <break time="300ms"/> When your team is already productive with Crossplane or Helm.
+
+Jordan: So back to our original question. <break time="300ms"/> Helm is too simple. <break time="300ms"/> Crossplane is too complex. <break time="300ms"/> Is <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> just right? <break time="400ms"/> The answer is: it depends on your Goldilocks zone.
+
+Alex: If you're in that sweet spot, <break time="300ms"/> single-cluster, Kubernetes-native, runtime reconciliation needed but no cloud provisioning, <break time="300ms"/> then yes, <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> might be just right for you.
+
+Jordan: If you need cloud provisioning or multi-cluster capabilities, <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> alone won't help. <break time="300ms"/> You'll still need Crossplane or other tools in the mix.
+
+Alex: And if Helm is working fine for your team, <break time="300ms"/> don't switch just because AWS adopted something new. <break time="300ms"/> The right tool is the one that solves your actual problem, <break time="300ms"/> not the one with the most hype.
+
+Jordan: Here's the takeaway. <break time="400ms"/> Map your actual requirements honestly. <break time="300ms"/> Start with the simplest tool that meets them. <break time="300ms"/> <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> sits at middle complexity with middle power. <break time="300ms"/> It's the missing middle that platform teams have been asking for.
+
+Alex: But don't adopt tools because cloud providers do. <break time="300ms"/> Adopt them because they solve your problem. <break time="300ms"/> The Kubernetes tool ecosystem will continue to expand. <break time="300ms"/> 70 percent of survey respondents expect consolidation, but we're not there yet.
+
+Jordan: Having a framework for evaluation is what puts you ahead. <break time="300ms"/> The Goldilocks approach, <break time="300ms"/> understanding when tools are too simple, too complex, or just right for your needs, <break time="300ms"/> is how you cut through the noise.
+
+Alex: Check the show notes for links to the <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> GitHub repo, the CNCF blog post on platform design principles, the AWS EKS Capabilities announcement, and Viktor Farcic's critical analysis. <break time="300ms"/> All valuable reading for platform engineers navigating this landscape.
+
+Jordan: The platform engineering discipline continues to mature. <break time="300ms"/> Tools like <phoneme alphabet="ipa" ph="kroʊ">kro</phoneme> represent that maturation, <break time="300ms"/> purpose-built components that stay in their lane and compose with others. <break time="300ms"/> That's the Unix philosophy applied to infrastructure, <break time="300ms"/> and it's a pattern worth embracing.
