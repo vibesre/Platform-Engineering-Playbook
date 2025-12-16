@@ -7,11 +7,11 @@ sidebar_label: "🎙️ #060: kro Goldilocks Guide"
 slug: 00060-kro-goldilocks-kubernetes-composition
 ---
 
-import GitHubButton from 'react-github-btn';
+import GitHubButtons from '@site/src/components/GitHubButtons';
 
 # Episode #060: Helm Is Too Simple. Crossplane Is Too Complex. Is kro Just Right?
 
-<GitHubButton href="https://github.com/platformengplaybook/platform-engineering-playbook" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star platformengplaybook/platform-engineering-playbook on GitHub">Star</GitHubButton>
+<GitHubButtons />
 
 **Duration**: ~22 minutes | **Speakers**: Jordan & Alex | **Target Audience**: Senior Platform Engineers, DevOps leads evaluating composition tools
 
