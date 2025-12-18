@@ -1,0 +1,176 @@
+---
+displayed_sidebar: tutorialSidebar
+hide_table_of_contents: false
+sidebar_label: "🎙️ #062: Kubernetes 1.35 Timbernetes"
+slug: 00062-kubernetes-1-35-timbernetes
+---
+
+# Kubernetes 1.35 "Timbernetes" - The End of the Pod Restart Era
+
+import GitHubButtons from '@site/src/components/GitHubButtons';
+
+<GitHubButtons />
+
+**Duration**: ~15 minutes | **Speakers**: Jordan & Alex
+
+**Target Audience**: Platform Engineers, SREs, DevOps leads planning Kubernetes upgrades
+
+<iframe width="100%" style={{aspectRatio: '16/9', marginBottom: '1rem'}} src="https://www.youtube.com/embed/rmTCG9HjX_A" title="Kubernetes 1.35 Timbernetes - The End of the Pod Restart Era" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+## Episode Summary
+
+Kubernetes 1.35 "Timbernetes" is a landmark release that fundamentally changes pod lifecycle management. If you've ever had to restart a production pod just to give it more memory, that era is officially over.
+
+### Key Topics Covered
+
+- **In-Place Pod Vertical Scaling (GA)** - KEP 1287: Adjust CPU and memory on running pods without restarts
+- **Breaking Changes**: cgroup v1 REMOVED, containerd 1.x EOL, IPVS deprecated
+- **Pod Certificates (Beta)** - Native mTLS for workload identity without cert-manager
+- **60 total enhancements**: 17 stable, 19 beta, 22 alpha
+
+### News Segment
+
+- Docker makes 1,000+ hardened container images FREE (95% CVE reduction)
+- GitHub Actions pricing changes (up to 39% reduction) - January 2026
+- First Linux Kernel Rust CVE (CVE-2025-68260)
+- KubeVirt security audit complete (15 findings, strong architecture)
+
+---
+
+## Transcript
+
+**Jordan**: Today we're covering one of the biggest Kubernetes releases in recent memory. If you've ever had to restart a production pod just to give it more memory, that era is officially over. We're breaking down Kubernetes 1.35, codenamed Timbernetes, and it's a release that fundamentally changes how we think about pod lifecycle management.
+
+**Alex**: But first, let's run through some major news that dropped this week. And it's a big one, Jordan. Docker just made their entire catalog of hardened container images free and open source.
+
+**Jordan**: This is huge. We're talking over a thousand security-hardened images, now available under the Apache 2.0 license. No subscription required. You just authenticate with your Docker Hub credentials and pull them.
+
+**Alex**: The numbers here are significant. Docker claims these hardened images reduce vulnerabilities by up to ninety-five percent compared to standard community images. They use a distroless runtime to minimize attack surface, and every image includes a complete software bill of materials, cryptographic attestations, and SLSA Level 3 provenance.
+
+**Jordan**: What caught my attention is they're also extending this to MCP servers. Hardened versions of Grafana, MongoDB, GitHub integrations. If you're building AI agent infrastructure, this matters.
+
+**Alex**: Next up, GitHub Actions pricing changes hitting in January 2026. The headline sounds scary, but the details are actually pretty favorable for most teams.
+
+**Jordan**: GitHub is reducing hosted runner costs by up to thirty-nine percent. There's a new two-tenths of a cent per minute platform charge, but that's already baked into the reduced rates. The self-hosted runner billing that had everyone worried? Postponed indefinitely after community feedback.
+
+**Alex**: The stat that stands out: ninety-six percent of customers will see no change to their bill. Public repositories remain completely free. For that four percent affected, eighty-five percent are actually seeing decreases.
+
+**Jordan**: Third story, and this one's historic. The Linux kernel Rust code has its first CVE. CVE 2025 68260.
+
+**Alex**: This is a race condition in the Android Binder Rust rewrite, affecting Linux 6.18 and newer. It's in an unsafe code block, and it results in memory corruption that can cause a crash. Importantly, it's a denial of service issue, not remote code execution.
+
+**Jordan**: Greg Kroah-Hartman called this a routine consequence of expanding Rust integration. I think that's exactly the right framing. Rust isn't magic. It doesn't eliminate all security issues. It eliminates certain classes of memory safety bugs in safe code. Unsafe blocks still need careful review.
+
+**Alex**: The Rust evangelists will point out this was in unsafe code. The skeptics will say Rust still has CVEs. Both are missing the point. This is just normal software maintenance happening in a new language.
+
+**Jordan**: Last news item before we dive into Kubernetes. KubeVirt completed its OSTIF security audit. Thirty-seven day assessment by Quarkslab, and the results are pretty reassuring.
+
+**Alex**: Fifteen total findings. One high severity, seven medium, four low, three informational. But the auditors specifically called out that KubeVirt's architecture prioritizes sandboxing and isolation. That compartmentalization limited the impact of most findings.
+
+**Jordan**: If you're running VMs on Kubernetes, or evaluating KubeVirt for that use case, this audit validates that the security model is sound. The high severity issue has been remediated.
+
+**Alex**: Alright, let's get into the main event. Kubernetes 1.35, released December 17th, 2025. The codename Timbernetes comes from Yggdrasil, the world tree in Norse mythology.
+
+**Jordan**: Sixty total enhancements in this release. Seventeen going stable, nineteen in beta, twenty-two new alpha features. But there's one feature that overshadows everything else.
+
+**Alex**: In-Place Pod Vertical Scaling is now generally available. KEP 1287. And Jordan, I cannot overstate how significant this is for production operations.
+
+**Jordan**: Let's walk through what this actually means. Before this release, if you had a pod running and it needed more memory, here's what you had to do. Delete the pod. Wait for a new pod to schedule. Wait for the container to start. Wait for readiness probes to pass. Handle any connection interruptions. For stateful workloads, potentially wait for data to sync or warm up.
+
+**Alex**: With in-place scaling, you patch the pod spec, the kubelet adjusts the cgroup limits, and your container just keeps running. No restart. No rescheduling. No downtime.
+
+**Jordan**: The technical implementation is elegant. The containers resources field in the pod spec is now mutable. When you change it, the kubelet handles the resize by manipulating the container's cgroup limits. The container runtime interface was extended to support resize operations.
+
+**Alex**: There's a new status field called resize that tracks the state. It can be InProgress, Deferred if the node doesn't have capacity right now, Infeasible if the request can't be satisfied, or Proposed if it's waiting for approval.
+
+**Jordan**: One subtlety that platform engineers need to understand. QoS class can change during a resize. If you have a Guaranteed pod and you change it to use requests that don't equal limits, it becomes Burstable. That affects eviction priority.
+
+**Alex**: The practical implications are massive. Think about stateful workloads like databases. Previously, scaling meant planned downtime or complex orchestration with replicas. Now you just patch the spec.
+
+**Jordan**: Or batch processing. You start a job, realize it needs more resources halfway through, and you can adjust without losing progress. This is especially valuable for machine learning training jobs.
+
+**Alex**: And for the Vertical Pod Autoscaler. VPA recommendations can now be applied without pod restarts. That changes VPA from a recommendation engine with manual implementation to something that can continuously optimize resource allocation.
+
+**Jordan**: What's not supported yet. Ephemeral storage and extended resources like GPUs can't be resized in-place. Those still require pod recreation.
+
+**Alex**: Now let's talk about what's being removed, because this is where upgrade planning gets serious.
+
+**Jordan**: cgroup v1 support is gone. Not deprecated. Removed. If your nodes are still running cgroup v1, you cannot upgrade to Kubernetes 1.35.
+
+**Alex**: The quick check is to run stat dash fc percent capital T on slash sys slash fs slash cgroup. If it shows tmpfs, you're on v1. If it shows cgroup2fs, you're on v2.
+
+**Jordan**: Most modern distributions default to v2 at this point. Ubuntu 22.04 and later, Red Hat Enterprise Linux 9, Debian 12. But if you have legacy systems or older base images, this is a hard blocker.
+
+**Alex**: containerd 1.x also reaches end of life. Kubernetes 1.35 requires containerd 2.0 or compatible. There are breaking CRI changes in containerd 2.0, so test your runtime compatibility before upgrading.
+
+**Jordan**: And IPVS mode in kube-proxy is formally deprecated. Not removed yet, but there's now a sunset timeline. If you're using IPVS mode, the recommendation is to migrate to iptables mode or move to CNI-native proxying with Cilium or similar.
+
+**Alex**: Let's shift to security. There are some significant improvements that deserve attention.
+
+**Jordan**: Pod Certificates for Workload Identity is now in beta. KEP 4317. This is native mTLS for pods without needing cert-manager, SPIFFE, or SPIRE.
+
+**Alex**: The mechanism is clean. The kubelet generates keys and requests certificates via a PodCertificateRequest. The API server enforces node restriction at admission time, preventing unauthorized certificate issuance. Credentials are written directly to the pod's filesystem with automated rotation.
+
+**Jordan**: For teams building service mesh or zero-trust architectures, this removes a significant external dependency. Pure mTLS flows without bearer tokens, built into the platform.
+
+**Alex**: There's also a new alpha feature for Node Declared Features Before Scheduling. KEP 5328. This solves a real problem in heterogeneous clusters.
+
+**Jordan**: The scenario is you upgrade your control plane to a version with new features. Then you schedule pods that expect those features. But some of your nodes are still on the old version and don't support them.
+
+**Alex**: Now nodes can declare their supported features in status dot declaredFeatures. The scheduler and admission controllers can enforce compatibility constraints. This is essential for managing version skew safely.
+
+**Jordan**: On the networking side, PreferSameNode traffic distribution is now GA. This gives you explicit control over whether Service traffic stays node-local, zone-local, or goes anywhere.
+
+**Alex**: The previous PreferClose option has been renamed to PreferSameZone for clarity. Both are backward compatible. But now you have granular control. If you want to strictly prefer endpoints on the same node for latency-sensitive services, you can do that.
+
+**Jordan**: The Job API managedBy field is also GA. This allows external controllers to take over Job status management. The primary use case is MultiKueue for multi-cluster job dispatch.
+
+**Alex**: Gang scheduling for AI workloads hit alpha in this release. The ability to schedule multiple pods atomically, all or nothing. Critical for distributed ML training where you need all GPUs available simultaneously.
+
+**Jordan**: DRA, Dynamic Resource Allocation, continues to mature. The core went GA in 1.34, and in 1.35 the feature gate is locked. You cannot disable it anymore.
+
+**Alex**: Two new alpha features in DRA. Device Binding Conditions defers pod binding until external resources are confirmed ready. Think fabric-attached GPUs or FPGAs that need network configuration. Partitionable Devices allows vendors to advertise overlapping partitions that can be created on-demand.
+
+**Jordan**: A few other notable changes. Pod metadata dot generation is now GA. This tracks spec changes like Deployments already do, with an observedGeneration field to confirm the kubelet processed the change. Essential for verifying in-place scaling operations completed.
+
+**Alex**: The NUMA node limit is now configurable. It was hard-coded to eight, but modern high-end servers can have more than eight NUMA nodes. You can now set max-allowable-numa-nodes appropriately.
+
+**Jordan**: And node topology labels are available via the Downward API in beta. You can access topology.kubernetes.io zone and region without RBAC permissions or API server queries.
+
+**Alex**: Let's talk practical guidance for teams planning their upgrade path.
+
+**Jordan**: First, verify your cgroup version on every node. This is the hard blocker. Second, check your container runtime version. containerd 2.0 or compatible is required. Third, if you're using kube-proxy in IPVS mode, start planning your migration.
+
+**Alex**: For testing in-place scaling, start with non-critical workloads in dev environments. Understand how your applications handle resource changes. Some applications may not respond well to sudden cgroup limit changes.
+
+**Jordan**: Review your VPA configurations. The behavior changes when recommendations can be applied without restarts. You may want to adjust your policies.
+
+**Alex**: On timing, I'd wait for 1.35.1. The first patch release typically comes within two weeks and catches early issues. Test in staging thoroughly given the breaking changes. Managed Kubernetes providers like EKS, GKE, and AKS are usually two to four months behind upstream.
+
+**Jordan**: What should you try first once you upgrade? In-place pod vertical scaling on your dev clusters. Get familiar with the resize status field and how the kubelet handles changes.
+
+**Alex**: PreferSameNode for latency-sensitive services. If you're paying for cross-zone traffic or seeing latency issues, this is an easy win.
+
+**Jordan**: And if you're evaluating workload identity solutions, Pod Certificates in beta is worth exploring. It may simplify your architecture compared to external certificate management.
+
+**Alex**: The big picture takeaway here is that Kubernetes 1.35 is a maturity release. In-place scaling removes a fundamental operational pain point that's existed since the beginning. The deprecations show the project cleaning up technical debt that's accumulated over the years.
+
+**Jordan**: Twenty-twenty-five was the year Kubernetes stopped asking you to accept pod restarts as the cost of doing business. That's a meaningful shift in how we operate containerized workloads at scale.
+
+**Alex**: For platform engineering teams, this release validates that Kubernetes continues to evolve in ways that reduce operational burden rather than adding complexity. The features going stable are practical, real-world improvements.
+
+**Jordan**: And the breaking changes, while disruptive, are cleaning up legacy technology that was holding back progress. cgroup v1 and containerd 1.x needed to go.
+
+**Alex**: That's Kubernetes 1.35 Timbernetes. The end of the pod restart era.
+
+---
+
+## Resources
+
+- [Kubernetes v1.35 Release Blog](https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/)
+- [Kubernetes v1.35.0 GitHub Release](https://github.com/kubernetes/kubernetes/releases/tag/v1.35.0)
+- [Docker Hardened Images](https://www.docker.com/blog/docker-hardened-images-for-every-developer/)
+- [GitHub Actions Pricing Changes](https://resources.github.com/actions/2026-pricing-changes-for-github-actions/)
+- [KubeVirt Security Audit](https://www.cncf.io/blog/2025/12/17/kubevirt-undergoes-ostif-security-audit/)
