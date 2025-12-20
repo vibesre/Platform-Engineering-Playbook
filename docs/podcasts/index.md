@@ -4,6 +4,9 @@ hide_table_of_contents: false
 sidebar_label: "🎙️ Podcast"
 ---
 
+import GitHubButtons from '@site/src/components/GitHubButtons';
+import PodcastSubscribeButtons from '@site/src/components/PodcastSubscribeButtons';
+
 # The Platform Engineering Playbook Podcast
 
 <GitHubButtons />
@@ -18,37 +21,47 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #060 - Helm Is Too Simple. Crossplane Is Too Complex. Is kro Just Right?
+## 🎥 Latest Episode: #064 - Terraform Stacks + Native Monorepo Support
 
-**The Goldilocks Guide** • **15 minutes** • December 16, 2025 • Jordan and Alex
+**The End of Copy-Paste Configuration** • **17 minutes** • December 19, 2025 • Jordan and Alex
 
-:::tip 48% of K8s Users Struggle With Tool Choice
+:::tip HashiCorp's Biggest Terraform Feature Since Modules
 
-Tool fatigue is crushing platform teams. This episode provides a decision framework for evaluating kro vs Crossplane vs Helm—and clears up the kro/krew confusion once and for all.
+Native monorepo support and Terraform Stacks GA (September 2025). Component-based architecture replaces directory-per-environment pattern.
 
 :::
 
-**The Problem**: 48% of Kubernetes users struggle with tool choice (up from 29% in 2023). AWS, Google, and Microsoft co-developed kro—three cloud providers agreeing is rare. But is it actually useful?
+**What Changed**: Components (`.tfstack.hcl`) define groups of resources sharing a lifecycle. Deployments create isolated instances with separate state files. Linked stacks handle cross-stack dependencies declaratively.
 
-**Key Insight**: Honest evaluation including Viktor Farcic's criticism: "kro serves the same function as other tools without compelling improvement." Our take: fair criticism, but kro fills a specific gap between Helm (too simple) and Crossplane (too complex).
+**Orchestration Rules**: Auto-approve deployments with context-aware conditions (e.g., no deletions, specific deployment groups). Advanced rules require HCP Terraform Plus Edition.
 
-**News Segment**: Shai-Hulud npm supply chain attack postmortem (500+ packages, 25K repos), ingress-nginx retirement deadline (March 2026, 3 months away), Netflix Maestro 100x faster through full rewrite.
+**Migration Path**: Workspace-to-stacks migration tool still in beta. Start with greenfield projects or non-critical workspaces. Don't migrate production overnight.
 
-[📝 Full episode page →](/podcasts/00060-kro-goldilocks-kubernetes-composition) | [🎬 YouTube →](https://youtu.be/HjeAlyl5_9U)
+**News Segment**: Pulumi IaC now supports Terraform/HCL directly (GA Q1 2026), vLLM v0.13.0 (NVIDIA Blackwell Ultra, 5.3% throughput gains), EC2 AZ ID API support (consistent zone IDs across accounts), GPT-5.2-Codex (56.4% on SWE-Bench Pro).
+
+[📝 Full episode page →](/podcasts/00064-terraform-stacks-native-monorepo)
 
 <PodcastSubscribeButtons />
 
 ---
 
-## Previous Episode: #059 - Platform Engineering 2025 Year in Review
+## Previous Episode: #063 - Docker Hardened Images: Free Security for Every Developer
 
-[📝 Full episode page →](/podcasts/00059-platform-engineering-2025-year-in-review) | [📝 Blog post →](/blog/2025/12/15/platform-engineering-2025-year-in-review)
+[📝 Full episode page →](/podcasts/00063-docker-hardened-images-free-security)
 
 ---
 
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#064: Terraform Stacks + Native Monorepo Support](/podcasts/00064-terraform-stacks-native-monorepo)** (17 min) [🎬](https://youtu.be/yo2cAhnHNJc) - HashiCorp released native monorepo support and Terraform Stacks GA (September 2025). Component-based architecture with `.tfstack.hcl` files replaces copy-paste configurations. Deployments provide isolated state files per environment/region. Orchestration rules enable automated approvals with context-aware conditions. Linked stacks handle cross-stack dependencies declaratively. Workspace-to-stacks migration tool in beta—start with greenfield or non-critical workspaces. Advanced orchestration rules require HCP Terraform Plus Edition. News: Pulumi IaC supports Terraform/HCL directly (GA Q1 2026), vLLM v0.13.0 (NVIDIA Blackwell Ultra, DeepSeek optimizations), EC2 AZ ID API support, GPT-5.2-Codex (56.4% SWE-Bench Pro).
+
+- 🎙️ **[#063: Docker Hardened Images - Free Security for Every Developer](/podcasts/00063-docker-hardened-images-free-security)** (11 min) - Docker released 1,000+ hardened container images under Apache 2.0 license—95% CVE reduction validated by SRLabs. Distroless runtime, complete SBOM, SLSA Level 3 provenance, 7-day patch SLA. Includes hardened MCP server images for AI agent infrastructure. Migration guide: multi-stage builds, test thoroughly for distroless constraints. Enterprise tier adds FIPS, STIG, 5-year ELS. News: First Linux Kernel Rust CVE (CVE-2025-68260), GitHub Actions pricing changes (39% reduction, self-hosted billing postponed indefinitely).
+
+- 🎙️ **[#062: Kubernetes 1.35 "Timbernetes" - The End of the Pod Restart Era](/podcasts/00062-kubernetes-1-35-timbernetes)** (16 min) - In-Place Pod Vertical Scaling goes GA in Kubernetes 1.35—change CPU/memory without restarting pods. Breaking changes: cgroup v1 REMOVED (not deprecated), containerd 1.x EOL, IPVS mode deprecated. Pod Certificates for Workload Identity (beta) enables native mTLS without cert-manager. PreferSameNode traffic distribution (GA), Gang Scheduling for AI (alpha), DRA feature gate locked. 60 enhancements: 17 Stable, 19 Beta, 22 Alpha. News: Docker Hardened Images free (1,000+ images, 95% CVE reduction), GitHub Actions pricing changes, First Linux Kernel Rust CVE, KubeVirt security audit complete.
+
+- 🎙️ **[#061: 40,000x Fewer Deployment Failures: How Netflix Adopted Temporal](/podcasts/00061-netflix-temporal-deployment-reliability)** (17 min) - Netflix reduced deployment failures from 4% to 0.0001% (40,000x improvement) using Temporal. Deep dive into durable execution: write code as if failures don't exist. Comparison: Temporal vs AWS Step Functions vs Apache Airflow vs Cadence. Netflix's Spinnaker/Clouddriver implementation with 2-hour fix-forward window. Lessons learned: avoid unnecessary child workflows, use single argument objects, separate business from workflow failures. When Temporal is (and isn't) right for your organization. News: Temporal $2.5B valuation (183K developers), K8s v1.35 security features, Shai-Hulud npm attack postmortem.
 
 - 🎙️ **[#060: Helm Is Too Simple. Crossplane Is Too Complex. Is kro Just Right?](/podcasts/00060-kro-goldilocks-kubernetes-composition)** (22 min) [🎬](https://youtu.be/HjeAlyl5_9U) - 48% of Kubernetes users struggle with tool choice (up from 29% in 2023). The Goldilocks problem of Kubernetes composition: Helm (too simple?), Crossplane (too complex?), kro (just right?). Decision framework included. kro vs krew confusion cleared (completely different tools!). Viktor Farcic's criticism addressed honestly: "no compelling improvement" - fair, but fills a gap. AWS/Google/Microsoft co-developed kro. News: Shai-Hulud npm attack (500+ packages), ingress-nginx retirement (March 2026), Netflix Maestro 100x rewrite.
 
