@@ -15,6 +15,8 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 
 **Series**: Platform Engineering 2026 Look Forward (Episode 3 of 5)
 
+<iframe width="100%" style={{aspectRatio: "16/9", marginTop: "1rem", marginBottom: "1rem"}} src="https://www.youtube.com/embed/CyX7VznO-iM" title="Episode #069: Developer Experience Metrics Beyond DORA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 This is the third episode in our five-part "Platform Engineering 2026 Look Forward Series." We tackle how organizations should measure success in 2026. DORA metrics revolutionized DevOps measurement, but they have a critical blind spot: they tell you how your delivery pipeline is performing, but not how your people are doing. We explore the SPACE framework, DX Core 4, cognitive load measurement, and the HEART framework for platform teams.
