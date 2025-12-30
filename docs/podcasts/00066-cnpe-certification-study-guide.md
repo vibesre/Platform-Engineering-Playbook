@@ -11,6 +11,8 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 
 <GitHubButtons />
 
+<iframe width="100%" style={{aspectRatio: '16/9', marginBottom: '1rem'}} src="https://www.youtube.com/embed/7kcTXIqIqiM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 **Duration**: ~18 minutes | **Speakers**: Jordan & Alex
 
 **Target Audience**: Platform engineers considering CNPE, senior DevOps/SRE looking to advance, Golden Kubestronaut candidates
