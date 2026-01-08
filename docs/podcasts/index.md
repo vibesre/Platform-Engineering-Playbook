@@ -21,39 +21,59 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #064 - Terraform Stacks + Native Monorepo Support
+## 🎥 Latest Episode: #084 - Venezuela BGP Anomaly: Deep Technical Analysis
 
-**The End of Copy-Paste Configuration** • **17 minutes** • December 19, 2025 • Jordan and Alex
+**Special Deep Dive - No News Segment** • **28 minutes** • January 8, 2026 • Jordan and Alex
 
-:::tip HashiCorp's Biggest Terraform Feature Since Modules
+:::tip Why the "Cyberattack" Theory Falls Apart
 
-Native monorepo support and Terraform Stacks GA (September 2025). Component-based architecture replaces directory-per-environment pattern.
+A deep technical dive into the January 2026 Venezuela BGP route leak incident. Was it a coordinated cyberattack preceding regime change? The technical evidence says no—and that's actually more concerning.
 
 :::
 
-**What Changed**: Components (`.tfstack.hcl`) define groups of resources sharing a lifecycle. Deployments create isolated instances with separate state files. Linked stacks handle cross-stack dependencies declaratively.
+**The Evidence**: 10x AS-path prepending proves misconfiguration, not attack—prepending REPELS traffic, the exact opposite of a man-in-the-middle attack.
 
-**Orchestration Rules**: Auto-approve deployments with context-aware conditions (e.g., no deletions, specific deployment groups). Advanced rules require HCP Terraform Plus Edition.
+**BGP Deep Dive**: Valley-free routing violations, Type 1 Hairpin leaks (RFC 7908), and why 11 similar events from AS8048 since December 2025 indicate systemic misconfiguration.
 
-**Migration Path**: Workspace-to-stacks migration tool still in beta. Start with greenfield projects or non-critical workspaces. Don't migrate production overnight.
+**Why Platform Engineers Should Care**: RPKI at 54% global adoption validates origin but not path. RFC 9234 OTC and ASPA coming, but internet routing still runs on 1989 trust assumptions.
 
-**News Segment**: Pulumi IaC now supports Terraform/HCL directly (GA Q1 2026), vLLM v0.13.0 (NVIDIA Blackwell Ultra, 5.3% throughput gains), EC2 AZ ID API support (consistent zone IDs across accounts), GPT-5.2-Codex (56.4% on SWE-Bench Pro).
+**Action Items**: Check your providers at isbgpsafeyet.com, add BGP monitoring to your observability stack.
 
-[📝 Full episode page →](/podcasts/00064-terraform-stacks-native-monorepo)
+[📝 Full episode page →](/podcasts/00084-venezuela-bgp-anomaly-technical-analysis)
 
 <PodcastSubscribeButtons />
 
 ---
 
-## Previous Episode: #063 - Docker Hardened Images: Free Security for Every Developer
+## Previous Episode: #083 - HolmesGPT: AI-Powered Root Cause Analysis for Kubernetes
 
-[📝 Full episode page →](/podcasts/00063-docker-hardened-images-free-security)
+[📝 Full episode page →](/podcasts/00083-holmesgpt-kubernetes-rca)
 
 ---
 
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#084: Venezuela BGP Anomaly - Deep Technical Analysis](/podcasts/00084-venezuela-bgp-anomaly-technical-analysis)** (28 min) - Special deep dive into the January 2026 Venezuela BGP route leak incident. Was it a cyberattack? The technical evidence says no—10x AS-path prepending proves misconfiguration (prepending REPELS traffic, opposite of MITM). Type 1 Hairpin Route Leak (RFC 7908), valley-free routing violations, 11 similar events from AS8048 since December 2025. RPKI at 54% global adoption validates origin but not path. RFC 9234 OTC and ASPA defenses explained. Why platform engineers should add BGP monitoring to observability stack. Check your providers at isbgpsafeyet.com.
+
+- 🎙️ **[#083: HolmesGPT - AI-Powered Root Cause Analysis for Kubernetes](/podcasts/00083-holmesgpt-kubernetes-rca)** (24 min) - Deep dive into HolmesGPT, the CNCF Sandbox AI agent for cloud-native troubleshooting. Agentic architecture that creates investigation task lists, queries Prometheus/Grafana/Kubernetes/ArgoCD, and synthesizes findings. 40+ built-in toolsets, privacy-first design (bring your own LLM keys), read-only access, respects RBAC. End-to-end automation with AlertManager webhooks for automatic investigation. Installation via pip, Homebrew, or Helm for production Kubernetes. News: AirFrance-KLM automation platform, AWS ECS tmpfs mounts on Fargate, Qwen 30B on Raspberry Pi, AWS European Sovereign Cloud.
+
+- 🎙️ **[#082: Docker Kanvas - Infrastructure as Design](/podcasts/00082-docker-kanvas-infrastructure-as-design)** (27 min) - Docker launched Kanvas, a visual tool that turns architecture diagrams into deployable infrastructure. Built on Meshery (CNCF's 6th highest-velocity project), it converts Docker Compose to Kubernetes manifests. Designer Mode (GA) for drag-and-drop design with 300+ K8s operators, AWS/Azure/GCP services. Operator Mode (Beta) for live cluster management. Import existing Docker Compose, Helm charts, Kustomize configs. Export to GitOps-compatible formats for ArgoCD/Flux. Decision framework: when to use Kanvas vs Helm vs Kustomize. Practical adoption strategies for platform teams.
+
+- 🎙️ **[#081: Remote MCP Architecture - Running AI Tool Servers on Kubernetes](/podcasts/00081-remote-mcp-architecture-kubernetes)** (24 min) - The MCP server registry hit 10,000+ integrations, but most teams are running these servers on laptops. Google, Red Hat, and AWS are converging on remote MCP servers deployed on Kubernetes. Three deployment patterns: local stdio (dev only), remote HTTP/SSE (team scale), managed remote (Google's GKE, BigQuery, GCE endpoints). Native vs wrapper architecture: Red Hat's Go-based server uses client-go directly, no kubectl subprocess parsing. Defense-in-depth security: dedicated ServiceAccounts, TokenRequest API (2-hour tokens), RBAC, --read-only mode, audit logging. Platform team ownership: sidecar per namespace, central gateway, or hybrid approach. Implementation roadmap: Q1 experiment (read-only dev), Q2 adopt (HTTP/SSE staging), Q3 scale (production RBAC).
+
+- 🎙️ **[#080: AWS DevOps Agent - Promises vs Reality](/podcasts/00080-aws-devops-agent-autonomous-operations)** (26 min) - AWS launched DevOps Agent at re:Invent 2025 as an "autonomous on-call engineer." Agent Spaces provide isolated containers with automatic topology building (42 resources discovered in demo). Integrates with CloudWatch, Datadog, Dynatrace, New Relic, Splunk, GitHub Actions, GitLab CI/CD, ServiceNow, PagerDuty, MCP for custom tools. Critical limitation: cannot execute fixes—generates detailed mitigation plans but humans must approve every action. MTTR improvement 45→18 minutes when properly configured with 2-4 weeks training. Preview limits: 10 Agent Spaces, 20 incident hours/month, US-East-1 only, English-only, no SOC 2/ISO 27001. 5-question evaluation framework and ideal vs wait-and-see scenarios by cloud footprint. News: KubeCon Europe 2026 schedule (March 23-26, Amsterdam, 224 sessions), Platform Engineering 2026 predictions ("agentic infrastructure becomes standard").
+
+- 🎙️ **[#079: AWS Graviton5 - ARM Takes Over the Data Center](/podcasts/00079-aws-graviton5-arm-data-center)** (11 min) - AWS doubled the core count on Graviton5 to 192 cores in a single socket with 180MB L3 cache (5.3x larger than Graviton4). Customer benchmarks: Atlassian 30% higher Jira performance, Honeycomb 20-25% lower latency, SAP 35-60% OLTP improvement. Single-socket design eliminates NUMA overhead with 33% lower inter-core latency. Nitro Isolation Engine with formal verification—mathematical proofs for security, not just testing. 98% of top 1,000 EC2 customers already on Graviton. Migration framework: audit dependencies, start with stateless services, set up dual-arch CI/CD. News: State of Platform Engineering 2026 report shows platform engineering "shifting down" to mid-market companies.
+
+- 🎙️ **[#078: Can OpenTelemetry Save Observability in 2026?](/podcasts/00078-observability-opentelemetry-2026)** (18 min) - OpenTelemetry has 95% adoption predicted for 2026, but 43% of organizations haven't seen cost savings. Netflix processes 1M+ trace spans per episode using Flink stream processing—treating observability as data engineering. OTel collector enables "cost-control chokepoint" for sampling, filtering, and routing decisions. 40% targeting autonomous remediation by end 2026 (agent-first observability). SLOs becoming business conversations—error budgets as budget conversations for engineering-business alignment. Platform engineers becoming translators between telemetry and business impact. News: GitHub Actions 39% pricing reduction, Jaeger v2.14.0 legacy removal.
+
+- 🎙️ **[#077: When Serverless Fails - Unkey's 6x Performance Migration to Containers](/podcasts/00077-unkey-serverless-containers-migration)** (16 min) - Unkey rebuilt their entire API key management service from Cloudflare Workers to AWS Fargate—achieving 6x performance improvement. Root cause: 30ms p99 cache latency from serverless statelessness when they needed sub-10ms. "Zero network requests are always faster than one network request." Decision framework: Where in request path? What's p99 target? How hot is data? Complexity budget? Can you self-host? Unexpected bonus: container architecture made self-hosting trivial. News: Kubernetes 1.35 z-pages now support structured JSON responses with HTTP content negotiation for compliance automation.
+
+- 🎙️ **[#066: CNPE Certification Study Guide - The Complete Deep Dive](/podcasts/00066-cnpe-certification-study-guide)** (18 min) - CNPE (Certified Cloud Native Platform Engineer) launched November 11, 2025 at KubeCon Atlanta—the first hands-on platform engineering exam in five years. Deep dive into exam format (17 tasks, 2 hours, 64% pass), all five domains (GitOps 25%, Platform APIs 25%, Observability 20%, Architecture 15%, Security 15%), BACK stack (Backstage, Argo CD, Crossplane, Kyverno), and complete study guide. Beta testers report 29% scores—harder than CKS. Golden Kubestronaut requires CNPE after March 2026. Career impact: platform engineers $160K-$220K, senior $250K+. News: Decathlon Spark→Polars migration, State of Platform Engineering 2026 survey, Business SLOs.
+
+- 🎙️ **[#065: Kubernetes 1.35 Timbernetes Deep Dive](/podcasts/00065-kubernetes-1-35-timbernetes-deep-dive)** (20 min) - Kubernetes 1.35 "Timbernetes" dropped December 17, 2025. 60 enhancements, 3 breaking changes: cgroup v1 REMOVED (kubelet won't start), containerd 1.x EOL, IPVS deprecated. In-Place Pod Resize GA (KEP-1287)—6 years from proposal to stable—resize CPU/memory without pod restart. Pod Certificates Beta (KEP-4317) for native mTLS. Gang Scheduling Alpha (KEP-4671) for AI workloads. DRA locked enabled. Node Declared Features for version-skew scheduling. Practical upgrade checklist: verify cgroup v2, containerd 2.0+, test nftables mode.
 
 - 🎙️ **[#064: Terraform Stacks + Native Monorepo Support](/podcasts/00064-terraform-stacks-native-monorepo)** (17 min) [🎬](https://youtu.be/yo2cAhnHNJc) - HashiCorp released native monorepo support and Terraform Stacks GA (September 2025). Component-based architecture with `.tfstack.hcl` files replaces copy-paste configurations. Deployments provide isolated state files per environment/region. Orchestration rules enable automated approvals with context-aware conditions. Linked stacks handle cross-stack dependencies declaratively. Workspace-to-stacks migration tool in beta—start with greenfield or non-critical workspaces. Advanced orchestration rules require HCP Terraform Plus Edition. News: Pulumi IaC supports Terraform/HCL directly (GA Q1 2026), vLLM v0.13.0 (NVIDIA Blackwell Ultra, DeepSeek optimizations), EC2 AZ ID API support, GPT-5.2-Codex (56.4% SWE-Bench Pro).
 

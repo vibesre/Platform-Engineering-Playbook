@@ -1,0 +1,294 @@
+---
+title: "Episode #084: Venezuela BGP Anomaly - Deep Technical Analysis"
+description: "A deep technical dive into the January 2026 Venezuela BGP route leak. We debunk the cyberattack theory, explain valley-free routing and AS-path prepending, and discuss what this means for platform engineers."
+sidebar_label: "🎙️ #084: Venezuela BGP Anomaly"
+slug: 00084-venezuela-bgp-anomaly-technical-analysis
+displayed_sidebar: tutorialSidebar
+hide_table_of_contents: false
+keywords: [BGP, route leak, RPKI, autonomous systems, internet routing, Venezuela, CANTV, network security, platform engineering]
+---
+
+import GitHubButtons from '@site/src/components/GitHubButtons';
+
+# Episode #084: Venezuela BGP Anomaly - Deep Technical Analysis
+
+<GitHubButtons />
+
+<iframe width="100%" style={{aspectRatio: "16/9", marginBottom: "1rem"}} src="https://www.youtube.com/embed/o2n8LTx5xEw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Duration**: ~25 minutes | **Speakers**: Jordan & Alex | **Target Audience**: Senior Platform Engineers, SREs, Network Engineers
+
+> 📝 **Read the [full blog post](/blog/venezuela-bgp-route-leak-2026-technical-analysis-cyberattack-theory)**: Comprehensive technical analysis with statistics, FAQ, decision frameworks, and actionable recommendations for platform engineers.
+
+A deep technical dive into the January 2026 Venezuela BGP route leak incident. We dissect the technical evidence that debunks the cyberattack theory, explain how BGP valley-free routing works, why 10x AS-path prepending proves this was misconfiguration not malice, and what this teaches platform engineers about the fragility of internet routing.
+
+## Episode Highlights
+
+- **The Incident**: January 2, 2026 - AS8048 (CANTV, Venezuela's state ISP) leaked 8 prefixes from Dayco Telecom (AS21980) through a Type 1 Hairpin Route Leak
+- **Why Not an Attack**: 10x AS-path prepending REPELS traffic - the exact opposite of what an attacker would do for a man-in-the-middle attack
+- **The Pattern**: 11 similar leak events from AS8048 since December 2025 - systemic misconfiguration, not coordinated attack
+- **BGP Fundamentals**: How autonomous systems, valley-free routing, and BGP path selection actually work
+- **RPKI & Beyond**: Current defenses (54% global coverage), RFC 9234 OTC attribute, and upcoming ASPA for path validation
+- **Platform Engineer Impact**: Why your multi-region deployment doesn't protect you from BGP anomalies
+
+## Key Takeaways
+
+- BGP was designed in 1989 when ~160 networks trusted each other - now 75,000+ ASes operate on that same trust model
+- Your services depend on BGP even though you don't run the routers - routing anomalies can affect you without showing up in application monitoring
+- Check your providers' BGP security posture at isbgpsafeyet.com
+- If you have your own AS, deploy RPKI ROAs - it's not difficult and protects against basic hijacks
+- Consider BGP monitoring (Cloudflare Radar, RIPE RIS, BGPStream) as part of your observability stack
+
+## Sources
+
+- [Cloudflare Blog: BGP Route Leak Venezuela](https://blog.cloudflare.com/bgp-route-leak-venezuela/)
+- [RFC 7908: BGP Route Leak Classification](https://datatracker.ietf.org/doc/html/rfc7908)
+- [RFC 9234: BGP Roles](https://datatracker.ietf.org/doc/html/rfc9234)
+- [MANRS: RPKI Growth 2024](https://manrs.org/2025/01/rpki-growth-2024/)
+- [Is BGP Safe Yet?](https://isbgpsafeyet.com/)
+
+## Transcript
+
+**Jordan**: What if I told you that the internet's most critical routing protocol was designed in nineteen eighty-nine, assumes everyone is trustworthy, and a single misconfigured router in Caracas just demonstrated exactly why that's terrifying?
+
+**Alex**: Welcome to the Platform Engineering Playbook Daily Podcast. Today's news and a deep dive to help you stay ahead in platform engineering.
+
+**Jordan**: Today we're doing something different. No news segment. This is a deep technical dive into the Venezuela BGP anomaly that happened on January second, twenty twenty-six. And I want to start with the conspiracy theory, because that's what made this story blow up on Hacker News and Twitter.
+
+**Alex**: Right, a red team engineer named Graham Helton posted on social media claiming this was a coordinated cyberattack. His theory? Venezuela's state-run ISP was intercepting traffic as part of some operation related to the Maduro government. And honestly, at first glance, it sounds plausible. You've got political tensions, a state-controlled network provider, and suddenly traffic is being rerouted through Venezuelan infrastructure.
+
+**Jordan**: It does sound like classic espionage. The timing was suspicious. Same week as political developments in Venezuela. A state-run ISP, CANTV, suddenly starts routing traffic that shouldn't go through them. Classic man-in-the-middle setup, right?
+
+**Alex**: Except when you actually look at the technical evidence, the entire theory falls apart. And that's what we're going to break down today. Not just what happened, but why the technical details prove this was misconfiguration, not malice. And more importantly, what this teaches us about how fragile internet routing actually is. Because the real story here isn't about nation-state hackers. It's about a protocol designed thirty-five years ago that we're all still depending on.
+
+**Jordan**: So let's set the scene. January second, twenty twenty-six. Fifteen thirty UTC. Cloudflare's route leak alerting pipeline, which monitors global BGP announcements in real time, detects something anomalous. Traffic destined for Dayco Telecom, a Colombian telecommunications provider, is being routed through CANTV, which is Venezuela's state-run ISP.
+
+**Alex**: And not just any traffic. Eight specific prefixes within the two hundred dot seventy-four dot two twenty-four dot zero slash twenty block. These prefixes belong to AS twenty-one thousand nine hundred eighty, that's Dayco Telecom's autonomous system number. But suddenly they're appearing in routing tables with AS eight zero four eight, CANTV, in the path. And they're propagating globally through carriers like Sparkle in Italy and GlobeNet in Colombia.
+
+**Jordan**: For listeners who don't live in BGP land every day, can you break down what that actually means? What is an autonomous system and why does it matter?
+
+**Alex**: Sure. Think of the internet as a massive collection of neighborhoods. Each neighborhood is an autonomous system, or AS. You've got about seventy-five thousand of them today. Each AS is independently operated. It could be an ISP like Comcast, a cloud provider like AWS, a content delivery network like Cloudflare, a large enterprise, or a government network. Each one has its own address space, its own routers, its own policies.
+
+**Jordan**: And BGP is how they talk to each other?
+
+**Alex**: Exactly. BGP, the Border Gateway Protocol, is how these neighborhoods tell each other what addresses they can reach. It's essentially a giant game of telephone. I tell my neighbors, "Hey, I can reach these IP addresses." My neighbors tell their neighbors. And so on. Within minutes, the entire internet knows how to route traffic to those addresses.
+
+**Jordan**: So when CANTV announced those Dayco prefixes, they were essentially saying, "Hey, send traffic for these Colombian addresses through us in Venezuela."
+
+**Alex**: Right. And here's the fundamental problem with BGP. It was designed in nineteen eighty-nine when the internet was maybe a hundred and sixty networks, all run by researchers at universities and government labs who knew and trusted each other. There's no built-in authentication. No cryptographic verification. If your neighbor tells you they can reach an address, you believe them. You put it in your routing table. And you tell your neighbors. And it propagates globally in minutes.
+
+**Jordan**: No verification at all?
+
+**Alex**: Not in the base protocol. Your router receives an announcement and it just believes it. It's like getting directions from a stranger and following them without checking Google Maps. Most of the time it works because most network operators are competent and honest. But when it goes wrong, it can go very wrong.
+
+**Jordan**: So this is where the cyberattack theory comes in. If CANTV wanted to intercept traffic, they could announce those prefixes, traffic would flow through them, they could inspect it, maybe modify it, then forward it to the real destination. And users would have no idea their traffic was being surveilled.
+
+**Alex**: Exactly. That's a BGP hijack. It's a real attack vector. It's happened before. The most famous case is probably the twenty eighteen attack where traffic for Amazon's Route fifty-three DNS service was redirected through a Russian provider. The attackers used that to steal cryptocurrency by manipulating DNS responses. BGP hijacks are a legitimate threat.
+
+**Jordan**: So why isn't this Venezuela incident a hijack?
+
+**Alex**: Because of one technical detail that completely undermines the attack theory. Look at the AS path that propagated. This is the actual path that Cloudflare recorded.
+
+**Jordan**: You mentioned this in the research. The path was absolutely wild.
+
+**Alex**: It was. The path that propagated was: fifty-two thousand three hundred twenty, which is GlobeNet in Colombia, then eight zero four eight appearing ten times in a row, that's CANTV, then twenty-three thousand five twenty, then twelve ninety-nine, then two sixty-nine thousand eight thirty-two, and finally twenty-one thousand nine hundred eighty, which is Dayco, the legitimate owner. That's AS eight zero four eight, CANTV, appearing ten times consecutively in the path.
+
+**Jordan**: Ten times? What does that even mean? Why would an AS number appear ten times?
+
+**Alex**: It's called AS path prepending. And this is the key to understanding why this can't be an attack. When BGP selects routes, shorter paths are generally preferred. If I can reach a destination through a path with three AS hops, I'll choose that over a path with ten AS hops. It's a rough proxy for distance and efficiency.
+
+**Jordan**: Makes sense. Fewer hops means less latency and fewer opportunities for failure.
+
+**Alex**: Right. So when you prepend your AS number multiple times, you're artificially lengthening your path. You're making your route LESS attractive to other networks. You're essentially telling the internet, "Please don't send traffic this way if you have alternatives."
+
+**Jordan**: Wait. So if CANTV was trying to intercept traffic, they did the exact opposite of what an attacker would do?
+
+**Alex**: Precisely. An attacker trying to hijack traffic would announce a more specific prefix with a shorter path. They'd want to be the most attractive route so traffic flows through them. But ten times prepending? That's screaming at the internet, "Avoid me if possible." It's the opposite of a man-in-the-middle attack. Bryton Herdes, who's a security researcher at Cloudflare and wrote the detailed analysis of this incident, looked at this and said, "This is misconfiguration, not malice."
+
+**Jordan**: So the prepending actually makes the attack theory impossible?
+
+**Alex**: Functionally, yes. Think about it from the attacker's perspective. If you want to intercept traffic, you need traffic to flow through you. Prepending ten times makes other routes more attractive. Your hijack would only work if there were no other paths at all. And for major internet destinations, there are always multiple paths. The prepending is essentially self-sabotage if your goal is interception.
+
+**Jordan**: So what was actually happening if not an attack?
+
+**Alex**: This is where we need to understand BGP relationship types and valley-free routing. It's going to get technical, but this is the core of how internet routing actually works.
+
+**Jordan**: Let's do it.
+
+**Alex**: Every AS has business relationships with its neighbors. There are three fundamental types. First, customers. These are ASes that pay you for transit. They send you money, you carry their traffic to the broader internet. Second, providers. These are ASes that give you transit. You pay them money, they carry your traffic. Third, peers. These are ASes that exchange traffic for free, usually because you both benefit equally.
+
+**Jordan**: And there are rules about how traffic should flow between these relationships?
+
+**Alex**: Exactly. It's called valley-free routing, and it's not enforced by the protocol, but by economic incentives and business practices. The principle is simple. Traffic should flow "up" from customers to providers. That makes sense because customers are paying for that transit. Traffic should flow "across" to peers. That's the free exchange arrangement. And traffic should flow "down" to customers. Providers send traffic to customers as part of the service.
+
+**Jordan**: So traffic goes up, across, or down. What's the problem?
+
+**Alex**: The problem is when traffic goes down and then back up to a different provider. Imagine you're an AS. You receive routes from one of your providers. Those routes should never be re-announced to your other providers. Why? Because you'd be carrying traffic between two networks that haven't agreed to pay you for that service. You're essentially acting as a transit provider without being paid for it. And you're potentially creating routing loops or suboptimal paths.
+
+**Jordan**: So it's a business rule more than a technical rule?
+
+**Alex**: It's both. The business incentives align with network efficiency. When an AS leaks routes from one provider to another, it creates what's called a "valley" in the traffic flow. Down from provider A, through the customer, up to provider B. That's inefficient, potentially insecure, and violates the implicit agreements between networks.
+
+**Jordan**: And that's exactly what CANTV did?
+
+**Alex**: Yes. CANTV received routes from Sparkle, which is AS six thousand seven hundred sixty-two, an Italian international carrier. Then they leaked those routes to GlobeNet, AS fifty-two thousand three twenty, a Colombian provider. They took routes from one provider and re-announced them to another provider. That's a Type One Hairpin Route Leak according to RFC seventy-nine zero eight, which is the formal classification for BGP route leaks.
+
+**Jordan**: So it's not that CANTV was intercepting traffic. They just had a misconfigured export policy?
+
+**Alex**: Right. Their routers were configured to announce routes to providers that they should have kept internal or only announced to customers. This happens more often than you'd think. Someone edits a route-map incorrectly, or a policy that was supposed to filter certain prefixes has a bug, or an automation system applies the wrong configuration.
+
+**Jordan**: And the ten times prepending? What's the explanation for that?
+
+**Alex**: This is actually kind of clever, in a tragic way. The ten times prepending suggests this might even be a defensive measure that backfired. Some networks configure their routers to heavily prepend any routes they re-announce to providers specifically to reduce the impact if an accidental leak occurs. The idea is, if we leak something we shouldn't, at least the prepending will make our path unattractive and minimize how much traffic actually flows through us.
+
+**Jordan**: So they had a safety mechanism that made the leak more visible and detectable, but didn't prevent it?
+
+**Alex**: Exactly. The prepending didn't stop the leak, but it did ensure that most networks chose other paths. And it created this very distinctive signature that Cloudflare's monitoring systems immediately flagged. Without the prepending, this leak might have attracted real traffic and caused actual disruption. With the prepending, it was mostly just a visible anomaly.
+
+**Jordan**: That's almost ironic. Their safety mechanism worked, in a way.
+
+**Alex**: It's actually a recognized best practice in some network operations circles. If you're going to make a mistake, make it loudly and obviously so it gets caught quickly. The prepending did exactly that.
+
+**Jordan**: But here's what really seals it for me. You mentioned this wasn't a one-time event.
+
+**Alex**: Right, and this is the evidence that completely eliminates the coordinated attack theory. Cloudflare's historical data shows eleven similar leak events from AS eight zero four eight since December twenty twenty-five. Same pattern. Same prepending behavior. Same types of prefixes being leaked. This is systemic misconfiguration happening repeatedly.
+
+**Jordan**: If this were an attack, why would they do it eleven times?
+
+**Alex**: They wouldn't. Nation-state attackers don't rehearse their attacks publicly where everyone can see. They don't leave a pattern of obvious mistakes. The repeated incidents point to a structural problem with CANTV's routing configuration that nobody has fixed. Maybe they don't know about it. Maybe they don't have the expertise to fix it. Maybe they don't care.
+
+**Jordan**: Why would a state-run ISP have such ongoing configuration problems?
+
+**Alex**: Think about the realities of running infrastructure at a state telecom in a country with economic challenges. Venezuela has faced massive brain drain. Technical talent has been leaving for years. The engineers who originally configured these systems may be long gone. Technical debt accumulates when there's no budget for proper maintenance. Configuration management might be manual, inconsistent, or just neglected. Software might not be updated because licenses have lapsed.
+
+**Jordan**: And unlike commercial providers who face immediate consequences for routing mistakes...
+
+**Alex**: Exactly. A commercial ISP that causes routing problems loses customers and money. A state monopoly doesn't face the same pressure. Their customers can't switch providers. There's no competitive incentive to maintain perfect routing hygiene. So problems persist.
+
+**Jordan**: So we've established this was a misconfiguration. But I want to step back and ask the bigger question. Why does this matter to platform engineers? We're not running ISPs. We're not configuring BGP routers.
+
+**Alex**: But your services depend on BGP. Every single request your users make traverses autonomous systems you don't control. Let me paint a picture. Your user in Singapore wants to access your application running in AWS us-east-one. That request might go through their local ISP, then a regional transit provider, then an undersea cable operator, then a tier one carrier in the US, then AWS's network. That's five different autonomous systems, minimum. Any of them could have a leak or get hijacked.
+
+**Jordan**: And multi-region deployments don't protect against this, do they?
+
+**Alex**: Not necessarily. Here's the thing people don't realize. Your multi-region setup helps with data center failures and some latency optimization. But if a BGP anomaly affects the paths between your regions, or between your regions and users, multi-region doesn't save you. The routing layer is beneath all of that. It's the foundation that everything else depends on.
+
+**Jordan**: Can you give some specific examples of when this has affected major services?
+
+**Alex**: Twenty eighteen was a brutal year for BGP incidents. There was the attack on Amazon's Route fifty-three I mentioned earlier. Attackers announced Amazon's DNS prefixes through a Russian provider, redirected traffic to a fake site, and stole about a hundred fifty thousand dollars in cryptocurrency.
+
+**Jordan**: That's real money, real impact.
+
+**Alex**: Google lost traffic to Nigeria and China for about an hour due to a leak from a Nigerian ISP. That wasn't an attack, just a misconfiguration, but Google services were inaccessible or degraded for users in certain parts of the world. Cloudflare themselves have been affected multiple times. They actually now publish a transparency report on routing incidents.
+
+**Jordan**: And these are companies with some of the most sophisticated network engineering teams in the world.
+
+**Alex**: Exactly. If Google, Amazon, and Cloudflare can be affected by BGP issues despite having world-class network operations teams, what about organizations with smaller teams and less expertise? The routing layer is a dependency that everyone has, but few actually monitor or understand.
+
+**Jordan**: So what are the defenses? If BGP is fundamentally based on trust, how do we add verification?
+
+**Alex**: The primary defense today is RPKI, Resource Public Key Infrastructure. It's been around for years, but adoption has been slow. The idea is elegant. Every AS that legitimately originates a prefix can create a cryptographically signed Route Origin Authorization, or ROA. This ROA says, "I, AS twenty-one thousand nine hundred eighty, am authorized to originate prefixes within this address block, up to this size."
+
+**Jordan**: So it's a signed statement of who's allowed to announce what?
+
+**Alex**: Right. These ROAs are published in a distributed database. When networks receive a route announcement, they can validate it against the published ROAs. If CANTV announces Dayco's prefixes, validators can check and say, "Wait, Dayco's ROA says only AS twenty-one thousand nine hundred eighty can originate these prefixes. CANTV is not authorized. This announcement is invalid."
+
+**Jordan**: And then what? Networks drop the route?
+
+**Alex**: That's the policy choice. Some networks drop invalid routes entirely. Others deprioritize them, preferring valid routes when available. Some just log the invalidity without taking action. It depends on the network's configuration and risk tolerance.
+
+**Jordan**: What's the adoption like?
+
+**Alex**: Better than it was, but still not complete. Global RPKI coverage is around fifty-four percent. IPv four is at about fifty-one percent, IPv six at about fifty-seven percent. Some regions are leading. Saudi Arabia is over ninety percent coverage. Sweden, Netherlands, above eighty percent. Major cloud providers like AWS, Google, and Azure all have strong RPKI coverage for their prefixes.
+
+**Jordan**: But forty-six percent of routes are still unprotected?
+
+**Alex**: Right. And RPKI only validates origin. It says "this AS is allowed to originate this prefix." It doesn't validate the path. Even if CANTV had forged the origin and claimed to be AS twenty-one thousand nine hundred eighty, RPKI would have caught it. But CANTV wasn't forging the origin. They were just in the path when they shouldn't have been. The leak propagated with the correct origin AS. RPKI doesn't prevent that specific type of leak.
+
+**Jordan**: So we need more than RPKI?
+
+**Alex**: Yes. And this is where newer standards come in. RFC ninety-two thirty-four introduced the Only To Customer, or OTC, attribute. The idea is that when an AS sends routes to a customer, they can mark them as "only for you, don't leak these to your providers or peers." It's a signal that says, "These routes should flow down the customer hierarchy, not back up."
+
+**Jordan**: So if Sparkle had marked those routes with OTC...
+
+**Alex**: And if CANTV's routers understood and respected OTC, they would have known not to re-export those routes to GlobeNet. The leak would have been prevented at the source.
+
+**Jordan**: Is OTC widely deployed?
+
+**Alex**: It's growing, but slowly. The challenge with any BGP extension is that it requires both sides to understand it. If I send you routes with OTC and your routers don't understand the attribute, they might ignore it or worse, strip it out entirely. You need both the sender and receiver to support it. Adoption takes years as equipment gets upgraded and operators configure the new features.
+
+**Jordan**: What's next after OTC?
+
+**Alex**: ASPA, Autonomous System Provider Authorization. Expected to see more deployment in twenty twenty-six and twenty twenty-seven. The idea is that each AS publishes a signed statement listing its authorized upstream providers. Validators can then check not just the origin, but whether the AS path makes sense.
+
+**Jordan**: How would that work in practice?
+
+**Alex**: Say Dayco publishes an ASPA that says their authorized upstreams are AS twelve ninety-nine and AS twenty-three thousand five twenty. When validators see a path with CANTV in it, they can check. Is CANTV an authorized upstream for Dayco? No. Is there any valid business path that would include CANTV? No. Therefore, this route is suspicious, possibly a leak.
+
+**Jordan**: So ASPA could have caught this Venezuela leak?
+
+**Alex**: Potentially, yes. If everyone along the path was doing ASPA validation, and Dayco had published their authorized providers, validators would flag routes coming through CANTV as invalid. But ASPA requires even more widespread adoption than RPKI to be effective, and we're still very early.
+
+**Jordan**: Let's talk practical steps. What can platform engineers actually do about BGP security?
+
+**Alex**: First, know your providers' BGP posture. The website isbgpsafeyet.com lets you check whether networks are doing RPKI validation. If your provider isn't validating, your traffic could be misdirected by hijacks and your provider wouldn't even notice. They'd just dutifully forward traffic to the wrong destination.
+
+**Jordan**: And if my provider isn't doing RPKI validation?
+
+**Alex**: That's a conversation to have with them. Ask about their roadmap. Consider it a factor when evaluating providers. The major cloud providers all do RPKI validation now. Most large transit providers do as well. But smaller regional ISPs and enterprise networks often lag behind.
+
+**Jordan**: What about for your own infrastructure?
+
+**Alex**: If you have your own AS and address space, deploy RPKI. Create ROAs for your prefixes. It's not difficult. Most Regional Internet Registries have web interfaces where you can create and manage ROAs. It takes maybe an hour to set up. And it protects you from the most basic hijacks where someone announces your prefixes without authorization.
+
+**Jordan**: What about monitoring?
+
+**Alex**: This is where it gets interesting for platform engineers. BGP monitoring should be part of your observability stack. Tools like Cloudflare Radar, RIPE RIS, BGPStream, and BGPlay let you monitor your prefixes and see how they're propagating globally. You can set up alerts for when your routes change unexpectedly, when new ASes appear in your paths, or when your prefixes are announced by unauthorized origins.
+
+**Jordan**: I've seen teams treat BGP as "someone else's problem" because they're not running the routers.
+
+**Alex**: That's a mistake. You might not control the routers, but your SLAs depend on routing working correctly. If there's a leak or hijack affecting your users and you don't know about it, you're blind to a category of outages that won't show up in your normal application monitoring. Your services might be up, but users can't reach them because traffic is going to the wrong place.
+
+**Jordan**: Let's zoom out. We've talked about the specific incident, the technical mechanisms, the defenses. What's the bigger picture here?
+
+**Alex**: The bigger picture is that the internet's routing layer is thirty-five years old and still running on assumptions of trust that haven't been valid for decades. BGP was designed when the internet was a small community of researchers who knew each other personally. Now it's seventy-five thousand organizations, many of whom have conflicting interests, varying levels of competence, and in some cases, active incentives to misbehave.
+
+**Jordan**: And we can't just replace it?
+
+**Alex**: Not easily. BGP is like the foundation of a skyscraper that's still occupied. You can reinforce it, add safety mechanisms, monitor it for cracks, but you can't pour a new foundation without evacuating the building. And there's no way to evacuate the internet. Every improvement has to be backwards compatible, incrementally deployable, and adopted by thousands of independent operators who all have their own priorities and constraints.
+
+**Jordan**: So we're stuck with incremental improvements?
+
+**Alex**: Essentially, yes. RPKI for origin validation. OTC for leak prevention. ASPA for path validation. Each one adds a layer of verification. But each one requires coordination across thousands of independent operators. And each one has edge cases where determined attackers or careless operators can still cause problems.
+
+**Jordan**: This Venezuela incident. It wasn't an attack, but it demonstrated the vulnerability perfectly.
+
+**Alex**: Exactly. A misconfigured router at a mid-tier state ISP in South America caused traffic for a Colombian telecom to potentially take detours through Venezuela. No malice required. Just complexity, lack of oversight, and a protocol that assumes good faith. The conspiracy theory was more exciting, but the reality is more troubling in some ways.
+
+**Jordan**: How so?
+
+**Alex**: Because if this were an attack, we could point to a specific threat actor and try to stop them. But this is just entropy. Systems degrading. Configurations drifting. Knowledge being lost. The internet slowly accumulating technical debt at the foundation layer. And there's no single actor to blame or stop.
+
+**Jordan**: So what should listeners take away from this?
+
+**Alex**: Three things. First, understand that BGP underpins everything you build. Your beautiful microservices architecture, your multi-region deployment, your CDN setup, your Kubernetes clusters. All of it depends on routing working correctly, and routing is based on a trust model from nineteen eighty-nine.
+
+**Jordan**: Second?
+
+**Alex**: Second, incorporate BGP monitoring into your observability practice. You don't need to be an expert in routing protocols, but you should know when your prefixes are being announced incorrectly or when your providers are experiencing anomalies. Services like Cloudflare Radar and RIPE RIS are free to use. Set up alerts. Make routing visibility part of your operational practice.
+
+**Jordan**: And third?
+
+**Alex**: Third, advocate for RPKI adoption. If your organization has address space, deploy ROAs. Ask your providers about their RPKI status. Ask about their plans for OTC and ASPA. The more the ecosystem adopts these protections, the safer we all are. It's a collective action problem, but every organization that participates makes the whole internet more resilient.
+
+**Jordan**: The Venezuela incident will be forgotten in a few months. But the underlying vulnerability isn't going anywhere.
+
+**Alex**: Right. This wasn't a one-time thing. It's an ongoing condition. BGP leaks and hijacks happen regularly. Most don't make the news because they're small or quickly corrected. But the potential for large-scale disruption is always there. And it will remain there until we have comprehensive path validation, which is probably years away at best.
+
+**Jordan**: The internet was built by people who trusted each other. Now it's run by seventy-five thousand organizations who don't necessarily trust each other, and in many cases, shouldn't.
+
+**Alex**: And we're all relying on incremental patches to a protocol designed for a different era. It works remarkably well most of the time. The fact that routing usually works is kind of a miracle when you think about it. Seventy-five thousand independent networks, cooperating through nothing but convention and self-interest, routing packets across the globe in milliseconds. But incidents like this remind us how fragile that cooperation can be.
+
+**Jordan**: If you found this technical deep dive valuable, subscribing helps us know to make more content like this.
+
+**Alex**: The protocol is thirty-five years old. The trust model is showing its age. And the tools to secure it exist, but adoption is the challenge. Understanding how BGP works isn't just for network engineers anymore. It's essential context for anyone building on the internet. Your application might be perfect. Your infrastructure might be flawless. But if the routes are wrong, none of it matters.
