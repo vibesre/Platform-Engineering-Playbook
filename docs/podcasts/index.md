@@ -21,39 +21,41 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #084 - Venezuela BGP Anomaly: Deep Technical Analysis
+## 🎥 Latest Episode: #085 - Iran IPv6 Blackout: When Governments Weaponize Protocol Transitions
 
-**Special Deep Dive - No News Segment** • **28 minutes** • January 8, 2026 • Jordan and Alex
+**Daily Episode with News** • **22 minutes** • January 9, 2026 • Jordan and Alex
 
-:::tip Why the "Cyberattack" Theory Falls Apart
+:::tip IPv6 Targeting = Mobile Targeting
 
-A deep technical dive into the January 2026 Venezuela BGP route leak incident. Was it a coordinated cyberattack preceding regime change? The technical evidence says no—and that's actually more concerning.
+The same IPv6 transition your infrastructure team has been procrastinating on is now being weaponized to selectively shut down mobile internet access while leaving desktop users largely untouched.
 
 :::
 
-**The Evidence**: 10x AS-path prepending proves misconfiguration, not attack—prepending REPELS traffic, the exact opposite of a man-in-the-middle attack.
+**The Incident**: January 8, 2026 at 15:30 local time—Iran's IPv6 address space dropped 98.5%. IPv4 remained intact. This was protocol-specific censorship.
 
-**BGP Deep Dive**: Valley-free routing violations, Type 1 Hairpin leaks (RFC 7908), and why 11 similar events from AS8048 since December 2025 indicate systemic misconfiguration.
+**Why Mobile Was Targeted**: Mobile carriers adopted IPv6 first due to NAT exhaustion. Blocking IPv6 disproportionately impacts mobile users—the people in the streets protesting.
 
-**Why Platform Engineers Should Care**: RPKI at 54% global adoption validates origin but not path. RFC 9234 OTC and ASPA coming, but internet routing still runs on 1989 trust assumptions.
+**Platform Engineering Implications**: Your monitoring should track IPv4 and IPv6 separately. Test Happy Eyeballs fallback. Consider satellite as a resilience layer.
 
-**Action Items**: Check your providers at isbgpsafeyet.com, add BGP monitoring to your observability stack.
+**Action Items**: Add IPv6-specific health checks, test dual-stack failure modes, understand your protocol distribution by region.
 
-[📝 Full episode page →](/podcasts/00084-venezuela-bgp-anomaly-technical-analysis)
+[📝 Full episode page →](/podcasts/00085-iran-ipv6-blackout)
 
 <PodcastSubscribeButtons />
 
 ---
 
-## Previous Episode: #083 - HolmesGPT: AI-Powered Root Cause Analysis for Kubernetes
+## Previous Episode: #084 - Venezuela BGP Anomaly: Deep Technical Analysis
 
-[📝 Full episode page →](/podcasts/00083-holmesgpt-kubernetes-rca)
+[📝 Full episode page →](/podcasts/00084-venezuela-bgp-anomaly-technical-analysis)
 
 ---
 
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#085: Iran IPv6 Blackout - When Governments Weaponize Protocol Transitions](/podcasts/00085-iran-ipv6-blackout)** (22 min) - Deep technical analysis of Iran's January 2026 IPv6 blackout. How governments weaponize protocol transitions to target mobile users (98.5% IPv6 drop, 12%→1.8% traffic share). BGP mechanics of selective blocking. Why mobile carriers depend on IPv6 (NAT exhaustion). Engineered degradation vs total blackout—maintaining economic function while disrupting protests. Starlink as a resilience layer. Platform engineering implications: protocol-specific monitoring, Happy Eyeballs testing, dual-stack resilience. Data residency vs availability tradeoffs. News: Kubernetes 1.35 CSI SA tokens, HashiCorp non-human identity, CoreDNS 1.14.0, OpenTelemetry Slack analysis, Route 53 Global Resolver, kernel bug hide times.
 
 - 🎙️ **[#084: Venezuela BGP Anomaly - Deep Technical Analysis](/podcasts/00084-venezuela-bgp-anomaly-technical-analysis)** (28 min) - Special deep dive into the January 2026 Venezuela BGP route leak incident. Was it a cyberattack? The technical evidence says no—10x AS-path prepending proves misconfiguration (prepending REPELS traffic, opposite of MITM). Type 1 Hairpin Route Leak (RFC 7908), valley-free routing violations, 11 similar events from AS8048 since December 2025. RPKI at 54% global adoption validates origin but not path. RFC 9234 OTC and ASPA defenses explained. Why platform engineers should add BGP monitoring to observability stack. Check your providers at isbgpsafeyet.com.
 
