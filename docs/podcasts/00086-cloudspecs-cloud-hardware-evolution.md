@@ -14,6 +14,10 @@ import GitHubButtons from '@site/src/components/GitHubButtons';
 
 <GitHubButtons />
 
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/ERp8ExOn0bU" title="Episode #086: Cloudspecs - The End of Moore's Law for Cloud Computing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 **Duration**: ~21 minutes | **Speakers**: Jordan & Alex | **Target Audience**: Senior Platform Engineers, SREs, FinOps Practitioners
 
 New research from TUM reveals uncomfortable truths about cloud hardware stagnation. The paper "Cloudspecs: Cloud Hardware Evolution Through the Looking Glass" shows that the best-performing AWS instance for NVMe I/O per dollar was released in 2016 - and nothing since has come close. We break down what this means for instance selection, cost optimization, and infrastructure planning.
