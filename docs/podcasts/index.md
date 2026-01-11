@@ -21,33 +21,35 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #086 - Cloudspecs: The End of Moore's Law for Cloud Computing
+## 🎥 Latest Episode: #087 - Kubernetes Upcoming Features Deep Dive
 
-**Daily Episode with News** • **20 minutes** • January 10, 2026 • Jordan and Alex
+**Daily Episode with News** • **41 minutes** • January 10, 2026 • Jordan and Alex
 
-:::tip The i3 is Still King
+:::tip The Scheduler Finally Learns Math
 
-New research from TUM reveals that AWS i3 instances from 2016 still deliver the best NVMe I/O performance per dollar—by nearly 2x. Nothing since has come close.
+Kubernetes 1.35 introduces Extended Toleration Operators (Gt, Lt) for threshold-based scheduling—finally enabling numeric comparisons like "schedule on nodes with at least 4 GPUs" or "tolerate up to 5% spot failure rate."
 
 :::
 
-**The Research**: CIDR 2026 paper "Cloudspecs: Cloud Hardware Evolution Through the Looking Glass" by Till Steinert, Maximilian Kuschewski, and Viktor Leis from the Technical University of Munich.
+**Two Alpha Features**: Extended Toleration Operators (KEP-5471) for threshold-based scheduling with taints, and Mutable PersistentVolume Node Affinity (KEP-5381) for dynamic storage topology adaptation.
 
-**Key Finding**: Over 10 years, CPU cores increased 10x but cost-adjusted performance only 2-3x. Memory has "effectively flatlined." Network is the only bright spot (10x improvement). NVMe storage? Zero improvement since 2016.
+**Key Finding**: Current taints/tolerations are binary (Equal/Exists). The new Gt/Lt operators enable numeric threshold scheduling that NodeAffinity lacks—including eviction via NoExecute effect.
 
-**Platform Engineering Implications**: Stop assuming newer instances are better per dollar. Run actual benchmarks. Network improvements explain why disaggregated storage (EBS, S3) dominates. Consider repatriation for storage-heavy workloads.
+**Platform Engineering Implications**: GPU clusters, spot instance management, cost optimization, performance tiering—all benefit from threshold-based scheduling without complex NodeAffinity workarounds.
 
-**Action Items**: Bookmark cloudspecs.fyi, benchmark your workloads against older instance types, optimize for performance per dollar.
+**Action Items**: Enable feature gates in test clusters, audit current taints for numeric threshold candidates, check CSI driver support for mutableNodeAffinity.
 
-[📝 Full episode page →](/podcasts/00086-cloudspecs-cloud-hardware-evolution)
+<iframe width="100%" style={{aspectRatio: '16/9', marginTop: '1rem', marginBottom: '1rem'}} src="https://www.youtube.com/embed/UHBWGQJg7a4" title="Episode #087: Kubernetes Upcoming Features Deep Dive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+[📝 Full episode page →](/podcasts/00087-kubernetes-upcoming-features-deep-dive)
 
 <PodcastSubscribeButtons />
 
 ---
 
-## Previous Episode: #085 - Iran IPv6 Blackout: When Governments Weaponize Protocol Transitions
+## Previous Episode: #086 - Cloudspecs: The End of Moore's Law for Cloud Computing
 
-[📝 Full episode page →](/podcasts/00085-iran-ipv6-blackout)
+[📝 Full episode page →](/podcasts/00086-cloudspecs-cloud-hardware-evolution)
 
 ---
 
@@ -74,6 +76,8 @@ Pure chronological list of all podcast episodes and published course lessons. Ep
 - 🎙️ **[#078: Can OpenTelemetry Save Observability in 2026?](/podcasts/00078-observability-opentelemetry-2026)** (18 min) - OpenTelemetry has 95% adoption predicted for 2026, but 43% of organizations haven't seen cost savings. Netflix processes 1M+ trace spans per episode using Flink stream processing—treating observability as data engineering. OTel collector enables "cost-control chokepoint" for sampling, filtering, and routing decisions. 40% targeting autonomous remediation by end 2026 (agent-first observability). SLOs becoming business conversations—error budgets as budget conversations for engineering-business alignment. Platform engineers becoming translators between telemetry and business impact. News: GitHub Actions 39% pricing reduction, Jaeger v2.14.0 legacy removal.
 
 - 🎙️ **[#077: When Serverless Fails - Unkey's 6x Performance Migration to Containers](/podcasts/00077-unkey-serverless-containers-migration)** (16 min) - Unkey rebuilt their entire API key management service from Cloudflare Workers to AWS Fargate—achieving 6x performance improvement. Root cause: 30ms p99 cache latency from serverless statelessness when they needed sub-10ms. "Zero network requests are always faster than one network request." Decision framework: Where in request path? What's p99 target? How hot is data? Complexity budget? Can you self-host? Unexpected bonus: container architecture made self-hosting trivial. News: Kubernetes 1.35 z-pages now support structured JSON responses with HTTP content negotiation for compliance automation.
+
+- 🎙️ **[#067: Anthropic Blocks Third-Party CLI Tools - The AI Platform Control Paradox](/podcasts/00067-anthropic-blocks-third-party-claude-code)** (18 min) - On January 9, 2026, Anthropic blocked third-party Claude Code wrappers overnight, breaking thousands of developer workflows. DHH called it "customer hostile." Technical deep dive: header spoofing, rate limit bypass, the $200 vs $1,000+ arbitrage that made this inevitable. Framework for evaluating AI platform dependencies: build abstraction layers, question unlimited claims, evaluate lock-in risk, check ToS, calculate true costs. "Unlimited" AI subscriptions are economically impossible without rate limiting—the friction IS the product.
 
 - 🎙️ **[#066: CNPE Certification Study Guide - The Complete Deep Dive](/podcasts/00066-cnpe-certification-study-guide)** (18 min) - CNPE (Certified Cloud Native Platform Engineer) launched November 11, 2025 at KubeCon Atlanta—the first hands-on platform engineering exam in five years. Deep dive into exam format (17 tasks, 2 hours, 64% pass), all five domains (GitOps 25%, Platform APIs 25%, Observability 20%, Architecture 15%, Security 15%), BACK stack (Backstage, Argo CD, Crossplane, Kyverno), and complete study guide. Beta testers report 29% scores—harder than CKS. Golden Kubestronaut requires CNPE after March 2026. Career impact: platform engineers $160K-$220K, senior $250K+. News: Decathlon Spark→Polars migration, State of Platform Engineering 2026 survey, Business SLOs.
 
