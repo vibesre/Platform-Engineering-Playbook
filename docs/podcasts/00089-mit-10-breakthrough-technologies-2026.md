@@ -10,7 +10,7 @@ slug: 00089-mit-10-breakthrough-technologies-2026
 <GitHubButtons/>
 
 <div class="video-container">
-<iframe src="https://www.youtube.com/embed/UAdpIBxR6P0" title="MIT 10 Breakthrough Technologies 2026 - The Platform Engineering Perspective" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/k7dUYahNQxI" title="MIT 10 Breakthrough Technologies 2026 - The Platform Engineering Perspective" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 **Duration**: 21 minutes | **Speakers**: Jordan & Alex | **Target Audience**: Platform engineers, DevOps engineers, SREs
