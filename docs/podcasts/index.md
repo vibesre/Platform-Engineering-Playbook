@@ -21,41 +21,45 @@ Every episode is open source. If you've got something to add, correct, or challe
 
 ---
 
-## 🎥 Latest Episode: #087 - Kubernetes Upcoming Features Deep Dive
+## 🎥 Latest Episode: #092 - Astro Joins Cloudflare
 
-**Daily Episode with News** • **41 minutes** • January 10, 2026 • Jordan and Alex
+**Daily Episode with News** • **13 minutes** • January 17, 2026 • Jordan and Alex
 
-:::tip The Scheduler Finally Learns Math
+:::tip Framework Acquisition Impact
 
-Kubernetes 1.35 introduces Extended Toleration Operators (Gt, Lt) for threshold-based scheduling—finally enabling numeric comparisons like "schedule on nodes with at least 4 GPUs" or "tolerate up to 5% spot failure rate."
+Cloudflare acquires the Astro Technology Company—1M weekly npm downloads, MIT license preserved. What this means for platform teams evaluating frameworks.
 
 :::
 
-**Two Alpha Features**: Extended Toleration Operators (KEP-5471) for threshold-based scheduling with taints, and Mutable PersistentVolume Node Affinity (KEP-5381) for dynamic storage topology adaptation.
+**Astro Islands Architecture**: Ships static HTML by default, JavaScript only for interactive components. Framework-agnostic—mix React, Vue, Svelte in the same project.
 
-**Key Finding**: Current taints/tolerations are binary (Equal/Exists). The new Gt/Lt operators enable numeric threshold scheduling that NodeAffinity lacks—including eviction via NoExecute effect.
+**Cloudflare Strategy**: Developer ecosystem capture (Vercel has Next.js, Netlify has Gatsby), technical alignment with Workers/workerd, seamless local-to-edge deployment.
 
-**Platform Engineering Implications**: GPU clusters, spot instance management, cost optimization, performance tiering—all benefit from threshold-based scheduling without complex NodeAffinity workarounds.
+**Open Source Sustainability**: Team admitted they couldn't monetize. MIT license explicitly maintained. Historical pattern of VC→framework→acquisition highlighted.
 
-**Action Items**: Enable feature gates in test clusters, audit current taints for numeric threshold candidates, check CSI driver support for mutableNodeAffinity.
+**Action Items**: Evaluate framework funding models, test portability yourself, document exit strategies, monitor for Cloudflare optimization bias.
 
-<iframe width="100%" style={{aspectRatio: '16/9', marginTop: '1rem', marginBottom: '1rem'}} src="https://www.youtube.com/embed/UHBWGQJg7a4" title="Episode #087: Kubernetes Upcoming Features Deep Dive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-[📝 Full episode page →](/podcasts/00087-kubernetes-upcoming-features-deep-dive)
+[📝 Full episode page →](/podcasts/00092-astro-joins-cloudflare)
 
 <PodcastSubscribeButtons />
 
 ---
 
-## Previous Episode: #086 - Cloudspecs: The End of Moore's Law for Cloud Computing
+## Previous Episode: #088 - AWS Route 53 Global Resolver
 
-[📝 Full episode page →](/podcasts/00086-cloudspecs-cloud-hardware-evolution)
+[📝 Full episode page →](/podcasts/00088-aws-route-53-global-resolver)
 
 ---
 
 ## All Episodes
 
 Pure chronological list of all podcast episodes and published course lessons. Episodes in reverse order (newest first).
+
+- 🎙️ **[#092: Astro Joins Cloudflare - What It Means for Platform Engineers](/podcasts/00092-astro-joins-cloudflare)** (13 min) - Cloudflare acquires the Astro Technology Company, adding a 1M-downloads-per-week web framework to their edge platform. Islands architecture, framework-agnostic components, MIT license preserved. Open source sustainability lessons: VC→framework→acquisition pipeline. Platform team evaluation: funding models, portability testing, exit strategies. News: AWS European Sovereign Cloud, Let's Encrypt 6-day certs, Datadog LLM Observability, ebpf.party, Pulumi 3.216.0.
+
+- 🎙️ **[#088: AWS Route 53 Global Resolver - Enterprise DNS Security at the Edge](/podcasts/00088-aws-route-53-global-resolver)** (20 min) - AWS Route 53 Global Resolver brings anycast DNS with DoH/DoT encryption and managed threat filtering for hybrid environments. Resolve AWS private hosted zones from anywhere without VPN using global anycast IPs across 11 regions. AWS RAM authorization, DNS filtering with managed threat lists, query logging to CloudWatch/S3/Firehose. News: Claude Code creator workflows, UK encryption backdoors, K8s EU hosting costs, PostgreSQL replacing Redis, Rust crates.io security.
+
+- 🎙️ **[#087: Kubernetes Upcoming Features Deep Dive](/podcasts/00087-kubernetes-upcoming-features-deep-dive)** (41 min) - Kubernetes 1.35 introduces Extended Toleration Operators (Gt, Lt) for threshold-based scheduling—finally enabling numeric comparisons like "schedule on nodes with at least 4 GPUs." Plus Mutable PersistentVolume Node Affinity for dynamic storage topology. News: OpenEverest, GKE Agent Sandbox, MongoBleed vulnerability, predictive capacity planning.
 
 - 🎙️ **[#086: Cloudspecs - The End of Moore's Law for Cloud Computing](/podcasts/00086-cloudspecs-cloud-hardware-evolution)** (20 min) - TUM research reveals AWS i3 instances from 2016 still deliver best NVMe performance per dollar by ~2x. CPU cores increased 10x but cost-adjusted only 2-3x. Memory has "effectively flatlined." Network is the only bright spot (10x improvement). Interactive tool at cloudspecs.fyi using DuckDB-WASM. Authors: Till Steinert, Maximilian Kuschewski, Viktor Leis from CIDR 2026. News: AI coding tool DevOps challenges, Kubernetes Dashboard archived, Windows Secure Boot certs expiring June 2026, AWS Lambda .NET 10, Amazon MQ mTLS, MCP criticism, NVIDIA Rubin announcement.
 
