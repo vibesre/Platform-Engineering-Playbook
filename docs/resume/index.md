@@ -194,6 +194,7 @@ List relevant and current certifications:
 ## Additional Resources
 
 - [Resume Examples - Resume Worded](https://resumeworded.com/devops-resume-examples)
+- [CVExpert ATS Health Check](https://cvexpert.com/tools/ats-health-check) — free, no-sign-up checks of pasted CV text for common readability and structure issues. It runs in the browser without uploading or saving the text and does not simulate an employer's ATS or guarantee a result.
 - [Action Verbs for Technical Resumes](https://www.engineering.cornell.edu/sites/default/files/users/user240/Action%20Words%20for%20ENG%20(website).pdf)
 - [Google's Technical Resume Tips](https://www.youtube.com/watch?v=BYUy1yvjHxE)
 
