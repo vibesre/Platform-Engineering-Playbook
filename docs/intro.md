@@ -79,6 +79,12 @@ Explore our comprehensive guides on the most in-demand platform engineering tech
 
 **CI/CD:** [GitHub Actions](/technical/github-actions) • [GitLab CI](/technical/gitlab-ci) • [Jenkins](/technical/jenkins)
 
+## Platform Review: CruiseCaptain
+
+I also build things, and I write about them here when the build is interesting. [CruiseCaptain](https://cruisecaptain.ai) is a cruise price-history tracker I run: Go, PostgreSQL with TimescaleDB, k3s and Argo, an AI assistant and an MCP server, with AI coding agents producing most of the code. The short version of what I learned: agents made writing code the cheap part, and the delivery pipeline became the bottleneck.
+
+[Read the technical rundown →](/blog/cruisecaptain-platform-review-go-timescaledb-k3s)
+
 ## Where to Start
 
 The [technical skills section](/technical-skills) is where all the technology overviews live, organized by category (Linux & Systems, Cloud Platforms, Containers, etc.).
