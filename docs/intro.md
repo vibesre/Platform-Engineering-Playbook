@@ -81,7 +81,7 @@ Explore our comprehensive guides on the most in-demand platform engineering tech
 
 ## Platform Review: CruiseCaptain
 
-I also build things, and I write about them here when the build is interesting. [CruiseCaptain](https://cruisecaptain.ai) is a cruise price-history tracker I run: Go, PostgreSQL with TimescaleDB, k3s and Argo, an AI assistant and an MCP server, with AI coding agents producing most of the code. The short version of what I learned: agents made writing code the cheap part, and the delivery pipeline became the bottleneck.
+I also build things, and I write about them here when the build is interesting. <a href="https://cruisecaptain.ai" rel="noopener">CruiseCaptain</a> is a cruise price-history tracker I run: Go, PostgreSQL with TimescaleDB, k3s and Argo, an AI assistant and an MCP server, with AI coding agents producing most of the code. The short version of what I learned: agents made writing code the cheap part, and the delivery pipeline became the bottleneck.
 
 [Read the technical rundown →](/blog/cruisecaptain-platform-review-go-timescaledb-k3s)
 

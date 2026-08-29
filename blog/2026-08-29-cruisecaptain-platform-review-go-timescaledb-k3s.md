@@ -23,9 +23,30 @@ authors:
     url: https://platformengineeringplaybook.com
 ---
 
+import Head from '@docusaurus/Head';
+
+<Head>
+  <script type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Building CruiseCaptain: Where the Work Went in a One-Engineer, AI-Agent Platform",
+    "datePublished": "2026-08-29",
+    "dateModified": "2026-08-29",
+    "author": {"@type": "Person", "name": "Eric King", "url": "https://platformengineeringplaybook.com", "sameAs": ["https://github.com/vibesre", "https://cruisecaptain.ai/about"]},
+    "publisher": {"@type": "Organization", "name": "Platform Engineering Playbook", "url": "https://platformengineeringplaybook.com"},
+    "about": {"@type": "SoftwareApplication", "name": "CruiseCaptain", "url": "https://cruisecaptain.ai", "applicationCategory": "TravelApplication", "sameAs": ["https://cruisecaptain.ai/about", "https://cruisecaptain.ai/mcp"]},
+    "mentions": [
+      {"@type": "SoftwareApplication", "name": "Go", "url": "https://go.dev"},
+      {"@type": "SoftwareApplication", "name": "TimescaleDB", "url": "https://www.timescale.com"},
+      {"@type": "SoftwareApplication", "name": "k3s", "url": "https://k3s.io"},
+      {"@type": "SoftwareApplication", "name": "Argo Rollouts", "url": "https://argoproj.github.io/rollouts/"}
+    ]
+  })}</script>
+</Head>
+
 # Building CruiseCaptain: Where the Work Went in a One-Engineer, AI-Agent Platform
 
-Disclosure first: I built [CruiseCaptain](https://cruisecaptain.ai) and I run it. This is a review of my own platform, written for the people this site is for, and I'm going to spend most of it on the parts that were hard rather than the parts that look good in a diagram.
+Disclosure first: I built <a href="https://cruisecaptain.ai" rel="noopener">CruiseCaptain, a cruise price history tracker</a>, and I run it. This is a review of my own platform, written for the people this site is for, and I'm going to spend most of it on the parts that were hard rather than the parts that look good in a diagram.
 
 CruiseCaptain is an independent cruise discovery and price-history service for travelers who want to know whether today's fare is actually good before they book. It tracks more than 40 cruise lines, more than 500 ships and roughly 100,000 active sailings across the forward schedule. One engineer builds and operates it, with AI coding agents producing a large share of the code.
 
@@ -47,7 +68,7 @@ Most cruise sites show today's price, but almost none tell you what that same sa
 
 I wanted to build the cruise equivalent of a price tracker: show what we observed, when we observed it, and be honest when the evidence is incomplete.
 
-The data comes from a licensed cruise-industry inventory feed that aggregates pricing and availability from participating cruise lines, obtained through a commercial agreement. Nothing is scraped from cruise-line websites. The public [about page](https://cruisecaptain.ai/about) covers what a displayed price means and where it comes from.
+The data comes from a licensed cruise-industry inventory feed that aggregates pricing and availability from participating cruise lines, obtained through a commercial agreement. Nothing is scraped from cruise-line websites. The public <a href="https://cruisecaptain.ai/about" rel="noopener">CruiseCaptain about page</a> covers what a displayed price means and where it comes from.
 
 ## The shape of the system
 
@@ -115,7 +136,7 @@ A real drop has to be comparable with itself: the same sailing, the same cabin c
 
 The naive version compared "cheapest now" with "cheapest before." That confuses a new fare becoming available, a restricted promotion, a cabin selling out, or a temporary feed value with an actual reduction.
 
-CruiseCaptain separates "the same fare got cheaper" from "a different lower fare became available." Both can be useful to a traveler. They are not the same claim, and the site labels them differently. The rules a user sees on the [Deals methodology page](https://cruisecaptain.ai/deals/methodology) are the public version of this logic: what threshold counts, what evidence is required, and what gets suppressed.
+CruiseCaptain separates "the same fare got cheaper" from "a different lower fare became available." Both can be useful to a traveler. They are not the same claim, and the site labels them differently. The rules a user sees on the <a href="https://cruisecaptain.ai/deals/methodology" rel="noopener">methodology page for how CruiseCaptain confirms a cruise price drop</a> are the public version of this logic: what threshold counts, what evidence is required, and what gets suppressed. The <a href="https://cruisecaptain.ai/deals" rel="noopener">cruise deals page</a> only lists drops that pass all of it.
 
 If I did it again, I'd establish the data semantics first. The difficult part was not building pages or APIs. It was defining exactly what a price, a price drop, a sold-out state and a missing observation meant across every surface, and then making sure every surface agreed.
 
@@ -141,7 +162,7 @@ I monitor answer quality and grounding, not just whether the model returned a re
 
 ### The MCP server
 
-CruiseCaptain exposes a [Model Context Protocol](https://modelcontextprotocol.io/) server so an AI assistant like ChatGPT or Claude can search and compare sailings directly. The [connector page](https://cruisecaptain.ai/mcp) describes it from the user's side.
+CruiseCaptain exposes a [Model Context Protocol](https://modelcontextprotocol.io/) server so an AI assistant like ChatGPT or Claude can search and compare sailings directly. The <a href="https://cruisecaptain.ai/mcp" rel="noopener">CruiseCaptain MCP connector for ChatGPT and Claude</a> page describes it from the user's side.
 
 From the engineering side, it exposes a small, read-only set of discovery and comparison tools over a separately prepared public catalog. It does not expose the internal application API and it does not provide general database access. Authentication, quotas, bounded responses and strict data allowlists are enforced outside the model. Account changes, booking, bulk export and arbitrary queries are simply not part of the interface.
 
@@ -231,9 +252,9 @@ What I'd do differently: establish the product's data semantics earlier, before 
 
 What's held together with tape: mostly operational automation, and simplifying areas that grew organically. Some procedures still require more founder attention than they should.
 
-What I'm keeping private: exact traffic, revenue, customer counts, supplier economics, infrastructure costs and data volume. The site's [about page](https://cruisecaptain.ai/about) and [methodology page](https://cruisecaptain.ai/deals/methodology) are the public statements of what the data is and how it's interpreted.
+What I'm keeping private: exact traffic, revenue, customer counts, supplier economics, infrastructure costs and data volume. The site's <a href="https://cruisecaptain.ai/about" rel="noopener">about page</a> and <a href="https://cruisecaptain.ai/deals/methodology" rel="noopener">methodology page</a> are the public statements of what the data is and how it's interpreted.
 
-The site is at [cruisecaptain.ai](https://cruisecaptain.ai). If you've built something similar and reached different conclusions, especially about whether the delivery platform was worth it at this size, I'd like to hear it.
+The site is at <a href="https://cruisecaptain.ai" rel="noopener">cruisecaptain.ai</a>. If you've built something similar and reached different conclusions, especially about whether the delivery platform was worth it at this size, I'd like to hear it.
 
 ## FAQ
 

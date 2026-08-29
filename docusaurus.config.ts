@@ -214,6 +214,19 @@ const config: Config = {
           ],
         },
         {
+          title: 'Projects',
+          items: [
+            {
+              label: 'CruiseCaptain: cruise price history',
+              href: 'https://cruisecaptain.ai',
+            },
+            {
+              label: 'How CruiseCaptain was built',
+              to: '/blog/cruisecaptain-platform-review-go-timescaledb-k3s',
+            },
+          ],
+        },
+        {
           title: 'Community',
           items: [
             {
