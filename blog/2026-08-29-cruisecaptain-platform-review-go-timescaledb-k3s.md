@@ -32,7 +32,7 @@ import Head from '@docusaurus/Head';
     "headline": "Building CruiseCaptain: Where the Work Went in a One-Engineer, AI-Agent Platform",
     "datePublished": "2026-08-29",
     "dateModified": "2026-08-29",
-    "author": {"@type": "Person", "name": "Eric King", "url": "https://platformengineeringplaybook.com", "sameAs": ["https://github.com/vibesre", "https://cruisecaptain.ai/about"]},
+    "author": {"@type": "Organization", "name": "Platform Engineering Playbook", "url": "https://platformengineeringplaybook.com", "sameAs": ["https://github.com/vibesre/Platform-Engineering-Playbook"]},
     "publisher": {"@type": "Organization", "name": "Platform Engineering Playbook", "url": "https://platformengineeringplaybook.com"},
     "about": {"@type": "SoftwareApplication", "name": "CruiseCaptain", "url": "https://cruisecaptain.ai", "applicationCategory": "TravelApplication", "sameAs": ["https://cruisecaptain.ai/about", "https://cruisecaptain.ai/mcp"]},
     "mentions": [
